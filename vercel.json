@@ -8,5 +8,6 @@
     { "source": "/rfk-jr", "destination": "/rfk-jr.html" },
 { "source": "/pam-bondi", "destination": "/pam-bondi.html" },
 { "source": "/kash-patel", "destination": "/kash-patel.html" }
+{ "source": "/executive", "destination": "/executive.html" }
   ]
 }
