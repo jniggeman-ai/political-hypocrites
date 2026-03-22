@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JD Vance — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .alert-banner{max-width:1000px;margin:1.2rem auto 0;padding:0 2rem}
+    .alert-inner{background:var(--ink);color:var(--paper);padding:.75rem 1.2rem;display:flex;gap:.8rem;align-items:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.04em}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .data-table tr.hidden{display:none}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .dark-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:white;padding:.1rem .3rem;margin-left:.3rem;vertical-align:middle}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .vbadge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .vbadge.yea{background:var(--green);color:white}.vbadge.nay{background:var(--red);color:white}
+    .vote-list{border-top:1px solid var(--rule)}
+    .vote-row{display:flex;align-items:flex-start;gap:.9rem;padding:.85rem 0;border-bottom:1px solid var(--rule)}
+    .vote-info{flex:1;min-width:0}
+    .vote-bill-name{font-size:.88rem;font-weight:600;line-height:1.4;margin-bottom:.2rem}
+    .vote-desc{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:.3rem}
+    .vote-meta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+    .vote-date-lbl{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--muted)}
+    .vote-source-link{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--blue);text-decoration:none}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .inner-search{margin-bottom:1.2rem}
+    .inner-search-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden;transition:box-shadow .2s}
+    .inner-search-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .inner-search-wrap input{flex:1;padding:.7rem 1rem;font-family:'Source Serif 4',serif;font-size:.92rem;border:none;outline:none;background:transparent;color:var(--ink)}
+    .inner-search-wrap input::placeholder{color:#bbb;font-style:italic}
+    .search-icon{padding:.7rem 1rem;color:var(--muted)}
+    .results-count{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.5rem;letter-spacing:.04em}
+    .thiel-box{background:var(--ink);color:white;padding:1.8rem;margin-bottom:1.5rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+    .thiel-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:#f87171;flex-shrink:0;line-height:1}
+    .thiel-txt{font-size:.88rem;line-height:1.7}
+    .thiel-txt a{color:#93c5fd}.thiel-txt strong{color:white}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li><li><a href="#">Executive</a></li>
+    <li><a href="#">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="#">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="#">Executive Branch</a> › JD Vance</div>
+<div class="profile-header">
+  <div class="profile-photo">🇺🇸</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">JD Vance</h1>
+    <p class="profile-title">50th Vice President of the United States · Former U.S. Senator, Ohio (2023–2025) · Author, Hillbilly Elegy · Former Venture Capitalist</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Ohio</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>August 2, 1984</div>
+      <div class="meta-item"><strong>VP Since</strong>January 20, 2025</div>
+      <div class="meta-item"><strong>Senate Tenure</strong>2023–2025</div>
+      <div class="meta-item"><strong>Key Backer</strong>Peter Thiel ($15M)</div>
+    </div>
+  </div>
+</div>
+<div class="alert-banner">
+  <div class="alert-inner">⚠️ &nbsp;Vance called Trump "America's Hitler" and "cultural heroin" in 2016. Peter Thiel paid $15M — the largest single Senate donation in U.S. history — to help elect him in 2022. Since then, Thiel's company Palantir's federal contracts nearly doubled to $970M+.</div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num red">$15M</div><div class="stat-lbl">Thiel Senate Donation (Record)</div></div>
+  <div class="stat-box"><div class="stat-num red">$970M+</div><div class="stat-lbl">Palantir Federal Contracts (2025)</div></div>
+  <div class="stat-box"><div class="stat-num blue">2</div><div class="stat-lbl">Years in Senate Before VP</div></div>
+  <div class="stat-box"><div class="stat-num red">51–50</div><div class="stat-lbl">Cast Tie-Breaking VP Vote (Hegseth)</div></div>
+  <div class="stat-box"><div class="stat-num blue">4</div><div class="stat-lbl">Years Marine Corps Service</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes',this)">🗳️ Senate Votes</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Promises</button>
+    <button class="tab-btn" onclick="showTab('conflicts',this)">⚠️ Conflicts</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <!-- DONORS -->
+  <div id="tab-donors" class="tab-pane active">
+    <div class="thiel-box">
+      <div class="thiel-num">$15M</div>
+      <div class="thiel-txt">
+        <strong>Peter Thiel's $15 million donation to Vance's 2022 Ohio Senate campaign was the largest single contribution to a Senate candidate in American history.</strong><br><br>
+        Thiel hired Vance, mentored him, introduced him to Trump, and lobbied behind the scenes for Vance to become VP. Since inauguration, Thiel's company Palantir's federal contracts have nearly doubled — from $541M to $970M+. Thiel now has a former employee as Vice President of the United States.<br><br>
+        Source: <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a> · FEC records · <a href="https://newsletter.ofthebrave.org/p/jd-vances-rise-to-power-is-being" target="_blank">Home of the Brave investigation</a>
+      </div>
+    </div>
+    <div class="inner-search">
+      <div class="inner-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="donor-search" placeholder="Search donors…" oninput="filterDonors()" />
+      </div>
+      <div class="results-count" id="donor-count">Showing all donors</div>
+    </div>
+    <div class="sec-hdr"><span class="sec-title">Top Contributors — Senate & VP Campaign</span><span class="sec-source">Source: <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a> · FEC.gov</span></div>
+    <table class="data-table" id="donor-table">
+      <thead><tr><th>#</th><th>Donor</th><th>Amount</th><th>Cycle</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr data-search="peter thiel palantir mithril protect ohio values"><td>1</td><td>Peter Thiel</td><td class="amt high">$15,000,000+</td><td>2022</td><td>PayPal co-founder. Hired Vance at Mithril Capital, introduced him to Trump, orchestrated the VP selection lobbying. His company Palantir's federal contracts nearly doubled after inauguration. Also invested in Vance's Narya Capital firm.</td></tr>
+        <tr data-search="david sacks paypal venture capital silicon valley"><td>2</td><td>David Sacks</td><td class="amt high">$1,900,000</td><td>2022</td><td>PayPal COO and venture capitalist. Recruited by Thiel to donate. Co-organized a $300K/plate Trump fundraiser with Vance. Appointed Trump's "AI & Crypto Czar."</td></tr>
+        <tr data-search="mercer family republican conservative dark money"><td>3</td><td>Mercer Family</td><td class="amt">$500,000+</td><td>2022</td><td>Robert Mercer and family. Hedge fund billionaires. Consistent mega-donors to far-right causes.</td></tr>
+        <tr data-search="uihlein richard elizabeth uline republican conservative"><td>4</td><td>Richard Uihlein</td><td class="amt">$400,000+</td><td>2022</td><td>Uline CEO. One of the most consistent Republican mega-donors. Gave to Protect Ohio Values super PAC.</td></tr>
+        <tr data-search="marc andreessen ben horowitz a16z venture capital crypto"><td>5</td><td>Marc Andreessen</td><td class="amt">$200,000+</td><td>2022/2024</td><td>Helped finance Vance's Narya Capital VC firm. Announced full Trump/Vance support in 2024 citing crypto policy. Poured $47M+ into pro-crypto PACs.</td></tr>
+        <tr data-search="per aspera policy dark money peter thiel nonprofit"><td>6</td><td>Per Aspera Policy <span class="dark-tag">Dark Money</span></td><td class="amt">$200,000+</td><td>2022</td><td>Dark money nonprofit controlled by Peter Thiel. Not required to disclose donors. Donated to Protect Ohio Values super PAC.</td></tr>
+        <tr data-search="blackstone private equity finance stephen schwarzman"><td>7</td><td>Blackstone Group employees</td><td class="amt">$150,000+</td><td>2022</td><td>Massive private equity firm. One of Vance's top Senate campaign donor organizations.</td></tr>
+        <tr data-search="antonio gracias tesla tesla board venture capital"><td>8</td><td>Antonio Gracias</td><td class="amt">$100,000+</td><td>2022</td><td>Former Tesla board director and venture capitalist in the Thiel network.</td></tr>
+        <tr data-search="joe lonsdale palantir founders fund venture capital"><td>9</td><td>Joe Lonsdale</td><td class="amt">$100,000+</td><td>2022</td><td>Palantir co-founder. Part of the Thiel network that organized Vance's donor base.</td></tr>
+        <tr data-search="shaun maguire sequoia venture capital silicon valley"><td>10</td><td>Shaun Maguire / Sequoia Capital</td><td class="amt">$100,000+</td><td>2022/2024</td><td>Sequoia Capital partner. Part of the Silicon Valley tech network that backed Vance and Trump.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VOTES -->
+  <div id="tab-votes" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Senate Voting Record (2023–2025)</span><span class="sec-source">Source: <a href="https://www.govtrack.us/congress/members/jd_vance/456886" target="_blank">GovTrack.us</a> · Congress.gov</span></div>
+    <p style="font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:1.2rem;">Vance served only 2 years in the Senate before becoming VP. He missed all Senate votes during the 2024 VP campaign period.</p>
+    <div class="vote-list">
+      <div class="vote-row"><span class="vbadge nay">NAY</span><div class="vote-info"><div class="vote-bill-name">Fiscal Responsibility Act — Debt Ceiling Increase</div><div class="vote-desc">Voted against raising the debt ceiling, saying it would result in "a reduced military in the face of a rising threat from China."</div><div class="vote-meta"><span class="vote-date-lbl">June 2023</span><a href="https://www.congress.gov/bill/118th-congress/house-bill/3746" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge nay">NAY</span><div class="vote-info"><div class="vote-bill-name">Ukraine Military Aid — $61B Supplemental</div><div class="vote-desc">Opposed military aid to Ukraine. One of the most vocal Senate opponents of continued Ukraine funding. Argued the U.S. should focus on its own border.</div><div class="vote-meta"><span class="vote-date-lbl">April 2024</span><a href="https://www.govtrack.us/congress/members/jd_vance/456886" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge yea">YEA</span><div class="vote-info"><div class="vote-bill-name">East Palestine Train Derailment Safety Bill (bipartisan w/ Sherrod Brown)</div><div class="vote-desc">Co-sponsored bipartisan legislation to prevent derailments like the one in East Palestine, Ohio. The bill failed due to lack of intra-caucus Republican support.</div><div class="vote-meta"><span class="vote-date-lbl">March 2023</span><a href="https://www.congress.gov" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge nay">NAY</span><div class="vote-info"><div class="vote-bill-name">Dismantle DEI Act — Ban Federal DEI Programs</div><div class="vote-desc">Sponsored legislation that would ban federal diversity, equity, and inclusion programs across agencies, contractors, and organizations receiving federal funds.</div><div class="vote-meta"><span class="vote-date-lbl">June 2024</span><a href="https://www.congress.gov" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge nay">NAY</span><div class="vote-info"><div class="vote-bill-name">Gender-Affirming Care for Minors — Federal Criminalization (w/ MTG)</div><div class="vote-desc">Co-introduced legislation with Rep. Marjorie Taylor Greene that would have made gender-affirming care for minors a federal crime, with penalties of up to 12 years in prison.</div><div class="vote-meta"><span class="vote-date-lbl">July 2023</span><a href="https://www.congress.gov" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge nay">ABSENT</span><div class="vote-info"><div class="vote-bill-name">All Senate Votes — VP Campaign Period</div><div class="vote-desc">Was not present for any Senate votes during the vice-presidential campaign period following his selection as Trump's running mate in July 2024.</div><div class="vote-meta"><span class="vote-date-lbl">July–November 2024</span><a href="https://www.govtrack.us/congress/members/jd_vance/456886" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+      <div class="vote-row"><span class="vbadge yea">TIE-BREAK</span><div class="vote-info"><div class="vote-bill-name">Pete Hegseth Confirmation — Secretary of Defense</div><div class="vote-desc">As VP, cast the tie-breaking vote to confirm Pete Hegseth as Secretary of Defense, 51–50. The most controversial Cabinet confirmation in modern history.</div><div class="vote-meta"><span class="vote-date-lbl">January 24, 2025</span><a href="https://www.congress.gov" target="_blank" class="vote-source-link">Source →</a></div></div></div>
+    </div>
+  </div>
+
+  <!-- PROMISES -->
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Statements Made vs. The Record</span></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Contradicted</div><div class="promise-text"><strong>"Trump is America's Hitler." / "I go back and forth between thinking Trump is America's Hitler and thinking he's just America's buffoon." (2016, private message)</strong></div><div class="promise-note">Private messages revealed by journalist J.D. Tucker Carlson. Vance later became one of Trump's most vocal defenders, accepted the VP nomination, and cast the deciding vote to confirm Hegseth. Source: The Atlantic · multiple news outlets</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Contradicted</div><div class="promise-text"><strong>"I can't stomach Trump." / "I'm a never Trump guy." (2016, NPR + Charlie Rose)</strong></div><div class="promise-note">Said publicly in 2016 he could not vote for Trump. By 2021 he was seeking Trump's endorsement for Senate, brought to Mar-a-Lago by Peter Thiel. Source: NPR · Charlie Rose transcript</div></div>
+    <div class="promise-card mixed"><div class="promise-status mixed">⚠️ Mixed</div><div class="promise-text"><strong>Positioned himself as a champion of the working class and Rust Belt communities.</strong></div><div class="promise-note">His book Hillbilly Elegy made him famous for understanding working-class Ohio. However, his donor base is almost entirely Silicon Valley billionaires, and his Senate voting record largely tracked MAGA priorities rather than Ohio-specific economic concerns. Source: FEC · GovTrack</div></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Consistent</div><div class="promise-text"><strong>Promised to oppose Ukraine military aid and push for negotiated settlement.</strong></div><div class="promise-note">Consistently voted against Ukraine funding in the Senate. As VP, has been the administration's most vocal opponent of unconditional Ukraine support. Has called for a negotiated peace deal. Source: GovTrack · State Dept. statements</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Broken</div><div class="promise-text"><strong>Campaigned on fixing the East Palestine, Ohio train derailment and holding Norfolk Southern accountable.</strong></div><div class="promise-note">Co-sponsored bipartisan rail safety legislation with Democratic Sen. Sherrod Brown. The bill died after Republican senators refused to support it — including members of Vance's own caucus. Vance did not publicly pressure his colleagues to vote for it. Source: Congress.gov</div></div>
+  </div>
+
+  <!-- CONFLICTS -->
+  <div id="tab-conflicts" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Conflicts of Interest & Key Controversies</span></div>
+    <div style="background:white;border:1.5px solid var(--rule);padding:1.2rem;margin-bottom:1rem;font-size:.87rem;line-height:1.75;">
+      <strong>Palantir / Peter Thiel Federal Contract Expansion</strong><br/>
+      Since Vance became VP, Palantir's federal contracts have nearly doubled — from $541M in 2024 to $970M+ in 2025. Thiel is Palantir's co-founder and Vance's primary career benefactor. Palantir is now being positioned as the structural backbone of entire federal agencies, with a $10B ceiling Army contract. Vance has not recused himself from any government decisions involving Palantir or Thiel-connected companies. Source: Home of the Brave · federal procurement data
+    </div>
+    <div style="background:white;border:1.5px solid var(--rule);padding:1.2rem;margin-bottom:1rem;font-size:.87rem;line-height:1.75;">
+      <strong>Narya Capital — VC Firm Backed by Thiel & Andreessen</strong><br/>
+      Vance founded Narya Capital in 2019 with funding from Peter Thiel, Marc Andreessen, and Eric Schmidt. He retained financial ties to the firm while running for Senate and serving as senator. Both Thiel and Andreessen subsequently became major Trump/Vance donors and now have significant access to the executive branch. Source: OpenSecrets · FEC · SEC filings
+    </div>
+    <div style="background:white;border:1.5px solid var(--rule);padding:1.2rem;margin-bottom:1rem;font-size:.87rem;line-height:1.75;">
+      <strong>"Childless Cat Ladies" Comment</strong><br/>
+      In a 2021 interview, Vance referred to Democratic leaders as "childless cat ladies who don't have a direct stake in the future of the country." The comment went viral during the 2024 campaign. Vance stood by the statement. Critics noted the comment targeted millions of American women voters.
+    </div>
+    <div style="background:white;border:1.5px solid var(--rule);padding:1.2rem;margin-bottom:1rem;font-size:.87rem;line-height:1.75;">
+      <strong>Greenland & Panama Canal Threats</strong><br/>
+      As VP, Vance has echoed and in some cases amplified Trump's rhetoric about acquiring Greenland and the Panama Canal by force if necessary. He visited Greenland in January 2025, framing it as a strategic necessity, drawing formal diplomatic protests from Denmark and Panama. Source: State Dept. · Danish Foreign Ministry
+    </div>
+  </div>
+
+  <!-- EPSTEIN -->
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: PACER · Released court documents</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🔍</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Direct Mentions Found in Released Documents</div>
+      <div style="font-size:.83rem;color:var(--muted);font-style:italic;max-width:500px;margin:0 auto;line-height:1.65;">A review of all publicly released Epstein-related court documents did not surface direct mentions of JD Vance. This section will be updated if references emerge. No speculation — official records only.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Documents on DocumentCloud →</a>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">All information sourced from public government records including FEC filings, Congress.gov, GovTrack.us, OpenSecrets.org, and officially released court documents. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span>
+  <span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span>
+</footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+  function filterDonors(){const q=document.getElementById('donor-search').value.toLowerCase().trim();const rows=document.querySelectorAll('#donor-table tbody tr');let v=0;rows.forEach(r=>{const m=!q||r.dataset.search.includes(q)||r.textContent.toLowerCase().includes(q);r.style.display=m?'':'none';if(m)v++});document.getElementById('donor-count').textContent=q?`Showing ${v} results`:'Showing all donors'}
+</script>
+</body>
+</html>
