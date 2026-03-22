@@ -1,13 +1,13 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/marco-rubio", "destination": "/marco-rubio.html" },
+    { "source": "/executive", "destination": "/executive.html" },
     { "source": "/donald-trump", "destination": "/donald-trump.html" },
     { "source": "/jd-vance", "destination": "/jd-vance.html" },
-    { "source": "/pete-hegseth", "destination": "/pete-hegseth.html" }
+    { "source": "/marco-rubio", "destination": "/marco-rubio.html" },
+    { "source": "/pete-hegseth", "destination": "/pete-hegseth.html" },
     { "source": "/rfk-jr", "destination": "/rfk-jr.html" },
-{ "source": "/pam-bondi", "destination": "/pam-bondi.html" },
-{ "source": "/kash-patel", "destination": "/kash-patel.html" }
-{ "source": "/executive", "destination": "/executive.html" }
+    { "source": "/pam-bondi", "destination": "/pam-bondi.html" },
+    { "source": "/kash-patel", "destination": "/kash-patel.html" }
   ]
 }
