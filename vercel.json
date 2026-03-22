@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/marco-rubio", "destination": "/marco-rubio.html" },
+    { "source": "/donald-trump", "destination": "/donald-trump.html" },
+    { "source": "/jd-vance", "destination": "/jd-vance.html" },
+    { "source": "/pete-hegseth", "destination": "/pete-hegseth.html" }
+  ]
+}
