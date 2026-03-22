@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pam Bondi — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .alert-banner{max-width:1000px;margin:1.2rem auto 0;padding:0 2rem}
+    .alert-inner{background:var(--ink);color:var(--paper);padding:.75rem 1.2rem;display:flex;gap:.8rem;align-items:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.04em}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .controversy-card{border:1.5px solid var(--rule);background:white;padding:1.2rem;margin-bottom:.9rem}
+    .controversy-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem;gap:1rem;flex-wrap:wrap}
+    .controversy-name{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem}
+    .controversy-body{font-size:.85rem;line-height:1.65}
+    .controversy-source{font-size:.75rem;color:var(--muted);font-style:italic;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--rule)}
+    .badge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .badge.red{background:var(--red);color:white}.badge.amber{background:var(--amber);color:white}.badge.blue{background:var(--blue);color:white}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links"><li><a href="#">Congress</a></li><li><a href="#">Executive</a></li><li><a href="#">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="#">About</a></li></ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="#">Executive Branch</a> › Pam Bondi</div>
+<div class="profile-header">
+  <div class="profile-photo">⚖️</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Pam Bondi</h1>
+    <p class="profile-title">87th United States Attorney General · Former Florida Attorney General (2011–2019) · Former Corporate Lobbyist · Trump Impeachment Defense Attorney</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Florida</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>November 17, 1965</div>
+      <div class="meta-item"><strong>Confirmed</strong>February 4, 2025 (54–46)</div>
+      <div class="meta-item"><strong>FL AG Tenure</strong>2011–2019</div>
+      <div class="meta-item"><strong>Lobbying Clients</strong>Amazon, Uber, Qatar, GEO Group</div>
+    </div>
+  </div>
+</div>
+<div class="alert-banner">
+  <div class="alert-inner">⚠️ &nbsp;Bondi is currently under congressional subpoena over her handling of the Epstein files. A House committee voted to subpoena her in March 2026 after Democrats stormed out of a DOJ briefing. She is also overseeing DOJ prosecution of Trump's political opponents while having pledged to prosecute the prosecutors who indicted Trump.</div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num red">$25K</div><div class="stat-lbl">Illegal Trump Donation (2013)</div></div>
+  <div class="stat-box"><div class="stat-num red">54–46</div><div class="stat-lbl">Confirmation Vote</div></div>
+  <div class="stat-box"><div class="stat-num red">$400M</div><div class="stat-lbl">Qatar Jet — Approved Gift to Trump</div></div>
+  <div class="stat-box"><div class="stat-num blue">18+</div><div class="stat-lbl">Years as Prosecutor</div></div>
+  <div class="stat-box"><div class="stat-num red">2×</div><div class="stat-lbl">Trump Impeachment Defense Attorney</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('controversies',this)">⚠️ Controversies</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors & Lobbying</button>
+    <button class="tab-btn" onclick="showTab('actions',this)">📋 Actions as AG</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Record</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="tab-controversies" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Documented Controversies</span><span class="sec-source">Source: Tampa Bay Times · Wikipedia · OpenSecrets · Britannica · Common Cause</span></div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Trump University Pay-to-Play — Illegal $25,000 Donation (2013)</span><span class="badge red">Confirmed / Illegal</span></div>
+      <p class="controversy-body">In 2013, while Bondi's office had received at least 22 fraud complaints about Trump University, Bondi personally solicited a $25,000 donation from Donald Trump's charitable foundation. Days after the donation, her office declined to join New York's class action lawsuit against Trump University. Trump's foundation later paid a $2,500 IRS penalty because the donation violated rules against charitable foundations making political donations. The Trump Foundation was ultimately dissolved by court order for systematic misuse of charitable funds.</p>
+      <p class="controversy-source">Source: Tampa Bay Times · IRS records · NY AG Office · Wikipedia</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Delayed Execution for Campaign Fundraiser</span><span class="badge red">Confirmed</span></div>
+      <p class="controversy-body">As Florida Attorney General, Bondi personally requested a delay in the scheduled execution of convicted murderer Marshall Lee Gore — because the execution date conflicted with one of her own campaign fundraising events. The execution was rescheduled. The Tampa Bay Times reported the headline: "Attorney general vows to never again delay an execution for a fundraiser." Critics called it an extraordinary example of putting political ambition over her legal duties.</p>
+      <p class="controversy-source">Source: Tampa Bay Times · Florida AG records</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Qatar Lobbying → Approved $400M Luxury Jet Gift to Trump</span><span class="badge red">Active Conflict</span></div>
+      <p class="controversy-body">After leaving the Florida AG office, Bondi became a registered lobbyist for the government of Qatar through Ballard Partners. As U.S. Attorney General, she approved Qatar's gift of a $400 million luxury Boeing 747 jet to President Trump — under the condition it be transferred to the Trump Library Foundation. Critics called it an unprecedented conflict of interest: approving a $400M gift from a foreign government she had previously been paid to represent.</p>
+      <p class="controversy-source">Source: Common Cause · OpenSecrets · Ballard Partners disclosures</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Epstein Files — Congressional Subpoena (March 2026)</span><span class="badge red">Active</span></div>
+      <p class="controversy-body">A House committee voted to subpoena Bondi in March 2026 over her handling of the DOJ's Epstein file investigation. Democrats stormed out of a DOJ briefing after alleging they were being stonewalled. Bondi has been accused of suppressing or delaying the release of Epstein-related documents. Her handling of the case has become one of the most contentious issues of her tenure.</p>
+      <p class="controversy-source">Source: Britannica · AP · Reuters · March 2026</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Pressured Attorneys Investigating Mortgage Fraud to Resign (2011)</span><span class="badge amber">Documented</span></div>
+      <p class="controversy-body">In 2011, Bondi pressured two attorneys in Florida's Economic Crime Division to resign. They had been investigating Lender Processing Services (now Black Knight) for "robosigning" — a mortgage fraud scheme that harmed Florida homeowners during the foreclosure crisis. Critics alleged she protected the financial industry at the expense of defrauded homeowners.</p>
+      <p class="controversy-source">Source: Wikipedia · Florida AG records</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">2020 Election Denial / False Claims</span><span class="badge amber">Documented</span></div>
+      <p class="controversy-body">Bondi was one of the loudest voices spreading Trump's false claims that the 2020 election was stolen. She falsely claimed Trump won Pennsylvania. The 2020 election results were certified by Republican secretaries of state, confirmed by 62 court cases, and validated by Trump's own Attorney General William Barr, who said there was "no evidence of widespread fraud." Bondi has not retracted her statements.</p>
+      <p class="controversy-source">Source: Common Cause · Ballotpedia · multiple news outlets</p>
+    </div>
+
+    <div class="controversy-card">
+      <div class="controversy-hdr"><span class="controversy-name">Hosting Fox News Show While Serving as Florida AG</span><span class="badge blue">Ethics Violation Allegation</span></div>
+      <p class="controversy-body">In August 2018, while still serving as Florida's elected attorney general, Bondi co-hosted "The Five" on Fox News three days in a row. Fox News claimed the Florida Commission on Ethics had approved the appearance. The commission's spokeswoman denied that any decision was made. The Tampa Bay Times called it "unprecedented" for a sitting elected official to host a partisan TV program.</p>
+      <p class="controversy-source">Source: Tampa Bay Times · Florida Commission on Ethics</p>
+    </div>
+  </div>
+
+  <div id="tab-donors" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Donors, Lobbying & Revolving Door</span><span class="sec-source">Source: <a href="https://www.opensecrets.org/news/2024/12/trump-administration-profile-pam-bondi/" target="_blank">OpenSecrets.org</a> · FARA filings · Ballard Partners disclosures</span></div>
+    <table class="data-table">
+      <thead><tr><th>Entity</th><th>Amount / Role</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Donald Trump (Trump Foundation)</td><td class="amt high">$25,000 (illegal)</td><td>Illegal charitable donation to Bondi's re-election PAC while her office was considering Trump University fraud complaints. Trump Foundation paid $2,500 IRS penalty. Source: IRS · NY AG</td></tr>
+        <tr><td>Brian Ballard / Ballard Partners</td><td class="amt">Employment + Clients</td><td>Bondi joined Ballard Partners as a lobbyist after leaving the FL AG office. Ballard raised $50M+ for Trump in 2024 and personally gave $250,000. She lobbied for Amazon, Uber, Qatar, and GEO Group.</td></tr>
+        <tr><td>Qatar (Foreign Government)</td><td class="amt high">Lobbying fees</td><td>Bondi was a registered foreign agent (FARA) for Qatar's government through Ballard Partners. As AG, she approved Qatar's $400M jet gift to Trump. The conflict is direct and documented.</td></tr>
+        <tr><td>GEO Group (Private Prisons)</td><td class="amt">Lobbying client</td><td>Lobbied for the private prison corporation. GEO Group donated $1M to MAGA Inc. and stands to profit from immigration detention expansion under Trump.</td></tr>
+        <tr><td>Amazon</td><td class="amt">Lobbying client</td><td>Lobbied for Amazon — a company facing antitrust scrutiny from the DOJ she now leads. Potential ongoing conflict of interest.</td></tr>
+        <tr><td>Uber</td><td class="amt">Lobbying client</td><td>Lobbied for Uber — a company that has faced DOJ labor and regulatory scrutiny.</td></tr>
+        <tr><td>Trump Media & Technology Group (DJT)</td><td class="amt high">Millions in stock</td><td>Bondi holds millions of dollars of stock in Trump's social media company — creating an ongoing financial tie to the president she serves as the nation's chief law enforcement officer.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-actions" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Actions as U.S. Attorney General (2025–Present)</span></div>
+    <table class="data-table">
+      <thead><tr><th>Action</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Prosecuting Trump Political Opponents</td><td style="color:var(--red);font-weight:700">Active</td><td>Overseeing DOJ prosecutions of individuals Trump has identified as enemies. She previously pledged on Fox News: "The prosecutors will be prosecuted." Critics call this a weaponization of the DOJ.</td></tr>
+        <tr><td>Indictments of Anti-Trump Protesters</td><td style="color:var(--red);font-weight:700">Active</td><td>Announced indictments against 30+ people who protested at a Minnesota church. Critics called it selective prosecution of political dissent. Source: Britannica</td></tr>
+        <tr><td>Quashing Immigration Enforcement Killing Investigations</td><td style="color:var(--red);font-weight:700">Reported</td><td>Britannica reported Bondi has been involved in quashing investigations into killings of American citizens by federal agents during immigration crackdowns. Source: Britannica</td></tr>
+        <tr><td>Qatar Jet Approval</td><td style="color:var(--red);font-weight:700">Completed</td><td>Approved the transfer of a $400M Qatari luxury jet to Trump under the condition it goes to the Trump Library Foundation. This came after her career lobbying for Qatar. Source: Common Cause</td></tr>
+        <tr><td>Epstein Files Handling</td><td style="color:var(--red);font-weight:700">Under Subpoena</td><td>Subpoenaed by Congress over the DOJ's handling of Epstein file disclosures. Democrats walked out of a DOJ briefing in March 2026 alleging obstruction. Source: Britannica · AP</td></tr>
+        <tr><td>Florida Pill Mill Crackdown Record</td><td style="color:var(--green);font-weight:700">Verified Positive</td><td>As FL AG, she shut down 98 oxycodone dispensers — Florida had 98 of the top 100 in the nation. Genuinely effective anti-opioid work. Source: DOJ.gov</td></tr>
+        <tr><td>Human Trafficking Legislation</td><td style="color:var(--green);font-weight:700">Verified Positive</td><td>Spearheaded stronger FL state laws on human trafficking, raised awareness, enhanced victim resources. Source: DOJ.gov</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Statements & Record</span></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Conflict of Interest</div><div class="promise-text"><strong>Serves as the nation's top law enforcement officer while holding millions in Trump Media stock and having lobbied for Qatar — a foreign government that just gave Trump a $400M jet.</strong></div><div class="promise-note">The Attorney General is supposed to be the people's lawyer, not the president's. Bondi's financial ties to Trump and to foreign governments she previously represented create direct conflicts in virtually every major decision she makes. Source: LCV · Common Cause · OpenSecrets</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Broken</div><div class="promise-text"><strong>"The Department of Justice, the prosecutors will be prosecuted, the bad ones." — Fox News, 2023</strong></div><div class="promise-note">Pledged to prosecute the prosecutors who indicted Trump. As AG she is now directing the DOJ — the same institution she called corrupt — to pursue Trump's political opponents. Source: OpenSecrets</div></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Verified Record</div><div class="promise-text"><strong>18+ years as a prosecutor, including serious work on opioids, human trafficking, and child abuse cases in Florida.</strong></div><div class="promise-note">Bondi has a genuine record as a prosecutor before entering partisan politics. Her Florida AG record on pill mills and human trafficking is documented and real. Source: DOJ.gov</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Broken</div><div class="promise-text"><strong>Stated belief in the rule of law and equal justice.</strong></div><div class="promise-note">Endorsed Trump despite 34 felony convictions. Spread false 2020 election claims. Approved a $400M foreign government gift to the president she serves. Has used the DOJ to pursue political opponents. Source: multiple</div></div>
+  </div>
+
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein Files — Active Congressional Investigation</span><span class="sec-source">Source: Britannica · AP · Reuters · March 2026</span></div>
+    <div style="background:white;border:1.5px solid var(--rule);padding:1.5rem;margin-bottom:1.5rem;font-size:.88rem;line-height:1.75;">
+      <p><strong>This is one of the most active and contested sections of Bondi's profile.</strong> As of March 2026:</p>
+      <p style="margin-top:.8rem;">• A House committee voted to <strong>subpoena Attorney General Bondi</strong> to answer questions about the Epstein files — March 4, 2026.</p>
+      <p style="margin-top:.8rem;">• Democrats on the committee <strong>stormed out of a DOJ briefing</strong> on the Epstein files, alleging they were being stonewalled — March 18, 2026.</p>
+      <p style="margin-top:.8rem;">• Bondi has been accused by members of Congress of <strong>suppressing or delaying</strong> the public release of Epstein-related documents.</p>
+      <p style="margin-top:.8rem;">• Bondi herself is <strong>not mentioned in the released Epstein documents</strong> as of the time of this profile. However her conduct as AG in managing their release is the subject of active congressional oversight.</p>
+      <p style="margin-top:.8rem; font-style:italic;color:var(--muted);">This section will be updated as this investigation develops. All facts sourced from Britannica, AP, and Reuters.</p>
+    </div>
+    <a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents on DocumentCloud →</a>
+  </div>
+</div>
+
+<div class="disclaimer">All information sourced from public records including FEC filings, FARA filings, court records, IRS records, Florida AG records, Ballotpedia, Wikipedia, Britannica, OpenSecrets, Tampa Bay Times, and Common Cause. Political Hypocrites does not editorialize. Last updated: March 2026.</div>
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span>
+  <span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span>
+</footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
