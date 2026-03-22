@@ -5,5 +5,8 @@
     { "source": "/donald-trump", "destination": "/donald-trump.html" },
     { "source": "/jd-vance", "destination": "/jd-vance.html" },
     { "source": "/pete-hegseth", "destination": "/pete-hegseth.html" }
+    { "source": "/rfk-jr", "destination": "/rfk-jr.html" },
+{ "source": "/pam-bondi", "destination": "/pam-bondi.html" },
+{ "source": "/kash-patel", "destination": "/kash-patel.html" }
   ]
 }
