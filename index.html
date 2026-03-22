@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Political Hypocrites — United Above To Distract Below</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #111111;
+      --paper: #F5F0E8;
+      --rule: #C8BFA8;
+      --muted: #6B6352;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── TOP RULE ── */
+    .top-rule { width:100%; height:5px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+
+    /* ── NAV ── */
+    nav {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-date { font-family:'Space Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-family:'Space Mono',monospace; font-size:0.68rem; text-decoration:none; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 2rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.9s ease forwards 0.15s;
+    }
+
+    /* Logo image — the real one */
+    .logo-img {
+      width: min(480px, 88vw);
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    /* ── TAGLINE ── */
+    .tagline-block {
+      text-align: center;
+      padding: 2rem 2rem 0;
+      position: relative; z-index: 1;
+      opacity: 0; transform: translateY(14px);
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+    .tagline-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin-bottom: 0.9rem;
+    }
+    .tagline-rule::before, .tagline-rule::after {
+      content: ''; width: 60px; height: 1.5px; background: var(--ink);
+    }
+    .tagline-rule span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+    }
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .tagline .above { color: var(--blue); }
+    .tagline .to { font-style: italic; color: var(--ink); }
+    .tagline .below { color: var(--red); }
+
+    /* ── MISSION ── */
+    .mission-block {
+      max-width: 620px; margin: 2.2rem auto 0; padding: 0 2rem;
+      text-align: center; position: relative; z-index: 1;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.9s ease forwards 0.7s;
+    }
+    .mission-block p {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 300; line-height: 1.85; color: var(--ink);
+    }
+    .mission-block em { font-style: italic; color: var(--muted); }
+
+    /* ── SEARCH ── */
+    .search-section {
+      max-width: 600px; margin: 2.5rem auto 0; padding: 0 2rem;
+      position: relative; z-index: 1;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.9s ease forwards 0.9s;
+    }
+    .search-label {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 0.55rem;
+    }
+    .search-wrap {
+      display: flex; border: 1.5px solid var(--ink);
+      background: white; overflow: hidden; transition: box-shadow 0.2s;
+    }
+    .search-wrap:focus-within { box-shadow: 4px 4px 0 var(--ink); }
+    .search-wrap input {
+      flex: 1; padding: 0.95rem 1.1rem;
+      font-family: 'Source Serif 4', serif; font-size: 1rem;
+      border: none; outline: none; background: transparent; color: var(--ink);
+    }
+    .search-wrap input::placeholder { color: #bbb; font-style: italic; }
+    .search-wrap button {
+      padding: 0.95rem 1.4rem; background: var(--ink); color: var(--paper);
+      border: none; cursor: pointer; font-family: 'Space Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .search-wrap button:hover { background: var(--blue); }
+    .search-hint {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.04em;
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      max-width: 860px; margin: 4rem auto 0; padding: 0 2rem;
+      display: flex; align-items: center; gap: 1rem;
+      position: relative; z-index: 1;
+    }
+    .section-divider::before, .section-divider::after { content:''; flex:1; height:1px; background:var(--rule); }
+    .section-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap;
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      max-width: 860px; margin: 2rem auto 0; padding: 0 2rem;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1.5px; border: 1.5px solid var(--rule); background: var(--rule);
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 1.05s;
+    }
+    .pillar { background: var(--paper); padding: 1.4rem 1.2rem; transition: background 0.2s; }
+    .pillar:hover { background: white; }
+    .pillar-icon { font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
+    .pillar-title { font-family: 'Playfair Display', serif; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .pillar-desc { font-size: 0.76rem; line-height: 1.5; color: var(--muted); font-weight: 300; }
+
+    /* ── NOTICE ── */
+    .notice {
+      max-width: 860px; margin: 2.5rem auto 0; padding: 0 2rem;
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 1.15s;
+    }
+    .notice-inner { border-left: 3px solid var(--ink); padding: 0.9rem 1.3rem; background: white; }
+    .notice-inner p { font-size: 0.8rem; line-height: 1.65; color: var(--muted); font-style: italic; }
+    .notice-inner strong { color: var(--ink); font-style: normal; }
+
+    /* ── COMING SOON ── */
+    .coming-soon {
+      max-width: 860px; margin: 2rem auto 0; padding: 0 2rem;
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 1.25s;
+    }
+    .coming-soon-inner {
+      background: var(--ink); color: var(--paper);
+      padding: 1.1rem 1.6rem; display: flex;
+      align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .coming-soon-text { font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+    .coming-soon-text span { color:#888; margin-right:0.8rem; }
+    .notify-form { display:flex; border:1px solid #444; overflow:hidden; }
+    .notify-form input { padding:0.5rem 0.8rem; background:#222; border:none; outline:none; color:white; font-family:'Space Mono',monospace; font-size:0.68rem; width:190px; }
+    .notify-form input::placeholder { color:#555; }
+    .notify-form button { padding:0.5rem 0.9rem; background:var(--red); color:white; border:none; cursor:pointer; font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; transition:background 0.2s; }
+    .notify-form button:hover { background:#991b1b; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 5rem; border-top: 1px solid var(--rule);
+      padding: 1.8rem 3rem; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      position: relative; z-index: 1;
+    }
+    .footer-copy { font-family:'Space Mono',monospace; font-size:0.62rem; color:var(--muted); letter-spacing:0.06em; }
+    .footer-note { font-size:0.73rem; color:var(--muted); font-style:italic; max-width:400px; text-align:right; line-height:1.5; }
+    .bottom-rule { width:100%; height:4px; background:linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+    @media (max-width: 700px) {
+      nav { padding:0.9rem 1.2rem; }
+      .nav-links { display:none; }
+      .pillars { grid-template-columns:1fr 1fr; }
+      footer { flex-direction:column; }
+      .footer-note { text-align:left; }
+      .coming-soon-inner { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <span class="nav-date" id="nav-date"></span>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li>
+    <li><a href="#">Executive</a></li>
+    <li><a href="#">Donor Search</a></li>
+    <li><a href="#">Stock Trades</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO: real logo -->
+  <div class="hero">
+    <img class="logo-img" src="logo.png" alt="Political Hypocrites — United hands above, divided crowds below" />
+  </div>
+
+  <!-- TAGLINE -->
+  <div class="tagline-block">
+    <div class="tagline-rule"><span>est. 2026</span></div>
+    <p class="tagline">
+      <span class="above">United Above</span>
+      <span class="to"> To Distract </span>
+      <span class="below">Below</span>
+    </p>
+  </div>
+
+  <!-- MISSION -->
+  <div class="mission-block">
+    <p>
+      Every vote they cast. Every dollar they took. Every stock they traded while you weren't watching.
+      Every promise made to get elected — and broken once they were.
+      <em>All sourced directly from public government records. No opinions. No spin. No sides.</em>
+    </p>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <label class="search-label" for="politician-search">Search any politician by name or state</label>
+    <div class="search-wrap">
+      <input type="text" id="politician-search" placeholder="e.g. Marco Rubio, Nancy Pelosi, Ted Cruz…" autocomplete="off"/>
+      <button type="button">Search</button>
+    </div>
+    <p class="search-hint">Tracking all 535 members of Congress + Executive Branch</p>
+  </div>
+
+  <!-- WHAT WE TRACK -->
+  <div class="section-divider"><span>What we track</span></div>
+
+  <div class="pillars">
+    <div class="pillar"><span class="pillar-icon">🗳️</span><div class="pillar-title">Every Vote</div><p class="pillar-desc">Full voting history on every bill. No cherry picking.</p></div>
+    <div class="pillar"><span class="pillar-icon">💰</span><div class="pillar-title">Donor Records</div><p class="pillar-desc">Who funded them. How much. AIPAC and all PACs included.</p></div>
+    <div class="pillar"><span class="pillar-icon">📈</span><div class="pillar-title">Stock Trades</div><p class="pillar-desc">Every disclosed trade — them and their immediate family.</p></div>
+    <div class="pillar"><span class="pillar-icon">📋</span><div class="pillar-title">Committees</div><p class="pillar-desc">What they oversee. Who they really answer to.</p></div>
+    <div class="pillar"><span class="pillar-icon">🗂️</span><div class="pillar-title">Epstein Files</div><p class="pillar-desc">Direct links to source documents. Every mention, every party.</p></div>
+    <div class="pillar"><span class="pillar-icon">⚔️</span><div class="pillar-title">War Votes</div><p class="pillar-desc">Did they vote for war? Were we attacked first? The record speaks.</p></div>
+    <div class="pillar"><span class="pillar-icon">📣</span><div class="pillar-title">Promises Made</div><p class="pillar-desc">What they said to get elected vs. what they actually did.</p></div>
+    <div class="pillar"><span class="pillar-icon">🏛️</span><div class="pillar-title">Party & Affiliation</div><p class="pillar-desc">Who they caucus with. Who they really work for.</p></div>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice">
+    <div class="notice-inner">
+      <p><strong>All data is sourced exclusively from public government records</strong> — including the FEC, congress.gov, House and Senate STOCK Act disclosures, and officially released court documents. We do not editorialize, speculate, or take political positions. If it's on this site, a government source is attached to it.</p>
+    </div>
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="coming-soon">
+    <div class="coming-soon-inner">
+      <div class="coming-soon-text"><span>Status:</span> Launching Soon — Full Database Coming</div>
+      <div class="notify-form">
+        <input type="email" placeholder="your@email.com"/>
+        <button type="button">Notify Me</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">This site is nonpartisan. Democrats and Republicans are tracked equally. We are not affiliated with any political party, PAC, or candidate.</p>
+</footer>
+
+<div class="bottom-rule"></div>
+
+<script>
+  const d = new Date();
+  document.getElementById('nav-date').textContent = d.toLocaleDateString('en-US', {
+    weekday:'long', year:'numeric', month:'long', day:'numeric'
+  });
+</script>
+
+</body>
+</html>
