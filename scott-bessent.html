@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scott Bessent — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .alert-banner{max-width:1000px;margin:1.2rem auto 0;padding:0 2rem}
+    .alert-inner{background:var(--ink);color:var(--paper);padding:.75rem 1.2rem;display:flex;gap:.8rem;align-items:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.04em}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .inner-search{margin-bottom:1.2rem}
+    .inner-search-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden}
+    .inner-search-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .inner-search-wrap input{flex:1;padding:.7rem 1rem;font-family:'Source Serif 4',serif;font-size:.92rem;border:none;outline:none;background:transparent}
+    .inner-search-wrap input::placeholder{color:#bbb;font-style:italic}
+    .search-icon{padding:.7rem 1rem;color:var(--muted)}
+    .results-count{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.5rem}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/executive">Executive Branch</a> › Scott Bessent</div>
+<div class="profile-header">
+  <div class="profile-photo">💵</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Scott Bessent</h1>
+    <p class="profile-title">79th Secretary of the Treasury · Founder, Key Square Group · Former Chief Investment Officer, Soros Fund Management · First Openly Gay Treasury Secretary</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>South Carolina</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>August 21, 1962</div>
+      <div class="meta-item"><strong>In Office</strong>Jan 28, 2025–Present</div>
+      <div class="meta-item"><strong>Confirmed</strong>68–29 (Senate)</div>
+      <div class="meta-item"><strong>Net Worth</strong>~$600M (est.)</div>
+    </div>
+  </div>
+</div>
+<div class="alert-banner">
+  <div class="alert-inner">⚠️ &nbsp;Bessent spent years managing money for George Soros — the biggest Democratic donor in America — before becoming Trump's Treasury Secretary. He previously donated to Al Gore, Barack Obama, and Hillary Clinton. He also faced a $2 million tax avoidance controversy during his confirmation process.</div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">68–29</div><div class="stat-lbl">Senate Confirmation</div></div>
+  <div class="stat-box"><div class="stat-num red">$600M</div><div class="stat-lbl">Estimated Net Worth</div></div>
+  <div class="stat-box"><div class="stat-num red">$1.6M</div><div class="stat-lbl">Donated to Trump 2024 Campaign</div></div>
+  <div class="stat-box"><div class="stat-num blue">$57M</div><div class="stat-lbl">Trump Fundraiser Hosted by Bessent (Palm Beach)</div></div>
+  <div class="stat-box"><div class="stat-num red">$2M</div><div class="stat-lbl">Tax Avoidance Flagged at Confirmation</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Promises</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Finances</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background & Record</span><span class="sec-source">Source: Wikipedia · Treasury · Britannica · Miller Center · OpenSecrets</span></div>
+    <div class="bg-card">
+      <p>Scott Bessent grew up in Conway, South Carolina, the oldest of three children. His father was a real estate agent. He attended Yale University, graduating in 1984 with a degree in political science — he had originally planned to pursue journalism but interned with investor Jim Rogers and switched to finance.</p>
+      <p><strong>Career at Soros Fund Management:</strong> In 1991 Bessent joined Soros Fund Management — the investment vehicle of George Soros, who is the largest Democratic donor in American history. He managed the London office from 1991 to 2000. He was part of the team that famously shorted the British pound in September 1992, netting $1 billion in a single day — one of the most famous trades in financial history. He returned to Soros Fund Management as Chief Investment Officer from 2011 to 2015, managing billions in assets.</p>
+      <p><strong>Key Square Group:</strong> In 2015 Bessent founded Key Square Group, his own global macro hedge fund, with a $2 billion anchor investment from Soros himself. The fund focused on geopolitical and economic shifts. His estimated net worth is approximately $600 million.</p>
+      <p><strong>Political transformation:</strong> Bessent's political history is one of the more dramatic transformations in the Cabinet. In 2000 he hosted a fundraiser for Al Gore. He donated to Barack Obama's 2008 campaign and supported Hillary Clinton's 2016 bid. After leaving Soros Fund Management in 2015, his giving shifted Republican. He donated $1 million to Trump's 2017 inaugural committee. By 2024 he had become one of Trump's most important fundraisers — hosting a $57 million fundraiser in Palm Beach — and donated $1.6 million directly to MAGA Inc. and the campaign. He was appointed Treasury Secretary.</p>
+      <p><strong>As Treasury Secretary:</strong> Confirmed 68–29 with significant bipartisan support. He immediately granted DOGE access to the Treasury's payment systems. He was named acting CFPB director and ordered it to halt all work. He has been tasked with implementing a U.S. sovereign wealth fund. He played a key moderating role on tariffs — calling 145% China tariffs "unsustainable" and helping secure a 90-day pause in August 2025. He has clashed with fellow advisor Peter Navarro on tariff strategy. In September 2025 he reportedly threatened to punch a federal housing official at a private dinner. He was also briefly named acting IRS Commissioner in August 2025.</p>
+    </div>
+  </div>
+
+  <div id="tab-donors" class="tab-pane">
+    <div class="inner-search">
+      <div class="inner-search-wrap"><span class="search-icon">🔍</span><input type="text" id="donor-search" placeholder="Search donors…" oninput="filterDonors()" /></div>
+      <div class="results-count" id="donor-count">Showing all donors</div>
+    </div>
+    <div class="sec-hdr"><span class="sec-title">Political Giving — Career</span><span class="sec-source">Source: <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a> · Miller Center</span></div>
+    <table class="data-table" id="donor-table">
+      <thead><tr><th>#</th><th>Recipient</th><th>Amount</th><th>Cycle</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr data-search="maga inc trump 2024 campaign republican donation"><td>1</td><td>MAGA Inc. + Trump Campaign</td><td class="amt high">$1,676,500</td><td>2024</td><td>Bessent donated $1M+ to MAGA Inc. and additional funds directly to Trump's campaign. He was also the lead fundraiser for a $57M Palm Beach fundraiser. He was appointed Treasury Secretary. A textbook example of the donor-to-cabinet pipeline. Source: FEC · OpenSecrets</td></tr>
+        <tr data-search="trump inaugural committee 2017 donation republican"><td>2</td><td>Trump 2017 Inaugural Committee</td><td class="amt high">$1,000,000</td><td>2017</td><td>After departing Soros Fund Management and founding Key Square Group, Bessent donated $1 million to Trump's first inaugural committee — his first major Republican donation, marking the beginning of his political transformation. Source: FEC</td></tr>
+        <tr data-search="hillary clinton democratic 2016 presidential campaign"><td>3</td><td>Hillary Clinton (D)</td><td class="amt">Disclosed amount</td><td>2016</td><td>Bessent supported Clinton's 2016 presidential bid — the same year Trump was first elected. Just one year later he donated $1M to Trump's inaugural. His pivot from Clinton donor to Trump Treasury Secretary in under a decade is one of the most dramatic political realignments in the Cabinet. Source: Miller Center</td></tr>
+        <tr data-search="barack obama democratic 2008 presidential campaign donation"><td>4</td><td>Barack Obama (D)</td><td class="amt">Disclosed amount</td><td>2008</td><td>Bessent contributed to Obama's 2008 presidential campaign. At the time he was Chief Investment Officer at Soros Fund Management — the primary investment vehicle of the largest Democratic donor in American history. Source: Miller Center</td></tr>
+        <tr data-search="al gore democratic 2000 presidential fundraiser east hampton"><td>5</td><td>Al Gore (D) — Fundraiser Host</td><td class="amt">Hosted event</td><td>2000</td><td>Bessent hosted a fundraiser for Democratic presidential nominee Al Gore at his East Hampton residence in 2000 — the earliest documented example of his political giving. He was managing Soros's London office at the time. Source: Miller Center</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Promises & Record</span><span class="sec-source">Source: Treasury · Britannica · Wikipedia · CNN</span></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to extend the 2017 Trump tax cuts permanently.</strong></div><div class="promise-note">The "One Big Beautiful Bill" was signed July 4, 2025, making the 2017 working families tax cuts permanent. Bessent championed this as a core economic priority. Source: Treasury</div></div>
+    <div class="promise-card mixed"><div class="promise-status mixed">⚠️ Mixed</div><div class="promise-text"><strong>Promised to implement tariffs as part of a coherent economic strategy.</strong></div><div class="promise-note">Bessent has been a moderating voice on tariffs, calling 145% China tariffs "unsustainable" and helping broker the August 2025 90-day pause. He has clashed with Peter Navarro on tariff strategy — suggesting internal disagreement about the actual policy direction. Source: Britannica</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Contradiction</div><div class="promise-text"><strong>Worked for George Soros for decades, now serves Trump administration that vilifies Soros.</strong></div><div class="promise-note">Soros is the single most demonized figure in MAGA political rhetoric — accused by Trump allies of funding open borders, crime, and left-wing causes. Bessent spent years as Soros's Chief Investment Officer and launched his own firm with $2 billion from Soros. He is now the Treasury Secretary of the administration that most loudly attacks Soros. Source: Wikipedia · OpenSecrets</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Concerning</div><div class="promise-text"><strong>Allegedly threatened to physically assault a federal official at a private dinner.</strong></div><div class="promise-note">CNN reported in September 2025 that Bessent threatened to punch Federal Housing Finance Agency Director Bill Pulte in the face during a dinner at Executive Club — an exclusive MAGA-aligned group. The incident was confirmed by two sources familiar with the altercation. Source: CNN (Sept. 3, 2025)</div></div>
+  </div>
+
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Financial Disclosures & Conflicts</span><span class="sec-source">Source: OGE · Wikipedia · Sierra Club</span></div>
+    <div class="bg-card">
+      <p><strong>Net worth:</strong> Bessent's OGE financial disclosure shows a net worth of at least $521 million as of December 2024, with estimates around $600 million. Holdings included $50M+ each in S&P 500 ETFs, real estate in the Bahamas ($5–25M), a home in Cashiers, North Carolina ($5–25M), and North Dakota farmland worth up to $25 million generating up to $1 million annually in rental income — which he divested in December 2025 as part of his ethics agreement.</p>
+      <p><strong>Tax avoidance:</strong> Bessent faced scrutiny during confirmation over approximately $2 million in tax avoidance strategies — legal but politically notable for someone nominated to oversee the IRS and tax policy.</p>
+      <p><strong>DOGE and Treasury payments:</strong> One of Bessent's first acts was granting DOGE access to the Treasury Department's payment systems — systems that process trillions in federal payments including Social Security, Medicare, and federal employee salaries. This gave Elon Musk's team access to the most sensitive financial infrastructure in the federal government.</p>
+      <p><strong>CFPB shutdown:</strong> Bessent was named acting CFPB director and immediately ordered the consumer protection agency to halt all work — effectively suspending enforcement of consumer financial protection laws.</p>
+      <a href="https://www.oge.gov" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;margin-top:.5rem">View OGE Disclosures →</a>
+    </div>
+  </div>
+
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Scott Bessent does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents on DocumentCloud →</a>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">All information sourced from public records including FEC filings, OGE disclosures, Treasury, and reported journalism. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+  function filterDonors(){const q=document.getElementById('donor-search').value.toLowerCase().trim();const rows=document.querySelectorAll('#donor-table tbody tr');let v=0;rows.forEach(r=>{const m=!q||r.dataset.search.includes(q)||r.textContent.toLowerCase().includes(q);r.style.display=m?'':'none';if(m)v++});document.getElementById('donor-count').textContent=q?`Showing ${v} results`:'Showing all donors'}
+</script>
+</body>
+</html>
