@@ -8,6 +8,7 @@
     { "source": "/pete-hegseth", "destination": "/pete-hegseth.html" },
     { "source": "/rfk-jr", "destination": "/rfk-jr.html" },
     { "source": "/pam-bondi", "destination": "/pam-bondi.html" },
-    { "source": "/kash-patel", "destination": "/kash-patel.html" }
+    { "source": "/kash-patel", "destination": "/kash-patel.html" },
+    { "source": "/donors", "destination": "/donors.html" }
   ]
 }
