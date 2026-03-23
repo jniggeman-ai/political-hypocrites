@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Linda McMahon — Political Hypocrites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--amber:#b45309;--green:#15803d}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif}
+.top-rule{height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+.nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-family:'Space Mono',monospace;font-size:.6rem;text-decoration:none;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.profile-header{max-width:1000px;margin:2.5rem auto 0;padding:0 2rem 2rem;border-bottom:2px solid var(--ink)}
+.profile-eyebrow{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.05;margin-bottom:.3rem}
+.profile-title{font-size:1rem;font-style:italic;color:var(--muted);margin-bottom:1rem}
+.badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.badge{font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border:1.5px solid var(--rule);color:var(--muted)}
+.badge.red{border-color:var(--red);color:var(--red);background:#fff5f5}
+.badge.amber{border-color:var(--amber);color:var(--amber);background:#fffbeb}
+.badge.blue{border-color:var(--blue);color:var(--blue);background:#f0f4ff}
+.stat-row{display:flex;gap:0;margin-top:1rem}
+.stat-box{border:1px solid var(--rule);background:white;padding:.8rem 1rem;min-width:120px}
+.stat-box+.stat-box{border-left:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--red);line-height:1}
+.stat-lbl{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+.tabs{display:flex;border-bottom:2px solid var(--ink)}
+.tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 1.4rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+.tab-pane{display:none;padding:2rem 0}.tab-pane.active{display:block}
+.section-label{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
+p.bio{font-size:.9rem;line-height:1.8;margin-bottom:1.2rem;color:#333}
+.promise-item{border-bottom:1px solid var(--rule);padding:.9rem 0}
+.promise-status{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;display:inline-block;margin-bottom:.3rem}
+.broken{background:#fef2f2;color:var(--red);border:1px solid #fca5a5}
+.kept{background:#f0fdf4;color:#15803d;border:1px solid #86efac}
+.mixed{background:#fffbeb;color:var(--amber);border:1px solid #fcd34d}
+.promise-text{font-size:.88rem;line-height:1.6}
+.promise-note{font-size:.75rem;color:var(--muted);font-style:italic;margin-top:.25rem}
+.donor-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.donor-table th{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;padding:.5rem .8rem;background:var(--ink);color:white;text-align:left}
+.donor-table td{padding:.7rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.donor-table tr:hover td{background:white}
+.highlight-box{border-left:3px solid var(--red);background:white;padding:1rem 1.2rem;margin-bottom:1.2rem;font-size:.85rem;line-height:1.7}
+.highlight-box.amber{border-color:var(--amber)}
+.highlight-box.blue{border-color:var(--blue)}
+.highlight-box strong{color:var(--ink)}
+footer{margin-top:4rem;border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fc{font-family:'Space Mono',monospace;font-size:.57rem;color:var(--muted)}
+.bottom-rule{height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+@media(max-width:700px){nav{padding:.8rem 1.2rem}.nav-links{display:none}.stat-row{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+<a href="index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+<ul class="nav-links">
+<li><a href="/executive">Executive</a></li>
+<li><a href="#">Congress</a></li>
+<li><a href="/donors">Money</a></li>
+<li><a href="#">About</a></li>
+</ul>
+</nav>
+
+<div class="profile-header">
+<div class="profile-eyebrow">Executive Branch · Department of Education</div>
+<div class="profile-name">Linda McMahon</div>
+<div class="profile-title">13th United States Secretary of Education · Co-founder, WWE</div>
+<div class="badges">
+<span class="badge red">Confirmed 51–45</span>
+<span class="badge">March 3, 2025</span>
+<span class="badge amber">Tasked With Dismantling Her Own Department</span>
+<span class="badge amber">Largest Cabinet Donor → Appointment</span>
+<span class="badge">No Education Background</span>
+</div>
+<div class="stat-row">
+<div class="stat-box"><div class="stat-num">$21.2M</div><div class="stat-lbl">2024 donations<br>100% Republican</div></div>
+<div class="stat-box"><div class="stat-num">$144M</div><div class="stat-lbl">Spent on own<br>Senate races (lost)</div></div>
+<div class="stat-box"><div class="stat-num">51–45</div><div class="stat-lbl">Confirmation<br>party-line vote</div></div>
+<div class="stat-box"><div class="stat-num">50M</div><div class="stat-lbl">Public school<br>students affected</div></div>
+<div class="stat-box"><div class="stat-num">~$80B</div><div class="stat-lbl">Annual Dept of Ed<br>budget she oversees</div></div>
+</div>
+</div>
+
+<div class="tabs-wrap">
+<div class="tabs">
+<button class="tab-btn active" onclick="showTab('bio',this)">📋 Background</button>
+<button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+<button class="tab-btn" onclick="showTab('promises',this)">📣 Promises & Actions</button>
+<button class="tab-btn" onclick="showTab('wwe',this)">🎤 WWE Controversies</button>
+</div>
+
+<div id="tab-bio" class="tab-pane active">
+<div class="section-label">Biography</div>
+<p class="bio">Linda Marie McMahon was born in New Bern, North Carolina, in 1948. She grew up in a conservative Baptist family and attended East Carolina University, where she studied to become a French teacher — a career she never pursued. She met Vince McMahon at age 13, when her mother worked in the same building as his. They married in 1966 when Linda was 17. Together they built Titan Sports — later renamed World Wrestling Entertainment (WWE) — from a small regional wrestling operation in the northeast into a publicly traded global entertainment empire generating over $1 billion in annual revenue. Linda served as WWE's president and later CEO from 1980 to 2009.</p>
+<p class="bio">She ran for U.S. Senate in Connecticut in 2010 and 2012, spending a combined $144 million of her own money — among the most expensive Senate campaigns in state history. She lost both races to Democrat Richard Blumenthal in 2010 and Democrat Chris Murphy in 2012. She served as Trump's Small Business Administrator from 2017 to 2019. She co-founded the America First Policy Institute in 2021, an organization formed specifically to promote Trump's political agenda. She co-chaired Trump's 2024 transition team alongside Howard Lutnick.</p>
+<p class="bio">In the 2024 election cycle, McMahon donated $21.2 million to Trump and Republican causes — the largest amount given by any person who subsequently received a Cabinet appointment, cementing her status as the clearest example of the "pay to play" dynamic in the Trump administration. She was nominated for Education Secretary in November 2024 and confirmed 51–45 on March 3, 2025 — a party-line vote.</p>
+<p class="bio">As Education Secretary, McMahon has publicly stated her goal is to be "the last person to ever run" the Department of Education. She has overseen mass firings, budget cuts, and the transfer of department functions to other agencies. She is rarely seen at the department's Washington headquarters, according to multiple department employees. She has partnered with Turning Point USA and the America First Policy Institute to promote "patriotic" civics curricula in public schools. Trump signed an executive order directing her to "facilitate" the department's closure — though legally, only Congress can dismantle the agency.</p>
+</div>
+
+<div id="tab-donors" class="tab-pane">
+<div class="section-label">Political Donations — 2024 Cycle</div>
+<div class="highlight-box amber">
+<strong>Largest Cabinet donor:</strong> McMahon's $21.2M in 2024 donations was the single largest contribution by any person who subsequently received a Cabinet appointment in the Trump administration. She was appointed Education Secretary. Source: OpenSecrets / FEC
+</div>
+<table class="donor-table">
+<thead><tr><th>Recipient</th><th>Amount</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>MAGA Inc. (Trump Super PAC)</td><td>$15,000,000+</td><td>Primary recipient of McMahon 2024 giving</td></tr>
+<tr><td>Additional Republican PACs</td><td>$6,200,000+</td><td>Various conservative outside groups</td></tr>
+<tr><td><strong>Total 2024</strong></td><td><strong>$21,200,000</strong></td><td>100% to Republican groups</td></tr>
+</tbody>
+</table>
+<div class="section-label" style="margin-top:1.5rem">Career Giving</div>
+<p class="bio">McMahon and her husband Vince donated $4 million to the Donald J. Trump Foundation in 2007 and $5 million in 2009 — totaling $9 million to Trump's charity before he entered politics. This long financial relationship predates her formal role as a political donor and illustrates the personal nature of the McMahon-Trump connection.</p>
+</div>
+
+<div id="tab-promises" class="tab-pane">
+<div class="section-label">Promises & Actions as Education Secretary</div>
+<div class="promise-item">
+<span class="promise-status kept">Kept</span>
+<div class="promise-text">Promised to dismantle the Department of Education and return education control to states.</div>
+<div class="promise-note">Has followed through aggressively. Signed the department's "final mission" statement in March 2025. Mass layoffs of career staff. Transferred functions to other agencies. DOGE slashed hundreds of millions from department contracts. Trump signed executive order directing her to "facilitate" closure. Critics note she lacks legal authority to abolish the department without an act of Congress.</div>
+</div>
+<div class="promise-item">
+<span class="promise-status kept">Kept</span>
+<div class="promise-text">Promised to expand school voucher programs (school choice).</div>
+<div class="promise-note">Actively advancing voucher expansion. Critics note that vouchers redirect public school funding to private and religious schools, disproportionately affecting low-income students who cannot afford the remaining tuition gap. 90% of American students attend public schools; 95% of students with disabilities do.</div>
+</div>
+<div class="promise-item">
+<span class="promise-status kept">Kept</span>
+<div class="promise-text">Promised to eliminate DEI programs and "gender ideology" from federally funded schools.</div>
+<div class="promise-note">Executive orders and department guidance have directed schools to eliminate diversity programs or risk losing federal funding. Removed expanded Title IX protections put in place by the Biden administration.</div>
+</div>
+<div class="promise-item">
+<span class="promise-status kept">Kept</span>
+<div class="promise-text">Partnered with conservative organizations including Turning Point USA and the America First Policy Institute on a 50-state "patriotic civics" education tour.</div>
+<div class="promise-note">Critics argue this uses federal department infrastructure to promote a partisan political agenda in public schools — the same department she is simultaneously trying to dismantle.</div>
+</div>
+<div class="promise-item">
+<span class="promise-status mixed">Disputed</span>
+<div class="promise-text">Promised at confirmation hearing that eliminating the department would not affect federal education funding such as Title I and Pell Grants.</div>
+<div class="promise-note">Democratic senators called this "elegant gaslighting." Department has already cut research contracts and career staff. The distinction between the department's existence and its funding functions is legally contested. Senator Lisa Murkowski (R-AK) asked McMahon point-blank whether her primary role would be to "support and strengthen public schools" — McMahon did not directly confirm this.</div>
+</div>
+<div class="section-label" style="margin-top:1.5rem">WWE Ring Boy Lawsuit</div>
+<div class="highlight-box amber">
+<strong>Sexual abuse allegations:</strong> In October 2024, McMahon was named as a defendant in a lawsuit accusing her, her husband, and WWE of negligence regarding the "ring boy scandal" — in which WWE personnel, including ring announcer Mel Phillips and executives Pat Patterson and Terry Garvin, were accused of sexually assaulting underage boys who worked ringside in the 1980s and 1990s. The lawsuit alleges the McMahons fostered a culture of sexual abuse within WWE. McMahon has denied the claims. The lawsuit was allowed to proceed in February 2025. She filed a motion to dismiss in April 2025. The lawsuit is ongoing as of early 2026. McMahon now oversees the Department of Education, which is responsible for gender equity and the protection of 50 million public school students.
+</div>
+</div>
+
+<div id="tab-wwe" class="tab-pane">
+<div class="section-label">WWE Background & Controversies</div>
+<div class="highlight-box">
+<strong>WWE Business Model:</strong> Linda and Vince McMahon built WWE by classifying its wrestlers as "independent contractors" rather than employees — denying them health insurance, workers' compensation, and other employee protections despite treating them as full-time, exclusive company performers. This labor classification has been consistently criticized by labor advocates and former wrestlers, many of whom have suffered serious long-term health consequences including traumatic brain injury, addiction, and early death with no employer-provided safety net.
+</div>
+<div class="highlight-box amber">
+<strong>Steroid scandal:</strong> The WWF (now WWE) was at the center of a major steroid distribution scandal in the early 1990s. Federal prosecutors indicted Vince McMahon on charges of distributing anabolic steroids to wrestlers. He was acquitted in 1994. Linda was part of the company's leadership throughout this period.
+</div>
+<div class="highlight-box amber">
+<strong>Ring boy scandal:</strong> Multiple WWE personnel were accused of sexually abusing underage ring boys in the 1980s. Ring announcer Mel Phillips and executives Pat Patterson and Terry Garvin resigned or were fired in 1992. A 2024 lawsuit names Linda McMahon as a defendant, alleging she knew of or should have known about the abuse. McMahon denies the allegations.
+</div>
+<div class="highlight-box">
+<strong>Lied about education credentials:</strong> When McMahon was appointed to the Connecticut State Board of Education in 2009, she claimed to have a degree in education from East Carolina University. She does not have a degree in education — she has a bachelor's degree in French. She later resigned from the board to run for Senate.
+</div>
+</div>
+
+</div>
+</div>
+
+<footer>
+<span class="fc">© 2026 PoliticalHypocrites.us · Source: OpenSecrets · FEC · Department of Education · Congressional testimony</span>
+<span class="fc">All data from public records.</span>
+</footer>
+<div class="bottom-rule"></div>
+<script>
+function showTab(name,btn){
+document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById('tab-'+name).classList.add('active');
+btn.classList.add('active');
+}
+</script>
+</body>
+</html>
