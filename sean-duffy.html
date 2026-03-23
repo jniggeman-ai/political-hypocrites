@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sean Duffy — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .alert-banner{max-width:1000px;margin:1.2rem auto 0;padding:0 2rem}
+    .alert-inner{background:var(--ink);color:var(--paper);padding:.75rem 1.2rem;display:flex;gap:.8rem;align-items:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.04em}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .inner-search{margin-bottom:1.2rem}
+    .inner-search-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden}
+    .inner-search-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .inner-search-wrap input{flex:1;padding:.7rem 1rem;font-family:'Source Serif 4',serif;font-size:.92rem;border:none;outline:none;background:transparent}
+    .inner-search-wrap input::placeholder{color:#bbb;font-style:italic}
+    .search-icon{padding:.7rem 1rem;color:var(--muted)}
+    .results-count{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.5rem}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/executive">Executive Branch</a> › Sean Duffy</div>
+<div class="profile-header">
+  <div class="profile-photo">🚗</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Sean Duffy</h1>
+    <p class="profile-title">20th Secretary of Transportation · Former U.S. Representative, Wisconsin 7th District (2011–2019) · Former Reality TV Personality · Former Professional Lumberjack</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Wisconsin</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>October 3, 1971</div>
+      <div class="meta-item"><strong>In Office</strong>Jan 28, 2025–Present</div>
+      <div class="meta-item"><strong>Confirmed</strong>77–22 (Senate)</div>
+      <div class="meta-item"><strong>Children</strong>9</div>
+    </div>
+  </div>
+</div>
+<div class="alert-banner">
+  <div class="alert-inner">⚠️ &nbsp;Transportation lobbyists have donated tens of thousands to Duffy's son-in-law Michael Alfonso's congressional campaign while Duffy oversees the DOT — the agency that funds and regulates those same industries. A ProPublica investigation found many of these donors had never given to the district before. (March 2026)</div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">77–22</div><div class="stat-lbl">Senate Confirmation</div></div>
+  <div class="stat-box"><div class="stat-num red">$54M</div><div class="stat-lbl">University Research Grants Eliminated as "Woke"</div></div>
+  <div class="stat-box"><div class="stat-num red">$1M</div><div class="stat-lbl">From His PAC to Son-in-Law's Campaign</div></div>
+  <div class="stat-box"><div class="stat-num blue">9</div><div class="stat-lbl">Children with Rachel Campos-Duffy</div></div>
+  <div class="stat-box"><div class="stat-num red">28–0</div><div class="stat-lbl">Committee Vote to Advance Nomination</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Promises</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Finances</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background & Record</span><span class="sec-source">Source: Wikipedia · DOT · ProPublica · OpenSecrets</span></div>
+    <div class="bg-card">
+      <p>Sean Duffy grew up in Hayward, Wisconsin as the tenth of twelve children. He became a <strong>professional lumberjack</strong>, competing in the Lumberjack World Championships — winning multiple titles in speed climbing. In 1997 he appeared on <strong>MTV's The Real World: Boston</strong>, where he met his future wife Rachel Campos. He later appeared on Road Rules: All Stars.</p>
+      <p>He earned a marketing degree from St. Mary's College of Minnesota and a law degree from William Mitchell College of Law in 1999. He served as District Attorney of Ashland County, Wisconsin from 2002 to 2010.</p>
+      <p><strong>Congress (2011–2019):</strong> Duffy represented Wisconsin's 7th District for nearly a decade, serving on the House Financial Services Committee. He resigned in 2019 to prioritize his family — his wife was pregnant with their ninth child, who was born with a heart condition. After leaving Congress, he joined lobbying firm BGR Group as senior counsel representing clients including Enterprise Products and aviation industry interests. He then co-hosted Fox Business's The Bottom Line starting in 2023.</p>
+      <p><strong>Secretary of Transportation:</strong> Confirmed 77–22 in one of the more bipartisan Cabinet votes. He also briefly served as <strong>acting NASA administrator</strong> from July to December 2025. As DOT Secretary he has: reversed fuel economy standards set by Pete Buttigieg; cut California High-Speed Rail funding; cut Texas Central Railway funding; threatened to withhold $14 billion in federal transit funding from New York's MTA over subway crime; froze the $16 billion Hudson Tunnel Project over DEI concerns; eliminated $54 million in university research grants he called "woke and wasteful"; and worked to increase air traffic controllers after widespread FAA staffing concerns.</p>
+      <p><strong>Son-in-law ethics controversy:</strong> A March 2026 ProPublica investigation found that transportation industry lobbyists and executives — including a CEO whose company is seeking a DOT-issued port license — donated tens of thousands to the congressional campaign of Duffy's son-in-law Michael Alfonso, who had never run for office and has no political experience. Duffy transferred $1 million from his old campaign PAC to a super PAC supporting Alfonso. Legal experts noted the arrangement creates a clear appearance of conflict even if technically legal.</p>
+    </div>
+  </div>
+  <div id="tab-donors" class="tab-pane">
+    <div class="inner-search">
+      <div class="inner-search-wrap"><span class="search-icon">🔍</span><input type="text" id="donor-search" placeholder="Search donors…" oninput="filterDonors()" /></div>
+      <div class="results-count" id="donor-count">Showing all donors</div>
+    </div>
+    <div class="sec-hdr"><span class="sec-title">Key Donors & Funding</span><span class="sec-source">Source: <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a> · ProPublica</span></div>
+    <table class="data-table" id="donor-table">
+      <thead><tr><th>#</th><th>Donor / Source</th><th>Amount</th><th>Vehicle</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr data-search="enterprise products bgr group lobbying aviation transportation"><td>1</td><td>BGR Group Lobbying Clients</td><td class="amt high">Income (undisclosed)</td><td>Lobbying Career (2019–2023)</td><td>After leaving Congress, Duffy joined BGR Group representing transportation clients including Enterprise Products (pipeline company) and Partnership for Fair and Open Skies (aviation lobby). He was registered to lobby until 2023. He now oversees the DOT, which regulates aviation and transportation industries he previously lobbied for.</td></tr>
+        <tr data-search="northwoods future pac son in law michael alfonso super pac"><td>2</td><td>Northwoods Future PAC</td><td class="amt high">$1,000,000</td><td>Duffy PAC → Son-in-Law's Campaign</td><td>Duffy transferred $1 million from his former campaign committee to the Northwoods Future PAC, which then ran ads and mailers for his son-in-law Michael Alfonso's congressional campaign. Alfonso is running for the Wisconsin 7th District seat Duffy previously held. Source: ProPublica · FEC</td></tr>
+        <tr data-search="sharad tak st lng port license dot liquefied natural gas"><td>3</td><td>Sharad Tak (ST LNG CEO)</td><td class="amt">$7,500</td><td>Son-in-Law's Campaign</td><td>CEO of ST LNG — a company seeking a DOT-issued license for a deep-water LNG port — donated $7,500 to Alfonso's campaign. His wife gave $7,000. Neither had previously donated to candidates in the district. Tak attended a fundraiser at Lambeau Field for Alfonso where Duffy also appeared. Source: ProPublica</td></tr>
+        <tr data-search="peter bartek fts rail dot advisory committee railroad"><td>4</td><td>Peter Bartek (FTS Rail)</td><td class="amt">$3,644</td><td>Son-in-Law's Campaign</td><td>Founder of FTS Rail, which makes railroad safety equipment. Donated $3,644 to Alfonso's campaign after Duffy appointed him to a DOT advisory committee. Had never donated to candidates in the district before. Source: ProPublica</td></tr>
+        <tr data-search="fox business network income television media salary"><td>5</td><td>Fox Business Network</td><td class="amt">Salary (undisclosed)</td><td>Employment (2023–2024)</td><td>Co-hosted The Bottom Line on Fox Business from 2023 until his appointment as Transportation Secretary. Fox Business is owned by News Corp, which has significant regulatory interests before the FCC and DOT on media and telecommunications issues.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Promises & Record</span><span class="sec-source">Source: DOT · Wikipedia · ProPublica</span></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to increase air traffic controllers and prioritize aviation safety.</strong></div><div class="promise-note">Made aviation safety a stated priority after widespread FAA staffing concerns. Working to hire more air traffic controllers. Source: DOT · Confirmation hearing</div></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to clear bureaucratic hurdles for infrastructure projects.</strong></div><div class="promise-note">Has moved to speed permitting and cut red tape on some projects. Also assumed control of Pennsylvania Station. Source: DOT</div></div>
+    <div class="promise-card mixed"><div class="promise-status mixed">⚠️ Mixed</div><div class="promise-text"><strong>Promised to be a champion for rural America and infrastructure investment.</strong></div><div class="promise-note">Has selectively cut major infrastructure projects — including California High-Speed Rail and the Hudson Tunnel — while promoting others. The Hudson Tunnel freeze in particular affects millions of commuters. Critics say project selections follow political rather than infrastructure priorities. Source: Wikipedia</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Concerning</div><div class="promise-text"><strong>Overseeing a department that regulates industries whose lobbyists are donating to his son-in-law's campaign.</strong></div><div class="promise-note">ProPublica documented a pattern of transportation lobbyists donating to Alfonso's campaign while Duffy controls funding and regulation over their industries. Legal but raises serious ethics concerns. Duffy has appeared at Alfonso campaign fundraisers. Source: ProPublica (March 2026)</div></div>
+  </div>
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Financial Disclosures</span><span class="sec-source">Source: OGE · FEC</span></div>
+    <div class="bg-card">
+      <p><strong>Lobbying career income:</strong> Duffy earned income from BGR Group and advisory roles representing transportation industry clients after leaving Congress. He was registered to lobby until 2023 — he now oversees regulation of those same industries.</p>
+      <p><strong>Real estate:</strong> In August 2021, Duffy and his wife purchased a home in Far Hills, New Jersey under a principal residence mortgage, then purchased a second home in Washington D.C. under another principal residence mortgage — raising questions about dual primary residence mortgage filings.</p>
+      <p><strong>Son-in-law PAC transfer:</strong> Duffy moved $1 million from his old congressional campaign committee to a super PAC backing his son-in-law — a legal transaction that ethics experts say creates the appearance of leveraging the Transportation Secretaryship for family political benefit.</p>
+      <a href="https://www.oge.gov" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;margin-top:.5rem">View OGE Disclosures →</a>
+    </div>
+  </div>
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Sean Duffy does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents on DocumentCloud →</a>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">All information sourced from public records including FEC filings, ProPublica, OGE disclosures, and DOT. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+  function filterDonors(){const q=document.getElementById('donor-search').value.toLowerCase().trim();const rows=document.querySelectorAll('#donor-table tbody tr');let v=0;rows.forEach(r=>{const m=!q||r.dataset.search.includes(q)||r.textContent.toLowerCase().includes(q);r.style.display=m?'':'none';if(m)v++});document.getElementById('donor-count').textContent=q?`Showing ${v} results`:'Showing all donors'}
+</script>
+</body>
+</html>
