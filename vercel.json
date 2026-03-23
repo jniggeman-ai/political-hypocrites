@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
     { "source": "/executive", "destination": "/executive.html" },
     { "source": "/donald-trump", "destination": "/donald-trump.html" },
     { "source": "/jd-vance", "destination": "/jd-vance.html" },
