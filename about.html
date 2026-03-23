@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About — Political Hypocrites</title>
+  <meta name="description" content="Why this site exists, who built it, and where the data comes from."/>
+  <link rel="icon" href="/logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--amber:#b45309}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif}
+    .top-rule{height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:200}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.6rem;text-decoration:none;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+    /* ── PAGE HEADER ── */
+    .hero{max-width:1100px;margin:0 auto;padding:3rem 2rem 2rem;border-bottom:2px solid var(--ink)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.08;margin-bottom:1rem}
+    .hero h1 em{font-style:italic;color:var(--red)}
+    .hero-sub{font-size:.9rem;line-height:1.75;color:var(--muted);max-width:600px}
+
+    /* ── MAIN LAYOUT ── */
+    .content-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
+
+    /* ── SECTION HEADERS ── */
+    .section-head{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.2rem}
+    .section-head:first-child{margin-top:0}
+    .section-head h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;white-space:nowrap}
+    .section-head::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+    /* ── PROSE ── */
+    .prose p{font-size:.92rem;line-height:1.8;color:#333;margin-bottom:1rem;font-weight:300}
+    .prose p:last-child{margin-bottom:0}
+    .prose strong{font-weight:600;color:var(--ink)}
+
+    /* ── PULL QUOTE ── */
+    .pull-quote{border-left:3px solid var(--amber);background:white;padding:1rem 1.4rem;margin:1.5rem 0}
+    .pull-quote p{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;line-height:1.55;color:var(--ink);margin:0}
+
+    /* ── NOTICE (matches donors page style) ── */
+    .notice{border-left:3px solid var(--amber);background:white;padding:.8rem 1.2rem;font-size:.77rem;line-height:1.65;color:var(--muted);margin:1.2rem 0}
+    .notice strong{color:var(--ink)}
+
+    /* ── SOURCES GRID ── */
+    .sources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem}
+    .source-card{background:var(--paper);padding:1rem 1.2rem}
+    .source-card a{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;color:var(--blue);text-decoration:none;display:block;margin-bottom:.3rem;letter-spacing:.02em}
+    .source-card a:hover{text-decoration:underline}
+    .source-card p{font-size:.78rem;color:var(--muted);line-height:1.45;font-weight:300}
+
+    /* ── FAQ ── */
+    details{border-bottom:1px solid var(--rule)}
+    details:first-child{border-top:1px solid var(--rule)}
+    summary{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:.9rem 0;user-select:none}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:'+';font-family:'Space Mono',monospace;font-size:1rem;color:var(--red);flex-shrink:0;margin-left:1rem}
+    details[open] summary::after{content:'−'}
+    .faq-answer{padding:0 0 1rem;font-size:.84rem;color:#444;line-height:1.7;font-weight:300}
+
+    /* ── CONTACT BOX ── */
+    .contact-box{border:1px solid var(--rule);background:white;padding:1.5rem 1.8rem;margin-top:1rem}
+    .contact-box p{font-size:.88rem;line-height:1.7;color:#333;margin-bottom:.6rem;font-weight:300}
+    .contact-box p:last-child{margin-bottom:0}
+    .contact-box a{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--blue);font-weight:700;text-decoration:none}
+    .contact-box a:hover{text-decoration:underline}
+    .contact-note{font-size:.78rem!important;color:var(--muted)!important;font-style:italic}
+
+    /* ── DISCLAIMER ── */
+    .disclaimer{background:var(--ink);color:white;padding:1.6rem 2rem;margin-top:2.5rem}
+    .disclaimer h3{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.8rem}
+    .disclaimer p{font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:.5rem;font-weight:300}
+    .disclaimer p:last-child{margin-bottom:0}
+
+    footer{margin-top:4rem;border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .fc{font-family:'Space Mono',monospace;font-size:.57rem;color:var(--muted)}
+    .bottom-rule{height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:800px){nav{padding:.8rem 1.2rem}.nav-links{display:none}.hero{padding:2rem 1.2rem 1.5rem}.content-wrap{padding:2rem 1.2rem 4rem}.disclaimer{padding:1.2rem}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/executive">Executive</a></li>
+    <li><a href="#">Congress</a></li>
+    <li><a href="/donors">Money</a></li>
+    <li><a href="/about" class="active">About</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Both Sides Are<br><em>Full of It.</em></h1>
+  <p class="hero-sub">It took 25 years to figure that out. This site exists so it doesn't take you as long.</p>
+</div>
+
+<div class="content-wrap">
+
+  <!-- THE STORY -->
+  <div class="section-head"><h2>The Story</h2></div>
+  <div class="prose">
+    <p>My name is Julian Niggeman. I was born in November 2000 — which means I've spent my entire conscious life watching some of the most confusing, contradictory, and infuriating events in modern American history unfold in real time.</p>
+    <p>I grew up in the Philadelphia suburbs not caring about politics at all. Over the past decade, I've done the full circle — every side of this thing. And the one conclusion I've landed on, with total confidence, is this: <strong>both parties are completely full of it.</strong></p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"The two political parties in this country parade around pretending to hate each other while they continue to profit together. They keep us distracted with social movements while they're making money and putting us further into debt."</p>
+  </div>
+
+  <div class="prose">
+    <p>The information that would let you hold them accountable is all out there. But you have to jump through so many hoops to find it that most people give up. I don't think that's an accident. I think it's designed that way — so you don't look into what they vote for, who gives them money, and what committees they sit on. They'd rather you rely on their speeches and their rallies, where they get you pumped up on a dream that was never going to happen.</p>
+    <p>Over the past ten years, I've come to believe that absolutely no one in that building is serving the American people. They are serving lobbyists, foreign nations, and themselves. It's time our votes matter again. It's time our voices matter again. And it's time our politicians fight for the American people — not for the people writing the checks.</p>
+  </div>
+
+  <!-- MISSION -->
+  <div class="section-head"><h2>The Mission</h2></div>
+  <div class="prose">
+    <p>PoliticalHypocrites.us is a nonpartisan civic transparency platform. The goal is simple: take everything that's already public record and put it in one place, organized, searchable, and free.</p>
+    <p>Every vote. Every donor. Every stock trade. Every committee assignment. Every broken promise. All sourced. All documented. <strong>No spin.</strong></p>
+    <p>Both parties are tracked equally here. This isn't a left-wing site or a right-wing site. What you will find is a record of what politicians actually <em>do</em> — not what they say on television.</p>
+  </div>
+
+  <div class="notice"><strong>Tagline:</strong> "United Above, To Distract Below." That's not a slogan. That's the operating model of American politics for the last 50 years.</div>
+
+  <!-- HOW TO USE -->
+  <div class="section-head"><h2>How to Use This Site</h2></div>
+  <div class="prose">
+    <p>Every politician profile is built the same way. Click any name and you'll find:</p>
+    <p><strong>Background</strong> — career history, key facts, public positions.<br/>
+    <strong>Donors</strong> — searchable table of who funds them and how much, sourced from FEC and OpenSecrets.<br/>
+    <strong>Voting Record</strong> — full vote history via GovTrack.<br/>
+    <strong>Promises</strong> — what they said they'd do, tracked as kept, broken, or mixed.<br/>
+    <strong>War Votes</strong> — every authorization of military force, broken out separately.<br/>
+    <strong>Stock Trades</strong> — STOCK Act disclosures. See what they're buying while writing the laws.<br/>
+    <strong>Epstein Files</strong> — direct links to declassified documents where names appear, or a clear note when they don't.</p>
+    <p>Use the <a href="/donors" style="color:var(--blue);font-weight:600;">Money page</a> to search across the top individual and corporate donors to both parties — with full bios, industry tags, and party breakdowns.</p>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section-head"><h2>Data Sources</h2></div>
+  <div class="prose">
+    <p>Everything on this site is sourced from public records. Nothing is invented, inferred, or editorialized. If it's on this site, a government source is attached to it.</p>
+  </div>
+  <div class="sources-grid">
+    <div class="source-card"><a href="https://www.fec.gov" target="_blank" rel="noopener">FEC.gov</a><p>Official federal campaign finance filings — donor names, amounts, dates.</p></div>
+    <div class="source-card"><a href="https://www.opensecrets.org" target="_blank" rel="noopener">OpenSecrets.org</a><p>Donor categorization, industry breakdowns, PAC tracking.</p></div>
+    <div class="source-card"><a href="https://www.govtrack.us" target="_blank" rel="noopener">GovTrack.us</a><p>Complete congressional voting records, bill tracking, committee assignments.</p></div>
+    <div class="source-card"><a href="https://senatestockwatcher.com" target="_blank" rel="noopener">SenateStockWatcher.com</a><p>STOCK Act disclosures for Senate members.</p></div>
+    <div class="source-card"><a href="https://housestockwatcher.com" target="_blank" rel="noopener">HouseStockWatcher.com</a><p>STOCK Act disclosures for House members.</p></div>
+    <div class="source-card"><a href="https://trackaipac.com" target="_blank" rel="noopener">TrackAIPAC.com</a><p>AIPAC contributions and endorsements by politician.</p></div>
+    <div class="source-card"><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" rel="noopener">DocumentCloud</a><p>Declassified Epstein-related documents, searchable by name.</p></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-head"><h2>FAQ</h2></div>
+
+  <details>
+    <summary>Is this site affiliated with any political party?</summary>
+    <div class="faq-answer">No. Both parties are tracked equally. The site was built specifically because mainstream political media is almost entirely partisan. This site doesn't frame anything. It just shows the record.</div>
+  </details>
+  <details>
+    <summary>Who funds this site?</summary>
+    <div class="faq-answer">Nobody. This is a personal project built and maintained out of pocket. There are no advertisers, no donors, no PAC money, and no political backers. The hosting costs about the same as a Netflix subscription.</div>
+  </details>
+  <details>
+    <summary>How do I know the data is accurate?</summary>
+    <div class="faq-answer">Every data point links back to its primary source — FEC.gov, GovTrack, STOCK Act filings, and official government records. You can verify anything on this site yourself in about 30 seconds. That's the point.</div>
+  </details>
+  <details>
+    <summary>Why are there only Republicans on here right now?</summary>
+    <div class="faq-answer">The site launched during the current executive administration, so executive branch profiles came first. Congressional profiles — including Democrats — are actively being added. The mission is nonpartisan and the coverage will reflect that.</div>
+  </details>
+  <details>
+    <summary>Can I submit a tip or flag an error?</summary>
+    <div class="faq-answer">Yes — see the Contact section below. If you've found a factual error, a missing record, or something that needs updating, please reach out. Accuracy matters more than being right.</div>
+  </details>
+  <details>
+    <summary>Can I share content from this site?</summary>
+    <div class="faq-answer">All of the underlying data is already public record. Share freely. A link back is appreciated but not required.</div>
+  </details>
+
+  <!-- CONTACT -->
+  <div class="section-head"><h2>Contact &amp; Tips</h2></div>
+  <div class="contact-box">
+    <p>Found an error? Have a tip? Know of a public record that should be on here? Reach out. This site is one person — response times may vary, but every message gets read.</p>
+    <p>Email: <a href="mailto:contact@politicalhypocrites.us">contact@politicalhypocrites.us</a></p>
+    <p class="contact-note">No PR firms. No official statements. No spin. Just email like a human.</p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <h3>Legal Disclaimer</h3>
+    <p>PoliticalHypocrites.us is an independent, nonpartisan civic transparency project. All information published on this site is sourced from publicly available government records, official filings, and reputable public-interest databases.</p>
+    <p>This site does not manufacture, alter, or editorialize data. No content on this site constitutes legal advice, financial advice, or defamation. Public officials acting in their public capacity have reduced expectations of privacy with respect to their public conduct — and that public conduct is exactly what this site covers.</p>
+    <p>If you believe something on this site is factually inaccurate, contact us with documentation and it will be reviewed promptly.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="fc">© 2026 PoliticalHypocrites.us · All data sourced from public records.</span>
+  <span class="fc">Nonpartisan. Both parties. Not affiliated with any party, PAC, or candidate.</span>
+</footer>
+<div class="bottom-rule"></div>
+</body>
+</html>
