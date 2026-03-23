@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chris Wright — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .alert-banner{max-width:1000px;margin:1.2rem auto 0;padding:0 2rem}
+    .alert-inner{background:var(--ink);color:var(--paper);padding:.75rem 1.2rem;display:flex;gap:.8rem;align-items:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.04em}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .inner-search{margin-bottom:1.2rem}
+    .inner-search-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden}
+    .inner-search-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .inner-search-wrap input{flex:1;padding:.7rem 1rem;font-family:'Source Serif 4',serif;font-size:.92rem;border:none;outline:none;background:transparent}
+    .inner-search-wrap input::placeholder{color:#bbb;font-style:italic}
+    .search-icon{padding:.7rem 1rem;color:var(--muted)}
+    .results-count{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.5rem}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li>
+    <li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li>
+    <li><a href="#">Stock Trades</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/executive">Executive Branch</a> › Chris Wright</div>
+<div class="profile-header">
+  <div class="profile-photo">⚡</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Chris Wright</h1>
+    <p class="profile-title">17th Secretary of Energy · Founder & Former CEO, Liberty Energy · Pioneer of the American Shale Revolution</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Colorado</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>1965</div>
+      <div class="meta-item"><strong>In Office</strong>Feb 3, 2025–Present</div>
+      <div class="meta-item"><strong>Confirmed</strong>59–38 (Senate)</div>
+      <div class="meta-item"><strong>Education</strong>MIT (Eng.) · UC Berkeley</div>
+    </div>
+  </div>
+</div>
+<div class="alert-banner">
+  <div class="alert-inner">⚠️ &nbsp;In 2023, Wright publicly stated "There is no climate crisis." In a 2024 interview as Energy Secretary, he said "too little" atmospheric CO₂ is a "bigger risk" than rising levels — a position directly contradicted by scientific consensus. He has also falsely claimed climate change does not impact extreme weather events.</div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">59–38</div><div class="stat-lbl">Senate Confirmation</div></div>
+  <div class="stat-box"><div class="stat-num red">20%</div><div class="stat-lbl">U.S. Onshore Wells Liberty Energy Fracked</div></div>
+  <div class="stat-box"><div class="stat-num red">$2.8B</div><div class="stat-lbl">Liberty Energy Valuation (2023)</div></div>
+  <div class="stat-box"><div class="stat-num red">$747K</div><div class="stat-lbl">Donated to Trump 47 Committee + RNC</div></div>
+  <div class="stat-box"><div class="stat-num blue">$5.6M</div><div class="stat-lbl">His Liberty Energy CEO Pay (2023)</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Promises</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Finances</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background & Record</span><span class="sec-source">Source: DOE · Wikipedia · OpenSecrets · Energy and Policy Institute</span></div>
+    <div class="bg-card">
+      <p>Chris Wright grew up in Colorado and earned a mechanical engineering degree from MIT, then did graduate work in electrical engineering at MIT and UC Berkeley. He is the only member of the Trump Cabinet with an MIT degree.</p>
+      <p><strong>Career in fracking:</strong> In 1992, Wright founded Pinnacle Technologies, which created the hydraulic fracture mapping industry and helped launch commercial shale gas production in the late 1990s. He was also chairman of Stroud Energy, an early shale gas producer, until 2006. In 2011 he founded <strong>Liberty Energy</strong> (originally Liberty Oilfield Services), which grew under his leadership to become the second-largest hydraulic fracturing company in North America — fracking approximately <strong>20% of all U.S. onshore oil and gas wells</strong>. The company was valued at $2.8 billion as of 2023, and Wright earned $5.6 million as CEO that year.</p>
+      <p><strong>Climate positions:</strong> Wright is among the most outspoken climate skeptics ever appointed to lead an energy department. In a January 2023 LinkedIn video, he stated "There is no climate crisis and we're not in the midst of an energy transition either." He has called mainstream climate advocacy a movement "collapsing under its own weight." He prefers the term "climate realist" over "climate denier." After becoming Energy Secretary, he said "too little" CO₂ in the atmosphere is a "bigger risk" than rising levels — a claim with no basis in peer-reviewed science — and falsely claimed climate change does not cause more frequent extreme weather events.</p>
+      <p><strong>The fracking fluid stunt:</strong> In 2019, Wright and Liberty Energy employees drank fracking fluid on video to demonstrate it was "safe." Fracking fluid contains bleach, soap, and hazardous chemicals. The stunt was widely mocked by scientists and safety experts.</p>
+      <p><strong>Koch network ties:</strong> Wright has deep ties to the Charles Koch political donor network. In 2014 he co-wrote an op-ed with his wife saying "we proudly stand with the Kochs." He attended Koch donor summits and described Trump's first-term potential as "three parts good, one part bad." The Koch network and Heritage Foundation — which wrote Project 2025 — endorsed his nomination as Energy Secretary.</p>
+      <p><strong>Oklo conflict:</strong> Before his appointment, Wright served on the board of Oklo, a nuclear microreactor company. After he became Energy Secretary, Oklo was selected for multiple pilot projects under a new DOE reactor program he oversees. Oklo's lobbying spending surged 1,200% in the year before his appointment, from $30,000 to $390,000.</p>
+      <p><strong>Never Trump to Trump:</strong> Wright did not support Trump in 2016. He and his wife both said they would not give money to Trump. His wife voted for the Libertarian candidate. By 2024 he had donated $747,000 to the Trump 47 Committee and the RNC.</p>
+    </div>
+  </div>
+
+  <!-- DONORS -->
+  <div id="tab-donors" class="tab-pane">
+    <div class="inner-search">
+      <div class="inner-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="donor-search" placeholder="Search donors…" oninput="filterDonors()" />
+      </div>
+      <div class="results-count" id="donor-count">Showing all donors</div>
+    </div>
+    <div class="sec-hdr"><span class="sec-title">Key Donors & Political Giving</span><span class="sec-source">Source: <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a> · Energy and Policy Institute</span></div>
+    <table class="data-table" id="donor-table">
+      <thead><tr><th>#</th><th>Donor / Recipient</th><th>Amount</th><th>Vehicle</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr data-search="trump 47 committee presidential campaign donation"><td>1</td><td>Trump 47 Committee (Wright family)</td><td class="amt high">$458,000</td><td>Wright Family Living Trust</td><td>The Wright Family Living Trust donated approximately $458,000 to the Trump 47 Committee after Wright became a Trump ally. He and his wife had publicly refused to support Trump in 2016. Source: FEC · Energy and Policy Institute</td></tr>
+        <tr data-search="republican national committee rnc donation"><td>2</td><td>Republican National Committee</td><td class="amt high">$289,000</td><td>Wright Family Living Trust</td><td>Additional $289,000 to the RNC in the 2024 cycle. Combined with the Trump 47 donation, the Wrights gave ~$747K to Trump-aligned causes — despite being Never Trumpers in 2016. Source: FEC</td></tr>
+        <tr data-search="freedom partners action fund koch republican 2018"><td>3</td><td>Freedom Partners Action Fund (Koch Network)</td><td class="amt">$50,000</td><td>Personal Donation (2018)</td><td>Wright donated $50,000 in 2018 to the Koch network's Freedom Partners Action Fund, which spent $9M supporting Republicans. Confirms his long-standing Koch donor network affiliation. Source: Energy and Policy Institute</td></tr>
+        <tr data-search="harold hamm continental resources oil gas inauguration"><td>4</td><td>Harold Hamm Inaugural Watch Party</td><td class="amt">Sponsor</td><td>Liberty Energy (company)</td><td>Liberty Energy was listed as a sponsor of a Trump inaugural watch party hosted by Continental Resources CEO Harold Hamm — who had backed Wright for Energy Secretary shortly before Trump announced the pick. Source: Energy and Policy Institute</td></tr>
+        <tr data-search="eudaimonia institute wake forest charles koch foundation"><td>5</td><td>Eudaimonia Institute (Koch Foundation)</td><td class="amt">$500,000</td><td>Wright + Koch Foundation (2016)</td><td>Wright contributed $500,000 alongside the Charles Koch Foundation to launch the Eudaimonia Institute at Wake Forest University — a Koch-aligned academic research center. Source: Energy and Policy Institute</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PROMISES -->
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Promises & Record</span><span class="sec-source">Source: DOE · OpenSecrets · Wikipedia</span></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to roll back climate change policies and promote fossil fuels.</strong></div><div class="promise-note">Has overseen rollbacks of climate change mitigation policies across the DOE, released reports questioning mainstream climate science, and promoted fossil fuel use. Called Biden's climate policies "misguided." Source: Wikipedia · DOE</div></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to prioritize nuclear energy.</strong></div><div class="promise-note">Directed the largest DOE loan amounts to nuclear power projects. Oklo — the company he previously served on the board of — received pilot project selection under his leadership. Source: DOE · OpenSecrets</div></div>
+    <div class="promise-card mixed"><div class="promise-status mixed">⚠️ Mixed</div><div class="promise-text"><strong>Claimed "all of the above" approach including renewables to lower costs.</strong></div><div class="promise-note">Said during his confirmation hearing he wants to grow all energy sources including renewables. In practice, his DOE has imposed additional evaluation requirements on wind and solar projects and stepped up attacks on renewable energy. Source: Utility Dive · DOE</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Broken</div><div class="promise-text"><strong>Said "we will never give any money to support Donald Trump." (2016)</strong></div><div class="promise-note">Wright explicitly stated in 2016 he would not donate to Trump. His wife voted Libertarian. By 2024 the Wright family had donated $747,000 to the Trump 47 Committee and the RNC, and Wright became Trump's Energy Secretary. Source: Energy and Policy Institute · FEC</div></div>
+  </div>
+
+  <!-- FINANCES -->
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Financial Disclosures & Conflicts</span><span class="sec-source">Source: OGE · OpenSecrets · Senate Disclosures</span></div>
+    <div class="bg-card">
+      <p><strong>Liberty Energy stake:</strong> Wright founded Liberty Energy and held a significant ownership stake when appointed. As Energy Secretary he now oversees federal energy policy that directly affects the fracking industry his company dominates. Liberty Energy fracks approximately 20% of all U.S. onshore wells — making it one of the most directly government-regulated companies whose founder now runs the regulatory apparatus.</p>
+      <p><strong>Oklo conflict:</strong> Wright served on the board of Oklo, a nuclear microreactor startup, before his appointment. After becoming Energy Secretary, Oklo was selected for DOE pilot reactor projects and its lobbying spend surged from $30,000 to $734,000 in the 18 months surrounding his appointment. Wright was required to recuse himself from Oklo-related decisions, but the company has nonetheless benefited substantially from DOE priorities he set.</p>
+      <p><strong>Federal Reserve Bank of New York:</strong> Wright served on the board of the NY Fed from 2020 to 2024 — his only prior government-adjacent role before becoming Energy Secretary.</p>
+      <p>Full financial disclosures available through the Office of Government Ethics:</p>
+      <a href="https://www.oge.gov" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;margin-top:.5rem">View OGE Disclosures →</a>
+    </div>
+  </div>
+
+  <!-- EPSTEIN -->
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Chris Wright does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/>
+      <a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents on DocumentCloud →</a>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">All information sourced from public government records including FEC filings, OGE disclosures, Federal Register, OpenSecrets, and officially released documents. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span>
+  <span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span>
+</footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+  function filterDonors(){const q=document.getElementById('donor-search').value.toLowerCase().trim();const rows=document.querySelectorAll('#donor-table tbody tr');let v=0;rows.forEach(r=>{const m=!q||r.dataset.search.includes(q)||r.textContent.toLowerCase().includes(q);r.style.display=m?'':'none';if(m)v++});document.getElementById('donor-count').textContent=q?`Showing ${v} results`:'Showing all donors'}
+</script>
+</body>
+</html>

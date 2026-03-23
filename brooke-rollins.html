@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brooke Rollins — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .amt{font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700}
+    .amt.high{color:var(--red)}
+    .promise-card{border-left:3px solid var(--rule);padding:1rem 1.2rem;background:white;margin-bottom:.9rem}
+    .promise-card.broken{border-left-color:var(--red)}.promise-card.kept{border-left-color:var(--green)}.promise-card.mixed{border-left-color:var(--amber)}
+    .promise-status{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+    .promise-status.broken{color:var(--red)}.promise-status.kept{color:var(--green)}.promise-status.mixed{color:var(--amber)}
+    .promise-text{font-size:.88rem;line-height:1.6}
+    .promise-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.4rem;line-height:1.5}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .inner-search{margin-bottom:1.2rem}
+    .inner-search-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden}
+    .inner-search-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .inner-search-wrap input{flex:1;padding:.7rem 1rem;font-family:'Source Serif 4',serif;font-size:.92rem;border:none;outline:none;background:transparent}
+    .inner-search-wrap input::placeholder{color:#bbb;font-style:italic}
+    .search-icon{padding:.7rem 1rem;color:var(--muted)}
+    .results-count{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.5rem}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Congress</a></li>
+    <li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li>
+    <li><a href="#">Stock Trades</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/executive">Executive Branch</a> › Brooke Rollins</div>
+<div class="profile-header">
+  <div class="profile-photo">🌾</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Brooke Rollins</h1>
+    <p class="profile-title">33rd Secretary of Agriculture · Founder & Former CEO, America First Policy Institute · Former Trump White House Domestic Policy Director</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Texas</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>April 10, 1972</div>
+      <div class="meta-item"><strong>In Office</strong>Feb 13, 2025–Present</div>
+      <div class="meta-item"><strong>Confirmed</strong>72–28 (Senate)</div>
+      <div class="meta-item"><strong>Education</strong>Texas A&M · UT Law</div>
+    </div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">72–28</div><div class="stat-lbl">Senate Confirmation</div></div>
+  <div class="stat-box"><div class="stat-num red">42M</div><div class="stat-lbl">Americans on SNAP She Oversees</div></div>
+  <div class="stat-box"><div class="stat-num red">58M</div><div class="stat-lbl">Forest Acres Opened by Ending Roadless Rule</div></div>
+  <div class="stat-box"><div class="stat-num blue">15</div><div class="stat-lbl">Years Running Texas Public Policy Foundation</div></div>
+  <div class="stat-box"><div class="stat-num red">21</div><div class="stat-lbl">Blue States That Refused SNAP Data Request</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('promises',this)">📣 Promises</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Finances</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background & Record</span><span class="sec-source">Source: USDA · Wikipedia · Agriculture Dive · Union of Concerned Scientists</span></div>
+    <div class="bg-card">
+      <p>Brooke Rollins grew up on a farm in Glen Rose, Texas — a small town outside Fort Worth. She was deeply involved in 4-H and the Future Farmers of America in high school. She attended Texas A&M University, where she graduated with honors in agricultural development in 1994 and became the <strong>first woman ever elected student body president</strong> at Texas A&M. She earned her law degree with honors from the University of Texas School of Law.</p>
+      <p><strong>Texas Public Policy Foundation (2003–2018):</strong> Rollins was tapped by Wendy Gramm (wife of Senator Phil Gramm) to run the Texas Public Policy Foundation, a conservative think tank. She grew it from a staff of 3 to a staff of 100 over 15 years. During her tenure, TPPF advocated for ending agriculture subsidies for farmers and opposed ethanol requirements for fuels — positions that came back to haunt her confirmation process. In 2011 Texas Monthly named her one of the 25 most powerful Texans.</p>
+      <p><strong>Trump White House (2018–2021):</strong> She joined Trump's first term as Director of the Office of American Innovation, then became the acting Director of the Domestic Policy Council. She helped develop Trump's first-term domestic policy agenda.</p>
+      <p><strong>America First Policy Institute (2021–2025):</strong> Rollins co-founded AFPI with Larry Kudlow in 2021 as a policy shop to develop the agenda for a potential Trump second term. The organization grew into one of the most influential conservative policy groups in the country. Linda McMahon — also appointed to Trump's Cabinet — was AFPI's chairwoman, meaning two AFPI leaders received Cabinet appointments. Rollins was also briefly considered for White House Chief of Staff, which went to Susie Wiles.</p>
+      <p><strong>Secretary of Agriculture:</strong> Confirmed 72–28. She is only the second woman to serve as USDA Secretary, after Ann Veneman (2001–2005). Progressive groups criticized her appointment, noting she "appears to have no agricultural policy track record" — particularly given TPPF's historical opposition to farm subsidies. The Union of Concerned Scientists called it "another example of President-elect Trump doling out cabinet appointments for loyalty rather than expertise."</p>
+      <p>As USDA Secretary, she oversees SNAP — the Supplemental Nutrition Assistance Program — which feeds <strong>42 million Americans</strong> including 16 million children and 8 million seniors. She ended the Clinton-era "roadless rule" that had protected 58 million acres of national forest from road construction. She suspended federal funding to Minnesota and Minneapolis in January 2026 over alleged SNAP fraud. She demanded all 50 states provide SNAP recipient data to verify immigration status — 21 states refused and 2 sued.</p>
+    </div>
+  </div>
+
+  <!-- DONORS -->
+  <div id="tab-donors" class="tab-pane">
+    <div class="inner-search">
+      <div class="inner-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="donor-search" placeholder="Search donors…" oninput="filterDonors()" />
+      </div>
+      <div class="results-count" id="donor-count">Showing all donors</div>
+    </div>
+    <div class="sec-hdr"><span class="sec-title">Funding & Donors</span><span class="sec-source">Source: <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://www.opensecrets.org" target="_blank">OpenSecrets.org</a></span></div>
+    <table class="data-table" id="donor-table">
+      <thead><tr><th>#</th><th>Donor / Organization</th><th>Amount</th><th>Vehicle</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr data-search="america first policy institute afpi think tank trump donors"><td>1</td><td>America First Policy Institute (AFPI)</td><td class="amt high">Undisclosed</td><td>501(c)(3) Think Tank</td><td>Rollins founded and led AFPI, which raised tens of millions from undisclosed donors — as a 501(c)(3) it is not required to disclose contributors. AFPI donors include major Republican megadonors and corporate interests. The organization was explicitly created to develop the Trump second-term policy agenda. Source: OpenSecrets</td></tr>
+        <tr data-search="texas public policy foundation tppf conservative donor network"><td>2</td><td>Texas Public Policy Foundation (TPPF)</td><td class="amt high">Undisclosed</td><td>501(c)(3) Think Tank</td><td>Rollins ran TPPF for 15 years. TPPF is funded by oil and gas companies, the Koch network, and corporate donors. During her tenure it grew from 3 to 100 staff and became one of the most influential state-based conservative think tanks in the country. Source: TPPF · Energy and Policy Institute</td></tr>
+        <tr data-search="american farm bureau federation agribusiness agriculture support"><td>3</td><td>American Farm Bureau Federation</td><td class="amt">Endorsement</td><td>Industry Endorsement</td><td>The American Farm Bureau Federation — the largest agricultural lobbying organization in the U.S. — supported Rollins' nomination to USDA. They represent large commercial farming interests. Source: Agriculture Dive</td></tr>
+        <tr data-search="national cattlemen beef association meat agriculture lobby"><td>4</td><td>National Cattlemen's Beef Association</td><td class="amt">Endorsement</td><td>Industry Endorsement</td><td>National Cattlemen's Beef Association endorsed her nomination. NCBA is one of the most powerful agribusiness lobbies in Washington, opposing country-of-origin labeling and other consumer protections. Source: Agriculture Dive</td></tr>
+        <tr data-search="rick perry governor texas policy director tppf connection"><td>5</td><td>Rick Perry Network</td><td class="amt">Career Connection</td><td>Career Launch</td><td>Rollins' political career began as policy director to Governor Rick Perry (R-TX). Perry was later Trump's first Secretary of Energy. Her Perry connection was her entry into the Texas conservative political establishment that launched her career at TPPF. Source: USDA · Wikipedia</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PROMISES -->
+  <div id="tab-promises" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Promises & Record</span><span class="sec-source">Source: USDA · Wikipedia · Agriculture Dive</span></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Promised to fight for American farmers and protect food self-sufficiency.</strong></div><div class="promise-note">Has focused on agricultural trade and promoting U.S. farm exports. Supported tariff policies marketed as protecting American farmers, though farm groups have raised concerns about retaliatory tariffs from trading partners. Source: USDA</div></div>
+    <div class="promise-card kept"><div class="promise-status kept">✅ Kept</div><div class="promise-text"><strong>Ended the Clinton-era "roadless rule" protecting national forests.</strong></div><div class="promise-note">Announced in June 2025 the end of the roadless rule, which had protected 58 million acres of national forest from road construction since 2001. Rollins called the rule "absurd obstacles to common-sense management." Critics called it a giveaway to logging and mining interests. Source: Wikipedia · USDA</div></div>
+    <div class="promise-card mixed"><div class="promise-status mixed">⚠️ Mixed</div><div class="promise-text"><strong>Promised SNAP integrity — verifying that benefits only go to eligible recipients.</strong></div><div class="promise-note">Demanded all 50 states share SNAP recipient data to verify immigration eligibility. 29 states complied, 21 refused, and 2 sued. Suspended USDA funding to Minnesota and Minneapolis in January 2026 over alleged SNAP fraud — a legally contested action that Democrats called an improper use of federal funding powers. Source: SecRollins X · USDA</div></div>
+    <div class="promise-card broken"><div class="promise-status broken">⛔ Broken (Prior Position)</div><div class="promise-text"><strong>Texas Public Policy Foundation opposed farm subsidies while Rollins led it.</strong></div><div class="promise-note">During her 15 years at TPPF, the organization advocated for eliminating agriculture subsidies and opposed ethanol fuel mandates — positions that benefit small farmers and rural communities. As Agriculture Secretary she now administers and defends those same programs. Source: Wikipedia · Agriculture Dive</div></div>
+  </div>
+
+  <!-- FINANCES -->
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Financial Disclosures</span><span class="sec-source">Source: OGE · Senate Disclosures</span></div>
+    <div class="bg-card">
+      <p><strong>AFPI Compensation:</strong> Rollins was President and CEO of the America First Policy Institute from 2021 until March 2025. AFPI is a 501(c)(3) and does not disclose its donors or executive compensation publicly. Her income from the organization is detailed in her Senate financial disclosures.</p>
+      <p><strong>Think Tank Funding Networks:</strong> Both TPPF and AFPI are funded by networks of corporate and individual donors with direct interests in USDA policy — including agribusiness, oil and gas (which intersects with farm energy use), and conservative foundations. As USDA Secretary, Rollins now regulates industries that funded the organizations she led for two decades.</p>
+      <p><strong>Sworn in by Clarence Thomas:</strong> Rollins was sworn in by Supreme Court Associate Justice Clarence Thomas — a notable choice that reflects her deep ties to the conservative legal and political establishment.</p>
+      <p>Full financial disclosures available through the Office of Government Ethics:</p>
+      <a href="https://www.oge.gov" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;margin-top:.5rem">View OGE Disclosures →</a>
+    </div>
+  </div>
+
+  <!-- EPSTEIN -->
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Brooke Rollins does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/>
+      <a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents on DocumentCloud →</a>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">All information sourced from public government records including FEC filings, OGE disclosures, Federal Register, OpenSecrets, and officially released documents. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span>
+  <span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span>
+</footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+  function filterDonors(){const q=document.getElementById('donor-search').value.toLowerCase().trim();const rows=document.querySelectorAll('#donor-table tbody tr');let v=0;rows.forEach(r=>{const m=!q||r.dataset.search.includes(q)||r.textContent.toLowerCase().includes(q);r.style.display=m?'':'none';if(m)v++});document.getElementById('donor-count').textContent=q?`Showing ${v} results`:'Showing all donors'}
+</script>
+</body>
+</html>
