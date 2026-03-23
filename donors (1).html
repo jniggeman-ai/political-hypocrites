@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Who Buys American Politics — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--amber:#b45309}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif}
+    .top-rule{height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:200}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.6rem;text-decoration:none;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+    .hero{max-width:1100px;margin:0 auto;padding:3rem 2rem 2rem;display:grid;grid-template-columns:1fr 360px;gap:3rem;align-items:end;border-bottom:2px solid var(--ink)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.08;margin-bottom:1rem}
+    .hero h1 em{font-style:italic;color:var(--red)}
+    .hero p{font-size:.9rem;line-height:1.75;color:var(--muted);max-width:540px}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .stat-cell{background:var(--paper);padding:1rem .9rem}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--red);line-height:1}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;line-height:1.4}
+    .notice-wrap{max-width:1100px;margin:1.5rem auto 0;padding:0 2rem}
+    .notice{border-left:3px solid var(--amber);background:white;padding:.8rem 1.2rem;font-size:.77rem;line-height:1.65;color:var(--muted)}
+    .notice strong{color:var(--ink)}
+    .tabs-wrap{max-width:1100px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);margin-bottom:2rem}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 1.6rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .search-bar{display:flex;gap:1rem;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap}
+    .search-input-wrap{display:flex;border:1.5px solid var(--ink);background:white;overflow:hidden;flex:1;max-width:440px}
+    .search-input-wrap:focus-within{box-shadow:3px 3px 0 var(--ink)}
+    .search-input-wrap input{flex:1;padding:.65rem .9rem;font-family:'Source Serif 4',serif;font-size:.87rem;border:none;outline:none;background:transparent}
+    .search-input-wrap input::placeholder{color:#bbb;font-style:italic}
+    .si{padding:.65rem .9rem;color:var(--muted)}
+    .filter-btns{display:flex;gap:.35rem;flex-wrap:wrap}
+    .filter-btn{font-family:'Space Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.32rem .65rem;border:1.5px solid var(--rule);background:transparent;cursor:pointer;color:var(--muted)}
+    .filter-btn.active{background:var(--ink);color:white;border-color:var(--ink)}
+    .result-count{font-family:'Space Mono',monospace;font-size:.57rem;color:var(--muted);margin-bottom:1rem}
+    .donor-grid{display:flex;flex-direction:column}
+    .donor-card{display:grid;grid-template-columns:48px 1fr 200px 130px;border-bottom:1px solid var(--rule);background:var(--paper)}
+    .donor-card:hover{background:white}
+    .donor-card.hidden{display:none}
+    .card-rank{padding:1.4rem .9rem 1.4rem 0;display:flex;align-items:flex-start;justify-content:flex-end}
+    .rn{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;color:var(--muted)}
+    .card-main{padding:1.2rem 1.4rem 1.2rem 0}
+    .card-name{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;margin-bottom:.12rem}
+    .card-title{font-family:'Space Mono',monospace;font-size:.51rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+    .card-bio{font-size:.79rem;line-height:1.65;color:#444}
+    .card-bio.collapsed{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .card-tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.4rem}
+    .tag{font-family:'Space Mono',monospace;font-size:.46rem;letter-spacing:.06em;text-transform:uppercase;padding:.12rem .36rem;border:1px solid var(--rule);color:var(--muted)}
+    .tag.r{border-color:#fca5a5;color:var(--red);background:#fff5f5}
+    .tag.b{border-color:#93c5fd;color:var(--blue);background:#f0f4ff}
+    .tag.a{border-color:#fcd34d;color:var(--amber);background:#fffbeb}
+    .rm{font-family:'Space Mono',monospace;font-size:.49rem;text-transform:uppercase;color:var(--muted);cursor:pointer;background:none;border:none;padding:0;margin-top:.25rem;text-decoration:underline;display:block}
+    .card-bar{padding:1.4rem .9rem;display:flex;flex-direction:column;gap:.35rem}
+    .party-label{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+    .bar-track{height:9px;background:#e5e0d4;border-radius:1px;overflow:hidden;display:flex}
+    .br{background:var(--red);height:100%}
+    .bd{background:var(--blue);height:100%}
+    .bar-pcts{display:flex;justify-content:space-between}
+    .pr{font-family:'Space Mono',monospace;font-size:.54rem;font-weight:700;color:var(--red)}
+    .pd{font-family:'Space Mono',monospace;font-size:.54rem;font-weight:700;color:var(--blue)}
+    .card-amount{padding:1.4rem .9rem;display:flex;flex-direction:column;border-left:1px solid var(--rule)}
+    .amt{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;line-height:1.2}
+    .amt-sub{font-family:'Space Mono',monospace;font-size:.47rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;line-height:1.5}
+    .tab-pane{display:none}.tab-pane.active{display:block}
+    footer{margin-top:4rem;border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .fc{font-family:'Space Mono',monospace;font-size:.57rem;color:var(--muted)}
+    .bottom-rule{height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:800px){nav{padding:.8rem 1.2rem}.nav-links{display:none}.hero{grid-template-columns:1fr}.donor-card{grid-template-columns:40px 1fr}.card-bar,.card-amount{grid-column:2}.card-amount{border-left:none;border-top:1px solid var(--rule)}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/executive">Executive</a></li>
+    <li><a href="#">Congress</a></li>
+    <li><a href="donors.html" class="active">Money</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div>
+    <h1>Who <em>Buys</em><br>American Politics</h1>
+    <p>Every name on this page is public record. These individuals and organizations have spent billions influencing U.S. elections and policy. The ones who split evenly between parties are not moderates — they are buying access to whoever wins. All data from OpenSecrets and FEC filings.</p>
+  </div>
+  <div>
+    <div class="stat-grid">
+      <div class="stat-cell"><div class="stat-num">$16B+</div><div class="stat-lbl">Total 2024<br>election spending</div></div>
+      <div class="stat-cell"><div class="stat-num">$1.9B</div><div class="stat-lbl">Dark money<br>undisclosed 2024</div></div>
+      <div class="stat-cell"><div class="stat-num">100</div><div class="stat-lbl">People gave<br>70% of big donations</div></div>
+      <div class="stat-cell"><div class="stat-num">16:1</div><div class="stat-lbl">Corporate vs.<br>union spending</div></div>
+    </div>
+  </div>
+</div>
+<div class="notice-wrap">
+  <div class="notice"><strong>On party splits:</strong> Percentages reflect disclosed contributions only. Dark money flows through 501(c)(4) nonprofits and is not required to be disclosed. Donors who split 50/50 are not moderate — they are purchasing access to both parties simultaneously. Source: <strong>OpenSecrets.org · FEC.gov</strong></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('ind',this)">👤 Top 50 Individual Donors</button>
+    <button class="tab-btn" onclick="showTab('corp',this)">🏢 Top 50 Organizations</button>
+  </div>
+  <!-- INDIVIDUALS TAB -->
+  <div id="tab-ind" class="tab-pane active">
+    <div class="search-bar">
+      <div class="search-input-wrap"><span class="si">🔍</span><input type="text" id="ind-search" placeholder="Search name, industry, background…" oninput="filterCards('ind')"></div>
+      <div class="filter-btns">
+        <button class="filter-btn active" onclick="setFilter('ind','all',this)">All</button>
+        <button class="filter-btn" onclick="setFilter('ind','rep',this)">Republican</button>
+        <button class="filter-btn" onclick="setFilter('ind','dem',this)">Democrat</button>
+        <button class="filter-btn" onclick="setFilter('ind','split',this)">Both Parties</button>
+      </div>
+    </div>
+    <div class="result-count" id="ind-count">Showing all 50 donors · Source: OpenSecrets · FEC</div>
+    <div class="donor-grid" id="ind-grid">
+
+<!-- IND 01 -->
+<div class="donor-card" data-search="elon musk tesla spacex x america pac doge tech" data-lean="rep">
+<div class="card-rank"><span class="rn">01</span></div>
+<div class="card-main">
+<div class="card-name">Elon Musk</div>
+<div class="card-title">CEO — Tesla / SpaceX / X (formerly Twitter)</div>
+<div class="card-bio collapsed">The world's wealthiest person with a net worth exceeding $300 billion. Born in South Africa, Musk co-founded PayPal before founding SpaceX in 2002 and taking over Tesla in 2004. In 2022 he purchased Twitter for $44 billion and rebranded it X, giving him direct control over the dominant political information platform in America. He founded America PAC in May 2024 specifically to back Trump, personally managed canvassing operations in swing states, and ran a $1 million per day lottery for registered voters — which the DOJ warned may violate federal election law. After Trump's victory, Musk was appointed to lead DOGE, granting him unprecedented access to federal payment systems and personnel records. His companies SpaceX and Tesla hold billions in federal contracts, creating substantial conflicts of interest. Before 2020, Musk had donated primarily to Democrats and described himself as "half Democrat, half Republican."</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Technology</span><span class="tag a">Leads DOGE · Federal Contracts</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$291M+</div><div class="amt-sub">2024 cycle<br>America PAC<br>+ direct</div></div>
+</div>
+
+<!-- IND 02 -->
+<div class="donor-card" data-search="timothy mellon banking heir maga republican railroad anonymous secret" data-lean="rep">
+<div class="card-rank"><span class="rn">02</span></div>
+<div class="card-main">
+<div class="card-name">Timothy Mellon</div>
+<div class="card-title">Heir — Mellon Banking Dynasty</div>
+<div class="card-bio collapsed">The most secretive megadonor in American politics. His grandfather Andrew Mellon was one of the wealthiest Americans in history — banker, industrialist, and Treasury Secretary under three presidents in the 1920s–30s. Timothy built his own fortune through the Pan Am Railway, a railroad tie manufacturer and regional railroad. He has never appeared on television, never attended a political convention, and rarely speaks publicly — despite being the second-largest individual donor in the 2024 cycle. Before 2018 he had made no disclosed federal contributions over $1 million. Since then he has given $277M+ almost entirely to Trump and MAGA causes. He also gave $25 million to RFK Jr.'s independent presidential campaign, making him arguably the most influential anonymous political force in modern American politics.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">98% Republican</span><span class="tag">Inherited Wealth / Railroad</span><span class="tag a">Virtually Unknown to Public</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:98%"></div><div class="bd" style="width:2%"></div></div><div class="bar-pcts"><span class="pr">98% R</span><span class="pd">2% D</span></div></div>
+<div class="card-amount"><div class="amt">$197M+</div><div class="amt-sub">2024 cycle<br>MAGA Inc. + others</div></div>
+</div>
+
+<!-- IND 03 -->
+<div class="donor-card" data-search="miriam adelson casino las vegas sands republican israel marco rubio netanyahu" data-lean="rep">
+<div class="card-rank"><span class="rn">03</span></div>
+<div class="card-main">
+<div class="card-name">Miriam Adelson</div>
+<div class="card-title">Physician & Casino Owner — Widow of Sheldon Adelson</div>
+<div class="card-bio collapsed">Israeli-American physician and owner of the Las Vegas Sands casino empire, which she inherited when husband Sheldon died in January 2021. She and Sheldon were for over a decade the single largest force in Republican politics, together spending over $500M. She owns the Dallas Mavericks NBA franchise. She is also the publisher of Israel Hayom, Israel's largest-circulation daily newspaper, which she funds as a free tabloid specifically to support Netanyahu. A close personal friend of Netanyahu, her donations have consistently shaped Republican foreign policy on Israel. Her $120M donation in 2024 was specifically credited by political insiders with securing Marco Rubio's nomination as Secretary of State. She revived the "Preserve America" Super PAC specifically for the 2024 cycle.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Casino / Gambling</span><span class="tag">Pro-Israel</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$106M</div><div class="amt-sub">2024 cycle<br>Preserve America PAC</div></div>
+</div>
+
+<!-- IND 04 -->
+<div class="donor-card" data-search="richard elizabeth uihlein uline shipping republican conservative hard right club growth" data-lean="rep">
+<div class="card-rank"><span class="rn">04</span></div>
+<div class="card-main">
+<div class="card-name">Richard & Elizabeth Uihlein</div>
+<div class="card-title">Co-founders — Uline Shipping Supplies</div>
+<div class="card-bio collapsed">Richard Uihlein is the CEO of Uline, one of the largest privately held U.S. companies, selling shipping and packaging supplies and generating approximately $5 billion annually. He and Elizabeth have become two of the most consistent and ideologically committed Republican megadonors in the country, backing the hard-right wing of the party. They are the top donors to Club for Growth — a super PAC used specifically to primary (challenge in Republican primaries) any Republican deemed insufficiently conservative — and to Restoration PAC. Richard has described his political giving as driven by opposition to taxes, regulations, and government overreach. Together they have essentially funded the rise of the most conservative wing of the Republican Party over the past decade.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Manufacturing / Shipping</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$84M</div><div class="amt-sub">2024 cycle<br>Restoration PAC + others</div></div>
+</div>
+
+<!-- IND 05 -->
+<div class="donor-card" data-search="ken griffin citadel hedge fund republican market maker desantis establishment" data-lean="rep">
+<div class="card-rank"><span class="rn">05</span></div>
+<div class="card-main">
+<div class="card-name">Kenneth Griffin</div>
+<div class="card-title">Founder & CEO — Citadel LLC & Citadel Securities</div>
+<div class="card-bio collapsed">Kenneth Griffin started trading from his Harvard dorm room in 1987 and founded Citadel at 22. It is now one of the world's most profitable hedge funds. He also founded Citadel Securities, which is the largest market maker in U.S. equities — processing a significant portion of every stock trade made in America. He relocated Citadel from Chicago to Miami in 2022, citing crime and Illinois tax policy. He initially backed Ron DeSantis over Trump in the 2024 primary before switching. He donated $10M each to the Senate Leadership Fund and Congressional Leadership Fund. His giving represents the "establishment" Republican donor class as distinct from the MAGA populist wing — a tension that defines current Republican politics. Net worth exceeds $40 billion.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">97% Republican</span><span class="tag">Hedge Fund / Market Making</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:97%"></div><div class="bd" style="width:3%"></div></div><div class="bar-pcts"><span class="pr">97% R</span><span class="pd">3% D</span></div></div>
+<div class="card-amount"><div class="amt">$100M</div><div class="amt-sub">2024 cycle<br>Multiple PACs</div></div>
+</div>
+
+<!-- IND 06 -->
+<div class="donor-card" data-search="jeffrey yass susquehanna tiktok bytedance republican options trading policy outcome ban reversed" data-lean="rep">
+<div class="card-rank"><span class="rn">06</span></div>
+<div class="card-main">
+<div class="card-name">Jeffrey & Janine Yass</div>
+<div class="card-title">Co-founder — Susquehanna International Group</div>
+<div class="card-bio collapsed">Jeffrey Yass co-founded Susquehanna International Group, one of the world's largest options trading firms, based in suburban Philadelphia. His firm owns a large stake in ByteDance — TikTok's Chinese parent company — worth tens of billions of dollars. After Yass made massive donations to Trump and MAGA causes in 2024, Trump reversed course on the TikTok ban that Congress had signed into law, repeatedly granting TikTok extensions and seeking a deal that would allow the app to continue operating. This is one of the most clearly documented examples in recent American political history of a specific policy outcome following a mega-donation. Yass rarely appears in media and remains one of the least publicly known of the top ten individual donors in the country.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Options Trading</span><span class="tag a">TikTok Stake → TikTok Ban Reversed</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$100M+</div><div class="amt-sub">2024 cycle<br>MAGA Inc. + others</div></div>
+</div>
+
+<!-- IND 07 -->
+<div class="donor-card" data-search="paul singer elliott management hedge fund republican israel debt vulture sovereign" data-lean="rep">
+<div class="card-rank"><span class="rn">07</span></div>
+<div class="card-main">
+<div class="card-name">Paul Singer</div>
+<div class="card-title">Founder — Elliott Management</div>
+<div class="card-bio collapsed">Paul Singer founded Elliott Management in 1977, turning it into one of the most feared activist hedge funds in the world. Elliott is known for purchasing distressed sovereign debt at pennies on the dollar and then suing entire countries — Argentina, Congo, Peru — for full repayment. Singer is one of the most consistent establishment Republican donors over three decades. He was a prominent "Never Trump" voice in 2016 before eventually aligning with the party. He is a strong pro-Israel advocate and early funder of the Foundation for Defense of Democracies. Notably, he is one of the GOP's most prominent large donors who publicly supports same-sex marriage — having donated to marriage equality efforts — making him ideologically distinctive within the Republican megadonor class.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Hedge Fund</span><span class="tag">Pro-Israel</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$66.8M</div><div class="amt-sub">2024 cycle<br>Republican PACs</div></div>
+</div>
+
+<!-- IND 08 -->
+<div class="donor-card" data-search="michael bloomberg democrat media financial new york mayor gun control climate everytown" data-lean="dem">
+<div class="card-rank"><span class="rn">08</span></div>
+<div class="card-main">
+<div class="card-name">Michael Bloomberg</div>
+<div class="card-title">Founder — Bloomberg LP · Former Mayor of New York City</div>
+<div class="card-bio collapsed">Co-founded Bloomberg LP in 1981 — the financial data terminal and media company that bears his name and employs over 20,000 people globally. Served three terms as Mayor of New York City (2002–2013), originally as a Republican before switching to independent, then Democrat. Net worth approximately $104 billion. Spent over $1 billion of his own money on a 104-day presidential campaign in 2020 that ended before a single primary vote. He is the single largest donor to gun control advocacy in American history through Everytown for Gun Safety. Also funds climate advocacy through Bloomberg Philanthropies. Despite being the top Democratic-aligned individual donor in 2024, he gave $1 million to Republican causes — reflecting his centrist, technocratic political identity more than pure party loyalty.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">98% Democrat</span><span class="tag">Media / Finance</span><span class="tag">Gun Control · Climate</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:2%"></div><div class="bd" style="width:98%"></div></div><div class="bar-pcts"><span class="pr">2% R</span><span class="pd">98% D</span></div></div>
+<div class="card-amount"><div class="amt">$64.6M</div><div class="amt-sub">2024 cycle<br>Democratic PACs + direct</div></div>
+</div>
+
+<!-- IND 09 -->
+<div class="donor-card" data-search="marc andreessen ben horowitz a16z venture capital crypto republican flipped switched party" data-lean="rep">
+<div class="card-rank"><span class="rn">09</span></div>
+<div class="card-main">
+<div class="card-name">Marc Andreessen & Ben Horowitz</div>
+<div class="card-title">Co-founders — Andreessen Horowitz (a16z)</div>
+<div class="card-bio collapsed">Co-founders of a16z, one of the most powerful venture capital firms in Silicon Valley with $35 billion in assets under management. Marc Andreessen created the Mosaic web browser in 1993 and co-founded Netscape, launching the commercial internet era. The pair had historically donated to both parties. In mid-2024 they publicly announced they were backing Trump and the Republican Party, explicitly citing the GOP's commitment to cryptocurrency deregulation as the primary reason — their firm has enormous investments in crypto companies that benefit from lighter regulation. Ben Horowitz had previously and publicly backed Bernie Sanders in 2016. The switch was immediate and complete: they donated $47M to pro-crypto Republican PACs and appeared at the Republican National Convention.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">85% Republican (switched)</span><span class="tag">Venture Capital</span><span class="tag a">Flipped Party for Crypto Deregulation</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:85%"></div><div class="bd" style="width:15%"></div></div><div class="bar-pcts"><span class="pr">85% R</span><span class="pd">15% D</span></div></div>
+<div class="card-amount"><div class="amt">$47M+</div><div class="amt-sub">2024 cycle<br>Pro-crypto PACs</div></div>
+</div>
+
+<!-- IND 10 -->
+<div class="donor-card" data-search="dustin moskovitz facebook asana democrat progressive effective altruism future forward" data-lean="dem">
+<div class="card-rank"><span class="rn">10</span></div>
+<div class="card-main">
+<div class="card-name">Dustin Moskovitz</div>
+<div class="card-title">Co-founder — Facebook · Founder — Asana</div>
+<div class="card-bio collapsed">Dustin Moskovitz was Mark Zuckerberg's Harvard roommate and co-founded Facebook in 2004, becoming one of the youngest self-made billionaires in history. He left to co-found Asana, a widely used project management software platform. Along with his wife Cari Tuna, he has become one of the largest Democratic megadonors and one of the most prominent practitioners of effective altruism philanthropy. He was the largest disclosed individual donor to Harris-supporting super PACs in 2024, particularly Future Forward USA. He has been consistent across multiple cycles and publicly explains his political donations in terms of specific policy outcomes — emphasizing climate, pandemic preparedness, and democratic institutions — rather than party loyalty.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Technology</span><span class="tag">Effective Altruism</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$38M</div><div class="amt-sub">2024 cycle<br>Future Forward PAC</div></div>
+</div>
+
+<!-- IND 11 -->
+<div class="donor-card" data-search="george soros democrat progressive open society hungary holocaust hedge fund black wednesday" data-lean="dem">
+<div class="card-rank"><span class="rn">11</span></div>
+<div class="card-main">
+<div class="card-name">George Soros</div>
+<div class="card-title">Founder — Soros Fund Management · Open Society Foundations</div>
+<div class="card-bio collapsed">Born in Budapest in 1930, Soros survived the Nazi occupation of Hungary as a teenager with forged papers. He emigrated to England then the U.S., becoming one of the most successful hedge fund managers in history. In 1992 he made $1 billion in a single day by shorting the British pound, forcing the Bank of England to devalue — an event known as Black Wednesday. He founded the Open Society Foundations, spending tens of billions globally on democracy, human rights, and criminal justice reform. He has been the most prominent target of right-wing conspiracy theories for decades, many carrying antisemitic undertones. His son Alexander Soros has taken over day-to-day management and continues the Democratic political giving tradition.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hedge Fund</span><span class="tag">Democracy Advocacy</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$35M+</div><div class="amt-sub">2022 peak cycle<br>Democracy PAC + state</div></div>
+</div>
+
+<!-- IND 12 -->
+<div class="donor-card" data-search="tom steyer democrat hedge fund farallon climate impeachment presidential california" data-lean="dem">
+<div class="card-rank"><span class="rn">12</span></div>
+<div class="card-main">
+<div class="card-name">Tom Steyer</div>
+<div class="card-title">Founder — Farallon Capital Management</div>
+<div class="card-bio collapsed">Tom Steyer founded Farallon Capital Management in 1986, growing it to manage $20 billion in assets. He retired in 2012 to focus on environmental and political activism full-time. He spent over $65 million funding the "Need to Impeach" campaign targeting Trump before 2019. He then ran for the 2020 Democratic presidential nomination, spending over $340 million of his own money on a campaign that ended after the South Carolina primary. He has been one of the single largest individual donors to Democratic causes over the past decade, focusing on climate change, criminal justice reform, and youth voter registration. He ran unsuccessfully for California Governor in 2022. His career illustrates how political spending can dwarf electoral success — few Americans would recognize his name despite his massive giving.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hedge Fund</span><span class="tag">Climate Advocacy</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$50M+</div><div class="amt-sub">Career total<br>Peak: 2020 own race</div></div>
+</div>
+
+<!-- IND 13 -->
+<div class="donor-card" data-search="robert mercer renaissance technologies cambridge analytica breitbart republican data" data-lean="rep">
+<div class="card-rank"><span class="rn">13</span></div>
+<div class="card-main">
+<div class="card-name">Robert Mercer</div>
+<div class="card-title">Co-CEO — Renaissance Technologies Hedge Fund</div>
+<div class="card-bio collapsed">Robert Mercer is a computer scientist and co-CEO of Renaissance Technologies, the most successful hedge fund in history — its Medallion Fund has returned approximately 66% annually before fees since 1988, a record no other investment vehicle has matched. Mercer rarely speaks publicly. He became a major force in Republican politics by funding Breitbart News at Steve Bannon's request and by funding Cambridge Analytica — the data firm that harvested 87 million Facebook profiles without consent to build psychographic voter targeting for the Trump 2016 campaign and the Brexit campaign. His daughter Rebekah Mercer managed Cambridge Analytica day-to-day. The Cambridge Analytica scandal contributed to his partial withdrawal from visible political activities after 2018.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Hedge Fund / Quant</span><span class="tag a">Cambridge Analytica · Breitbart</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$25M+</div><div class="amt-sub">Career total<br>Peak: 2016 cycle</div></div>
+</div>
+
+<!-- IND 14 -->
+<div class="donor-card" data-search="peter thiel palantir paypal republican jd vance tech libertarian architect vp" data-lean="rep">
+<div class="card-rank"><span class="rn">14</span></div>
+<div class="card-main">
+<div class="card-name">Peter Thiel</div>
+<div class="card-title">Co-founder — PayPal & Palantir Technologies</div>
+<div class="card-bio collapsed">Peter Thiel co-founded PayPal and was an early investor in Facebook, earning over $1 billion when it went public. He co-founded Palantir Technologies, a controversial data analytics and surveillance company working primarily with U.S. intelligence agencies and the military. He gave $15 million to JD Vance's 2022 Senate campaign — the largest single donation to a Senate candidate in American history. He had previously hired Vance at his VC firm, personally introduced him to Trump, and lobbied for Vance's selection as VP. Palantir's federal contracts nearly doubled to over $970 million following Vance's inauguration. Thiel has publicly stated he no longer believes freedom and democracy are compatible. He did not make large donations in 2024, but his protégé becoming Vice President may represent the greatest political return on investment in modern American history.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">90% Republican</span><span class="tag">Venture Capital</span><span class="tag a">Architect of Vance VP Pick</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:90%"></div><div class="bd" style="width:10%"></div></div><div class="bar-pcts"><span class="pr">90% R</span><span class="pd">10% D</span></div></div>
+<div class="card-amount"><div class="amt">$15M</div><div class="amt-sub">2022 Senate only<br>Did not donate 2024</div></div>
+</div>
+
+<!-- IND 15 -->
+<div class="donor-card" data-search="henry laufer renaissance technologies democrat math scientist quant" data-lean="dem">
+<div class="card-rank"><span class="rn">15</span></div>
+<div class="card-main">
+<div class="card-name">Henry & Marsha Laufer</div>
+<div class="card-title">Senior VP — Renaissance Technologies</div>
+<div class="card-bio collapsed">Henry Laufer is a mathematician and senior partner at Renaissance Technologies — the same firm whose co-CEO Robert Mercer is a top Republican donor. Laufer and his wife Marsha have given over $45 million to Democratic causes and candidates, making them one of the most significant and least publicly recognized Democratic donor couples in the country. The fact that multiple top executives at a single hedge fund — Renaissance Technologies — represent major donors to directly opposing parties is one of the most remarkable illustrations of how political money flows through finance. Their giving is consistent and heavily focused on congressional races and presidential campaigns rather than specific issues.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hedge Fund / Quant</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$45M+</div><div class="amt-sub">Career total<br>Democratic causes</div></div>
+</div>
+
+<!-- IND 16 -->
+<div class="donor-card" data-search="james simons renaissance technologies democrat math quant deceased 2024" data-lean="dem">
+<div class="card-rank"><span class="rn">16</span></div>
+<div class="card-main">
+<div class="card-name">James Simons <span style="font-size:.8rem;font-weight:300;font-style:italic">(1938–2024)</span></div>
+<div class="card-title">Founder — Renaissance Technologies</div>
+<div class="card-bio collapsed">James Simons was a world-class mathematician who broke Soviet codes for the NSA before founding Renaissance Technologies and building the most successful quantitative investment fund in history. His Medallion Fund returned approximately 66% annually before fees over 30 years — a record unmatched in finance. He died in May 2024 at age 86. During his lifetime he was one of the largest Democratic donors in the country, giving tens of millions to Democratic causes, science education, and autism research. His wife Marilyn Simons continues his philanthropic and political legacy. Simons and his colleague Robert Mercer — co-CEOs of the same firm — gave enormous sums to directly opposing parties, making Renaissance Technologies unique in American political finance.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hedge Fund / Math</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$35M+</div><div class="amt-sub">Career total<br>Democratic causes</div></div>
+</div>
+
+<!-- IND 17 -->
+<div class="donor-card" data-search="stephen schwarzman blackstone private equity republican real estate landlord homes" data-lean="rep">
+<div class="card-rank"><span class="rn">17</span></div>
+<div class="card-main">
+<div class="card-name">Stephen Schwarzman</div>
+<div class="card-title">Co-founder & CEO — Blackstone Group</div>
+<div class="card-bio collapsed">Stephen Schwarzman co-founded Blackstone in 1985, which is now the world's largest alternative asset management firm with over $1 trillion in assets. Net worth approximately $45 billion. He temporarily withdrew support from Trump following January 6, 2021, before re-engaging with Republican politics. Donated $10M each to the Senate Leadership Fund and Congressional Leadership Fund in 2022. Blackstone's real estate arm owns tens of thousands of single-family homes and apartment complexes across the United States — making it one of the largest landlords in America and giving it a direct financial interest in housing policy, tenant protection legislation, and interest rate decisions. His political donations are heavily focused on protecting carried interest tax treatment that allows private equity managers to pay lower tax rates on their profits.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">88% Republican</span><span class="tag">Private Equity / Real Estate</span><span class="tag a">One of America's Largest Landlords</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:88%"></div><div class="bd" style="width:12%"></div></div><div class="bar-pcts"><span class="pr">88% R</span><span class="pd">12% D</span></div></div>
+<div class="card-amount"><div class="amt">$40M+</div><div class="amt-sub">Career total<br>Republican PACs</div></div>
+</div>
+
+<!-- IND 18 -->
+<div class="donor-card" data-search="linda mcmahon wwe wrestling republican trump education secretary cabinet donated" data-lean="rep">
+<div class="card-rank"><span class="rn">18</span></div>
+<div class="card-main">
+<div class="card-name">Linda McMahon</div>
+<div class="card-title">Co-founder — WWE (World Wrestling Entertainment)</div>
+<div class="card-bio collapsed">Linda McMahon and her husband Vince built WWE from a regional wrestling promotion into a global entertainment empire worth billions. Linda ran unsuccessfully for Senate in Connecticut in 2010 and 2012, spending over $100 million of her own money across both campaigns. She served as Trump's Small Business Administrator from 2017 to 2019. In the 2024 cycle she donated $21.2 million to Trump and Republican causes — the largest amount given by any person who subsequently received a Cabinet appointment. She was appointed Secretary of Education, overseeing the Trump administration's efforts to dismantle the Department of Education. She has no formal background in education policy or public school administration.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Entertainment / Wrestling</span><span class="tag a">Donated → Cabinet Appointment</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$21.2M</div><div class="amt-sub">2024 cycle<br>Largest Cabinet donor</div></div>
+</div>
+
+<!-- IND 19 -->
+<div class="donor-card" data-search="kelcy warren energy transfer dakota access pipeline republican oil gas policy outcome" data-lean="rep">
+<div class="card-rank"><span class="rn">19</span></div>
+<div class="card-main">
+<div class="card-name">Kelcy Warren</div>
+<div class="card-title">CEO — Energy Transfer LP</div>
+<div class="card-bio collapsed">Kelcy Warren is the CEO of Energy Transfer LP, one of the largest pipeline operators in the United States. The company built the Dakota Access Pipeline, which sparked years of protests by the Standing Rock Sioux Tribe and became a national flashpoint on Native American land rights and fossil fuel infrastructure. Warren and Energy Transfer combined donated $25 million to Trump's MAGA Inc. in 2024. Within days of taking office in both his terms, Trump signed executive orders fast-tracking Energy Transfer's pipeline projects — lifting environmental reviews and clearing construction that had been halted. This is one of the most straightforwardly documented cases in recent American politics of a large donation producing a specific, identifiable regulatory outcome.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">97% Republican</span><span class="tag">Oil & Gas / Pipeline</span><span class="tag a">Donated → Pipelines Fast-Tracked</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:97%"></div><div class="bd" style="width:3%"></div></div><div class="bar-pcts"><span class="pr">97% R</span><span class="pd">3% D</span></div></div>
+<div class="card-amount"><div class="amt">$25M</div><div class="amt-sub">2024 cycle<br>Combined w/ company</div></div>
+</div>
+
+<!-- IND 20 -->
+<div class="donor-card" data-search="reid hoffman linkedin democrat silicon valley disinformation alabama" data-lean="dem">
+<div class="card-rank"><span class="rn">20</span></div>
+<div class="card-main">
+<div class="card-name">Reid Hoffman</div>
+<div class="card-title">Co-founder — LinkedIn</div>
+<div class="card-bio collapsed">Reid Hoffman co-founded LinkedIn in 2002 and sold it to Microsoft for $26.2 billion in 2016. He is a partner at Greylock Partners VC and an early investor in Airbnb and Facebook. He has been one of Silicon Valley's most consistent and outspoken Democratic donors. He faced significant controversy after it emerged he had funded a disinformation operation in the 2017 Alabama Senate race — fake Russian-style social media accounts were created to associate Republican candidate Roy Moore with Russian support. Hoffman later apologized. Despite this, he has remained a prominent Democratic fundraiser, particularly focused on defending democratic institutions and combating election misinformation — a notable tension given his earlier conduct.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">98% Democrat</span><span class="tag">Technology</span><span class="tag a">Funded Alabama Disinformation Operation</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:2%"></div><div class="bd" style="width:98%"></div></div><div class="bar-pcts"><span class="pr">2% R</span><span class="pd">98% D</span></div></div>
+<div class="card-amount"><div class="amt">$30M+</div><div class="amt-sub">Career total<br>Democratic causes</div></div>
+</div>
+
+<!-- IND 21 -->
+<div class="donor-card" data-search="harold hamm continental resources oil republican oklahoma fracking shale" data-lean="rep">
+<div class="card-rank"><span class="rn">21</span></div>
+<div class="card-main">
+<div class="card-name">Harold Hamm</div>
+<div class="card-title">Founder & CEO — Continental Resources</div>
+<div class="card-bio collapsed">Harold Hamm grew up in poverty as the 13th child of sharecroppers in Oklahoma and built Continental Resources into one of the largest oil producers in the U.S., pioneering horizontal drilling and hydraulic fracturing (fracking) in the Bakken formation in North Dakota — a technology that transformed American energy production. His fortune is estimated at $19 billion. He took Continental Resources private in 2022. He served as an energy advisor to both Trump campaigns and has advocated for policies expanding domestic oil production, reducing environmental reviews, and opposing carbon taxes. He is one of the most consistent Republican energy sector donors in the country and one of the most prominent advocates for the fossil fuel industry in American politics.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Oil & Gas / Fracking</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$20M+</div><div class="amt-sub">Career total<br>Republican causes</div></div>
+</div>
+
+<!-- IND 22 -->
+<div class="donor-card" data-search="pierre omidyar ebay democrat tech hawaii journalism intercept" data-lean="dem">
+<div class="card-rank"><span class="rn">22</span></div>
+<div class="card-main">
+<div class="card-name">Pierre Omidyar</div>
+<div class="card-title">Founder — eBay</div>
+<div class="card-bio collapsed">Pierre Omidyar founded eBay in 1995, one of the first major e-commerce platforms, and became a billionaire when it went public in 1998. He now lives in Hawaii and devotes his time to philanthropy and advocacy through the Omidyar Network, which funds journalism, democracy, and anti-corruption work. He co-founded The Intercept, an investigative news outlet, with journalists including Glenn Greenwald. He has been a consistent Democratic megadonor and vocal opponent of Trump, donating to organizations defending civil liberties, press freedom, and democratic institutions. His political giving is motivated primarily by concerns about democracy and disinformation rather than specific economic policy issues.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Technology / E-commerce</span><span class="tag">Press Freedom</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$20M+</div><div class="amt-sub">Career total<br>Democratic causes</div></div>
+</div>
+
+<!-- IND 23 -->
+<div class="donor-card" data-search="diane hendricks abc supply roofing republican wisconsin largest female donor" data-lean="rep">
+<div class="card-rank"><span class="rn">23</span></div>
+<div class="card-main">
+<div class="card-name">Diane Hendricks</div>
+<div class="card-title">Co-founder — ABC Supply Co.</div>
+<div class="card-bio collapsed">Diane Hendricks co-founded ABC Supply Company with her late husband Ken Hendricks in 1982, starting with a single roofing materials supply store in Beloit, Wisconsin. It is now the largest wholesale distributor of roofing, windows, and siding in the U.S., with annual revenues exceeding $15 billion. After Ken Hendricks died in an accident in 2007, Diane became sole owner and one of the wealthiest self-made women in America. She has been the largest female Republican donor in American political history, giving consistently to conservative causes, anti-union initiatives in Wisconsin, and Trump campaigns. She was a key backer of Scott Walker's governorship and the legislation that eliminated collective bargaining for most Wisconsin public employees — legislation that became a national template for Republican labor policy.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Building Materials</span><span class="tag">Wisconsin Conservative Politics</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$15M+</div><div class="amt-sub">Career total<br>Republican causes</div></div>
+</div>
+
+<!-- IND 24 -->
+<div class="donor-card" data-search="james murdoch republican democrat fox news anti-trump split family" data-lean="dem">
+<div class="card-rank"><span class="rn">24</span></div>
+<div class="card-main">
+<div class="card-name">James Murdoch</div>
+<div class="card-title">Son of Rupert Murdoch · Former CEO, 21st Century Fox</div>
+<div class="card-bio collapsed">James Murdoch served as CEO of 21st Century Fox before Disney acquired its entertainment assets in 2019. He and his wife Kathryn have publicly and dramatically broken with his father's Fox News empire, becoming major Democratic and anti-Trump donors. He resigned from the News Corp board in 2020 citing "disagreements over certain editorial content." He and Kathryn donated over $1 million to Joe Biden's 2020 campaign and have continued giving to Democrats. His public split from the Murdoch political legacy is one of the most visible family rifts in media and political history. His brother Lachlan Murdoch runs Fox Corp and is a Republican donor. Their father Rupert has historically given to both parties.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Media</span><span class="tag a">Split from Murdoch Family · Fox Heir Goes Democrat</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$20M+</div><div class="amt-sub">Career total<br>Democratic causes</div></div>
+</div>
+
+<!-- IND 25 -->
+<div class="donor-card" data-search="bill ackman pershing square hedge fund republican shifted anti-woke harvard" data-lean="rep">
+<div class="card-rank"><span class="rn">25</span></div>
+<div class="card-main">
+<div class="card-name">Bill Ackman</div>
+<div class="card-title">Founder — Pershing Square Capital Management</div>
+<div class="card-bio collapsed">Bill Ackman is a hedge fund manager known for high-profile activist investments and public battles with companies he targets for management changes. He famously lost nearly $1 billion betting against Herbalife. He had previously described himself as a Democrat or centrist for much of his career. He shifted dramatically toward Republicans in 2022–2024, becoming a vocal Trump supporter and anti-affirmative action advocate on social media. He became a prominent voice calling for the resignation of Harvard University's president after the school came under scrutiny for its handling of antisemitism allegations. He used his massive social media platform to drive that story and influence Harvard's board. He is one of several prominent donors whose party shift coincided with cultural controversies rather than economic policy changes.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">80% Republican (switched)</span><span class="tag">Hedge Fund / Activist</span><span class="tag a">Notable Party Switch 2022–2024</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:80%"></div><div class="bd" style="width:20%"></div></div><div class="bar-pcts"><span class="pr">80% R</span><span class="pd">20% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Shifted R: 2023–24</div></div>
+</div>
+
+<!-- IND 26 -->
+<div class="donor-card" data-search="jeffrey katzenberg dreamworks democrat biden fundraiser hollywood entertainment" data-lean="dem">
+<div class="card-rank"><span class="rn">26</span></div>
+<div class="card-main">
+<div class="card-name">Jeffrey Katzenberg</div>
+<div class="card-title">Co-founder — DreamWorks Animation</div>
+<div class="card-bio collapsed">Jeffrey Katzenberg co-founded DreamWorks SKG with Spielberg and Geffen in 1994 after leaving Disney, where he oversaw the studio's renaissance with The Little Mermaid, Beauty and the Beast, and The Lion King. He co-founded DreamWorks Animation (Shrek, Madagascar, Kung Fu Panda), selling it to NBCUniversal for $3.8 billion in 2016. He has been one of Hollywood's most prolific Democratic fundraisers for decades and served as chief fundraiser for Biden's 2020 and 2024 campaigns. He was so close to Biden that he was among the key Democratic insiders who privately advocated for Biden to step aside in 2024 over concerns about his debate performance — an extraordinary example of a megadonor exerting direct influence over a sitting president's decision-making.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">95% Democrat</span><span class="tag">Entertainment / Film</span><span class="tag a">Urged Biden to Step Down 2024</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:5%"></div><div class="bd" style="width:95%"></div></div><div class="bar-pcts"><span class="pr">5% R</span><span class="pd">95% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 27 -->
+<div class="donor-card" data-search="haim saban democrat israel media power rangers univision single issue" data-lean="dem">
+<div class="card-rank"><span class="rn">27</span></div>
+<div class="card-main">
+<div class="card-name">Haim Saban</div>
+<div class="card-title">Founder — Saban Entertainment (Power Rangers)</div>
+<div class="card-bio collapsed">Egyptian-born Israeli-American billionaire who made his fortune co-creating the Power Rangers franchise, one of the most profitable children's entertainment properties in history. He sold Saban Entertainment to News Corp, then acquired Univision — the largest Spanish-language media network in the U.S. He has described Israel as his "single issue" in American politics, giving tens of millions to the Clinton Foundation and Democratic causes while consistently pushing the Democratic Party toward unconditional support for Israel. He is one of the few very large Democratic donors whose Israel advocacy has sometimes put him in tension with the party's progressive wing, which has grown more critical of Israeli military policy.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Media / Entertainment</span><span class="tag">Pro-Israel</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 28 -->
+<div class="donor-card" data-search="donald sussman paloma partners hedge fund democrat maine congress" data-lean="dem">
+<div class="card-rank"><span class="rn">28</span></div>
+<div class="card-main">
+<div class="card-name">Donald Sussman</div>
+<div class="card-title">Founder — Paloma Partners Hedge Fund</div>
+<div class="card-bio collapsed">Donald Sussman founded Paloma Partners, a multi-strategy hedge fund. He is a consistent top-20 Democratic donor who receives almost no public attention despite giving tens of millions across multiple cycles — one of the clearest examples of how the largest donors to both parties often operate in near-total obscurity. He was previously married to Rep. Chellie Pingree (D-ME), which drew some ethics scrutiny given his large Democratic donations, though no wrongdoing was found. He gives broadly across Democratic candidates and organizations with no single dominant focus area. His career illustrates how the campaign finance system allows enormous political influence to operate almost entirely outside public awareness.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hedge Fund</span><span class="tag a">Largely Unknown Despite Scale</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$28M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 29 -->
+<div class="donor-card" data-search="fred eychaner democrat media chicago newsgroup newsweb unknown" data-lean="dem">
+<div class="card-rank"><span class="rn">29</span></div>
+<div class="card-main">
+<div class="card-name">Fred Eychaner</div>
+<div class="card-title">Founder — Newsweb Corporation</div>
+<div class="card-bio collapsed">Fred Eychaner founded Newsweb Corporation, which owns newspapers and radio stations in the Chicago area. He is one of the most consistent Democratic megadonors in the country and one of the least publicly known — rarely appearing in media despite being a perennial top-10 Democratic donor across multiple cycles. He gives the maximum allowed donation to the DNC and Democratic campaign committees every cycle and is regularly the top donor to the House Majority PAC and Senate Majority PAC. His giving is steady and long-term rather than reactive to events. He is also a significant donor to LGBTQ+ causes and arts institutions in Chicago. The gap between his political influence and his public profile is remarkable even by the standards of low-profile megadonors.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Media / Publishing</span><span class="tag a">Virtually Unknown Despite Consistent Giving</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$17M+</div><div class="amt-sub">Career total<br>Consistent every cycle</div></div>
+</div>
+
+<!-- IND 30 -->
+<div class="donor-card" data-search="scott bessent treasury secretary hedge fund trump key square soros" data-lean="rep">
+<div class="card-rank"><span class="rn">30</span></div>
+<div class="card-main">
+<div class="card-name">Scott Bessent</div>
+<div class="card-title">U.S. Treasury Secretary · Founder — Key Square Group</div>
+<div class="card-bio collapsed">Scott Bessent is a hedge fund manager who spent years as a senior partner at George Soros's fund management firm — the biggest Democratic donor organization in America — before founding Key Square Group in 2015 with a $2 billion anchor investment from Soros himself. He became Trump's top economic advisor and fundraiser in 2024, hosting a $57 million fundraiser for Trump in Palm Beach. He personally donated $1.6 million to MAGA Inc. and Trump's campaign. He was subsequently appointed U.S. Treasury Secretary — the first openly gay person confirmed to a Cabinet position in a Republican administration. The arc from Soros fund manager to Trump Treasury Secretary is one of the more remarkable political career pivots in modern American finance.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Hedge Fund</span><span class="tag a">Soros Employee → Trump Treasury Secretary</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$1.6M</div><div class="amt-sub">Personal 2024<br>Bundled $57M+</div></div>
+</div>
+
+<!-- IND 31 -->
+<div class="donor-card" data-search="rebekah mercer cambridge analytica republican conservative breitbart bannon" data-lean="rep">
+<div class="card-rank"><span class="rn">31</span></div>
+<div class="card-main">
+<div class="card-name">Rebekah Mercer</div>
+<div class="card-title">Co-owner — Breitbart News · Former Director — Cambridge Analytica</div>
+<div class="card-bio collapsed">Rebekah Mercer is the daughter of Robert Mercer and managed the day-to-day operations of Cambridge Analytica, the data firm that harvested 87 million Facebook profiles without consent and used the data to build psychographic voter targeting profiles for the Trump 2016 campaign and the Brexit campaign. She is a co-owner of Breitbart News and was instrumental in backing Steve Bannon's rise to political prominence. After the Cambridge Analytica scandal broke in 2018, she and her father largely stepped back from visible political activity, but she has continued donating to conservative causes. She is considered one of the architects of the information warfare strategy that helped elect Trump in 2016 — making her influence on American political history significantly larger than her public profile would suggest.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag a">Cambridge Analytica · Breitbart · 2016 Architect</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$15M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 32 -->
+<div class="donor-card" data-search="alexander soros open society democrat progressive foundation chairman" data-lean="dem">
+<div class="card-rank"><span class="rn">32</span></div>
+<div class="card-main">
+<div class="card-name">Alexander Soros</div>
+<div class="card-title">Chairman — Open Society Foundations</div>
+<div class="card-bio collapsed">Alexander Soros took over as chairman of the Open Society Foundations from his father George Soros in 2023. Unlike his famously private father, Alexander has been more publicly active — meeting with Democratic elected officials, posting on social media, and attending high-profile political events. He has continued his father's tradition of massive Democratic donations while expanding the foundation's focus on U.S. domestic politics. He has become a target of the same conspiracy theories that have followed his father for decades. His rise represents the generational transfer of one of the largest private political funding networks in American history, with an estimated $25 billion in foundation endowment to deploy over time.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Philanthropy / Finance</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 33 -->
+<div class="donor-card" data-search="joe ricketts td ameritrade republican cubs journalism union closed" data-lean="rep">
+<div class="card-rank"><span class="rn">33</span></div>
+<div class="card-main">
+<div class="card-name">Joe Ricketts</div>
+<div class="card-title">Founder — TD Ameritrade</div>
+<div class="card-bio collapsed">Joe Ricketts founded TD Ameritrade in 1971, building it from a small broker-dealer into one of the largest discount brokerage firms in the U.S. before it merged with Charles Schwab in 2020. His family owns the Chicago Cubs. He founded DNAinfo, a local news network covering New York and Chicago, which he abruptly shut down in 2017 — just days after workers voted to unionize — in a move widely criticized as retaliation against collective bargaining. He was a top 10 Republican donor in multiple cycles. He also founded a super PAC that ran anti-Obama ads in 2012. His son Todd Ricketts is also a prominent Republican donor and served in the Trump administration.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Finance / Brokerage</span><span class="tag a">Shut Down Newsroom After Unionization Vote</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$15M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 34 -->
+<div class="donor-card" data-search="jb pritzker illinois governor democrat hyatt hotel heir 2028" data-lean="dem">
+<div class="card-rank"><span class="rn">34</span></div>
+<div class="card-main">
+<div class="card-name">J.B. Pritzker</div>
+<div class="card-title">Governor of Illinois · Hyatt Hotel Heir</div>
+<div class="card-bio collapsed">J.B. Pritzker is a member of the Pritzker family — heirs to the Hyatt Hotels Corporation fortune and one of the wealthiest families in America. He is the current Governor of Illinois, elected in 2018 and re-elected in 2022, primarily self-funding both campaigns with personal wealth. He has become a significant Democratic donor beyond his own races, funding national Democratic causes and emerging as a vocal national critic of Trump. He is widely discussed as a potential 2028 presidential candidate. The Pritzker family collectively represents one of the largest Democratic-aligned donor networks in American politics, with multiple family members active in politics, philanthropy, and government.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Hotels / Real Estate</span><span class="tag">Possible 2028 Presidential Candidate</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Excl. own campaigns</div></div>
+</div>
+
+<!-- IND 35 -->
+<div class="donor-card" data-search="len blavatnik access industries warner music bipartisan ukraine both parties access donor" data-lean="split">
+<div class="card-rank"><span class="rn">35</span></div>
+<div class="card-main">
+<div class="card-name">Len Blavatnik</div>
+<div class="card-title">Founder — Access Industries (Warner Music, LyondellBasell)</div>
+<div class="card-bio collapsed">Ukrainian-born, American-British billionaire who emigrated from the Soviet Union. Built Access Industries into a conglomerate owning Warner Music Group (one of the three major record labels) and LyondellBasell (one of the world's largest plastics and chemical companies). He is one of the rare genuinely bipartisan major donors — giving tens of millions to both Republican and Democratic PACs and politicians in the same election cycles. This makes him a pure "access donor" — his goal is influence with whoever holds power, not ideological outcomes. He donated heavily to both Mitch McConnell's super PAC and Democratic Senate funds in the same cycle. He has received a knighthood in the UK and is among the most internationally connected of American megadonors.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">Both Parties — 65% R / 35% D</span><span class="tag">Media / Chemicals</span><span class="tag a">Pure Access Donor — Both Parties</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:65%"></div><div class="bd" style="width:35%"></div></div><div class="bar-pcts"><span class="pr">65% R</span><span class="pd">35% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Both parties</div></div>
+</div>
+
+<!-- IND 36 -->
+<div class="donor-card" data-search="scott bessent howard lutnick cantor fitzgerald republican commerce secretary 9/11" data-lean="rep">
+<div class="card-rank"><span class="rn">36</span></div>
+<div class="card-main">
+<div class="card-name">Howard Lutnick</div>
+<div class="card-title">CEO — Cantor Fitzgerald · U.S. Commerce Secretary</div>
+<div class="card-bio collapsed">Howard Lutnick rebuilt Cantor Fitzgerald from the ground up after the firm lost 658 employees — nearly two-thirds of its New York staff — in the September 11 attacks. He pledged to pay victims' families for 10 years, a commitment that became one of the most analyzed corporate responses to 9/11. Cantor Fitzgerald is now a major financial services firm, and Lutnick expanded into real estate, data, and BGC Partners. He became one of Trump's biggest fundraisers and most visible supporters in 2024, co-chairing Trump's transition team and appearing prominently at the Republican National Convention. He donated over $10 million to Republican causes and was appointed Commerce Secretary.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">90% Republican</span><span class="tag">Finance / Banking</span><span class="tag a">Donated → Commerce Secretary</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:90%"></div><div class="bd" style="width:10%"></div></div><div class="bar-pcts"><span class="pr">90% R</span><span class="pd">10% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">2024 cycle<br>Commerce Secretary</div></div>
+</div>
+
+<!-- IND 37 -->
+<div class="donor-card" data-search="david sacks paypal republican trump ai crypto czar all-in podcast" data-lean="rep">
+<div class="card-rank"><span class="rn">37</span></div>
+<div class="card-main">
+<div class="card-name">David Sacks</div>
+<div class="card-title">Venture Capitalist · Trump's AI & Crypto Czar</div>
+<div class="card-bio collapsed">David Sacks is a PayPal co-founder and venture capitalist who co-hosts the widely-listened-to "All-In Podcast" with Chamath Palihapitiya, Jason Calacanis, and David Friedberg — which became one of the most influential political commentary vehicles among Silicon Valley Republicans in 2023–2024. He donated to Trump's 2024 campaign and spoke at the Republican National Convention. After Trump's victory, he was appointed as the White House's "AI and Crypto Czar" — an informal but powerful advisory role shaping the U.S. government's approach to artificial intelligence and cryptocurrency regulation, requiring no Senate confirmation. He is one of several tech donors who moved from Democratic-leaning libertarianism to explicit Republican alignment during the Biden years.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">90% Republican</span><span class="tag">Venture Capital / Tech</span><span class="tag a">White House AI & Crypto Czar</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:90%"></div><div class="bd" style="width:10%"></div></div><div class="bar-pcts"><span class="pr">90% R</span><span class="pd">10% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">2024 cycle</div></div>
+</div>
+
+<!-- IND 38 -->
+<div class="donor-card" data-search="palmer luckey oculus anduril defense republican tech weapons drones" data-lean="rep">
+<div class="card-rank"><span class="rn">38</span></div>
+<div class="card-main">
+<div class="card-name">Palmer Luckey</div>
+<div class="card-title">Founder — Oculus VR · Founder — Anduril Industries</div>
+<div class="card-bio collapsed">Palmer Luckey invented the modern consumer virtual reality headset and founded Oculus VR, which Facebook acquired for $2 billion in 2014 when he was 21. He was later fired by Facebook amid controversy over secret donations to a Trump-supporting meme warfare group called Nimble America in 2016. He then founded Anduril Industries, a defense technology company building autonomous weapons systems, drones, and surveillance technology for the U.S. military. Anduril has grown into a multi-billion dollar company and is part of a new generation of Silicon Valley defense contractors. Luckey is one of the most prominent voices advocating for tech industry engagement with the defense sector and is an outspoken Republican donor and Trump supporter.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Defense Tech / VR</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 39 -->
+<div class="donor-card" data-search="paul tudor jones tudor investment democrat republican split bipartisan hedge fund macro robin hood" data-lean="split">
+<div class="card-rank"><span class="rn">39</span></div>
+<div class="card-main">
+<div class="card-name">Paul Tudor Jones</div>
+<div class="card-title">Founder — Tudor Investment Corp</div>
+<div class="card-bio collapsed">Paul Tudor Jones is a legendary macro trader famous for predicting and profiting from the 1987 stock market crash. He founded Tudor Investment Corp, which manages billions using global macro strategies. He is one of the genuinely most bipartisan large donors in finance — giving tens of millions to both parties across his career and explaining this as a reflection of his belief that both parties have important ideas. He founded the Robin Hood Foundation, one of New York City's largest anti-poverty charities. He has become increasingly vocal about the unsustainable nature of U.S. national debt. Unlike many nominal "splitters," Jones gives meaningfully to both parties based on candidates and positions rather than as a pure hedge.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">Both Parties — 60% R / 40% D</span><span class="tag">Hedge Fund / Macro</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:60%"></div><div class="bd" style="width:40%"></div></div><div class="bar-pcts"><span class="pr">60% R</span><span class="pd">40% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Both parties</div></div>
+</div>
+
+<!-- IND 40 -->
+<div class="donor-card" data-search="larry ellison oracle republican democrat split tech software cloud federal" data-lean="split">
+<div class="card-rank"><span class="rn">40</span></div>
+<div class="card-main">
+<div class="card-name">Larry Ellison</div>
+<div class="card-title">Co-founder & CTO — Oracle Corporation</div>
+<div class="card-bio collapsed">Larry Ellison co-founded Oracle in 1977 with $1,200 of his own money, growing it into one of the world's largest enterprise software and cloud companies with revenues exceeding $50 billion annually. His net worth exceeds $180 billion. He has historically been a genuine split donor, giving to both parties — reflecting Oracle's enormous federal government contract base spanning defense and intelligence agencies. He has a personal relationship with Trump and hosted a fundraiser at his Hawaiian estate. His bipartisan giving is driven more by Oracle's need for relationships across administrations than by ideology, making him a textbook "access donor" despite his extraordinary wealth.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">Both Parties — 65% R / 35% D</span><span class="tag">Enterprise Software</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:65%"></div><div class="bd" style="width:35%"></div></div><div class="bar-pcts"><span class="pr">65% R</span><span class="pd">35% D</span></div></div>
+<div class="card-amount"><div class="amt">$15M+</div><div class="amt-sub">Career total<br>Both parties</div></div>
+</div>
+
+<!-- IND 41 -->
+<div class="donor-card" data-search="laurene powell jobs apple pixar democrat widow steve jobs emerson atlantic immigration" data-lean="dem">
+<div class="card-rank"><span class="rn">41</span></div>
+<div class="card-main">
+<div class="card-name">Laurene Powell Jobs</div>
+<div class="card-title">Founder — Emerson Collective · Widow of Steve Jobs</div>
+<div class="card-bio collapsed">Laurene Powell Jobs is the widow of Steve Jobs and one of the wealthiest women in the world, inheriting significant Apple and Disney stock. She founded Emerson Collective, a philanthropic and investment organization focused on education, immigration reform, environment, and media. She owns a majority stake in The Atlantic magazine. She has been a significant Democratic donor and uses Emerson Collective's hybrid nonprofit/for-profit structure to fund a wide range of progressive causes. She is particularly focused on immigration reform and supports pathways to citizenship for DREAMers — undocumented immigrants brought to the U.S. as children — a cause that has become more urgent under Trump's second term immigration enforcement.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">95% Democrat</span><span class="tag">Tech / Media</span><span class="tag">Immigration Reform</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:5%"></div><div class="bd" style="width:95%"></div></div><div class="bar-pcts"><span class="pr">5% R</span><span class="pd">95% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 42 -->
+<div class="donor-card" data-search="carl icahn republican activist corporate raider trump advisor conflicts" data-lean="rep">
+<div class="card-rank"><span class="rn">42</span></div>
+<div class="card-main">
+<div class="card-name">Carl Icahn</div>
+<div class="card-title">Chairman — Icahn Enterprises</div>
+<div class="card-bio collapsed">Carl Icahn is one of Wall Street's most famous corporate raiders, building enormous positions in companies and pressuring management for changes. His targets over decades include TWA, Motorola, Time Warner, and many others. He served as a special advisor to Trump on regulatory reform early in the first term before stepping down amid conflict of interest concerns — his companies stood to benefit from the specific regulations he was advising on, a textbook example of pay-to-play. He has been a Republican donor for decades and a vocal deregulation advocate. Icahn Enterprises faced a short-selling attack from Hindenburg Research in 2023, alleging securities fraud and financial manipulation, which sent the company's stock plummeting.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">75% Republican</span><span class="tag">Activist Investing</span><span class="tag a">Trump Advisor — Conflict of Interest</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:75%"></div><div class="bd" style="width:25%"></div></div><div class="bar-pcts"><span class="pr">75% R</span><span class="pd">25% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 43 -->
+<div class="donor-card" data-search="dan loeb third point hedge fund republican shifted anti-woke activist" data-lean="rep">
+<div class="card-rank"><span class="rn">43</span></div>
+<div class="card-main">
+<div class="card-name">Dan Loeb</div>
+<div class="card-title">Founder — Third Point LLC</div>
+<div class="card-bio collapsed">Dan Loeb founded Third Point LLC, an activist hedge fund known for sharply worded letters to CEOs demanding changes at companies he targets. He previously donated to Democrats, including Barack Obama. He shifted dramatically toward Republicans around 2022, citing opposition to Democratic tax policy and what he described as anti-business sentiment. He became a vocal critic of progressive politics on social media. He is one of several prominent hedge fund managers who moved from Democratic alignment to Republican alignment in the 2022–2024 period — a trend that broadly reflects the finance sector's response to Biden-era economic policy and the cultural politics of the progressive left.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">70% Republican (switched)</span><span class="tag">Hedge Fund / Activist</span><span class="tag a">Notable Party Switch</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:70%"></div><div class="bd" style="width:30%"></div></div><div class="bar-pcts"><span class="pr">70% R</span><span class="pd">30% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 44 -->
+<div class="donor-card" data-search="seth klarman baupost republican never trump shifted democrat moderate value" data-lean="split">
+<div class="card-rank"><span class="rn">44</span></div>
+<div class="card-main">
+<div class="card-name">Seth Klarman</div>
+<div class="card-title">Founder — Baupost Group</div>
+<div class="card-bio collapsed">Seth Klarman is one of the most respected value investors in the world. He wrote "Margin of Safety," which became so rare out-of-print that secondhand copies sold for thousands of dollars. He was for many years a significant Republican donor and a prominent "Never Trump" voice within the party — publicly opposing Trump in 2016 and 2020. By 2024, finding no viable Republican alternative, he shifted his giving more toward Democrats and centrist candidates. His trajectory represents a significant segment of traditional, moderate Republican business leaders who left the party over Trump — a realignment that has fundamentally changed the composition of the Democratic donor coalition and left the GOP more dependent on a handful of MAGA-aligned megadonors.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">Shifted — Now ~60% D</span><span class="tag">Value Investing</span><span class="tag a">Former Never-Trumper Republican</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:40%"></div><div class="bd" style="width:60%"></div></div><div class="bar-pcts"><span class="pr">40% R</span><span class="pd">60% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Shifted D after 2020</div></div>
+</div>
+
+<!-- IND 45 -->
+<div class="donor-card" data-search="meg whitman hp ebay republican democrat shifted anti-trump ambassador kenya" data-lean="dem">
+<div class="card-rank"><span class="rn">45</span></div>
+<div class="card-main">
+<div class="card-name">Meg Whitman</div>
+<div class="card-title">Former CEO — eBay & Hewlett Packard Enterprise</div>
+<div class="card-bio collapsed">Meg Whitman grew eBay from a startup into a global e-commerce giant during her decade as CEO (1998–2008). She ran for California Governor as a Republican in 2010, spending $144 million of her own money. She later served as CEO of Hewlett Packard Enterprise. She was a prominent Republican who broke with the party over Trump, publicly endorsing Hillary Clinton in 2016, Joe Biden in 2020, and Kamala Harris in 2024. Biden appointed her U.S. Ambassador to Kenya. Her trajectory represents a significant segment of traditional Republican business leaders who permanently left the party over Trump — executives who had long been pillars of GOP fundraising but found his politics disqualifying.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">Now ~80% Democrat</span><span class="tag">Technology / E-commerce</span><span class="tag a">Republican → Biden Ambassador</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:20%"></div><div class="bd" style="width:80%"></div></div><div class="bar-pcts"><span class="pr">20% R</span><span class="pd">80% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Shifted D: 2016+</div></div>
+</div>
+
+<!-- IND 46 -->
+<div class="donor-card" data-search="stan druckenmiller duquesne republican hedge fund macro debt soros worked" data-lean="rep">
+<div class="card-rank"><span class="rn">46</span></div>
+<div class="card-main">
+<div class="card-name">Stan Druckenmiller</div>
+<div class="card-title">Founder — Duquesne Family Office</div>
+<div class="card-bio collapsed">Stan Druckenmiller is considered one of the greatest macro traders in history. He managed money for George Soros for over a decade and co-executed the famous 1992 British pound trade that made $1 billion in a day. He closed his Duquesne Capital hedge fund in 2010 to manage his personal fortune. He is a consistent Republican donor and increasingly vocal about U.S. national debt. He backed Trump in 2024 citing fiscal concerns. He is notable as one of the very few people to have worked closely with George Soros — the biggest Democratic megadonor in the country — while himself being a significant Republican donor, illustrating how political ideology and professional relationships diverge even at the highest levels of finance.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">70% Republican</span><span class="tag">Hedge Fund / Macro</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:70%"></div><div class="bd" style="width:30%"></div></div><div class="bar-pcts"><span class="pr">70% R</span><span class="pd">30% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 47 -->
+<div class="donor-card" data-search="ike perlmutter marvel republican trump mar-a-lago shadow veteran affairs influence" data-lean="rep">
+<div class="card-rank"><span class="rn">47</span></div>
+<div class="card-main">
+<div class="card-name">Ike Perlmutter</div>
+<div class="card-title">Former Chairman — Marvel Entertainment</div>
+<div class="card-bio collapsed">Ike Perlmutter is the former Chairman of Marvel Entertainment, which he sold to Disney for $4 billion in 2009. A reclusive figure who avoided cameras for most of his career, he is a neighbor of Donald Trump at Mar-a-Lago in Palm Beach. During Trump's first term, Perlmutter wielded significant informal influence over Veterans Affairs policy — despite having no government role — through what became known as the "Mar-a-Lago crowd," a group of Trump donors who quietly shaped government decisions from Trump's private club. This shadow influence over VA policy affected healthcare for millions of veterans and exemplifies how personal proximity to a president can translate into policy influence far beyond formal channels. He was removed from his role at Marvel by Disney in 2023.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">95% Republican</span><span class="tag">Entertainment / Media</span><span class="tag a">Mar-a-Lago Shadow Policy Influence</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:95%"></div><div class="bd" style="width:5%"></div></div><div class="bar-pcts"><span class="pr">95% R</span><span class="pd">5% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 48 -->
+<div class="donor-card" data-search="eric schmidt google democrat national security ai tech bipartisan" data-lean="dem">
+<div class="card-rank"><span class="rn">48</span></div>
+<div class="card-main">
+<div class="card-name">Eric Schmidt</div>
+<div class="card-title">Former CEO — Google / Alphabet</div>
+<div class="card-bio collapsed">Eric Schmidt served as Google's CEO from 2001 to 2011, helping transform it from a startup into the world's most powerful internet company, and then as executive chairman until 2017. He has been a consistent Democratic donor and advisor to Democratic presidential campaigns on technology policy. He chaired the National Security Commission on Artificial Intelligence, giving him unusual bipartisan influence on defense technology policy. He is unique among tech megadonors in giving meaningfully across party lines on national security issues — reflecting his belief that maintaining U.S. technological superiority over China requires support regardless of which party is in power. He has faced scrutiny over his extensive investments in AI defense companies while simultaneously chairing federal AI policy bodies.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">80% Democrat</span><span class="tag">Technology / AI</span><span class="tag">National Security</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:20%"></div><div class="bd" style="width:80%"></div></div><div class="bar-pcts"><span class="pr">20% R</span><span class="pd">80% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 49 -->
+<div class="donor-card" data-search="nelson peltz trian activist hedge fund republican disney trump" data-lean="rep">
+<div class="card-rank"><span class="rn">49</span></div>
+<div class="card-main">
+<div class="card-name">Nelson Peltz</div>
+<div class="card-title">Founder — Trian Fund Management</div>
+<div class="card-bio collapsed">Nelson Peltz co-founded Trian Fund Management, an activist hedge fund that takes large stakes in established companies and pushes for management changes. His targets have included Procter & Gamble, Disney, Unilever, and GE. He launched a high-profile proxy battle at Disney in 2024 seeking board seats, which he ultimately withdrew after Disney's stock price recovered. He is a Republican donor and Trump supporter, hosting a fundraiser for Trump at his Palm Beach home. He has been a vocal critic of what he characterizes as woke corporate culture — a position that drives his Disney campaign as much as financial concerns. His dual role as activist investor and political donor raises questions about whether his corporate campaigns are financially or politically motivated.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">80% Republican</span><span class="tag">Activist Hedge Fund</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:80%"></div><div class="bd" style="width:20%"></div></div><div class="bar-pcts"><span class="pr">80% R</span><span class="pd">20% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- IND 50 -->
+<div class="donor-card" data-search="john arnold centaurus energy democrat republican bipartisan criminal justice reform enron" data-lean="split">
+<div class="card-rank"><span class="rn">50</span></div>
+<div class="card-main">
+<div class="card-name">John Arnold</div>
+<div class="card-title">Founder — Centaurus Energy · Arnold Ventures</div>
+<div class="card-bio collapsed">John Arnold made his fortune as a natural gas trader at Enron before the company collapsed in fraud, then founded Centaurus Energy which he closed in 2012 to focus entirely on philanthropy through Arnold Ventures. He is one of the rare genuinely bipartisan large donors — giving to both parties based on specific policy outcomes rather than partisan loyalty. Arnold Ventures has become one of the most influential policy-focused philanthropies in America, funding research and advocacy on criminal justice reform, education reform, and pension reform that has shaped legislation in states governed by both parties. He donated to candidates of both parties in 2024. His model — evidence-based, outcome-focused, bipartisan — stands in deliberate contrast to the partisan mega-donation model of most other donors on this list.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">Both Parties — 55% D / 45% R</span><span class="tag">Energy / Finance</span><span class="tag">Criminal Justice Reform</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:45%"></div><div class="bd" style="width:55%"></div></div><div class="bar-pcts"><span class="pr">45% R</span><span class="pd">55% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Career total<br>Both parties</div></div>
+</div>
+
+    </div><!-- end ind-grid -->
+  </div><!-- end tab-ind -->
+
+  <!-- CORPORATIONS TAB -->
+  <div id="tab-corp" class="tab-pane">
+    <div class="search-bar">
+      <div class="search-input-wrap"><span class="si">🔍</span><input type="text" id="corp-search" placeholder="Search company name or industry…" oninput="filterCards('corp')"></div>
+      <div class="filter-btns">
+        <button class="filter-btn active" onclick="setFilter('corp','all',this)">All</button>
+        <button class="filter-btn" onclick="setFilter('corp','rep',this)">Republican</button>
+        <button class="filter-btn" onclick="setFilter('corp','dem',this)">Democrat</button>
+        <button class="filter-btn" onclick="setFilter('corp','split',this)">Both Parties</button>
+      </div>
+    </div>
+    <div class="result-count" id="corp-count">Showing all 50 organizations · Source: OpenSecrets · FEC</div>
+    <div class="donor-grid" id="corp-grid">
+
+<!-- CORP 01 -->
+<div class="donor-card" data-search="bloomberg lp media financial democrat all-time top donor terminal" data-lean="dem">
+<div class="card-rank"><span class="rn">01</span></div>
+<div class="card-main">
+<div class="card-name">Bloomberg LP</div>
+<div class="card-title">Financial Data & Media · New York, NY</div>
+<div class="card-bio collapsed">Bloomberg LP is the all-time #1 organizational political donor in American history with $451 million in total disclosed contributions — a record no other organization comes close to. The company provides the Bloomberg Terminal, the dominant financial data platform used by virtually every bank, fund, and financial institution on earth, giving it an unparalleled information advantage in global markets. Bloomberg News is one of the world's most widely read financial news outlets. The company's massive political giving directly reflects Michael Bloomberg's personal political identity and ambitions. Bloomberg's 2020 presidential campaign, funded entirely from his personal fortune, spent over $1 billion in 104 days — among the most expensive failed political campaigns in history.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">98% Democrat</span><span class="tag">Media / Finance</span><span class="tag a">#1 All-Time Org Donor</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:2%"></div><div class="bd" style="width:98%"></div></div><div class="bar-pcts"><span class="pr">2% R</span><span class="pd">98% D</span></div></div>
+<div class="card-amount"><div class="amt">$451.9M</div><div class="amt-sub">All cycles combined<br>#1 all-time org</div></div>
+</div>
+
+<!-- CORP 02 -->
+<div class="donor-card" data-search="national association realtors real estate bipartisan access both parties nar top pac" data-lean="split">
+<div class="card-rank"><span class="rn">02</span></div>
+<div class="card-main">
+<div class="card-name">National Association of Realtors (NAR)</div>
+<div class="card-title">Trade Association · Real Estate Industry</div>
+<div class="card-bio collapsed">The NAR is the largest trade association in the United States with 1.5 million members and has held the top spot among corporate PAC donors in every single election cycle — a consistency no other organization matches. It splits almost perfectly evenly between parties every cycle — a deliberate strategy. NAR needs favorable treatment from whoever controls Congress on mortgage interest deductions, capital gains taxes, housing finance reform, and zoning regulation. Their 50/50 split is the textbook definition of "access money" — buying relationships with both parties regardless of ideology so that they always have allies in power. In 2024, NAR also faced a landmark legal settlement over real estate agent commissions that fundamentally changed how home buying works in America.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">50/50 — Pure Access Money</span><span class="tag">Real Estate</span><span class="tag a">#1 Corporate PAC Every Single Cycle</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:50%"></div><div class="bd" style="width:50%"></div></div><div class="bar-pcts"><span class="pr">50% R</span><span class="pd">50% D</span></div></div>
+<div class="card-amount"><div class="amt">$4.19M</div><div class="amt-sub">2024 cycle<br>Top PAC every cycle</div></div>
+</div>
+
+<!-- CORP 03 -->
+<div class="donor-card" data-search="afscme government employees union democrat public sector all time top" data-lean="dem">
+<div class="card-rank"><span class="rn">03</span></div>
+<div class="card-main">
+<div class="card-name">AFSCME</div>
+<div class="card-title">American Federation of State, County & Municipal Employees</div>
+<div class="card-bio collapsed">AFSCME is one of the largest public sector unions with 1.4 million members — government workers, healthcare workers, and public transit employees. It is historically one of the top five all-time organizational political donors in America. It gives almost entirely to Democrats because public employees have a direct stake in government spending levels, collective bargaining rights, and public sector protections. Republican administrations consistently attempt to curtail public employee union rights — most dramatically through Wisconsin's Act 10 under Scott Walker, which eliminated collective bargaining for most public employees and became a national template. AFSCME's political spending is both defensive (protecting existing rights) and offensive (electing officials who will expand them).</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Labor / Public Sector</span><span class="tag a">Top 5 All-Time Org Donor</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$50M+</div><div class="amt-sub">Career total<br>Top 5 all-time</div></div>
+</div>
+
+<!-- CORP 04 -->
+<div class="donor-card" data-search="seiu service employees union democrat healthcare workers janitors 16 to 1" data-lean="dem">
+<div class="card-rank"><span class="rn">04</span></div>
+<div class="card-main">
+<div class="card-name">SEIU</div>
+<div class="card-title">Service Employees International Union</div>
+<div class="card-bio collapsed">SEIU represents 2 million workers in healthcare, janitorial, building services, and public employment — many of them among the lowest-paid workers in America. It is one of the most politically active unions and a consistent top Democratic organizational donor. SEIU has been central to campaigns for minimum wage increases, healthcare reform, and immigration policy. It was the driving force behind the "Fight for $15" movement, which has raised minimum wages in dozens of states and cities. Despite being one of the largest political donors among all organizations, its $35M+ career total is dwarfed by business interests — for every $1 all unions spend on contributions, business interests spend approximately $16.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Labor / Healthcare Workers</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$35M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 05 -->
+<div class="donor-card" data-search="goldman sachs wall street bank bipartisan access both parties treasury secretary revolving door" data-lean="split">
+<div class="card-rank"><span class="rn">05</span></div>
+<div class="card-main">
+<div class="card-name">Goldman Sachs</div>
+<div class="card-title">Investment Bank · New York, NY</div>
+<div class="card-bio collapsed">Goldman Sachs has been a top-10 political donor among public companies in every election cycle since 2000 — a distinction unique to Goldman. It has given $39M+ since 1989 and splits almost perfectly evenly between parties — not because it is ideologically moderate, but because it needs favorable treatment from Treasury, the SEC, the FDIC, and the Federal Reserve regardless of which party controls them. Goldman alumni have served as Treasury Secretary under both Republican and Democratic presidents: Hank Paulson (R), Robert Rubin (D), Steve Mnuchin had Goldman ties, and Scott Bessent worked at a Soros fund but came from Goldman's orbit. This revolving door — and the 50/50 split that enables it — makes Goldman the most deliberate and successful "access money" operation in American financial history.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">52/48 — Access Money</span><span class="tag">Investment Banking</span><span class="tag a">Treasury Sec Both Parties · Revolving Door</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:52%"></div><div class="bd" style="width:48%"></div></div><div class="bar-pcts"><span class="pr">52% R</span><span class="pd">48% D</span></div></div>
+<div class="card-amount"><div class="amt">$39M+</div><div class="amt-sub">Since 1989<br>Top 10 every cycle since 2000</div></div>
+</div>
+
+<!-- CORP 06 -->
+<div class="donor-card" data-search="maga inc trump super pac republican 2024 mellon musk largest" data-lean="rep">
+<div class="card-rank"><span class="rn">06</span></div>
+<div class="card-main">
+<div class="card-name">Make America Great Again Inc. (MAGA Inc.)</div>
+<div class="card-title">Trump-aligned Super PAC</div>
+<div class="card-bio collapsed">MAGA Inc. is the principal super PAC that supported Donald Trump's 2024 presidential campaign, raising over $300 million in the 2024 cycle alone. It was funded by some of the largest individual donations ever made to a single political committee — including $125 million from Timothy Mellon alone, $291 million from Elon Musk's America PAC, $106 million from Miriam Adelson's Preserve America PAC, and tens of millions from Energy Transfer, the Uihleins, and others. Super PACs can receive unlimited donations from individuals and corporations following Citizens United. The concentration of funding from fewer than ten ultra-wealthy donors into a single political vehicle is one of the starkest illustrations of how Citizens United transformed American campaign finance.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">100% Republican</span><span class="tag">Super PAC</span><span class="tag a">Trump's Primary Outside Vehicle · $300M+</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:100%"></div><div class="bd" style="width:0%"></div></div><div class="bar-pcts"><span class="pr">100% R</span><span class="pd">0% D</span></div></div>
+<div class="card-amount"><div class="amt">$300M+</div><div class="amt-sub">2024 cycle only</div></div>
+</div>
+
+<!-- CORP 07 -->
+<div class="donor-card" data-search="future forward democrat super pac harris 2024 moskovitz largest" data-lean="dem">
+<div class="card-rank"><span class="rn">07</span></div>
+<div class="card-main">
+<div class="card-name">Future Forward USA</div>
+<div class="card-title">Democratic Super PAC</div>
+<div class="card-bio collapsed">Future Forward USA was the primary super PAC for the Harris 2024 presidential campaign, raising over $200 million. Its largest donor was Dustin Moskovitz. It was notable for a strategy of concentrating advertising spending in the final weeks of the campaign rather than spreading it across the full cycle — a data-driven approach borrowed from direct marketing. Future Forward is connected to a 501(c)(4) dark money organization, Future Forward USA Action, that does not disclose its donors — meaning a portion of its funding comes from undisclosed sources. Despite being one of the largest political spending organizations in 2024, its donors and strategies received a fraction of the public attention given to MAGA Inc. and America PAC.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">100% Democrat</span><span class="tag">Super PAC</span><span class="tag a">Largest 2024 Democratic Super PAC</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:0%"></div><div class="bd" style="width:100%"></div></div><div class="bar-pcts"><span class="pr">0% R</span><span class="pd">100% D</span></div></div>
+<div class="card-amount"><div class="amt">$200M+</div><div class="amt-sub">2024 cycle</div></div>
+</div>
+
+<!-- CORP 08 -->
+<div class="donor-card" data-search="senate leadership fund mcconnell republican super pac establishment" data-lean="rep">
+<div class="card-rank"><span class="rn">08</span></div>
+<div class="card-main">
+<div class="card-name">Senate Leadership Fund</div>
+<div class="card-title">Republican Senate Super PAC · Mitch McConnell-aligned</div>
+<div class="card-bio collapsed">The Senate Leadership Fund is the primary super PAC associated with Republican Senate leadership and for many years operated as Mitch McConnell's primary outside spending vehicle. It raises and spends hundreds of millions per election cycle. It is funded by many of the wealthiest establishment Republican donors including Ken Griffin, Stephen Schwarzman, and Len Blavatnik. It represents "establishment" Republican funding — focused on winning Senate seats rather than ideological purity. It has occasionally supported candidates in tension with Trump's preferred picks, reflecting the fault line between MAGA populism and traditional GOP establishment donors. After Republicans regained the Senate majority in 2024, it becomes the vehicle for defending that majority in 2026.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">100% Republican</span><span class="tag">Super PAC</span><span class="tag">McConnell-aligned</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:100%"></div><div class="bd" style="width:0%"></div></div><div class="bar-pcts"><span class="pr">100% R</span><span class="pd">0% D</span></div></div>
+<div class="card-amount"><div class="amt">$200M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 09 -->
+<div class="donor-card" data-search="senate majority pac schumer democrat super pac senate" data-lean="dem">
+<div class="card-rank"><span class="rn">09</span></div>
+<div class="card-main">
+<div class="card-name">Senate Majority PAC</div>
+<div class="card-title">Democratic Senate Super PAC · Schumer-aligned</div>
+<div class="card-bio collapsed">The Senate Majority PAC is the primary super PAC aligned with Democratic Senate leadership and Senator Chuck Schumer. It raises and spends hundreds of millions per election cycle on Senate races, functioning as the Democratic counterpart to the Senate Leadership Fund. It is funded by many of the largest Democratic megadonors including Bloomberg, Soros, and Simons. In the 2024 cycle Democrats lost their Senate majority, making the PAC's primary mission retaking the Senate in 2026. Like all party-aligned super PACs, it operates in a legal gray area — technically prohibited from "coordinating" with campaigns, but in practice deeply intertwined with party strategy and personnel.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">100% Democrat</span><span class="tag">Super PAC</span><span class="tag">Schumer-aligned</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:0%"></div><div class="bd" style="width:100%"></div></div><div class="bar-pcts"><span class="pr">0% R</span><span class="pd">100% D</span></div></div>
+<div class="card-amount"><div class="amt">$200M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 10 -->
+<div class="donor-card" data-search="aipac israel lobby bipartisan pro-israel super pac united democracy project progressive targets" data-lean="split">
+<div class="card-rank"><span class="rn">10</span></div>
+<div class="card-main">
+<div class="card-name">AIPAC</div>
+<div class="card-title">American Israel Public Affairs Committee</div>
+<div class="card-bio collapsed">AIPAC is the most powerful single-issue foreign policy lobby in the United States. In 2022 it launched the United Democracy Project super PAC, spending over $100 million — primarily targeting progressive Democrats who had criticized Israeli military operations or U.S. military aid to Israel. This made it immediately one of the largest political spenders in American history. AIPAC's CEO bragged publicly that three Trump administration national security officials — including Marco Rubio — were personal "access points." AIPAC gives to both parties but has dramatically increased its Republican giving as the Democratic Party's base has grown more critical of Israeli military policy. It has been used to successfully defeat several progressive Democratic incumbents who criticized U.S. military aid to Israel.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55% R / 45% D — Shifting R</span><span class="tag">Foreign Policy Lobby</span><span class="tag a">Targets Progressive Democrats</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:55%"></div><div class="bd" style="width:45%"></div></div><div class="bar-pcts"><span class="pr">55% R</span><span class="pd">45% D</span></div></div>
+<div class="card-amount"><div class="amt">$100M+</div><div class="amt-sub">Since 2022 Super PAC</div></div>
+</div>
+
+<!-- CORP 11 -->
+<div class="donor-card" data-search="us chamber of commerce republican business anti-union lobbying largest" data-lean="rep">
+<div class="card-rank"><span class="rn">11</span></div>
+<div class="card-main">
+<div class="card-name">U.S. Chamber of Commerce</div>
+<div class="card-title">Business Lobby Federation · Washington, D.C.</div>
+<div class="card-bio collapsed">The U.S. Chamber of Commerce is the world's largest business lobbying organization, spending more on lobbying than any other entity in America — routinely exceeding $75 million per year. It has historically been the most powerful anti-union, anti-regulation business advocacy organization in the country. It favors Republicans approximately 75% of the time. Notably, it broke with Trump on immigration — the Chamber has long backed immigration as essential to economic growth — and endorsed some Democrats in 2020 who supported free trade. It has since returned to more consistent Republican alignment under Trump's second term. Its power is amplified by the fact that it represents millions of businesses, giving it unusual legitimacy as a "business community" voice even when its positions primarily benefit large corporations.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">75% Republican</span><span class="tag">Business Lobby</span><span class="tag a">Largest Lobbying Spender in America</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:75%"></div><div class="bd" style="width:25%"></div></div><div class="bar-pcts"><span class="pr">75% R</span><span class="pd">25% D</span></div></div>
+<div class="card-amount"><div class="amt">$75M+</div><div class="amt-sub">Per cycle lobbying<br>+ PAC spending</div></div>
+</div>
+
+<!-- CORP 12 -->
+<div class="donor-card" data-search="nea teachers union democrat education national largest union 3 million" data-lean="dem">
+<div class="card-rank"><span class="rn">12</span></div>
+<div class="card-main">
+<div class="card-name">NEA (National Education Association)</div>
+<div class="card-title">Teachers Union · Washington, D.C.</div>
+<div class="card-bio collapsed">The NEA is the largest labor union in the United States with 3 million members — teachers, school support staff, and higher education faculty. It gives almost exclusively to Democrats across all election cycles. Its political power derives from having organized members in virtually every congressional district in America — making it both a financial and ground-level organizing force for Democrats. It strongly opposes school vouchers, charter school expansion, and elimination of teacher tenure — all positions that put it at direct odds with Republican education policy. Under Trump's second term, the Department of Education — which oversees federal education funding — is being targeted for elimination, making the NEA's political spending more consequential than ever.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Labor / Education</span><span class="tag a">Largest Union in America</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$30M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 13 -->
+<div class="donor-card" data-search="aft american federation teachers union democrat education randi weingarten covid" data-lean="dem">
+<div class="card-rank"><span class="rn">13</span></div>
+<div class="card-main">
+<div class="card-name">AFT (American Federation of Teachers)</div>
+<div class="card-title">Teachers Union · Washington, D.C.</div>
+<div class="card-bio collapsed">The AFT is the second largest teachers union with 1.7 million members. Its longtime president Randi Weingarten became one of the most publicly visible and controversial union leaders during COVID-19, when the AFT's positions on school reopening became a major political flashpoint. Emails obtained through FOIA requests showed CDC officials consulted AFT leadership on school reopening guidance, which critics argued represented improper union influence over public health decisions. The AFT gives almost entirely to Democrats. Along with the NEA, it forms the backbone of organized Democratic ground operations in presidential election years and is a primary target of Republican efforts to curtail public employee union power.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Labor / Education</span><span class="tag a">CDC School Reopening Controversy</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$30M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 14 -->
+<div class="donor-card" data-search="at&t telecom republican bipartisan fcc net neutrality media largest donor 2006 2010" data-lean="split">
+<div class="card-rank"><span class="rn">14</span></div>
+<div class="card-main">
+<div class="card-name">AT&T</div>
+<div class="card-title">Telecommunications · Dallas, TX</div>
+<div class="card-bio collapsed">AT&T is one of the world's largest telecom companies and was the single largest corporate political donor in the United States in 2006 and 2010. It has given over $18 million since 2005. AT&T is regulated by the FCC for its telecom operations — meaning its lobbying and political spending are concentrated around net neutrality, spectrum allocation, and media consolidation. Its bipartisan split reflects the basic math of regulatory capture: you need friends in both parties to ensure the FCC treats you favorably regardless of who controls it. AT&T's enormous scale — over 200 million customers — means even small regulatory decisions can shift billions in revenue, making its political investment trivially worthwhile.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">58/42 — Access Money</span><span class="tag">Telecom / Media</span><span class="tag">Largest Donor 2006 & 2010</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:58%"></div><div class="bd" style="width:42%"></div></div><div class="bar-pcts"><span class="pr">58% R</span><span class="pd">42% D</span></div></div>
+<div class="card-amount"><div class="amt">$18M+</div><div class="amt-sub">Since 2005<br>Largest donor 2006 & 2010</div></div>
+</div>
+
+<!-- CORP 15 -->
+<div class="donor-card" data-search="lockheed martin defense contractor bipartisan military f-35 largest revolving door" data-lean="split">
+<div class="card-rank"><span class="rn">15</span></div>
+<div class="card-main">
+<div class="card-name">Lockheed Martin</div>
+<div class="card-title">Defense Contractor · Bethesda, MD</div>
+<div class="card-bio collapsed">Lockheed Martin is the world's largest defense contractor by revenue, generating approximately $67 billion annually — of which over 98% comes from government contracts. It manufactures the F-35 (the most expensive weapons program in U.S. history at $400B+ total cost), Patriot missile systems, and dozens of other military technologies. Like all major defense contractors, it gives roughly evenly to both parties because both parties vote for defense budgets, and every member of the Armed Services and Appropriations committees receives donations regardless of party. The revolving door between Lockheed and the Pentagon is extensive and well-documented. Former defense officials routinely take positions at Lockheed and vice versa — a systemic feature of the defense industrial base that both parties have tolerated for decades.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">57/43 — Access Money</span><span class="tag">Defense / Aerospace</span><span class="tag a">World's Largest Defense Contractor</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:57%"></div><div class="bd" style="width:43%"></div></div><div class="bar-pcts"><span class="pr">57% R</span><span class="pd">43% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 16 -->
+<div class="donor-card" data-search="club for growth republican conservative anti-tax super pac primary moderate" data-lean="rep">
+<div class="card-rank"><span class="rn">16</span></div>
+<div class="card-main">
+<div class="card-name">Club for Growth</div>
+<div class="card-title">Conservative Super PAC · Washington, D.C.</div>
+<div class="card-bio collapsed">Club for Growth is one of the most powerful and feared conservative political organizations in America. Founded in 1999, it promotes low taxes and minimal government and is known for spending heavily to primary any Republican incumbent or candidate it considers insufficiently conservative on fiscal issues. Being targeted by Club for Growth has ended the careers of moderate Republican politicians. It is funded primarily by the Uihlein family and other hard-right donors. It played a major role in pushing the Republican Party to the right on fiscal policy over two decades. It has also clashed periodically with Trump, backing some of his primary opponents — reflecting the ongoing tension between libertarian fiscal conservatism and MAGA populism within the Republican coalition.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Conservative Advocacy</span><span class="tag a">Primaries Moderate Republicans</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$50M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 17 -->
+<div class="donor-card" data-search="heritage foundation republican conservative project 2025 think tank policy" data-lean="rep">
+<div class="card-rank"><span class="rn">17</span></div>
+<div class="card-main">
+<div class="card-name">Heritage Foundation</div>
+<div class="card-title">Conservative Think Tank · Washington, D.C.</div>
+<div class="card-bio collapsed">The Heritage Foundation is the most influential conservative think tank in the United States, founded in 1973. It has shaped Republican policy for five decades, from Reagan's tax cuts to welfare reform to deregulation. It became internationally known when it published Project 2025 — a 920-page blueprint for a second Trump administration written by former Trump officials and conservative scholars. Project 2025 called for dismantling the administrative state, firing tens of thousands of civil servants, concentrating executive power in the presidency, and rolling back decades of federal regulation. Trump initially distanced himself from Project 2025 during the campaign but many of its recommendations have been implemented in the second term, including through DOGE and mass federal workforce reductions.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Conservative Policy</span><span class="tag a">Wrote Project 2025</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$20M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 18 -->
+<div class="donor-card" data-search="koch industries republican charles conservative oil chemicals paper network 400 million" data-lean="rep">
+<div class="card-rank"><span class="rn">18</span></div>
+<div class="card-main">
+<div class="card-name">Koch Industries</div>
+<div class="card-title">Oil, Chemicals, Paper & Consumer Products · Wichita, KS</div>
+<div class="card-bio collapsed">Koch Industries is the second-largest privately held company in the United States, with revenue exceeding $115 billion annually. It spans oil refining, petrochemicals, fertilizers, paper products (Georgia-Pacific, maker of Brawny and Dixie), ranching, and consumer goods. Charles Koch has built the most sophisticated and comprehensive conservative political infrastructure in American history through the Koch network: Americans for Prosperity, the Cato Institute, the Heritage Foundation, and dozens of state-level organizations — collectively spending over $400 million per election cycle. Koch Industries and affiliated entities give almost entirely to Republicans, with a focus on tax cuts, deregulation, opposition to climate legislation, and anti-union policies that directly benefit the company's industrial operations. Charles Koch has broken with Trump on several issues but remains among the most influential forces in Republican policy.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">98% Republican</span><span class="tag">Oil / Chemicals / Consumer</span><span class="tag a">$400M+ Conservative Political Network</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:98%"></div><div class="bd" style="width:2%"></div></div><div class="bar-pcts"><span class="pr">98% R</span><span class="pd">2% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Per cycle direct<br>$400M+ via network</div></div>
+</div>
+
+<!-- CORP 19 -->
+<div class="donor-card" data-search="geo group private prison republican immigration detention profits stock rose" data-lean="rep">
+<div class="card-rank"><span class="rn">19</span></div>
+<div class="card-main">
+<div class="card-name">The GEO Group</div>
+<div class="card-title">Private Prison & Detention · Boca Raton, FL</div>
+<div class="card-bio collapsed">The GEO Group is one of the two largest private prison and immigration detention companies in the United States. Its business model generates profit directly from incarceration and detention — the more people who are imprisoned or detained, the more revenue GEO earns. This creates a financial incentive structure that directly rewards policies increasing detention. GEO donated $1 million to Trump's MAGA Inc. in 2024 and was previously a lobbying client of Pam Bondi when she was at Ballard Partners after leaving office as Florida Attorney General. Bondi was subsequently appointed U.S. Attorney General. GEO Group's stock price rose significantly following Trump's 2024 election victory, as investors anticipated increased immigration enforcement contracts — an unusually direct reflection of how political spending can translate into shareholder value.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">72% Republican</span><span class="tag">Private Prisons / Detention</span><span class="tag a">Profits Rise with Detention Rate · Bondi Connection</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:72%"></div><div class="bd" style="width:28%"></div></div><div class="bar-pcts"><span class="pr">72% R</span><span class="pd">28% D</span></div></div>
+<div class="card-amount"><div class="amt">$4M+</div><div class="amt-sub">Career total<br>Surging under Trump</div></div>
+</div>
+
+<!-- CORP 20 -->
+<div class="donor-card" data-search="corecivic private prison republican detention corrections corporation america rebranded" data-lean="rep">
+<div class="card-rank"><span class="rn">20</span></div>
+<div class="card-main">
+<div class="card-name">CoreCivic</div>
+<div class="card-title">Private Prison & Detention · Nashville, TN</div>
+<div class="card-bio collapsed">CoreCivic (formerly Corrections Corporation of America) is the other half of America's private prison duopoly alongside GEO Group. It owns and operates approximately 65 correctional and detention facilities. Like GEO Group, its business model generates profit directly from the number of people incarcerated or detained — a financial incentive structure that critics argue actively works against criminal justice reform. The company rebranded from "Corrections Corporation of America" to "CoreCivic" in 2016 amid growing public scrutiny of private prisons. Its stock, like GEO Group's, rose significantly after Trump's 2024 election victory as investors anticipated higher immigration detention contracts. Both private prison companies represent one of the clearest examples in American capitalism of financial interests directly aligned with mass incarceration.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">68% Republican</span><span class="tag">Private Prisons / Detention</span><span class="tag a">Rebranded from "Corrections Corporation"</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:68%"></div><div class="bd" style="width:32%"></div></div><div class="bar-pcts"><span class="pr">68% R</span><span class="pd">32% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 21 -->
+<div class="donor-card" data-search="boeing aerospace defense bipartisan contractor military commercial 737 max safety scandal" data-lean="split">
+<div class="card-rank"><span class="rn">21</span></div>
+<div class="card-main">
+<div class="card-name">Boeing</div>
+<div class="card-title">Aerospace & Defense · Arlington, VA</div>
+<div class="card-bio collapsed">Boeing is simultaneously the world's largest commercial airplane manufacturer and one of the largest defense contractors, with revenue exceeding $78 billion. It faced enormous scrutiny following two fatal 737 MAX crashes in 2018–2019 that killed 346 people and exposed systematic safety and regulatory capture concerns. Federal investigations revealed Boeing employees had discussed in internal communications how to deceive FAA regulators. Multiple Boeing whistleblowers died under suspicious circumstances in 2024. It gives broadly to both parties because it needs friends on both Armed Services committees and because both parties support the defense budget that funds Boeing's military programs. It also manufactures Air Force One — one of the most politically symbolically loaded government contracts.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">56/44 — Access Money</span><span class="tag">Aerospace / Defense</span><span class="tag a">737 MAX Safety Scandal · Whistleblower Deaths</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:56%"></div><div class="bd" style="width:44%"></div></div><div class="bar-pcts"><span class="pr">56% R</span><span class="pd">44% D</span></div></div>
+<div class="card-amount"><div class="amt">$4.5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 22 -->
+<div class="donor-card" data-search="raytheon defense contractor bipartisan military missiles tomahawk patriot revolving door" data-lean="split">
+<div class="card-rank"><span class="rn">22</span></div>
+<div class="card-main">
+<div class="card-name">Raytheon Technologies (RTX)</div>
+<div class="card-title">Defense Contractor · Arlington, VA</div>
+<div class="card-bio collapsed">Raytheon is one of the five largest defense contractors in the United States, manufacturing Patriot missile defense systems, Tomahawk cruise missiles, the AIM-120 air-to-air missile, and advanced radar systems. Its products have been heavily used in the Ukraine conflict, significantly boosting company revenues. Former Defense Secretary Mark Esper came from Raytheon's government relations team — a classic example of the revolving door between defense contractors and the agencies that fund them. Like all major defense contractors, it gives roughly evenly to both parties because the Armed Services committees include members of both parties who help determine which Raytheon programs get funded. The Ukraine conflict has made Raytheon's political relationships more valuable than ever as both parties debate weapons supply levels.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55/45 — Access Money</span><span class="tag">Defense / Weapons</span><span class="tag">Revenues Boosted by Ukraine War</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:55%"></div><div class="bd" style="width:45%"></div></div><div class="bar-pcts"><span class="pr">55% R</span><span class="pd">45% D</span></div></div>
+<div class="card-amount"><div class="amt">$4M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 23 -->
+<div class="donor-card" data-search="blackstone private equity republican real estate schwarzman landlord single family homes" data-lean="rep">
+<div class="card-rank"><span class="rn">23</span></div>
+<div class="card-main">
+<div class="card-name">Blackstone Group</div>
+<div class="card-title">Private Equity & Real Estate · New York, NY</div>
+<div class="card-bio collapsed">Blackstone is the world's largest alternative asset management firm with over $1 trillion in assets under management. CEO Steve Schwarzman is one of the most consistent Republican donors in finance. Blackstone's real estate arm — through its Invitation Homes vehicle and others — has made it one of the largest single-family home landlords in the United States, owning tens of thousands of homes and apartment complexes across America. This gives it a direct financial interest in housing policy, tenant protection legislation, and rent control proposals. The irony of a private equity firm that has contributed to housing unaffordability for millions of Americans also being a top political donor is not lost on its critics. Its donations are concentrated around protecting carried interest tax treatment for private equity managers.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">76% Republican</span><span class="tag">Private Equity / Real Estate</span><span class="tag a">One of America's Largest Home Landlords</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:76%"></div><div class="bd" style="width:24%"></div></div><div class="bar-pcts"><span class="pr">76% R</span><span class="pd">24% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 24 -->
+<div class="donor-card" data-search="exxonmobil oil gas republican climate denial funded research internal scientists" data-lean="rep">
+<div class="card-rank"><span class="rn">24</span></div>
+<div class="card-main">
+<div class="card-name">ExxonMobil</div>
+<div class="card-title">Oil & Gas · Irving, TX</div>
+<div class="card-bio collapsed">ExxonMobil is the largest publicly traded oil and gas company in the United States. It has given overwhelmingly to Republicans who support oil deregulation, oppose carbon taxes, and resist climate legislation. ExxonMobil was the subject of major investigative reporting revealing that the company's own internal scientists had concluded in the 1970s and 1980s that burning fossil fuels would cause significant global warming — and that the company then spent decades and tens of millions of dollars funding organizations that publicly denied or cast doubt on that exact science. Multiple state attorneys general have investigated ExxonMobil for this conduct. Its political giving is directly tied to its financial interest in avoiding carbon pricing and environmental regulation of its core business.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">80% Republican</span><span class="tag">Oil & Gas</span><span class="tag a">Internal Scientists Warned of Climate Change — Then Funded Denial</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:80%"></div><div class="bd" style="width:20%"></div></div><div class="bar-pcts"><span class="pr">80% R</span><span class="pd">20% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 25 -->
+<div class="donor-card" data-search="comcast nbc msnbc democrat media cable telecom philadelphia spinoff 2024" data-lean="dem">
+<div class="card-rank"><span class="rn">25</span></div>
+<div class="card-main">
+<div class="card-name">Comcast / NBCUniversal</div>
+<div class="card-title">Cable, Telecom & Media · Philadelphia, PA</div>
+<div class="card-bio collapsed">Comcast is the largest cable and internet company in the United States and owner of NBCUniversal — NBC, MSNBC, CNBC, Telemundo, Universal Pictures, Universal theme parks, and Sky broadcasting in Europe. Its scale gives it a direct stake in FCC regulations on broadband, net neutrality, and media consolidation. It leans slightly Democratic, likely reflecting its media and entertainment workforce's political leanings. In 2024, Comcast announced it would spin off MSNBC and most cable news assets into a separate company — a move widely interpreted as distancing from the liberal cable news brand amid growing political and advertiser pressure. This decision illustrates how corporate political giving and media content strategies are increasingly intertwined.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">58% Democrat</span><span class="tag">Cable / Media / Entertainment</span><span class="tag a">Spinning Off MSNBC 2024</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:42%"></div><div class="bd" style="width:58%"></div></div><div class="bar-pcts"><span class="pr">42% R</span><span class="pd">58% D</span></div></div>
+<div class="card-amount"><div class="amt">$9M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 26 -->
+<div class="donor-card" data-search="nra gun rights republican republican wayne lapierre fraud bankruptcy parkland decline" data-lean="rep">
+<div class="card-rank"><span class="rn">26</span></div>
+<div class="card-main">
+<div class="card-name">National Rifle Association (NRA)</div>
+<div class="card-title">Gun Rights Advocacy · Fairfax, VA</div>
+<div class="card-bio collapsed">The NRA was for decades the single most powerful single-issue lobby in American politics. At its peak it spent $30M+ per cycle and was considered able to single-handedly end politicians' careers over gun votes. Its power has declined significantly since the Parkland shooting in 2018, when corporate sponsors fled and its finances came under scrutiny. A New York attorney general investigation revealed massive financial fraud and self-dealing by longtime executive vice president Wayne LaPierre, who spent millions of NRA funds on personal luxuries including private jets and a luxury apartment for his niece. LaPierre resigned in 2024 and was found liable for $4.3 million in damages. The NRA filed for bankruptcy in 2021 and attempted to reincorporate in Texas before a court blocked the move. Once untouchable, it now faces an uncertain future.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">99% Republican</span><span class="tag">Gun Rights</span><span class="tag a">LaPierre Fraud · Bankruptcy · Power Declining</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:99%"></div><div class="bd" style="width:1%"></div></div><div class="bar-pcts"><span class="pr">99% R</span><span class="pd">1% D</span></div></div>
+<div class="card-amount"><div class="amt">$30M+</div><div class="amt-sub">Per cycle historically<br>Declining post-Parkland</div></div>
+</div>
+
+<!-- CORP 27 -->
+<div class="donor-card" data-search="emily's list democrat women pro-choice abortion candidates dobbs surge" data-lean="dem">
+<div class="card-rank"><span class="rn">27</span></div>
+<div class="card-main">
+<div class="card-name">Emily's List</div>
+<div class="card-title">Pro-Choice Women Candidates Super PAC · Washington, D.C.</div>
+<div class="card-bio collapsed">Emily's List is dedicated to electing pro-choice Democratic women to office. The name stands for "Early Money Is Like Yeast" — a reference to how early fundraising helps campaigns rise. Founded in 1985, it has helped elect over 1,000 women to office. Following the Supreme Court's Dobbs decision overturning Roe v. Wade in 2022, Emily's List's fundraising surged dramatically as abortion rights became the central electoral issue in state and local races. It focuses significant resources on state-level races for state legislatures and governorships — where abortion policy is now primarily made after Dobbs returned the issue to states. It is one of the most consistently successful partisan political organizations in American history, with a track record spanning four decades.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Abortion Rights / Women Candidates</span><span class="tag">Fundraising Surged Post-Dobbs</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$20M+</div><div class="amt-sub">Career total</div></div>
+</div>
+
+<!-- CORP 28 -->
+<div class="donor-card" data-search="blue cross blue shield health insurance bipartisan access aca medicare medicaid" data-lean="split">
+<div class="card-rank"><span class="rn">28</span></div>
+<div class="card-main">
+<div class="card-name">Blue Cross Blue Shield</div>
+<div class="card-title">Health Insurance Federation · Nationwide</div>
+<div class="card-bio collapsed">Blue Cross Blue Shield is a federation of 33 independent health insurance companies that collectively insure approximately 107 million Americans — roughly one in three people. As one of the largest health insurers in the country, BCBS has enormous financial exposure to federal healthcare policy: the Affordable Care Act, Medicare Advantage, Medicaid expansion, and drug pricing reform all directly affect billions in BCBS revenue. It gives roughly evenly to both parties — not from centrism but from the recognition that healthcare policy is made under both administrations and the insurance industry needs access to whoever writes the rules. Its lobbying operation is among the most extensive in Washington, focused particularly on protecting private insurance's central role in the U.S. healthcare system.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">53/47 — Access Money</span><span class="tag">Health Insurance</span><span class="tag">Insures 1 in 3 Americans</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:53%"></div><div class="bd" style="width:47%"></div></div><div class="bar-pcts"><span class="pr">53% R</span><span class="pd">47% D</span></div></div>
+<div class="card-amount"><div class="amt">$4M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 29 -->
+<div class="donor-card" data-search="jpmorgan chase bank wall street bipartisan dimon largest bank 3.7 trillion" data-lean="split">
+<div class="card-rank"><span class="rn">29</span></div>
+<div class="card-main">
+<div class="card-name">JPMorgan Chase</div>
+<div class="card-title">Commercial Bank · New York, NY</div>
+<div class="card-bio collapsed">JPMorgan Chase is the largest bank in the United States with approximately $3.7 trillion in assets — more than the GDP of Germany. CEO Jamie Dimon is one of the most influential voices in American business, regularly meeting with both Republican and Democratic presidents and cabinet members and positioning himself as a voice of business establishment concern about both parties' excesses. The bank gives roughly evenly to both parties because its operations are shaped by the Federal Reserve, Treasury, SEC, OCC, and FDIC — all of which change with administrations. Its size means that even marginal regulatory changes can shift billions in revenue, making bipartisan relationships an operational necessity rather than a political philosophy.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">53/47 — Access Money</span><span class="tag">Commercial Banking</span><span class="tag">Largest U.S. Bank</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:53%"></div><div class="bd" style="width:47%"></div></div><div class="bar-pcts"><span class="pr">53% R</span><span class="pd">47% D</span></div></div>
+<div class="card-amount"><div class="amt">$3.2M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 30 -->
+<div class="donor-card" data-search="american medical association ama doctor physician bipartisan access medicare historically opposed" data-lean="split">
+<div class="card-rank"><span class="rn">30</span></div>
+<div class="card-main">
+<div class="card-name">American Medical Association (AMA)</div>
+<div class="card-title">Physician Trade Association · Chicago, IL</div>
+<div class="card-bio collapsed">The AMA is the largest professional association for physicians in the United States. It splits almost evenly between parties, consistently. Physicians need favorable treatment from whoever controls Medicare reimbursement rates, medical malpractice liability rules, and healthcare regulatory policy. The AMA has a long history of opposing universal healthcare: it was one of the most vocal opponents of both Truman's national health insurance plan in the 1940s and Medicare in the 1960s, calling both "socialized medicine" — positions it later reversed. It has taken more moderate positions in recent decades while continuing to prioritize physician compensation levels and professional autonomy in its lobbying. Its 50/50 split is a direct reflection of healthcare being a perennial bipartisan legislative battleground.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">51/49 — Access Money</span><span class="tag">Healthcare / Medical Lobby</span><span class="tag">Historically Opposed Medicare</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:51%"></div><div class="bd" style="width:49%"></div></div><div class="bar-pcts"><span class="pr">51% R</span><span class="pd">49% D</span></div></div>
+<div class="card-amount"><div class="amt">$3.8M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 31 -->
+<div class="donor-card" data-search="energy transfer pipeline republican dakota access oil gas policy outcome donated" data-lean="rep">
+<div class="card-rank"><span class="rn">31</span></div>
+<div class="card-main">
+<div class="card-name">Energy Transfer LP</div>
+<div class="card-title">Pipeline Operator · Dallas, TX</div>
+<div class="card-bio collapsed">Energy Transfer LP is one of the largest pipeline operators in the United States, with over 90,000 miles of pipelines. It built the Dakota Access Pipeline, which sparked years of protests by the Standing Rock Sioux Tribe. CEO Kelcy Warren and the company combined donated $25 million to Trump's MAGA Inc. in 2024. Trump signed executive orders fast-tracking Energy Transfer's pipeline projects within days of taking office in both his first and second terms. This is one of the most clearly documented cases in recent American politics of a specific donation producing an identifiable regulatory outcome — the kind of direct cause-and-effect that, in most countries, would be classified as corruption but in the United States is perfectly legal under post-Citizens United campaign finance law.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">92% Republican</span><span class="tag">Oil & Gas / Pipeline</span><span class="tag a">$25M Donated → Pipelines Fast-Tracked</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:92%"></div><div class="bd" style="width:8%"></div></div><div class="bar-pcts"><span class="pr">92% R</span><span class="pd">8% D</span></div></div>
+<div class="card-amount"><div class="amt">$25M</div><div class="amt-sub">2024 cycle alone</div></div>
+</div>
+
+<!-- CORP 32 -->
+<div class="donor-card" data-search="phrma pharmaceutical drug pricing lobby bipartisan oppose medicare negotiation" data-lean="split">
+<div class="card-rank"><span class="rn">32</span></div>
+<div class="card-main">
+<div class="card-name">PhRMA</div>
+<div class="card-title">Pharmaceutical Research & Manufacturers of America</div>
+<div class="card-bio collapsed">PhRMA is the trade association for the major pharmaceutical and biotechnology companies in the United States. It is one of the largest lobbying organizations in Washington, spending over $200 million on lobbying over the past decade. Its primary political goal is preventing Medicare from negotiating drug prices directly — a policy that most Americans support in polls but which would dramatically reduce pharmaceutical company profits. It also lobbies to extend patent protections and limit competition from generic drugs. The pharmaceutical industry's ability to charge prices far higher in the U.S. than in other countries — while those same drugs are often developed with government-funded research — is one of the most visible examples of political spending directly protecting an industry business model against the public interest.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55/45</span><span class="tag">Pharma Trade Group</span><span class="tag a">Opposes Drug Price Negotiation</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:55%"></div><div class="bd" style="width:45%"></div></div><div class="bar-pcts"><span class="pr">55% R</span><span class="pd">45% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle<br>+ $200M lobbying decade</div></div>
+</div>
+
+<!-- CORP 33 -->
+<div class="donor-card" data-search="google alphabet democrat tech employees antitrust search monopoly doj" data-lean="dem">
+<div class="card-rank"><span class="rn">33</span></div>
+<div class="card-main">
+<div class="card-name">Alphabet / Google</div>
+<div class="card-title">Technology · Mountain View, CA</div>
+<div class="card-bio collapsed">Alphabet is Google's parent company and one of the five most valuable companies in the world. Google employees donate approximately 82% to Democrats — one of the most consistent patterns in corporate political giving. The company itself is more evenly split, reflecting its need for favorable regulatory treatment from both parties on antitrust, privacy, advertising, and AI regulation. The DOJ ruled in August 2024 that Google had illegally maintained its monopoly in search — the most significant antitrust verdict against a U.S. technology company since the Microsoft case in the 1990s. Remedies are still being determined. Both Republican and Democratic administrations have pursued antitrust action against Google, making bipartisan relationships important regardless of the company's employee donation patterns.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">82% Democrat (employees)</span><span class="tag">Technology / AI / Search</span><span class="tag a">Found Guilty of Search Monopoly 2024</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:18%"></div><div class="bd" style="width:82%"></div></div><div class="bar-pcts"><span class="pr">18% R</span><span class="pd">82% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle<br>Employee + PAC</div></div>
+</div>
+
+<!-- CORP 34 -->
+<div class="donor-card" data-search="teamsters union democrat republican trump endorsed bipartisan trucking hoffa" data-lean="dem">
+<div class="card-rank"><span class="rn">34</span></div>
+<div class="card-main">
+<div class="card-name">Teamsters Union (IBT)</div>
+<div class="card-title">Labor Union · Washington, D.C.</div>
+<div class="card-bio collapsed">The International Brotherhood of Teamsters represents approximately 1.3 million workers in trucking, logistics, and warehousing. It is one of the most famous unions in American history, associated with Jimmy Hoffa — whose 1975 disappearance remains one of the most famous unsolved crimes in the country. In a dramatic departure from tradition, Teamsters president Sean O'Brien endorsed Donald Trump in 2024 — appearing at the Republican National Convention — citing concerns about trade policy and immigration's effect on wages. The Teamsters PAC ultimately split its giving with a majority still going to Democrats, but the endorsement represented a significant crack in organized labor's traditional Democratic alignment and was one of the most watched labor-political stories of the 2024 cycle.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">85% Democrat (shifting)</span><span class="tag">Labor / Trucking / Logistics</span><span class="tag a">Endorsed Trump 2024 — Significant Break</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:15%"></div><div class="bd" style="width:85%"></div></div><div class="bar-pcts"><span class="pr">15% R</span><span class="pd">85% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 35 -->
+<div class="donor-card" data-search="northrop grumman defense contractor bipartisan b-21 bomber drone satellite" data-lean="split">
+<div class="card-rank"><span class="rn">35</span></div>
+<div class="card-main">
+<div class="card-name">Northrop Grumman</div>
+<div class="card-title">Defense Contractor · Falls Church, VA</div>
+<div class="card-bio collapsed">Northrop Grumman specializes in aerospace systems, defense electronics, and cybersecurity. It is building the B-21 Raider stealth bomber — the next generation long-range strategic bomber — a program worth potentially $100 billion over its lifecycle. It also manufactures Global Hawk surveillance drones, satellite systems, and the James Webb Space Telescope. Like all defense contractors, it gives roughly evenly to both parties. Northrop Grumman employs approximately 100,000 people in facilities spread across dozens of congressional districts, making members of Congress from both parties attentive to its interests — a deliberate geographic distribution strategy that is common among large defense contractors to maximize their congressional protection.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">56/44 — Access Money</span><span class="tag">Defense / Aerospace</span><span class="tag">B-21 Bomber Program</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:56%"></div><div class="bd" style="width:44%"></div></div><div class="bar-pcts"><span class="pr">56% R</span><span class="pd">44% D</span></div></div>
+<div class="card-amount"><div class="amt">$3.5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 36 -->
+<div class="donor-card" data-search="pfizer pharmaceutical democrat republican bipartisan drug pricing covid vaccine rfk" data-lean="split">
+<div class="card-rank"><span class="rn">36</span></div>
+<div class="card-main">
+<div class="card-name">Pfizer</div>
+<div class="card-title">Pharmaceutical · New York, NY</div>
+<div class="card-bio collapsed">Pfizer is one of the world's largest pharmaceutical companies with revenues exceeding $50 billion annually. It became globally prominent during COVID-19 as the developer of one of the first authorized mRNA vaccines. It splits donations roughly evenly between parties because drug pricing regulation, FDA approval processes, Medicare drug price negotiations, and patent protection laws are areas where both parties make critical decisions. The Inflation Reduction Act — passed by Democrats — included Medicare drug price negotiation provisions that Pfizer strongly opposed. Under Trump, RFK Jr. as HHS Secretary has clawed back $11 billion in vaccine-related grants and cancelled $500M in mRNA research — directly affecting Pfizer's post-COVID business pipeline.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">54/46 — Access Money</span><span class="tag">Pharmaceutical / Biotech</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:54%"></div><div class="bd" style="width:46%"></div></div><div class="bar-pcts"><span class="pr">54% R</span><span class="pd">46% D</span></div></div>
+<div class="card-amount"><div class="amt">$3.5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 37 -->
+<div class="donor-card" data-search="apple democrat tech iphone employees california 88 percent highest" data-lean="dem">
+<div class="card-rank"><span class="rn">37</span></div>
+<div class="card-main">
+<div class="card-name">Apple</div>
+<div class="card-title">Technology · Cupertino, CA</div>
+<div class="card-bio collapsed">Apple is the world's most valuable company, consistently trading at over $3 trillion in market capitalization. Apple employees give approximately 88% to Democrats — the highest Democratic lean of any major technology company in the country. The company has significant exposure to trade policy (most manufacturing is in China through Foxconn), App Store antitrust regulation, and privacy law. Apple has been engaged in a years-long dispute with the U.S. government over encryption and law enforcement access to devices — a civil liberties position that aligns more naturally with Democratic constituencies. Despite Tim Cook having a personal relationship with Trump, the company's workforce and overall giving pattern remain firmly Democratic.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">88% Democrat (employees)</span><span class="tag">Technology / Consumer Electronics</span><span class="tag a">Highest D Lean of Any Major Tech Company</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:12%"></div><div class="bd" style="width:88%"></div></div><div class="bar-pcts"><span class="pr">12% R</span><span class="pd">88% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 38 -->
+<div class="donor-card" data-search="microsoft democrat tech software cloud defense ai openai antitrust" data-lean="dem">
+<div class="card-rank"><span class="rn">38</span></div>
+<div class="card-main">
+<div class="card-name">Microsoft</div>
+<div class="card-title">Technology · Redmond, WA</div>
+<div class="card-bio collapsed">Microsoft is the world's second most valuable company. Its employees give approximately 80% to Democrats. The company itself is more balanced, reflecting its enormous federal contract base — Microsoft Azure holds significant federal cloud contracts including with the Defense Department and intelligence community — that requires good relationships across administrations. Microsoft's $69 billion acquisition of Activision Blizzard in 2023 required FTC clearance. Its investment in OpenAI has made it a central player in AI regulation debates. The company has faced two separate antitrust cases in its history — the landmark 1990s DOJ case over browser bundling, and more recent EU scrutiny of its cloud and Teams products — making bipartisan antitrust relationships important.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">80% Democrat (employees)</span><span class="tag">Technology / Cloud / AI / Gaming</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:20%"></div><div class="bd" style="width:80%"></div></div><div class="bar-pcts"><span class="pr">20% R</span><span class="pd">80% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 39 -->
+<div class="donor-card" data-search="meta facebook zuckerberg democrat republican shifted content moderation fact checking dei" data-lean="dem">
+<div class="card-rank"><span class="rn">39</span></div>
+<div class="card-main">
+<div class="card-name">Meta / Facebook</div>
+<div class="card-title">Social Media & Technology · Menlo Park, CA</div>
+<div class="card-bio collapsed">Meta is the parent company of Facebook, Instagram, WhatsApp, and Threads, with approximately 3.3 billion daily active users globally. Mark Zuckerberg and Priscilla Chan's $400 million donation to election administration in 2020 — intended to fund safe in-person voting — was criticized by Republicans as advantaging Democratic turnout and led to legislation in many Republican-led states banning private election administration funding. Zuckerberg has since shifted his personal political positioning significantly toward Republicans: meeting with Trump, changing Meta's content moderation policies to remove independent fact-checking, ending Meta's diversity programs, and replacing executives with more conservative-leaning figures. Meta employees still give approximately 70% to Democrats, creating a notable gap between the CEO's politics and his workforce's.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">70% Democrat (shifting)</span><span class="tag">Social Media / Technology</span><span class="tag a">Zuckerberg Shifted to Republicans 2024</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:30%"></div><div class="bd" style="width:70%"></div></div><div class="bar-pcts"><span class="pr">30% R</span><span class="pd">70% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle<br>+ $400M 2020 election admin</div></div>
+</div>
+
+<!-- CORP 40 -->
+<div class="donor-card" data-search="verizon telecom bipartisan fcc net neutrality republican democrat" data-lean="split">
+<div class="card-rank"><span class="rn">40</span></div>
+<div class="card-main">
+<div class="card-name">Verizon</div>
+<div class="card-title">Telecommunications · New York, NY</div>
+<div class="card-bio collapsed">Verizon is the second largest telecom company in the United States after AT&T. It competes with AT&T on wireless, broadband, and media — and because both companies are regulated by the FCC on the same issues, their political giving strategies are nearly identical: broadly bipartisan to ensure influence with whoever controls the FCC. Verizon formerly owned AOL and Yahoo under the "Verizon Media" brand before selling them to private equity. It gives roughly 55% to Republicans and 45% to Democrats, reflecting a slight Republican lean on deregulation while maintaining Democratic relationships for universal service funding and broadband expansion subsidies. Its $150 billion in annual revenue means that even marginal regulatory decisions can shift hundreds of millions in profitability.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55/45 — Access Money</span><span class="tag">Telecommunications</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:55%"></div><div class="bd" style="width:45%"></div></div><div class="bar-pcts"><span class="pr">55% R</span><span class="pd">45% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 41 -->
+<div class="donor-card" data-search="american petroleum institute api oil gas republican lobby climate denial fossil fuel" data-lean="rep">
+<div class="card-rank"><span class="rn">41</span></div>
+<div class="card-main">
+<div class="card-name">American Petroleum Institute (API)</div>
+<div class="card-title">Oil & Gas Trade Association · Washington, D.C.</div>
+<div class="card-bio collapsed">API is the trade association for the U.S. oil and natural gas industry, representing over 600 companies including ExxonMobil, Chevron, BP, and Shell. It is one of the most powerful lobbying forces in Washington, giving approximately 80% to Republicans. API has spent decades lobbying against carbon taxes, climate regulations, offshore drilling restrictions, and methane emission standards. Like ExxonMobil, API has been documented funding climate denial organizations and casting doubt on the scientific consensus on climate change — even as its own industry's research acknowledged the phenomenon. Under Trump's second term, API's preferred policies dominate U.S. energy regulation, representing the most favorable regulatory environment the oil and gas industry has experienced in decades.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">80% Republican</span><span class="tag">Oil & Gas Lobby</span><span class="tag a">Funded Climate Denial Organizations</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:80%"></div><div class="bd" style="width:20%"></div></div><div class="bar-pcts"><span class="pr">80% R</span><span class="pd">20% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle + extensive lobbying</div></div>
+</div>
+
+<!-- CORP 42 -->
+<div class="donor-card" data-search="general dynamics defense contractor bipartisan submarine tank columbia class gulfstream" data-lean="split">
+<div class="card-rank"><span class="rn">42</span></div>
+<div class="card-main">
+<div class="card-name">General Dynamics</div>
+<div class="card-title">Defense Contractor · Reston, VA</div>
+<div class="card-bio collapsed">General Dynamics is one of the five largest defense contractors in the United States, manufacturing Gulfstream business jets, Abrams tanks, nuclear-powered submarines, and combat vehicles. It is the primary contractor for the Columbia-class submarine program — the next generation of nuclear ballistic missile submarines — a program worth potentially $100 billion over its lifecycle. Like all defense contractors, it gives roughly evenly to both parties because the committees that appropriate defense funding include members of both parties. General Dynamics employs approximately 100,000 people in facilities spread across dozens of congressional districts, making members of Congress from both parties attentive to its interests as both a defense and employment policy matter.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">57/43 — Access Money</span><span class="tag">Defense / Nuclear Submarines</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:57%"></div><div class="bd" style="width:43%"></div></div><div class="bar-pcts"><span class="pr">57% R</span><span class="pd">43% D</span></div></div>
+<div class="card-amount"><div class="amt">$3.5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 43 -->
+<div class="donor-card" data-search="chevron oil gas republican deregulation chevron doctrine overturned loper bright" data-lean="rep">
+<div class="card-rank"><span class="rn">43</span></div>
+<div class="card-main">
+<div class="card-name">Chevron</div>
+<div class="card-title">Oil & Gas · San Ramon, CA</div>
+<div class="card-bio collapsed">Chevron is the second largest U.S. oil company. It gives approximately 78% to Republicans — reflecting the oil industry's dependence on Republican support for offshore drilling rights, pipeline permits, and opposition to carbon pricing. In a remarkable legal coincidence, Chevron was the namesake of the "Chevron doctrine" — a legal principle requiring courts to defer to federal agencies' interpretations of ambiguous laws — which the Supreme Court overturned in Loper Bright v. Raimondo in 2024. That ruling significantly affects how federal environmental and energy regulations are written and challenged, benefiting companies like Chevron that have long fought agency regulations. The legal doctrine named after Chevron was ultimately eliminated in a ruling that benefits Chevron's regulatory interests.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag r">78% Republican</span><span class="tag">Oil & Gas</span><span class="tag a">Chevron Doctrine Overturned — Benefits Chevron</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:78%"></div><div class="bd" style="width:22%"></div></div><div class="bar-pcts"><span class="pr">78% R</span><span class="pd">22% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 44 -->
+<div class="donor-card" data-search="league conservation voters environment democrat climate super pac scorecard" data-lean="dem">
+<div class="card-rank"><span class="rn">44</span></div>
+<div class="card-main">
+<div class="card-name">League of Conservation Voters (LCV)</div>
+<div class="card-title">Environmental Super PAC · Washington, D.C.</div>
+<div class="card-bio collapsed">The League of Conservation Voters publishes an annual "scorecard" rating every member of Congress on their environmental votes — creating public accountability for climate and conservation positions. Its super PAC has grown into a major electoral force. LCV targets races where an environmentally hostile incumbent can be defeated or where an environmental champion can be protected. It gives almost entirely to Democrats, reflecting the profound partisan divergence on climate policy. It has been a major force in defeating anti-environment candidates in swing states and protecting Democrats who take positions on clean energy, public lands, and climate that make them vulnerable in some districts. Under Trump's second term, with environmental regulations being dismantled across agencies, LCV's work has taken on greater urgency.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Environment / Climate</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 45 -->
+<div class="donor-card" data-search="planned parenthood democrat abortion rights women healthcare dobbs surge" data-lean="dem">
+<div class="card-rank"><span class="rn">45</span></div>
+<div class="card-main">
+<div class="card-name">Planned Parenthood Action Fund</div>
+<div class="card-title">Reproductive Healthcare & Advocacy · New York, NY</div>
+<div class="card-bio collapsed">Planned Parenthood is the largest provider of reproductive healthcare in the United States, providing contraception, STI testing, cancer screenings, and abortion services to approximately 2.4 million patients per year across 600+ health centers. Its political action arm is a consistent top Democratic donor focused on abortion rights. Following the Supreme Court's Dobbs decision in 2022, Planned Parenthood's political operations expanded significantly, focusing heavily on state-level ballot measures to enshrine abortion rights in state constitutions. It is one of the most targeted organizations by conservative legislators — attempts to remove it from Medicaid reimbursement are a perennial feature of Republican budget proposals. Under Trump's second term it faces the most serious federal funding threats in its 100-year history.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">Reproductive Rights / Healthcare</span><span class="tag">Surging Post-Dobbs</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$10M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 46 -->
+<div class="donor-card" data-search="amazon democrat republican bipartisan bezos washington post antitrust ftc usps" data-lean="split">
+<div class="card-rank"><span class="rn">46</span></div>
+<div class="card-main">
+<div class="card-name">Amazon</div>
+<div class="card-title">E-commerce, Cloud & Logistics · Seattle, WA</div>
+<div class="card-bio collapsed">Amazon is one of the most politically active companies in America, with interests spanning retail, cloud computing (AWS), logistics, healthcare (One Medical), and media (Prime Video). Jeff Bezos sold the Washington Post to a new owner in 2024 after the paper's editorial policies and endorsement decisions created political controversy. Amazon faces regulatory exposure across antitrust, labor, tax, and privacy law from both parties — the FTC pursued antitrust action against Amazon under Biden. The company gives roughly evenly to both parties. Bezos's personal political views have shifted in recent years, and his relationship with Trump improved notably in 2024–2025 in a pattern common among tech billionaires who have pivoted toward the new administration.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55% D / 45% R</span><span class="tag">E-commerce / Cloud / Media</span><span class="tag a">Bezos WaPo Sale · Pivot Toward Trump</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:45%"></div><div class="bd" style="width:55%"></div></div><div class="bar-pcts"><span class="pr">45% R</span><span class="pd">55% D</span></div></div>
+<div class="card-amount"><div class="amt">$4M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 47 -->
+<div class="donor-card" data-search="unitedhealth group health insurance bipartisan medicare advantage ceo murder claim denials ai" data-lean="split">
+<div class="card-rank"><span class="rn">47</span></div>
+<div class="card-main">
+<div class="card-name">UnitedHealth Group</div>
+<div class="card-title">Health Insurance & Healthcare Services · Minnetonka, MN</div>
+<div class="card-bio collapsed">UnitedHealth Group is the largest health insurance company in the United States, insuring approximately 50 million people and generating revenues exceeding $370 billion annually — one of the largest companies in the world. The murder of UnitedHealthcare CEO Brian Thompson in December 2024 sparked a massive national conversation about health insurance practices, particularly the company's use of AI algorithms to deny claims. Congressional hearings and public outrage followed revelations about claim denial rates. UnitedHealth gives roughly evenly to both parties because its revenues are profoundly shaped by Medicare Advantage policy, Medicaid managed care, and the ACA — areas where both parties make critical decisions. It is the dominant player in Medicare Advantage, the private insurance alternative to traditional Medicare.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">54/46 — Access Money</span><span class="tag">Health Insurance</span><span class="tag a">CEO Murdered · AI Claim Denial Controversy</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:54%"></div><div class="bd" style="width:46%"></div></div><div class="bar-pcts"><span class="pr">54% R</span><span class="pd">46% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 48 -->
+<div class="donor-card" data-search="human rights campaign lgbtq democrat equality transgender rights" data-lean="dem">
+<div class="card-rank"><span class="rn">48</span></div>
+<div class="card-main">
+<div class="card-name">Human Rights Campaign (HRC)</div>
+<div class="card-title">LGBTQ+ Rights Advocacy · Washington, D.C.</div>
+<div class="card-bio collapsed">The Human Rights Campaign is the largest LGBTQ+ civil rights organization in the United States with over 3 million members. Its PAC gives almost entirely to Democrats, reflecting the profound partisan divergence on LGBTQ+ rights — same-sex marriage, transgender rights, employment non-discrimination, and anti-discrimination protections are all areas where Democrats and Republicans have taken starkly opposing positions. HRC's Corporate Equality Index — which rates major employers on LGBTQ+ workplace policies — has become a significant tool for pushing corporations toward inclusive policies. Under Trump's second term, the administration has issued executive orders targeting transgender rights in healthcare, the military, sports, and education — making HRC's political spending more consequential than at any previous point in its history.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag b">99% Democrat</span><span class="tag">LGBTQ+ Rights</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:1%"></div><div class="bd" style="width:99%"></div></div><div class="bar-pcts"><span class="pr">1% R</span><span class="pd">99% D</span></div></div>
+<div class="card-amount"><div class="amt">$5M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 49 -->
+<div class="donor-card" data-search="walmart retail republican democrat bipartisan largest employer wages walton family" data-lean="split">
+<div class="card-rank"><span class="rn">49</span></div>
+<div class="card-main">
+<div class="card-name">Walmart</div>
+<div class="card-title">Retail · Bentonville, AR</div>
+<div class="card-bio collapsed">Walmart is the world's largest retailer and the largest private employer in the United States with approximately 1.6 million American employees. Its political giving reflects complex interests: it benefits from low import tariffs (most products come from China), which historically aligned it with free-trade positions across both parties. It faces regulatory exposure on labor laws, minimum wage legislation, and zoning. Despite being headquartered in conservative Arkansas with historical Republican leanings, Walmart has become increasingly centrist in its political giving as its employee base and customer demographics have diversified. The Walton family — heirs to the Walmart fortune and among the wealthiest families in America — are significant independent donors, primarily to Republican causes and education reform (particularly charter schools and vouchers).</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">55% R / 45% D</span><span class="tag">Retail / Consumer</span><span class="tag">Waltons: Significant Independent R Donors</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:55%"></div><div class="bd" style="width:45%"></div></div><div class="bar-pcts"><span class="pr">55% R</span><span class="pd">45% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+<!-- CORP 50 -->
+<div class="donor-card" data-search="national beer wholesalers association bipartisan access both parties pure split distribution" data-lean="split">
+<div class="card-rank"><span class="rn">50</span></div>
+<div class="card-main">
+<div class="card-name">National Beer Wholesalers Association (NBWA)</div>
+<div class="card-title">Trade Association · Alcohol Distribution Industry</div>
+<div class="card-bio collapsed">The National Beer Wholesalers Association represents the distributors who sit in the middle of the three-tier alcohol distribution system (producers → distributors → retailers) that is required by law in most U.S. states. It is a textbook pure "access donor" — splitting almost perfectly 50/50 between parties every cycle because alcohol distribution law is regulated at both state and federal levels, and the three-tier system that guarantees distributors' protected role is embedded in state law that both parties can modify. The NBWA does not have a strong ideological position — it simply wants to protect a distribution model that generates billions in profit for its members. Its perfect bipartisan split, repeated every cycle, is one of the clearest illustrations in American politics of purely transactional, interest-based political giving.</div>
+<button class="rm" onclick="toggleBio(this)">Read more</button>
+<div class="card-tags"><span class="tag">50/50 — Pure Access Money</span><span class="tag">Alcohol Distribution</span><span class="tag a">Textbook Transactional Bipartisan Giving</span></div>
+</div>
+<div class="card-bar"><div class="party-label">Party Split</div><div class="bar-track"><div class="br" style="width:50%"></div><div class="bd" style="width:50%"></div></div><div class="bar-pcts"><span class="pr">50% R</span><span class="pd">50% D</span></div></div>
+<div class="card-amount"><div class="amt">$3M+</div><div class="amt-sub">Per cycle</div></div>
+</div>
+
+    </div><!-- end corp-grid -->
+  </div><!-- end tab-corp -->
+</div><!-- end tabs-wrap -->
+
+<footer>
+  <span class="fc">© 2026 PoliticalHypocrites.us · All data sourced from OpenSecrets.org and FEC.gov public records.</span>
+  <span class="fc">Nonpartisan. Both parties. All data public record.</span>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+var indFilter='all', corpFilter='all';
+function showTab(name,btn){
+  document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleBio(btn){
+  var bio=btn.previousElementSibling;
+  if(bio.classList.contains('collapsed')){bio.classList.remove('collapsed');btn.textContent='Read less';}
+  else{bio.classList.add('collapsed');btn.textContent='Read more';}
+}
+function setFilter(prefix,lean,btn){
+  if(prefix==='ind')indFilter=lean; else corpFilter=lean;
+  document.querySelectorAll('#tab-'+prefix+' .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCards(prefix);
+}
+function filterCards(prefix){
+  var q=document.getElementById(prefix+'-search').value.toLowerCase().trim();
+  var filter=prefix==='ind'?indFilter:corpFilter;
+  var cards=document.querySelectorAll('#'+prefix+'-grid .donor-card');
+  var visible=0;
+  cards.forEach(function(card){
+    var lean=card.dataset.lean||'split';
+    var matchLean=filter==='all'||(filter==='rep'&&lean==='rep')||(filter==='dem'&&lean==='dem')||(filter==='split'&&lean==='split');
+    var matchQ=!q||(card.dataset.search||'').includes(q)||card.textContent.toLowerCase().includes(q);
+    if(matchLean&&matchQ){card.classList.remove('hidden');visible++;}
+    else card.classList.add('hidden');
+  });
+  var total=cards.length;
+  document.getElementById(prefix+'-count').textContent=(visible===total&&!q)?'Showing all '+total+' donors · Source: OpenSecrets · FEC':'Showing '+visible+' of '+total+' donors';
+}
+</script>
+</body>
+</html>
