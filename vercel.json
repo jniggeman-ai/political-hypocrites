@@ -22,5 +22,6 @@
     { "source": "/kelly-loeffler", "destination": "/kelly-loeffler.html" },
     { "source": "/stephen-miller", "destination": "/stephen-miller.html" },
     { "source": "/susie-wiles", "destination": "/susie-wiles.html" }
+    { "source": "/tulsi-gabbard", "destination": "/tulsi-gabbard.html" }
   ]
 }
