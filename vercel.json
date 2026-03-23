@@ -14,6 +14,9 @@
     { "source": "/howard-lutnick", "destination": "/howard-lutnick.html" },
     { "source": "/linda-mcmahon", "destination": "/linda-mcmahon.html" },
     { "source": "/kristi-noem", "destination": "/kristi-noem.html" },
-    { "source": "/markwayne-mullin", "destination": "/markwayne-mullin.html" }
+    { "source": "/markwayne-mullin", "destination": "/markwayne-mullin.html" },
+    { "source": "/doug-burgum", "destination": "/doug-burgum.html" },
+    { "source": "/chris-wright", "destination": "/chris-wright.html" },
+    { "source": "/brooke-rollins", "destination": "/brooke-rollins.html" }
   ]
 }
