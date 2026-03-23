@@ -3,6 +3,7 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/executive", "destination": "/executive.html" },
+    { "source": "/donors", "destination": "/donors.html" },
     { "source": "/donald-trump", "destination": "/donald-trump.html" },
     { "source": "/jd-vance", "destination": "/jd-vance.html" },
     { "source": "/marco-rubio", "destination": "/marco-rubio.html" },
@@ -10,13 +11,16 @@
     { "source": "/rfk-jr", "destination": "/rfk-jr.html" },
     { "source": "/pam-bondi", "destination": "/pam-bondi.html" },
     { "source": "/kash-patel", "destination": "/kash-patel.html" },
-    { "source": "/donors", "destination": "/donors.html" },
     { "source": "/howard-lutnick", "destination": "/howard-lutnick.html" },
     { "source": "/linda-mcmahon", "destination": "/linda-mcmahon.html" },
     { "source": "/kristi-noem", "destination": "/kristi-noem.html" },
     { "source": "/markwayne-mullin", "destination": "/markwayne-mullin.html" },
     { "source": "/doug-burgum", "destination": "/doug-burgum.html" },
     { "source": "/chris-wright", "destination": "/chris-wright.html" },
-    { "source": "/brooke-rollins", "destination": "/brooke-rollins.html" }
+    { "source": "/brooke-rollins", "destination": "/brooke-rollins.html" },
+    { "source": "/sean-duffy", "destination": "/sean-duffy.html" },
+    { "source": "/kelly-loeffler", "destination": "/kelly-loeffler.html" },
+    { "source": "/stephen-miller", "destination": "/stephen-miller.html" },
+    { "source": "/susie-wiles", "destination": "/susie-wiles.html" }
   ]
 }
