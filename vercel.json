@@ -21,7 +21,8 @@
     { "source": "/sean-duffy", "destination": "/sean-duffy.html" },
     { "source": "/kelly-loeffler", "destination": "/kelly-loeffler.html" },
     { "source": "/stephen-miller", "destination": "/stephen-miller.html" },
-    { "source": "/susie-wiles", "destination": "/susie-wiles.html" }
+    { "source": "/susie-wiles", "destination": "/susie-wiles.html" },
+    { "source": "/scott-bessent", "destination": "/scott-bessent.html" },
     { "source": "/tulsi-gabbard", "destination": "/tulsi-gabbard.html" }
   ]
 }
