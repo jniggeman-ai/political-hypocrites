@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Political Hypocrites — United Above To Distract Below</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #111111;
+      --paper: #F5F0E8;
+      --rule: #C8BFA8;
+      --muted: #6B6352;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .top-rule { width: 100%; height: 5px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); position: relative; z-index: 20; }
+    nav {
+      position: absolute;
+      top: 5px;
+      left: 0; right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+    }
+    .nav-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      text-decoration: none;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .nav-links a:hover { color: white; }
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('logo.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 45%,
+        rgba(0,0,0,0.15) 65%,
+        rgba(0,0,0,0.75) 85%,
+        rgba(0,0,0,0.95) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 2rem 3rem;
+      max-width: 760px;
+      width: 100%;
+    }
+    .tagline-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.1s;
+    }
+    .tagline-rule::before, .tagline-rule::after {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+    }
+    .tagline-rule span {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .site-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.25s;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+    .site-title .w-p { color: white; display: block; }
+    .site-title .w-h { color: #f87171; display: block; }
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.8vw, 1.5rem);
+      font-style: italic;
+      font-weight: 700;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.02em;
+      margin: 0.8rem 0;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.4s;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    }
+    .tagline .above { color: #93c5fd; font-style: normal; }
+    .tagline .below { color: #f87171; font-style: normal; }
+    .mission {
+      font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.55s;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .mission em { font-style: italic; color: rgba(255,255,255,0.45); }
+    .search-section {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 560px;
+      padding: 0 2rem;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.7s;
+    }
+    .search-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .search-wrap {
+      display: flex;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .search-wrap:focus-within {
+      border-color: white;
+      background: rgba(0,0,0,0.6);
+    }
+    .search-wrap input {
+      flex: 1;
+      padding: 0.9rem 1.1rem;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+    }
+    .search-wrap input::placeholder { color: rgba(255,255,255,0.35); font-style: italic; }
+    .search-wrap button {
+      padding: 0.9rem 1.4rem;
+      background: white;
+      color: var(--ink);
+      border: none;
+      cursor: pointer;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    .search-wrap button:hover { background: #f87171; color: white; }
+    .search-hint {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.56rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .hero-spacer { height: 3rem; position: relative; z-index: 2; }
+    .below-fold { background: var(--ink); position: relative; z-index: 5; }
+    .section-divider {
+      max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 0;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-divider::before, .section-divider::after {
+      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.12);
+    }
+    .section-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); white-space: nowrap;
+    }
+    .pillars {
+      max-width: 900px; margin: 2rem auto 0; padding: 0 2rem;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .pillar { background: var(--ink); padding: 1.4rem 1.2rem; transition: background 0.2s; }
+    .pillar:hover { background: #1a1a1a; }
+    .pillar-icon { font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
+    .pillar-title { font-family: 'Playfair Display', serif; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; color: white; }
+    .pillar-desc { font-size: 0.75rem; line-height: 1.5; color: rgba(255,255,255,0.4); font-weight: 300; }
+    .notice { max-width: 900px; margin: 2.5rem auto 0; padding: 0 2rem; }
+    .notice-inner { border-left: 3px solid rgba(255,255,255,0.15); padding: 0.9rem 1.3rem; background: rgba(255,255,255,0.03); }
+    .notice-inner p { font-size: 0.79rem; line-height: 1.65; color: rgba(255,255,255,0.4); font-style: italic; }
+    .notice-inner strong { color: rgba(255,255,255,0.65); font-style: normal; }
+    .coming-soon { max-width: 900px; margin: 2rem auto 0; padding: 0 2rem 4rem; }
+    .coming-soon-inner { border: 1px solid rgba(255,255,255,0.1); padding: 1.1rem 1.6rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .coming-soon-text { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .coming-soon-text span { color: rgba(255,255,255,0.2); margin-right: 0.8rem; }
+    .notify-form { display: flex; border: 1px solid rgba(255,255,255,0.12); overflow: hidden; }
+    .notify-form input { padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.05); border: none; outline: none; color: white; font-family: 'Space Mono', monospace; font-size: 0.67rem; width: 190px; }
+    .notify-form input::placeholder { color: rgba(255,255,255,0.2); }
+    .notify-form button { padding: 0.5rem 0.9rem; background: var(--red); color: white; border: none; cursor: pointer; font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .notify-form button:hover { background: #991b1b; }
+    footer { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); padding: 1.8rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+    .footer-note { font-size: 0.72rem; color: rgba(255,255,255,0.22); font-style: italic; max-width: 420px; text-align: right; line-height: 1.5; }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 700px) {
+      nav { padding: 0.9rem 1.2rem; } .nav-links { display: none; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; } .footer-note { text-align: left; }
+      .coming-soon-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <nav>
+    <span class="nav-date" id="nav-date"></span>
+    <ul class="nav-links">
+      <li><a href="/congress">Congress</a></li>
+      <li><a href="/executive">Executive</a></li>
+      <li><a href="/donors">Donor Search</a></li>
+      <li><a href="#">Stock Trades</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="tagline-rule"><span>est. 2026</span></div>
+    <h1 class="site-title">
+      <span class="w-p">Political</span>
+      <span class="w-h">Hypocrites</span>
+    </h1>
+    <p class="tagline">
+      <span class="above">United Above</span>
+      <span> To Distract </span>
+      <span class="below">Below</span>
+    </p>
+    <p class="mission">
+      Every vote they cast. Every dollar they took. Every stock they traded while you weren't watching.
+      <em>No opinions. No spin. No sides. Just the record.</em>
+    </p>
+    <div class="search-section">
+      <label class="search-label" for="politician-search">Search any politician by name</label>
+      <div class="search-wrap">
+        <input type="text" id="politician-search" placeholder="e.g. Donald Trump, Marco Rubio, JD Vance…" autocomplete="off" onkeydown="handleSearch(event)" />
+        <button type="button" onclick="doSearch()">Search</button>
+      </div>
+      <p class="search-hint">Tracking the Trump Administration & Congress · Updated weekly</p>
+    </div>
+  </div>
+
+  <div class="hero-spacer"></div>
+</section>
+
+<div class="below-fold">
+  <div class="section-divider"><span>What we track</span></div>
+  <div class="pillars">
+    <div class="pillar"><span class="pillar-icon">🗳️</span><div class="pillar-title">Every Vote</div><p class="pillar-desc">Full voting history on every bill. No cherry picking.</p></div>
+    <div class="pillar"><span class="pillar-icon">💰</span><div class="pillar-title">Donor Records</div><p class="pillar-desc">Who funded them. How much. AIPAC and all PACs included.</p></div>
+    <div class="pillar"><span class="pillar-icon">📈</span><div class="pillar-title">Stock Trades</div><p class="pillar-desc">Every disclosed trade — them and their immediate family.</p></div>
+    <div class="pillar"><span class="pillar-icon">📋</span><div class="pillar-title">Committees</div><p class="pillar-desc">What they oversee. Who they really answer to.</p></div>
+    <div class="pillar"><span class="pillar-icon">🗂️</span><div class="pillar-title">Epstein Files</div><p class="pillar-desc">Direct links to source documents. Every mention, every party.</p></div>
+    <div class="pillar"><span class="pillar-icon">⚔️</span><div class="pillar-title">War Votes</div><p class="pillar-desc">Did they vote for war? Were we attacked first? The record speaks.</p></div>
+    <div class="pillar"><span class="pillar-icon">📣</span><div class="pillar-title">Promises Made</div><p class="pillar-desc">What they said to get elected vs. what they actually did.</p></div>
+    <div class="pillar"><span class="pillar-icon">🏛️</span><div class="pillar-title">Party & Affiliation</div><p class="pillar-desc">Who they caucus with. Who they really work for.</p></div>
+  </div>
+  <div class="notice">
+    <div class="notice-inner">
+      <p><strong>All data sourced exclusively from public government records</strong> — FEC, congress.gov, House and Senate STOCK Act disclosures, and officially released court documents. We do not editorialize, speculate, or take political positions. If it's on this site, a government source is attached to it.</p>
+    </div>
+  </div>
+  <div class="coming-soon">
+    <div class="coming-soon-inner">
+      <div class="coming-soon-text"><span>Status:</span> Building Out — More Profiles Added Weekly</div>
+      <div class="notify-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button">Notify Me</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans tracked equally. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  const d = new Date();
+  document.getElementById('nav-date').textContent = d.toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+
+  const politicians = {
+    'trump': 'donald-trump', 'donald trump': 'donald-trump',
+    'vance': 'jd-vance', 'jd vance': 'jd-vance',
+    'hegseth': 'pete-hegseth', 'pete hegseth': 'pete-hegseth',
+    'rubio': 'marco-rubio', 'marco rubio': 'marco-rubio',
+    'rfk': 'rfk-jr', 'kennedy': 'rfk-jr', 'rfk jr': 'rfk-jr', 'robert kennedy': 'rfk-jr',
+    'bondi': 'pam-bondi', 'pam bondi': 'pam-bondi',
+    'patel': 'kash-patel', 'kash patel': 'kash-patel', 'kash': 'kash-patel',
+    'tuberville': 'tommy-tuberville', 'tommy tuberville': 'tommy-tuberville',
+    'britt': 'katie-britt', 'katie britt': 'katie-britt',
+    'barry moore': 'barry-moore', 'moore': 'barry-moore',
+    'bessent': 'scott-bessent', 'scott bessent': 'scott-bessent',
+    'gabbard': 'tulsi-gabbard', 'tulsi gabbard': 'tulsi-gabbard', 'tulsi': 'tulsi-gabbard',
+    'wiles': 'susie-wiles', 'susie wiles': 'susie-wiles',
+    'miller': 'stephen-miller', 'stephen miller': 'stephen-miller',
+    'burgum': 'doug-burgum', 'doug burgum': 'doug-burgum',
+    'wright': 'chris-wright', 'chris wright': 'chris-wright',
+    'rollins': 'brooke-rollins', 'brooke rollins': 'brooke-rollins',
+    'duffy': 'sean-duffy', 'sean duffy': 'sean-duffy',
+    'loeffler': 'kelly-loeffler', 'kelly loeffler': 'kelly-loeffler',
+  };
+
+  function doSearch() {
+    const q = document.getElementById('politician-search').value.toLowerCase().trim();
+    if (!q) return;
+    for (const [key, page] of Object.entries(politicians)) {
+      if (q.includes(key) || key.includes(q)) {
+        window.location.href = '/' + page;
+        return;
+      }
+    }
+    alert('Profile not yet available. We are adding new politicians every week. Check back soon!');
+  }
+
+  function handleSearch(e) {
+    if (e.key === 'Enter') doSearch();
+  }
+</script>
+
+</body>
+</html>
