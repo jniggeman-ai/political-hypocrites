@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jared Huffman — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-2 · Democrat</div>
+  <h1>Jared Huffman</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for California's 2nd District (North Coast — Marin to Oregon border) since 2013. Ranking Member, House Natural Resources Committee. Co-founder, Congressional Freethought Caucus. Former NRDC attorney and Marin Municipal Water District board member.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2013</div>
+      <div class="sub">CA-2</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1964</div>
+      <div class="sub">Independence, MO</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Biden Alignment</div>
+      <div class="value">100%</div>
+      <div class="sub">117th Congress</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Education</div>
+      <div class="value">BC Law</div>
+      <div class="sub">UCSB BA, Boston College JD</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Committee Role</div>
+      <div class="value">Ranking</div>
+      <div class="sub">Natural Resources Cmte</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Education</h3>
+    <p>Jared Huffman was born on February 18, 1964 in Independence, Missouri. He graduated magna cum laude from UC Santa Barbara with a B.A. in political science, then earned his J.D. from Boston College Law School.</p>
+
+    <h3>Pre-Congressional Career</h3>
+    <p>Huffman worked as a consumer attorney and later as a senior attorney at the Natural Resources Defense Council (NRDC), where he focused on water policy and environmental protection. He served on the Marin Municipal Water District board for 12 years before entering electoral politics.</p>
+    <p>He was elected to the California State Assembly in 2006, representing a Marin County-based district, and served three terms before running for Congress.</p>
+
+    <h3>Congressional Career</h3>
+    <p>Huffman has represented California's 2nd District — encompassing six North Coast counties from Marin County north to the Oregon border — since 2013. He serves as Ranking Member of the House Natural Resources Committee. He co-founded the Congressional Freethought Caucus, which advocates for secular governance and evidence-based policymaking. Huffman has been publicly open about his secular humanist beliefs, making him one of the few openly non-religious members of Congress.</p>
+    <p>He is a member of the Congressional Progressive Caucus.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Natural Resources (Ranking Member)</li>
+      <li>Transportation &amp; Infrastructure</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Environmental organizations</li>
+          <li>Democratic/Liberal groups</li>
+          <li>Education</li>
+          <li>Real Estate</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/jared-huffman/summary?cid=N00033116" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card red">
+      <div class="rc-label">Fiscal Policy · 2023</div>
+      <div class="rc-title">Voted Against Fiscal Responsibility Act (2023)</div>
+      <div class="rc-body">Huffman was one of a minority of House Democrats to vote against the Fiscal Responsibility Act of 2023, the bipartisan debt ceiling deal negotiated between Speaker McCarthy and President Biden. Progressive critics of the bill objected to spending caps and work requirements attached to SNAP benefits.</div>
+    </div>
+    <div class="record-card red">
+      <div class="rc-label">Campus Protest Resolution · November 2023</div>
+      <div class="rc-title">One of 23 to Vote Against House Resolution on Campus Antisemitism</div>
+      <div class="rc-body">Huffman was among only 23 House members to vote against a resolution condemning campus support for Hamas and Hezbollah following the October 7, 2023 attacks. His office cited concerns about free speech and the breadth of the resolution's language.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Biden Alignment · 117th Congress</div>
+      <div class="rc-title">100% Biden Alignment</div>
+      <div class="rc-body">Voted in alignment with the Biden administration's stated position 100% of the time during the 117th Congress, per GovTrack and ProPublica analysis.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Biden Withdrawal · July 2024</div>
+      <div class="rc-title">Called for Biden to Withdraw from 2024 Race</div>
+      <div class="rc-body">On July 19, 2024, Huffman publicly called for President Biden to withdraw from the presidential race, citing concerns about the president's age and viability as a candidate.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/jared_huffman/412511" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">Campus Resolution · Nov 2023</div>
+      <div class="rc-title">Voted Against Resolution Condemning Campus Hamas/Hezbollah Support</div>
+      <div class="rc-body">One of only 23 members to vote against the House resolution. His stated concern was civil liberties and overbroad language, not support for the groups named in the resolution.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Defense Spending</div>
+      <div class="rc-title">Progressive Caucus Member — Skeptical of Expanded Military Budgets</div>
+      <div class="rc-body">As a member of the Congressional Progressive Caucus, Huffman has generally opposed increases in Pentagon spending beyond baseline requests and has supported audits of defense contracts.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Huffman's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Jared_Huffman" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Jared Huffman."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

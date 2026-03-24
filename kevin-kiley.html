@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevin Kiley — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; margin-bottom: 18px; }
+    .party-badge.independent { background: linear-gradient(to right, #B91C1C, #1D3A6B); }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #666; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #555; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #333; }
+    .tab-btn.active { color: #333; border-bottom-color: #555; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #555; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card.blue { border-left-color: #1D3A6B; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .notice-box { background: #fffbea; border: 1px solid #e6d96b; border-left: 4px solid #c9a800; padding: 16px 20px; margin-bottom: 24px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 1.6; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-3 · Independent (formerly Republican)</div>
+  <h1>Kevin Kiley</h1>
+  <span class="party-badge independent">Independent</span>
+
+  <div class="notice-box">
+    ⚠ PARTY CHANGE: Kiley switched his registration from Republican to Independent on March 9, 2026. He continues to caucus with House Republicans. He is running in redrawn CA-6 in 2026 under new Proposition 50 district maps.
+  </div>
+
+  <p class="hero-sub">Representative for California's 3rd District since 2023. Former California State Assemblyman. Chair of the House Education Subcommittee on Early Childhood, Elementary, and Secondary Education. Harvard graduate who taught 10th grade English in inner-city Los Angeles.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2023</div>
+      <div class="sub">CA-3</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1985</div>
+      <div class="sub">Jan 30, 1985</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Party Change</div>
+      <div class="value">Mar 9</div>
+      <div class="sub">R → Independent, 2026</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Missed Votes</div>
+      <div class="value">0.7%</div>
+      <div class="sub">Below average</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Education</div>
+      <div class="value">Harvard</div>
+      <div class="sub">BA Harvard · JD Yale</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Education</h3>
+    <p>Kevin Kiley was born on January 30, 1985. He grew up in the Granite Bay area of Placer County. He graduated from Harvard University with a B.A., then earned a J.D. from Yale Law School, and later a Master's in Education from Loyola Marymount University.</p>
+
+    <h3>Pre-Congressional Career</h3>
+    <p>After law school, Kiley taught 10th grade English at an inner-city Los Angeles high school through the Teach For America program. He subsequently worked as an attorney, including prosecuting a civil case against Huawei for intellectual property theft.</p>
+
+    <h3>Political Career</h3>
+    <p>Kiley was elected to the California State Assembly in 2016, representing a Sacramento-area district, and served three terms through 2022. He ran in the 2021 California gubernatorial recall election against Governor Gavin Newsom. He was elected to Congress in 2022, representing California's 3rd District.</p>
+    <p>In Congress, Kiley chairs the House Education Subcommittee on Early Childhood, Elementary, and Secondary Education. He authored the PRESS Act, a federal shield law protecting journalists' confidential sources, which passed the House with bipartisan support. He was involved in the questioning that contributed to the firing of DHS Secretary Kristi Noem.</p>
+
+    <h3>Party Change — March 2026</h3>
+    <p>On March 9, 2026, Kiley announced he was changing his voter registration from Republican to Independent. He stated he would continue to caucus with House Republicans. He is running in the newly redrawn CA-6 district in 2026 under California's Proposition 50 redistricting maps.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Education &amp; the Workforce — Subcommittee on Early Childhood, Elementary, and Secondary Education (Chair)</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Real Estate</li>
+          <li>Republican/Conservative organizations</li>
+          <li>Finance &amp; Investment</li>
+          <li>Agriculture</li>
+          <li>Lawyers &amp; Law Firms</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/kevin-kiley/summary?cid=N00050741" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card blue">
+      <div class="rc-label">Legislation · Bipartisan</div>
+      <div class="rc-title">PRESS Act — Journalist Source Protection</div>
+      <div class="rc-body">Kiley authored the PRESS Act (Protect Reporters from Exploitative State Spying), a federal shield law that would protect journalists from being compelled to reveal confidential sources in federal court proceedings. The bill passed the House with bipartisan support.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Attendance</div>
+      <div class="rc-title">0.7% Missed Vote Rate</div>
+      <div class="rc-body">As of early 2026, Kiley had missed approximately 0.7% of roll call votes — well below the House average — during his first full term in Congress.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Oversight</div>
+      <div class="rc-title">Questioned Kristi Noem — Contributed to Her Firing</div>
+      <div class="rc-body">Kiley's questioning of DHS Secretary Kristi Noem in oversight hearings was cited among the factors that led to her dismissal from the cabinet position.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/kevin_kiley/456901" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">General Posture</div>
+      <div class="rc-title">Caucuses with House Republicans on Foreign Policy</div>
+      <div class="rc-body">Despite switching to Independent registration in March 2026, Kiley continues to caucus with House Republicans, meaning his foreign policy votes have generally aligned with the Republican conference.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Kiley's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Kevin_Kiley" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Kevin Kiley."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

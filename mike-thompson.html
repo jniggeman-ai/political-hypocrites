@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mike Thompson — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-4 · Democrat</div>
+  <h1>Mike Thompson</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for California's 4th District (Napa Valley, Lake, Sonoma, Solano, Yolo counties) since 1999. Purple Heart Vietnam veteran. Blue Dog Coalition moderate. Co-Chair, House Gun Violence Prevention Task Force. Ranking Member, Ways and Means Tax Subcommittee. Small vineyard owner and co-founder of the bipartisan Congressional Wine Caucus.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">1999</div>
+      <div class="sub">27 years</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1951</div>
+      <div class="sub">St. Helena, CA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Military Service</div>
+      <div class="value">Vietnam</div>
+      <div class="sub">Purple Heart · 173rd Airborne</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Missed Votes</div>
+      <div class="value">1.3%</div>
+      <div class="sub">Career (Jan 1999–Mar 2026)</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Bills Enacted</div>
+      <div class="value">21</div>
+      <div class="sub">Primary sponsor</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Military Service</h3>
+    <p>Charles Michael Thompson was born on January 24, 1951 in St. Helena, California — the heart of the Napa Valley wine region. He dropped out of high school to enlist in the U.S. Army during the Vietnam War. He served as a staff sergeant and platoon leader with the 173rd Airborne Brigade, was wounded in combat, and was awarded the Purple Heart. He later served as an instructor at the Army's Airborne School.</p>
+    <p>After returning home, Thompson worked as the maintenance supervisor at Beringer Winery in Napa Valley. Using the GI Bill, he returned to school — attending Napa Valley Community College and graduating from California State University, Chico. He subsequently earned a Master's degree in Public Administration from CSU Chico. He became the first in his family to earn a college degree. He later taught Public Administration and State Government at San Francisco State University and CSU Chico.</p>
+
+    <h3>Political Career</h3>
+    <p>Thompson was elected to the California State Senate in 1990, representing the 2nd District. He was the first Vietnam veteran elected to the California State Senate. He chaired the powerful Budget Committee during his time in the State Senate.</p>
+    <p>He was elected to Congress in 1998, first taking office in January 1999. His district — variously numbered over redistricting cycles but currently CA-4 — covers Napa Valley and surrounding wine country, including all or parts of Lake, Napa, Solano, Sonoma, and Yolo counties.</p>
+    <p>Thompson is a member of the Blue Dog Coalition, the caucus of moderate Democrats committed to fiscal responsibility and bipartisan problem-solving. He is also co-founder and co-chair of the bipartisan Congressional Wine Caucus (over 215 members) and has twice co-chaired the Congressional Sportsmen's Caucus. He is a small vineyard owner in Napa Valley.</p>
+    <p>He is running for re-election in 2026 and faces an intra-party primary challenge from Eric Jones, in the context of a Politico-reported Democratic effort to unseat senior incumbents.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Ways and Means — Ranking Member, Tax Policy Subcommittee</li>
+      <li>Ways and Means — Health Subcommittee (senior member)</li>
+    </ul>
+
+    <h3>Caucuses &amp; Task Forces</h3>
+    <ul>
+      <li>Co-Chair, House Gun Violence Prevention Task Force</li>
+      <li>Co-Chair, Military Veterans Caucus</li>
+      <li>Co-Founder &amp; Co-Chair, Congressional Wine Caucus</li>
+      <li>Blue Dog Coalition</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Taxation / Finance — ties to Ways and Means Committee role</li>
+          <li>Health care organizations</li>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Wine &amp; Spirits industry</li>
+          <li>Agriculture</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/mike-thompson/summary?cid=N00007419" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card">
+      <div class="rc-label">Gun Policy · Ongoing</div>
+      <div class="rc-title">Co-Chair, House Gun Violence Prevention Task Force</div>
+      <div class="rc-body">Thompson was appointed Chair of the House Gun Violence Prevention Task Force following the Sandy Hook school shooting in December 2012. He is a gun owner and hunter who identifies as a Second Amendment supporter, while simultaneously advocating for expanded background checks on all firearm sales.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Legislation · 2026</div>
+      <div class="rc-title">Introduced Tariff Refund Credit Bill</div>
+      <div class="rc-body">In February 2026, Thompson introduced H.R. 7636, which would amend the Internal Revenue Code to create an individual tariff refund credit — providing direct relief to consumers from tariff costs.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Legislation · 2026</div>
+      <div class="rc-title">Prevent Presidential Profiteering Act</div>
+      <div class="rc-body">In February 2026, Thompson introduced H.R. 7381, the Prevent Presidential Profiteering Act, with 15 co-sponsors. The bill would restrict financial activities by sitting presidents that could constitute self-dealing.</div>
+    </div>
+    <div class="record-card red">
+      <div class="rc-label">Environment · Mixed Record</div>
+      <div class="rc-title">Received Mixed Ratings from Environmental Groups</div>
+      <div class="rc-body">Despite representing a Northern California district and receiving a Sierra Club Edgar Wayburn Award, Thompson's environmental record has included votes that drew criticism from some environmental organizations: he voted for the Healthy Forests Initiative under George W. Bush, against limits on new commercial logging roads in Alaska's Tongass National Forest, and against limits on bear baiting. The American Wilderness Coalition gave him a B rating in 2003 and an A+ in 2004.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Attendance</div>
+      <div class="rc-title">1.3% Missed Vote Rate (Career)</div>
+      <div class="rc-body">From January 1999 through March 2026, Thompson missed 224 of 17,172 roll call votes — a career missed vote rate of 1.3%, better than the median of 2.1% among currently serving members.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/mike_thompson/400403" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">Iraq War · 2002</div>
+      <div class="rc-title">Pre-War Fact-Finding Trip to Iraq; Skeptic of WMD Claims</div>
+      <div class="rc-body">In late 2002, Thompson joined Representatives Jim McDermott and David Bonior on a trip to Iraq. During the visit, they expressed skepticism about the Bush administration's claims that Saddam Hussein was stockpiling weapons of mass destruction. The trip was later scrutinized when a Michigan charity official was charged with helping underwrite the trip on behalf of Iraqi intelligence — though Thompson's office had already organized the trip independently before the charity offered to pay expenses.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Military Service</div>
+      <div class="rc-title">Vietnam Veteran — Purple Heart Recipient</div>
+      <div class="rc-body">Thompson served as a staff sergeant and platoon leader with the Army's 173rd Airborne Brigade in Vietnam, where he was wounded in action and received the Purple Heart. He has co-chaired the Military Veterans Caucus in Congress and led legislation on veteran PTSD treatment, TBI care, and GI Bill modernization.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Thompson's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Mike_Thompson" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Mike Thompson."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

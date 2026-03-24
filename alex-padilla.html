@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Padilla — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Senator · California · Democrat · Class 3</div>
+  <h1>Alex Padilla</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">First Latino U.S. Senator from California. Former Secretary of State, City Council President, and State Senator. Appointed by Governor Newsom in January 2021 to fill Kamala Harris's vacated seat.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Office Since</div>
+      <div class="value">2021</div>
+      <div class="sub">Appointed Jan 20, 2021</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Age</div>
+      <div class="value">52</div>
+      <div class="sub">Born 1973</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Party</div>
+      <div class="value">Democrat</div>
+      <div class="sub">Class 3 seat</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Biden Alignment</div>
+      <div class="value">100%</div>
+      <div class="sub">Voted with Biden 100%</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Education</div>
+      <div class="value">MIT</div>
+      <div class="sub">Mechanical Engineering</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Education</h3>
+    <p>Alex Padilla was born in 1973 in Panorama City, Los Angeles. His father immigrated from Mexico and worked as a short-order cook; his mother worked as a housekeeper. Padilla attended MIT, graduating with a degree in mechanical engineering — the first in his family to attend college.</p>
+
+    <h3>Political Career</h3>
+    <p>Padilla was elected to the Los Angeles City Council in 1999 at age 26, becoming the youngest person elected to the Council at that time. He served as Council President and, on September 11, 2001, was acting Mayor of Los Angeles when the attacks occurred.</p>
+    <p>He was elected to the California State Senate in 2006, where he served three terms. In 2014, he was elected California Secretary of State — the first Latino to hold that office — and was re-elected in 2018.</p>
+    <p>On January 20, 2021, Governor Gavin Newsom appointed Padilla to the U.S. Senate seat vacated by Kamala Harris, who became Vice President. Padilla became California's first Latino U.S. Senator. He was subsequently elected to a full term in 2022.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Judiciary</li>
+      <li>Environment &amp; Public Works</li>
+      <li>Budget</li>
+      <li>Rules &amp; Administration</li>
+    </ul>
+
+    <h3>Notable Controversies</h3>
+    <div class="record-card red">
+      <div class="rc-label">No-Bid Contract · 2020</div>
+      <div class="rc-title">SKDK Contract During 2020 Election</div>
+      <div class="rc-body">As California Secretary of State, Padilla awarded a no-bid contract to SKDK, a Democratic political consulting firm, to help run voter outreach during the 2020 election cycle. Critics questioned why the contract bypassed the competitive bidding process. SKDK had ties to Democratic campaigns and advocacy organizations.</div>
+    </div>
+    <div class="record-card red">
+      <div class="rc-label">Incident · June 12, 2025</div>
+      <div class="rc-title">Forcibly Removed at Kristi Noem Press Conference</div>
+      <div class="rc-body">Padilla was forcibly removed and briefly handcuffed by Department of Homeland Security agents while attempting to ask questions at a press conference held by DHS Secretary Kristi Noem in Los Angeles. Padilla said he was there as an elected U.S. Senator. DHS said he was not credentialed for the event. The incident drew wide media attention and criticism from civil liberties groups.</div>
+    </div>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <p>Donor data reflects publicly reported contributions via FEC filings. Full detail available at OpenSecrets.</p>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Real Estate</li>
+          <li>Technology</li>
+          <li>Democratic/Liberal organizations</li>
+          <li>Education</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/alex-padilla/summary?cid=N00040367" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card">
+      <div class="rc-label">Voting Record</div>
+      <div class="rc-title">Biden Alignment: 100%</div>
+      <div class="rc-body">Padilla voted in alignment with the Biden administration's stated position 100% of the time during the 117th and 118th Congresses, according to GovTrack and ProPublica tracking.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Immigration</div>
+      <div class="rc-title">Consistent Pro-Immigration Voting Record</div>
+      <div class="rc-body">Padilla has voted for and co-sponsored legislation expanding pathways to citizenship, DACA protections, and protections for farmworkers. He has been a leading Senate voice on immigration policy.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Budget &amp; Spending</div>
+      <div class="rc-title">Voted for Inflation Reduction Act (2022)</div>
+      <div class="rc-body">Voted for the Inflation Reduction Act, which included provisions on climate spending, prescription drug pricing, and a corporate minimum tax.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/alex_padilla/412790" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">Foreign Policy</div>
+      <div class="rc-title">Senate Judiciary Committee Role</div>
+      <div class="rc-body">Padilla serves on the Environment &amp; Public Works Committee and the Judiciary Committee. His legislative focus has centered primarily on domestic issues — immigration, climate, voting rights — rather than foreign policy legislation.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Ukraine Aid</div>
+      <div class="rc-title">Voted for Ukraine Security Assistance</div>
+      <div class="rc-body">Padilla voted in favor of Ukraine security assistance packages during the 118th Congress.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>Senate financial disclosures are publicly available. Padilla's reported trades can be reviewed via SenateStockWatcher.</p>
+    <p><a class="source-link" href="https://senatestockwatcher.com/politician/alex_padilla" target="_blank">→ View reported trades at SenateStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Alex Padilla."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · SenateStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
