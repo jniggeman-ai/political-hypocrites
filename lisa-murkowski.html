@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lisa Murkowski — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .vbadge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .vbadge.yea{background:var(--green);color:white}.vbadge.nay{background:var(--red);color:white}.vbadge.mixed{background:var(--amber);color:white}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/congress">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/congress">Congress</a> › <a href="/congress">Alaska</a> › Lisa Murkowski</div>
+<div class="profile-header">
+  <div class="profile-photo">🏔️</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Lisa Murkowski</h1>
+    <p class="profile-title">U.S. Senator, Alaska · Class 3 · Serving Since 2002 · Chair, Senate Indian Affairs Committee · 2nd Most Liberal Senate Republican (GovTrack) · Appointed by Her Father</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Alaska</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>May 22, 1957</div>
+      <div class="meta-item"><strong>In Office</strong>Since January 7, 2003</div>
+      <div class="meta-item"><strong>Term Ends</strong>January 2029</div>
+      <div class="meta-item"><strong>Committees</strong>Indian Affairs (Chair) · Appropriations · HELP · Energy</div>
+    </div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num red">2002</div><div class="stat-lbl">Appointed by Father — First Alaskan-Born Member of Congress</div></div>
+  <div class="stat-box"><div class="stat-num blue">2nd</div><div class="stat-lbl">Most Liberal Republican Senator (GovTrack, 2024)</div></div>
+  <div class="stat-box"><div class="stat-num red">2010</div><div class="stat-lbl">Lost Republican Primary — Won as Write-In Candidate</div></div>
+  <div class="stat-box"><div class="stat-num red">47</div><div class="stat-lbl">Bills Enacted — Most Productive Senators (GovTrack)</div></div>
+  <div class="stat-box"><div class="stat-num blue">2</div><div class="stat-lbl">Trump Impeachments — Voted to Convict on Both</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('votes',this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background</span><span class="sec-source">Source: Wikipedia · GovTrack · Ballotpedia · OpenSecrets</span></div>
+    <div class="bg-card">
+      <p>Lisa Murkowski was born May 22, 1957 in Ketchikan, Alaska — the first person born in Alaska to serve in Congress. Her father, Frank Murkowski, was a U.S. Senator who resigned in 2002 to become Alaska's governor, then appointed his own daughter to fill his vacant Senate seat. She attended Willamette University, then Georgetown University (BA Economics, 1980), and Willamette University College of Law (JD, 1985). She failed the bar exam four times before passing on her fifth attempt. She served in the Alaska House of Representatives from 1999 to 2002 before her Senate appointment.</p>
+      <p><strong>Write-in victory (2010):</strong> Murkowski lost the 2010 Republican primary to Tea Party candidate Joe Miller. Rather than accept the loss, she launched a write-in campaign and defeated both Miller and the Democratic nominee in the general election — one of the few successful Senate write-in campaigns in U.S. history. She was reelected in 2016 and again in 2022.</p>
+      <p><strong>Political positioning:</strong> Murkowski is consistently ranked as one of the most moderate Republicans in the Senate. GovTrack ranks her as the second most liberal Republican senator. The National Journal gave her a composite score of 56% conservative / 45% liberal in 2013. Heritage Action gave her a 34% lifetime score. She is pro-abortion rights, opposes defunding Planned Parenthood, and voted against repealing the ACA without a replacement.</p>
+      <p><strong>Trump relationship:</strong> Murkowski voted to convict Trump in both impeachment trials. She was one of seven Republican senators to vote to convict in the second impeachment. She publicly questioned whether the Republican Party had become "nothing more than the party of Trump" in 2021. When asked in 2024 if she would remain a Republican, she said she was "not attached to a label" and was "navigating my way through some very interesting political times." She has criticized DOGE and said she refuses to compromise her integrity by remaining silent on the Trump administration's second term.</p>
+      <p><strong>Greenland crisis (Jan 2026):</strong> Murkowski traveled to Denmark in January 2026 in a show of support for the country during the Greenland crisis — a notable break from administration policy. Source: Wikipedia</p>
+      <p><strong>Land ethics issue (2007):</strong> Murkowski said she would sell back land she bought from Anchorage businessman Bob Penney after a Senate ethics complaint alleged Penney sold it well below market value. Source: Wikipedia</p>
+    </div>
+  </div>
+  <div id="tab-votes" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Key Votes</span><span class="sec-source">Source: <a href="https://www.govtrack.us/congress/members/lisa_murkowski/300075" target="_blank">GovTrack</a> · Senate records · Wikipedia · Ballotpedia</span></div>
+    <table class="data-table">
+      <thead><tr><th>Bill / Vote</th><th>Vote</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trump Impeachment (1st) — 2020</strong></td><td><span class="vbadge yea">Convict</span></td><td>Voted to convict Trump on abuse of power charges. One of a small number of Republicans to do so. Source: Wikipedia</td></tr>
+        <tr><td><strong>Trump Impeachment (2nd) — 2021</strong></td><td><span class="vbadge yea">Convict</span></td><td>One of seven Republican senators to vote to convict Trump for incitement of insurrection following January 6. Source: Wikipedia</td></tr>
+        <tr><td><strong>ACA Repeal Without Replacement — 2017</strong></td><td><span class="vbadge nay">Nay</span></td><td>One of seven Republicans who voted against repealing the ACA without a replacement, blocking the bill. Source: Wikipedia</td></tr>
+        <tr><td><strong>Bipartisan Infrastructure Bill — 2021</strong></td><td><span class="vbadge yea">Yea</span></td><td>One of 19 Republicans who voted for the $1.2 trillion bipartisan infrastructure bill. Source: Wikipedia</td></tr>
+        <tr><td><strong>One Big Beautiful Bill — July 2025</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for the Trump-backed reconciliation bill after securing concessions maintaining protections for Alaska wind and solar projects. The Trump administration subsequently waived those protections by executive order after signing. Source: Wikipedia</td></tr>
+        <tr><td><strong>Planned Parenthood Defunding — 2025</strong></td><td><span class="vbadge nay">Nay</span></td><td>One of only two Republicans (with Susan Collins) to join all Democrats in opposing the bill ending federal funding for Planned Parenthood. Source: Wikipedia</td></tr>
+        <tr><td><strong>National Defense Authorization Act (NDAA) 2024</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for annual military authorization. Source: Ballotpedia</td></tr>
+        <tr><td><strong>Fiscal Responsibility Act 2023</strong> (debt ceiling)</td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan debt ceiling agreement. Source: Ballotpedia</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full voting record: <a href="https://www.govtrack.us/congress/members/lisa_murkowski/300075" target="_blank" style="color:var(--blue)">GovTrack.us →</a></p>
+  </div>
+  <div id="tab-donors" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Top Donors</span><span class="sec-source">Source: <a href="https://www.opensecrets.org/members-of-congress/lisa-murkowski" target="_blank">OpenSecrets</a> · <a href="https://www.fec.gov" target="_blank">FEC.gov</a></span></div>
+    <table class="data-table">
+      <thead><tr><th>Donor / Industry</th><th>Amount</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Oil & Gas / Energy</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Top Career Sector</td><td>Alaska's economy is deeply tied to oil and gas. Murkowski chaired the Senate Energy and Natural Resources Committee (2015–2021) and has been a consistent advocate for Alaskan resource development including ANWR drilling. Energy is her top career donor sector. Source: OpenSecrets</td></tr>
+        <tr><td>Native American / Alaska Native Interests</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Murkowski chairs the Senate Indian Affairs Committee and has been a consistent advocate for Alaska Native communities throughout her career. Source: OpenSecrets</td></tr>
+        <tr><td>Defense / Aerospace</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Alaska hosts significant military installations. Defense sector contributions reflect Murkowski's Appropriations Committee seat and Alaska military advocacy. Source: OpenSecrets</td></tr>
+        <tr><td>Health Care / Hospitals</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Murkowski sits on the HELP (Health, Education, Labor, and Pensions) Committee. Health care industry contributions reflect this role. Source: OpenSecrets</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full donor data: <a href="https://www.opensecrets.org/members-of-congress/lisa-murkowski" target="_blank" style="color:var(--blue)">OpenSecrets →</a></p>
+  </div>
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Stock Trades & Financial Disclosures</span><span class="sec-source">Source: <a href="https://www.senatestockwatcher.com" target="_blank">SenateStockWatcher</a></span></div>
+    <div class="bg-card"><p>Murkowski sits on the Senate Appropriations Committee, the HELP Committee, the Energy and Natural Resources Committee, and chairs the Indian Affairs Committee. Her net worth was reported at over $1.4 million as of 2018 (OpenSecrets). Full trade history is available through the Senate STOCK Act disclosure system.</p></div>
+    <a href="https://www.senatestockwatcher.com" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;">View Full Trade History → SenateStockWatcher</a>
+  </div>
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Lisa Murkowski does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents →</a>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">All information sourced from public records including FEC filings, Senate disclosures, GovTrack, and OpenSecrets. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>

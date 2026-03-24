@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gary Palmer — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .party-badge.dem{background:var(--blue)}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .vbadge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .vbadge.yea{background:var(--green);color:white}.vbadge.nay{background:var(--red);color:white}.vbadge.mixed{background:var(--amber);color:white}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/congress">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/congress">Congress</a> › <a href="/congress">Alabama</a> › Gary Palmer</div>
+<div class="profile-header">
+  <div class="profile-photo">📋</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Gary Palmer</h1>
+    <p class="profile-title">U.S. Representative, Alabama 6th District · In Congress Since 2015 · Former Chair, House Republican Policy Committee (2019–2025) · Freedom Caucus Member · Former Think Tank President</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Alabama</div>
+      <div class="meta-item"><strong>District</strong>AL-6 (Birmingham Suburbs)</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>May 14, 1954</div>
+      <div class="meta-item"><strong>In Congress</strong>Since January 2015</div>
+      <div class="meta-item"><strong>Committees</strong>Energy & Commerce · Oversight</div>
+    </div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num red">97%</div><div class="stat-lbl">ACU Lifetime Conservative Rating</div></div>
+  <div class="stat-box"><div class="stat-num blue">0%</div><div class="stat-lbl">ADA Liberalism Score (Americans for Democratic Action)</div></div>
+  <div class="stat-box"><div class="stat-num red">R+28</div><div class="stat-lbl">District Cook PVI</div></div>
+  <div class="stat-box"><div class="stat-num red">Jan 6</div><div class="stat-lbl">Voted Against Certifying 2020 Election</div></div>
+  <div class="stat-box"><div class="stat-num red">FTX</div><div class="stat-lbl">Received Donations from Collapsed Crypto Exchange</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('votes',this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background</span><span class="sec-source">Source: Wikipedia · Ballotpedia · GovTrack · OpenSecrets</span></div>
+    <div class="bg-card">
+      <p>Gary James Palmer was born May 14, 1954 in Hackleburg, Alabama, where his family farmed 40 acres. He was the first in his family to earn a college degree, receiving a BS in Operations Management from the University of Alabama, where he was also a walk-on wide receiver for Bear Bryant's football team.</p>
+      <p><strong>Alabama Policy Institute:</strong> Before entering elected office Palmer co-founded and served as president of the Alabama Policy Institute (API), a conservative think tank, for 24 years. His involvement with Focus on the Family led him to start the Alabama Family Alliance, which became API. He chaired the Republican Policy Committee from 2019 to 2025 — the fourth-ranking position in House Republican leadership — making him the most senior Republican policy voice from Alabama.</p>
+      <p><strong>Election history:</strong> Palmer won the 2014 Republican primary in a heavily contested seven-way field, ultimately defeating state Rep. Paul DeMarco 64%–36% after picking up Club for Growth support. He won the general election 76%–24% in the R+28 district. He has held the seat since. His district includes the wealthier parts of Birmingham and most of its suburbs.</p>
+      <p><strong>Term limits pledge:</strong> Palmer pledged before his first election to serve no more than five terms. The 2022 election would have been his last under that pledge. In March 2022 he reversed course, citing his leadership role and high turnover in the Alabama delegation as justification. The U.S. Term Limits group purchased billboards attacking him for breaking the pledge. His office called the accusation "fake news." Source: Wikipedia</p>
+      <p><strong>Infrastructure vote:</strong> In November 2021, Palmer touted federal funding for the Birmingham Northern Beltline — a provision he authored in the Infrastructure Investment and Jobs Act — while simultaneously voting against the final bill. He did not mention his no vote in a Twitter post celebrating the funding. Democratic figures including Sen. Brian Schatz and Rep. Eric Swalwell criticized the post. Source: Wikipedia</p>
+      <p><strong>FTX donations:</strong> In February 2023, CoinDesk reported Palmer was one of three Alabama delegation members who received donations from FTX — the collapsed cryptocurrency exchange whose founder Sam Bankman-Fried was later convicted of fraud. Palmer's office did not respond to inquiries about what was done with the funds. Source: CoinDesk · Wikipedia</p>
+      <p><strong>Speaker candidacy (2023):</strong> During the October 2023 House Speaker election, Palmer briefly entered the race as a potential unity candidate. The New York Times described him as someone who could bridge the warring Republican factions. He withdrew before an internal caucus forum. Source: Wikipedia</p>
+    </div>
+  </div>
+  <div id="tab-votes" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Key Votes</span><span class="sec-source">Source: <a href="https://www.govtrack.us/congress/members/gary_palmer/412608" target="_blank">GovTrack</a> · House records · Ballotpedia</span></div>
+    <table class="data-table">
+      <thead><tr><th>Bill / Vote</th><th>Vote</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2020 Election Certification — Jan 6, 2021</strong></td><td><span class="vbadge nay">Objected</span></td><td>Voted against certifying the 2020 presidential election results. Source: GovTrack</td></tr>
+        <tr><td><strong>Infrastructure Investment and Jobs Act (2021)</strong></td><td><span class="vbadge nay">Nay</span></td><td>Voted against the bipartisan infrastructure bill — then publicly celebrated funding from the bill that he authored as a provision within it, without mentioning his no vote. Source: Wikipedia</td></tr>
+        <tr><td><strong>Fiscal Responsibility Act 2023</strong> (debt ceiling)</td><td><span class="vbadge nay">Nay</span></td><td>One of the Republicans who voted against the bipartisan debt ceiling deal. Source: Ballotpedia</td></tr>
+        <tr><td><strong>Ukraine Security Supplemental (2024)</strong></td><td><span class="vbadge nay">Nay</span></td><td>Voted against military and economic aid to Ukraine. Source: GovTrack</td></tr>
+        <tr><td><strong>Israel Security Supplemental (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for continued military aid to Israel. Source: GovTrack</td></tr>
+        <tr><td><strong>National Defense Authorization Act (NDAA) 2024</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for annual military authorization. Source: Ballotpedia</td></tr>
+        <tr><td><strong>Lower Energy Costs Act (H.R. 1, 2023)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for Republican energy production expansion bill. Source: GovTrack</td></tr>
+        <tr><td><strong>Tax Relief for American Families Act (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan tax relief bill. Passed 357–70. Source: GovTrack</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full voting record: <a href="https://www.govtrack.us/congress/members/gary_palmer/412608" target="_blank" style="color:var(--blue)">GovTrack.us →</a></p>
+  </div>
+  <div id="tab-donors" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Top Donors</span><span class="sec-source">Source: <a href="https://www.opensecrets.org/members-of-congress/gary-palmer/summary?cid=N00035691" target="_blank">OpenSecrets</a> · <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://trackaipac.com/states/alabama" target="_blank">TrackAIPAC</a></span></div>
+    <table class="data-table">
+      <thead><tr><th>Donor / Industry</th><th>Amount</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Finance / Insurance / Real Estate</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Top Sector</td><td>Palmer's Birmingham-area suburban district is one of the wealthier in Alabama. Finance, insurance, and real estate interests are his top career donor sector. He serves on the Energy & Commerce Committee. Source: OpenSecrets</td></tr>
+        <tr><td>Energy & Natural Resources</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Palmer chairs the Energy & Commerce Subcommittee on Environment and has been a consistent opponent of EPA regulation. Energy sector contributions reflect this committee position. Source: OpenSecrets</td></tr>
+        <tr><td>Israel Lobby (AIPAC + affiliated)</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Documented Recipient</td><td>Listed as an Alabama delegation recipient on TrackAIPAC. Source: TrackAIPAC</td></tr>
+        <tr><td>FTX (Sam Bankman-Fried)</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Received</td><td>Palmer was one of three Alabama delegation members who received FTX contributions. FTX collapsed in 2022 and its founder was convicted of fraud. Palmer's office did not respond to inquiries about disposition of the funds. Source: CoinDesk (Feb 2023)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Stock Trades & Financial Disclosures</span><span class="sec-source">Source: <a href="https://www.housestockwatcher.com" target="_blank">HouseStockWatcher</a></span></div>
+    <div class="bg-card"><p>Palmer serves on the Energy & Commerce Committee and its Environment Subcommittee. His financial disclosures are available through the House STOCK Act system.</p></div>
+    <a href="https://www.housestockwatcher.com" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;">View Full Trade History → HouseStockWatcher</a>
+  </div>
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Gary Palmer does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents →</a>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">All information sourced from public records including FEC filings, House disclosures, GovTrack, and OpenSecrets. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
