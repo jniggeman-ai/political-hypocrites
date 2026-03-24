@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Boozman — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .vbadge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .vbadge.yea{background:var(--green);color:white}.vbadge.nay{background:var(--red);color:white}.vbadge.mixed{background:var(--amber);color:white}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/congress">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/congress">Congress</a> › <a href="/congress">Arkansas</a> › John Boozman</div>
+<div class="profile-header">
+  <div class="profile-photo">👁️</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">John Boozman</h1>
+    <p class="profile-title">U.S. Senator, Arkansas · Class 3 · Serving Since 2011 · Former Optometrist · Dean of Arkansas Congressional Delegation · Former U.S. Representative (2001–2011) · Voted to Certify 2020 Election After Jan. 6 Attack</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Arkansas</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>December 10, 1950</div>
+      <div class="meta-item"><strong>In Office</strong>Since January 5, 2011</div>
+      <div class="meta-item"><strong>Term Ends</strong>January 2029</div>
+      <div class="meta-item"><strong>Committees</strong>Agriculture (Ranking) · Appropriations · Veterans' Affairs</div>
+    </div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">2001</div><div class="stat-lbl">First Elected to Congress — Now in Senate Since 2011</div></div>
+  <div class="stat-box"><div class="stat-num blue">2nd</div><div class="stat-lbl">Republican Ever Popularly Elected to Senate from Arkansas</div></div>
+  <div class="stat-box"><div class="stat-num blue">27</div><div class="stat-lbl">Bills Enacted as Senator — GovTrack Career Total</div></div>
+  <div class="stat-box"><div class="stat-num blue">66%</div><div class="stat-lbl">Heritage Action Lifetime Score — Among Lowest in AR Delegation</div></div>
+  <div class="stat-box"><div class="stat-num red">Iraq</div><div class="stat-lbl">Voted for Iraq War Authorization — October 2002</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('votes',this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background</span><span class="sec-source">Source: Wikipedia · GovTrack · Ballotpedia · Boozman.senate.gov</span></div>
+    <div class="bg-card">
+      <p>John Nichols Boozman was born December 10, 1950 in Shreveport, Louisiana, where his father was stationed with the U.S. Air Force. His family returned to Fort Smith, Arkansas, where he was raised. He attended the University of Arkansas, where he played football for the Razorbacks, then graduated from the Southern College of Optometry. He co-founded a private optometry clinic in 1977 and worked as a volunteer optometrist for low-income families. Before politics he served two terms on the Rogers Public School Board. He is the brother of the late state senator Fay Boozman.</p>
+      <p><strong>Congressional career:</strong> Boozman was first elected to Congress in a 2001 special election after his predecessor Asa Hutchinson resigned to become head of the DEA. He became the first Republican to represent his northwestern Arkansas district since Reconstruction. He served in the House until 2010, when he defeated Democratic incumbent Senator Blanche Lincoln by 21 points — becoming only the second Republican ever popularly elected to the U.S. Senate from Arkansas. He was reelected in 2016 (59.8%) and 2022 (65.8%). He is the dean of Arkansas's congressional delegation. Source: Wikipedia</p>
+      <p><strong>Iraq War vote (2002):</strong> In October 2002, Boozman voted in favor of the Iraq Resolution authorizing the use of force. In 2011, after 4,500 Americans and hundreds of thousands of civilians had died in the war, he stated: "Right now, Iraq has a stable police force, a stable military." Source: Wikipedia</p>
+      <p><strong>January 6 / 2020 election:</strong> Boozman and Tom Cotton initially indicated they might object to the 2020 electoral vote certification. After the January 6 Capitol attack, they changed course and voted to support certification. Boozman said: "The events that transpired in Washington were not only shocking and unlawful, but represent a dark moment in our country's history." Source: Wikipedia</p>
+    </div>
+  </div>
+  <div id="tab-votes" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Key Votes</span><span class="sec-source">Source: <a href="https://www.govtrack.us/congress/members/john_boozman/400040" target="_blank">GovTrack</a> · Senate records · Wikipedia · Ballotpedia</span></div>
+    <table class="data-table">
+      <thead><tr><th>Bill / Vote</th><th>Vote</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Iraq War Authorization (2002)</strong></td><td><span class="vbadge nay">Yea</span></td><td>Voted for the Iraq War resolution as a House member. In 2011, after more than 4,500 U.S. deaths, stated Iraq had "a stable police force, a stable military." Source: Wikipedia</td></tr>
+        <tr><td><strong>2020 Election Certification — Jan 6, 2021</strong></td><td><span class="vbadge yea">Certified</span></td><td>Initially signaled possible objection. After the Capitol attack, Boozman and Cotton both voted to certify the results. Source: Wikipedia</td></tr>
+        <tr><td><strong>Ukraine Security Supplemental (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for military and economic aid to Ukraine. Source: Ballotpedia</td></tr>
+        <tr><td><strong>National Defense Authorization Act (NDAA) 2024</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for annual military authorization. Source: Ballotpedia</td></tr>
+        <tr><td><strong>Fiscal Responsibility Act 2023</strong> (debt ceiling)</td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan debt ceiling agreement. Source: Ballotpedia</td></tr>
+        <tr><td><strong>Social Security Fairness Act (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan bill eliminating the Windfall Elimination Provision and Government Pension Offset, increasing benefits for public workers. Passed 76–20. Source: Ballotpedia</td></tr>
+        <tr><td><strong>D-Day 80th Anniversary Delegation (2024)</strong></td><td><span class="vbadge yea">Led</span></td><td>Boozman led a bipartisan congressional delegation to France to honor the 80th anniversary of D-Day at Normandy. Source: Wikipedia</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full voting record: <a href="https://www.govtrack.us/congress/members/john_boozman/400040" target="_blank" style="color:var(--blue)">GovTrack.us →</a></p>
+  </div>
+  <div id="tab-donors" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Top Donors</span><span class="sec-source">Source: <a href="https://www.opensecrets.org/members-of-congress/john-boozman" target="_blank">OpenSecrets</a> · <a href="https://www.fec.gov" target="_blank">FEC.gov</a></span></div>
+    <table class="data-table">
+      <thead><tr><th>Donor / Industry</th><th>Amount</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Agriculture / Food & Beverage</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Top Career Sector</td><td>Boozman serves as Ranking Member of the Senate Agriculture, Nutrition, and Forestry Committee. Arkansas is a major agricultural state (rice, soybeans, poultry). Agriculture is his top career donor sector. Source: OpenSecrets</td></tr>
+        <tr><td>Defense / Aerospace</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Boozman sits on the Senate Appropriations Subcommittee on Military Construction and Veterans Affairs. Defense sector contributions reflect this role. Source: OpenSecrets</td></tr>
+        <tr><td>Health Care / Pharmaceuticals</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Boozman's background as an optometrist and his work on the Veterans' Affairs Committee attract health care industry contributions. Source: OpenSecrets</td></tr>
+        <tr><td>Finance / Real Estate</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Standard top donor category for senior senators. Source: OpenSecrets</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Stock Trades & Financial Disclosures</span><span class="sec-source">Source: <a href="https://www.senatestockwatcher.com" target="_blank">SenateStockWatcher</a></span></div>
+    <div class="bg-card"><p>Boozman sits on the Senate Agriculture, Nutrition, and Forestry Committee (Ranking Member), the Appropriations Committee, and the Veterans' Affairs Committee. His financial disclosures are available through the Senate STOCK Act system.</p></div>
+    <a href="https://www.senatestockwatcher.com" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;">View Full Trade History → SenateStockWatcher</a>
+  </div>
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">John Boozman does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents →</a>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">All information sourced from public records including FEC filings, Senate disclosures, GovTrack, and OpenSecrets. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
