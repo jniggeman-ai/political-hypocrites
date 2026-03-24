@@ -3,6 +3,7 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/executive", "destination": "/executive.html" },
+    { "source": "/congress", "destination": "/congress.html" },
     { "source": "/donors", "destination": "/donors.html" },
     { "source": "/donald-trump", "destination": "/donald-trump.html" },
     { "source": "/jd-vance", "destination": "/jd-vance.html" },
@@ -23,6 +24,9 @@
     { "source": "/stephen-miller", "destination": "/stephen-miller.html" },
     { "source": "/susie-wiles", "destination": "/susie-wiles.html" },
     { "source": "/scott-bessent", "destination": "/scott-bessent.html" },
-    { "source": "/tulsi-gabbard", "destination": "/tulsi-gabbard.html" }
+    { "source": "/tulsi-gabbard", "destination": "/tulsi-gabbard.html" },
+    { "source": "/tommy-tuberville", "destination": "/tommy-tuberville.html" },
+    { "source": "/katie-britt", "destination": "/katie-britt.html" },
+    { "source": "/barry-moore", "destination": "/barry-moore.html" }
   ]
 }
