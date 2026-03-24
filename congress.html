@@ -3,439 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Congress — Political Hypocrites</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Congress — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red: #B91C1C; --blue: #1D3A6B; --ink: #111111; --paper: #F5F0E8; --rule: #C8BFA8; --muted: #6B6352; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh; }
-    .top-rule { width: 100%; height: 5px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 3rem; border-bottom: 1px solid var(--rule); background: var(--paper); position: sticky; top: 0; z-index: 100; }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; text-decoration: none; color: var(--ink); }
-    .nav-logo .p { color: var(--blue); } .nav-logo .h { color: var(--red); }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.62rem; text-decoration: none; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-    .page-header { max-width: 960px; margin: 2.5rem auto 0; padding: 0 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 1.5rem; }
-    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; }
-    .page-header h1 span { color: var(--red); }
-    .page-header p { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-top: 0.4rem; line-height: 1.6; }
-    .controls { max-width: 960px; margin: 1.5rem auto 0; padding: 0 2rem; display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; }
-    .dir-search-wrap { display: flex; border: 1.5px solid var(--ink); background: white; overflow: hidden; transition: box-shadow 0.2s; flex: 1; max-width: 440px; }
-    .dir-search-wrap:focus-within { box-shadow: 3px 3px 0 var(--ink); }
-    .dir-search-wrap input { flex: 1; padding: 0.7rem 1rem; font-family: 'Source Serif 4', serif; font-size: 0.9rem; border: none; outline: none; background: transparent; color: var(--ink); }
-    .dir-search-wrap input::placeholder { color: #bbb; font-style: italic; }
-    .dir-search-wrap span { padding: 0.7rem 1rem; color: var(--muted); }
-    .party-btns { display: flex; gap: 0.4rem; }
-    .party-btn { font-family: 'Space Mono', monospace; font-size: 0.52rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.8rem; border: 1.5px solid var(--rule); background: transparent; cursor: pointer; color: var(--muted); transition: all 0.15s; }
-    .party-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
-    .dir-count { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.06em; }
-    .dir-section { max-width: 960px; margin: 2rem auto 0; padding: 0 2rem 5rem; }
-    .state-group { margin-bottom: 2.5rem; }
-    .state-group.hidden { display: none; }
-    .state-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 0.8rem; }
-    .state-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
-    .profile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5px; background: var(--rule); border: 1.5px solid var(--rule); }
-    .profile-card { background: var(--paper); padding: 1.2rem 1.4rem; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.15s; }
-    .profile-card:hover { background: white; }
-    .profile-card.hidden { display: none; }
-    .card-party { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.4rem; display: inline-block; width: fit-content; margin-bottom: 0.2rem; }
-    .card-party.rep { background: var(--red); color: white; }
-    .card-party.dem { background: var(--blue); color: white; }
-    .card-chamber { font-family: 'Space Mono', monospace; font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.12rem 0.35rem; display: inline-block; width: fit-content; border: 1px solid var(--rule); color: var(--muted); margin-bottom: 0.2rem; }
-    .card-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; line-height: 1.1; }
-    .card-title { font-size: 0.75rem; color: var(--muted); font-style: italic; font-weight: 300; line-height: 1.4; }
-    .card-arrow { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-top: auto; padding-top: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; }
-    .profile-card:hover .card-arrow { color: var(--red); }
-    .status-bar { margin-top: 3rem; border: 1px solid var(--rule); padding: 1.5rem 2rem; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    footer { margin-top: 2rem; border-top: 1px solid var(--rule); padding: 1.5rem 3rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); }
-    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
-    @media (max-width: 700px) { nav { padding: 0.9rem 1.2rem; } .nav-links { display: none; } .profile-grid { grid-template-columns: 1fr 1fr; } footer { flex-direction: column; } }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.6; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .page-header { max-width: 1100px; margin: 40px auto 10px; padding: 0 20px; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; }
+    .page-header p { color: #444; max-width: 600px; margin-top: 10px; }
+    .controls { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .search-box { font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 14px; border: 1px solid #ccc5b0; background: #fff; color: #111; width: 260px; outline: none; }
+    .search-box:focus { border-color: #1D3A6B; }
+    .filter-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 8px 14px; border: 1px solid #ccc5b0; background: #fff; cursor: pointer; color: #555; transition: all .15s; }
+    .filter-btn:hover { border-color: #1D3A6B; color: #1D3A6B; }
+    .filter-btn.active { background: #1D3A6B; color: #fff; border-color: #1D3A6B; }
+    .filter-btn.active-rep { background: #B91C1C; color: #fff; border-color: #B91C1C; }
+    .filter-btn.active-ind { background: linear-gradient(to right, #1D3A6B, #B91C1C); color: #fff; border-color: transparent; }
+    .section { max-width: 1100px; margin: 36px auto 0; padding: 0 20px; }
+    .section-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #888; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-decoration: none; color: #111; display: block; transition: border-color .15s, box-shadow .15s; }
+    .card:hover { border-color: #1D3A6B; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .card.rep:hover { border-color: #B91C1C; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .card-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+    .badge { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; color: #fff; white-space: nowrap; flex-shrink: 0; margin-left: 8px; }
+    .badge.dem { background: #1D3A6B; }
+    .badge.rep { background: #B91C1C; }
+    .badge.ind { background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .card-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+    .card-desc { font-size: .88rem; color: #444; line-height: 1.5; }
+    .card.hidden { display: none; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
   </style>
 </head>
 <body>
 
 <div class="top-rule"></div>
-<nav>
-  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
-  <ul class="nav-links">
-    <li><a href="/congress" class="active">Congress</a></li>
-    <li><a href="/executive">Executive</a></li>
-    <li><a href="/donors">Donor Search</a></li>
-    <li><a href="#">Stock Trades</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</nav>
+<header><a href="/index.html">← PoliticalHypocrites.us</a></header>
 
 <div class="page-header">
-  <h1>Congress — <span>The Record</span></h1>
-  <p>U.S. Senate & House of Representatives — voting records, donors, stock trades, war votes, and campaign promises. All sourced from public records. Both parties tracked equally.</p>
+  <h1>Congress</h1>
+  <p>Public record profiles of U.S. Senators and Representatives. No editorializing — donor data, voting records, stock trades, and documented controversies only.</p>
 </div>
 
 <div class="controls">
-  <div>
-    <div class="dir-search-wrap">
-      <span>🔍</span>
-      <input type="text" id="dir-search" placeholder="Search by name, state, or role…" oninput="filterAll()" />
-    </div>
-    <p class="dir-count" id="dir-count">Showing all profiles · More added weekly</p>
-  </div>
-  <div class="party-btns">
-    <button class="party-btn active" onclick="setParty('all',this)">All</button>
-    <button class="party-btn" onclick="setParty('rep',this)">Republican</button>
-    <button class="party-btn" onclick="setParty('dem',this)">Democrat</button>
-    <button class="party-btn" onclick="setParty('ind',this)">Independent</button>
+  <input class="search-box" type="text" placeholder="Search by name or state…" id="search" oninput="filterCards()" />
+  <div class="filter-btns">
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('dem',this)">Democrat</button>
+    <button class="filter-btn" onclick="setFilter('rep',this)">Republican</button>
+    <button class="filter-btn" onclick="setFilter('ind',this)">Independent</button>
   </div>
 </div>
 
-<div class="dir-section" id="congress-dir">
-
-  <!-- ═══════════════════════════════════════ ALABAMA ═══════════════════════════════════════ -->
-  <div class="state-group" data-state="alabama">
-    <div class="state-label">Alabama</div>
-    <div class="profile-grid">
-
-      <a href="/tommy-tuberville" class="profile-card" data-search="tommy tuberville alabama senator republican football coach" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2027</span>
-        <div class="card-name">Tommy Tuberville</div>
-        <div class="card-title">U.S. Senator · Blocked 400+ Military Promotions for 10 Months</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/katie-britt" class="profile-card" data-search="katie britt alabama senator republican first woman" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2029</span>
-        <div class="card-name">Katie Britt</div>
-        <div class="card-title">U.S. Senator · Youngest Republican Woman in Senate History</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/barry-moore" class="profile-card" data-search="barry moore alabama 1st district representative republican freedom caucus mobile" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 1 · Mobile</span>
-        <div class="card-name">Barry Moore</div>
-        <div class="card-title">U.S. Representative · AL-1 · Freedom Caucus</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/mike-rogers" class="profile-card" data-search="mike rogers alabama 3rd district representative republican armed services committee east alabama anniston" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 3 · East Alabama</span>
-        <div class="card-name">Mike Rogers</div>
-        <div class="card-title">U.S. Representative · AL-3 · Armed Services Chair</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/robert-aderholt" class="profile-card" data-search="robert aderholt alabama 4th district representative republican appropriations northwest alabama haleyville" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 4 · Northwest Alabama</span>
-        <div class="card-name">Robert Aderholt</div>
-        <div class="card-title">U.S. Representative · AL-4 · Appropriations · In Congress Since 1997</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/dale-strong" class="profile-card" data-search="dale strong alabama 5th district representative republican huntsville redstone arsenal north alabama" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 5 · Huntsville</span>
-        <div class="card-name">Dale Strong</div>
-        <div class="card-title">U.S. Representative · AL-5 · Appropriations · Former Madison County Commissioner</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/gary-palmer" class="profile-card" data-search="gary palmer alabama 6th district representative republican birmingham suburbs policy committee" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 6 · Birmingham Suburbs</span>
-        <div class="card-name">Gary Palmer</div>
-        <div class="card-title">U.S. Representative · AL-6 · Former Republican Policy Committee Chair · Received FTX Donations</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/terri-sewell" class="profile-card" data-search="terri sewell alabama 7th district representative democrat birmingham black belt ways means" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 7 · Birmingham / Black Belt</span>
-        <div class="card-name">Terri Sewell</div>
-        <div class="card-title">U.S. Representative · AL-7 · 1st Black Woman Elected to Congress from Alabama · Ways & Means</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-    </div>
+<!-- ALABAMA -->
+<div class="section">
+  <div class="section-label">Alabama</div>
+  <div class="grid">
+    <a class="card rep" data-party="rep" data-state="alabama" href="/tommy-tuberville"><div class="card-top"><span class="card-name">Tommy Tuberville</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Alabama</div><div class="card-desc">Former Auburn football coach. 10-month military promotions hold.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/katie-britt"><div class="card-top"><span class="card-name">Katie Britt</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Alabama</div><div class="card-desc">Youngest Republican woman elected to Senate. Former Business Council of Alabama CEO.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/barry-moore"><div class="card-top"><span class="card-name">Barry Moore</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AL-1</div><div class="card-desc">Former state rep. Perjury indictment later dropped. Strong Trump ally.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/mike-rogers"><div class="card-top"><span class="card-name">Mike Rogers</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AL-3</div><div class="card-desc">Armed Services Committee Chair. Longest-serving Alabama Republican in Congress.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/robert-aderholt"><div class="card-top"><span class="card-name">Robert Aderholt</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AL-4</div><div class="card-desc">27-year incumbent. Appropriations Committee.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/dale-strong"><div class="card-top"><span class="card-name">Dale Strong</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AL-5</div><div class="card-desc">Former Madison County Commission Chair. Armed Services and Science Committees.</div></a>
+    <a class="card rep" data-party="rep" data-state="alabama" href="/gary-palmer"><div class="card-top"><span class="card-name">Gary Palmer</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AL-6</div><div class="card-desc">House Republican Policy Committee Chair. Former Alabama Policy Institute president.</div></a>
+    <a class="card dem" data-party="dem" data-state="alabama" href="/terri-sewell"><div class="card-top"><span class="card-name">Terri Sewell</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · AL-7</div><div class="card-desc">Only Democrat in Alabama delegation. Rhodes Scholar. First Black woman elected to Congress from Alabama.</div></a>
   </div>
-
-  <!-- ═══════════════════════════════════════ ALASKA ═══════════════════════════════════════ -->
-  <div class="state-group" data-state="alaska">
-    <div class="state-label">Alaska</div>
-    <div class="profile-grid">
-
-      <a href="/lisa-murkowski" class="profile-card" data-search="lisa murkowski alaska senator republican moderate write-in appointed father" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2029</span>
-        <div class="card-name">Lisa Murkowski</div>
-        <div class="card-title">U.S. Senator · Appointed by Her Father · Won as Write-In 2010 · Voted to Convict Trump Twice</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/dan-sullivan" class="profile-card" data-search="dan sullivan alaska senator republican marine colonel army armed services" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 2 · Term ends 2027</span>
-        <div class="card-name">Dan Sullivan</div>
-        <div class="card-title">U.S. Senator · Marine Corps Colonel (Ret.) · Former AK Attorney General</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/nick-begich" class="profile-card" data-search="nick begich alaska at-large representative republican navy seal bottle breacher shark tank freedom caucus" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · At-Large · Statewide</span>
-        <div class="card-name">Nick Begich</div>
-        <div class="card-title">U.S. Representative · AK-AL · Former Navy SEAL · Bottle Breacher (Shark Tank) · Freedom Caucus</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════ ARIZONA ═══════════════════════════════════════ -->
-  <div class="state-group" data-state="arizona">
-    <div class="state-label">Arizona</div>
-    <div class="profile-grid">
-
-      <a href="/mark-kelly" class="profile-card" data-search="mark kelly arizona senator democrat astronaut nasa navy gabby giffords gun control" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2029</span>
-        <div class="card-name">Mark Kelly</div>
-        <div class="card-title">U.S. Senator · NASA Astronaut · Naval Aviator · Co-Founded Giffords PAC</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/ruben-gallego" class="profile-card" data-search="ruben gallego arizona senator democrat marine corps iraq kari lake first latino" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">Senate · Class 1 · Term ends 2031</span>
-        <div class="card-name">Ruben Gallego</div>
-        <div class="card-title">U.S. Senator · 1st Latino to Represent AZ in Senate · Marine Corps Iraq Veteran · Harvard</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/david-schweikert" class="profile-card" data-search="david-schweikert arizona 1st district representative republican ways means reprimanded scottsdale" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 1 · Scottsdale / N. Phoenix</span>
-        <div class="card-name">David Schweikert</div>
-        <div class="card-title">U.S. Representative · AZ-1 · Ways & Means · Formally Reprimanded 2020 · Running for Governor</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/eli-crane" class="profile-card" data-search="eli crane arizona 2nd district representative republican navy seal bottle breacher shark tank" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 2 · Rural NE / Prescott</span>
-        <div class="card-name">Eli Crane</div>
-        <div class="card-title">U.S. Representative · AZ-2 · Navy SEAL · Bottle Breacher · Promoted Assassination Conspiracy Theories</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/yassamin-ansari" class="profile-card" data-search="yassamin ansari arizona 3rd district representative democrat phoenix iranian american youngest woman stanford" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 3 · West Phoenix</span>
-        <div class="card-name">Yassamin Ansari</div>
-        <div class="card-title">U.S. Representative · AZ-3 · Youngest Woman in 119th Congress · 1st Iranian American Democrat · Freshman Class President</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/greg-stanton" class="profile-card" data-search="greg stanton arizona 4th district representative democrat phoenix mayor tempe mesa" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 4 · Tempe / Mesa</span>
-        <div class="card-name">Greg Stanton</div>
-        <div class="card-title">U.S. Representative · AZ-4 · Former Phoenix Mayor · Called for Biden to Withdraw July 2024</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/andy-biggs" class="profile-card" data-search="andy-biggs arizona 5th district representative republican freedom caucus gilbert east valley" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 5 · Gilbert / East Valley</span>
-        <div class="card-name">Andy Biggs</div>
-        <div class="card-title">U.S. Representative · AZ-5 · Former Freedom Caucus Chair · Running for Governor · Won 2016 Primary by 27 Votes</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/juan-ciscomani" class="profile-card" data-search="juan ciscomani arizona 6th district representative republican tucson mexico immigrant tossup" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 6 · Tucson / Southern AZ</span>
-        <div class="card-name">Juan Ciscomani</div>
-        <div class="card-title">U.S. Representative · AZ-6 · 1st Naturalized Mexican American Elected to AZ House · Cook Tossup 2026</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/adelita-grijalva" class="profile-card" data-search="adelita grijalva arizona 7th district representative democrat tucson border raul first latina epstein" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 7 · Tucson / Border</span>
-        <div class="card-name">Adelita Grijalva</div>
-        <div class="card-title">U.S. Representative · AZ-7 · 1st Latina from AZ in Congress · Swearing-In Delayed 50 Days by Speaker Johnson</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/paul-gosar" class="profile-card" data-search="paul gosar arizona 9th district representative republican dentist censured freedom caucus far right western" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 9 · Western AZ / Yuma</span>
-        <div class="card-name">Paul Gosar</div>
-        <div class="card-title">U.S. Representative · AZ-9 · Former Dentist · Censured 2021 · Ties to Proud Boys & Oath Keepers · 6 Siblings Opposed Him</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════ ARKANSAS ═══════════════════════════════════════ -->
-  <div class="state-group" data-state="arkansas">
-    <div class="state-label">Arkansas</div>
-    <div class="profile-grid">
-
-      <a href="/john-boozman" class="profile-card" data-search="john boozman arkansas senator republican optometrist agriculture veterans dean" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2029</span>
-        <div class="card-name">John Boozman</div>
-        <div class="card-title">U.S. Senator · Former Optometrist · Dean of AR Delegation · In Congress Since 2001</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/tom-cotton" class="profile-card" data-search="tom cotton arkansas senator republican harvard army ranger iraq afghanistan iran letter intelligence" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">Senate · Class 2 · Term ends 2027</span>
-        <div class="card-name">Tom Cotton</div>
-        <div class="card-title">U.S. Senator · #3 Senate Republican · Intelligence Chair · Harvard + Army Ranger · Iran Letter · NY Times Op-Ed Revolt</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/rick-crawford" class="profile-card" data-search="rick crawford arkansas 1st district representative republican rodeo cowboy army eod intelligence chair jonesboro delta" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 1 · Northeast / Delta</span>
-        <div class="card-name">Rick Crawford</div>
-        <div class="card-title">U.S. Representative · AR-1 · House Intelligence Chair · Rodeo Cowboy · Army EOD · 1st Republican in District Since Reconstruction</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/french-hill" class="profile-card" data-search="french hill arkansas 2nd district representative republican little rock banker bush treasury financial services chair" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 2 · Little Rock</span>
-        <div class="card-name">French Hill</div>
-        <div class="card-title">U.S. Representative · AR-2 · House Financial Services Chair · Former Banker · Bush Treasury Official</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/steve-womack" class="profile-card" data-search="steve womack arkansas 3rd district representative republican rogers national guard colonel walmart fayetteville appropriations" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 3 · NW Arkansas / Fayetteville</span>
-        <div class="card-name">Steve Womack</div>
-        <div class="card-title">U.S. Representative · AR-3 · Appropriations · Army National Guard Colonel · 8,823 Consecutive Votes</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/bruce-westerman" class="profile-card" data-search="bruce westerman arkansas 4th district representative republican hot springs forester yale natural resources chair" data-party="rep">
-        <span class="card-party rep">Republican</span>
-        <span class="card-chamber">House · District 4 · Hot Springs / SW Arkansas</span>
-        <div class="card-name">Bruce Westerman</div>
-        <div class="card-title">U.S. Representative · AR-4 · Natural Resources Chair · Only Forester in Congress · Yale MS · Hid from Jan 6 Rioters with Civil War Sword</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════ CALIFORNIA ═══════════════════════════════════════ -->
-  <div class="state-group" data-state="california">
-    <div class="state-label">California</div>
-    <div class="profile-grid">
-
-      <a href="/alex-padilla" class="profile-card" data-search="alex padilla california senator democrat class 3 latino mit mechanical engineering panorama city newsom appointment harris seat secretary of state dhs handcuffed" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">Senate · Class 3 · Term ends 2029</span>
-        <div class="card-name">Alex Padilla</div>
-        <div class="card-title">U.S. Senator · 1st Latino CA Senator · MIT Engineer · Appointed by Newsom · Handcuffed by DHS at Noem Presser</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/adam-schiff" class="profile-card" data-search="adam schiff california senator democrat class 1 junior harvard stanford fbi russia spy impeachment intelligence committee censured aipac pardon" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">Senate · Class 1 · Term ends 2031</span>
-        <div class="card-name">Adam Schiff</div>
-        <div class="card-title">U.S. Senator · Former 12-Term House Member · Lead Trump Impeachment Manager · Censured 213–209 · $5M AIPAC PAC · Biden Pardon</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/jared-huffman" class="profile-card" data-search="jared huffman california 2nd district representative democrat north coast marin oregon border nrdc freethought secular progressive natural resources" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 2 · North Coast / Marin to OR</span>
-        <div class="card-name">Jared Huffman</div>
-        <div class="card-title">U.S. Representative · CA-2 · Ranking Member, Natural Resources · Co-Founded Congressional Freethought Caucus · Openly Non-Religious</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/kevin-kiley" class="profile-card" data-search="kevin kiley california 3rd district representative independent formerly republican harvard yale press act noem fired party switch march 2026" data-party="ind">
-        <span class="card-party" style="background: linear-gradient(to right, #B91C1C, #1D3A6B); color: white; font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.4rem; display: inline-block; width: fit-content; margin-bottom: 0.2rem;">Independent</span>
-        <span class="card-chamber">House · District 3 · Sacramento Foothills</span>
-        <div class="card-name">Kevin Kiley</div>
-        <div class="card-title">U.S. Representative · CA-3 · Switched R→Independent Mar 9, 2026 · Still Caucuses with GOP · Harvard/Yale · PRESS Act · Questioned Noem</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-      <a href="/mike-thompson" class="profile-card" data-search="mike-thompson california 4th district representative democrat napa valley napa lake solano sonoma yolo wine vietnam purple heart blue dog gun violence prevention ways means" data-party="dem">
-        <span class="card-party dem">Democrat</span>
-        <span class="card-chamber">House · District 4 · Napa Valley / Wine Country</span>
-        <div class="card-name">Mike Thompson</div>
-        <div class="card-title">U.S. Representative · CA-4 · Purple Heart Vietnam Veteran · In Congress Since 1999 · Co-Chair, Gun Violence Prevention Task Force · Blue Dog Coalition</div>
-        <div class="card-arrow">View Profile →</div>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="status-bar">
-    <span>All 50 States · 535 Members · Profiles Added Weekly</span>
-    <span style="color:var(--red)">AL · AK · AZ · AR · CA (partial) Complete · More States Coming</span>
-  </div>
-
 </div>
 
-<footer>
-  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
-  <span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span>
-</footer>
+<!-- ALASKA -->
+<div class="section">
+  <div class="section-label">Alaska</div>
+  <div class="grid">
+    <a class="card rep" data-party="rep" data-state="alaska" href="/lisa-murkowski"><div class="card-top"><span class="card-name">Lisa Murkowski</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Alaska</div><div class="card-desc">Appointed by her father. Won write-in reelection. Voted to convict Trump after Jan. 6.</div></a>
+    <a class="card rep" data-party="rep" data-state="alaska" href="/dan-sullivan"><div class="card-top"><span class="card-name">Dan Sullivan</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Alaska</div><div class="card-desc">Marine Corps Reserve officer. Former Alaska Attorney General. Armed Services Committee.</div></a>
+    <a class="card rep" data-party="rep" data-state="alaska" href="/nick-begich"><div class="card-top"><span class="card-name">Nick Begich</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AK-At Large</div><div class="card-desc">Grandson of Rep. Nick Begich (D) who died in 1972 plane crash. Defeated Democrat Mary Peltola 2024.</div></a>
+  </div>
+</div>
+
+<!-- ARIZONA -->
+<div class="section">
+  <div class="section-label">Arizona</div>
+  <div class="grid">
+    <a class="card dem" data-party="dem" data-state="arizona" href="/mark-kelly"><div class="card-top"><span class="card-name">Mark Kelly</span><span class="badge dem">Dem</span></div><div class="card-meta">Senator · Arizona</div><div class="card-desc">NASA astronaut. Husband of Gabby Giffords. Navy combat pilot. Gun-control advocate.</div></a>
+    <a class="card dem" data-party="dem" data-state="arizona" href="/ruben-gallego"><div class="card-top"><span class="card-name">Ruben Gallego</span><span class="badge dem">Dem</span></div><div class="card-meta">Senator · Arizona</div><div class="card-desc">Marine Corps Iraq veteran. Unseated Kyrsten Sinema's open seat 2024.</div></a>
+    <a class="card rep" data-party="rep" data-state="arizona" href="/david-schweikert"><div class="card-top"><span class="card-name">David Schweikert</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AZ-1</div><div class="card-desc">House censured him 2020 for ethics violations. Won 2022 by 1,568 votes.</div></a>
+    <a class="card rep" data-party="rep" data-state="arizona" href="/eli-crane"><div class="card-top"><span class="card-name">Eli Crane</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AZ-2</div><div class="card-desc">Navy SEAL veteran. Used racial slur on House floor. Appeared on Shark Tank.</div></a>
+    <a class="card dem" data-party="dem" data-state="arizona" href="/yassamin-ansari"><div class="card-top"><span class="card-name">Yassamin Ansari</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · AZ-3</div><div class="card-desc">Iranian American. Former Phoenix City Council. Flipped Greg Stanton's open seat 2024.</div></a>
+    <a class="card dem" data-party="dem" data-state="arizona" href="/greg-stanton"><div class="card-top"><span class="card-name">Greg Stanton</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · AZ-4</div><div class="card-desc">Former Phoenix Mayor. Judiciary Committee.</div></a>
+    <a class="card rep" data-party="rep" data-state="arizona" href="/andy-biggs"><div class="card-top"><span class="card-name">Andy Biggs</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AZ-5</div><div class="card-desc">Freedom Caucus. Challenged Jan. 6 certification. Won $1M on Wheel of Fortune 1987.</div></a>
+    <a class="card rep" data-party="rep" data-state="arizona" href="/juan-ciscomani"><div class="card-top"><span class="card-name">Juan Ciscomani</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AZ-6</div><div class="card-desc">Mexican-born naturalized citizen. Former Ducey senior adviser. Swing-district Republican.</div></a>
+    <a class="card dem" data-party="dem" data-state="arizona" href="/adelita-grijalva"><div class="card-top"><span class="card-name">Adelita Grijalva</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · AZ-7</div><div class="card-desc">Daughter of Rep. Raúl Grijalva. Tucson Unified School Board. Won open seat 2024.</div></a>
+    <a class="card rep" data-party="rep" data-state="arizona" href="/paul-gosar"><div class="card-top"><span class="card-name">Paul Gosar</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AZ-9</div><div class="card-desc">House censured 2021 for anime video depicting violence toward AOC. Six siblings publicly opposed him.</div></a>
+  </div>
+</div>
+
+<!-- ARKANSAS -->
+<div class="section">
+  <div class="section-label">Arkansas</div>
+  <div class="grid">
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/john-boozman"><div class="card-top"><span class="card-name">John Boozman</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Arkansas</div><div class="card-desc">Former optometrist. 3rd-term Senator. Agriculture Committee Chair.</div></a>
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/tom-cotton"><div class="card-top"><span class="card-name">Tom Cotton</span><span class="badge rep">Rep</span></div><div class="card-meta">Senator · Arkansas</div><div class="card-desc">Harvard Law. Army Ranger. Iraq &amp; Afghanistan vet. Iran hawk.</div></a>
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/rick-crawford"><div class="card-top"><span class="card-name">Rick Crawford</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AR-1</div><div class="card-desc">Former rodeo announcer and crop duster pilot. Agriculture Committee.</div></a>
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/french-hill"><div class="card-top"><span class="card-name">French Hill</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AR-2</div><div class="card-desc">Former banker. Financial Services Committee Chair. Deputy Treasury Secretary Bush 41.</div></a>
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/steve-womack"><div class="card-top"><span class="card-name">Steve Womack</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AR-3</div><div class="card-desc">Former Mayor of Rogers, AR. Appropriations Committee. Army National Guard Colonel (ret.).</div></a>
+    <a class="card rep" data-party="rep" data-state="arkansas" href="/bruce-westerman"><div class="card-top"><span class="card-name">Bruce Westerman</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · AR-4</div><div class="card-desc">Natural Resources Committee Chair. Yale-trained forester.</div></a>
+  </div>
+</div>
+
+<!-- CALIFORNIA - SENATORS -->
+<div class="section">
+  <div class="section-label">California — Senators</div>
+  <div class="grid">
+    <a class="card dem" data-party="dem" data-state="california" href="/alex-padilla"><div class="card-top"><span class="card-name">Alex Padilla</span><span class="badge dem">Dem</span></div><div class="card-meta">Senator · California</div><div class="card-desc">First Latino CA Senator. MIT engineer. Appointed by Newsom to replace Harris. Judiciary Committee.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/adam-schiff"><div class="card-top"><span class="card-name">Adam Schiff</span><span class="badge dem">Dem</span></div><div class="card-meta">Senator · California</div><div class="card-desc">Former House Intel Chair. Led Trump Russia probe. Censured 213–209. $5M AIPAC PAC support.</div></a>
+  </div>
+</div>
+
+<!-- CALIFORNIA - REPRESENTATIVES -->
+<div class="section">
+  <div class="section-label">California — Representatives</div>
+  <div class="grid">
+    <a class="card dem" data-party="dem" data-state="california" href="/jared-huffman"><div class="card-top"><span class="card-name">Jared Huffman</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-2</div><div class="card-desc">Freethought Caucus founder. One of 23 Dems who voted against Hamas/Hezbollah campus resolution.</div></a>
+    <a class="card ind" data-party="ind" data-state="california" href="/kevin-kiley"><div class="card-top"><span class="card-name">Kevin Kiley</span><span class="badge ind">Ind</span></div><div class="card-meta">Representative · CA-3</div><div class="card-desc">Left Republican Party March 9, 2026. Still caucuses with Republicans. Ran recall against Newsom.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/mike-thompson"><div class="card-top"><span class="card-name">Mike Thompson</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-4</div><div class="card-desc">27-year Vietnam vet incumbent. Purple Heart. Gun Violence Prevention Task Force Chair. Blue Dog.</div></a>
+    <a class="card rep" data-party="rep" data-state="california" href="/tom-mcclintock"><div class="card-top"><span class="card-name">Tom McClintock</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · CA-5</div><div class="card-desc">20-year incumbent. Hard-line fiscal conservative. Voted against Zelensky address to Congress.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/ami-bera"><div class="card-top"><span class="card-name">Ami Bera</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-6</div><div class="card-desc">Physician. Longest-serving Indian American in Congress. Father sentenced to federal prison for election fraud.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/doris-matsui"><div class="card-top"><span class="card-name">Doris Matsui</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-7</div><div class="card-desc">Born in Japanese internment camp. Authored CHIPS for America Act. Former Clinton White House and lobbyist.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/john-garamendi"><div class="card-top"><span class="card-name">John Garamendi</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-8</div><div class="card-desc">Former CA Insurance Commissioner. Executive Life Insurance scandal. 5.0% missed votes.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/josh-harder"><div class="card-top"><span class="card-name">Josh Harder</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-9</div><div class="card-desc">Former venture capitalist. Harvard MBA. Central Valley swing seat. New Democrat Coalition.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/mark-desaulnier"><div class="card-top"><span class="card-name">Mark DeSaulnier</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-10</div><div class="card-desc">Former Republican. Survived CLL leukemia with 10% survival odds. Education &amp; Labor Committee.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/nancy-pelosi"><div class="card-top"><span class="card-name">Nancy Pelosi</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-11 · Speaker Emerita · Retiring 2026</div><div class="card-desc">First female Speaker — twice. Led both Trump impeachments. Husband's stock trades drew national scrutiny.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/lateefah-simon"><div class="card-top"><span class="card-name">Lateefah Simon</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-12</div><div class="card-desc">Born legally blind. MacArthur Genius Fellow at 26. First Muslim from CA. Former BART Board President.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/adam-gray"><div class="card-top"><span class="card-name">Adam Gray</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-13</div><div class="card-desc">Won by 187 votes — closest House race of 2024. Blue Dog Whip. Former Kevin McCarthy intern.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/eric-swalwell"><div class="card-top"><span class="card-name">Eric Swalwell</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-14 · Running for Governor 2026</div><div class="card-desc">Former Intel Committee. Targeted by suspected Chinese spy Fang Fang. 8.7% missed votes.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/kevin-mullin"><div class="card-top"><span class="card-name">Kevin Mullin</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-15</div><div class="card-desc">Son of Assemblymember Gene Mullin. Former DJ "Cutmaster Kevvy Kev." Left hospital with IV to vote.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/sam-liccardo"><div class="card-top"><span class="card-name">Sam Liccardo</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-16</div><div class="card-desc">Former San Jose Mayor. Harvard JD + MPP. Prosecuted sexual assault cases. Sicilian/Irish/Mexican Californio heritage.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/ro-khanna"><div class="card-top"><span class="card-name">Ro Khanna</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-17</div><div class="card-desc">0.8% missed votes. No PAC Caucus co-founder. Authored Endless Frontier Act (CHIPS). Epstein Files Transparency Act.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/zoe-lofgren"><div class="card-top"><span class="card-name">Zoe Lofgren</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-18</div><div class="card-desc">30 years. Daughter of Teamster &amp; cafeteria cook. Staffed Nixon impeachment 1973. Trump impeachment manager x2. "Ignorant bigot" reprimand.</div></a>
+    <a class="card dem" data-party="dem" data-state="california" href="/jimmy-panetta"><div class="card-top"><span class="card-name">Jimmy Panetta</span><span class="badge dem">Dem</span></div><div class="card-meta">Representative · CA-19</div><div class="card-desc">Son of Leon Panetta. Navy Intel Officer / Afghanistan vet. Monterey prosecutor. 100% Biden alignment. Ways &amp; Means.</div></a>
+    <a class="card rep" data-party="rep" data-state="california" href="/vince-fong"><div class="card-top"><span class="card-name">Vince Fong</span><span class="badge rep">Rep</span></div><div class="card-meta">Representative · CA-20</div><div class="card-desc">Son of Hong Kong immigrants. Overcame childhood stutter. McCarthy's district director ~10 yrs. Save Our Sequoias Act.</div></a>
+  </div>
+</div>
+
+<div class="section">
+  <p style="font-family:'Space Mono',monospace;font-size:12px;color:#888;padding:20px 0 40px;">More states and representatives added regularly. CA-21 through CA-52 coming next session.</p>
+</div>
+
 <div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+</footer>
 
 <script>
-  let currentParty = 'all';
-
-  function setParty(party, btn) {
-    currentParty = party;
-    document.querySelectorAll('.party-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterAll();
+  let currentFilter = 'all';
+  function setFilter(party, btn) {
+    currentFilter = party;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active','active-rep','active-ind'));
+    if (party === 'rep') btn.classList.add('active-rep');
+    else if (party === 'ind') btn.classList.add('active-ind');
+    else btn.classList.add('active');
+    filterCards();
   }
-
-  function filterAll() {
-    const q = document.getElementById('dir-search').value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.profile-card');
-    let visible = 0;
-    cards.forEach(card => {
-      const matchSearch = !q || card.dataset.search.includes(q) || card.textContent.toLowerCase().includes(q);
-      const matchParty = currentParty === 'all' || card.dataset.party === currentParty;
-      const show = matchSearch && matchParty;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
+  function filterCards() {
+    const q = document.getElementById('search').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      const partyMatch = currentFilter === 'all' || card.dataset.party === currentFilter;
+      const textMatch = !q || card.textContent.toLowerCase().includes(q);
+      card.classList.toggle('hidden', !(partyMatch && textMatch));
     });
-    document.querySelectorAll('.state-group').forEach(group => {
-      const visibleCards = group.querySelectorAll('.profile-card:not(.hidden)');
-      group.classList.toggle('hidden', visibleCards.length === 0);
-    });
-    const total = document.querySelectorAll('.profile-card').length;
-    document.getElementById('dir-count').textContent =
-      (q || currentParty !== 'all')
-        ? `Showing ${visible} result${visible !== 1 ? 's' : ''}`
-        : `Showing ${visible} profiles · More added weekly`;
   }
-
-  // Init count
-  filterAll();
 </script>
-
 </body>
 </html>

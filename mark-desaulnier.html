@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark DeSaulnier — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-10 · Democrat</div>
+  <h1>Mark DeSaulnier</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for Contra Costa County since 2015. Former Republican who switched parties in 2000. Former restaurant owner, Teamsters union member, Concord City Council member, county supervisor, and state legislator. Diagnosed with chronic lymphocytic leukemia in 2015; survived a near-fatal hospitalization in 2020 after a running accident while living with the disease. Founder, Congressional Cancer Survivors Caucus.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2015</div>
+      <div class="sub">CA-11, now CA-10</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1952</div>
+      <div class="sub">Lowell, MA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Party Switch</div>
+      <div class="value">2000</div>
+      <div class="sub">Republican until 2000</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Missed Votes</div>
+      <div class="value">1.4%</div>
+      <div class="sub">Career (Jan 2015–Mar 2026)</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Leukemia Dx</div>
+      <div class="value">2015</div>
+      <div class="sub">CLL — ongoing, manageable</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Career Before Politics</h3>
+    <p>Mark James DeSaulnier was born on March 31, 1952 in Lowell, Massachusetts. He earned a B.A. in History from the College of the Holy Cross. In the early 1970s he moved to California and spent the next three and a half decades as a small business owner, operating and managing several successful Bay Area restaurants including Henry Africa's in San Francisco, Santa Fe Bar and Grill with chef Jeremiah Tower in Berkeley, and TR's in Concord. He was a member of both the Teamsters International Union and the Hotel Employees and Restaurant Employees International Union.</p>
+
+    <h3>Party Switch</h3>
+    <p>DeSaulnier was a member of the Republican Party until 2000, when he switched to the Democratic Party. He has represented Concord and Contra Costa County in elected office continuously since 1991 — first on the Concord City Council (1991–1994), then as a Contra Costa County Supervisor (1994–2006), as a California State Assembly member (2006–2008), as a California State Senator (2008–2015), and now as a U.S. Representative.</p>
+
+    <h3>Congressional Career</h3>
+    <p>DeSaulnier was first elected to Congress in 2014, taking office in January 2015. His district — Contra Costa County's East Bay suburbs including Concord, Walnut Creek, Richmond, and surrounding communities — has been renumbered from CA-11 to CA-10 through redistricting. He serves on the Transportation and Infrastructure Committee, the Education and Workforce Committee (where he is Ranking Member of the Health, Employment, Labor, and Pensions Subcommittee), and the Ethics Committee. He is a member of the Congressional Progressive Caucus.</p>
+    <p>He has passed over 60 legislative efforts since coming to Congress, including the 21st Century Assistive Technology Act and the Contra Costa Canal Transfer Act. In the California legislature, 61 of his bills became state law. He was the first freshman in California Assembly history to chair the Assembly Transportation Committee.</p>
+
+    <h3>Health — Leukemia Diagnosis &amp; Near-Fatal Hospitalization</h3>
+    <p>Six months after taking office, DeSaulnier was diagnosed with chronic lymphocytic leukemia (CLL) in July 2015 — the most common form of adult blood cancer. He disclosed the diagnosis publicly in May 2016 after completing an initial round of chemotherapy. CLL cannot be cured but can be managed; he has continued to receive oral treatment and has remained in office throughout. He founded the Congressional Cancer Survivors Caucus.</p>
+    <p>In March 2020, DeSaulnier fell while running near the Capitol, fracturing multiple ribs and injuring his spleen. He developed pneumonia and was hospitalized in intensive care. His condition deteriorated to critical; doctors told his sons his organs were failing and gave him a 10% chance of survival. He was placed on a ventilator for four weeks. He survived and was discharged after nearly two months, calling himself a "medical miracle." He resumed committee work virtually during the early COVID-19 pandemic.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Education and Workforce — Subcommittee on Health, Employment, Labor, and Pensions (Ranking Member)</li>
+      <li>Transportation and Infrastructure</li>
+      <li>Ethics</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Labor Unions (longstanding ties from restaurant worker background)</li>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Democratic/Liberal organizations</li>
+          <li>Health Professionals</li>
+          <li>Real Estate</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/mark-desaulnier/summary?cid=N00036618" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card">
+      <div class="rc-label">Iran War Powers · 2026</div>
+      <div class="rc-title">Voted for War Powers Resolution on Iran</div>
+      <div class="rc-body">DeSaulnier voted for the House War Powers Resolution directing the president to halt unauthorized military hostilities against Iran, stating publicly: "The President has offered no coherent strategy, goals, or endgame for this war, which has already claimed the lives of seven American servicemembers."</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Assistive Technology · 2022</div>
+      <div class="rc-title">Authored 21st Century Assistive Technology Act — Enacted</div>
+      <div class="rc-body">DeSaulnier authored the 21st Century Assistive Technology Act (H.R. 9028, 117th Congress), which was signed into law. The legislation updated federal programs supporting the development and adoption of assistive technology for people with disabilities.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Transportation</div>
+      <div class="rc-title">BART Expansion to Eastern Contra Costa County</div>
+      <div class="rc-body">Before coming to Congress, DeSaulnier provided key legislative leadership for the Highway 4 BART extension to eastern Contra Costa County and the development of a fourth bore of the Caldecott Tunnel — major regional infrastructure projects that shaped his district for decades.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Environment · State Record</div>
+      <div class="rc-title">California Air Resources Board — Champion of Clean Air Regulations</div>
+      <div class="rc-body">As a member of the California Air Resources Board, DeSaulnier supported regulations including cleaner-burning gasoline, lower-emission vehicles, identifying diesel exhaust as a toxic air contaminant, banning MTBE from gasoline, classifying secondhand smoke as a carcinogen, and reducing emissions from dairy farms and cruise ships.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/mark_desaulnier/412613" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">Iran · 2026</div>
+      <div class="rc-title">Voted for War Powers Resolution — Opposed Trump's Iran Strikes</div>
+      <div class="rc-body">DeSaulnier voted for the Democratic War Powers Resolution directing the president to remove U.S. forces from unauthorized hostilities in Iran. He publicly criticized the administration for having no coherent strategy and cited the deaths of seven American servicemembers.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">General Posture</div>
+      <div class="rc-title">Progressive Caucus Member — Skeptical of Military Interventionism</div>
+      <div class="rc-body">As a member of the Congressional Progressive Caucus, DeSaulnier has generally opposed unauthorized military engagements and supported stricter congressional oversight of the use of military force.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. DeSaulnier's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Mark_DeSaulnier" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Mark DeSaulnier."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

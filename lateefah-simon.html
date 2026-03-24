@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lateefah Simon — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-12 · Democrat</div>
+  <h1>Lateefah Simon</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for California's 12th District (Oakland, Berkeley, Alameda, Albany, Emeryville, Piedmont, San Leandro) since January 2025. Succeeded Barbara Lee. First member of Congress born legally blind in both eyes. First Muslim member of Congress from California. MacArthur "Genius" Fellow at age 26 — the youngest woman ever to receive the award. Former BART Board President. Grew up in public housing in San Francisco.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2025</div>
+      <div class="sub">Succeeded Barbara Lee</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1977</div>
+      <div class="sub">San Francisco, CA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">MacArthur Fellow</div>
+      <div class="value">2003</div>
+      <div class="sub">Youngest woman ever at age 26</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Firsts</div>
+      <div class="value">2</div>
+      <div class="sub">Legally blind · 1st Muslim from CA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Caucus Role</div>
+      <div class="value">CPC V-Chair</div>
+      <div class="sub">Progressive Caucus Vice Chair</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life</h3>
+    <p>Lateefah Aaliyah Simon was born on January 29, 1977 in San Francisco, California. She grew up in public housing. She was born legally blind in both eyes — a condition she has had her entire life — and has never been able to drive. Her reliance on public transit shaped her later advocacy and her decision to run for the BART Board of Directors.</p>
+    <p>At 16, she began working as an outreach coordinator for the Young Women's Freedom Center (YWFC) in San Francisco, an organization serving marginalized young women and trans youth. At 18, she became pregnant and raised her eldest daughter, Aminah, as a single mother while continuing her work. By age 19, she had become Executive Director of the YWFC. She later earned a B.A. in Public Policy and a Master of Public Administration from the University of San Francisco.</p>
+
+    <h3>MacArthur Fellowship &amp; Advocacy Career</h3>
+    <p>In 2003, at age 26, Simon received a MacArthur Foundation Fellowship — commonly known as the "Genius Grant" — for her leadership of the Young Women's Freedom Center. She became the youngest woman ever to receive the award. She was later tapped by then-San Francisco District Attorney Kamala Harris to lead the creation of "Back on Track," a first-of-its-kind anti-recidivism program for young adults charged with low-level offenses.</p>
+    <p>Simon subsequently served as Executive Director of the Lawyers' Committee for Civil Rights of the San Francisco Bay Area, Program Director of the Rosenberg Foundation, President of the Akonadi Foundation (an Oakland-based racial justice philanthropic organization), and President of MeadowFund. She was appointed by Governor Jerry Brown to the Board of Trustees of the California State University system. Her husband, journalist Kevin Weston, died of cancer in 2014, leaving her with nearly $1 million in medical debt; her East Bay community rallied to support her family through the crisis.</p>
+
+    <h3>BART Board</h3>
+    <p>In 2016, galvanized by the police killing of Oscar Grant, Simon ran for and was elected to the Bay Area Rapid Transit Board of Directors' District 7 — partly motivated by her own daily reliance on BART as someone who is legally blind and cannot drive. She served as BART Board President from 2020 to 2024, steering the agency through the COVID-19 crisis. She launched BART's Ambassador Program, a nationally recognized public safety model using unarmed ambassadors and crisis intervention specialists. In 2022, BART briefly removed her from the board after determining her home was outside district boundaries due to a move prompted by threats against her family — a decision BART reversed weeks later after investigation.</p>
+
+    <h3>Congressional Career</h3>
+    <p>Simon was elected to Congress in 2024, winning Barbara Lee's CA-12 seat with 63% of the vote. She was sworn in by Vice President Kamala Harris ceremonially, and formally sworn in by Speaker Mike Johnson with her hand on the Quran — a notable moment in the deeply Democratic East Bay district. She is the first member of Congress known to be born legally blind in both eyes and the first Muslim member of Congress from California.</p>
+    <p>She serves as Deputy Whip for Policy and Vice Chair of the Congressional Progressive Caucus, and is a member of the Congressional Black Caucus and Congressional Asian Pacific American Caucus. She was assigned to the House Oversight Committee.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Oversight and Accountability</li>
+    </ul>
+
+    <h3>Caucuses</h3>
+    <ul>
+      <li>Congressional Progressive Caucus (Vice Chair)</li>
+      <li>Congressional Black Caucus</li>
+      <li>Congressional Asian Pacific American Caucus</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <p>Simon does not accept corporate PAC money and ran a grassroots-funded campaign, raising over $140,000 in the first 24 hours of her announcement and outraising all other incoming freshmen in the 2024 cycle.</p>
+    <div class="record-card">
+      <div class="rc-label">Funding Profile</div>
+      <div class="rc-title">No Corporate PAC Money — Grassroots Small-Dollar Funded</div>
+      <div class="rc-body">Simon pledged not to accept corporate PAC contributions. Her 2024 campaign was funded primarily through individual small-dollar donations, labor union support, and progressive donor networks.</div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/lateefah-simon/summary?cid=N00050717" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card">
+      <div class="rc-label">Bipartisan · Early 2025</div>
+      <div class="rc-title">Co-Sponsored Bill with Republican to Bar PPP Fraudsters from SBA Aid</div>
+      <div class="rc-body">Within weeks of taking office, Simon co-sponsored legislation with Rep. Roger Williams (R-TX), chair of the House Small Business Committee, that would bar individuals convicted of defrauding the government — including through fraudulent Paycheck Protection Program loans — from receiving any future Small Business Administration assistance.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Public Safety · BART</div>
+      <div class="rc-title">Launched Nationally Recognized BART Ambassador Program</div>
+      <div class="rc-body">As BART Board President, Simon launched the Ambassador Program — an unarmed public safety model integrating transit ambassadors and crisis intervention specialists to improve safety and accessibility on BART. The program has been cited nationally as a model for alternative public safety approaches.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Attendance · Partial Career</div>
+      <div class="rc-title">2.5% Missed Vote Rate (First Year)</div>
+      <div class="rc-body">From January 2025 through February 2026, Simon missed 11 of 440 roll call votes — a rate of 2.5%, on par with the 2.1% median among currently serving members.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/lateefah_simon/456974" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">General Posture</div>
+      <div class="rc-title">Progressive Caucus — Critical of Military Interventionism</div>
+      <div class="rc-body">As Vice Chair of the Congressional Progressive Caucus, Simon is expected to align with the caucus's generally skeptical stance on overseas military interventions and unauthorized uses of force. Her district — CA-12 in Alameda County — is one of the most progressive in the country.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Israel / Palestine</div>
+      <div class="rc-title">Succeeded Barbara Lee — Strong Pro-Ceasefire District</div>
+      <div class="rc-body">Simon succeeded Barbara Lee, who was among the earliest congressional voices calling for a permanent ceasefire in Gaza. Simon's district has a highly engaged progressive base that has been vocal on the issue. Her foreign policy positions on the conflict are expected to be monitored closely as she develops her record.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Simon's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Lateefah_Simon" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Lateefah Simon."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

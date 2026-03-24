@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Gray — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-13 · Democrat</div>
+  <h1>Adam Gray</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for California's 13th District (Merced, Madera, and San Joaquin Valley communities) since January 2025. Grew up in his family's dairy supply and feed store in Merced. Won the closest House race in the entire 2024 election cycle — defeating Republican John Duarte by just 187 votes after losing to him by 564 votes two years earlier. Blue Dog Coalition Whip. Educator at UC Merced.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2025</div>
+      <div class="sub">Won rematch by 187 votes</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1977</div>
+      <div class="sub">Merced, CA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">2022 Loss</div>
+      <div class="value">−564</div>
+      <div class="sub">Lost to Duarte by 564 votes</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">2024 Win</div>
+      <div class="value">+187</div>
+      <div class="sub">Closest House race nationally</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Caucus</div>
+      <div class="value">Blue Dog</div>
+      <div class="sub">Blue Dog Coalition Whip</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Education</h3>
+    <p>Adam Channing Gray was born on September 23, 1977 in Merced, California — where he still lives. He grew up working in his family's dairy supply and feed store. He attended Golden Valley High School in Merced as part of its first graduating class. He earned a B.A. in Political Science from UC Santa Barbara. He is currently an educator at the University of California, Merced.</p>
+    <p>He began his political career as a legislative staffer, working in the district office of state Assemblymember Dennis Cardoza and later as a staffer for Assemblymembers Herb Wesson, Fabian Núñez, and Jerome Horton, and state Senator Ron Calderon. He was subpoenaed to testify as a witness in Calderon's federal corruption trial in 2015 — he was a witness, not a defendant, and was not accused of wrongdoing.</p>
+
+    <h3>California State Assembly (2012–2022)</h3>
+    <p>Gray was elected to the California State Assembly in 2012, representing the 21st District covering Merced and Stanislaus Counties. He served for ten years. In Sacramento, he founded the California Problem Solvers Caucus — a bipartisan effort to pass legislation across party lines. He was involved in securing $3 billion for water storage in the Central Valley and helped establish a medical school program at UC Merced. He broke with his party on several water policy issues, pushing back against Democratic proposals to restrict water deliveries to San Joaquin Valley irrigation districts — a stance that resulted in him being removed from his chairmanship of the Assembly Government Organization Committee by the Democratic Assembly leader.</p>
+
+    <h3>Congressional Career — Two Races, Two Different Outcomes</h3>
+    <p>Gray ran for California's newly redrawn 13th Congressional District in 2022 against Republican pistachio farmer John Duarte. The race was one of the last called in the nation; Gray conceded on December 2, 2022 after losing by 564 votes — the second-closest House race nationally that cycle.</p>
+    <p>In 2024, Gray ran again against Duarte in a direct rematch. Weeks of ballot counting followed election night; Gray took the lead on November 26 and the race was called for him on December 4, 2024 by a margin of 187 votes — the closest House race in the entire country that election cycle. The district voted for Donald Trump in the 2024 presidential election while simultaneously electing Gray, one of only 13 House districts nationally with that split result.</p>
+    <p>Gray took office on January 3, 2025. He was named Whip of the Blue Dog Coalition and serves on the House Agriculture and Natural Resources Committees.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Agriculture — Commodity Markets, Digital Assets, and Rural Development</li>
+      <li>Agriculture — Forestry and Horticulture</li>
+      <li>Agriculture — Livestock, Dairy, and Poultry</li>
+      <li>Natural Resources</li>
+    </ul>
+
+    <h3>Caucuses</h3>
+    <ul>
+      <li>Blue Dog Coalition (Whip)</li>
+      <li>New Democrat Coalition</li>
+    </ul>
+
+    <h3>Notable Context</h3>
+    <div class="record-card red">
+      <div class="rc-label">Real Estate · August 2024</div>
+      <div class="rc-title">Purchased Property Near State-Funded Redevelopment Site</div>
+      <div class="rc-body">The Los Angeles Times reported in August 2024 that Gray had purchased real estate shortly before a $50 million state-funded redevelopment of 70 acres at the former Castle Air Force Base in Merced County was announced. The report raised questions about whether the purchase was timed with knowledge of the redevelopment plan. Gray's campaign did not respond to requests for comment on the report at the time.</div>
+    </div>
+    <div class="record-card red">
+      <div class="rc-label">Personal Connection</div>
+      <div class="rc-title">Previously Married to Daughter of Gary Condit</div>
+      <div class="rc-body">Gray was previously married to Cadee Condit, daughter of former Congressman Gary Condit. Gray had interned for Gary Condit while in school. Condit, a Central Valley Democrat, was a focus of intense media scrutiny in 2001 in connection with the disappearance and murder of intern Chandra Levy; he was never charged with any crime, and another man was convicted of the killing. Gray and Cadee Condit are no longer married.</div>
+    </div>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Agriculture</li>
+          <li>Democratic/Liberal organizations</li>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Labor Unions</li>
+          <li>Real Estate</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/adam-gray/summary?cid=N00050592" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card red">
+      <div class="rc-label">Immigration · January 2025</div>
+      <div class="rc-title">Voted for Laken Riley Act — One of 46 Democrats</div>
+      <div class="rc-body">Gray was one of 46 House Democrats who joined all Republicans to vote for the Laken Riley Act of 2025, which requires federal immigration authorities to detain undocumented immigrants charged with or convicted of certain crimes. The bill was criticized by progressive Democrats as overreach but backed by centrists in competitive districts.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Water · 2025</div>
+      <div class="rc-title">Introduced Valley Water Protection Act</div>
+      <div class="rc-body">Gray introduced the Valley Water Protection Act, which would limit implementation of the Endangered Species Act in cases where it could pose a national security risk or cause significant regional economic harm. The bill reflects the Central Valley's long-running tension between federal environmental protections and water delivery to farmers.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Water · Bipartisan</div>
+      <div class="rc-title">Co-Sponsored Two Bipartisan Groundwater Storage Bills</div>
+      <div class="rc-body">On the House Natural Resources Committee, Gray co-sponsored two bipartisan bills to expand federal support for groundwater storage and recharge efforts in California — a priority for the heavily agricultural San Joaquin Valley.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Attendance</div>
+      <div class="rc-title">5.7% Missed Vote Rate (First Year)</div>
+      <div class="rc-body">From January 2025 through March 2026, Gray missed 26 of 458 roll call votes — a rate of 5.7%, well above the 2.1% median. GovTrack does not track why legislators miss votes.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/adam_gray/456975" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">General Posture</div>
+      <div class="rc-title">Centrist — Blue Dog Coalition Whip</div>
+      <div class="rc-body">As Blue Dog Coalition Whip and a member from one of the most competitive swing districts in the country — one that voted for Donald Trump in 2024 while electing Gray — his foreign policy votes are expected to reflect a moderate Democratic posture. His district has a significant agricultural and rural constituency.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Endangered Species Act</div>
+      <div class="rc-title">Introduced Legislation to Limit ESA in National Security Cases</div>
+      <div class="rc-body">Gray introduced the Valley Water Protection Act, which would limit ESA implementation where it poses national security risks or significant regional economic harm — framing water access for Central Valley agriculture as a food security and national security issue.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Gray's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Adam_Gray" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Adam Gray."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
