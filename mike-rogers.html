@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mike Rogers — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#B91C1C;--blue:#1D3A6B;--ink:#111;--paper:#F5F0E8;--rule:#C8BFA8;--muted:#6B6352;--green:#16a34a;--amber:#d97706}
+    body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh}
+    .top-rule{width:100%;height:5px;background:linear-gradient(to right,var(--blue) 50%,var(--red) 50%)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--ink)}
+    .nav-logo .p{color:var(--blue)}.nav-logo .h{color:var(--red)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;text-decoration:none;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .breadcrumb{max-width:1000px;margin:1rem auto 0;padding:0 2rem;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .breadcrumb a{color:var(--muted);text-decoration:none}
+    .profile-header{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:2rem;align-items:flex-start}
+    .profile-photo{width:130px;height:155px;flex-shrink:0;border:2px solid var(--rule);background:#e5e0d4;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .profile-info{flex:1}
+    .party-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;background:var(--red);color:white;margin-bottom:.5rem}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+    .profile-title{font-size:.9rem;color:var(--muted);font-style:italic;font-weight:300;margin-bottom:1rem;line-height:1.5}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:1.2rem}
+    .meta-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .meta-item strong{color:var(--ink);display:block;font-size:.72rem;margin-bottom:.1rem}
+    .stats-row{max-width:1000px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:var(--rule);border:1.5px solid var(--rule)}
+    .stat-box{background:var(--paper);padding:1rem .9rem}.stat-box:hover{background:white}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+    .stat-num.red{color:var(--red)}.stat-num.blue{color:var(--blue)}
+    .stat-lbl{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .tabs-wrap{max-width:1000px;margin:2rem auto 0;padding:0 2rem}
+    .tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto}
+    .tab-btn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+    .tab-btn:hover{color:var(--ink);background:white}
+    .tab-btn.active{color:var(--ink);background:white;border-bottom:3px solid var(--ink);font-weight:700}
+    .tab-pane{display:none;padding:1.8rem 0 3rem}.tab-pane.active{display:block}
+    .sec-hdr{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+    .sec-source{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted)}
+    .sec-source a{color:var(--muted)}
+    .data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+    .data-table th{font-family:'Space Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;background:var(--ink);color:var(--paper);text-align:left}
+    .data-table td{padding:.65rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+    .data-table tr:hover td{background:white}
+    .vbadge{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;white-space:nowrap}
+    .vbadge.yea{background:var(--green);color:white}.vbadge.nay{background:var(--red);color:white}.vbadge.mixed{background:var(--amber);color:white}
+    .war-card{border:1.5px solid var(--rule);background:white;padding:1.2rem;margin-bottom:.9rem}
+    .war-card-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem;gap:1rem;flex-wrap:wrap}
+    .war-name{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem}
+    .war-body{font-size:.85rem;line-height:1.6}
+    .epstein-box{background:white;border:1.5px solid var(--rule);padding:2rem;text-align:center}
+    .bg-card{background:white;border:1.5px solid var(--rule);padding:1.4rem;margin-bottom:1rem;font-size:.88rem;line-height:1.75}
+    .bg-card p{margin-bottom:.8rem}.bg-card p:last-child{margin-bottom:0}
+    .disclaimer{max-width:1000px;margin:0 auto;padding:1.5rem 2rem 3rem;font-size:.73rem;color:var(--muted);font-style:italic;border-top:1px solid var(--rule);line-height:1.6}
+    footer{border-top:1px solid var(--rule);padding:1.5rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+    .bottom-rule{width:100%;height:4px;background:linear-gradient(to right,var(--red) 50%,var(--blue) 50%)}
+    @media(max-width:700px){nav{padding:.9rem 1.2rem}.nav-links{display:none}.profile-header{flex-direction:column}.stats-row{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="top-rule"></div>
+<nav>
+  <a href="/index.html" class="nav-logo"><span class="p">Political</span> <span class="h">Hypocrites</span></a>
+  <ul class="nav-links">
+    <li><a href="/congress">Congress</a></li><li><a href="/executive">Executive</a></li>
+    <li><a href="/donors">Donor Search</a></li><li><a href="#">Stock Trades</a></li><li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="/index.html">Home</a> › <a href="/congress">Congress</a> › <a href="/congress">Alabama</a> › Mike Rogers</div>
+<div class="profile-header">
+  <div class="profile-photo">⚔️</div>
+  <div class="profile-info">
+    <span class="party-badge">Republican</span>
+    <h1 class="profile-name">Mike Rogers</h1>
+    <p class="profile-title">U.S. Representative, Alabama 3rd District · Chair, House Armed Services Committee · In Congress Since 2003 · Sixth-Generation East Alabamian · Attorney</p>
+    <div class="profile-meta">
+      <div class="meta-item"><strong>State</strong>Alabama</div>
+      <div class="meta-item"><strong>District</strong>AL-3 (East Alabama)</div>
+      <div class="meta-item"><strong>Party</strong>Republican</div>
+      <div class="meta-item"><strong>Born</strong>July 16, 1958</div>
+      <div class="meta-item"><strong>In Congress</strong>Since January 2003</div>
+      <div class="meta-item"><strong>Committee</strong>Armed Services (Chair)</div>
+    </div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num blue">2003</div><div class="stat-lbl">Year First Elected to Congress</div></div>
+  <div class="stat-box"><div class="stat-num red">86%</div><div class="stat-lbl">ACU Lifetime Rating (2020) — Relatively Moderate for Southern Republican</div></div>
+  <div class="stat-box"><div class="stat-num blue">1st</div><div class="stat-lbl">Alabamian to Chair House Armed Services Committee</div></div>
+  <div class="stat-box"><div class="stat-num red">Jan 6</div><div class="stat-lbl">Voted Against Certifying 2020 Election</div></div>
+  <div class="stat-box"><div class="stat-num blue">2019</div><div class="stat-lbl">Initiated Creation of U.S. Space Force</div></div>
+</div>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background',this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('votes',this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('donors',this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('war',this)">⚔️ War & Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks',this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein',this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="tab-background" class="tab-pane active">
+    <div class="sec-hdr"><span class="sec-title">Background</span><span class="sec-source">Source: Wikipedia · Encyclopedia of Alabama · Alabama Living · GovTrack</span></div>
+    <div class="bg-card">
+      <p>Michael Dennis Rogers was born July 16, 1958 in Hammond, Indiana. His family left Calhoun County in 1957 in search of work and returned in 1967. His father was a firefighter at Anniston Army Depot and his mother was a textile worker. He is a sixth-generation East Alabamian. He graduated from Saks High School in Anniston, earned a BA in Political Science and an MPA from Jacksonville State University, and received his JD from Birmingham School of Law, graduating with honors. He and his wife Beth both attended law school at night while working. He opened a law practice in Anniston and was a small business owner.</p>
+      <p><strong>Early political career:</strong> At age 28 Rogers was elected to the Calhoun County Commission — the youngest commissioner ever and the first Republican. He was elected to the Alabama House of Representatives in 1994 and became minority leader in his second term. In 2002 he won Alabama's 3rd Congressional District seat, defeating Democrat Joe Turnham Jr. 50%–48%. He has held the seat since.</p>
+      <p><strong>House Armed Services Committee:</strong> Rogers is Chair of the House Armed Services Committee — the first Alabamian ever to hold that position. The committee authorizes approximately half of all federal discretionary spending. He has used the role to advocate for Anniston Army Depot, Fort Benning, and the relocation of Space Operations Command from Colorado to Redstone Arsenal in Huntsville. In September 2025, President Trump announced Space Command's permanent headquarters would move to Huntsville.</p>
+      <p><strong>U.S. Space Force:</strong> Rogers was a key initiator of the creation of the U.S. Space Force as a separate branch of the armed forces in 2019. He has described space as a "warfighting domain" and has advocated for building U.S. space capabilities to counter China and Russia.</p>
+      <p><strong>Speaker vote altercation (January 2023):</strong> During the 14th ballot of the House Speaker election, Rogers lunged at Rep. Matt Gaetz after Gaetz spoke with Kevin McCarthy. Rep. Richard Hudson physically restrained Rogers, pulling him back by the shoulder and then the face. The Associated Press reported Rogers "charged" at Gaetz. The incident occurred as Rogers was in line to become chair of the Armed Services Committee — a position Gaetz was reportedly seeking a subcommittee chairmanship on.</p>
+      <p><strong>SecDef consideration:</strong> Following Trump's 2024 re-election, Rogers was reportedly contacted by Trump's transition team as a potential nominee for Secretary of Defense. He was not ultimately nominated.</p>
+    </div>
+  </div>
+
+  <div id="tab-votes" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Key Votes</span><span class="sec-source">Source: <a href="https://www.govtrack.us/congress/members/mike_rogers/400341" target="_blank">GovTrack</a> · House records · Ballotpedia</span></div>
+    <table class="data-table">
+      <thead><tr><th>Bill / Vote</th><th>Vote</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2020 Election Certification</strong> — Jan 6, 2021</td><td><span class="vbadge nay">Objected</span></td><td>Voted against certifying the 2020 presidential election results on the same day as the Capitol attack. Denounced the violence but still voted against certification. Source: Encyclopedia of Alabama</td></tr>
+        <tr><td><strong>Trump Impeachment (2nd) — 2021</strong></td><td><span class="vbadge nay">Nay</span></td><td>Voted against impeaching Trump following the January 6 Capitol attack. Source: Encyclopedia of Alabama</td></tr>
+        <tr><td><strong>National Defense Authorization Act (NDAA) 2024</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for and helped draft the annual military authorization bill as Armed Services Committee Chair. Source: GovTrack</td></tr>
+        <tr><td><strong>Ukraine Security Supplemental (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for military and economic aid to Ukraine. Rogers has historically been a strong supporter of Ukraine against Russian aggression, condemning Russia's seizure of Crimea and invasion. Source: Encyclopedia of Alabama</td></tr>
+        <tr><td><strong>Israel Security Supplemental (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for continued military aid to Israel. Listed as a recipient of AIPAC-related donations. Source: Sludge · OpenSecrets</td></tr>
+        <tr><td><strong>Fiscal Responsibility Act 2023</strong> (debt ceiling)</td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan debt ceiling agreement.</td></tr>
+        <tr><td><strong>Tax Relief for American Families and Workers Act (2024)</strong></td><td><span class="vbadge yea">Yea</span></td><td>Voted for the bipartisan tax relief bill. Passed 357–70. Source: GovTrack</td></tr>
+        <tr><td><strong>Kevin McCarthy Speaker — Jan 2023</strong></td><td><span class="vbadge yea">Supported</span></td><td>Strongly supported McCarthy. Called those who voted against McCarthy "legislative terrorists who have no problem killing the hostage." Threatened to strip committee assignments from opponents, then lunged at Gaetz during the 14th ballot. Source: Wikipedia</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full voting record: <a href="https://www.govtrack.us/congress/members/mike_rogers/400341" target="_blank" style="color:var(--blue)">GovTrack.us →</a></p>
+  </div>
+
+  <div id="tab-donors" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Top Donors — Career</span><span class="sec-source">Source: <a href="https://www.opensecrets.org/members-of-congress/mike-d-rogers/summary?cid=N00024759" target="_blank">OpenSecrets</a> · <a href="https://www.fec.gov" target="_blank">FEC.gov</a> · <a href="https://trackaipac.com/states/alabama" target="_blank">TrackAIPAC</a></span></div>
+    <table class="data-table">
+      <thead><tr><th>Donor / Industry</th><th>Amount</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Defense / Aerospace Sector</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Top Career Sector</td><td>Defense industry is Rogers' top career donor sector. He chairs the House Armed Services Committee, which authorizes roughly half of all federal discretionary spending and directly oversees defense budgets and contracts. Donors include major defense contractors. Source: OpenSecrets</td></tr>
+        <tr><td>Israel Lobby (AIPAC + affiliated)</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700;color:var(--red)">Documented Recipient</td><td>Rogers is listed as a recipient of AIPAC-related donations in reporting on AIPAC's record November 2023 disbursements. TrackAIPAC lists him as an Alabama delegation recipient. Source: Sludge · TrackAIPAC</td></tr>
+        <tr><td>Republican PACs / Leadership Funds</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Long-serving member with leadership role on Armed Services Committee. Has received contributions from multiple Republican leadership PACs and incumbency funds over his 20+ year career. Source: OpenSecrets</td></tr>
+        <tr><td>Retired Individuals</td><td style="font-family:'Space Mono',monospace;font-size:.75rem;font-weight:700">Significant</td><td>Consistent top individual donor category across his career, reflecting his conservative East Alabama base. Source: OpenSecrets</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic">Full donor data: <a href="https://www.opensecrets.org/members-of-congress/mike-d-rogers/summary?cid=N00024759" target="_blank" style="color:var(--blue)">OpenSecrets →</a> · <a href="https://trackaipac.com/states/alabama" target="_blank" style="color:var(--blue)">TrackAIPAC →</a></p>
+  </div>
+
+  <div id="tab-war" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">War & Foreign Policy Record</span><span class="sec-source">Source: Encyclopedia of Alabama · Wikipedia · Alabama Living</span></div>
+    <div class="war-card">
+      <div class="war-card-hdr"><span class="war-name">Ukraine — Security Supplemental Aid (2024)</span><span class="vbadge yea">Voted For</span></div>
+      <p class="war-body">Voted for Ukraine military and economic aid. Rogers has a documented history of condemning Russian aggression — including Russia's intervention in Georgia, seizure of Crimea, and invasion of Ukraine. He has called for U.S. military readiness to counter Russia and China. As Armed Services Chair he oversees U.S. military posture in Europe. Source: Encyclopedia of Alabama</p>
+    </div>
+    <div class="war-card">
+      <div class="war-card-hdr"><span class="war-name">Israel — Gaza War Military Aid (2024)</span><span class="vbadge yea">Voted For</span></div>
+      <p class="war-body">Voted for continued military aid to Israel. Listed as an AIPAC donation recipient. Has been a consistent supporter of the U.S.-Israel relationship throughout his tenure on Armed Services. Source: OpenSecrets · TrackAIPAC</p>
+    </div>
+    <div class="war-card">
+      <div class="war-card-hdr"><span class="war-name">U.S. Space Force — Initiated Creation (2019)</span><span class="vbadge yea">Championed</span></div>
+      <p class="war-body">Rogers was a key initiator and advocate for creating the U.S. Space Force as a sixth branch of the U.S. military in 2019. He identified space as a "warfighting domain" and pushed for resources to counter Chinese and Russian space capabilities. He has since used his Armed Services chairmanship to advocate for Space Command's relocation to Huntsville, Alabama. Source: Encyclopedia of Alabama · Alabama Living</p>
+    </div>
+    <div class="war-card">
+      <div class="war-card-hdr"><span class="war-name">Strike on Drug Vessel Survivors — December 2025</span><span class="vbadge nay">Opposed Investigation</span></div>
+      <p class="war-body">In December 2025, while serving as Armed Services Committee Chair, Rogers stated there was no need to further investigate a second Trump administration strike on survivors of an initial strike on an alleged drug running vessel. Source: Wikipedia</p>
+    </div>
+    <div class="war-card">
+      <div class="war-card-hdr"><span class="war-name">U.N. Membership — Introduced Legislation to Withdraw</span><span class="vbadge nay">Sponsored</span></div>
+      <p class="war-body">Rogers introduced legislation to end U.S. membership in the United Nations. The U.S. is a founding member of the U.N. and holds a permanent seat on the Security Council. Source: Encyclopedia of Alabama</p>
+    </div>
+  </div>
+
+  <div id="tab-stocks" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Stock Trades & Financial Disclosures</span><span class="sec-source">Source: <a href="https://www.housestockwatcher.com" target="_blank">HouseStockWatcher</a> · House disclosures</span></div>
+    <div class="bg-card">
+      <p>Rogers chairs the House Armed Services Committee, which authorizes approximately 52% of all federal discretionary spending. His financial disclosures are publicly available through the House STOCK Act system. Any trades in defense, aerospace, or national security-related companies would carry potential conflict-of-interest considerations given his committee role.</p>
+    </div>
+    <a href="https://www.housestockwatcher.com" target="_blank" style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;text-decoration:none;display:inline-block;">View Full Trade History → HouseStockWatcher</a>
+  </div>
+
+  <div id="tab-epstein" class="tab-pane">
+    <div class="sec-hdr"><span class="sec-title">Epstein File References</span><span class="sec-source">Source: DocumentCloud · Court Records</span></div>
+    <div class="epstein-box">
+      <div style="font-size:2.5rem;margin-bottom:.8rem;">🗂️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">No Mentions Found in Released Documents</div>
+      <div style="font-size:.85rem;line-height:1.75;max-width:500px;margin:0 auto;color:var(--muted)">Mike Rogers does not appear in currently released Epstein-related court documents. This reflects the public record as of March 2026.</div>
+      <br/><a href="https://www.documentcloud.org/search/projectid:47252" target="_blank" style="font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);">Browse Released Epstein Documents →</a>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">All information sourced from public records including FEC filings, House disclosures, GovTrack, OpenSecrets, and TrackAIPAC. Political Hypocrites does not editorialize or take political positions. Last updated: March 2026.</div>
+<footer><span class="footer-copy">© 2026 PoliticalHypocrites.us — All data from public records.</span><span class="footer-copy">Nonpartisan. Democrats and Republicans tracked equally.</span></footer>
+<div class="bottom-rule"></div>
+<script>
+  function showTab(name,btn){document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
