@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doris Matsui — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #1D3A6B; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #1D3A6B; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #1D3A6B; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #1D3A6B; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #1D3A6B; }
+    .tab-btn.active { color: #1D3A6B; border-bottom-color: #1D3A6B; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #1D3A6B; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.red { border-left-color: #B91C1C; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #1D3A6B; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #1D3A6B; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-7 · Democrat</div>
+  <h1>Doris Matsui</h1>
+  <span class="party-badge">Democrat</span>
+  <p class="hero-sub">Representative for the Sacramento area since 2005, succeeding her late husband Congressman Bob Matsui. Born in the Poston War Relocation Center internment camp in Arizona. Former Clinton White House Deputy Assistant and corporate lobbyist. Author of the CHIPS for America Act. Ranking Member, House Energy and Commerce Subcommittee on Communications and Technology.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2005</div>
+      <div class="sub">Special election, Mar 8, 2005</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1944</div>
+      <div class="sub">Poston internment camp, AZ</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Biden Alignment</div>
+      <div class="value">100%</div>
+      <div class="sub">117th Congress</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Flood Funding</div>
+      <div class="value">$4B+</div>
+      <div class="sub">Secured for Sacramento flood protection</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">CHIPS Act</div>
+      <div class="value">$52B</div>
+      <div class="sub">Authored CHIPS for America Act</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life — Born in an Internment Camp</h3>
+    <p>Doris Okada was born on September 25, 1944 in the Poston War Relocation Center — a Japanese American internment camp in western Arizona — where her Nisei parents had met and married after being forcibly relocated from California. Her father's family had run a seed business before the war; her mother came from a farming family. Poston, Arizona, is listed on her birth certificate. Her family was released when she was three months old. She grew up on a farm in Dinuba, in California's Central Valley, where she was the valedictorian of her high school class.</p>
+    <p>She attended the University of California, Berkeley, where she earned a B.A. in psychology and met law student Robert Matsui, whom she married in 1966. Both she and her husband's families had been held in internment camps — Bob Matsui was six months old when his family was sent to a camp. The experience has shaped her public advocacy, particularly on civil liberties, AAPI rights, and anti-discrimination legislation.</p>
+
+    <h3>Clinton White House &amp; Lobbying</h3>
+    <p>Matsui volunteered on Bill Clinton's 1992 presidential campaign and served on his transition team. After his inauguration, she was appointed Deputy Assistant to the President and Deputy Director of Public Liaison, serving under Alexis Herman from 1993 to 1998. In that role she worked with the Asian American community and helped create the first White House Initiative on Asian Americans and Pacific Islanders in 1999. After leaving the White House, she became a corporate lobbyist at Washington law firm Collier Shannon Scott, representing corporate clients until 2005.</p>
+
+    <h3>Congressional Career</h3>
+    <p>Her husband, Congressman Bob Matsui, died of complications from myelodysplastic syndrome on January 1, 2005, while still in office. Encouraged by him to run for his seat before his death, she announced her candidacy the day after his funeral. She won the special election on March 8, 2005 with 68% of the vote and was sworn in on March 10. She has been reelected without serious difficulty ever since.</p>
+    <p>Matsui is a senior member of the House Energy and Commerce Committee, where she serves as Ranking Member of the Subcommittee on Communications and Technology. She authored the CHIPS for America Act, which became law as part of the CHIPS and Science Act and invested $52 billion to rebuild domestic semiconductor manufacturing. She also authored the Excellence in Mental Health Act (signed by President Obama in 2014), the Diesel Emissions Reduction Act of 2019, and legislation for Sacramento-area flood protection that has secured over $4 billion in federal investment including $1 billion for the Joint Federal Project at Folsom Dam.</p>
+    <p>In April 2020, she married AES Corporation co-founder Roger Sant.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Energy and Commerce — Communications and Technology Subcommittee (Ranking Member)</li>
+      <li>Energy and Commerce — Energy, Climate, and Grid Security Subcommittee</li>
+    </ul>
+
+    <h3>Notable Context</h3>
+    <div class="record-card red">
+      <div class="rc-label">Prior Career · 1998–2005</div>
+      <div class="rc-title">Worked as Corporate Lobbyist Before Running for Congress</div>
+      <div class="rc-body">After leaving the Clinton White House in 1998, Matsui worked as a corporate government affairs lobbyist at Washington law firm Collier Shannon Scott, representing corporate clients for approximately seven years before running for her husband's congressional seat in 2005. She has not disclosed the full list of clients she represented.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Succession · 2005</div>
+      <div class="rc-title">Succeeded Her Husband's Congressional Seat</div>
+      <div class="rc-body">Matsui entered Congress by winning the special election called after her husband Bob Matsui's death — a form of congressional succession sometimes called a "widow's succession." She has held the Sacramento seat continuously since 2005, maintaining a district that has been in Democratic hands without interruption since 1953.</div>
+    </div>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Technology &amp; Telecommunications (tied to Energy &amp; Commerce Committee role)</li>
+          <li>Lawyers &amp; Law Firms</li>
+          <li>Democratic/Liberal organizations</li>
+          <li>Health Professionals</li>
+          <li>Real Estate</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/doris-matsui/summary?cid=N00026347" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card">
+      <div class="rc-label">Legislation · 2022</div>
+      <div class="rc-title">Authored CHIPS for America Act — $52 Billion in Semiconductor Investment</div>
+      <div class="rc-body">Matsui authored the CHIPS for America Act, the centerpiece of the bipartisan CHIPS and Science Act signed into law in 2022. The legislation invested $52 billion in domestic semiconductor manufacturing to reduce U.S. dependence on foreign chip supply chains, particularly from China and Taiwan.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Mental Health · 2014</div>
+      <div class="rc-title">Excellence in Mental Health Act — Signed by President Obama</div>
+      <div class="rc-body">Matsui authored the Excellence in Mental Health Act, signed into law in 2014, which invested $1.1 billion to launch a national demonstration program for Certified Community Behavioral Health Clinics (CCBHCs). The program was later expanded to all 50 states.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Biden Alignment</div>
+      <div class="rc-title">100% Biden Alignment — 117th Congress</div>
+      <div class="rc-body">Voted in alignment with the Biden administration's stated position 100% of the time during the 117th Congress, per FiveThirtyEight analysis.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Flood Infrastructure</div>
+      <div class="rc-title">Secured Over $4 Billion for Sacramento Flood Protection</div>
+      <div class="rc-body">As a senior member representing the Sacramento area — which sits at the confluence of the Sacramento and American Rivers and faces some of the highest flood risk in the country — Matsui secured over $4 billion in federal flood infrastructure investments, including $1 billion for the Joint Federal Project at Folsom Dam.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/doris_matsui/400263" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">Semiconductor Policy</div>
+      <div class="rc-title">CHIPS Act as Strategic National Security Legislation</div>
+      <div class="rc-body">Matsui framed the CHIPS for America Act in part as a national security measure — reducing U.S. dependence on Taiwan and East Asia for advanced semiconductors critical to military and commercial supply chains. The legislation passed with bipartisan support in 2022.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">AAPI Rights &amp; Civil Liberties</div>
+      <div class="rc-title">Led Effort to Preserve Japanese American Internment Camp Sites</div>
+      <div class="rc-body">Matsui was part of the team that fought for $90 million in federal funding to preserve Japanese American internment camp sites — a bill signed by President Biden in 2023. She has been a vocal advocate for AAPI civil rights, drawing on her experience as a person born in the Poston internment camp.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. Matsui's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Doris_Matsui" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Doris Matsui."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

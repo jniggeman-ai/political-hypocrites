@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom McClintock — PoliticalHypocrites.us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F5F0E8; color: #111; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.7; }
+    .top-rule { height: 5px; background: linear-gradient(to right, #1D3A6B, #B91C1C); }
+    .bottom-rule { height: 5px; background: linear-gradient(to right, #B91C1C, #1D3A6B); margin-top: 60px; }
+    header { text-align: center; padding: 28px 20px 10px; border-bottom: 1px solid #ccc5b0; }
+    header a { font-family: 'Space Mono', monospace; font-size: 12px; color: #B91C1C; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+    header a:hover { text-decoration: underline; }
+    .hero { max-width: 860px; margin: 36px auto 0; padding: 0 20px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 14px; }
+    .party-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; color: #fff; background: #B91C1C; margin-bottom: 18px; }
+    .hero-sub { font-size: 1.05rem; color: #333; max-width: 680px; border-left: 3px solid #B91C1C; padding-left: 14px; margin-bottom: 32px; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .stat-box { flex: 1 1 140px; background: #fff; border: 1px solid #d6cebc; padding: 16px 18px; }
+    .stat-box .label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 4px; }
+    .stat-box .value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+    .stat-box .sub { font-size: 11px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #B91C1C; margin-bottom: 32px; }
+    .tab-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: 10px 16px; background: none; border: none; cursor: pointer; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s; }
+    .tab-btn:hover { color: #B91C1C; }
+    .tab-btn.active { color: #B91C1C; border-bottom-color: #B91C1C; font-weight: 700; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .content-block { max-width: 860px; margin: 0 auto 40px; padding: 0 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #d6cebc; padding-bottom: 8px; }
+    h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    .record-card { background: #fff; border: 1px solid #d6cebc; border-left: 4px solid #B91C1C; padding: 18px 20px; margin-bottom: 16px; }
+    .record-card.blue { border-left-color: #1D3A6B; }
+    .record-card .rc-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: 6px; }
+    .record-card .rc-title { font-weight: 700; margin-bottom: 6px; }
+    .record-card .rc-body { font-size: .95rem; color: #333; }
+    .source-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #B91C1C; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+    .epstein-box { background: #fff; border: 1px solid #d6cebc; padding: 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 12px; color: #555; letter-spacing: .05em; }
+    footer { text-align: center; padding: 30px 20px; font-family: 'Space Mono', monospace; font-size: 11px; color: #888; letter-spacing: .05em; }
+    footer a { color: #B91C1C; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<header>
+  <a href="/index.html">← PoliticalHypocrites.us</a> &nbsp;|&nbsp; <a href="/congress.html">Congress</a>
+</header>
+
+<div class="hero content-block">
+  <div class="hero-meta">U.S. Representative · California · CA-5 · Republican</div>
+  <h1>Tom McClintock</h1>
+  <span class="party-badge">Republican</span>
+  <p class="hero-sub">Representative for California's 5th District (Sierra Nevada foothills — Lake Tahoe through Yosemite to Kings Canyon) since 2009. 22 years in the California legislature before Congress. One of the most fiscally conservative members of the House. Rated "best vote for taxpayers" four times by the National Taxpayers Union.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="label">In Congress Since</div>
+      <div class="value">2009</div>
+      <div class="sub">CA-4, now CA-5</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Born</div>
+      <div class="value">1956</div>
+      <div class="sub">Bronxville, NY · grew up CA</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">State Legislature</div>
+      <div class="value">22 yrs</div>
+      <div class="sub">Assembly + Senate 1982–2008</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Missed Votes</div>
+      <div class="value">1.3%</div>
+      <div class="sub">Career (Jan 2009–Mar 2026)</div>
+    </div>
+    <div class="stat-box">
+      <div class="label">Jan 6 Vote</div>
+      <div class="value">Certified</div>
+      <div class="sub">Bucked GOP, voted to certify</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('background', this)">📋 Background</button>
+    <button class="tab-btn" onclick="showTab('donors', this)">💰 Donors</button>
+    <button class="tab-btn" onclick="showTab('votes', this)">🗳️ Key Votes</button>
+    <button class="tab-btn" onclick="showTab('war', this)">⚔️ War &amp; Foreign Policy</button>
+    <button class="tab-btn" onclick="showTab('stocks', this)">📈 Stock Trades</button>
+    <button class="tab-btn" onclick="showTab('epstein', this)">🗂️ Epstein Files</button>
+  </div>
+
+  <div id="background" class="tab-panel active">
+    <h2>Background</h2>
+    <h3>Early Life &amp; Education</h3>
+    <p>Thomas Miller McClintock II was born on July 10, 1956 in Bronxville, Westchester County, New York. His family moved to Thousand Oaks, California in 1965. He graduated from UCLA in 1978 with a degree in political science. Before entering electoral politics, he worked as a journalist and public policy analyst.</p>
+
+    <h3>California Legislative Career (1982–2008)</h3>
+    <p>McClintock was first elected to the California State Assembly in 1982 and served until 1992. After an unsuccessful 1992 congressional bid, he returned to the Assembly in 1996. In 2000 he was elected to the California State Senate, where he served until 2008 — giving him a total of 22 years in the California legislature, during which he became one of its most recognized conservative voices on fiscal policy.</p>
+    <p>He ran for California State Controller twice — losing by 2 points in 1994 and by just 0.2 percentage points (16,811 votes) in 2002. He ran for Governor in the 2003 recall election, finishing third with 14% behind Arnold Schwarzenegger and Cruz Bustamante. He ran for Lieutenant Governor in 2006, losing to Democrat John Garamendi 49%–45%.</p>
+
+    <h3>Congressional Career</h3>
+    <p>McClintock was elected to Congress in 2008 and has represented the Sierra Nevada foothills district — Lake Tahoe, the Gold Country, Yosemite, and Kings Canyon — ever since. He is among the most consistently conservative fiscal votes in the House. The National Taxpayers Union has rated him the best vote for taxpayers in the House four times, most recently in 2020.</p>
+    <p>He chairs the House Judiciary Subcommittee on Immigration Integrity, Security, and Enforcement, and serves on the Natural Resources Committee. He recently authored the Shut Down Sanctuary Policies Act, which passed the House Judiciary Committee in March 2026.</p>
+
+    <h3>Committees</h3>
+    <ul>
+      <li>Judiciary — Subcommittee on Immigration Integrity, Security, and Enforcement (Chair)</li>
+      <li>Judiciary — Subcommittee on the Constitution and Limited Government</li>
+      <li>Natural Resources — Subcommittee on Federal Lands</li>
+      <li>Natural Resources — Subcommittee on Water, Wildlife, and Fisheries</li>
+      <li>Budget</li>
+    </ul>
+  </div>
+
+  <div id="donors" class="tab-panel">
+    <h2>Top Donors &amp; Funding</h2>
+    <div class="record-card">
+      <div class="rc-label">Top Industries (Career)</div>
+      <div class="rc-title">Major Funding Sectors</div>
+      <div class="rc-body">
+        <ul>
+          <li>Real Estate</li>
+          <li>Republican/Conservative organizations</li>
+          <li>Agriculture</li>
+          <li>Mining &amp; Natural Resources</li>
+          <li>Finance &amp; Investment</li>
+        </ul>
+      </div>
+    </div>
+    <p><a class="source-link" href="https://www.opensecrets.org/members-of-congress/tom-mcclintock/summary?cid=N00027748" target="_blank">→ Full donor breakdown at OpenSecrets.org</a></p>
+    <p><a class="source-link" href="https://trackaiPAC.com" target="_blank">→ AIPAC funding data at TrackAIPAC.com</a></p>
+  </div>
+
+  <div id="votes" class="tab-panel">
+    <h2>Key Votes</h2>
+    <div class="record-card blue">
+      <div class="rc-label">Election Integrity · January 7, 2021</div>
+      <div class="rc-title">Voted to Certify the 2020 Election — Against His Party</div>
+      <div class="rc-body">After the January 6 Capitol attack, McClintock broke with the majority of House Republicans and voted to certify the 2020 presidential election results, accepting both Arizona and Pennsylvania's electoral votes for Joe Biden. He was one of a minority of House Republicans to do so. He tweeted: "Haven't we done enough to divide the country and abuse the Constitution?" Note: GovTrack separately flagged that McClintock joined a Supreme Court filing before January 6 that sought to discard electoral votes in four swing states — a position he ultimately did not vote to sustain on the floor.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Fiscal Policy · Career</div>
+      <div class="rc-title">Rated "Best Vote for Taxpayers" Four Times by National Taxpayers Union</div>
+      <div class="rc-body">The National Taxpayers Union has rated McClintock the House member with the best voting record for taxpayers four separate times, most recently in 2020. Citizens Against Government Waste has also designated him a "perfect vote" for fighting wasteful spending.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Immigration · February 2026</div>
+      <div class="rc-title">Authored Shut Down Sanctuary Policies Act</div>
+      <div class="rc-body">McClintock introduced H.R. 7640, the Shut Down Sanctuary Policies Act, which passed the House Judiciary Committee in March 2026 and was placed on the Union Calendar. The bill would restrict local governments from implementing sanctuary policies that limit cooperation with federal immigration enforcement.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Environment</div>
+      <div class="rc-title">Opposes Federal Wildfire Management Restrictions</div>
+      <div class="rc-body">McClintock has consistently argued that federal restrictions on forest management — including limits on logging and controlled burns — contribute to catastrophic wildfires. He authored the Proven Forest Management Act to expand categorical exclusions for forest management in national forests. He has cited data that California's 2020 wildfires produced more CO2 than the state prevented through all emissions restrictions since 2003.</div>
+    </div>
+    <p><a class="source-link" href="https://www.govtrack.us/congress/members/tom_mcclintock/412295" target="_blank">→ Full voting record at GovTrack.us</a></p>
+  </div>
+
+  <div id="war" class="tab-panel">
+    <h2>War &amp; Foreign Policy</h2>
+    <div class="record-card">
+      <div class="rc-label">General Posture</div>
+      <div class="rc-title">Fiscal Conservative — Skeptical of Overseas Commitments</div>
+      <div class="rc-body">As a fiscal conservative, McClintock has at times questioned the cost of open-ended overseas military commitments and foreign aid. He is a member of the Republican Study Committee, which has generally supported defense spending but pushed for constraints on foreign aid.</div>
+    </div>
+    <div class="record-card">
+      <div class="rc-label">Immigration Enforcement</div>
+      <div class="rc-title">Chairs Subcommittee on Immigration Integrity, Security, and Enforcement</div>
+      <div class="rc-body">McClintock's primary policy focus in the 119th Congress has been immigration enforcement through his subcommittee chairmanship. He has used the role to advance legislation restricting sanctuary policies and expanding cooperation between local law enforcement and federal immigration authorities.</div>
+    </div>
+  </div>
+
+  <div id="stocks" class="tab-panel">
+    <h2>Stock Trades</h2>
+    <p>House financial disclosures are publicly available. McClintock's reported trades can be reviewed via HouseStockWatcher.</p>
+    <p><a class="source-link" href="https://housestockwatcher.com/summary_by_politician/Tom_McClintock" target="_blank">→ View reported trades at HouseStockWatcher.com</a></p>
+  </div>
+
+  <div id="epstein" class="tab-panel">
+    <h2>Epstein Files</h2>
+    <div class="epstein-box">
+      NO MENTIONS FOUND<br><br>
+      A search of the publicly released Epstein-related court documents (SDNY Case 1:22-cv-10163) via DocumentCloud returns no results for "Tom McClintock."<br><br>
+      <a class="source-link" href="https://www.documentcloud.org/search/projectid:47252" target="_blank">→ Search DocumentCloud Epstein files</a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-rule"></div>
+<footer>
+  <p>PoliticalHypocrites.us — Public record only. No editorializing. &nbsp;|&nbsp; <a href="/about.html">About</a> &nbsp;|&nbsp; <a href="/index.html">Home</a></p>
+  <p style="margin-top:8px;">Sources: FEC.gov · OpenSecrets.org · GovTrack.us · HouseStockWatcher.com · DocumentCloud.org</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
