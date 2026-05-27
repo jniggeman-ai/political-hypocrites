@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Donroe Doctrine — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #0d0d0d;
+      --ink2: #161616;
+      --ink3: #1e1e1e;
+      --rule: rgba(255,255,255,0.08);
+      --text-body: rgba(255,255,255,0.72);
+      --text-dim: rgba(255,255,255,0.35);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: white;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(255,255,255,0.3); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: white; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: white; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.08);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.2);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: white; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(255,255,255,0.15); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: white; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(255,255,255,0.4);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(255,255,255,0.5);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: white;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(255,255,255,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(255,255,255,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(255,255,255,0.45); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(255,255,255,0.2);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(255,255,255,0.6) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: white; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(255,255,255,0.28); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(255,255,255,0.35); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: white; }
+
+    footer {
+      background: #080808; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(255,255,255,0.18); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(255,255,255,0.18);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>›</span>
+    <span class="current">The Donroe Doctrine</span>
+  </div>
+  <span class="article-label">Current Events + Opinion — May 27, 2026</span>
+  <h1 class="article-title">
+    The Donroe
+    <span>Doctrine</span>
+  </h1>
+  <p class="article-subtitle">What is coming for Cuba, the Caribbean, and the rest of the Western Hemisphere</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">May 27, 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Region</span>
+      <span class="meta-value">Western Hemisphere</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Seven</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <p class="article-lede">On May 20, 2026, Cuba's Independence Day, the United States Department of Justice announced murder charges against former Cuban President Raul Castro. Acting Attorney General Todd Blanche told reporters he expected Castro to appear in an American courtroom "by his own will or by another way." Secretary of State Marco Rubio claimed Cuba had acquired weapons from Russia and China and was hosting their intelligence services on the island. Donald Trump had already stood on the White House lawn and mused publicly about "taking" Cuba. The lights across the island have been going out for months.</p>
+
+    <p>None of this is happening in isolation. None of it is about Cuba.</p>
+
+    <p><span class="opinion-inline">Opinion</span> While the world's attention has been fixed on Iran and the ongoing question of what the Middle East looks like after the current round of American pressure, a separate and critically underreported strategic shift is already underway in the Western Hemisphere. I am deeply opposed to the ongoing war in the Middle East. We are messing around in a region with nuclear weapons, with no clear exit, and the human cost is staggering. But Cuba is getting almost no coverage. And what is happening there right now, and what it signals about where American foreign policy is headed once the Middle East chapter closes, deserves the attention it is not getting.</p>
+
+    <p>The administration described its hemispheric strategy plainly in a document almost nobody read. In November 2025, the Trump administration published its National Security Strategy. Inside it, under the section titled "Western Hemisphere," is the following: "After years of neglect, the United States will reassert and enforce the Monroe Doctrine to restore American preeminence in the Western Hemisphere. We will assert and enforce a Trump Corollary to the Monroe Doctrine."<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+
+    <p>They named it themselves. This piece is an attempt to explain what that means, where it came from, and where it is going.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">The Monroe Doctrine</h2>
+
+    <p>In December 1823, President James Monroe stood before Congress and delivered what would become the foundational statement of American foreign policy in the Western Hemisphere for the next two centuries. The argument was direct: the Americas were closed to further European colonization, and any attempt by European powers to extend their political influence into the hemisphere would be treated as a threat to the peace and safety of the United States.<a href="#fn2" class="fn" id="ref2">[2]</a></p>
+
+    <p>It was an audacious claim for a young and militarily weak nation. The United States in 1823 did not have the force to back it up on its own. What it had was intention, and a British navy that found the doctrine convenient for its own commercial reasons. But Monroe established something that has never been formally walked back: the Western Hemisphere is America's domain, and outside powers enter it at their own risk.</p>
+
+    <p>What began as a defensive posture became an offensive one within a generation. In his annual message to Congress in December 1904, President Theodore Roosevelt declared what became known as the Roosevelt Corollary to the Monroe Doctrine. The United States, Roosevelt announced, had the right to intervene in Latin American nations to stabilize their affairs when they failed to manage their own debts and obligations. He called it the exercise of "international police power."<a href="#fn3" class="fn" id="ref3">[3]</a> The State Department's own historical record describes what followed: the corollary "served as justification for U.S. intervention in Cuba, Nicaragua, Haiti, and the Dominican Republic."<a href="#fn4" class="fn" id="ref4">[4]</a></p>
+
+    <p>What followed is a matter of documented public record. The United States militarily occupied Nicaragua from 1912 to 1933. It occupied Haiti from 1915 to 1934. The CIA orchestrated the overthrow of Guatemalan President Jacobo Arbenz in 1954, largely to protect the land holdings of the United Fruit Company. It backed and funded the Bay of Pigs invasion against Cuba in 1961. It supported the coup against Salvador Allende in Chile in 1973. It invaded Panama in 1989. The justifications changed with every decade. The underlying logic did not.</p>
+
+    <p>The Baker Institute for Public Policy, in a February 2026 analysis of the current National Security Strategy, put the historical context plainly: "The history of the 20th century is dotted with sporadic U.S. interventions in many countries in the Americas, including operations openly engaged in regime change, such as Guatemala in 1954 and Chile in 1973, among others. These activities only intensified Latin American discontent toward the United States."<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+
+    <p>The Monroe Doctrine was never really about keeping other powers out. It was about keeping the hemisphere in line. What is happening right now is not a departure from that tradition. It is its most recent chapter, and for the first time in a long time, the administration executing it has decided to say so openly.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The Trump Corollary</h2>
+
+    <p>The foreign policy establishment that shaped American strategy from the end of the Cold War through the first two decades of this century operated on a single core assumption: the United States could and should maintain dominance everywhere simultaneously. Military bases on every continent. Interventions in the Middle East, Central Asia, Africa, and the Balkans. The dollar as the global reserve currency. The American military as the enforcer of a rules-based international order that the United States itself had written.</p>
+
+    <p><span class="opinion-inline">Opinion</span> The people who built and sold that vision have not gone away. Many of them spent the 1990s and 2000s championing the invasion of Iraq, the expansion of NATO toward Russia's borders, and the idea that American military force could reshape entire civilizations. The results are a matter of documented record: trillions of dollars spent, hundreds of thousands of lives lost, military equipment abandoned on tarmacs, and an American public that has grown increasingly unwilling to send its children to die in wars whose stated rationale shifts every few years. The track record of the people who designed that era of American foreign policy is not a matter of opinion. It is history. Those same voices spent the weekend of May 25, 2026 on X and cable television making pointed comments about Cuba, the Caribbean, and American hemispheric destiny. They are rebranding. The people who gave you Iraq are now giving you hemisphere consolidation, and the framing sounds different but the instinct is identical.</p>
+
+    <p>What has changed is the scope. Global dominance has been abandoned not because the ambition shrank but because the math stopped working. Regional dominance is the new target. And again, the administration put it in writing.</p>
+
+    <div class="doc-callout">
+      <span class="doc-callout-label">White House — National Security Strategy, November 2025</span>
+      <p>"We want to ensure that the Western Hemisphere remains reasonably stable and well-governed enough to prevent and discourage mass migration to the United States. We want a Hemisphere whose governments cooperate with us against narco-terrorists, cartels, and other transnational criminal organizations. We want a Hemisphere that remains free of hostile foreign incursion or ownership of key assets, and that supports critical supply chains. We want to ensure our continued access to key strategic locations. In other words, we will assert and enforce a Trump Corollary to the Monroe Doctrine."</p>
+    </div>
+
+    <p>The Chatham House analysis of the document described the implications directly: "The strategy states that the Western Hemisphere must be controlled by the United States politically, economically, commercially, and militarily."<a href="#fn6" class="fn" id="ref6">[6]</a> The Atlantic Council noted that the NSS "carved out a Trump Corollary to the Monroe Doctrine, citing malign activity by extra-hemispheric powers as a serious threat to U.S. national security."<a href="#fn7" class="fn" id="ref7">[7]</a> The Council on Foreign Relations described the document as elevating the Western Hemisphere as "America's highest priority."<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> This is what I am calling the Donroe Doctrine. It is the Monroe Doctrine updated for a multipolar world and stripped of its diplomatic pretense. Where Monroe said keep outside powers out, the current version says bring the hemisphere in. Not as states of the union necessarily. Trump's comments about absorbing Canada, Greenland, and Panama have been received with appropriate skepticism about their literal meaning. What is being constructed is something more practical and in many ways more durable: a hemisphere so economically and strategically integrated with the United States that no adversary can use any part of it as a foothold, and no government within it can afford to align against American interests.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">Venezuela, Cuba, and the Sequence</h2>
+
+    <p>Venezuela was the first concrete move under this doctrine. On January 3, 2026, American special forces arrested Nicolas Maduro and removed him from power. Trump immediately announced that American oil companies would take control of Venezuela's infrastructure.<a href="#fn9" class="fn" id="ref9">[9]</a> Venezuela sits atop the largest proven oil reserves in the world at 303 billion barrels, roughly one fifth of total global crude. The stated justification was narco-terrorism. The operational purpose, stated openly by American officials and documented by the Council on Foreign Relations, was control of regional energy flows and the ability to use them as leverage against Cuba and other governments in the hemisphere that had aligned with American adversaries.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+
+    <div class="stat-callout">
+      <span class="stat-num">303B</span>
+      <p class="stat-desc">Barrels of proven crude oil reserves in Venezuela, roughly one fifth of total global supply. American special forces seized control of the country and its oil flows on January 3, 2026. Cuba lost its primary energy lifeline the same week.</p>
+    </div>
+
+    <p>Cuba is the next move. The grid collapses are not a coincidence of aging infrastructure. They are the direct result of severing the Venezuelan oil supply that Cuba depended on to keep its power plants running. As ABC News reported on May 13, 2026, "the loss of supply of oil from Venezuela was a big blow, as Cuba only produces about 40 percent of its oil needs domestically."<a href="#fn11" class="fn" id="ref11">[11]</a> The indictment of Raul Castro, the weapons accusations from Rubio, the presidential musing about taking the island: this is the same playbook the Monroe Doctrine produced in practice for a hundred years. Build the justification. Weaken the target. Move.</p>
+
+    <p><span class="opinion-inline">Opinion</span> The claim that Cuba poses a military threat because it has acquired weapons from Russia and China deserves to be looked at directly. Cuba cannot project military force beyond its shores. Its military is not capable of offensive operations against the United States. Marco Rubio's own congressional colleague, Representative Mario Diaz-Balart, acknowledged this plainly to The Hill: "Cuba cannot invade the United States."<a href="#fn12" class="fn" id="ref12">[12]</a> What Cuba can do is serve as an intelligence platform and a potential staging ground ninety miles from American soil. That is a real strategic concern. It deserves an honest public argument, not fabricated drone threat scenarios from the same officials who have never once been held accountable for the fabrications that preceded the last war they sold.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Cuba is not the finish line. The logic of the Trump Corollary, as written in the National Security Strategy, covers the entire hemisphere. The sequence, if the doctrine holds, runs through the Caribbean, Central America, and the strategically important parts of South America. This is not a prediction. It is a reading of the document the administration published and the actions it has already taken.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Strategic Logic</h2>
+
+    <p>The administration will not lay out the full strategic reasoning publicly. The actions make it legible.</p>
+
+    <p>The first pillar is energy independence. Venezuela's proven reserves alone represent roughly one fifth of total global crude. Add the offshore fields of Guyana, one of the fastest growing oil producers in the world. Add the natural gas of Trinidad and Tobago, the lithium deposits of Bolivia and Chile that are essential to the next generation of energy technology, and the agricultural output of Brazil and Argentina. A hemisphere operating inside an American economic framework is a hemisphere that is self-sufficient in every strategic resource. An America that does not need Middle Eastern oil or Russian gas can reorient its foreign commitments without strategic catastrophe.</p>
+
+    <p>The second pillar is immigration. The primary drivers of migration pressure on the southern border are economic desperation and violence in Central America and the Caribbean. No wall has ever addressed those underlying conditions because no wall can. What does address them, at least in theory, is economic development. The Free Trade Area of the Americas collapsed in 2005 under disagreements over agricultural subsidies and sovereignty concerns. The Central America Free Trade Agreement produced limited results. What is being attempted now is the same destination through a completely different method: integration not through negotiated agreement but through the removal of governments that resist it and the creation of conditions that leave neighboring economies no viable alternative to operating inside the American orbit. If the economies of Honduras, Guatemala, El Salvador, Haiti, and Cuba are growing because they are plugged into an American-led trade framework, the pressure to leave diminishes.</p>
+
+    <p>The third pillar is the doorstep problem. <span class="opinion-inline">Opinion</span> This is where the logic behind the Cuba pressure, stripped of its dishonesty about drones and weapons threats, actually holds up, and where I think it is worth being honest even when it complicates the argument. The United States spent the better part of thirty years expanding military and economic influence toward the borders of rival powers and then expressing surprise when those powers reacted. NATO's eastward expansion after the Cold War was warned against repeatedly by American diplomats and strategists who understood exactly what it would produce. George Kennan, the architect of America's Cold War containment policy, called NATO expansion "the most fateful error of American policy in the entire post-Cold War era" in a 1997 New York Times piece.<a href="#fn13" class="fn" id="ref13">[13]</a> A bipartisan group of more than fifty foreign policy experts echoed that warning the same year. Russia communicated its red lines clearly and consistently for decades. The war in Ukraine did not emerge from nowhere.</p>
+
+    <p>The United States would do exactly the same thing if the situation were reversed. We know this because we nearly went to nuclear war in 1962 when the Soviet Union attempted to place missiles in Cuba. The concern was not that Cuba itself posed a threat. The concern was what Cuba could be used for by a rival power with hostile intentions. That same logic applies today. It is the one honest argument the administration has, and it is the one argument they are not making, because making it honestly would require acknowledging that Russia and China have their own version of it, and that we have spent thirty years ignoring theirs.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">China in the Hemisphere and the Mutual Sphere Arrangement</h2>
+
+    <p>While Washington spent two decades focused on the Middle East and Central Asia, China was quietly and systematically building economic presence across Latin America. Since 2005, China has extended approximately 150 billion dollars in state financing to the region.<a href="#fn14" class="fn" id="ref14">[14]</a> Chinese state-owned enterprises control a 60 percent majority stake in the Chancay deepwater port in Peru.<a href="#fn15" class="fn" id="ref15">[15]</a> Chinese firms now control approximately two thirds of Chile's energy distribution.<a href="#fn16" class="fn" id="ref16">[16]</a> A Hong Kong company with close ties to Beijing held port concessions at both ends of the Panama Canal from 1997 until pressure from the Trump administration led Panama to exit China's Belt and Road Initiative in February 2025 and negotiate a sale of those port contracts to a BlackRock-led consortium.<a href="#fn17" class="fn" id="ref17">[17]</a> Twenty-one countries in Latin America and the Caribbean remain part of Belt and Road as of 2026. China has surpassed the United States as South America's largest trading partner.<a href="#fn18" class="fn" id="ref18">[18]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> Here is the parallel that nobody in either government is saying out loud. China has made its position on American military presence near its borders consistently clear, just as Russia made its position on NATO expansion consistently clear. The United States maintaining military bases and alliances in the South China Sea and across the Indo-Pacific is, from Beijing's perspective, exactly what Russian and Chinese intelligence presence in Cuba is from Washington's perspective. Both sides have a version of the Monroe Doctrine. Neither side publicly acknowledges the other's. And both sides know that if you want the other side out of your neighborhood, you have to be willing to give something up in theirs.</p>
+
+    <p>What the April 13, 2026 defense partnership with Indonesia suggests is that a negotiated understanding of mutual spheres may be taking shape in practice even if it will never be announced as policy. The Major Defense Cooperation Partnership gives American military aircraft expanded operational access to Indonesian airspace over the Strait of Malacca, the waterway that carries roughly 40 percent of global seaborne trade and the overwhelming majority of China's energy imports from the Middle East.<a href="#fn19" class="fn" id="ref19">[19]</a> The Hill described it plainly: "America just signed an agreement that will give it a perch on the world's most important natural waterway."<a href="#fn20" class="fn" id="ref20">[20]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> Both sides now have something the other side needs. The United States has leverage over China's energy supply lines. China has economic leverage across the hemisphere the United States is trying to consolidate. The logic of a mutual sphere arrangement follows from this. Nobody signs a treaty. Nobody holds a press conference. It simply becomes the operating reality, which is how great power arrangements have always actually worked underneath the public statements about rules-based international orders and sovereign equality.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">The Economic Case</h2>
+
+    <p>There is a version of what the Donroe Doctrine is attempting that has genuine economic logic behind it and that deserves to be made publicly instead of being executed quietly through blockades and indictments.</p>
+
+    <p>Europe does not offer the United States meaningful manufacturing complementarity. Its labor costs are high, its economies are mature, and its political relationship with Washington has been strained for decades over disputes about defense spending and the costs of American-led military adventures that Europe neither designed nor fully endorsed.</p>
+
+    <p>China offers enormous manufacturing capacity but at the cost of strategic dependency on an acknowledged adversary. The supply chain disruptions of the early 2020s made the cost of that dependency visible in ways that had been easy to ignore when the goods were cheap and the relationship was framed as cooperative engagement. It is no longer framed that way by either side. China needs American buyers to sustain its export economy. That dependency is leverage that does not require a single military base to exercise.</p>
+
+    <p><span class="opinion-inline">Opinion</span> What Latin America and the Caribbean offer is different: a large, young, and significantly underdeveloped labor force and resource base in the same hemisphere, in favorable time zones, without the strategic complications of building supply chains through an adversary's territory. The manufacturing that currently happens in China because of low labor costs could happen in Central America and northern South America under conditions that American companies could operate within and American trade policy could shape. The goods would remain affordable. The supply chains would not run through a country whose government has made clear it views the United States as a long-term rival. For American consumers the outcome would be goods produced nearby at prices that remain competitive because the labor cost differential between the United States and Central America is still significant. For the countries producing them the outcome would be economic development, employment, and the kind of growth that reduces the desperation that drives emigration north.</p>
+
+    <p>These regions have been poor for a long time in no small part because American policy in them has historically prioritized cheap extraction over genuine development. A model that integrates them as manufacturing and trade partners rather than as resource colonies would be genuinely different from what the Monroe Doctrine produced in practice. Whether it actually becomes that depends entirely on who executes it and how. The history of American economic engagement in the region is not a history that invites easy trust. That is worth saying plainly.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">What Nobody Is Saying Out Loud</h2>
+
+    <p>Mark Levin, Lindsey Graham, and a collection of voices who spent the early 2000s telling the American public that the Iraq War would pay for itself and that we would be greeted as liberators spent the weekend of May 25, 2026 on X making pointed comments about Cuba, Caribbean stability, and American hemispheric interests. None of them said plainly what they were describing. That is worth noting, and the people doing it should be identified for what they are: the same voices, selling a new version of the same argument, with the same absence of accountability for the last time they sold it.</p>
+
+    <p>The American people have not been given a real public debate about any of this. The Venezuela operation happened before most Americans had finished their New Year's coffee. The Cuba pressure campaign has been conducted through blackouts and indictments and presidential musing rather than a speech to Congress laying out what the United States is trying to accomplish and why. The Malacca deal was announced as a routine defense cooperation framework. The Trump Corollary was published in a document that received almost no sustained public attention despite being available on whitehouse.gov for anyone to read.</p>
+
+    <p>None of these individual actions triggers the legal or political mechanisms that would force a genuine public debate about the strategy they collectively represent. That appears to be intentional.</p>
+
+    <p>The American people are tired of foreign wars. That exhaustion is legitimate and it is earned. More veterans of the post-9/11 wars have died by suicide than were killed in combat in those wars. The public's resistance to further military adventurism is not isolationism. It is a rational response to thirty years of being told that the next intervention would be the one that finally worked.</p>
+
+    <div class="pull-quote">
+      <p><span class="opinion-inline">Opinion</span> The Donroe Doctrine is being sold, to the extent it is being sold at all, as the answer to that exhaustion. Stop fighting wars everywhere. Control the neighborhood. Bring manufacturing back to the hemisphere. There is a version of that argument worth having openly. The problem is that the people making it quietly are the same people who made the previous argument, and they are making this one the same way they made that one: without accountability for what they got wrong before, without transparency about what they are doing now, and without any meaningful input from the people whose futures are being arranged on their behalf.</p>
+    </div>
+
+    <p>The Cubans cooking dinner over firewood in Havana tonight did not get a vote on the Trump Corollary. The people of Venezuela did not get a vote on who runs their country or their oil. The question of whether the hemisphere integration being executed in their name will produce the genuine development and stability its architects claim to want, or simply the next version of what the Monroe Doctrine always actually delivered, is the most important foreign policy question nobody in Washington is currently being asked to answer on the record.</p>
+
+    <p>It deserves to be asked out loud. By elected officials, in public, before the next move is already made.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Cuba and Venezuela</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] White House. <em>National Security Strategy of the United States of America.</em> November 2025. <a href="https://whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf" target="_blank" rel="noopener">whitehouse.gov</a> <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn11">[11] ABC News. "Cuba grid collapse: The situation is growing more dire, experts say." May 13, 2026. <a href="https://abcnews.com" target="_blank" rel="noopener">abcnews.com</a> <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Al Jazeera. "Trump threatens to 'take' Cuba as island grapples with nationwide blackout." March 16, 2026. <a href="https://aljazeera.com" target="_blank" rel="noopener">aljazeera.com</a></li>
+      <li>NPR. "Cuba begins to restore power after third nationwide collapse in a month." March 22, 2026. <a href="https://npr.org" target="_blank" rel="noopener">npr.org</a></li>
+      <li>Reuters. "Cuba says power grid back online, blames US oil blockade." March 5, 2026. <a href="https://reuters.com" target="_blank" rel="noopener">reuters.com</a></li>
+      <li>CNN. "Trump muses over taking Cuba as island's power grid collapses." March 2026. <a href="https://cnn.com" target="_blank" rel="noopener">cnn.com</a></li>
+      <li id="fn9">[9] CNN Business. "Trump says US is taking control of Venezuela's oil reserves." January 3, 2026. <a href="https://cnn.com" target="_blank" rel="noopener">cnn.com</a> <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn10">[10] Council on Foreign Relations. "Oil, Power, and the Climate Stakes of the U.S. Move in Venezuela." January 23, 2026. <a href="https://cfr.org" target="_blank" rel="noopener">cfr.org</a> <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Columbia Center on Global Energy Policy. "Oil and Venezuela: What's Next?" January 6, 2026. <a href="https://energypolicy.columbia.edu" target="_blank" rel="noopener">energypolicy.columbia.edu</a></li>
+      <li id="fn12">[12] The Hill. "Critics say Trump's pretext for Cuba invasion doesn't square with reality." May 23, 2026. <a href="https://thehill.com" target="_blank" rel="noopener">thehill.com</a> <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Monroe Doctrine and Roosevelt Corollary</span>
+    <ul class="bib-list">
+      <li id="fn2">[2] Monroe, James. Annual Message to Congress. December 2, 1823. Available via Miller Center, University of Virginia. <a href="https://millercenter.org" target="_blank" rel="noopener">millercenter.org</a> <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn3">[3] Roosevelt, Theodore. Annual Message to Congress. December 1904. U.S. National Archives. <a href="https://archives.gov/milestone-documents/roosevelt-corollary" target="_blank" rel="noopener">archives.gov</a> <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn4">[4] U.S. State Department Office of the Historian. "Roosevelt Corollary to the Monroe Doctrine, 1904." <a href="https://history.state.gov/milestones/1899-1913/roosevelt-and-monroe-doctrine" target="_blank" rel="noopener">history.state.gov</a> <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Britannica. "Roosevelt Corollary." <a href="https://britannica.com/event/Roosevelt-Corollary" target="_blank" rel="noopener">britannica.com</a></li>
+      <li>CEBRI Journal. "The Monroe Doctrine in US-Latin American Relations." 2023. <a href="https://cebri.org" target="_blank" rel="noopener">cebri.org</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Trump Corollary and National Security Strategy</span>
+    <ul class="bib-list">
+      <li id="fn5">[5] Baker Institute for Public Policy. "The Trump Corollary: An Expansive Vision of US Influence." February 2026. <a href="https://bakerinstitute.org" target="_blank" rel="noopener">bakerinstitute.org</a> <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn6">[6] Chatham House. "The Trump Corollary in the US security strategy brings a new focus on Latin America." January 2026. <a href="https://chathamhouse.org" target="_blank" rel="noopener">chathamhouse.org</a> <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn7">[7] Atlantic Council. "The Trump Corollary is officially in effect." January 2026. <a href="https://atlanticcouncil.org" target="_blank" rel="noopener">atlanticcouncil.org</a> <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn8">[8] Council on Foreign Relations. "Unpacking a Trump Twist of the National Security Strategy." December 2025. <a href="https://cfr.org" target="_blank" rel="noopener">cfr.org</a> <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Brookings Institution. "Breaking down Trump's 2025 National Security Strategy." February 2026. <a href="https://brookings.edu" target="_blank" rel="noopener">brookings.edu</a></li>
+      <li>Foreign Policy. "What Trump's New Corollary to the Monroe Doctrine Means for Latin America." December 2025. <a href="https://foreignpolicy.com" target="_blank" rel="noopener">foreignpolicy.com</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">NATO Expansion and Russia</span>
+    <ul class="bib-list">
+      <li id="fn13">[13] Kennan, George F. "A Fateful Error." The New York Times. February 5, 1997. <a href="https://nytimes.com" target="_blank" rel="noopener">nytimes.com</a> <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Foreign Affairs. "George Kennan's Warning on Ukraine." April 2025. <a href="https://foreignaffairs.com" target="_blank" rel="noopener">foreignaffairs.com</a></li>
+      <li>Cato Institute. "Ignored Warnings: How NATO Expansion Led to the Current Ukraine Tragedy." June 2022. <a href="https://cato.org" target="_blank" rel="noopener">cato.org</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">China in Latin America</span>
+    <ul class="bib-list">
+      <li id="fn14">[14] InterAction Council. "The Road Continues South: China's Expansion of the Belt and Road Investment in Latin America." <a href="https://interactioncouncil.org" target="_blank" rel="noopener">interactioncouncil.org</a> <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn15">[15] CSIS. "China's Expanding Interests in Latin America." April 2026. <a href="https://csis.org" target="_blank" rel="noopener">csis.org</a> <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn16">[16] The Conversation. "China is losing ground in Latin America." February 2026. <a href="https://theconversation.com" target="_blank" rel="noopener">theconversation.com</a> <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn17">[17] Washington Times. "Panama bids China's Belt and Road program goodbye after Marco Rubio visit." February 2025. <a href="https://washingtontimes.com" target="_blank" rel="noopener">washingtontimes.com</a> <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn18">[18] Council on Foreign Relations. China in Latin America overview. <a href="https://cfr.org" target="_blank" rel="noopener">cfr.org</a> <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Strait of Malacca</span>
+    <ul class="bib-list">
+      <li id="fn19">[19] Military.com. "US and Indonesia Form Major Defense Cooperation Partnership." April 14, 2026. <a href="https://military.com" target="_blank" rel="noopener">military.com</a> <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn20">[20] The Hill. "America gains a foothold in the world's most critical chokepoint." May 2026. <a href="https://thehill.com" target="_blank" rel="noopener">thehill.com</a> <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li>Defence Security Asia. "Strait of Malacca Under Pressure: US-Indonesia Defense Pact." April 2026. <a href="https://defencesecurityasia.com" target="_blank" rel="noopener">defencesecurityasia.com</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
