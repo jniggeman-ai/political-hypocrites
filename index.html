@@ -392,7 +392,16 @@
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
-  const APPS_SCRIPT_URL = 'PASTE_YOUR_URL_HERE';
+  const APPS_SCRIPT_URL = 'function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var email = e.parameter.email;
+  var timestamp = new Date();
+  sheet.appendRow([email, timestamp]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: "success" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}';
 
   document.querySelector('.signup-form button').addEventListener('click', async function () {
     const input = document.getElementById('email-input');
