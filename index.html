@@ -392,11 +392,7 @@
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
-  const APPS_SCRIPT_URL = 'function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var email = e.parameter.email;
-  var timestamp = new Date();
-  sheet.appendRow([email, timestamp]);
+  const APPS_SCRIPT_URL = const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_ACTUAL_ID_HERE/exec';
 
   return ContentService
     .createTextOutput(JSON.stringify({ result: "success" }))
