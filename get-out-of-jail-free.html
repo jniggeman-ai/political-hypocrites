@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Out of Jail Free — Political Hypocrites</title>
+  <meta name="description" content="The DOJ dropped federal charges against Ori Solomon with no explanation. It was not the first time an Israeli national walked away from American justice. It will not be the last." />
+  <meta property="og:title" content="Get Out of Jail Free — Political Hypocrites" />
+  <meta property="og:description" content="The DOJ dropped federal charges against Ori Solomon with no explanation. It was not the first time an Israeli national walked away from American justice. It will not be the last." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/get-out-of-jail-free" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get Out of Jail Free — Political Hypocrites" />
+  <meta name="twitter:description" content="The DOJ dropped federal charges against Ori Solomon with no explanation. It was not the first time an Israeli national walked away from American justice. It will not be the last." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12pt;
+      min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+    .opinion-banner {
+      background: rgba(185,28,28,0.07);
+      border-bottom: 1px solid rgba(185,28,28,0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; cursor: pointer;
+      background: none;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+    .article-lede {
+      font-size: 1.1rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .article-body p {
+      font-size: 12pt; line-height: 1.95; font-weight: 400;
+      color: var(--text-body); margin-bottom: 1.5rem;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.55); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&#x203A;</span>
+    <span class="current">Get Out of Jail Free</span>
+  </div>
+  <span class="article-label">Current Events + Opinion &mdash; May 27, 2026</span>
+  <h1 class="article-title">
+    Get Out of
+    <span>Jail Free</span>
+  </h1>
+  <p class="article-subtitle">The DOJ dropped federal charges against Ori Solomon with no explanation. It was not the first time an Israeli national walked away from American justice. It will not be the last.</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">May 27, 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Region</span>
+      <span class="meta-value">United States / Israel</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Seven + Conclusion</span>
+    </div>
+    <button class="share-btn" onclick="shareToX()">Share on X</button>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Section I</span>
+    <h2 class="section-title">What Was Found in That Garage</h2>
+    <p class="article-lede">On the morning of January 31, 2026, officers from the Las Vegas Metropolitan Police Department and agents from the Federal Bureau of Investigation executed a search warrant at a residential property on Sugar Springs Drive in the northeast corner of Las Vegas, not far from the intersection of Washington Avenue and Hollywood Boulevard. What they found inside a garage was not a workshop or a storage unit. It was a functioning biological laboratory operating without any license, any regulatory oversight, or any official awareness that it existed at all.</p>
+    <p>Investigators documented refrigerators, a freezer, laboratory-grade equipment, and more than one thousand containers holding unknown liquid substances.<a href="#fn1" class="fn" id="ref1">[1]</a> Containers were labeled in both English and Mandarin. The labels included the names dengue fever, HIV, and malaria.<a href="#fn2" class="fn" id="ref2">[2]</a> The property also functioned as a short-term rental listed on Airbnb. Guests had been booking stays at a home that shared a wall with an unlicensed repository of biological agents, and they had no way of knowing it.</p>
+    <p>The public health implications emerged quickly. According to court records filed in the days following the raid, multiple individuals who had entered the garage became seriously ill. Law enforcement documents described at least two people who fell, in the words of the official record, "deathly ill" after exposure to the garage's contents.<a href="#fn3" class="fn" id="ref3">[3]</a> A reddish liquid of undetermined composition was among the substances recovered. The Southern Nevada Health District was notified. Samples were submitted to the FBI laboratory for testing. As of the time of publication, the full pathogen analysis has not been released to the public.</p>
+    <p>Clark County Sheriff Kevin McMahill addressed the discovery at a press conference, confirming the broad outlines of what investigators had found and describing the scene as consistent with a biological laboratory.<a href="#fn4" class="fn" id="ref4">[4]</a> He noted that the materials and equipment closely resembled those found three years earlier at an illegal laboratory in Reedley, California, a comparison that would prove to be more than coincidental, as subsequent reporting and police documents made clear.</p>
+    <p>It is worth pausing on what this actually means. This was not a case of improper chemical storage, or a hobbyist gone too far, or a regulatory paperwork failure. This was a structure containing over a thousand samples of materials labeled with the names of some of the most dangerous infectious pathogens known to medicine, operating inside a residential home in a populated neighborhood, rented out to members of the public on a commercial hospitality platform. People became ill. And within four months, the federal government quietly moved to drop its charges against the man identified as the property manager responsible for the site.</p>
+    <p>In March 2026, the FBI released its analysis of the materials recovered from the Sugar Springs Drive property, characterizing them as primarily consistent with components used in the development of medical diagnostic test kits. Investigators confirmed the presence of older influenza samples, though genetic sequencing found no indication of an ongoing public health threat. The FBI noted, however, that many materials had significantly degraded due to improper storage, limiting the agency's ability to determine what biological agents may have previously been present. What is not in dispute is the network those materials belonged to: five days after the FBI and DOJ moved to dismiss Solomon's federal charges, a federal jury in Sacramento convicted Jia Bei Zhu — the man LVMPD's own documentation identifies as Solomon's principal — on all twelve federal counts brought against him.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section II</span>
+    <h2 class="section-title">Who Is Ori Solomon</h2>
+    <p>The man at the center of this story is Ori Solomon, also spelled Ori Salomon in some court filings, a 55-year-old Israeli national residing in the United States on a non-immigrant work visa.<a href="#fn5" class="fn" id="ref5">[5]</a> He was not the owner of the Sugar Springs Drive property. He was its property manager, a distinction his legal team would lean on heavily in the months that followed. But the distinction, as the documentary record makes clear, does not hold up to scrutiny.</p>
+    <p>Solomon managed approximately 37 short-term rental properties in the Las Vegas area, many of them listed on platforms like Airbnb.<a href="#fn6" class="fn" id="ref6">[6]</a> The Sugar Springs Drive property was one of his. A second property on nearby Temple View Drive was also searched on the same day. His name appeared on management records. His employee, referred to in police documents as "Mikey," was identified as the individual who physically transported the biolab equipment and materials to the Sugar Springs Drive garage, at Solomon's direction.<a href="#fn7" class="fn" id="ref7">[7]</a></p>
+    <p>When investigators searched Solomon's own home during the course of their inquiry, what they found there added a separate layer of legal jeopardy. Officers recovered a Glock semi-automatic pistol. A subsequent search on February 2 yielded four handguns and two rifles, along with ammunition and firearm accessories.<a href="#fn8" class="fn" id="ref8">[8]</a> Solomon, as an Israeli national in the United States on a non-immigrant visa, was legally prohibited from owning or possessing firearms of any kind. That prohibition is not a gray area in federal law. It is explicit and unambiguous.</p>
+    <p>During searches of the property, investigators also found two passports in Solomon's name. One was an Israeli passport. The other was a French passport issued under the name Ori Salomon.<a href="#fn9" class="fn" id="ref9">[9]</a> The dual passport detail is not incidental. It speaks to a man with options, and options matter when charges are pending and borders are reachable.</p>
+    <p>After his initial arrest on the state charge of disposing and discharging hazardous waste, Solomon made a phone call from the Clark County Detention Center to a family member. Court documents record what he said. His first question, before anything else, was: "Is there any guns left?"<a href="#fn10" class="fn" id="ref10">[10]</a> It is a small detail. It is also a telling one.</p>
+    <p>Solomon was brought before U.S. Magistrate Judge Elayna Youchah for a detention hearing on the federal firearms charge. The government did not ask the judge to detain him. Prosecutors requested only that his travel be restricted to the 48 continental states and that he notify pretrial services when leaving Clark County. Judge Youchah imposed those conditions, ordered him to surrender his passport, and released him on a personal recognizance bond.<a href="#fn11" class="fn" id="ref11">[11]</a> She noted that Solomon had no prior criminal history, that he had a home and children in the Las Vegas area, and that the allegations, while concerning, did not rise to the level requiring detention.</p>
+    <p>That last judgment proved consequential.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section III</span>
+    <h2 class="section-title">The China Connection</h2>
+    <p>The property where law enforcement discovered the Las Vegas biolab was not owned by Ori Solomon. It was owned by a limited liability company whose registered officers included two Chinese nationals: Jia Bei Zhu, also known by the aliases David He, Jesse Zhu, and Qiang He, and his partner Zhaoyan Wang.<a href="#fn12" class="fn" id="ref12">[12]</a> That fact alone would have been enough to raise serious questions. The full picture, assembled from police records, congressional investigations, and federal court proceedings, raises considerably more than questions.</p>
+    <p>Jia Bei Zhu was not a stranger to American law enforcement when the Las Vegas raid occurred. He had been in federal custody since 2023, arrested in Clovis, California in connection with the discovery of an illegal biological laboratory inside a warehouse in the nearby city of Reedley. That laboratory, first flagged by a local code enforcement officer who noticed a garden hose protruding from the wall of a supposedly vacant building, contained laboratory equipment, nearly one thousand mice, vials bearing the names of HIV, tuberculosis, and the deadliest known strain of malaria, and manufactured medical devices bearing false FDA approval labels.<a href="#fn13" class="fn" id="ref13">[13]</a> State inspectors found Chinese nationals working inside.</p>
+    <p>The House Select Committee on the Chinese Communist Party investigated the Reedley laboratory and produced a report with findings that went well beyond regulatory violations. According to the committee, Zhu was a citizen of the People's Republic of China who had previously served as an executive at a Canadian company called IND, which had drawn sanctions from Canadian regulatory authorities for misconduct similar to what he would later be charged with in the United States. After Canadian authorities accused Zhu of committing fraud on what they described as an epic scale, he fled to the United States, entered unlawfully, and established a network of businesses including Universal Meditech Inc., the Fresno-based company through which he sold fraudulent COVID-19 tests. The committee alleged that Zhu had close ties to the Chinese government and had been involved in a transnational criminal enterprise that stole valuable American intellectual property and sought to transfer it to China.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+    <p>In May 2026, the same month the federal charges against Ori Solomon were dropped, a federal jury in Sacramento convicted Jia Bei Zhu on all twelve counts brought against him, including conspiracy to commit wire fraud, eight counts of substantive wire fraud, two counts of distributing adulterated and misbranded medical devices, and one count of making false statements to the FDA.<a href="#fn15" class="fn" id="ref15">[15]</a> He is scheduled to be sentenced in August 2026 and faces a potential maximum of more than twenty years in prison.</p>
+    <p>The question of how Solomon fits into this network is answered not by inference but by the Las Vegas Metropolitan Police Department's own arrest documentation, obtained through a public records request. The police report contains a section explicitly titled "Ori Connections to Zhu." The language is direct. Investigators identified Solomon as, in their words, "a principal agent and conspirator with David He in the operation and storage of the unlawful biolab materials" at the Sugar Springs Drive address. The report further stated that Solomon, through his employee Mikey, transported the biolab equipment and materials to that location from a failed prior attempt to establish a laboratory at a separate Las Vegas address on West Charleston Boulevard, under the name Prestige Biotech Industries Diagnostic Laboratory LLC.<a href="#fn16" class="fn" id="ref16">[16]</a></p>
+    <p>The communication record between the two men reinforces the operational picture. While Zhu was incarcerated and awaiting trial on the California charges, he placed more than four hundred phone calls to Solomon.<a href="#fn17" class="fn" id="ref17">[17]</a> This is not the call volume of a landlord checking in on a tenant. It is the call volume of a working relationship.</p>
+    <p>A house cleaner employed by Solomon had contacted the FBI's Sacramento office in early January 2026, weeks before the raid, to report what she had observed. She told investigators that she worked for Solomon and that Solomon worked for Wang and Zhu. That tip, passed from the Sacramento office to the Las Vegas field office, initiated the sequence of events that led to the January 31 raid.<a href="#fn18" class="fn" id="ref18">[18]</a></p>
+    <p>The picture that emerges from the documented record is not one of an unwitting property manager caught in the orbit of a bad tenant. It is one of a man who was, according to his own city's police department, an active participant in a network whose principals had documented ties to the Chinese Communist Party apparatus, a history of transnational fraud, and a pattern of operating illegal biological laboratories on American soil. That man's federal charges were dropped four months later. The man at the center of that network was convicted on twelve felony counts the same week.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section IV</span>
+    <h2 class="section-title">What the DOJ Did, and What It Did Not Say</h2>
+    <p>On May 11, 2026, the United States Attorney's Office for the District of Nevada filed a motion in federal court to dismiss the criminal complaint against Ori Solomon. The motion offered no elaboration, no explanation of new evidence, no identification of a legal deficiency in the original complaint, and no acknowledgment of the public health dimensions of the case that had prompted the arrest in the first place. The entirety of the government's justification for walking away from a federal firearms prosecution of a man connected to an illegal biological laboratory fit into a single quoted passage:</p>
+    <div class="doc-callout">
+      <span class="doc-callout-label">U.S. Attorney's Office, District of Nevada &mdash; Motion to Dismiss, May 11, 2026</span>
+      <p>"After a careful review of the evidence and additional information provided by defendant, the Government has concluded that the interests of justice require dismissal of the complaint at this time."<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+    </div>
+    <p>That is the complete public record of why the charges were dropped. A spokesperson for the U.S. Attorney's Office declined to comment further. Solomon's attorney did not provide a public statement explaining what "additional information provided by defendant" had persuaded the government to stand down. No press conference was held. No briefing was offered to the Nevada lawmakers who had spent months pushing for stronger federal oversight of exactly this kind of facility. The motion was filed, the case was closed, and the announcement came on a Monday with no fanfare.<a href="#fn20" class="fn" id="ref20">[20]</a></p>
+    <p>There are two details in that motion that deserve close attention. The first is the phrase "at this time." The dismissal was filed without prejudice, meaning the government technically retains the ability to refile the complaint. That procedural footnote has been cited by some observers as evidence that the door remains open. It is worth being precise about what that actually means in practice. Dismissals without prejudice in federal cases of this kind are rarely revisited. The passage of time degrades evidence, witnesses become harder to locate, and the institutional momentum required to reinitiate a prosecution that the government itself chose to abandon is considerable. The "without prejudice" designation is a legal hedge, not a commitment.</p>
+    <p>The second detail is the timing. The motion to dismiss was filed on May 11, 2026. The jury in Sacramento returned its guilty verdict against Jia Bei Zhu on May 6, 2026, five days earlier.<a href="#fn21" class="fn" id="ref21">[21]</a> The man whom Solomon's own police department had identified as his principal and co-conspirator had just been convicted on twelve federal counts. The network Solomon was allegedly part of had just been validated as a real criminal enterprise by a federal jury. And within days of that verdict, the government moved to release the one other arrested member of that network from his federal jeopardy entirely.</p>
+    <p>That sequence of events may have an innocent explanation. Prosecutors make charging decisions for reasons that are not always visible to the public, and the firearms charge against Solomon, while straightforward on its face, may have presented evidentiary complications that have not been disclosed. It is also possible that Solomon provided information of value to investigators, a possibility the motion's reference to "additional information provided by defendant" leaves open without confirming. These are legitimate considerations, and intellectual honesty requires acknowledging them.</p>
+    <p>What intellectual honesty equally requires is acknowledging what is not present in the record. There is no public accounting. There is no explanation offered to the Nevada legislators who introduced bipartisan biosecurity legislation directly in response to this case. There is no statement to the residents of the neighborhood where the lab operated, some of whom became ill. There is no acknowledgment of the contrast between Zhu's conviction and Solomon's release. The government made a decision that the public has an obvious interest in understanding, and it has chosen, as of this writing, to say nothing about it beyond the minimum language required by the procedural filing.</p>
+    <p><span class="opinion-inline">Opinion</span> In a democracy, the phrase "interests of justice" is supposed to be the beginning of an explanation. In this case, it was the end of one.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section V</span>
+    <h2 class="section-title">This Has Happened Before</h2>
+    <p>The Solomon case did not emerge from a vacuum. It is the most recent entry in a pattern that stretches back nearly three decades, one that has played out in Nevada courtrooms, Maryland murder cases, and the classified corridors of intelligence agencies. The pattern is not a theory. It is a documented series of events, each with its own public record, each resolved in a manner that would have been unthinkable had the individuals involved carried a different passport.</p>
+    <p>The oldest and most consequential case on record is that of Samuel Sheinbein. In September 1997, the charred and dismembered body of nineteen-year-old Alfredo Tello Jr. was discovered in a garage in Aspen Hill, Maryland. The evidence pointed to seventeen-year-old Samuel Sheinbein, a Maryland high school student, and a companion. Before Maryland authorities could act, Sheinbein's father arranged for his son to travel to Tel Aviv and obtain an Israeli passport. Sheinbein fled the United States days after the body was found.<a href="#fn22" class="fn" id="ref22">[22]</a></p>
+    <p>What followed was a seventeen-month legal and diplomatic battle that briefly threatened American foreign aid to Israel and exposed a structural feature of Israeli law that American officials had not fully reckoned with. Under the Israeli Extradition Law as it then stood, Israeli citizens could not be extradited to foreign countries. Israel's Supreme Court ultimately ruled that Sheinbein could not be returned to the United States to face trial for the murder of Alfredo Tello Jr. He was instead tried in Israel, where he pleaded guilty to a charge that carried a 24-year sentence, a sentence he would serve in Israeli prison rather than face the life term he almost certainly would have received in Maryland.<a href="#fn23" class="fn" id="ref23">[23]</a></p>
+    <p>Secretary of State Madeleine Albright personally requested Israel's maximum cooperation in the case. Congressional members threatened to cut American aid. None of it changed the outcome. The embarrassment was significant enough that Israel subsequently amended its extradition law to permit extradition of citizens under the condition that any sentence imposed be served in Israel. The amendment was presented as a reform. What it actually preserved was the principle that Israeli citizens convicted of crimes abroad would serve their time at home, under Israeli prison conditions, not American ones.<a href="#fn24" class="fn" id="ref24">[24]</a></p>
+    <p>Sheinbein never made it to the end of that sentence. In 2014, he seized a weapon from a prison guard, shot three guards, barricaded himself inside Sharon Prison, and was killed by Israeli special forces. The family of Alfredo Tello Jr. never received the justice an American court might have delivered.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+    <p>The second case is more recent, and in some respects more jarring because of who was involved. In August 2025, the Las Vegas Metropolitan Police Department announced the results of a two-week undercover operation targeting child sex predators in the Las Vegas Valley. Eight individuals were arrested. One of them was Tom Artiom Alexandrovich, 38, identified by Israeli media and confirmed by the Jerusalem Post as a senior division head at Israel's National Cyber Directorate, the government agency responsible for all aspects of cyber defense in the civilian sphere, operating directly within the office of the Israeli Prime Minister.<a href="#fn26" class="fn" id="ref26">[26]</a> Alexandrovich had traveled to Las Vegas to attend the Black Hat cybersecurity conference. According to the police report, he had made sexual contact on two online platforms with an undercover agent posing as a fifteen-year-old girl, brought a condom to the meeting point, and was arrested upon arrival.<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+    <p>Alexandrovich posted a $10,000 bond and returned to Israel. He was placed on leave from the Cyber Directorate. The office of Prime Minister Benjamin Netanyahu issued a statement that did not acknowledge an arrest had occurred, describing the matter only as a state employee who had been "questioned by American authorities during his stay" before returning to Israel "as scheduled."<a href="#fn28" class="fn" id="ref28">[28]</a> A Clark County grand jury subsequently indicted Alexandrovich on a felony charge of luring a child with a computer for a sex act, a charge carrying a potential sentence of one to ten years under Nevada law. He missed his arraignment. His attorney appeared in his place and told the court his client had been advised not to attend. A judge ordered him to appear virtually at a subsequent hearing.<a href="#fn29" class="fn" id="ref29">[29]</a></p>
+    <p>The U.S. State Department's Near Eastern Affairs division confirmed publicly that Alexandrovich had not claimed diplomatic immunity and that any suggestion the American government had intervened on his behalf was false. Clark County District Attorney Steve Wolfson told the Las Vegas Review-Journal the case was being handled as standard.<a href="#fn30" class="fn" id="ref30">[30]</a> Whether Alexandrovich will ever set foot in a Nevada courtroom to answer a felony charge remains, as of this writing, an open question.</p>
+    <p>There is also a third layer of documentation worth noting, one that sits beneath the individual cases. A previously unreported spreadsheet embedded within the 2022 "Anonymous for Justice" leak of Israeli Ministry of Justice communications contained 2,152 international legal requests involving the Israeli government as of May of that year. A review of that data, published by researcher Jack Poulson, indicated that the Israeli government had demonstrated a consistent pattern of limited cooperation with American extradition requests in cases involving child sexual abuse charges.<a href="#fn31" class="fn" id="ref31">[31]</a> This is not a pattern derived from anecdote. It is derived from the Israeli government's own internal records of how it handled incoming legal requests from the United States.</p>
+    <p>Three cases, three decades, one consistent thread. A Maryland teenager murdered and dismembered by a man who reached Israeli soil before justice could reach him. A senior Israeli government official arrested in a child sex predator sting who returned home before his arraignment. A property manager connected to an illegal biolab and a convicted Chinese national whose federal charges were quietly dropped four months after his arrest. The circumstances differ. The outcome does not.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section VI</span>
+    <h2 class="section-title">The Exception That Has No Explanation</h2>
+    <p>Let us be precise about the argument being made here, because precision matters when the subject is this politically charged. This is not an argument that Israel is an enemy of the United States. It is not an argument rooted in ethnicity, religion, or animus toward any people. It is an argument about a government, a bilateral relationship, and a pattern of American institutional behavior that would not be tolerated if any other nation's flag were attached to it.</p>
+    <p>Consider the factual record assembled in the preceding sections. A man on a non-immigrant visa, found in possession of six illegal firearms, identified by his own city's police department as a principal agent in the operation of an unlicensed biological laboratory containing HIV, malaria, and tuberculosis samples, documented to have been in regular operational contact with a Chinese national just convicted of twelve federal felonies, had his federal charges dropped without public explanation four months after his arrest. He holds an Israeli passport. He was permitted to remain in the United States. No extradition proceeding was initiated. No public accounting was offered.</p>
+    <p><span class="opinion-inline">Opinion</span> Now ask the question plainly: would this have happened if the passport were Russian? Russia does not have an extradition treaty with the United States. Its constitution explicitly prohibits the extradition of Russian nationals.<a href="#fn32" class="fn" id="ref32">[32]</a> But that is beside the point, because the question is not whether Russia would cooperate with an American extradition request. The question is whether an American prosecutor would have filed a motion to quietly drop federal charges against a Russian national connected to an illegal biolab and a convicted associate with documented ties to Russian state interests, citing only "the interests of justice" and then refusing all further comment. The answer, self-evidently, is no. That individual would be in federal custody awaiting trial. The case would be on the front page of every national newspaper. Congressional hearings would have been called within the week.</p>
+    <p><span class="opinion-inline">Opinion</span> Would it have happened if the passport were Iranian? Iranian nationals connected to biological materials and a convicted co-conspirator with ties to a foreign government's intelligence apparatus would face charges under the International Emergency Economic Powers Act, potential terrorism enhancement provisions, and the full prosecutorial weight of a national security apparatus that treats Iranian adjacency as an aggravating factor in virtually every charging decision it makes. The suggestion that such a case would be resolved with a three-sentence motion citing the interests of justice is not serious.</p>
+    <p><span class="opinion-inline">Opinion</span> Would it have happened if the passport were Chinese? The irony embedded in this particular case is acute. The man convicted of running the network Solomon was allegedly part of is Chinese. He received twelve felony counts and faces decades in prison. His alleged co-conspirator, the Israeli national, had his charges dropped. Two men, one network, two outcomes, two passports.</p>
+    <p>Now consider America's closest allies. France and Germany, like Israel, have extradition treaties with the United States.<a href="#fn33" class="fn" id="ref33">[33]</a> France and Germany, like Israel, are close strategic partners. France and Germany, unlike Israel, constitutionally restrict the extradition of their own citizens to non-European Union states, which means that in a case where a French or German national committed a crime on American soil and returned home, the legal machinery of extradition would be complicated by domestic constitutional constraints. But the operative question in the Solomon case is not what a foreign government would do. Solomon was still on American soil when the charges were dropped. The decision was made entirely by American prosecutors. No French constitutional provision, no German domestic law, no foreign government's cooperation was required or relevant. The American government simply chose to let him go.</p>
+    <p>That choice exists within a relationship that has produced a series of similar choices across administrations of both parties. The Sheinbein case happened under a Democratic administration. The Alexandrovich case happened under a Republican one. The Solomon dismissal happened under a Republican one. The pattern does not belong to a party. It belongs to the relationship itself, and to whatever combination of diplomatic pressure, political influence, and institutional deference to that relationship has made American prosecutors, in case after case, reach for the off-ramp when an Israeli national is the subject.</p>
+    <p><span class="opinion-inline">Opinion</span> No other bilateral relationship in American foreign policy produces this outcome. Not the British relationship, which is older. Not the Canadian relationship, which is geographically intimate. Not the Japanese or South Korean relationships, which are anchored by mutual defense treaties and decades of genuine strategic interdependence. The American relationship with Israel is singular in many respects, some of them admirable. This particular singularity is not admirable. It is a two-tiered justice system operating in plain sight, and the fact that pointing it out remains politically radioactive is itself part of the story.</p>
+    <p>The question of why this relationship produces this outcome is one that serious people have examined in serious publications. ProPublica has investigated the structural dimensions of American political deference to Israeli government interests. The Intercept has reported on the diplomatic and intelligence dimensions of the relationship in ways that illuminate how pressure is applied and where institutional resistance tends to collapse. The Brennan Center for Justice has documented the broader pattern of executive branch prosecutorial discretion being exercised in ways that track political relationships rather than legal merit.<a href="#fn34" class="fn" id="ref34">[34]</a> None of these are fringe sources. All of them have done work that bears directly on the question this article is asking.</p>
+    <p><span class="opinion-inline">Opinion</span> The question itself is simple. Is there a country other than Israel whose nationals, when arrested on American soil for serious federal offenses connected to foreign-linked criminal networks, routinely find their charges quietly dropped, their passport restrictions lifted, and their path home cleared, while the American government declines to explain why? The documented record, assembled across three decades and multiple administrations, suggests the answer is no. That answer demands an explanation. None has been provided.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Section VII</span>
+    <h2 class="section-title">The Legislative Response Nobody Is Talking About</h2>
+    <p>While the Solomon case was working its way through the courts, and while the broader dimensions of the story were receiving sporadic coverage in local Las Vegas outlets and a handful of national publications, something else was happening in Washington that deserves attention. Legislators on both sides of the aisle were attempting to address the systemic failure the Las Vegas biolab had exposed. Their efforts have been largely ignored by the same mainstream press that gave the Solomon dismissal minimal coverage. The two silences are connected.</p>
+    <p>The legislative groundwork actually predates the Las Vegas raid. California Representative Jim Costa, a Democrat, had been sounding the alarm since December 2022, when city officials in Reedley first stumbled onto Jia Bei Zhu's California laboratory. Costa introduced H.R. 5747, the Preventing Illegal Laboratories and Protecting Public Health Act, a bill designed to address the specific regulatory gaps that had allowed an unlicensed biological laboratory to operate inside an American warehouse for years without detection. The bill called for sellers of highly pathogenic agents to maintain detailed electronic logbooks of all transfers, verify purchaser identity and intended use, and retain those records for a minimum of three years. It called for mandatory periodic federal evaluation of high-containment laboratories and the establishment of a single federal point of contact to coordinate biosecurity concerns between federal, state, local, and tribal authorities.<a href="#fn35" class="fn" id="ref35">[35]</a></p>
+    <p>That bill had been sitting without action for more than a year when Las Vegas happened. When the Sugar Springs Drive raid made national news in February 2026, Costa returned to the floor of the House and stated plainly that what had been found in Nevada was not a surprise to him, that it was a direct counterpart to what his constituents had experienced in Reedley, and that the laboratory just raided in Las Vegas had been operated by the same LLC and the same Chinese nationals as the one discovered in California three years earlier. He called it a pattern. He called for immediate hearings and markup on his legislation. He was joined in that call by a bipartisan group of colleagues including California Republicans Kevin Kiley and David Valadao, and Nevada Democrats Susie Lee and Dina Titus.<a href="#fn36" class="fn" id="ref36">[36]</a></p>
+    <p>On the Senate side, Nevada Democrat Catherine Cortez Masto and Indiana Republican Jim Banks introduced companion legislation in March 2026, the same bill title, the same core provisions, carrying the explicit argument that the Las Vegas discovery should serve as a wake-up call to federal lawmakers. Their bill added a requirement to establish a national database identifying the number, risk level, and location of high-containment laboratories operating on American soil. Cortez Masto stated directly that the Las Vegas location had gone undetected for years, even after California authorities had raided a similar facility in 2023, and that this fact illustrated the federal government's fundamental lack of information about who was operating these facilities and what they contained.<a href="#fn37" class="fn" id="ref37">[37]</a></p>
+    <p>Senator Tom Cotton of Arkansas went further, noting on the record that there were "very limited controls on the provision of these deadly pathogens to end users" and calling for stricter verification requirements from providers of dangerous biological materials. Senator Josh Hawley of Missouri called for an immediate investigation into whether the homeowner, Jia Bei Zhu, had direct ties to the Chinese government, describing the pattern of Chinese involvement in potential biosecurity hazards as something that needed to be determined, in his words, "really quick."<a href="#fn38" class="fn" id="ref38">[38]</a></p>
+    <p>This was a genuine bipartisan moment. Democrats and Republicans, in both chambers, identified the same systemic failure, pointed to the same documented pattern of Chinese-linked illegal laboratories operating on American soil, and called for the same category of federal response. That is not nothing. In the current legislative environment, moments of genuine bipartisan agreement on national security and public health are rare enough to be noteworthy.</p>
+    <p>And yet as of the date of publication, neither the House nor the Senate version of the Preventing Illegal Laboratories and Protecting Public Health Act has been enacted into law. The legislation sits. The regulatory gaps that allowed the Reedley laboratory to operate from 2022 until its discovery, and that allowed the Las Vegas laboratory to operate until a house cleaner called the FBI, remain open. A foreign national connected to both laboratories has had his federal charges dropped. The man convicted of running the network faces sentencing in August 2026. And the American public has received no comprehensive accounting of how many similar facilities may be operating in residential neighborhoods across the country right now.</p>
+    <p>The legislative response to the Solomon case and the biolab network it exposed represents something important, and it cuts against the simplest partisan readings of this story. This was not a failure of one party or one administration alone. The Reedley laboratory was discovered under a Democratic administration, investigated under a Democratic administration, and the legislative response was initiated under a Democratic administration. The Las Vegas laboratory was raided and the charges subsequently dropped under a Republican administration. The pattern of institutional inadequacy is bipartisan in the most literal sense. The failure to enact corrective legislation is shared. And the silence surrounding Solomon's departure from federal jeopardy has been met with no serious public demand for explanation from either side of the aisle.</p>
+    <p>That silence is its own kind of answer.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Conclusion</span>
+    <h2 class="section-title">The Questions That Remain</h2>
+    <p>The story of Ori Solomon is, on its surface, a story about a biolab in a Las Vegas garage. It is about refrigerators full of unlabeled vials, about a neighborhood where people became seriously ill after entering a structure they had no reason to fear, about a short-term rental platform that had no idea its listing shared a wall with over a thousand containers of biological material. That surface story is alarming enough on its own terms.</p>
+    <p>But the deeper story is about something that does not make headlines precisely because it has become so normalized that the institutions responsible for calling attention to it have largely stopped trying. It is about a two-tiered system of American justice that operates not along the lines of guilt or innocence, not along the lines of the severity of the alleged offense, and not along the lines of the threat posed to public safety, but along the lines of which government is on the other end of the phone call when the charges are filed.</p>
+    <p>The documented record assembled in this article does not require the reader to accept any conspiracy. It requires only that the reader take seriously what is already public. A man connected to an illegal biological laboratory, in illegal possession of six firearms, identified by law enforcement as a principal agent in a criminal network whose leader was convicted of twelve federal felonies, had his charges dropped without explanation. That same man, in the months before his arrest, watched a senior Israeli government official arrested in the same state on child sex predator charges post a modest bond, return to Israel, and miss his arraignment without consequence. Nearly three decades before either of those cases, a teenager who dismembered a murder victim fled to Israel and was shielded from American justice by a law his country has since amended but never fully surrendered. Across three decades, across multiple administrations of both parties, across cases ranging from murder to child predation to biological hazard, the pattern holds.</p>
+    <p>The question this pattern demands is not a complicated one. It is the same question a first-year law student would ask, the same question any citizen is entitled to ask of their government: why? Why does this specific bilateral relationship produce this specific outcome, repeatedly, when no other relationship does? Why does "the interests of justice" serve as a sufficient explanation when an Israeli national is the subject, when it would not serve as a sufficient explanation for anyone else? Who made that decision, under what pressure, and accountable to whom?</p>
+    <p>Those questions have not been answered. They have not, for the most part, even been asked by the institutions whose job it is to ask them. The mainstream press gave the Solomon dismissal a fraction of the coverage it gave the initial raid. The legislators who introduced genuine bipartisan reform in direct response to this case have been met with institutional inertia. The U.S. Attorney's Office has declined all comment. The State Department has confirmed only what it was forced to confirm: that no diplomatic immunity was claimed, that no government intervention occurred, that everything was standard. Standard. That word is doing an enormous amount of work.</p>
+    <p>What this publication can offer is the documented record, assembled from primary sources, court filings, congressional reports, and the reporting of outlets across the political spectrum, laid out without partisan decoration and without the pretense that the pattern does not exist because acknowledging it is uncomfortable. Democrats and Republicans have both presided over moments in this story. Both have failed to demand the accounting the public deserves. Both will be held to the same standard here, because that is the only standard this publication recognizes.</p>
+    <p>Ori Solomon, as of this writing, still faces a state charge in Clark County for the improper disposal of hazardous waste. His next court date is scheduled for June 4, 2026. The federal firearms charges are gone. The federal connection to the biolab network is gone. What remains is a state proceeding and a man with two passports, one of which points toward a country that has demonstrated, across thirty years and multiple administrations, that its nationals operate under a different set of expectations when American justice comes calling.</p>
+    <p>The garage on Sugar Springs Drive has been cleared. The vials have been removed. The listing has presumably been taken down from Airbnb. But the questions that garage raised have not been answered, and until they are, the story is not over. It has simply moved somewhere less visible, which is precisely where stories like this one are designed to go.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Footnotes and Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section I &mdash; What Was Found in That Garage</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Las Vegas Metropolitan Police Department. Press briefing on Sugar Springs Drive raid, February 2, 2026. LVMPD public statement. See also: KTNV 13 Action News Las Vegas, "Federal charges for property manager connected to Las Vegas illegal biolab dropped," May 2026. <a href="https://www.ktnv.com" target="_blank" rel="noopener">ktnv.com</a> <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn2">[2] House Select Committee on the Chinese Communist Party. Report on the Reedley, California biolab, 2023. Referenced in: Fox News, "Chinese-linked biolab discovered in Las Vegas home sparks federal investigation with SWAT response," February 3, 2026. <a href="https://www.foxnews.com" target="_blank" rel="noopener">foxnews.com</a> <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn3">[3] Las Vegas Review-Journal. "Police: Exposure to property linked to Las Vegas bio lab probe left 2 'deathly ill.'" February 5, 2026. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn4">[4] Clark County Sheriff Kevin McMahill. LVMPD press conference, February 2, 2026. Reported by KSNV News 3 Las Vegas and Las Vegas Review-Journal. <a href="https://news3lv.com" target="_blank" rel="noopener">news3lv.com</a> <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section II &mdash; Who Is Ori Solomon</span>
+    <ul class="bib-list">
+      <li id="fn5">[5] FBI Criminal Complaint against Ori Solomon, U.S. District Court for the District of Nevada, February 2, 2026. Reported by Las Vegas Review-Journal, "Man arrested in Las Vegas bio lab case appears in federal court," February 5, 2026. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn6">[6] KTNV 13 Action News Las Vegas. "Who is Ori Solomon? What we know about property manager arrest in Las Vegas biolab case." February 2026. <a href="https://www.ktnv.com" target="_blank" rel="noopener">ktnv.com</a> <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn7">[7] Las Vegas Metropolitan Police Department. Declaration of Arrest Report, obtained via public records request by Just the News, February 2026. Just the News, "Deeper conspiracy between Chinese man behind California lab and Vegas lab property keeper: Police," February 11, 2026. <a href="https://justthenews.com" target="_blank" rel="noopener">justthenews.com</a> <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn8">[8] FBI Criminal Complaint against Ori Solomon, February 2, 2026. See also: Washington Times, "Ori Solomon accused of operating illegal biolab in Las Vegas tied to Chinese Communist Party," February 5, 2026. <a href="https://www.washingtontimes.com" target="_blank" rel="noopener">washingtontimes.com</a> <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn9">[9] Las Vegas Review-Journal, "Police: Exposure to property linked to Las Vegas bio lab probe left 2 'deathly ill,'" February 5, 2026. Passports noted in court records. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn10">[10] NewsNation, "Nevada judge releases property manager tied to Las Vegas bio lab," February 7, 2026. Jail phone call documented in court filings. <a href="https://www.newsnationnow.com" target="_blank" rel="noopener">newsnationnow.com</a> <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn11">[11] Las Vegas Review-Journal, "Federal judge orders release of suspect in alleged Las Vegas bio lab case," February 7, 2026. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section III &mdash; The China Connection</span>
+    <ul class="bib-list">
+      <li id="fn12">[12] Las Vegas Review-Journal, "Police: Exposure to property linked to Las Vegas bio lab probe left 2 'deathly ill,'" February 5, 2026. LLC ownership documented in court records. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn13">[13] ABC30 Fresno, "Man found guilty on 12 counts for running illegal biolab in Reedley," May 2026. GV Wire, "Reedley Biolab Operator Found Guilty on All Charges," May 6, 2026. <a href="https://gvwire.com" target="_blank" rel="noopener">gvwire.com</a> <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn14">[14] House Select Committee on the Chinese Communist Party. Report on Reedley biolab and Jia Bei Zhu, 2023. Referenced in: Just the News, "China Syndrome: Biolabs in California, Las Vegas raided by FBI tied to indicted Chinese national," February 4, 2026. <a href="https://justthenews.com" target="_blank" rel="noopener">justthenews.com</a> <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn15">[15] U.S. Department of Justice, Eastern District of California. "Guilty Verdict for California Biolab Operator." Press release, May 2026. <a href="https://www.justice.gov/usao-edca/pr/guilty-verdict-california-biolab-operator" target="_blank" rel="noopener">justice.gov</a> <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn16">[16] LVMPD Declaration of Arrest Report, obtained via public records request. Just the News, "Deeper conspiracy between Chinese man behind California lab and Vegas lab property keeper: Police," February 11, 2026. <a href="https://justthenews.com" target="_blank" rel="noopener">justthenews.com</a> <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn17">[17] Just the News, "China Syndrome: Biolabs in California, Las Vegas raided by FBI tied to indicted Chinese national," February 4, 2026. <a href="https://justthenews.com" target="_blank" rel="noopener">justthenews.com</a> <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn18">[18] Las Vegas Review-Journal, "Police: Exposure to property linked to Las Vegas bio lab probe left 2 'deathly ill,'" February 5, 2026. House cleaner tip documented in LVMPD arrest report. <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section IV &mdash; What the DOJ Did, and What It Did Not Say</span>
+    <ul class="bib-list">
+      <li id="fn19">[19] U.S. Attorney's Office, District of Nevada. Motion to Dismiss criminal complaint against Ori Solomon, U.S. District Court for the District of Nevada, May 11, 2026. Reported by KSNV News 3 Las Vegas, "Feds drop case against man arrested in Las Vegas biolab investigation," May 2026. <a href="https://news3lv.com" target="_blank" rel="noopener">news3lv.com</a> <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn20">[20] Fox 5 Las Vegas, "Federal gun complaint dropped against man tied to Las Vegas 'bio lab' case," May 26, 2026. U.S. Attorney's Office declined comment confirmed by Fox 5 and KSNV. <a href="https://www.fox5vegas.com" target="_blank" rel="noopener">fox5vegas.com</a> <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn21">[21] U.S. Department of Justice, Eastern District of California. "Guilty Verdict for California Biolab Operator." Press release, May 2026. Verdict returned May 6, 2026. <a href="https://www.justice.gov/usao-edca/pr/guilty-verdict-california-biolab-operator" target="_blank" rel="noopener">justice.gov</a> <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section V &mdash; This Has Happened Before</span>
+    <ul class="bib-list">
+      <li id="fn22">[22] CBS News, "Samuel Sheinbein, American killer held in Israeli prison, shot dead," February 2014. NPR, "Sheinbein Plea," August 24, 1999. <a href="https://www.cbsnews.com" target="_blank" rel="noopener">cbsnews.com</a> <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn23">[23] NPR, "Sheinbein Plea," July 5 and August 24, 1999. Israeli Supreme Court ruling referenced in CBS News and American Society of International Law (ASIL) Insights, "Extradition from Israel of Maryland Youth," Vol. 2, Issue 6, 1997. <a href="https://www.asil.org/insights/volume/2/issue/6/extradition-israel-maryland-youth" target="_blank" rel="noopener">asil.org</a> <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn24">[24] ASIL Insights, "Extradition from Israel of Maryland Youth," 1997. Subsequent Israeli law amendment documented in CBS News reporting on the Sheinbein case. <a href="https://www.asil.org" target="_blank" rel="noopener">asil.org</a> <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn25">[25] CBS News, "Samuel Sheinbein, American killer held in Israeli prison, shot dead," February 23, 2014. Maryland Attorney General Douglas Gansler statement cited in contemporaneous reporting. <a href="https://www.cbsnews.com" target="_blank" rel="noopener">cbsnews.com</a> <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn26">[26] Las Vegas Metropolitan Police Department press release, August 15, 2025. Times of Israel, "Senior Israeli cyber official detained in Las Vegas as part of child solicitation probe," August 16, 2025. <a href="https://www.timesofisrael.com" target="_blank" rel="noopener">timesofisrael.com</a> <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn27">[27] Al Arabiya, "Israeli cybersecurity official arrested in US child sex sting: Everything we know," August 20, 2025. Police report first obtained by Breaking Points podcast, cited in Al Arabiya. <a href="https://english.alarabiya.net" target="_blank" rel="noopener">alarabiya.net</a> <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn28">[28] Al Arabiya, August 20, 2025. Netanyahu office statement cited in Times of Israel and Al Arabiya. <a href="https://english.alarabiya.net" target="_blank" rel="noopener">alarabiya.net</a> <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn29">[29] Las Vegas Review-Journal, "Israeli cybersecurity official indicted on child sex charge in Las Vegas," October 3, 2025. Al Jazeera, "Israeli official Alexandrovich skips US court hearing on child sex charges," August 27, 2025. Daily Caller, "Israeli Official Charged In Pedophile Sting Skips Nevada Court Date, Ordered To Appear." <a href="https://www.reviewjournal.com" target="_blank" rel="noopener">reviewjournal.com</a> <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn30">[30] Reuters / Yahoo News, "No special treatment given to Israeli official accused of Nevada sex crime, prosecutor tells newspaper," August 2025. U.S. State Department Near Eastern Affairs division statement on X, August 18, 2025. <a href="https://www.yahoo.com/news/articles/no-special-treatment-given-israeli-011310794.html" target="_blank" rel="noopener">yahoo.com</a> <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn31">[31] Jack Poulson. "A leak within a leak: extradition requests with Israel as of May 2022." Substack. Analysis of 2,152 international legal requests derived from the "Anonymous for Justice" leak of Israeli Ministry of Justice communications. <a href="https://jackpoulson.substack.com/p/a-leak-within-a-leak-extradition" target="_blank" rel="noopener">jackpoulson.substack.com</a> <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section VI &mdash; The Exception That Has No Explanation</span>
+    <ul class="bib-list">
+      <li id="fn32">[32] Constitution of the Russian Federation, Article 61 (prohibition on extradition of Russian citizens). U.S. News and World Report, "What Are Non-Extradition Countries?" March 2024. World Population Review, "Countries Without Extradition Treaty 2026." <a href="https://law.usnews.com/law-firms/advice/articles/what-are-non-extradition-countries" target="_blank" rel="noopener">usnews.com</a> <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn33">[33] U.S.-Israel Extradition Convention, signed December 10, 1962, U.N. Treaty Series Vol. 484, No. 7038. Protocol Amending the 1962 Convention, signed July 6, 2005, entered into force January 10, 2007 (Senate Treaty Document 109-3; U.S. Department of State TIAS 07-110). Intercollegium, "Countries Without Extradition Treaty 2026" (French and German constitutional restrictions on extraditing nationals to non-EU states). <a href="https://www.state.gov/wp-content/uploads/2019/02/07-110-Israel-Extradition.pdf" target="_blank" rel="noopener">state.gov</a> <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn34">[34] ProPublica (propublica.org); The Intercept (theintercept.com); Brennan Center for Justice (brennancenter.org). Referenced as partner publications recommended by former CIA officer John Kiriakou for investigative journalism covering related subject matter. <a href="https://www.propublica.org" target="_blank" rel="noopener">propublica.org</a> <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section VII &mdash; The Legislative Response Nobody Is Talking About</span>
+    <ul class="bib-list">
+      <li id="fn35">[35] H.R. 5747, Preventing Illegal Laboratories and Protecting Public Health Act, introduced by Rep. Jim Costa (D-CA). Costa House press release, "Congressman Jim Costa Unveils Legislation Regarding Regulation of Biolabs," April 23, 2024. <a href="https://costa.house.gov/media/press-releases/central-valley-congressman-costa-calls-congress-advance-bipartisan-illegal" target="_blank" rel="noopener">costa.house.gov</a> <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn36">[36] Costa House press release, "Central Valley Congressman Costa Calls on Congress to Advance Bipartisan Illegal Biolab Safety Legislation," February 11, 2026. Cosigned by Reps. Kiley, Valadao, Fong, Lee, and Titus. <a href="https://costa.house.gov" target="_blank" rel="noopener">costa.house.gov</a> <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn37">[37] KSNV News 3 Las Vegas, "Cortez Masto introduces bill to combat biolabs after Las Vegas discovery," March 27, 2026. Senators Cortez Masto (D-NV) and Banks (R-IN), Preventing Illegal Laboratories and Protecting Public Health Act, Senate version. <a href="https://news3lv.com/news/local/cortez-masto-introduces-bill-combat-biolabs-las-vegas-discovery-crime-viruses-illnesses-china-congress-lvmpd-fbi" target="_blank" rel="noopener">news3lv.com</a> <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn38">[38] Fox News, "Lawmakers demand answers after suspected biolab discovered in Chinese national's Las Vegas home," February 5, 2026. Senators Hawley and Cotton statements on the record. <a href="https://www.foxnews.com/media/lawmakers-demand-answers-after-suspected-biolab-discovered-chinese-nationals-las-vegas-home" target="_blank" rel="noopener">foxnews.com</a> <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Additional Sources Consulted</span>
+    <ul class="bib-list">
+      <li>Daily Caller. "What We Know About Israeli Biolab Probe Suspect Whose DOJ Charges Were Dropped." May 27, 2026. <a href="https://dailycaller.com" target="_blank" rel="noopener">dailycaller.com</a></li>
+      <li>SJV Sun. "Feds drop charges against Las Vegas property manager linked to secret Reedley lab." May 2026. <a href="https://sjvsun.com" target="_blank" rel="noopener">sjvsun.com</a></li>
+      <li>The Hill. "What to know about suspected biolab in Las Vegas." February 4, 2026. <a href="https://thehill.com" target="_blank" rel="noopener">thehill.com</a></li>
+      <li>8 News Now / KLAS Las Vegas. "What was in the suspected Las Vegas bio lab? We still don't know." March 5, 2026. <a href="https://www.8newsnow.com" target="_blank" rel="noopener">8newsnow.com</a></li>
+      <li>Yaffa Zilbershats. "Extraditing Israeli Citizens to the United States: Extradition and Citizenship Dilemmas." <em>Michigan Journal of International Law.</em> University of Michigan Law School Scholarship Repository. <a href="https://repository.law.umich.edu/cgi/viewcontent.cgi?article=1386&context=mjil" target="_blank" rel="noopener">repository.law.umich.edu</a></li>
+      <li>Office of Justice Programs / NCJRS. "Extradition from Israel." Abstract on Israeli extradition law and practice. <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/extradition-israel" target="_blank" rel="noopener">ojp.gov</a></li>
+      <li>Jacobin. "Israel's Law of Return Lets Criminals Abroad Run From the Law." February 9, 2023. <em>Note: Jacobin is a left-leaning publication. Cited here for documented case references only, not editorial framing.</em> <a href="https://jacobin.com/2023/02/israel-law-of-return-extradition-tinder-swindler" target="_blank" rel="noopener">jacobin.com</a></li>
+      <li>Dropsite News. <a href="https://www.dropsiteNews.com" target="_blank" rel="noopener">dropsiteNews.com</a></li>
+      <li>The Business Journal Fresno. "Federal jury convicts Reedley biolab figure in COVID test fraud scheme." May 2026. <a href="https://thebusinessjournal.com" target="_blank" rel="noopener">thebusinessjournal.com</a></li>
+      <li>KTNV 13 Action News. "Man with ties to Las Vegas biolab found guilty for operating separate California lab." May 2026. <a href="https://www.ktnv.com" target="_blank" rel="noopener">ktnv.com</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us &mdash; All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  function shareToX() {
+    var title = encodeURIComponent("Get Out of Jail Free: How the U.S. Let an Israeli Biolab Suspect Walk");
+    var url = encodeURIComponent("https://political-hypocrites.vercel.app/current-events/get-out-of-jail-free");
+    var text = encodeURIComponent("The DOJ dropped federal charges against Ori Solomon with no explanation. It was not the first time an Israeli national walked away from American justice. It will not be the last.");
+    window.open("https://twitter.com/intent/tweet?text=" + text + "&url=" + url, "_blank");
+  }
+
+  document.querySelectorAll('.fn').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.style.background = 'rgba(185,28,28,0.08)';
+        var t = target;
+        setTimeout(function() { t.style.background = ''; }, 2000);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
