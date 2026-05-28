@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Friends to Enemies — Political Hypocrites</title>
+  <meta name="description" content="A Complete History of American Relations with the Muslim and Middle Eastern World, 1776 to the Present. Including an examination of the Israeli Lobby's influence on American foreign policy." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="From Friends to Enemies — Political Hypocrites" />
+  <meta property="og:description" content="Morocco was the first nation to recognize American independence. This investigation traces how that relationship collapsed, and who made it happen." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/from-friends-to-enemies" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="From Friends to Enemies — Political Hypocrites" />
+  <meta name="twitter:description" content="Morocco was the first nation to recognize American independence. This investigation traces how that relationship collapsed, and who made it happen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: rgba(20,10,5,0.75);
+      margin: 2rem 0 0.8rem; font-style: italic;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.82); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4rem 0 2.5rem;
+    }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(20,10,5,0.12);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.38);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.55); font-style: normal; }
+
+    /* FOOTNOTES */
+    .footnotes {
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem; padding-top: 2.5rem;
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .footnote {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); margin-bottom: 0.7rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .footnote::before {
+      content: attr(data-n);
+      position: absolute; left: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red);
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 3rem 1.5rem 4rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span>From Friends to Enemies</span>
+  </div>
+  <span class="article-label">Investigation</span>
+  <h1 class="article-title">From Friends to Enemies</h1>
+  <p class="article-subtitle">A Complete History of American Relations with the Muslim and Middle Eastern World, 1776 to the Present — Including an Examination of the Israeli Lobby's Influence on American Foreign Policy</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> May 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Primary government records, declassified documents, peer-reviewed scholarship</span>
+    <a href="https://twitter.com/intent/tweet?text=From+Friends+to+Enemies%3A+A+Complete+History+of+American+Relations+with+the+Muslim+World&url=https://political-hypocrites.vercel.app/investigations/from-friends-to-enemies" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">Most Americans, if asked to trace the origins of hostility between the United States and the Muslim world, would point to the attacks of September 11, 2001, or perhaps to the Iranian hostage crisis of 1979, or even to the founding of the state of Israel in 1948. This understanding is not merely incomplete. It is so truncated as to be functionally false. The relationship between the United States and the nations and peoples of the Muslim and Middle Eastern world stretches back to the very birth of the republic, and for the better part of two centuries that relationship was marked not by hatred or violence but by trade, scholarship, genuine admiration, and, on at least one occasion, a formal alliance.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every claim in this investigation is sourced. Primary government documents, declassified intelligence records, and peer-reviewed academic scholarship form the backbone of what follows. The goal is not polemic. The goal is an honest accounting.</p>
+  </div>
+
+  <div class="part-divider"><span>Part One — The Founding Era (1776 to 1815)</span></div>
+
+  <h2>Morocco and the First Recognition</h2>
+  <p>The United States, upon achieving independence from Britain in 1783, inherited a problem it had not anticipated. During the colonial period, American merchant ships in the Mediterranean had been protected from the pirates of the Barbary Coast by the naval power of Great Britain. The moment independence was declared, that protection vanished. American ships were now stateless in the eyes of the corsairs of Morocco, Algiers, Tunis, and Tripoli.</p>
+  <p>Morocco, however, chose a different response. In 1777, Sultan Muhammad III of Morocco became the first head of state in the world to publicly recognize American independence, opening Moroccan ports to American vessels. This fact, astonishing in its implications, is almost entirely absent from standard American historical education. The first nation to extend the hand of friendship to the new republic was a Muslim kingdom in North Africa.</p>
+  <p>The relationship was formalized in the Moroccan-American Treaty of Friendship of 1786, which remains, with periodic renewals, the longest unbroken treaty relationship in American history. The treaty established an early precedent: the United States and Muslim nations were capable of constructive diplomatic and economic relations grounded in mutual benefit.</p>
+
+  <h2>The Barbary Problem and the Price of Independence</h2>
+  <p>Morocco's goodwill was not shared by the other Barbary States. The regencies of Algiers, Tunis, and Tripoli operated under a system in which nations that did not pay tribute had their merchant ships seized and their sailors enslaved. Between 1784 and 1796, American sailors were captured, imprisoned in North Africa, and offered up as diplomatic pawns. The United States, lacking a navy and desperately short of funds, had little recourse but to pay.</p>
+  <p>The sums extracted were staggering. In 1795 and 1796, the Washington administration negotiated a ransom and peace treaty with Algiers that cost the United States approximately one million dollars, a figure representing nearly one-sixth of the entire federal budget at the time.</p>
+  <p>Thomas Jefferson, who had served as American minister to France in the 1780s, was among those most outraged. In 1786, he and John Adams met in London with Sidi Haji Abdrahaman, the ambassador of Tripoli to Britain, and asked directly on what grounds Tripoli claimed the right to attack American ships. Jefferson responded to this challenge not with bigotry but with scholarship. He purchased a copy of the Quran to understand his adversary.</p>
+  <p>In 1797, the United States signed the Treaty of Peace and Friendship with the Bey of Tripoli. Article Eleven of that treaty contains a declaration that has been extensively quoted in debates about religion and American governance ever since. It states plainly that the government of the United States is not, in any sense, founded on the Christian religion, and that it has in itself no character of enmity against the laws, religion, or tranquility of Muslims. The treaty was unanimously ratified by the United States Senate.</p>
+
+  <h2>The Barbary Wars</h2>
+  <p>When Thomas Jefferson assumed the presidency in 1801, Tripoli was demanding further tribute. Jefferson refused. Tripoli's pasha, Yusuf Karamanli, responded by chopping down the flagpole outside the American consulate, the era's equivalent of a declaration of war. Jefferson dispatched a naval squadron to the Mediterranean, initiating the First Barbary War, America's first overseas military conflict and the baptism of the United States Marine Corps in combat.</p>
+  <p>In October 1803, the American frigate USS Philadelphia ran aground in Tripoli harbor and her entire crew of more than three hundred men was taken prisoner. In February 1804, Lieutenant Stephen Decatur led a volunteer crew into the harbor at night, boarded the captured ship, and burned her to the waterline before escaping without a single man lost. The British admiral Horatio Nelson, watching from a nearby ship, reportedly called it the most bold and daring act of the age.</p>
+  <p>The Second Barbary War, in 1815, was more conclusive. With the War of 1812 concluded, Commodore Stephen Decatur led a ten-ship squadron into the Mediterranean and forced permanent peace terms on Algiers, Tunis, and Tripoli in a matter of weeks. No further tribute would ever be paid.</p>
+
+  <div class="part-divider"><span>Part Two — The Quiet Century (1820s to 1900)</span></div>
+
+  <h2>Missionaries, Schools, and the American Idea</h2>
+  <p>The decades following the Barbary Wars brought a very different kind of American presence to the Middle East. Protestant missionaries from New England began arriving in the Levant beginning in the 1820s. They came not with armies or trade fleets, but with Bibles, schoolbooks, and printing presses. Their relationship with the peoples of the region was complicated and often paternalistic, but it was also, by the standards of the era, remarkably non-coercive.</p>
+  <p>The most significant material contribution of the American missionary movement in the Middle East was not religious conversion, which met with limited success, but education and publishing. In 1834, the American missionaries established what was effectively the first Arabic-language printing press in the Middle East, located in Beirut. The crown jewel of the American missionary educational project was the Syrian Protestant College, founded in Beirut in 1866 by Daniel Bliss. It would eventually become the American University of Beirut, which remains to this day one of the most prestigious institutions of higher learning in the Arab world.</p>
+  <p>The critical distinction between American and European presence in the nineteenth-century Middle East was the absence of imperial ambition. Britain and France had colonies, protectorates, military occupations, and commercial monopolies enforced by gunboats. The United States had missionaries and merchants. Arab intellectuals and leaders noticed this difference and frequently remarked on it favorably.</p>
+
+  <div class="part-divider"><span>Part Three — The Great Betrayal (1914 to 1930)</span></div>
+
+  <h2>Arab Hopes and Allied Promises</h2>
+  <p>The First World War shattered the Ottoman Empire and, with it, the political map of the Middle East. Arab leaders, who had chafed under Ottoman rule for decades, saw in the Allied cause an opportunity. In 1915 and 1916, the British High Commissioner in Egypt, Sir Henry McMahon, conducted a correspondence with Sharif Hussein of Mecca, the most prestigious Arab leader of the time. The letters, known as the Hussein-McMahon Correspondence, contained what Arab leaders interpreted as a British promise to support an independent unified Arab state in exchange for an Arab revolt against the Ottomans. The Arab Revolt duly began in June 1916.</p>
+  <p>What Arab leaders did not know was that at the very same time, British and French diplomats were secretly negotiating the division of the Arab world between themselves. The resulting agreement, known as the Sykes-Picot Agreement after its principal negotiators, was signed in May 1916. It allocated what is now Syria, Lebanon, and parts of Turkey to France, and what is now Iraq, Jordan, and Palestine to Britain. The Arab state that Hussein had been promised was simply not in the plan. The straight-line borders that continue to define the Middle East, and to generate conflict within it, are the direct product of this colonial carve-up.</p>
+  <p>The Balfour Declaration of November 1917 added a further layer of betrayal. In a letter from British Foreign Secretary Arthur Balfour to Lord Walter Rothschild, a leader of the British Zionist Federation, the British government declared that it viewed with favor the establishment in Palestine of a national home for the Jewish people. The Arab majority in Palestine was not consulted.</p>
+
+  <h2>Wilson's Promise and Its Betrayal</h2>
+  <p>Into this atmosphere of broken promises came the idealism of Woodrow Wilson. His Fourteen Points address to Congress in January 1918 proclaimed the principle of national self-determination: that peoples should have the right to choose their own governments. The speech electrified the Arab world. Arab delegations arrived at the Paris Peace Conference of 1919 with Wilson's words as their charter, expecting that the United States would restrain the imperial ambitions of Britain and France.</p>
+  <p>Wilson dispatched the King-Crane Commission to the former Ottoman territories in the summer of 1919 to survey the wishes of the local populations, an act with no precedent in the history of great-power diplomacy. The commission's findings were unambiguous. The local population was overwhelmingly opposed to Zionist immigration and to the establishment of a Jewish state. It supported Arab independence and was broadly favorable toward the United States.</p>
+  <p>Wilson buried the report. Weakened by illness and consumed by the domestic battle over the League of Nations, he did nothing with the commission's findings. The report was not made public until 1922, by which time the course of events in the Middle East had already been set. The Arab world had been promised independence by Britain, promised self-determination by America, and delivered colonialism by both.</p>
+
+  <div class="part-divider"><span>Part Four — Oil Changes Everything (1930s to 1945)</span></div>
+
+  <h2>The Saudi Connection</h2>
+  <p>The next chapter in the American relationship with the Middle East was written not by diplomats or missionaries but by geologists and oil men. In 1932, Standard Oil of California struck oil in Bahrain, the first significant American commercial interest in the Persian Gulf. Six years later, in 1938, the Arabian American Oil Company, known as ARAMCO, made the oil discovery that would change the world: a vast reservoir of petroleum beneath the sands of Saudi Arabia.</p>
+  <p>The ARAMCO concession bound the United States and Saudi Arabia together in a relationship of mutual dependence that has endured to the present day. For the United States, Saudi Arabia offered access to the energy resources upon which industrial civilization ran. For the Saudi royal family, the American connection offered oil revenue, technical expertise, and eventually military protection. The arrangement was purely transactional, grounded in commercial and strategic interest rather than shared values.</p>
+  <p>As the Second World War drew to a close, President Franklin D. Roosevelt met with King Abdul Aziz Ibn Saud of Saudi Arabia aboard the USS Quincy on February 14, 1945. Roosevelt personally assured Ibn Saud that as president, he would make no decision regarding Palestine without first consulting the Arabs. It was a solemn personal pledge. Within three years, Roosevelt was dead and his successor had broken that pledge.</p>
+
+  <div class="part-divider"><span>Part Five — The Turning Point (1947 to 1956)</span></div>
+
+  <h2>The Founding of Israel and the Breaking of Promises</h2>
+  <p>Harry Truman's decision to recognize the state of Israel, which he made within eleven minutes of its declaration of independence on May 14, 1948, was among the most consequential acts of his presidency. It was made over the strenuous objections of his own Secretary of State, George Marshall, and of the State Department's Middle East specialists, who warned that it would permanently damage American standing in the Arab world.</p>
+  <p>The war that accompanied and followed Israel's founding, known to Israelis as the War of Independence and to Palestinians as the Nakba, or catastrophe, produced between 700,000 and 750,000 Palestinian refugees. Israeli historian Benny Morris documented in meticulous detail the expulsions, massacres, and forced displacement that accompanied the creation of the Israeli state. Whatever language one uses, the human reality was the same: hundreds of thousands of people lost their homes, their land, and their country.</p>
+
+  <h2>The CIA in Iran: Operation Ajax</h2>
+  <p>Mohammad Mosaddeq, the democratically elected Prime Minister of Iran, had nationalized the Anglo-Iranian Oil Company in 1951, an act of economic self-determination that was enormously popular in Iran but was viewed with alarm by the British government and with increasing concern by the Eisenhower administration, which feared Soviet influence in the region.</p>
+  <p>In August 1953, the Central Intelligence Agency, in cooperation with British intelligence, engineered a coup that overthrew Mosaddeq and restored absolute power to Shah Mohammad Reza Pahlavi. In 2013, the CIA released a declassified internal history confirming American involvement in explicit terms. The document acknowledged that the coup was carried out under CIA direction as an act of U.S. foreign policy.</p>
+  <p>The Shah's rule, maintained by the feared secret police known as SAVAK and backed by American support, grew increasingly brutal. It produced, in 1979, the Islamic Revolution and the hostage crisis. The connection between American intervention in 1953 and the anti-American fury of 1979 is not theoretical. Iranians who stormed the American embassy in Tehran explicitly cited the 1953 coup as the foundational American crime against their nation.</p>
+
+  <div class="part-divider"><span>Part Six — The Drift (1960s to 1989)</span></div>
+
+  <h2>The 1967 War and the Special Relationship</h2>
+  <p>The Six-Day War of June 1967 transformed the American relationship with Israel from one of sympathy and support into something closer to unconditional alliance. Israel's swift defeat of Egypt, Jordan, and Syria, and its occupation of the West Bank, Gaza, Sinai, and the Golan Heights, demonstrated Israeli military prowess and convinced the Johnson administration that Israel was a strategic asset worth cultivating. American military and economic aid to Israel increased substantially in the years following 1967, setting the pattern that persists to the present day.</p>
+
+  <h2>The USS Liberty: A Buried Incident</h2>
+  <p>Four days into the Six-Day War, on June 8, 1967, Israeli aircraft and torpedo boats attacked the USS Liberty, an American intelligence-gathering ship operating in international waters off the Sinai coast. The attack lasted 75 minutes. Thirty-four American sailors were killed and 174 were wounded. It was the deadliest attack on a U.S. naval vessel since the Second World War.</p>
+  <p>Israel claimed the attack was a case of mistaken identity, a conclusion endorsed by official investigations. The surviving crew, along with multiple independent investigators and a National Security Agency historian whose study was declassified decades later, disputed that explanation in detail. The ship was clearly marked with an American flag and had been under Israeli surveillance for hours before the attack. The Johnson administration accepted Israel's explanation without serious independent investigation. The story, which might have fundamentally altered American public understanding of the relationship with Israel, was effectively suppressed.</p>
+
+  <h2>Arming Saddam</h2>
+  <p>In September 1980, Iraq invaded Iran, initiating a war that would last eight years. The Reagan administration, viewing Iran as the greater threat, tilted decisively toward Iraq. American intelligence was shared with the Iraqi military. American companies, with government approval, sold Saddam Hussein precursors for chemical weapons. In 1983, Donald Rumsfeld traveled to Baghdad as a presidential envoy and met personally with Saddam Hussein. Declassified documents from the National Security Archive confirm that the United States continued to provide support to Saddam even after it became clear he was using chemical weapons against both Iranian forces and Kurdish civilians.</p>
+
+  <div class="part-divider"><span>Part Seven — The Israeli Lobby and the Transformation of American Policy</span></div>
+
+  <h2>The Lobby: A Documented Reality</h2>
+  <p>The discussion of organized pro-Israel influence on American foreign policy has long been treated as a subject too sensitive for mainstream debate. That treatment is itself a political achievement. The reality of organized lobbying on behalf of Israeli interests in Washington is not a secret or a conspiracy. It is a documented and, by participants, freely acknowledged feature of American political life.</p>
+  <p>The American Israel Public Affairs Committee, known as AIPAC, was founded in 1963 and has grown into one of the most powerful foreign-policy lobbying organizations in the United States. Its own leadership has frequently boasted of its influence. Former Congressman Paul Findley, a Republican from Illinois who lost his seat in 1982 in a campaign that AIPAC actively opposed, documented the organization's operations in meticulous detail in a book that remains one of the most important primary accounts of the lobby's methods.</p>
+  <p>The most rigorous academic examination of the lobby is the work of John Mearsheimer of the University of Chicago and Stephen Walt of Harvard's Kennedy School of Government. Their 2007 book argued that a loose coalition of individuals and organizations that actively work to steer U.S. foreign policy in a pro-Israel direction has successfully pushed American policy away from what the national interest would otherwise dictate. The book was subjected to extraordinary criticism, but its core empirical claims, based on public records and extensive research, have not been refuted.</p>
+
+  <h2>The Lavon Affair: When Israel Targeted American Facilities</h2>
+  <p>In 1954, Israeli military intelligence ran an operation in Egypt that should have permanently altered the terms of the American relationship with Israel. Operation Susannah, known to history as the Lavon Affair, involved a network of Egyptian Jews recruited by Israeli intelligence to plant bombs in American and British targets in Egypt, including American diplomatic facilities and American-owned theaters. The bombings were intended to be blamed on Egyptian nationalists and radical Islamists, with the goal of destabilizing Nasser's government and souring Western relations with Egypt.</p>
+  <p>Israel denied involvement for decades. In 2005, the Israeli government formally honored the surviving operatives of Operation Susannah in a public ceremony, at last confirming what had long been documented in the historical record. An allied government had mounted a false-flag operation targeting American facilities. The American public was never seriously informed of this.</p>
+
+  <h2>A Clean Break: The Blueprint for a New Middle East</h2>
+  <p>In 1996, a study group assembled by the Institute for Advanced Strategic and Political Studies in Jerusalem produced a policy document titled "A Clean Break: A New Strategy for Securing the Realm." The document was prepared for incoming Israeli Prime Minister Benjamin Netanyahu. It called for removing Saddam Hussein from power in Iraq, containing Syria, undermining Iran, and reorienting Israeli strategic policy away from dependence on the Oslo peace process.</p>
+  <p>The authors of this document included Richard Perle, Douglas Feith, and David Wurmser. Within five years, all three would hold senior positions in the administration of President George W. Bush. Perle would chair the Defense Policy Board. Feith would serve as Undersecretary of Defense for Policy. Wurmser would become a senior adviser to Vice President Dick Cheney. The foreign policy agenda outlined in "A Clean Break" bore a striking resemblance to the foreign policy the Bush administration pursued after September 11, 2001.</p>
+
+  <h2>Jonathan Pollard and the Limits of Alliance</h2>
+  <p>In 1985, Jonathan Pollard, a civilian analyst for the United States Navy, was arrested for passing classified American intelligence to Israel. He was convicted of espionage in 1987 and sentenced to life in prison. The material Pollard passed to Israel included the names of American intelligence assets, details of American surveillance capabilities, and information about other nations that Israel then, according to American officials, traded to the Soviet Union. The CIA and Defense Intelligence Agency assessed the damage to American national security as severe.</p>
+  <p>And yet the episode produced no fundamental reassessment of the American relationship with Israel. Pollard was eventually released in 2015 and permitted to emigrate to Israel, where he was received as a hero.</p>
+
+  <div class="part-divider"><span>Conclusion</span></div>
+
+  <p>The history traced in these pages is not the history that most Americans have been taught. It is the history that the evidence actually supports. It begins not with hostility or clash of civilizations, but with Morocco's friendship and Thomas Jefferson's grudging respect. It runs through a century of genuine American goodwill in the Levant, through the schools of Beirut and the idealism of Woodrow Wilson, and arrives, by way of broken promises and covert coups and oil politics and lobby influence, at the condition the world finds itself in today.</p>
+  <p>The transformation of the American relationship with the Muslim and Middle Eastern world from one of relative trust and mutual respect to one of hostility and violence was not inevitable. It was the product of specific decisions, made by specific people, at specific moments in history.</p>
+  <p>None of this analysis requires antisemitism, or anti-Americanism, or the embrace of any foreign power's narrative. It requires only a willingness to read the documents that exist, to follow the money that is publicly traceable, and to take seriously the testimony of American officials, diplomats, and intelligence officers who have been saying, for decades, that American policy in the Middle East has not served American interests. The purpose of this investigation is to make that case on the basis of the historical record alone, and to leave the reader to draw the conclusions that the evidence demands.</p>
+
+  <div class="footnotes">
+    <span class="footnotes-label">Sources</span>
+    <p class="footnote" data-n="1">Irwin, Ray W. The Diplomatic Relations of the United States with the Barbary Powers, 1776-1816. University of North Carolina Press, 1931. U.S. Department of State, Office of the Historian, history.state.gov.</p>
+    <p class="footnote" data-n="2">Lambert, Frank. The Barbary Wars: American Independence in the Atlantic World. Hill and Wang, 2005.</p>
+    <p class="footnote" data-n="3">Treaty of Peace and Friendship Between the United States and the Bey and Subjects of Tripoli of Barbary, 1797, Article 11. Yale Law School Avalon Project, avalon.law.yale.edu.</p>
+    <p class="footnote" data-n="4">Spellberg, Denise A. Thomas Jefferson's Qur'an: Islam and the Founders. Knopf, 2013. Jefferson's correspondence with John Adams, July 11, 1786, founders.archives.gov.</p>
+    <p class="footnote" data-n="5">Makdisi, Ussama. Artillery of Heaven: American Missionaries and the Failed Conversion of the Middle East. Cornell University Press, 2008.</p>
+    <p class="footnote" data-n="6">Antonius, George. The Arab Awakening. Hamish Hamilton, 1938. Hussein-McMahon Correspondence, Yale Law School Avalon Project.</p>
+    <p class="footnote" data-n="7">Fromkin, David. A Peace to End All Peace. Holt, 1989. Text of Sykes-Picot Agreement, Yale Law School Avalon Project.</p>
+    <p class="footnote" data-n="8">King-Crane Commission Report, 1919. Yale Law School Avalon Project. Foreign Relations of the United States, 1919, Vol. 12, history.state.gov.</p>
+    <p class="footnote" data-n="9">Yergin, Daniel. The Prize: The Epic Quest for Oil, Money, and Power. Simon and Schuster, 1991.</p>
+    <p class="footnote" data-n="10">Eddy, William A. FDR Meets Ibn Saud. American Friends of the Middle East, 1954. FRUS 1945, Vol. 8, history.state.gov.</p>
+    <p class="footnote" data-n="11">Benson, Michael T. Harry S. Truman and the Founding of Israel. Praeger, 1997. Morris, Benny. 1948: A History of the First Arab-Israeli War. Yale University Press, 2008.</p>
+    <p class="footnote" data-n="12">CIA declassified history of Operation TPAJAX (2013). National Security Archive, nsarchive.gwu.edu. Kinzer, Stephen. All the Shah's Men. Wiley, 2003.</p>
+    <p class="footnote" data-n="13">Bamford, James. Body of Secrets. Doubleday, 2001. Scott, James M. The Attack on the Liberty. Simon and Schuster, 2009. Declassified NSA documents, National Security Archive.</p>
+    <p class="footnote" data-n="14">Jentleson, Bruce W. With Friends Like These. Norton, 1994. National Security Archive, "Shaking Hands with Saddam Hussein" document collection, nsarchive.gwu.edu.</p>
+    <p class="footnote" data-n="15">Mearsheimer, John J. and Walt, Stephen M. The Israel Lobby and U.S. Foreign Policy. Farrar, Straus and Giroux, 2007. Findley, Paul. They Dare to Speak Out. Lawrence Hill, 1985.</p>
+    <p class="footnote" data-n="16">Black, Ian and Morris, Benny. Israel's Secret Wars. Grove Press, 1991. Ha'aretz, March 30, 2005: Israeli President Moshe Katsav awards certificates of appreciation to surviving Operation Susannah operatives.</p>
+    <p class="footnote" data-n="17">Perle, Richard, et al. "A Clean Break: A New Strategy for Securing the Realm." Institute for Advanced Strategic and Political Studies, Jerusalem, 1996.</p>
+    <p class="footnote" data-n="18">Olive, Ronald J. Capturing Jonathan Pollard. Naval Institute Press, 2006. CIA damage assessment, Director of Central Intelligence, October 30, 1987 (partially declassified 2012), National Security Archive.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
