@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Political Hypocrites — Investigation</title>
+  <meta name="description" content="How the divide between ordinary Americans was designed, who built it, and what the documentary record actually shows across more than a century of American political history." />
+  <meta property="og:title" content="Political Hypocrites" />
+  <meta property="og:description" content="The partisan hatred that defines American life was not organic. It was cultivated. The people cultivating it are the same people who cannot afford for you to look up from it." />
+  <meta property="og:url" content="https://politicalhypocrites.us/investigations/the-pillaged-republic" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Political Hypocrites" />
+  <meta name="twitter:description" content="The partisan hatred that defines American life was not organic. It was cultivated. The people cultivating it are the same people who cannot afford for you to look up from it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; cursor: pointer;
+      background: none;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: #1A0F05;
+      margin: 2.5rem 0 0.8rem; font-style: italic;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.80); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4rem 0 2.5rem;
+    }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .opinion-block {
+      border-left: 3px solid var(--red);
+      padding: 1.2rem 1.5rem;
+      background: rgba(185,28,28,0.04);
+      margin: 2rem 0;
+    }
+    .opinion-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.7rem;
+    }
+    .opinion-block p {
+      font-size: 0.95rem; line-height: 1.85;
+      color: rgba(20,10,5,0.70); font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(0,0,0,0.10);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.03);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.38);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.55); font-style: normal; }
+
+    .footnotes {
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem; padding-top: 2.5rem;
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .footnote {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); margin-bottom: 0.7rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .footnote::before {
+      content: attr(data-n);
+      position: absolute; left: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red);
+    }
+    .footnote a { color: rgba(20,10,5,0.45); }
+    .footnote a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 2.5rem 1.5rem 4rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span>Political Hypocrites</span>
+  </div>
+  <span class="article-label">Investigation</span>
+  <h1 class="article-title">Political Hypocrites</h1>
+  <p class="article-subtitle">How the Divide Was Designed, Who Built It, and What the Record Shows</p>
+  <div class="article-meta-bar">
+    <span class="meta-item">Category <strong>Investigation</strong></span>
+    <span class="meta-item">Published <strong>June 2026</strong></span>
+    <span class="meta-item">Sources <strong>58 cited</strong></span>
+    <button class="share-btn" onclick="shareToX()">Share to X</button>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">There are two American political systems. The first one is the one you see. It is loud, it is total, and it is built for maximum emotional impact. The second system is quieter. It operates in the overlap between the two parties, in the donor lists that read the same regardless of which name is at the top of the ticket, in the legislation that passes 91 to 5 and 414 to 16 and is never discussed on the programs that spend six hours a night telling you how irreconcilably different Republicans and Democrats are. This piece is about the second system. It is also about how the first system was built to make sure you never looked too hard at the second one.</p>
+
+  <p>This is not a partisan argument. The evidence assembled here implicates both parties with documented consistency across more than a century of American political history. The Democrats and Republicans named in what follows are not named because of their party affiliation. They are named because their conduct is documented, because it follows a pattern, and because that pattern has an explanation that neither party's media apparatus has any financial interest in helping you see.</p>
+
+  <p>A note on method. Where a documented record exists, that record is cited and described accurately. Where the record ends and analytical judgment begins, this piece says so explicitly, labeled as editorial assessment. No criminal charges have been filed against the majority of the individuals discussed here. In several cases, no charges could legally be filed under the current rules. That is not a reason to look away. It is the central reason to look.</p>
+
+  <p>The question this piece asks is a simple one. If the two parties disagree about nearly everything, why do they keep producing the same outcomes on the things that matter most to the people financing both of them? The answer is not a conspiracy. It requires only that each actor follow their own institutional interest, and that the sum of those interests adds up to a system that serves itself at the expense of the people who fund it, elect it, and are told, every four years, that this time it will be different.</p>
+
+  <div class="part-divider"><span>Part One -- They Warned You</span></div>
+
+  <p>The men who designed this republic were not optimists. They were students of history, and history had shown them, repeatedly and without exception, that concentrated power corrupts the institutions built to constrain it and that the most effective tool for that corruption is not force but faction. Get the people fighting each other over something that does not threaten your position, and you can do whatever you want with your position while they are occupied.</p>
+
+  <p>James Madison made this argument in precise and unsparing terms on November 22, 1787, in the tenth of what would become known as the Federalist Papers. Madison defined a faction as "a number of citizens, whether amounting to a majority or minority of the whole, who are united and actuated by some common impulse of passion, or of interest, adverse to the rights of other citizens, or to the permanent and aggregate interests of the community." He identified the most durable and dangerous source of faction not as religion, not as regionalism, but as the unequal distribution of property and economic interest. Those who hold wealth and those who do not, he wrote, "have ever formed distinct interests in society." The people most likely to organize a faction capable of subverting republican government were not foreign enemies or radical mobs. They were creditors. Debtors. Industrialists. Men whose financial interests were specific enough to be worth corrupting a government over.</p>
+
+  <p>Madison believed the structure of a large republic, with its multiplicity of competing interests, would make it difficult for any single faction to capture the whole of government. He was right that the structure made it difficult. He did not anticipate how much money would eventually be available to make difficult things easier.</p>
+
+  <p>George Washington was less architecturally optimistic. On September 19, 1796, in a document he chose to publish in a newspaper rather than deliver as a speech, Washington offered his final counsel to the nation he had spent his adult life serving. He warned the American people, in language he described as "the most solemn manner," against "the baneful effects of the spirit of party generally." He argued that organized political parties, over time, would inevitably be captured by the wrong people for the wrong reasons. "However political parties may now and then answer popular ends," he wrote, "they are likely in the course of time and things, to become potent engines, by which cunning, ambitious, and unprincipled men will be enabled to subvert the power of the people and to usurp for themselves the reins of government." He warned specifically that the party system would "open the door to foreign influence and corruption" and that the alternate domination of one faction over another would lead, in the end, not to self-government but to a "more formal and permanent despotism."</p>
+
+  <p>Washington was describing a process, not a moment. He was writing in 1796. He was describing 2025.</p>
+
+  <div class="part-divider"><span>Part Two -- The Template (The Gilded Age)</span></div>
+
+  <p>The pattern did not begin in the twentieth century. It began in the decades immediately following the Civil War, in the period Mark Twain named the Gilded Age, a name chosen specifically to describe the gap between the shiny surface and the rot underneath.</p>
+
+  <p>The surface was spectacular. The presidential election of 1876 brought approximately 82 percent of eligible voters to the polls, the highest participation rate in American history for a presidential race. It is worth noting that "eligible voters" in 1876 meant white and Black men only; the figure is not directly comparable to modern turnout measured against today's broader electorate. Americans of the period cared intensely about their political parties and fought over them with a ferocity that occasionally turned lethal.</p>
+
+  <p>Underneath that surface, the actual governance of the United States had been largely transferred to a class of industrial financiers: Cornelius Vanderbilt, John D. Rockefeller, Andrew Carnegie, J.P. Morgan. By 1890, the wealthiest one percent of Americans owned one quarter of the nation's assets. By 1900, the richest ten percent controlled approximately 90 percent of the nation's wealth. These men financed both parties and collected their returns in the form of favorable tariffs, land grants, railroad subsidies, and regulatory frameworks written to their specifications.</p>
+
+  <p>Grover Cleveland, the only Democrat elected president during the Gilded Age, was described by contemporaries as conservative enough that Republicans were "more or less content with his election." The ferocity of the partisan warfare at the voter level was real. The difference it made at the level of policy for the men writing the checks was minimal.</p>
+
+  <p>The corruption was not merely hidden. The Credit Mobilier scandal of the early 1870s revealed that several members of Congress, from both parties, had accepted cash and stock bribes in exchange for appropriating inflated federal funds for the construction of the transcontinental railroad. The railroad was a public project. The profits were private. The bribes were bipartisan. The public outrage was genuine and short-lived, and the structural conditions that made the arrangement possible remained entirely intact when the outrage subsided.</p>
+
+  <p>This is the first and most important thing the Gilded Age establishes for the purposes of this piece. Public outrage, on its own, does not change structural arrangements. It exhausts itself against the details of a specific scandal while the system that produced the scandal continues operating.</p>
+
+  <p>The Populist movement of the 1890s came closest to threatening the arrangement from below. The Democratic and Republican parties responded by absorbing the most popular elements of the Populist platform into their own messaging, defusing the movement without implementing its substance, and carrying on. The pattern of co-opting genuine grassroots energy in order to neutralize it without conceding anything of material value to the people who generated it was already a fully developed political technology by 1896.</p>
+
+  <div class="part-divider"><span>Part Three -- The Secret State (The Church Committee)</span></div>
+
+  <p>The Gilded Age established that both parties would serve the same financial interests while performing partisan opposition for the public. The Cold War established something more alarming: that both parties would authorize the same crimes, in secret, against the people they were elected to represent, and that the crimes would continue uninterrupted across administrations regardless of which party held power.</p>
+
+  <p>This is not inference. It is the documented conclusion of the United States Senate itself.</p>
+
+  <p>In January 1975, Senator Frank Church of Idaho was appointed to chair a select committee tasked with investigating the intelligence activities of the CIA, the FBI, and the NSA. What the committee found over the following sixteen months, across 126 committee meetings, 40 subcommittee hearings, 150 staff members, and 800 witness interviews, was the work of the permanent national security apparatus, operating continuously across the Truman, Eisenhower, Kennedy, Johnson, and Nixon administrations, accountable to no one, restrained by nothing, and financed by the American taxpayer without the American taxpayer's knowledge.</p>
+
+  <p>The final report, 2,702 pages released in 1976, documented the following. The CIA had conducted extensive assassination plots against foreign leaders including Cuban President Fidel Castro, Dominican Republic President Rafael Trujillo, and Congolese Prime Minister Patrice Lumumba. The committee's assassination report documented that these efforts were "developed in a context of intense pressure from the top," a finding that implicated specifically the Kennedy and Johnson administrations. These were not rogue operations. They were authorized at the highest levels of Democratic administrations that the American public had elected in part on the strength of their moral contrast with their opponents.</p>
+
+  <p>The FBI operated COINTELPRO, a systematic effort to infiltrate, surveil, discredit, and destroy domestic political organizations. The program, which began under Eisenhower in 1956 targeting the Communist Party USA, expanded dramatically to civil rights and anti-war organizations under Kennedy and Johnson. The FBI, under Director J. Edgar Hoover, compiled files on at least 100,000 Americans including Jesse Jackson, Joan Baez, and Arlo Guthrie. The Bureau sent Dr. Martin Luther King Jr. a tape recording of his private activities accompanied by a letter that, in the committee's summary, amounted to a suggestion that there was "only one thing left for you to do." This was done under a Democratic administration, by a director who served presidents of both parties for nearly five decades.</p>
+
+  <p>The NSA conducted mass surveillance of Americans' international communications without a warrant, without a statute authorizing it, and without congressional knowledge. A joint FBI-CIA program intercepted, opened, and photographed Americans' first-class mail for twenty years in direct violation of federal law. The MKULTRA program conducted mind control experiments on unwitting American citizens, including administration of LSD without subjects' knowledge or consent, across multiple administrations.</p>
+
+  <p>All fourteen reports produced by the Church Committee were supported on a bipartisan basis. The reforms that followed were real but limited. President Ford signed an executive order banning foreign assassinations. The Foreign Intelligence Surveillance Act of 1978 established a court to oversee intelligence warrants. And then, gradually, the oversight eroded. The 2013 revelations by Edward Snowden documented that mass surveillance of American citizens had resumed on a scale that would have been unimaginable to the Church Committee, authorized by secret court orders under the very statute the Committee had helped create as a restraint.</p>
+
+  <p>Senator Church himself warned in 1975: "If this government ever became a tyranny, the technological capacity that the intelligence community has given the government could enable it to impose total tyranny, and there would be no way to fight back." He said that fifty years ago. The technological capacity has since expanded by several orders of magnitude. The oversight has not kept pace.</p>
+
+  <div class="source-note">
+    <p><strong>Note:</strong> A full investigation into the documented relationship between elements of the United States government and the international drug trade is forthcoming on this site.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Four -- Bipartisan Deregulation and Who Paid For It</span></div>
+
+  <p>The story begins not with a bill but with a bribe.</p>
+
+  <p>In the late 1980s, Charles Keating was the chairman of Lincoln Savings and Loan Association, a California thrift that had taken the deregulation of the savings and loan industry as an invitation to make increasingly reckless and eventually fraudulent investments. Between 1987 and 1989, he distributed between $1.3 and $1.5 million in campaign contributions to five United States senators and then requested that those senators meet with federal regulators on his behalf to slow or stop the investigation into Lincoln.</p>
+
+  <p>The five senators who took the money and made the calls became known as the Keating Five. They were Alan Cranston of California, Dennis DeConcini of Arizona, John Glenn of Ohio, and Donald Riegle of Michigan. All four were Democrats. The fifth was Republican John McCain of Arizona. One check writer. Five senators. Four Democrats and one Republican.</p>
+
+  <p>Lincoln Savings and Loan collapsed in 1989. The failure cost the federal government $3.4 billion. The Senate Ethics Committee ultimately reprimanded Democrat Alan Cranston for "impermissible conduct," criticized Democrats Riegle and DeConcini for acting improperly, and cleared both Glenn and McCain while criticizing their judgment. No senator went to prison. The lesson the political class took from the scandal was not that the relationship between donor money and regulatory intervention needed to be structurally prevented. The lesson was that the relationship needed to be better managed.</p>
+
+  <p>A decade later, the management produced something far larger. In November 1999, President Bill Clinton signed the Gramm-Leach-Bliley Act, formally known as the Financial Services Modernization Act. The legislation repealed the Glass-Steagall Act of 1933, which had separated commercial banking from investment banking in direct response to the financial speculation that contributed to the Great Depression.</p>
+
+  <p>The final vote was not close. The Senate passed the bill 90 to 8. The House passed it 362 to 57, with exactly 155 Democrats voting in favor, a figure confirmed by the official Clerk of the House record. Among the Democratic senators who voted yes was Joseph Biden of Delaware. Clinton had appointed Robert Rubin, a man who had spent 26 years at Goldman Sachs, as his Treasury Secretary. Rubin left the Treasury in 1999, the same year the bill was signed, and joined Citigroup, one of the primary beneficiaries of the legislation, where he earned over $126 million over the following decade.</p>
+
+  <p>Less than nine years after Gramm-Leach-Bliley was signed, the American financial system collapsed in the worst economic crisis since the Great Depression. The number of senior banking executives who faced criminal prosecution for conduct that precipitated the crisis: zero. That decision was made under a Democratic administration that had campaigned explicitly on accountability.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>The pattern here is not difficult to identify, though it is important to state plainly that identifying a pattern is not the same as proving intent. What the record shows is that both parties received money from the same financial industry, both parties passed legislation that industry wanted, both parties oversaw the regulatory framework that allowed the industry's risk-taking to reach catastrophic levels, both parties managed the bailout of that industry when it failed, and both parties declined to prosecute the people whose decisions caused the failure. Whether this reflects coordinated corruption, shared ideological assumptions about financial markets, or the inevitable influence of concentrated donor money on policy outcomes is a judgment the reader must make. What is not a matter of judgment is that the outcome, in every instance, served the financial industry and was paid for by everyone else.</p>
+  </div>
+
+  <p>The Goldman Sachs to Treasury pipeline did not close with the Clinton administration. Henry Paulson, who designed the 2008 bailout, came from Goldman Sachs. Steven Mnuchin, who served as Treasury Secretary under Donald Trump, came from Goldman Sachs. The firm has had direct representation at the senior levels of the Treasury Department across administrations of both parties. This is not alleged. It is a matter of public record.</p>
+
+  <div class="part-divider"><span>Part Five -- They Bought the Microphone</span></div>
+
+  <p>On February 8, 1996, President Bill Clinton signed the Telecommunications Act of 1996. The final vote in the Senate was 91 to 5. The final vote in the House was 414 to 16. The bill had been shaped throughout its development by the corporate media lobbies whose interests it most directly served. It passed with the kind of overwhelming bipartisan majority that tends to appear when the donor class has reached consensus on an outcome.</p>
+
+  <p>The results were the opposite of what was promised. National ownership caps for radio stations were eliminated, producing an immediate wave of mergers and acquisitions. Local news operations were consolidated, stripped of resources, and in many cases eliminated entirely. Twenty years after the act was signed, approximately 90 percent of the major media consumed by Americans was controlled by six corporations, a figure widely cited by media scholars, though the precise measurement methodology varies across studies. The diversity of voices that deregulation was supposed to produce had been replaced by a concentrated ownership structure that would have been illegal under the regulatory framework the act dismantled.</p>
+
+  <p>What emerged from that concentrated ownership was a business model the Gilded Age press barons had glimpsed but never fully realized. Partisan rage, it turned out, was not merely a political tool. It was a revenue stream. Fox News and MSNBC are the most visible expressions of this model, and they are frequently described as opposites. What that description omits is that they are also partners in the same enterprise. They need each other. Fox News requires a Democratic establishment corrupt and dangerous enough to justify the continuous alarm it sells to its audience. MSNBC requires a Republican movement authoritarian and threatening enough to justify the continuous alarm it sells to its. Each network's business model depends on the other network's existence.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>It is this writer's view that the partisan media environment that followed the Telecommunications Act of 1996 was not an unintended consequence of deregulation. The financial logic was visible from the beginning to anyone who understood both the economics of attention and the political utility of a public kept divided. The people who most benefited from the outcome were the same people who spent the most money ensuring the legislation passed, and that outcome has served their interests with remarkable consistency in the three decades since.</p>
+  </div>
+
+  <p>Facebook's own internal research, conducted around the time of the 2016 presidential election and first reported publicly in 2020 before being further documented by whistleblowers in 2021, found that the platform's recommendation algorithms were responsible for 64 percent of all extremist group joins on the platform. Facebook's own researchers flagged the finding. Facebook's management reviewed the finding. The algorithms were not changed in any meaningful way.</p>
+
+  <p>A 2018 modification to Facebook's algorithm, designed to increase what the company called "Meaningful Social Interactions," was found by the company's own internal studies to have inadvertently increased anger and divisiveness on the platform. The modification was not reversed. A subsequent analysis published in peer-reviewed research documented that the update contributed to increased ideological extremism and affective polarization in both the United States and Italy.</p>
+
+  <p>By 2022, over 70 percent of Americans received at least some of their news from social media, according to the Pew Research Center. Those platforms are optimized not for accuracy or civic value but for engagement. And as the internal research of the platforms themselves has documented, the content that most reliably produces engagement is content that makes people afraid of, or furious at, the people on the other side.</p>
+
+  <div class="part-divider"><span>Part Six -- The Inflection Point</span></div>
+
+  <p>On February 15, 2003, an estimated twelve to fourteen million people, the range cited by the Guinness Book of World Records, took to the streets across more than 600 cities in up to sixty countries to oppose the invasion of Iraq before it even began. The energy was genuine. The grievance was directed, unmistakably, upward, at the people making the decision to go to war and the political class preparing to authorize it on a bipartisan basis.</p>
+
+  <p>By 2008, Barack Obama had been elected president on a platform that included an explicit commitment to ending the wars. The anti-war left, which had spent five years in the streets, became an electoral coalition almost overnight. The drone program expanded dramatically under Obama, conducting strikes in countries the United States was not formally at war with, killing civilians at rates that would have produced sustained protest had the strikes been ordered by a Republican administration. The protests did not materialize. The base had been converted from a movement that pressured power into a constituency that protected it.</p>
+
+  <p>On the other side of the aisle, the Tea Party movement that emerged in 2009 began as a genuine populist revolt. Its initial energy drew from the bipartisan bank bailouts that had transferred hundreds of billions of dollars from the public treasury to the financial institutions whose recklessness had caused the crisis. Early Tea Party rhetoric was as hostile to the Republican establishment as it was to the Democrats. Within two election cycles, that energy had been substantially redirected. The Koch network and allied donor organizations provided infrastructure and strategic direction that gradually reoriented the movement's focus from financial accountability to cultural grievance and electoral politics. By 2012, the movement that had begun by demanding an end to bank bailouts was primarily organized around opposition to the Affordable Care Act, immigration, and the cultural politics of the Obama presidency.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>It is this writer's view that what happened between approximately 2010 and 2013 was not a coincidence of timing. Two genuine populist movements, one on each side, had organized around economic grievances that directly threatened the financial and institutional interests of the political class. Both were neutralized within a relatively short period. Both were replaced, in the dominant media and political conversation, by a set of cultural and social issues that were real and genuinely felt but that, critically, did not threaten the financial arrangements that both parties shared an interest in protecting. The transition from "why did the banks get bailed out and no one went to prison" to "which bathroom should people use" as the central organizing question of American political life did not happen because the first question had been answered. It happened because the first question was dangerous and the second one was not. I cannot prove that this transition was deliberately engineered. I can document that it served the interests of the people with the greatest capacity to engineer it, and that those people had demonstrated, across the preceding century, both the motive and the method.</p>
+  </div>
+
+  <p>The issues that rose to dominance in this environment shared a specific characteristic. They were issues on which the emotional stakes for ordinary people were extremely high and the financial stakes for the political donor class were extremely low. Abortion, guns, immigration, and the emerging politics of gender and racial identity are not trivial issues. They are real, they matter, and people of good faith hold strong and deeply felt views about all of them. But the donor class that funds both parties has no significant financial interest in how any of them are resolved. A hedge fund manager's portfolio is not affected by the outcome of the abortion debate. A defense contractor's revenue is not affected by immigration policy in any direct sense.</p>
+
+  <p>Compare this to the issues that were receding from the center of political conversation during the same period. Ending the wars. Auditing the Federal Reserve. Reinstating the separation of commercial and investment banking. Prosecuting financial fraud. Limiting the role of money in elections. Every one of these issues posed a direct and specific threat to the financial interests of the people who fund both parties. Every one of them commands majority or supermajority support in polling across partisan lines. None of them have been resolved.</p>
+
+  <div class="part-divider"><span>Part Seven -- The Architecture of Unaccountability</span></div>
+
+  <p>In January 2012, President Obama called for action in his State of the Union address. "Send me a bill that bans insider trading by members of Congress," he told the assembled legislators, "and I will sign it tomorrow." Congress sent him a bill. He signed the Stop Trading on Congressional Knowledge Act, the STOCK Act, on April 4, 2012.</p>
+
+  <p>The penalty for violating it is $200.</p>
+
+  <p>That is not a misprint. A member of Congress who fails to timely disclose a financial transaction faces a fine of two hundred dollars. No member of Congress has ever been publicly disciplined or prosecuted under the STOCK Act. Between 2020 and 2021, over 200 lawmakers and senior staff members allegedly violated its reporting requirements. The Department of Justice investigated several members for potential insider trading during the COVID-19 pandemic, a period in which dozens of members from both parties made stock transactions totaling over $150 million after receiving classified briefings on the severity of the emerging crisis. The investigations produced no charges. Senator Jeff Merkley of Oregon, a Democrat who had voted for the STOCK Act, summarized the outcome plainly: "The Stock Act is pretty much useless."</p>
+
+  <p>The New York Times documented in 2022 that 13 lawmakers reported buying or selling shares of companies under investigation by their own committees between 2019 and 2021, and that 44 lawmakers disclosed trades in companies in industries directly regulated by committees on which they sat. Compliance with the reporting requirement, under the current framework, is the entirety of the accountability.</p>
+
+  <p>A 2023 survey by the University of Maryland's Program for Public Consultation found that 86 percent of Americans favor prohibiting members of Congress from trading individual stocks, including 87 percent of Republicans, 88 percent of Democrats, and 81 percent of independents. A Fox News poll conducted in January 2026 found 75 percent support for a ban. Congress's approval rating, as of the most recent available data, sits at approximately 17 percent.</p>
+
+  <p>Democrats controlled both chambers of Congress from 2020 to 2022 and did not bring a meaningful reform bill to a floor vote. Republicans have controlled chambers at various points during the same period and have similarly declined to act. Both parties have introduced reform proposals, most recently the bipartisan Restore Trust in Congress Act introduced by Republican Senator Ashley Moody of Florida and Democratic Senator Kirsten Gillibrand of New York in January 2026, and both parties have allowed those proposals to die without a floor vote.</p>
+
+  <p>The campaign finance system, restructured by the Supreme Court's 2010 Citizens United decision, has produced a donor class with a financial relationship to both parties structurally similar to the relationship Charles Keating had with the Keating Five, except that it is now legal, operates at a vastly larger scale, and is protected by a constitutional interpretation that the overwhelming majority of Americans reject. A YouGov survey conducted in October 2025 found that 79 percent of Americans agreed that large independent political expenditures cause them to lose faith in democracy. A separate poll found that 73 percent of Americans consider an official who gives donors influence or access to be corrupt. The Supreme Court, in Citizens United, held that such expenditures do not give rise to corruption or the appearance of corruption.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>The architecture of unaccountability described in this section was not assembled in a moment of crisis or constructed by a single bad actor. It was built incrementally, across decades, by people of both parties, each of whom had a personal financial interest in ensuring that the system of oversight they were nominally responsible for maintaining would not be applied to them. The $200 fine was not set by accident. The self-policing enforcement mechanism was not chosen for its effectiveness. The failure to bring a stock trading ban to a floor vote, in session after session and under the control of both parties, is not a scheduling oversight. These are choices. They have been made consistently, by people of both parties, and the consistency of the choices across the partisan divide tells you something important about where the actual agreement between the parties is located. It is not in their television advertisements. It is in their financial disclosures.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Eight -- The Named Cases</span></div>
+
+  <p>The preceding sections have documented patterns across decades and institutions. This section documents specific, named, current examples of those patterns in operation. Every claim made here is sourced. Where the evidentiary record ends, that boundary is stated explicitly. The absence of criminal charges in each case is noted not as exoneration but as illustration of the architecture of unaccountability described in the preceding section.</p>
+
+  <h3>Hunter Biden and Burisma Holdings</h3>
+
+  <p>In the spring of 2014, Hunter Biden, son of then-Vice President Joseph Biden, joined the board of directors of Burisma Holdings, the largest private natural gas company in Ukraine. His father was, at that moment, the Obama administration's designated point man on Ukraine policy. The potential conflict of interest was visible from the first day of the appointment.</p>
+
+  <p>In early 2015, George Kent, then the Deputy Chief of Mission at the United States Embassy in Kyiv, raised concerns directly to officials in Vice President Biden's office about the perception of a conflict of interest. His concerns went unaddressed. In September 2016, Kent returned to the subject in an email to his State Department colleagues, writing that "the presence of Hunter Biden on the Burisma board was very awkward for all U.S. officials pushing an anticorruption agenda in Ukraine." In October 2015, senior State Department official Amos Hochstein raised the issue directly with Vice President Biden and with Hunter Biden himself. The conflict was not resolved. Hunter Biden remained on the board until April 2019.</p>
+
+  <p>The September 2020 report produced by the Senate Homeland Security and Governmental Affairs Committee and the Senate Finance Committee, reflecting Republican committee leadership, found that the Obama administration "knew that Hunter Biden's position on Burisma's board was problematic and did interfere in the efficient execution of policy with respect to Ukraine." Ukraine policy experts including former U.S. Ambassador Steven Pifer and Columbia University's Lincoln Mitchell publicly described the arrangement as a serious conflict of interest. The word used most often by credentialed experts across the political spectrum was not "criminal." It was "problematic."</p>
+
+  <p>No law was broken that has been successfully prosecuted in connection with the Burisma board appointment. No charge has been filed against Joe Biden in connection with his son's position. The conflict of interest, documented by the administration's own officials in real time, was managed rather than resolved.</p>
+
+  <h3>Nancy Pelosi and the Question of Timing</h3>
+
+  <p>Nancy Pelosi served as Speaker of the House of Representatives from 2007 to 2011 and again from 2019 to 2023. The public record also shows that Pelosi voted in favor of the Gramm-Leach-Bliley Act in 1999. Her husband, Paul Pelosi, is a venture capitalist whose investment portfolio has included substantial positions in technology, semiconductor, defense, and healthcare companies, all sectors directly affected by legislation moving through the chamber his wife led.</p>
+
+  <p>In June 2022, Paul Pelosi exercised call options, originally purchased in 2021, to acquire shares in Nvidia. Approximately one month later, the Senate voted on the CHIPS and Science Act, legislation that appropriated tens of billions of dollars in federal subsidies to domestic semiconductor manufacturers. Nancy Pelosi was Speaker of the House at the time of both the transaction and the vote, and publicly supported the legislation. Under public scrutiny, the Pelosis sold all Nvidia shares at a reported loss before the House vote on the bill. The transaction was disclosed in compliance with the STOCK Act's reporting requirements. No charge has been filed.</p>
+
+  <p>In July 2021, the Pelosis purchased call options in Alphabet, the parent company of Google, shortly before the House Judiciary Committee advanced sweeping antitrust legislation targeting large technology companies. The purchase was disclosed. No charge has been filed. The issue is not what the law currently prohibits. The issue is what the law currently permits, and who wrote the law.</p>
+
+  <h3>Jared Kushner and Affinity Partners</h3>
+
+  <p>Jared Kushner served as a senior adviser to President Donald Trump from January 2017 to January 2021, with a portfolio that included the administration's Middle East policy and its relationship with Saudi Arabia's Crown Prince Mohammed bin Salman. In January 2021, Kushner left the White House and established a private equity firm called Affinity Partners. Six months later, Saudi Arabia's Public Investment Fund, the sovereign wealth fund controlled by Crown Prince Mohammed bin Salman, invested $2 billion in Affinity Partners.</p>
+
+  <p>The investment was made over the explicit objections of the fund's own screening panel, which cited the inexperience of Affinity Partners' management, unsatisfactory due diligence, an excessive asset management fee, and public relations risks associated with Kushner's previous role in the Trump administration. The panel's recommendation was overruled directly by Crown Prince Mohammed bin Salman. According to subsequent reporting, the Saudis agreed to pay Kushner tens of millions of dollars in annual management fees, in some instances regardless of whether the capital was actually invested.</p>
+
+  <p>By the end of 2024, Affinity Partners' assets under management had grown to $4.8 billion, reflecting additional investments from Qatar's sovereign wealth fund and Abu Dhabi-based Lunate. No law has been identified that Kushner broke. No charge has been filed. Kushner has denied any conflict of interest and has stated that he followed every applicable ethics rule. The absence of a charge is not an absence of a question.</p>
+
+  <h3>Donald Trump Jr., Kalshi, Polymarket, and the Regulatory Environment</h3>
+
+  <p>On January 13, 2025, days before his father's second inauguration, Donald Trump Jr. announced that he had joined the prediction market platform Kalshi as a paid strategic adviser. He subsequently joined the advisory board of Polymarket, Kalshi's primary competitor, through an investment made by his venture firm 1789 Capital. He now holds paid advisory or investor positions at both of the dominant companies in the American prediction market industry simultaneously.</p>
+
+  <p>Following the 2024 election, President Trump nominated Brian Quintenz to lead the Commodity Futures Trading Commission. Quintenz had previously served on Kalshi's board of directors, the same company at which Donald Trump Jr. serves as a paid strategic adviser. Since Quintenz's nomination, the CFTC has withdrawn a 2024 proposal that would have banned political event contracts, the core product of platforms like Kalshi and Polymarket, and has filed lawsuits against at least six states, including Arizona, Connecticut, Illinois, New York, Wisconsin, and Minnesota, that have attempted to regulate or restrict prediction market activity under state gambling laws.</p>
+
+  <p>Trump Media and Technology Group, the parent company of the president's Truth Social platform, has separately announced plans to launch its own prediction market product called Truth Predict, positioning the president's personal financial interests in direct alignment with the regulatory outcomes his administration is producing for the industry. No law currently prohibits any of this. No charge has been filed.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>Taken individually, each of the four cases documented in this section can be explained in terms that fall short of proven corruption. A son takes a board position his father finds awkward. A spouse makes investments with unfortunate timing. A former official receives foreign investment that his former relationships may or may not have facilitated. A president's son takes advisory roles in an industry that his father's administration subsequently regulates favorably. None of these explanations require corruption to be technically available. All of them require a degree of coincidence that, accumulated across both parties and across the decades of pattern documented in this piece, strains the ordinary meaning of the word. The architecture of unaccountability exists precisely to ensure that the gap between what the evidence suggests and what can be charged remains wide enough to drive the arrangement through. It has been functioning as designed.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Nine -- What 95 Percent of Us Agree On</span></div>
+
+  <p>The polling data tells a story that the nightly news does not. On the question of whether members of Congress should be banned from trading individual stocks, a 2023 survey by the University of Maryland's Program for Public Consultation found 86 percent support across party lines, including 87 percent of Republicans, 88 percent of Democrats, and 81 percent of independents. A Fox News poll conducted in January 2026 found 75 percent support for a ban. A Stand Up America and Data for Progress survey found 77 percent support. Three separate polling organizations. Three separate methodologies. The same answer, consistently, across every partisan category. Congress has not passed a meaningful ban. Both parties have had the opportunity. Neither has taken it.</p>
+
+  <p>On the question of corporate money in elections, a YouGov national survey conducted in October 2025 found that 79 percent of Americans agreed that large independent political expenditures cause them to lose faith in democracy. An American Promise poll conducted in January 2026 found that 72 percent of Americans believe Congress and the states should be able to regulate and limit money in campaigns, including 69 percent of Republicans, 83 percent of Democrats, and 78 percent of independents. The Supreme Court, in Citizens United, held that such expenditures do not give rise to corruption or the appearance of corruption. The decision has not been revisited in any meaningful legislative sense. Both parties have benefited from the fundraising environment it created.</p>
+
+  <p>On the question of the wars in Iraq and Afghanistan, Gallup and Pew Research polling conducted across the 2010s found majority opposition eventually reaching approximately 60 percent on Iraq. The wars continued for years after public opinion had turned against them. On pharmaceutical price regulation, polling consistently finds 70 to 80 percent support across party lines for allowing Medicare to negotiate drug prices directly. On auditing the Federal Reserve, a 2010 Gallup poll found 59 percent support across party lines. The Federal Reserve Transparency Act was introduced repeatedly and was never enacted into law.</p>
+
+  <p>These are not fringe positions. They are the views of consistent majorities and supermajorities of the American public on issues that directly affect the material conditions of their lives. And they have, with remarkable consistency, failed to produce legislative action, while the issues that dominate the political conversation produce legislation, executive action, and judicial appointments with considerably greater speed and reliability.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>This writer does not think this pattern is accidental. The issues on which the public agrees most strongly are, without exception, the issues that pose the most direct threat to the financial interests of the donor class that funds both parties. The issues on which the public is most divided are, with equal consistency, the issues on which that donor class has no significant financial stake. The sorting of political energy toward division and away from consensus is not a natural feature of democratic life. It is a managed outcome, and the management has been documented throughout this piece.</p>
+  </div>
+
+  <p>The argument that 95 percent of us agree on 95 percent of things is an approximation, but it is an approximation supported by the data. The things we agree on are the things that matter most to the daily conditions of our lives and the least to the financial interests of the people managing our political conversation. This is not a coincidence. It is a business model. And it has been running, with bipartisan management and considerable refinement, for a very long time.</p>
+
+  <div class="part-divider"><span>Conclusion -- The Designed Divide</span></div>
+
+  <p>The people who benefit most from your anger at your neighbor are the same people who have spent the last century building the systems that generate that anger, funding the media that sustains it, writing the laws that protect them from the accountability it might otherwise produce, and ensuring that the political energy of the American public is directed horizontally, across the partisan divide, rather than vertically, at the architecture of the arrangement itself. The founders warned about this. The historical record documents it. The polling data confirms that most Americans, when asked directly, agree on the things that matter most and have been deliberately prevented from acting on that agreement.</p>
+
+  <p>This piece has not argued that the two parties are identical. They are not. It has not argued that every politician is corrupt. That is not what the evidence shows. It has not argued that the social and cultural issues that dominate the current political conversation are unimportant. Those issues are real, the stakes are real, and the people engaged with them are, in the overwhelming majority of cases, acting in good faith.</p>
+
+  <p>What this piece has argued is that the political class, on both sides, has a demonstrated and documented history of prioritizing its own financial interests over the public interest, that the systems designed to prevent this prioritization have been built to fail, that the media environment that might expose the failure has been consolidated into the hands of the same class of people whose interests the political system serves, and that the result is a public kept at maximum emotional temperature over a set of issues carefully selected for their capacity to generate fury without threatening the arrangement.</p>
+
+  <p>The founders called it faction. Washington called it the spirit of party. The Gilded Age called it machine politics. The post-war era produced a national security state that called it necessary. The financial industry called it deregulation. The media industry called it the marketplace of ideas. The algorithm calls it engagement. The names change. The structure does not.</p>
+
+  <p>The anti-war movement directed its outrage at a Republican administration, was absorbed into a Democratic coalition, and watched the wars continue under Democratic management. The Tea Party directed its outrage at a Democratic administration, was absorbed into a Republican donor network, and watched the financial accountability it had demanded disappear from the agenda entirely. Outrage, channeled into partisan politics, has been the fuel that runs the machine rather than the force that stops it.</p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Editorial Assessment</span>
+    <p>This writer believes that the most important political realignment available to the American public is not left versus right. It is the realignment that the machine has spent a century preventing: the recognition that the fight is not between the people on one side of the partisan divide and the people on the other, but between the people on both sides of that divide and the system that built it. That realignment does not require anyone to abandon their values, their party affiliation, or their views on the social issues that matter to them. It requires only that those issues be understood in their proper proportion, as real but secondary to the financial and institutional arrangements that determine the material conditions of everyone's lives regardless of which party is in power.</p>
+  </div>
+
+  <p>The founders of this republic built a system of self-government on the premise that an informed and engaged citizenry would hold power accountable. They warned, explicitly and in writing, that faction and the spirit of party were the mechanisms by which that accountability would be destroyed. They were right. What remains is the informed and engaged citizenry, or the possibility of one, which is the only part of the founders' premise that the machine has not yet found a way to purchase.</p>
+
+  <p>The divide was designed. It can be recognized for what it is. And the recognition, however modest it may seem against the scale of what has been documented in this piece, is where everything else has to begin.</p>
+
+  <div class="footnotes">
+    <span class="footnotes-label">Sources</span>
+    <p class="footnote" data-n="1">James Madison, Federalist No. 10, November 22, 1787. The Daily Advertiser, New York. Library of Congress, loc.gov. Bill of Rights Institute, billofrightsinstitute.org.</p>
+    <p class="footnote" data-n="2">George Washington, Farewell Address, September 19, 1796. Claypoole's American Daily Advertiser. Library of Congress, loc.gov. Mount Vernon, mountvernon.org.</p>
+    <p class="footnote" data-n="3">"Politics in the Gilded Age." The Saylor Foundation / Open Bay Path University, HIS115. Documents bipartisan industrial financing and the Credit Mobilier scandal.</p>
+    <p class="footnote" data-n="4">Jon Grinspan, The Age of Acrimony (2021), reviewed in The Nation, June 2021. Documents Gilded Age voter mobilization alongside governance paralysis.</p>
+    <p class="footnote" data-n="5">Senate Select Committee to Study Governmental Operations with Respect to Intelligence Activities (Church Committee), Final Report (1976). 2,702 pages. National Security Archive, nsarchive.gwu.edu. govinfo.gov.</p>
+    <p class="footnote" data-n="6">"Frank Church and the Church Committee." Levin Center for Oversight and Democracy, levin-center.org.</p>
+    <p class="footnote" data-n="7">"CIA Assassination Plots: The Church Committee Report 50 Years Later." National Security Archive, November 2025. nsarchive.gwu.edu.</p>
+    <p class="footnote" data-n="8">"Why the U.S. Senate's Church Committee Report Still Matters 50 Years Later." Georgetown University College of Arts and Sciences, February 2026.</p>
+    <p class="footnote" data-n="9">"Post-Watergate Intelligence Investigations." Mary Ferrell Foundation, maryferrell.org.</p>
+    <p class="footnote" data-n="10">Senate Ethics Committee Investigation into the Keating Five (1989 to 1991). Primary record. Documented contribution figures vary between $1.3 million (Senate Ethics Committee record) and $1.5 million (International Banker, September 2021).</p>
+    <p class="footnote" data-n="11">Gramm-Leach-Bliley Act (Financial Services Modernization Act of 1999). U.S. House of Representatives, Office of the Clerk, Roll Call Vote 570, November 4, 1999. clerk.house.gov/Votes/1999570. U.S. Senate Roll Call Vote 354, November 4, 1999.</p>
+    <p class="footnote" data-n="12">FactCheck.org, "Who Caused the Economic Crisis?" October 2008. factcheck.org.</p>
+    <p class="footnote" data-n="13">The Fulcrum, "The Corruption Behind the Crash of 2008," December 2021. thefulcrum.us.</p>
+    <p class="footnote" data-n="14">Telecommunications Act of 1996. Primary legislative document. Senate vote: 91 to 5. House vote: 414 to 16. Victor Pickard, "Telecommunications Act of 1996" (2007). victorpickard.com. Truthout, "Democracy in Peril: Twenty Years of Media Consolidation Under the Telecommunications Act," February 2016. truthout.org.</p>
+    <p class="footnote" data-n="15">Brookings Institution, "How Tech Platforms Fuel U.S. Political Polarization," July 2024. brookings.edu. Fung Institute for Engineering Leadership, UC Berkeley, "Social Media Algorithms and Their Effects on American Politics," December 2025. funginstitute.berkeley.edu.</p>
+    <p class="footnote" data-n="16">ScienceDirect, "Ranking for Engagement: How Social Media Algorithms Fuel Misinformation and Polarization," February 2026. sciencedirect.com. Congressional Research Service, "Social Media Algorithms: Content Recommendation, Moderation, and Congressional Considerations." congress.gov.</p>
+    <p class="footnote" data-n="17">Stop Trading on Congressional Knowledge Act (STOCK Act), signed April 4, 2012. Campaign Legal Center, "The STOCK Act: The Failed Effort to Stop Insider Trading in Congress," May 2022. campaignlegal.org. Bloomberg Law, "Hard Lessons Learned After a Decade of the STOCK Act," April 2022. bloomberglaw.com.</p>
+    <p class="footnote" data-n="18">NPR transcript, Senator Jeff Merkley (D-OR) on the STOCK Act. npr.org. Program for Public Consultation, University of Maryland, "Ban on Stock Trading for Members of Congress Favored by Overwhelming Bipartisan Majority," fielded May 19-30, 2023. publicconsultation.org.</p>
+    <p class="footnote" data-n="19">Fox News Poll, "An Early Look at the 2026 Midterms," January 29, 2026. foxnews.com. Sens. Ashley Moody (R-FL) and Kirsten Gillibrand (D-NY), Restore Trust in Congress Act, press release January 15, 2026. gillibrand.senate.gov.</p>
+    <p class="footnote" data-n="20">Senate Homeland Security and Governmental Affairs Committee and Senate Finance Committee Joint Majority Staff Report, "Hunter Biden, Burisma, and Corruption," September 23, 2020. govinfo.gov. PolitiFact, "Fact-Checking Joe Biden, Hunter Biden, and Ukraine," May 2019. politifact.com.</p>
+    <p class="footnote" data-n="21">U.S. House of Representatives, Office of the Clerk, Financial Disclosure Records. Primary source for Pelosi STOCK Act disclosures. disclosures-clerk.house.gov. Ballard Spahr, "Politician Trading: If You Can't Stop Them, Join Them," October 2024. ballardspahr.com.</p>
+    <p class="footnote" data-n="22">The New York Times reporting on Jared Kushner and Affinity Partners (2022). nytimes.com. Reuters, "Kushner's Affinity's Assets Jump to $4.8 Billion After Gulf Cash Injection" (2025). reuters.com.</p>
+    <p class="footnote" data-n="23">Donald Trump Jr., public statement on X, January 13, 2025. Fortune, "Donald Trump Jr. Joins Kalshi as Strategic Advisor," January 13, 2025. fortune.com. CryptoTimes, "Trump Backs Prediction Markets as Family Holds Ties to Polymarket and Kalshi," May 27, 2026. cryptotimes.io. CNN Politics, "With Casino Empire Gone, Trump Family Bets on Prediction Markets," March 22, 2026. cnn.com.</p>
+    <p class="footnote" data-n="24">Issue One/YouGov national survey, October 2025. issueone.org. American Promise poll, January 2026. americanpromise.net. Stand Up America/Data for Progress poll (2022). dataforprogress.org.</p>
+    <p class="footnote" data-n="25">Further reading: ProPublica (propublica.org). Brennan Center for Justice (brennancenter.org). The Intercept (theintercept.com). Dropsite News (dropsiteproject.com).</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  function shareToX() {
+    const text = "The partisan hatred that defines American life was not organic. It was cultivated. A documented investigation into how the divide was designed and who profits from it.";
+    const url = "https://politicalhypocrites.us/investigations/the-pillaged-republic";
+    const twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+    window.open(twitterUrl, "_blank");
+  }
+</script>
+
+</body>
+</html>
