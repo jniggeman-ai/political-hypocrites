@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grid and the Grab — Political Hypocrites</title>
+  <meta name="description" content="What America Is Not Being Told About the AI Data Center Boom. A deep dive into the public health costs, tax subsidies, electric bill increases, and wealth transfer hidden behind the AI infrastructure buildout." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="The Grid and the Grab — Political Hypocrites" />
+  <meta property="og:description" content="The people who will pay for the AI data center boom are the last ones being asked. A fully sourced investigation into who benefits and who pays." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/the-grid-and-the-grab" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Grid and the Grab — Political Hypocrites" />
+  <meta name="twitter:description" content="The people who will pay for the AI data center boom are the last ones being asked. A fully sourced investigation into who benefits and who pays." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.82); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4rem 0 2.5rem;
+    }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(0,0,0,0.08);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.45);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.60); font-style: normal; }
+
+    .opinion-block {
+      border-left: 3px solid var(--red);
+      padding: 1rem 1.3rem; background: rgba(185,28,28,0.04);
+      margin: 2rem 0;
+    }
+    .opinion-block p {
+      font-size: 0.9rem; color: rgba(20,10,5,0.70);
+      font-style: italic; margin-bottom: 0;
+    }
+    .opinion-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.5rem;
+    }
+
+    /* FOOTNOTE SUPERSCRIPTS */
+    .fn {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red); vertical-align: super; line-height: 0;
+      text-decoration: none; cursor: pointer;
+    }
+    .fn:hover { text-decoration: underline; }
+
+    /* FOOTNOTES SECTION */
+    .footnotes {
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem; padding-top: 2.5rem;
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .footnote {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.52); margin-bottom: 0.7rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .footnote::before {
+      content: attr(data-n);
+      position: absolute; left: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red);
+    }
+
+    /* BIBLIOGRAPHY */
+    .bibliography {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem; padding-top: 2.5rem;
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .bib-category {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(20,10,5,0.55); margin: 1.8rem 0 0.6rem; display: block;
+    }
+    .bib-entry {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.52); margin-bottom: 0.4rem;
+      padding-left: 1.2rem; border-left: 2px solid var(--rule);
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 3rem 1.5rem 4rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>/</span>
+    <span>The Grid and the Grab</span>
+  </div>
+  <span class="article-label">Current Events</span>
+  <h1 class="article-title">The Grid and the Grab</h1>
+  <p class="article-subtitle">What America Is Not Being Told About the AI Data Center Boom</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> June 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Government reports, peer-reviewed research, corporate filings, investigative journalism</span>
+    <a href="https://twitter.com/intent/tweet?text=The+Grid+and+the+Grab%3A+What+America+Is+Not+Being+Told+About+the+AI+Data+Center+Boom&url=https://political-hypocrites.vercel.app/current-events/the-grid-and-the-grab" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">Something is being built across America at a speed and scale that has almost no modern precedent, and the people who will pay for it are the last ones being asked. The AI data center boom is the defining infrastructure story of this decade. It is being reported almost entirely from the top down. What follows is an attempt to report it from the bottom up.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every factual claim in this piece is sourced and footnoted. Opinion passages are labeled separately. Primary sources include government reports, peer-reviewed academic research, corporate earnings filings, nonprofit accountability research, and credible investigative journalism. For additional context, see reporting at <a href="https://www.propublica.org" target="_blank">ProPublica</a>, <a href="https://theintercept.com" target="_blank">The Intercept</a>, and <a href="https://dropsiteinfo.com" target="_blank">Dropsite News</a>.</p>
+  </div>
+
+  <div class="part-divider"><span>Introduction</span></div>
+
+  <p>In January 2025, President Donald Trump stood in the Roosevelt Room of the White House alongside the chief executives of OpenAI, Oracle, and SoftBank and announced the Stargate Project: a commitment of up to $500 billion over four years to construct a nationwide network of artificial intelligence data centers, beginning immediately with $100 billion in Texas.<a href="#fn1" class="fn">[1]</a> The room was full of the wealthiest men in the world. The people whose electric bills, water supplies, tax bases, and air quality will absorb the consequences of that announcement were not in the room. They were not consulted. Many of them did not yet know what was coming.</p>
+
+  <p>The AI data center boom is the defining infrastructure story of this decade, and it is being reported almost entirely from the top down. The coverage centers on the investment figures, the competitive race with China, the promise of technological supremacy, and the stock prices of the companies doing the building. What it does not center on, at least not with the same consistency or urgency, is what is actually happening on the ground in the communities where these facilities are being planted.</p>
+
+  <p>What follows is built on government documents, peer-reviewed research, corporate filings, and the documented experiences of Americans in dozens of states. It is an accounting of what this buildout actually costs, who actually pays, and who actually benefits. Those three questions, stated plainly, do not produce flattering answers for either political party, for the technology industry, or for the bipartisan political consensus that has decided, without meaningful public debate, that the American people should subsidize one of the largest transfers of public wealth to private shareholders in the country's history.</p>
+
+  <p>The people of Peculiar, Missouri did not get a vote. The residents of Calvert County, Maryland did not get a vote. A man at one of those hearings addressed his county commissioners directly: please stop killing us. That is where this story begins.</p>
+
+  <div class="part-divider"><span>Part One — The Scale of the Buildout</span></div>
+
+  <p>To understand what is at stake, it is necessary to first understand the raw arithmetic of what is being constructed. In 2024, Microsoft, Google parent Alphabet, Amazon, and Meta spent a combined approximately $251 billion in capital expenditures, the overwhelming majority on data center infrastructure and AI chips.<a href="#fn2" class="fn">[2]</a> That figure represented a 62 percent increase over 2023. In 2025, their combined spending reached approximately $410 billion. For 2026, combined projections from company earnings guidance place the total at approximately $725 billion.<a href="#fn3" class="fn">[3]</a> McKinsey has projected that meeting total demand will require approximately $6.7 trillion in data center investment by 2030.<a href="#fn4" class="fn">[4]</a></p>
+
+  <p>Microsoft alone committed $80 billion in fiscal year 2025 to AI-enabled data centers.<a href="#fn5" class="fn">[5]</a> Amazon planned $100 to $105 billion in capital expenditure for 2025, up from $77 billion the year prior.<a href="#fn6" class="fn">[6]</a> Google committed $75 billion, a 44 percent increase from 2024.<a href="#fn7" class="fn">[7]</a> Meta raised its figure to between $60 and $65 billion.<a href="#fn8" class="fn">[8]</a></p>
+
+  <p>The Stargate Project, a joint venture between OpenAI, Oracle, SoftBank, and MGX, committed an initial $100 billion with plans to expand to $500 billion over four years.<a href="#fn1" class="fn">[1]</a> By September 2025, the project had announced five specific sites and approximately 7 gigawatts of planned capacity.<a href="#fn9" class="fn">[9]</a> The flagship facility is under construction in Abilene, Texas.</p>
+
+  <p>The International Energy Agency estimated that data centers consumed approximately 415 terawatt-hours of electricity globally in 2024, roughly 1.5 percent of total global electricity consumption. By 2030, the IEA projects that figure will rise to 945 terawatt-hours, more than Japan's total electricity consumption in 2024.<a href="#fn10" class="fn">[10]</a> A January 2026 report by Bloom Energy projected that U.S. data centers alone will nearly double their total energy demand from 80 to 150 gigawatts between 2025 and 2028.<a href="#fn11" class="fn">[11]</a> Meta's Hyperion project in Louisiana is projected to require at least 5 gigawatts when fully operational, three times the electricity consumption of the entire city of New Orleans.<a href="#fn12" class="fn">[12]</a></p>
+
+  <div class="part-divider"><span>Part Two — The Promise vs. The Payroll</span></div>
+
+  <p>Every data center announcement follows the same script. A governor stands at a podium. A technology executive stands beside him. There is a rendering of a sleek building, a figure representing billions in investment, and a number representing jobs. The jobs argument is the primary political justification used by both Republican and Democratic administrations to hand out billions in public subsidies. It is also, by the weight of the available evidence, the weakest one.</p>
+
+  <p>A 2025 brief from researchers at the University of Michigan's Ford School of Public Policy concluded directly: data centers do not bring high-paying tech jobs to local communities.<a href="#fn13" class="fn">[13]</a> A January 2026 analysis by Food and Water Watch, drawing on Virginia Economic Development Partnership data going back to 1990, found that creating a single permanent data center job in Virginia required nearly $13 million in investment. Creating a job outside the data center sector in the same state required approximately $137,000. The investment required per data center job was nearly 100 times greater than in any other industry.<a href="#fn14" class="fn">[14]</a></p>
+
+  <p>Greg LeRoy, executive director of Good Jobs First, found that developers collected well over a million dollars in state subsidies for every permanent job created.<a href="#fn15" class="fn">[15]</a> One data center in New York state promised 125 permanent jobs in exchange for $1.4 billion in public support, equaling $11 million per job. In other tracked cases the subsidy per permanent position reached $77 million.<a href="#fn16" class="fn">[16]</a></p>
+
+  <p>Texas economist Michael Hicks studied 254 counties and found that net job creation from data center openings was effectively zero.<a href="#fn17" class="fn">[17]</a> Food and Water Watch estimated that by the end of 2024, as few as 23,000 people in the entire United States worked in the data center industry on a permanent basis.<a href="#fn14" class="fn">[14]</a></p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Opinion</span>
+    <p>The same industry collecting public subsidies in the name of job creation is simultaneously deploying the technology most explicitly designed to reduce labor costs by replacing human workers with automated systems. That contradiction is almost never raised at the podium.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Three — The Tax Subsidy Machine</span></div>
+
+  <p>More than 30 states have active tax subsidy programs for data centers.<a href="#fn18" class="fn">[18]</a> Kasia Tarczynska of Good Jobs First, who has spent 27 years tracking corporate subsidies, has described these as one of the most subsidized industries we have ever seen.<a href="#fn19" class="fn">[19]</a></p>
+
+  <p>Virginia forfeited $1.6 billion in tax revenue through data center exemptions in fiscal year 2025 alone, up 118 percent from the prior year.<a href="#fn20" class="fn">[20]</a> The state's own nonpartisan Joint Legislative Audit and Review Commission concluded in 2024 that data centers have become the largest economic development incentive in the state and that growing energy demand from data centers is likely to increase other customers' costs, raising serious questions about the program's net return to taxpayers.<a href="#fn21" class="fn">[21]</a> Texas is losing an estimated $1 billion per year through its data center sales tax exemption program, up from $157 million in 2023.<a href="#fn22" class="fn">[22]</a> Minnesota extended its data center tax exemption program to the year 2077 through bipartisan legislation passed in 2025. The program cost $6 million in 2015 and $114 million in 2025, an increase of 1,800 percent.<a href="#fn23" class="fn">[23]</a></p>
+
+  <p>The opacity is structural. In 2023, a limited liability company named Hatchworks applied for Indiana's sales tax exemption. The award was granted. A subsequent state filing revealed that Hatchworks was a subsidiary of Google.<a href="#fn24" class="fn">[24]</a> In Georgia, Governor Brian Kemp vetoed a bill to pause the data center incentive program for review in early 2024.<a href="#fn22" class="fn">[22]</a> In Virginia, 30 bills aimed at improving transparency were introduced in the 2025 legislative session. Almost all of them failed.<a href="#fn20" class="fn">[20]</a></p>
+
+  <p>LeRoy's conclusion: every state that has studied the return on investment for data center subsidies has found a sharply negative result. That recommendation has been adopted by none of them.<a href="#fn15" class="fn">[15]</a></p>
+
+  <div class="part-divider"><span>Part Four — Your Electric Bill</span></div>
+
+  <p>Before 2019, average residential electricity prices had been flat for more than a decade at around 13 cents per kilowatt-hour. By the end of 2025, average prices had risen to approximately 17.3 cents per kilowatt-hour, an increase of roughly 18 percent from 2019, according to U.S. Energy Information Administration data.<a href="#fn25" class="fn">[25]</a> The pace of increases has accelerated sharply: from January through May 2025 alone, residential rates rose nearly 10 percent in five months, a rate of increase substantially higher than comparable periods in prior years and well above the rate of general inflation. The U.S. Energy Information Administration projects prices will increase by an additional 13 to 18 percent by 2026 compared to 2022 levels.<a href="#fn25" class="fn">[25]</a></p>
+
+  <p>Data centers consumed approximately 4.4 percent of total U.S. electricity in 2023. The Department of Energy projected in December 2024 that figure will rise to between 6.7 and 12 percent by 2028.<a href="#fn26" class="fn">[26]</a> Utilities requested more than $29 billion in rate increases in the first half of 2025 alone, double the amount requested in the entire first half of 2024.<a href="#fn25" class="fn">[25]</a> Rate increase requests and approvals totaled $34 billion in the first three quarters of 2025, affecting an estimated 40 million customers nationwide.<a href="#fn27" class="fn">[27]</a></p>
+
+  <p>A Bloomberg News analysis found that wholesale electricity costs near data center hubs had risen as much as 267 percent compared to five years prior.<a href="#fn28" class="fn">[28]</a> In the PJM electricity market, data centers were estimated to account for $9.3 billion of the price increase in the 2025 to 2026 capacity market alone. The capacity price jumped from $29 per megawatt-day in 2024-25 to $270 per megawatt-day in 2025-26, a ninefold increase.<a href="#fn29" class="fn">[29]</a></p>
+
+  <p>A Carnegie Mellon University study projects that data centers could increase the average U.S. electricity bill by 8 percent by 2030, with increases exceeding 25 percent in the highest-demand markets of central and northern Virginia.<a href="#fn30" class="fn">[30]</a> Dominion Energy projected that the average residential utility bill in its service territory will increase by 50 percent by 2039 due to new data center openings.<a href="#fn31" class="fn">[31]</a></p>
+
+  <p>In Portland, Oregon, nearly all of Portland General Electric's load growth has come from commercial customers. Yet over the past decade, residential electricity rates climbed by 8 cents per kilowatt-hour, compared with just 2 cents for large commercial users.<a href="#fn28" class="fn">[28]</a> The people who use the least power are paying the steepest proportional increase to subsidize the infrastructure of the companies that use the most.</p>
+
+  <div class="part-divider"><span>Part Five — What They Are Burning to Power It</span></div>
+
+  <p>In 2024, the electricity powering data centers globally broke down as follows, per the International Energy Agency: 40 percent from natural gas, 20 percent from nuclear, 24 percent from renewables, and 15 percent from coal.<a href="#fn10" class="fn">[10]</a> More than half of the electricity running the largest AI infrastructure buildout in history came from fossil fuels.</p>
+
+  <p>A Guardian investigation found that from 2020 to 2022, the actual emissions from company-owned data centers operated by Google, Microsoft, Meta, and Apple were more than 600 percent higher than officially reported figures.<a href="#fn32" class="fn">[32]</a> By Microsoft's own admission, its total planet-warming emissions in 2024 were approximately 30 percent higher than in 2020.<a href="#fn33" class="fn">[33]</a> Google's 2024 environmental report acknowledged its total greenhouse gas emissions increased 13 percent year over year in 2023, driven primarily by data center energy consumption.<a href="#fn34" class="fn">[34]</a></p>
+
+  <p>A peer-reviewed study published in 2025 estimated the carbon footprint of AI systems alone could reach between 32.6 and 79.7 million tons of CO2 in 2025, while the water footprint could reach between 312.5 and 764.6 billion liters.<a href="#fn35" class="fn">[35]</a></p>
+
+  <p>Coal plant retirements across the United States are being actively delayed to meet data center electricity demand. The Trump administration has directed utilities to delay retirements of aging fossil fuel plants, framing the decision as a matter of grid reliability.<a href="#fn36" class="fn">[36]</a> Refurbishing an aging coal plant to extend its operational life can cost up to $1.3 billion, a cost recovered through customer rates.<a href="#fn25" class="fn">[25]</a></p>
+
+  <p>On nuclear: Microsoft signed a 20-year agreement to restart Three Mile Island Unit 1, an 835-megawatt reactor shut down in 2019, with operations targeted for 2028.<a href="#fn37" class="fn">[37]</a> The U.S. Department of Energy extended a $1 billion loan to support that restart and a $1.52 billion loan guarantee to reopen the Palisades Nuclear Plant in Michigan.<a href="#fn37" class="fn">[37]</a> Google signed the first corporate small modular reactor fleet deal in U.S. history with Kairos Power, targeting 500 megawatts beginning in 2030.<a href="#fn38" class="fn">[38]</a> The case for nuclear as a long-term solution has merit. The problem is timing: the facilities being built now are powered by what is available now.</p>
+
+  <div class="part-divider"><span>Part Six — The Health Costs Nobody Is Counting</span></div>
+
+  <p>Shaolei Ren, associate professor of electrical and computer engineering at the University of California, Riverside, estimated that air pollution from AI data centers and the power generation required to run them could cost the United States up to $20 billion per year in public health consequences by 2028.<a href="#fn39" class="fn">[39]</a> Writing in the Harvard Business Review in November 2025, Ren described data centers as creating air pollution including fine particulate matter resulting in significant respiratory consequences measurable in surrounding communities.</p>
+
+  <p>Air pollution comes from two primary sources: the power generation required to run facilities, particularly from natural gas peaker plants or aging coal infrastructure, which emit fine particulate matter, nitrogen oxides, sulfur dioxide, and other EPA-classified criteria pollutants; and the diesel backup generators virtually every large data center maintains on-site, which run on regular schedules for testing and maintenance, releasing exhaust directly into surrounding neighborhoods.</p>
+
+  <p>Kim Rueben of the Lincoln Institute of Land Policy noted that data center power demand generates particulate matter and nitrogen oxides that impact the growing lungs of children, can add cases of asthma, and can exacerbate heart disease and other underlying diseases in the elderly.<a href="#fn40" class="fn">[40]</a></p>
+
+  <p>The fiscal dimension of these health costs is not captured in any public accounting of the data center economy. When a state legislature debates a tax exemption, the analysis does not include the cost of increased emergency room visits in surrounding zip codes, the long-term burden on Medicaid and Medicare from respiratory illness near power generation infrastructure, the lost productivity from chronic health conditions, or the reduced property values that accompany documented noise and air quality degradation. Those costs are real. They are paid by the public. They do not appear in the spreadsheet presented to the committee.</p>
+
+  <p>Noise pollution dominates the testimony of residents at local hearings but receives almost no coverage nationally. Large data centers operate around the clock generating continuous mechanical noise from cooling systems, generators, and ventilation infrastructure at levels associated with sleep disruption, elevated stress hormones, and long-term cardiovascular effects. A resident of Lusby, Maryland testified before county commissioners that his community was already suffering from sound, light, air, and water pollution and that the cumulative burden was not visible in any of the economic analyses being presented to justify further development.<a href="#fn41" class="fn">[41]</a></p>
+
+  <p>The absence of mandatory federal disclosure requirements for data center emissions, water consumption, noise levels, and health impact assessments means that in most jurisdictions, communities have no reliable mechanism to measure what is being done to them. The Guardian investigation documenting 600 percent underreporting was possible only because of investigative journalism, not regulatory transparency.<a href="#fn32" class="fn">[32]</a> In the absence of mandatory disclosure, the default position is ignorance, and ignorance in this context benefits only the party with something to hide.</p>
+
+  <div class="part-divider"><span>Part Seven — The People Fighting Back</span></div>
+
+  <p>The numbers in the preceding sections describe a policy failure. The people in this section are its human consequence. They are not activists by profession or background. They are liquor store owners, retirees, farmers, parents, and local commissioners who looked at what was being proposed for their communities and decided that no one in a state capital or a corporate headquarters was going to make this decision for them without a fight.</p>
+
+  <p>According to Data Center Watch, there were 188 active opposition groups across 17 states as of mid-2025, targeting 30 active data center projects in that quarter alone.<a href="#fn42" class="fn">[42]</a> In the second quarter of 2025, opposition rose 125 percent compared to the prior period. During those three months, an estimated $98 billion worth of projects were blocked or delayed, more than the total opposition impact of all previous quarters since tracking began in 2023.<a href="#fn42" class="fn">[42]</a> By the end of 2025, local opposition had contributed to the delay or cancellation of projects totaling $156 billion in planned investment.<a href="#fn43" class="fn">[43]</a></p>
+
+  <p>The resistance is explicitly bipartisan. In Peculiar, Missouri, residents organized in opposition to a $1.5 billion proposal from Diode Ventures for a 500-acre data center campus. Following sustained community opposition, the Peculiar Board of Aldermen voted to remove the phrase "data center" from the city's zoning ordinance, with the amendment taking effect in October 2024, effectively blocking the project.<a href="#fn43" class="fn">[43]</a> Peculiar is a small town in Cass County that voted overwhelmingly Republican in the last several election cycles.</p>
+
+  <p>In Calvert County, Maryland, Commissioner Mike Hart, a Republican, proposed a two-year moratorium to give the county time to study data center impacts. The hearing room was packed; nearly a thousand more residents watched online.<a href="#fn44" class="fn">[44]</a> Corey Wathen of Lusby reported visiting Ashburn, Virginia, and speaking to residents there: they are not happy, he said. Everything sounds good in the beginning. Mark Guffrida addressed commissioners directly: please stop killing us. The moratorium was voted down 3-2.<a href="#fn44" class="fn">[44]</a></p>
+
+  <p>A Change.org petition calling for the moratorium gathered thousands of signatures. A referendum in Frederick County, Maryland gathered more than 15,000 signatures.<a href="#fn45" class="fn">[45]</a> One resident who watched the 3-2 vote addressed the three commissioners who opposed the moratorium from the microphone: You are not going to be here anymore. You are out. The room cheered.<a href="#fn44" class="fn">[44]</a></p>
+
+  <p>In New Jersey, residents of New Brunswick organized with the Climate Revolution Action Network and successfully blocked a proposed data center at a February 2026 city council meeting.<a href="#fn46" class="fn">[46]</a></p>
+
+  <p>In Texas, a rural landowner adjacent to a Stargate project site proposed a data center ban at a Falls County GOP precinct meeting in March 2026. They started screaming and yelling, she said afterward. You would have thought I started World War III.<a href="#fn47" class="fn">[47]</a> According to campaign finance records compiled by Transparency USA and reported by E&amp;E News, Governor Abbott received at least $1.6 million from tech executives in 2025 alone, with additional industry contributions expected through the general election cycle.<a href="#fn47" class="fn">[47]</a></p>
+
+  <p>In Indianapolis, a gunman fired shots into the home of a local city council member who had voted to rezone his district to allow a data center. The shooter left a handwritten note reading: NO DATA CENTERS. The council member was not harmed.<a href="#fn48" class="fn">[48]</a> The act was criminal and stands alone. It is also a data point about the depth of frustration building in communities that have been told their concerns are outweighed by investment projections they had no hand in creating.</p>
+
+  <div class="part-divider"><span>Part Eight — The Water Crisis in Plain Sight</span></div>
+
+  <p>There is a resource at the center of the AI data center story that receives a fraction of the attention devoted to electricity costs and carbon emissions, despite the fact that its depletion is, in many respects, more immediately irreversible. Electricity prices can come down. Water that has been consumed by a cooling system and evaporated into the atmosphere is simply gone.</p>
+
+  <p>The Washington Post analysis estimated that a single data center can consume up to 5 million gallons of water per day, roughly equivalent to the daily water use of a town of 50,000 people.<a href="#fn49" class="fn">[49]</a> A study by the Houston Advanced Research Center and the University of Houston found that data centers in Texas alone are projected to consume 49 billion gallons of water in 2025 and up to 399 billion gallons annually by 2030, an amount equivalent to drawing down Lake Mead by more than 16 feet in a single year.<a href="#fn50" class="fn">[50]</a></p>
+
+  <p>A peer-reviewed study published in 2025 estimated AI's total global water footprint in 2025 at between 312 billion and 767 billion liters.<a href="#fn35" class="fn">[35]</a> The IEA reported global data centers were responsible for 560 billion liters of water consumption in 2023.<a href="#fn10" class="fn">[10]</a> Many data centers use water-based cooling in which water absorbs heat from servers and is then evaporated. The evaporated water does not return to the local water table.</p>
+
+  <p>Microsoft, which has pledged to be water-positive by 2030, reported in its own sustainability documents that its water consumption increased substantially between 2020 and 2024 as its data center footprint expanded.<a href="#fn33" class="fn">[33]</a> California Governor Gavin Newsom vetoed legislation in October 2025 that would have required data centers to disclose their water consumption to state regulators, a bill that had passed the legislature with broad support.<a href="#fn51" class="fn">[51]</a></p>
+
+  <p>Food and Water Watch documented that utility cost increases driven by data center demand are spread across all ratepayers in a service area regardless of income, meaning a family struggling to pay its water bill in a drought-stressed county may find that bill increasing to subsidize the cooling needs of a facility owned by a company with a market capitalization in the hundreds of billions of dollars.<a href="#fn52" class="fn">[52]</a></p>
+
+  <div class="part-divider"><span>Part Nine — The China Argument and the Cost of Winning</span></div>
+
+  <p>There is a conversation stopper built into the architecture of the AI data center debate, deployed by both political parties with equal fluency. It arrives reliably whenever the costs documented in this piece are raised. The conversation stopper is three words: but what about China.</p>
+
+  <p>The argument has genuine merit that intellectual honesty requires acknowledging. The United States and China are engaged in a genuine and consequential competition over AI capability. AI systems have real and growing applications in military intelligence, logistics, surveillance, cybersecurity, and strategic planning. The Biden administration's export controls on advanced semiconductors, maintained and extended by the Trump administration, reflect a bipartisan national security consensus. The IBM analysis of the Stargate Project noted bipartisan alignment on the need for American AI leadership across both administrations.<a href="#fn53" class="fn">[53]</a></p>
+
+  <p>But the China argument, as deployed in domestic policy contexts, performs a function beyond strategic planning. It forecloses accountability. It converts every question about who pays and who benefits into a question about patriotism. It makes the rate increase on a working family in western Maryland a contribution to national security rather than a transfer of wealth to shareholders.</p>
+
+  <p>The Stargate Project includes MGX, an investment vehicle backed by the United Arab Emirates, as a lead investor.<a href="#fn1" class="fn">[1]</a> SoftBank, another lead investor, is a Japanese conglomerate with deep financial entanglements across Asia. The argument that this infrastructure represents purely American strategic capability requires ignoring that significant portions of the capital and therefore the return flow to entities whose strategic interests are not identical to those of the United States government or the American people.</p>
+
+  <p>The grid being stressed to its limits by AI demand is the same grid that military planners have identified as one of the most significant strategic vulnerabilities of the United States. Building AI infrastructure on top of a fragile and increasingly strained grid is not obviously a formula for resilient strategic capability.<a href="#fn54" class="fn">[54]</a></p>
+
+  <div class="opinion-block">
+    <span class="opinion-label">Opinion</span>
+    <p>A country that hollows out its middle class to fund the infrastructure of its wealthiest corporations is not strengthening its strategic position. It is undermining it. Winning a race by selling the shoes off the feet of the people cheering you on is not a strategy. It is an extraction.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Ten — The Political Architecture of Consent</span></div>
+
+  <p>The story told in the preceding nine sections did not happen by accident. It happened because a political architecture was constructed, carefully and over time, by well-funded interests operating in both parties simultaneously, that made these outcomes not merely possible but predictable.</p>
+
+  <p>Meta announced in 2025 that it would spend at least $65 million this midterm election cycle through new super PACs targeting state-level politicians in both Republican and Democratic states who support the AI industry.<a href="#fn47" class="fn">[47]</a> The Republican-facing vehicle, Forge the Future, spent more than $1 million in Texas Republican primaries alone in 2025.<a href="#fn47" class="fn">[47]</a></p>
+
+  <p>According to campaign finance records compiled by Transparency USA and reported by E&amp;E News, Governor Greg Abbott of Texas received at least $1.6 million from tech executives in 2025, with campaign finance records only available through the end of February 2026 and additional contributions expected before the general election.<a href="#fn47" class="fn">[47]</a> Virginia forfeited $1.6 billion in data center tax exemptions in a fiscal year while 30 transparency bills failed in the legislature.<a href="#fn20" class="fn">[20]</a> In Minnesota, a Democratic governor and a divided legislature passed a bipartisan bill extending data center tax breaks to the year 2077.<a href="#fn23" class="fn">[23]</a></p>
+
+  <p>The bipartisan character of this alignment is important to name directly because it is the mechanism by which accountability is avoided. When both parties have accepted the same donor money and made the same policy commitments, there is no opposition party to raise the questions that need raising. NPR documented in February 2026 that Republicans and Democrats at the state level were coming together on data center policy in what it described as bipartisan agreement, noting the alignment served interests beyond those of constituent communities.<a href="#fn55" class="fn">[55]</a></p>
+
+  <p>In 2023, a company named Hatchworks applied for Indiana's sales tax exemption under a subsidiary LLC. The award was granted before the state filing revealed Hatchworks was a subsidiary of Google.<a href="#fn24" class="fn">[24]</a> In Georgia, Governor Kemp vetoed a pause bill in 2024.<a href="#fn22" class="fn">[22]</a> Alexandria Ocasio-Cortez introduced a bill in 2026 calling for a nationwide moratorium on new AI data centers.<a href="#fn48" class="fn">[48]</a> The Trump administration signed executive orders expediting permitting and removing regulatory barriers.<a href="#fn1" class="fn">[1]</a> Neither process began with a town hall in Peculiar, Missouri.</p>
+
+  <div class="part-divider"><span>Conclusion — The Bill Will Come Due</span></div>
+
+  <p>The story told in this piece is not a story about artificial intelligence. It is a story about power, in both senses of the word.</p>
+
+  <p>The four companies leading this buildout spent a combined approximately $251 billion in 2024, approximately $410 billion in 2025, and are projected to spend $725 billion in 2026.<a href="#fn3" class="fn">[3]</a> They are receiving billions of dollars in annual tax exemptions that their own analysts have concluded do not pay for themselves.<a href="#fn21" class="fn">[21]</a> They are driving electricity rate increases falling on 40 million American households at well above the rate of inflation.<a href="#fn27" class="fn">[27]</a> They are consuming water at scales that threaten already stressed regional water systems.<a href="#fn50" class="fn">[50]</a> They are generating air pollution whose public health costs are estimated at up to $20 billion per year by 2028.<a href="#fn39" class="fn">[39]</a> They are doing all of this while producing a permanent domestic workforce estimated at fewer than 23,000 people nationwide.<a href="#fn14" class="fn">[14]</a></p>
+
+  <p>Those policy choices were made by real people. Governors who accepted donor money and approved tax exemptions. Legislators who passed subsidy programs without studying their return on investment. Utility commissioners who approved rate increases without requiring large users to pay their proportional share. Federal officials who expedited permits in the name of a national security argument simultaneously shielding a private profit motive from scrutiny. Executives who pledged carbon neutrality and water positivity while their actual emissions and consumption moved in the opposite direction.</p>
+
+  <p>The bill for all of this will come due. It will come due in electricity statements arriving every month in households that had no say in the infrastructure decisions driving them up. It will come due in water tables that do not recover, in children with asthma in communities near power generation infrastructure, in school budgets that never received the tax revenue that was exempted away. It will come due in the political reckoning already beginning in town halls and petition drives and primary challenges across the country.</p>
+
+  <p>The only question is whether the accountability arrives before or after the damage becomes permanent.</p>
+
+  <div class="part-divider"><span>You Decide</span></div>
+
+  <p>This publication is built on the premise that the American people are capable of evaluating evidence and reaching their own conclusions. What follows is an honest presentation of the strongest arguments on both sides, offered without editorializing.</p>
+
+  <h2>The case for the current pace and scale of AI data center development</h2>
+
+  <p>Artificial intelligence represents a genuine technological inflection point whose long-term economic and strategic consequences are not yet fully measurable. The country that leads in AI infrastructure will hold compounding advantages in medicine, logistics, scientific research, national defense, and economic productivity. The United States is in direct competition with China, which is building AI infrastructure at comparable scale with fewer environmental or community constraints. The investment being made is largely private capital. The Brookings Institution has documented that data centers do create local jobs, even if fewer than industry advocates claim.<a href="#fn56" class="fn">[56]</a> The nuclear investments being made by Microsoft, Google, and Amazon represent a serious long-term commitment to carbon-free baseload power. A slower buildout constrained by regulatory barriers does not eliminate costs. It defers them while allowing strategic competitors to widen their lead.</p>
+
+  <h2>The case for fundamental reform of the terms on which this buildout is proceeding</h2>
+
+  <p>The strategic argument for AI development does not require the specific fiscal arrangements that have accompanied it. A genuine national interest justification does not explain why companies need tax exemptions their own representatives have acknowledged do not influence siting decisions.<a href="#fn10" class="fn">[10]</a> It does not explain why residential ratepayers should absorb infrastructure costs disproportionately. It does not explain why communities have no enforceable right to know how much water a data center is consuming or what it is emitting. A University of Michigan brief, a Food and Water Watch analysis, a Ball State University economic study, and the documented work of Good Jobs First over more than a decade all conclude that the permanent employment generated per dollar of public subsidy in the data center industry is among the lowest of any subsidized sector in the American economy.<a href="#fn13" class="fn">[13]</a><a href="#fn14" class="fn">[14]</a><a href="#fn15" class="fn">[15]</a><a href="#fn17" class="fn">[17]</a> Reform does not require stopping the buildout. It requires mandatory disclosure, proportional cost sharing, return-on-investment standards for public subsidies, and genuine community input in permitting processes.</p>
+
+  <h2>Questions worth sitting with</h2>
+
+  <p>Should companies building this infrastructure on the back of public subsidies and public utility systems be required to disclose, in full, what they are consuming and what they are emitting? Should electricity rate increases driven by data center demand be borne equally by all residential customers, or should the industrial users generating that demand pay a larger share of the infrastructure costs they are creating? Should the national security argument for AI development be evaluated independently of the fiscal arrangements that have attached themselves to it? Should the communities most directly affected have a meaningful and enforceable role in the decisions that will shape their air, water, tax base, and quality of life for decades? And if the answer to any of those questions is yes, who is responsible for the fact that the answer, in practice, has so consistently been no?</p>
+
+  <!-- FOOTNOTES -->
+  <div class="footnotes">
+    <span class="footnotes-label">Footnotes</span>
+    <p class="footnote" id="fn1" data-n="1">Trump, Donald. White House Announcement, Stargate Project. January 21, 2025. OpenAI press release. Fox Business, January 22, 2025. Scientific American, January 22, 2025.</p>
+    <p class="footnote" id="fn2" data-n="2">IoT Analytics. Data Center Equipment and Infrastructure Market Report 2025-2030. November 2025. Company earnings reports, Alphabet, Microsoft, Amazon, Meta, fiscal year 2024. Combined capex total revised to approximately $251 billion per earnings report reconciliation; 62 percent increase over 2023 confirmed.</p>
+    <p class="footnote" id="fn3" data-n="3">Statista / company earnings guidance. Big Tech AI Capex projections 2026. April 30, 2026. Tom's Hardware, April 30, 2026. Financial Times Q1 2026 earnings compilation. 2025 combined capex updated to approximately $410 billion per Financial Times compilation.</p>
+    <p class="footnote" id="fn4" data-n="4">McKinsey and Company. Data center investment projections through 2030. Cited in IEEE ComSoc Technology Blog, November 1, 2025. McKinsey figure is approximately $6.7 trillion; Fortune, April 2026, confirms this range.</p>
+    <p class="footnote" id="fn5" data-n="5">Microsoft corporate blog. AI-enabled data center investment, fiscal year 2025. January 2025.</p>
+    <p class="footnote" id="fn6" data-n="6">Amazon earnings guidance. Capital expenditure projections, 2025. Company filings.</p>
+    <p class="footnote" id="fn7" data-n="7">Alphabet earnings guidance. Capital expenditure projections, 2025. Company filings.</p>
+    <p class="footnote" id="fn8" data-n="8">Meta earnings guidance. Capital expenditure projections, 2025. Company filings.</p>
+    <p class="footnote" id="fn9" data-n="9">OpenAI / Oracle. Stargate Project expansion announcement. E&amp;E News, September 25, 2025.</p>
+    <p class="footnote" id="fn10" data-n="10">International Energy Agency. Energy and AI. Paris: IEA, 2025. https://www.iea.org/reports/energy-and-ai</p>
+    <p class="footnote" id="fn11" data-n="11">Bloom Energy. U.S. Data Center Energy Demand Report. January 2026. Cited in Consumer Reports, March 2026.</p>
+    <p class="footnote" id="fn12" data-n="12">Institute on Taxation and Economic Policy. Meta Hyperion project energy analysis. Cited in Consumer Reports, March 2026.</p>
+    <p class="footnote" id="fn13" data-n="13">Ford School of Public Policy, University of Michigan. Data Centers and Local Employment. Policy Brief, July 2025.</p>
+    <p class="footnote" id="fn14" data-n="14">Food and Water Watch. New Research Debunks Data Center Industry Job Claims. January 7, 2026. Based on Virginia Economic Development Partnership data.</p>
+    <p class="footnote" id="fn15" data-n="15">LeRoy, Greg. Good Jobs First. Will Data Center Job Creation Live Up to Hype? March 23, 2026. Good Jobs First, Cloudy with a Loss of Spending Control. April 24, 2025.</p>
+    <p class="footnote" id="fn16" data-n="16">Good Jobs First. National data center subsidy analysis. Cited in Grist, January 26, 2026; Consumer Reports, March 2026.</p>
+    <p class="footnote" id="fn17" data-n="17">Hicks, Michael. Ball State University. Study of 254 Texas counties, net job creation from data center openings. Cited in Texas Tribune, 2026.</p>
+    <p class="footnote" id="fn18" data-n="18">NAIOP Commercial Real Estate Development Association. Overview of State Data Center-related Tax Incentives. Winter 2024-2025.</p>
+    <p class="footnote" id="fn19" data-n="19">Tarczynska, Kasia. Good Jobs First. Quoted in Consumer Reports, March 2026; Time, April 2025.</p>
+    <p class="footnote" id="fn20" data-n="20">Virginia Annual Comprehensive Financial Report, Fiscal Year 2025. Good Jobs First analysis. The Register, January 7, 2026.</p>
+    <p class="footnote" id="fn21" data-n="21">Virginia Joint Legislative Audit and Review Commission. Data Center Tax Exemption Report. 2024. JLARC found data centers to be the largest economic development incentive in the state and noted that growing energy demand from data centers is likely to increase other customers' costs; the report presented a mixed picture including economic benefits cited by the Virginia Economic Development Partnership.</p>
+    <p class="footnote" id="fn22" data-n="22">Good Jobs First. Cloudy with a Loss of Spending Control: How Data Centers Are Endangering State Budgets. April 24, 2025. Time, April 25, 2025.</p>
+    <p class="footnote" id="fn23" data-n="23">Minnesota Reformer. Minnesota lawmakers extend tax breaks for Big Tech data centers. 2025. State tax expenditure reports, Minnesota Department of Revenue.</p>
+    <p class="footnote" id="fn24" data-n="24">CNBC. Tax Breaks for Tech Giants' Data Centers Mean Less Income for States. June 20, 2025.</p>
+    <p class="footnote" id="fn25" data-n="25">Environmental and Energy Study Institute. Data Center Power Demands Are Contributing to Higher Energy Bills. February 2026. U.S. Energy Information Administration monthly electricity reports, 2025. EIA average residential rate for 2025 full year approximately 17.3 cents/kWh; January through May 2025 increase of approximately 9.5 percent per EIA monthly data. EIA Short-Term Energy Outlook projects 13 to 18 percent increase by 2026 relative to 2022 levels.</p>
+    <p class="footnote" id="fn26" data-n="26">U.S. Department of Energy. Data Centers and Cloud Computing Report. December 2024. Pew Research Center, October 24, 2025.</p>
+    <p class="footnote" id="fn27" data-n="27">Power Lines nonprofit. Rate request analysis, first three quarters 2025. Cited in Yahoo News / KTLA, 2025.</p>
+    <p class="footnote" id="fn28" data-n="28">Bloomberg News. AI Data Centers Are Sending Power Bills Soaring. September 29, 2025.</p>
+    <p class="footnote" id="fn29" data-n="29">SemiAnalysis Newsletter. Are AI Datacenters Increasing Electric Bills for American Households? March 3, 2026. PJM Interconnection capacity market data. Confirmed: PJM cleared at $28.92/MW-day (2024-25) and $269.92/MW-day (2025-26) per IEEFA and Congressional Research Service.</p>
+    <p class="footnote" id="fn30" data-n="30">Carnegie Mellon University. Data center and cryptocurrency mining electricity bill impact projections through 2030. Cited in Pew Research Center, October 2025.</p>
+    <p class="footnote" id="fn31" data-n="31">Dominion Energy. Petition to Virginia State Corporation Commission. Rate increase projections through 2039. Cited in Brookings Institution, 2025.</p>
+    <p class="footnote" id="fn32" data-n="32">The Guardian. Investigation into Big Tech data center emissions reporting, 2020-2022. Cited in Food and Water Watch, April 2025. Note: The figure reflects location-based vs. market-based accounting methodology; companies use renewable energy certificates in official reporting.</p>
+    <p class="footnote" id="fn33" data-n="33">Microsoft. Environmental Sustainability Report, 2024.</p>
+    <p class="footnote" id="fn34" data-n="34">Google / Alphabet. Environmental Report, 2024.</p>
+    <p class="footnote" id="fn35" data-n="35">de Vries, Alex and Gao, Tao. The carbon and water footprints of data centers and what this could mean for artificial intelligence. Nature / PMC. December 2024 preprint, published 2025. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12827721/</p>
+    <p class="footnote" id="fn36" data-n="36">OilPrice.com / U.S. Energy Information Administration. U.S. Fossil-Fuel Peaker Plants Delay Retirement as AI Power Demand Soars. December 2025.</p>
+    <p class="footnote" id="fn37" data-n="37">U.S. Department of Energy. Three Mile Island Unit 1 restart loan, $1 billion. Palisades Nuclear Plant loan guarantee, $1.52 billion. MIT Technology Review, May 2025.</p>
+    <p class="footnote" id="fn38" data-n="38">Google / Kairos Power. First corporate SMR fleet deal. Introl Blog, January 2026.</p>
+    <p class="footnote" id="fn39" data-n="39">Ren, Shaolei. Mitigating the Public Health Impacts of AI Data Centers. Harvard Business Review, November 5, 2025. University of California, Riverside.</p>
+    <p class="footnote" id="fn40" data-n="40">Rueben, Kim. Lincoln Institute of Land Policy. Data Drain: The Land and Water Impacts of the AI Boom. February 23, 2026.</p>
+    <p class="footnote" id="fn41" data-n="41">Guffrida, Mark. Public testimony, Calvert County Board of County Commissioners hearing. Reported by SoMD News, April 9, 2026.</p>
+    <p class="footnote" id="fn42" data-n="42">Data Center Watch / 10a Labs. Community opposition tracking reports, Q2 2025. Cited in Project Censored, January 2026; Fortune / AP, January 3, 2026.</p>
+    <p class="footnote" id="fn43" data-n="43">Data Center Watch and local news sources, 2024-2025. On Peculiar, Missouri: KSHB 41, Data Center Dynamics, October 2024. The Peculiar Board of Aldermen removed the term "data center" from the city zoning ordinance effective October 17, 2024, blocking Diode Ventures' $1.5 billion Harper Road Technology Park.</p>
+    <p class="footnote" id="fn44" data-n="44">SoMD News. Data center moratorium shot down in Calvert on split vote. April 9, 2026. The Daily Record, May 5, 2026. Winchester Star, April 14, 2026.</p>
+    <p class="footnote" id="fn45" data-n="45">Preservation Maryland. The Data Center Debate in Maryland. May 1, 2026. Change.org petition, Calvert County moratorium.</p>
+    <p class="footnote" id="fn46" data-n="46">Business Insider / AOL News. Big Tech wants more data centers. Residents in New Jersey city said not here. February 2026.</p>
+    <p class="footnote" id="fn47" data-n="47">E&amp;E News by POLITICO. Tech cash flows to Texas lawmakers debating data centers. April 6, 2026. Transparency USA campaign finance data. Governor Abbott received at least $1.6 million from tech executives in 2025; records cover through end of February 2026. Meta's Forge the Future PAC expenditures confirmed via campaign finance filings. CW39 / Texas Tribune. Texas Republicans have a data center problem. May 2026.</p>
+    <p class="footnote" id="fn48" data-n="48">The Daily Record / Winchester Star. Indianapolis shooting incident. April 2026. AOC moratorium bill, 2026.</p>
+    <p class="footnote" id="fn49" data-n="49">Washington Post. Data center water consumption analysis. Cited in National Wildlife Federation / Frontier Group report, January 2025.</p>
+    <p class="footnote" id="fn50" data-n="50">Houston Advanced Research Center (HARC) and University of Houston. Texas data center water consumption projections. Cited in Lincoln Institute of Land Policy, February 2026.</p>
+    <p class="footnote" id="fn51" data-n="51">The Register. Datacenter water use? California governor says don't ask, don't tell. October 13, 2025.</p>
+    <p class="footnote" id="fn52" data-n="52">Food and Water Watch. Artificial Intelligence: Big Tech's Big Threat to Our Water and Climate. April 9, 2025.</p>
+    <p class="footnote" id="fn53" data-n="53">IBM. What Is the Stargate Project? November 17, 2025. https://www.ibm.com/think/topics/stargate</p>
+    <p class="footnote" id="fn54" data-n="54">EcoEngineers. The Coming Power Crunch: AI, Data Centers, and the Strain on the Grid. February 13, 2026.</p>
+    <p class="footnote" id="fn55" data-n="55">NPR. On AI and Data Centers, State Lawmakers Find Bipartisan Agreement. February 26, 2026.</p>
+    <p class="footnote" id="fn56" data-n="56">Brookings Institution. New Evidence on Data Center Employment Effects. May 2026.</p>
+  </div>
+
+  <!-- BIBLIOGRAPHY -->
+  <div class="bibliography">
+    <span class="bibliography-label">Bibliography</span>
+
+    <span class="bib-category">Government and Regulatory Sources</span>
+    <p class="bib-entry">U.S. Department of Energy. Data Centers and Cloud Computing. December 2024.</p>
+    <p class="bib-entry">U.S. Energy Information Administration. Monthly Electricity Reports, 2025.</p>
+    <p class="bib-entry">International Energy Agency. Energy and AI. Paris: IEA, 2025.</p>
+    <p class="bib-entry">Virginia Joint Legislative Audit and Review Commission. Data Center Tax Exemption Report. 2024.</p>
+    <p class="bib-entry">Virginia Annual Comprehensive Financial Report, Fiscal Year 2025.</p>
+    <p class="bib-entry">Ford School of Public Policy, University of Michigan. Data Centers and Local Employment. Policy Brief, July 2025.</p>
+
+    <span class="bib-category">Academic and Peer-Reviewed Research</span>
+    <p class="bib-entry">de Vries, Alex and Gao, Tao. The carbon and water footprints of data centers and what this could mean for artificial intelligence. Nature / PMC, 2025.</p>
+    <p class="bib-entry">Houston Advanced Research Center (HARC) and University of Houston. Texas data center water consumption projections, 2025.</p>
+    <p class="bib-entry">Hicks, Michael. Ball State University. Study of net job creation from data center openings, 254 Texas counties.</p>
+    <p class="bib-entry">Carnegie Mellon University. Data center and cryptocurrency mining electricity bill impact study, 2025.</p>
+    <p class="bib-entry">Ren, Shaolei. University of California, Riverside. Air pollution and public health costs of AI data centers, 2024-2025.</p>
+
+    <span class="bib-category">Nonprofit and Accountability Research</span>
+    <p class="bib-entry">Good Jobs First. Cloudy with a Loss of Spending Control: How Data Centers Are Endangering State Budgets. April 24, 2025.</p>
+    <p class="bib-entry">Good Jobs First. Will Data Center Job Creation Live Up to Hype? March 23, 2026.</p>
+    <p class="bib-entry">Food and Water Watch. New Research Debunks Data Center Industry Job Claims. January 7, 2026.</p>
+    <p class="bib-entry">Food and Water Watch. Artificial Intelligence: Big Tech's Big Threat to Our Water and Climate. April 9, 2025.</p>
+    <p class="bib-entry">Brookings Institution. Boom or Bust: How to Protect Ratepayers from the AI Bubble. 2025.</p>
+    <p class="bib-entry">Brookings Institution. New Evidence on Data Center Employment Effects. May 2026.</p>
+    <p class="bib-entry">Pew Research Center. What We Know About Energy Use at U.S. Data Centers Amid the AI Boom. October 24, 2025.</p>
+    <p class="bib-entry">Lincoln Institute of Land Policy. Data Drain: The Land and Water Impacts of the AI Boom. February 23, 2026.</p>
+    <p class="bib-entry">NCRC. The Local Costs of the AI Boom. February 2026.</p>
+    <p class="bib-entry">Preservation Maryland. The Data Center Debate in Maryland. May 1, 2026.</p>
+    <p class="bib-entry">Data Center Watch / 10a Labs. Community opposition tracking reports, 2024-2025.</p>
+
+    <span class="bib-category">Investigative Journalism</span>
+    <p class="bib-entry">Bloomberg News. AI Data Centers Are Sending Power Bills Soaring. September 29, 2025.</p>
+    <p class="bib-entry">CNBC. Tax Breaks for Tech Giants' Data Centers Mean Less Income for States. June 20, 2025.</p>
+    <p class="bib-entry">CNBC. AI Data Center 'Frenzy' Is Pushing Up Your Electric Bill. November 26, 2025.</p>
+    <p class="bib-entry">Consumer Reports. AI Data Centers: Big Tech's Impact on Electric Bills, Water, and More. March 2026.</p>
+    <p class="bib-entry">E&amp;E News by POLITICO. Tech cash flows to Texas lawmakers debating data centers. April 6, 2026.</p>
+    <p class="bib-entry">The Guardian. Investigation into Big Tech data center emissions reporting, 2020-2022.</p>
+    <p class="bib-entry">NPR. On AI and Data Centers, State Lawmakers Find Bipartisan Agreement. February 26, 2026.</p>
+    <p class="bib-entry">Grist. Data Centers Are Facing an Image Problem. January 26, 2026.</p>
+    <p class="bib-entry">Texas Tribune / CW39. Texas Republicans have a data center problem. May 2026.</p>
+    <p class="bib-entry">Harvard Business Review. Mitigating the Public Health Impacts of AI Data Centers. November 5, 2025.</p>
+    <p class="bib-entry">Time. Why Tax Breaks for AI Data Centers Could Backfire on States. April 25, 2025.</p>
+    <p class="bib-entry">The Register. Virginia's datacenter tax breaks cost state $1.6B in 2025. January 7, 2026.</p>
+    <p class="bib-entry">The Register. Datacenter water use? California governor says don't ask, don't tell. October 13, 2025.</p>
+    <p class="bib-entry">Environmental and Energy Study Institute. Data Center Power Demands Are Contributing to Higher Energy Bills. February 2026.</p>
+    <p class="bib-entry">Fortune / Associated Press. Angry town halls nationwide find a new villain: the data center. January 3, 2026.</p>
+    <p class="bib-entry">SoMD News. Data center moratorium shot down in Calvert on split vote. April 9, 2026.</p>
+    <p class="bib-entry">The Daily Record. Southern MD county in the middle of a data center fight. May 5, 2026.</p>
+    <p class="bib-entry">OilPrice.com. U.S. Fossil-Fuel Peaker Plants Delay Retirement as AI Power Demand Soars. December 2025.</p>
+    <p class="bib-entry">MIT Technology Review. Can nuclear power really fuel the rise of AI? May 2025.</p>
+    <p class="bib-entry">ProPublica. Reporting on data center tax breaks in Washington State. Cited by NCRC, 2026.</p>
+
+    <span class="bib-category">Corporate Sources and Filings</span>
+    <p class="bib-entry">Microsoft. Corporate blog, AI-enabled data center investment commitment, FY2025.</p>
+    <p class="bib-entry">Microsoft. Environmental Sustainability Report, 2024.</p>
+    <p class="bib-entry">Alphabet / Google. Environmental Report, 2024.</p>
+    <p class="bib-entry">Alphabet / Google. Earnings guidance and investor filings, 2024-2025.</p>
+    <p class="bib-entry">Amazon. Earnings guidance and investor filings, 2024-2025.</p>
+    <p class="bib-entry">Meta. Earnings guidance and investor filings, 2024-2025.</p>
+    <p class="bib-entry">OpenAI / Oracle. Stargate Project announcement and expansion, January-September 2025.</p>
+    <p class="bib-entry">Bloom Energy. U.S. Data Center Energy Demand Report. January 2026.</p>
+    <p class="bib-entry">Statista. Big Tech capital expenditure projections, 2026.</p>
+
+    <span class="bib-category">Additional Sources</span>
+    <p class="bib-entry">IBM. What Is the Stargate Project? November 17, 2025. https://www.ibm.com/think/topics/stargate</p>
+    <p class="bib-entry">EcoEngineers. The Coming Power Crunch: AI, Data Centers, and the Strain on the Grid. February 13, 2026.</p>
+    <p class="bib-entry">SemiAnalysis Newsletter. Are AI Datacenters Increasing Electric Bills for American Households? March 3, 2026.</p>
+    <p class="bib-entry">Minnesota Reformer. Minnesota lawmakers extend tax breaks for Big Tech data centers. 2025.</p>
+    <p class="bib-entry">NAIOP. Overview of State Data Center-related Tax Incentives. Winter 2024-2025.</p>
+    <p class="bib-entry">Project Censored. Communities Push Back Against AI Data Center Expansion. January 8, 2026.</p>
+    <p class="bib-entry">Tom's Hardware. Local political revolts threaten to derail US data center projects. April 17, 2026.</p>
+    <p class="bib-entry">Change.org. Pause Data Centers in Calvert County petition. March 2026.</p>
+    <p class="bib-entry">Transparency USA. Texas campaign finance data, 2025-2026.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
