@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Invisible Conduit — Political Hypocrites</title>
+  <meta name="description" content="How the United States Government Uses Foreign Aid Intermediaries to Disburse, Obscure, and Lose Accountability Over American Taxpayer Dollars Abroad." />
+  <meta property="og:title" content="The Invisible Conduit — Political Hypocrites" />
+  <meta property="og:description" content="Both parties built it. Both parties funded it. A documented examination of 60 years of foreign assistance accountability failures, from primary government records, Inspector General reports, and Department of Justice court filings." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/the-invisible-conduit" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Invisible Conduit — Political Hypocrites" />
+  <meta name="twitter:description" content="How the U.S. Government Uses Foreign Aid Intermediaries to Disburse, Obscure, and Lose Accountability Over American Taxpayer Dollars Abroad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.25rem);
+      font-style: italic; color: rgba(20,10,5,0.50);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.40); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.3); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .part-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .part-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: rgba(20,10,5,0.90);
+      margin: 2.2rem 0 1rem; line-height: 1.3;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem; line-height: 1;
+      vertical-align: super;
+      color: var(--red); text-decoration: none;
+      margin-left: 1px; padding: 0 1px;
+      transition: color 0.15s; cursor: pointer;
+    }
+    .fn:hover { color: var(--blue); }
+    .fn.active { color: #F5EDD8; background: var(--red); padding: 1px 3px; }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.2);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.30); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.60) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.40); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.50); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: var(--red); }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>›</span>
+    <span class="current">The Invisible Conduit</span>
+  </div>
+  <span class="article-label">Investigation — June 2026</span>
+  <h1 class="article-title">The Invisible Conduit</h1>
+  <p class="article-subtitle">How the United States Government Uses Foreign Aid Intermediaries to Disburse, Obscure, and Lose Accountability Over American Taxpayer Dollars Abroad</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">June 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Ten + Conclusion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Sources</span>
+      <span class="meta-value">Primary Government Records</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Investigation</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=The+Invisible+Conduit%3A+How+the+U.S.+Government+Uses+Foreign+Aid+Intermediaries+to+Disburse%2C+Obscure%2C+and+Lose+Accountability+Over+American+Taxpayer+Dollars+Abroad&url=https%3A%2F%2Fpolitical-hypocrites.vercel.app%2Finvestigations%2Fthe-invisible-conduit" target="_blank" rel="noopener" class="share-btn">Share &#x2197;</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- INTRODUCTION -->
+  <div class="article-section">
+    <span class="part-label">Introduction</span>
+    <h2 class="part-title">The Architecture of Unaccountability</h2>
+
+    <p class="article-lede">When Congress appropriates money for foreign aid, it does not write a check to a village in Ethiopia or a hospital in Jordan. It appropriates funds to the U.S. Agency for International Development, which awards contracts and grants to American prime contractors, who subcontract to implementing organizations, who fund local partner NGOs, who distribute assistance to beneficiaries whose identities are verified, when they are verified at all, by third-party monitors hired by the same contractors that benefit from continued program funding. By the time a dollar authorized by Congress reaches an intended beneficiary abroad, it has passed through a minimum of four institutional hands, each taking overhead, each operating under different legal accountability frameworks, and the last of which may be operating in a country where American auditors cannot travel safely and program monitoring is conducted remotely from a neighboring country.<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+
+    <p>This is not an allegation. It is the documented structural reality of the American foreign assistance system, described in exactly these terms by the Government Accountability Office, the USAID Inspector General, and multiple congressional investigations spanning more than two decades. In fiscal year 2023, this system disbursed approximately $44 billion across 160 countries and regions, administered through 18 separate federal agencies and thousands of implementing organizations worldwide.<a href="#fn2" class="fn" id="ref2">[2]</a><a href="#fn3" class="fn" id="ref3">[3]</a></p>
+
+    <p>The system was not designed by one party. It was not exposed by one party. It was built over 60 years by bipartisan congressional majorities and signed into law by presidents of both parties. The Trump administration's 2025 decision to freeze and ultimately dismantle USAID put this system on the front pages of American newspapers for the first time in decades. That attention was warranted. What was not warranted was the implication that the problems being exposed were the product of any single administration or any single political tendency. The documented record, drawn entirely from government sources, tells a different and more uncomfortable story.</p>
+
+    <p>This article traces that record. It does not argue that foreign assistance is inherently wasteful or that every dollar disbursed abroad represents a failure. The documented fraud rate in USAID programs, based on formally disallowed costs in Inspector General audits, is a fraction of a percent.<a href="#fn4" class="fn" id="ref4">[4]</a> The article argues something more specific and more troubling: that the structural design of the foreign assistance system creates accountability gaps that have been documented for decades, exploited repeatedly, and funded continuously by both parties regardless of what the oversight record showed.</p>
+  </div>
+
+  <!-- PART ONE -->
+  <div class="article-section">
+    <span class="part-label">Part One</span>
+    <h2 class="part-title">Scale, Structure, and the Built-In Accountability Gap</h2>
+
+    <p>The total budget authority available to USAID in fiscal year 2023 was approximately $50 billion, reflecting multiple overlapping funding streams from Congress, the State Department, and emergency supplemental appropriations.<a href="#fn5" class="fn" id="ref5">[5]</a> Of this, USAID managed more than $35 billion in combined appropriations in fiscal year 2024 and provided assistance to approximately 130 countries. The top ten recipients in that year were Ukraine, the Democratic Republic of Congo, Jordan, Ethiopia, the West Bank and Gaza, Sudan, Nigeria, Yemen, Afghanistan, and South Sudan.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+
+    <p>These are the headline numbers. They do not capture the full scale of American foreign assistance because USAID is not the only vehicle. The State Department disbursed $21.3 billion in foreign aid in fiscal year 2023, representing nearly 30 percent of total disbursements. The Treasury Department, the Department of Health and Human Services, the Millennium Challenge Corporation, and 14 additional agencies disbursed the remainder. Total U.S. foreign assistance in fiscal year 2023 was $71.9 billion, making the United States the single largest humanitarian aid donor in the world, accounting for more than 40 percent of all humanitarian aid tracked by the United Nations in 2024.<a href="#fn7" class="fn" id="ref7">[7]</a> A separate measure using obligations rather than disbursements places total U.S. foreign assistance for FY2023 at approximately $99.9 billion according to the Congressional Research Service. Both figures are real; they answer different questions. The $71.9 billion disbursement figure is what was actually spent in the year and is the figure most commonly cited by Pew Research and USAID's own dashboards.</p>
+
+    <div class="stat-callout">
+      <div class="stat-num">282%</div>
+      <p class="stat-desc">Increase in USAID obligations to Public International Organizations from FY2019 to FY2022 — from $5.6 billion to $21.4 billion — while PIOs are not subject to the same rigorous oversight regulations as direct grantees. Source: USAID OIG, August 2024.</p>
+    </div>
+
+    <p>The accountability problem begins with the structure. Between fiscal year 2019 and fiscal year 2022, USAID's obligations and disbursements to Public International Organizations increased by 282 percent, from $5.6 billion to $21.4 billion. These organizations are not subject to the same rigorous oversight regulations as direct grantees and contractors. USAID's own Inspector General found in August 2024 that USAID had "limited insight into how PIOs manage billions of dollars in U.S. funding" and documented that of the 67 PIOs receiving USAID funding between fiscal years 2019 and 2022, totaling $45.9 billion, expected due diligence mechanisms were not consistently performed.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+
+    <p>The formal financial audit of USAID's own statements for fiscal year 2024 found the financial statements fairly presented. It simultaneously identified two significant internal control deficiencies in personnel, payroll, and lease reporting, and noted that these were repeat or modified-repeat findings from prior years.<a href="#fn9" class="fn" id="ref9">[9]</a> A clean audit opinion does not mean that the programs funded by those finances are reaching their intended beneficiaries. The Inspector General's programmatic investigations, discussed throughout this article, establish that they frequently do not.</p>
+
+    <p>USAID set a goal of channeling 25 percent of eligible funding through local organizations, but by FY2023 had reached only 9.6 percent, down from 10.2 percent the prior year, according to USAID's own data. Prime contractors dominate the initial disbursement tier, and accountability declines at each subsequent link in the chain running from Congress to USAID to a prime contractor to a subcontractor to a local implementing NGO.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+  </div>
+
+  <!-- PART TWO -->
+  <div class="article-section">
+    <span class="part-label">Part Two</span>
+    <h2 class="part-title">The Bipartisan Architecture</h2>
+
+    <p>The foundational legal authority for all American foreign assistance is the Foreign Assistance Act of 1961, signed by President Kennedy.<a href="#fn11" class="fn" id="ref11">[11]</a> That act established USAID as an independent agency and created the statutory framework within which every subsequent foreign assistance program, including every program discussed in this article, was authorized and funded.</p>
+
+    <p>Twenty-two years later, under President Reagan, Congress created the National Endowment for Democracy with explicit bipartisan support. NED's structure was itself a statement of bipartisan intent: its four core institutional grantees were the International Republican Institute, affiliated with the Republican Party; the National Democratic Institute for International Affairs, affiliated with the Democratic Party; the AFL-CIO's Solidarity Center; and the U.S. Chamber of Commerce's Center for International Private Enterprise. Both major parties had their own institutional vehicle inside the NED structure from its first day of operation.<a href="#fn12" class="fn" id="ref12">[12]</a></p>
+
+    <p>The George W. Bush administration dramatically expanded democracy promotion spending after September 11, 2001. USAID spending on democracy and governance programs alone increased from $671 million in fiscal year 2002 to $1.2 billion in fiscal year 2004, with nearly the entire increase directed to Iraq and Afghanistan. The International Republican Institute and National Democratic Institute devoted approximately half their combined budgets to Iraq and the Middle East during this period. The NED's budget doubled, with the entire increase directed to the Middle East democracy initiative.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+
+    <p>The Obama, Bush, and Biden administrations all continued and in several cases expanded the democracy promotion funding architecture. As an independent analysis documented in September 2025, "The George W. Bush, Obama, and Biden administrations continued to strongly support and fund these priorities through the War on Terror and the more recent framing of foreign policy as a contest between U.S.-led democracies versus autocratic states." For 75 years, from the creation of USAID under Kennedy through the Biden administration, Republicans and Democrats alike built and funded this system. The 2025 Trump administration actions were a departure from that consensus, not an exposure of something one party had done to the other.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+  </div>
+
+  <!-- PART THREE -->
+  <div class="article-section">
+    <span class="part-label">Part Three</span>
+    <h2 class="part-title">What the Money Is Used For</h2>
+
+    <p>Health has been the largest USAID sector by funding since the early 1990s, bolstered since 2004 by more than $120 billion to date for the President's Emergency Plan for AIDS Relief, known as PEPFAR. PEPFAR has provided antiretroviral treatment for more than 20 million people and has been assessed as one of the most cost-effective public health programs in the history of American foreign policy. In fiscal year 2022, humanitarian assistance surpassed health as the largest sector, driven by the Ukraine response.<a href="#fn15" class="fn" id="ref15">[15]</a></p>
+
+    <p>It is in the democracy and governance category, and in the humanitarian assistance delivered through conflict zones, that the accountability problems documented in this article are most concentrated. These are the programs that operate in the most dangerous environments, rely most heavily on remote monitoring, pass most frequently through the longest subcontracting chains, and are most difficult for American auditors to verify directly.</p>
+
+    <p>A 2024 GAO report examining USAID risk management in conflict zones found that, contrary to leading federal practices, USAID did not comprehensively assess or document fraud risks in the conflict-affected countries selected for review, specifically Nigeria, Somalia, and Ukraine. The report found that USAID's ability to conduct direct oversight in these environments was limited and that it relied largely on remote third-party monitoring, with inconsistent guidance on how that monitoring should be used to detect fraud.<a href="#fn16" class="fn" id="ref16">[16]</a></p>
+
+    <p>In 2019, the USAID Inspector General testified under oath to the Senate Appropriations Subcommittee that a $150 million U.S. pledge to help Iraqis return to communities freed from ISIS was placed on hold because of fraud allegations. USAID's cross-border Syria programs had been similarly exploited. A 2016 GAO review found that of nine implementing partners in the Syria program sample, only four had conducted fraud risk assessments at all.<a href="#fn17" class="fn" id="ref17">[17]</a><a href="#fn18" class="fn" id="ref18">[18]</a></p>
+  </div>
+
+  <!-- PART FOUR -->
+  <div class="article-section">
+    <span class="part-label">Part Four</span>
+    <h2 class="part-title">The Money That Cannot Be Fully Accounted For</h2>
+
+    <p>The question of how much foreign assistance money cannot be accounted for requires methodological precision, because the honest answer involves numbers of very different character that are frequently conflated in public debate.</p>
+
+    <p>In sworn testimony before the House Foreign Affairs Committee in February 2025, a former senior USAID official stated that a government audit showed USAID could not account for overhead charges on more than $142 billion in awards, and that USAID partners were charging 50 percent or more in overhead.<a href="#fn19" class="fn" id="ref19">[19]</a> This figure has not been independently verified by GAO or the USAID Inspector General and represents the official's characterization of an audit finding rather than a formally issued oversight report. It is cited here as sworn congressional testimony, which is what it is.</p>
+
+    <div class="stat-callout">
+      <div class="stat-num">$31.33M</div>
+      <p class="stat-desc">Formally disallowed costs from 284 SIGAR financial audits covering $10 billion in Afghanistan reconstruction spending. The disallowed cost rate was approximately 0.3 percent in a war zone. Source: SIGAR / Center for Global Development, 2025.</p>
+    </div>
+
+    <p>The formally documented figures, drawn from Inspector General and GAO audit records, tell a more precise but still significant story. SIGAR conducted 284 financial audits of $10 billion in Afghanistan reconstruction spending through December 2024. Auditors questioned $540 million in costs. Of that, $31.33 million was formally disallowed, meaning USAID determined those specific charges were unallowable under contract terms. The disallowed cost rate was approximately 0.3 percent in a war zone.<a href="#fn20" class="fn" id="ref20">[20]</a></p>
+
+    <p>A note on how these figures relate to SIGAR's total record: the $10 billion figure covers a specific subset of SIGAR's work, the formal financial audits of individual programs. SIGAR's broader oversight portfolio produced 427 total audits, 191 special project reports, 52 quarterly reports to Congress, and 160 criminal convictions, with $3.84 billion in cumulative savings and recoveries from the full $145 billion reconstruction program. The 0.3 percent disallowance rate reflects only what auditors could definitively prove was unallowable. It does not capture the far larger documented problem of programs that were funded, completed on paper, and failed to achieve their intended purposes.</p>
+
+    <p>In the Trump administration's first weeks of February 2025, the USAID Inspector General warned that the administration's actions had left oversight of $8.2 billion in unspent humanitarian aid largely non-operational, with a greatly reduced ability to ensure that no assistance fell into the hands of violent extremist groups. The Inspector General was fired the following day.<a href="#fn21" class="fn" id="ref21">[21]</a></p>
+
+    <p>The documented specific fraud cases publicly cited to justify shutting down USAID totaled approximately $120 million over two decades, or roughly $6 million per year, representing approximately 0.026 percent of the annual USAID budget.<a href="#fn22" class="fn" id="ref22">[22]</a> That figure was calculated by the Center for Global Development specifically to measure the cases the Trump administration highlighted in its public justifications for dismantling USAID, not to quantify all documented fraud or waste. It does not capture the broader category of program failure: the Afghanistan record alone documents $26 to $29 billion in waste across a $145 billion program per SIGAR's December 2025 final report. What the $120 million figure does establish is that the specific evidence cited to justify the most sweeping dismantling of American foreign assistance infrastructure in the agency's history was disproportionately small relative to the scale of what was eliminated, including the oversight apparatus that was finding and prosecuting fraud on an ongoing basis.</p>
+
+    <p>USAID's own management challenge reports have documented "nonexistent beneficiaries" as a finding category for more than a decade before the current debate began.<a href="#fn23" class="fn" id="ref23">[23]</a></p>
+  </div>
+
+  <!-- PART FIVE -->
+  <div class="article-section">
+    <span class="part-label">Part Five</span>
+    <h2 class="part-title">Documented Cases of Ghost Organizations and Diverted Funds</h2>
+
+    <p>The most serious documented cases of foreign assistance fraud are not abstract accounting irregularities. Several involve the diversion of American taxpayer money to organizations that falsified their beneficiary records, entities that operated as fronts for criminal enterprises, and in the most alarming cases, the documented provision of American-funded food and supplies to designated terrorist organizations.</p>
+
+    <h3 class="section-heading">Syria: The Clearest Record</h3>
+
+    <p>The Syria cross-border humanitarian assistance programs produced the most extensively documented fraud record in recent USAID history. Between fiscal years 2012 and 2016, USAID provided more than $3.7 billion in emergency humanitarian assistance to Syrians. The conflict environment, combined with the cross-border operational model run from Turkey and Jordan by multiple NGOs, created conditions in which oversight was structurally limited and fraud was structurally easy.</p>
+
+    <div class="doc-callout">
+      <span class="doc-callout-label">USAID OIG Investigative Summary — November 2024</span>
+      <p>Mahmoud Al Hafyan, head of a USAID-funded NGO, diverted more than $9 million in food assistance to the Al-Nusrah Front, an Al-Qaeda affiliate. USAID had awarded $122 million to this NGO between January 2015 and November 2018. Al Hafyan and his co-conspirators falsified beneficiary logs across multiple Syrian villages, inflating the number of families recorded as receiving food kits to conceal the diversion to terrorist commanders. The USAID Inspector General described the case as "one of the most significant diversions of USAID-funded humanitarian aid that USAID-OIG has investigated." As of publication, Al Hafyan has not been taken into custody. An active arrest warrant remains outstanding.</p>
+    </div>
+
+    <p>The case was investigated jointly by USAID OIG and the FBI's Counterterrorism Division.<a href="#fn24" class="fn" id="ref24">[24]</a> It was not an isolated incident. The USAID OIG's Iraq-Syria Investigations Dashboard documented that employees of a separate NGO knowingly diverted USAID-funded food kits to Hay'at Tahrir al-Sham, also an Al-Qaeda affiliate, by allowing HTS fighters to be included among program beneficiaries and submitting falsified beneficiary lists to USAID. USAID suspended the $44.6 million program in February 2018 as a result. A separate sub-awardee had, in 2013, falsified pay slips and charged USAID for the salaries of employees who had left the organization months earlier.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+    <p>In 2016, USAID OIG documented a network of commercial vendors, NGO employees, and others who colluded in bid-rigging, bribery, and kickback schemes for humanitarian aid contracts run from Turkey. The investigation resulted in the suspension of 14 entities and individuals from receiving U.S. government awards.<a href="#fn26" class="fn" id="ref26">[26]</a></p>
+
+    <p>The International Rescue Committee, one of the most prominent humanitarian organizations in the world, settled a False Claims Act case with the U.S. Department of Justice in March 2021 for $6.9 million. The settlement resolved allegations that IRC staff had participated in a collusion and kickback scheme with a Turkish supply ring, including bid-rigging in the selection of goods and services contracts for Syria cross-border humanitarian relief between 2012 and 2015. The Acting USAID Inspector General stated in the settlement announcement that "aid organizations that lack proper monitoring and oversight controls over their procurement processes put taxpayer dollars at risk and compromise the delivery of critical assistance to those in need."<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+
+    <h3 class="section-heading">The Large Contractor Cases</h3>
+
+    <p>The fraud problem in American foreign assistance is not limited to small NGOs operating in conflict zones. Some of the most significant documented cases involve large American contractors awarded hundreds of millions of dollars in reconstruction contracts.</p>
+
+    <p>The Louis Berger Group, an international engineering consulting firm, was found to have run a nearly 20-year scheme of billing USAID for falsely inflated overhead rates on reconstruction contracts in Iraq, Afghanistan, and other countries. The company's CEO directed subordinates to pad time sheets, charge non-federal overhead to federal accounts, and target a specific overhead rate regardless of actual costs, over a period running from at least 1990 through 2009. The total settlement reached $69.3 million, representing at the time the largest government recovery in a war-zone contractor fraud case. The fraud ran across the first Bush, Clinton, and second Bush administrations.<a href="#fn28" class="fn" id="ref28">[28]</a></p>
+
+    <p>The Harbert Companies case illustrates that contractor fraud in American foreign assistance predates the post-September 11 wars entirely. Following the 1978 Camp David Accords, the United States provided substantial economic assistance to Egypt through USAID, including funding for sewer system construction in Cairo and Alexandria. Harbert Corporation and affiliated entities conspired to rig the bidding on those USAID-funded contracts in the late 1980s and early 1990s, paying potential competitors to either not bid or bid intentionally high. A whistleblower lawsuit filed in 1995 eventually produced a jury verdict and a $47 million settlement finalized in 2012.<a href="#fn29" class="fn" id="ref29">[29]</a></p>
+
+    <h3 class="section-heading">Other Documented Cases</h3>
+
+    <p>In South Africa, a project director on a USAID cooperative agreement fraudulently claimed housing allowances for nine consecutive years, from June 2014 through May 2023, by falsely representing that she was renting a house she actually owned. She created fake documents and fabricated electronic communications with a fictitious person to support her claims. The case resulted in a 2025 indictment.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+
+    <p>In Kenya, the USAID Inspector General has an active and ongoing investigation into allegations of large-scale fraud and money laundering in USAID-funded programs, including a situational alert regarding concerns about government-to-government award accountability.<a href="#fn31" class="fn" id="ref31">[31]</a></p>
+  </div>
+
+  <!-- PART SIX -->
+  <div class="article-section">
+    <span class="part-label">Part Six</span>
+    <h2 class="part-title">The Afghanistan Reconstruction Record</h2>
+
+    <p>The Afghanistan reconstruction program deserves its own section not because it is the worst case of fraud in the record, but because it is the most complete and most thoroughly documented case of a structural failure that persisted across four consecutive administrations, was known to Congress through quarterly reports from an independent watchdog, and produced a result that the government's own Inspector General described in terms that have no precedent in the history of American oversight.</p>
+
+    <div class="stat-callout">
+      <div class="stat-num">$145B</div>
+      <p class="stat-desc">Spent by the United States over 20 years attempting to rebuild Afghanistan. The Department of Defense spent an additional $837 billion on warfighting during the same period. The Taliban completed its takeover in approximately 72 hours following American withdrawal. Source: SIGAR Congressional testimony, October 2021.</p>
+    </div>
+
+    <p>The Special Inspector General for Afghanistan Reconstruction, established by Congress in 2008, produced 427 audits, 191 special project reports, 52 quarterly reports to Congress, and 11 comprehensive lessons-learned reports over 13 years of oversight. Its criminal investigations produced 160 convictions. Its cumulative oversight work produced $3.84 billion in savings and recoveries from a $145 billion program. Every quarterly report was transmitted to the Congress that continued to appropriate money for the program.<a href="#fn32" class="fn" id="ref32">[32]</a></p>
+
+    <p>SIGAR's capstone report, published in August 2021 and built on more than 760 interviews and thousands of government documents, documented its conclusions plainly: the U.S. government continuously struggled to develop a coherent strategy; consistently underestimated the time required and created unrealistic timelines that prioritized spending speed over effectiveness; built infrastructure that Afghans lacked the capacity to sustain; conducted insufficient monitoring and evaluation; and prioritized American political preferences over achievable outcomes.<a href="#fn33" class="fn" id="ref33">[33]</a></p>
+
+    <div class="pull-quote">
+      <p>"We just don't have a post-conflict stabilization model that works. Every time we have one of these things, it is a pick-up game. I don't have confidence that if we did it again, we would do any better." — Former National Security Advisor Stephen Hadley, speaking to SIGAR. Documented in SIGAR-21-46-LL, August 2021.</p>
+    </div>
+
+    <p>A 2016 SIGAR lessons-learned report on corruption documented that American money actively fueled the corruption networks it was intended to displace, and that this dynamic was known to the U.S. government as programs continued to be funded. This report was produced during the Obama administration based on programs running across the Bush and Obama administrations.<a href="#fn34" class="fn" id="ref34">[34]</a></p>
+
+    <p>Fifty-two quarterly reports were delivered to Congress. Appropriations continued. This is the foundational evidence that the accountability failure in Afghanistan was not hidden from elected officials of either party but documented, transmitted, read, and funded regardless.<a href="#fn35" class="fn" id="ref35">[35]</a></p>
+  </div>
+
+  <!-- PART SEVEN -->
+  <div class="article-section">
+    <span class="part-label">Part Seven</span>
+    <h2 class="part-title">UNRWA and the Gaza Oversight Failure</h2>
+
+    <p>The United Nations Relief and Works Agency for Palestine Refugees, known as UNRWA, received U.S. government funding administered through USAID for decades. It operates schools, hospitals, and humanitarian programs across Gaza, the West Bank, Jordan, Syria, and Lebanon, serving a population of approximately 5.9 million registered Palestinian refugees.</p>
+
+    <p>On October 7, 2023, Hamas and affiliated militants launched a coordinated attack on Israeli communities, killing approximately 1,200 people and taking approximately 250 hostages. In January 2024, allegations emerged that 12 UNRWA staff members had participated in the attack. The Biden administration temporarily suspended additional USAID contributions to UNRWA pending investigation. Secretary of State Blinken spoke directly with UN Secretary-General Guterres on January 25, 2024, to emphasize the necessity of a thorough and swift investigation.<a href="#fn36" class="fn" id="ref36">[36]</a></p>
+
+    <p>The USAID Inspector General's investigation has proceeded independently of the political decisions made about UNRWA funding. As of April 30, 2026, the investigation has produced suspension and debarment referrals for seven individuals confirmed to have participated in the October 7 attacks and 14 individuals with confirmed Hamas affiliation, for a total of 21 UNRWA staff members.<a href="#fn37" class="fn" id="ref37">[37]</a></p>
+
+    <p>The first known U.S. government-wide debarment of an individual affiliated with a terrorist organization connected to a UN humanitarian agency has been executed: Hafez Mousa Mohammed Mousa, an UNRWA school principal and operative of Hamas's East Jabalya Battalion, received a 10-year government-wide debarment. Among the other individuals identified are three UNRWA-employed teachers and a social worker alleged to have participated in holding Israeli civilians hostage.<a href="#fn38" class="fn" id="ref38">[38]</a></p>
+
+    <p>In May 2024, during the Biden administration, the USAID OIG issued a formal alert to all implementing partners affirming their obligation to report any prohibited funding flows to UNRWA. This alert was issued eight months after October 7. The OIG's July 2024 advisory designated Gaza as a high-risk area for potential diversion and misuse of U.S.-funded assistance.<a href="#fn39" class="fn" id="ref39">[39]</a></p>
+
+    <p>The House Committee on Oversight and Government Reform has documented that UNRWA, at the direction of UN headquarters, redacted documentation requested by USAID OIG related to terminated employees implicated in the October 7 attacks. The Trump administration issued an executive order in February 2025 terminating all U.S. funding of UNRWA.<a href="#fn40" class="fn" id="ref40">[40]</a></p>
+  </div>
+
+  <!-- PART EIGHT -->
+  <div class="article-section">
+    <span class="part-label">Part Eight</span>
+    <h2 class="part-title">The Cuba Democracy Program</h2>
+
+    <p>The Cuba democracy promotion program is the cleanest single case study of the bipartisan nature of the accountability problem, because it spans from 1996 through at least 2014 under four different administrations, produced documented grant fraud under Republican oversight and documented operational deception under Democratic oversight, and ultimately contributed to a diplomatic rupture that the administration involved publicly acknowledged.</p>
+
+    <p>Since 1996, Congress has appropriated $205 million to USAID and the State Department to support democracy assistance for Cuba. In 2006, GAO found weaknesses in program oversight that increased the risk of improper fund use. In 2008, misuse of grant funds was detected at organizations receiving the Cuba program's two largest grants. USAID suspended both grantees pending Inspector General investigations. GAO had found substantial charges to grantee credit cards that were not supported by receipts listing items purchased. This fraud occurred during the Bush administration.<a href="#fn41" class="fn" id="ref41">[41]</a></p>
+
+    <p>The more significant Cuba program story involves ZunZuneo, a Twitter-like social networking platform that the USAID Office of Transition Initiatives built for Cuban users beginning in 2009. Based on documents obtained by the Associated Press and published in April 2014, USAID created the program using shell companies incorporated in Spain and the Cayman Islands, financed through a foreign bank account, deliberately designed to conceal U.S. government involvement. The platform reached approximately 40,000 Cuban subscribers, who were entirely unaware they were participating in a U.S. government operation and were having their demographic data collected. The program had been funded through appropriations notionally designated for Pakistan.<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+
+    <p>USAID's own Inspector General review, published in December 2015, confirmed that ZunZuneo was designed to carry out the Commission for Assistance to a Free Cuba's recommendations to foster democracy by bypassing Cuban government communications restrictions.<a href="#fn43" class="fn" id="ref43">[43]</a></p>
+
+    <p>Senator Patrick Leahy of Vermont, chairman of the Senate Appropriations subcommittee with direct oversight responsibility for USAID, stated publicly in April 2014 that he was troubled by "the clandestine nature of the program that was not disclosed to the appropriations subcommittee with oversight responsibility." USAID Administrator Rajiv Shah testified at the same April 8, 2014 hearing that the program was described in congressional budget justifications. Leahy disputed that characterization as insufficiently specific. The dispute was not formally resolved, but Leahy's position, that Congress did not have adequate notice of what it was funding, stands as the on-record conclusion of the senator with direct oversight responsibility.<a href="#fn44" class="fn" id="ref44">[44]</a></p>
+
+    <p>The ZunZuneo program was part of a pattern of USAID Office of Transition Initiatives programs in Cuba that included the 2009 arrest of USAID contractor Alan Gross, who had been distributing satellite communications equipment in Cuba under a USAID contract and was sentenced by a Cuban court to 15 years in prison. Gross was eventually released in 2014 as part of the Obama administration's diplomatic opening to Cuba. His case was directly intertwined with the ZunZuneo operation, which activated shortly after his arrest. This occurred during the Obama administration.</p>
+  </div>
+
+  <!-- PART NINE -->
+  <div class="article-section">
+    <span class="part-label">Part Nine</span>
+    <h2 class="part-title">The Latin American Pattern</h2>
+
+    <p>The Cuba program is part of a broader pattern of American foreign assistance being directed toward the political opposition of elected governments in Latin America, under administrations of both parties, through channels that were not always transparent to Congress or the American public.</p>
+
+    <p>The National Endowment for Democracy's own published annual reports document funding to Venezuelan opposition groups including Primero Justicia, Voluntad Popular, and Sumate beginning in 2002, following the election of Hugo Chavez. The NED's 2013 annual report specifically documents $2.3 million in grants to Venezuelan opposition groups and projects, including $100,000 through the International Republican Institute to share Venezuelan opposition organizational strategies with counterparts in Bolivia, Nicaragua, and Argentina. These are primary documents produced by the grantmaking organization itself.<a href="#fn45" class="fn" id="ref45">[45]</a></p>
+
+    <p>A U.S. Embassy Caracas diplomatic cable, published by WikiLeaks and not formally disputed as authentic by the U.S. government, documented the U.S. government's strategy for Venezuela in terms that included "Penetrating Chavez' Political Base" and "Dividing Chavismo" among stated objectives, and stated that USAID worked to implement those goals.<a href="#fn46" class="fn" id="ref46">[46]</a> A methodological note is required: this cable has not been officially declassified, and WikiLeaks documents carry different evidentiary weight than formally released government records. The cable is cited here because it has not been challenged as a forgery and its contents are consistent with the documented NED and USAID grant records cited above. Readers should weigh it accordingly.</p>
+
+    <p>In May 2013, Bolivia formally expelled USAID from the country, citing the documented pattern of USAID funding to opposition groups in regions seeking autonomy from the elected government of President Evo Morales. The Center for Economic and Policy Research documented in contemporaneous analysis that declassified government records supported the Bolivian government's characterization of USAID's activities.<a href="#fn47" class="fn" id="ref47">[47]</a></p>
+
+    <p>The Washington Office on Latin America, an organization broadly supportive of American democracy promotion programs, acknowledged in its April 2025 analysis that "many Venezuelan organizations receiving U.S. support have not been public about being funding recipients." USAID disbursed $210.8 million for Venezuela-related projects in fiscal year 2023 alone.<a href="#fn48" class="fn" id="ref48">[48]</a></p>
+
+    <p>The article does not argue that Chavez, Morales, or any other Latin American leader who complained about American funding of their domestic opposition was correct in all of his characterizations. It argues only that U.S. taxpayer money was being used to fund the political opposition of sovereign elected governments, that this was done under administrations of both parties, that it was done in ways that were not always transparent to Congress, and that the choice of which governments to target for democracy promotion was driven by strategic and commercial interests rather than any consistent democratic principle. Venezuela and Bolivia were targeted. Saudi Arabia was not.</p>
+  </div>
+
+  <!-- PART TEN -->
+  <div class="article-section">
+    <span class="part-label">Part Ten</span>
+    <h2 class="part-title">The Structural Problem and the Oversight Apparatus That Was Dismantled</h2>
+
+    <p>The accountability problems documented in the preceding sections share a common structural cause. The subcontracting chain that moves American foreign assistance from congressional appropriation to field delivery is long, operates in difficult environments, and is monitored with tools that are structurally insufficient to the task. The State OIG and USAID OIG joint best practices paper published in June 2024 documented that between October 2022 and its publication date, USAID OIG had provided 324 fraud awareness briefings in 65 countries to all categories of implementing partners. State OIG had conducted an additional 106 briefings at 38 overseas posts.<a href="#fn49" class="fn" id="ref49">[49]</a></p>
+
+    <p>That apparatus was functionally dismantled in the first weeks of 2025. The USAID Inspector General filed a report on February 10, 2025, warning that the Trump administration's staffing reductions and foreign assistance pause had left oversight of $8.2 billion in unspent humanitarian aid largely non-operational, with a greatly reduced ability to ensure that assistance did not fall into the hands of violent extremist groups. The Inspector General was fired the following day.<a href="#fn50" class="fn" id="ref50">[50]</a></p>
+
+    <p>The Center on Budget and Policy Priorities documented in November 2025 that this firing followed a pattern. In Trump's first term, five Inspectors General were removed in what then-Senator Mitt Romney described as "a threat to accountable democracy." The same pattern repeated in the second term. The administration that raised the most public alarm about USAID accountability simultaneously removed the independent watchdogs who had been most consistently finding and documenting the fraud.<a href="#fn51" class="fn" id="ref51">[51]</a></p>
+
+    <p>DynCorp International settled a False Claims Act case for $21 million in connection with inflated subcontractor charges under a State Department contract for police training abroad. This case establishes that the subcontracting accountability problem is not unique to USAID. It runs across the full foreign assistance apparatus, including State Department-administered programs, and is a structural feature of the system rather than a failure confined to any single agency.<a href="#fn52" class="fn" id="ref52">[52]</a></p>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="article-section">
+    <span class="part-label">Conclusion</span>
+    <h2 class="part-title">Both Parties Built It, Both Parties Funded It</h2>
+
+    <p>The Trump administration put the accountability problems of American foreign assistance on the front pages for the first time in a generation. That attention was overdue. The documented record of waste, mismanagement, fraud, and in several cases the literal provision of American resources to designated terrorist organizations, warranted serious scrutiny and serious reform.</p>
+
+    <p>What the documented record does not support is the narrative that this was a problem created by one party and exposed by the other. The Foreign Assistance Act was signed by a Democratic president. The National Endowment for Democracy was created by a Republican president with Democratic congressional support and was designed from its first day to institutionally represent both parties. The Afghanistan reconstruction program was launched by a Republican administration, expanded by a Democratic administration, and funded continuously by both parties through 52 quarterly reports that documented its failure in real time. The Cuba ZunZuneo program operated under a Democratic president and was hidden from the Democratic chairman of the Senate oversight subcommittee. The Louis Berger fraud ran across three administrations. The Harbert bid-rigging was commissioned under one administration and settled 25 years later under another.</p>
+
+    <p>What both parties share is responsibility for a system whose structural design prioritizes the flow of money over the verification of results, whose subcontracting architecture creates accountability gaps at every link of the chain, and whose oversight apparatus, when it functions, catches a small fraction of the problems that the structure creates. The documented fraud rate is small. The documented program failure rate, as established by SIGAR across 13 years and $145 billion in Afghanistan alone, is not small at all.</p>
+
+    <div class="pull-quote">
+      <p>The most honest statement of the problem was made not by a politician but by a former National Security Advisor speaking to the government's own watchdog: we do not have a model that works, and if we did it again, we would not do any better. That is not a statement about fraud. It is a statement about institutional design. Until the design changes, the accountability problems documented in this article will persist regardless of which party controls the appropriations process.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- BIBLIOGRAPHY -->
+<div class="bibliography-section">
+  <span class="bibliography-label">Notes &amp; Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Introduction</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Congressional Research Service. "U.S. Agency for International Development: An Overview." IF10261. Updated September 5, 2025. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a>. Documents that USAID provided assistance to approximately 130 countries in FY2024 and managed more than $35 billion in combined appropriations. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn2">[2] ForeignAssistance.gov. U.S. Office of Foreign Assistance. <a href="https://foreignassistance.gov" target="_blank" rel="noopener">foreignassistance.gov</a>. In FY2023, USAID disbursed approximately $44 billion across 160 countries and regions. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn3">[3] Pew Research Center. "What the Data Says About U.S. Foreign Aid." February 6, 2025. <a href="https://pewresearch.org" target="_blank" rel="noopener">pewresearch.org</a>. Total U.S. foreign aid disbursements in FY2023 were $71.9 billion across 18 separate federal agencies. <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn4">[4] USAspending.gov. USAID agency page. <a href="https://usaspending.gov" target="_blank" rel="noopener">usaspending.gov</a>. The assessed budget authority for USAID in FY2023 was approximately $50.1 billion. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part One — Scale and Structure</span>
+    <ul class="bib-list">
+      <li id="fn5">[5] Congressional Research Service. IF10261, op. cit. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn6">[6] Congressional Research Service. IF10261, op. cit. Top ten recipients in FY2024. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn7">[7] Pew Research Center, op. cit. Documents $71.9 billion in U.S. foreign aid disbursements in FY2023. For the obligations-based figure of $99.9 billion, see Congressional Research Service. IF10183. Updated August 20, 2025. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a>, citing ForeignAssistance.gov data. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn8">[8] USAID OIG. "Public International Organizations: USAID Did Not Consistently Perform Expected Due Diligence." August 2024. <a href="https://oig.usaid.gov/node/7043" target="_blank" rel="noopener">oig.usaid.gov/node/7043</a>. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn9">[9] USAID OIG. "Audit of USAID's Financial Statements for Fiscal Years 2024 and 2023." November 14, 2024. <a href="https://oig.usaid.gov/node/7278" target="_blank" rel="noopener">oig.usaid.gov/node/7278</a>. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn10">[10] Devex. "The Largest Donors in 2024 and How They Spent Their Aid." December 23, 2024. <a href="https://devex.com" target="_blank" rel="noopener">devex.com</a>. Only 9.6 percent of eligible USAID funding reached local organizations in FY2023, below USAID's own 25 percent target. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Two — The Bipartisan Architecture</span>
+    <ul class="bib-list">
+      <li id="fn11">[11] Foreign Assistance Act of 1961. Public Law 87-195. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a>. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn12">[12] National Endowment for Democracy. Founding legislation and congressional history, 1983. <a href="https://ned.org" target="_blank" rel="noopener">ned.org</a>. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn13">[13] NBCNews citing Washington Post analysis. "Funds Scarce for U.S. to Export Freedom." March 18, 2005. <a href="https://nbcnews.com/id/wbna7225614" target="_blank" rel="noopener">nbcnews.com</a>. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn14">[14] Time Magazine. "The End of Bipartisan Support for Promoting Democracy." September 3, 2025. <a href="https://time.com/7294182" target="_blank" rel="noopener">time.com/7294182</a>. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Three — What the Money Is Used For</span>
+    <ul class="bib-list">
+      <li id="fn15">[15] Congressional Research Service. IF10261, op. cit. PEPFAR treatment figures from HIV.gov. "PEPFAR Results and Impact." <a href="https://hiv.gov" target="_blank" rel="noopener">hiv.gov</a>. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn16">[16] GAO. "Foreign Assistance: USAID Should Strengthen Risk Management in Conflict Zones." GAO-24-106192. April 2024. <a href="https://gao.gov" target="_blank" rel="noopener">gao.gov</a>. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn17">[17] USAID OIG Congressional testimony. Senate Appropriations Subcommittee. April 30, 2019. <a href="https://congress.gov/116/meeting/house/109749" target="_blank" rel="noopener">congress.gov</a>. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn18">[18] GAO. "Syria Humanitarian Assistance: Some Risks of Providing Aid Inside Syria Assessed, but U.S. Agencies Could Improve Fraud Oversight." GAO-16-629. July 2016. <a href="https://gao.gov/products/gao-16-629" target="_blank" rel="noopener">gao.gov</a>. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Four — Accountability Figures</span>
+    <ul class="bib-list">
+      <li id="fn19">[19] House Foreign Affairs Committee. Testimony of Dr. Mark Primorac. February 13, 2025. <a href="https://congress.gov/119/meeting/house/117889" target="_blank" rel="noopener">congress.gov</a>. Sworn testimony that USAID could not account for overhead charges on more than $142 billion in awards. Not independently verified by GAO or OIG. <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn20">[20] SIGAR financial audit summary through December 2024. Cited in Center for Global Development. "Thinking Through Waste, Fraud and Corruption in U.S. Foreign Assistance." March 21, 2025. <a href="https://cgdev.org" target="_blank" rel="noopener">cgdev.org</a>. <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn21">[21] USAID OIG. "Oversight of USAID-Funded Humanitarian Assistance Programming Impacted by Staffing Reductions and Pause on Foreign Assistance." February 10, 2025. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. Inspector General Paul Martin was dismissed the following day, February 11, 2025. See: Associated Press / Washington Times, February 11-12, 2025. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn22">[22] Center for Global Development, op. cit. Documents that the specific fraud examples publicly cited to justify shutting down USAID totaled approximately $120 million over two decades. For the broader $26-29 billion waste figure, see SIGAR Final Report, December 2025. <a href="https://sigar.mil" target="_blank" rel="noopener">sigar.mil</a>. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn23">[23] USAID OIG. Management Challenges Report. 2011. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Five — Ghost Organizations and Diverted Funds</span>
+    <ul class="bib-list">
+      <li id="fn24">[24] U.S. Department of Justice. United States v. Mahmoud Al Hafyan. Indictment unsealed November 19, 2024. <a href="https://justice.gov/usao-dc" target="_blank" rel="noopener">justice.gov/usao-dc</a>. Also: USAID OIG Investigative Summary. <a href="https://oig.usaid.gov/node/7283" target="_blank" rel="noopener">oig.usaid.gov/node/7283</a>. Note: this is an indictment, not a conviction. Al Hafyan is presumed innocent until proven guilty. <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn25">[25] USAID OIG. Investigations Dashboard, Iraq-Syria Complex Crisis. December 2018. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn26">[26] USAID OIG. "Reports of Corrupt Practices in Cross-Border Aid to Syria." 2016. Archived at <a href="https://reliefweb.int" target="_blank" rel="noopener">reliefweb.int</a>. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn27">[27] U.S. Department of Justice. "The International Rescue Committee Agrees to Pay $6.9 Million to Settle Allegations of Procurement Fraud on USAID-Funded Programs." March 16, 2021. <a href="https://justice.gov/usao-dc/pr/international-rescue-committee-irc-agrees-pay-69-million" target="_blank" rel="noopener">justice.gov/usao-dc</a>. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn28">[28] U.S. Department of Justice. Louis Berger Group Inc. Criminal and civil proceedings. 2010, 2015, 2018. <a href="https://justice.gov" target="_blank" rel="noopener">justice.gov</a>; <a href="https://oig.usaid.gov/node/82" target="_blank" rel="noopener">oig.usaid.gov/node/82</a>. Total settlement $69.3 million. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn29">[29] U.S. Department of Justice. "Harbert Companies Agree to Pay $47 Million to Resolve False Claims Act Allegations." March 20, 2012. <a href="https://justice.gov/archives/opa/pr/harbert-companies-agree-pay-47-million" target="_blank" rel="noopener">justice.gov</a>. See also United States ex rel. Miller v. Bill Harbert International Construction, Inc., 608 F.3d 871 (D.C. Cir. 2010). <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn30">[30] USAID OIG. "Director on USAID Project Arrested for Nine-Year Fraud Scheme." May 7, 2025. <a href="https://oig.usaid.gov/node/7653" target="_blank" rel="noopener">oig.usaid.gov/node/7653</a>. <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn31">[31] USAID OIG. "OIG Investigates Allegations of Large Scale Fraud and Money Laundering in Kenya." <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Six — Afghanistan Reconstruction</span>
+    <ul class="bib-list">
+      <li id="fn32">[32] SIGAR Inspector General John Sopko. Congressional testimony. House Foreign Affairs Subcommittee. October 6, 2021. <a href="https://congress.gov/117/meeting/house/114116" target="_blank" rel="noopener">congress.gov</a>. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn33">[33] SIGAR. "What We Need to Learn: Lessons from Twenty Years of Afghanistan Reconstruction." SIGAR-21-46-LL. August 2021. <a href="https://sigar.mil/pdf/lessonslearned/SIGAR-21-46-LL.pdf" target="_blank" rel="noopener">sigar.mil</a>. Stephen Hadley quote documented in the capstone report. <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn34">[34] SIGAR. "Corruption in Conflict: Lessons from the U.S. Experience in Afghanistan." SIGAR-16-58-LL. September 2016. <a href="https://sigar.mil" target="_blank" rel="noopener">sigar.mil</a>. <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn35">[35] SIGAR. Quarterly Reports to Congress. 2008-2021. <a href="https://sigar.mil" target="_blank" rel="noopener">sigar.mil</a>. <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Seven — UNRWA and Gaza</span>
+    <ul class="bib-list">
+      <li id="fn36">[36] U.S. State Department. Press statement. January 26, 2024. Secretary Blinken spoke with UN Secretary-General Guterres on January 25, 2024. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn37">[37] USAID OIG. "Investigative Summary: USAID OIG's Ongoing Investigation Leads to Referral of Four Additional Former UNRWA Staffers Linked to Hamas for Suspension/Debarment." April 30, 2026. <a href="https://oig.usaid.gov/node/8114" target="_blank" rel="noopener">oig.usaid.gov/node/8114</a>. <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn38">[38] USAID OIG. "Investigative Summary: USAID OIG's Ongoing Investigation Leads to Debarment of Former UNRWA Employee for Participation in the October 7 Terrorist Attacks in Israel." February 27, 2026. <a href="https://oig.usaid.gov/node/8061" target="_blank" rel="noopener">oig.usaid.gov/node/8061</a>. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn39">[39] USAID OIG. Gaza Oversight Advisory. July 25, 2024. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn40">[40] House Committee on Oversight and Government Reform. "Comer Investigates UNRWA for Obstructing U.S. Oversight into Staff's Alleged Hamas Ties." October 27, 2025. <a href="https://oversight.house.gov" target="_blank" rel="noopener">oversight.house.gov</a>. <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Eight — Cuba Democracy Program</span>
+    <ul class="bib-list">
+      <li id="fn41">[41] GAO. "Foreign Assistance: Continued Efforts Needed to Strengthen USAID's Oversight of U.S. Democracy Assistance for Cuba." GAO-09-165. 2009. <a href="https://gao.gov/assets/a283764.html" target="_blank" rel="noopener">gao.gov</a>. <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn42">[42] Associated Press. "U.S. Secretly Created 'Cuban Twitter' to Stir Unrest." April 3, 2014. Reported by Desmond Butler, Jack Gillum, Alberto Arce, and Joshua Goodman. USAID disputed certain elements of the AP's account. See also: Senate hearing testimony, April 8, 2014 (USAID Administrator Rajiv Shah). <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn43">[43] USAID OIG. Review of ZunZuneo program. December 2015. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn44">[44] Senator Patrick Leahy (D-VT). Public statement. April 2014. Congressional Record. See also: NBC News. "USAID Chief Grilled by Sen. Leahy on Cuba Twitter Idea." April 8, 2014. <a href="https://nbcnews.com" target="_blank" rel="noopener">nbcnews.com</a>. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Nine — Latin America</span>
+    <ul class="bib-list">
+      <li id="fn45">[45] National Endowment for Democracy. Annual Reports, 2001-2014. <a href="https://ned.org" target="_blank" rel="noopener">ned.org</a>. <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn46">[46] WikiLeaks. U.S. Embassy Caracas cable. <a href="https://wikileaks.org" target="_blank" rel="noopener">wikileaks.org</a>. Not officially declassified; not officially disputed by the U.S. government. Evidentiary weight should be assessed accordingly. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn47">[47] Center for Economic and Policy Research. "Bolivia Expels USAID: Not Why, But Why Not Sooner." May 2013. <a href="https://cepr.net" target="_blank" rel="noopener">cepr.net</a>. <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn48">[48] Washington Office on Latin America. "Venezuela's New NGO Law and U.S. Funding Freeze Are a Death Blow to the Country's Civil Society." April 2025. <a href="https://wola.org" target="_blank" rel="noopener">wola.org</a>. <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Ten — Structural Problem and Oversight</span>
+    <ul class="bib-list">
+      <li id="fn49">[49] State Department OIG and USAID OIG. Joint Best Practices Paper. June 2024. <a href="https://stateoig.gov" target="_blank" rel="noopener">stateoig.gov</a>. <a href="#ref49" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn50">[50] USAID OIG. "Oversight of USAID-Funded Humanitarian Assistance Programming Impacted by Staffing Reductions and Pause on Foreign Assistance." February 10, 2025. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a>. Inspector General Paul Martin dismissed February 11, 2025. See: Associated Press, February 11-12, 2025. <a href="#ref50" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn51">[51] Center on Budget and Policy Priorities. "Trump Administration's Undercutting of Oversight Hurts Taxpayers and Beneficiaries." November 2025. <a href="https://cbpp.org" target="_blank" rel="noopener">cbpp.org</a>. <a href="#ref51" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+      <li id="fn52">[52] U.S. Department of Justice. "DynCorp Agrees to Pay $21 Million to Resolve False Claims Act Lawsuit Alleging Inflated Costs on State Department Contract." <a href="https://justice.gov" target="_blank" rel="noopener">justice.gov</a>. <a href="#ref52" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#x21A9;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Primary Government Documents</span>
+    <ul class="bib-list">
+      <li>Authorization for Use of Military Force. Public Law 107-40. September 18, 2001. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a></li>
+      <li>Congressional Research Service. IF10261 and IF10183. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a></li>
+      <li>Foreign Assistance Act of 1961. Public Law 87-195. <a href="https://congress.gov" target="_blank" rel="noopener">congress.gov</a></li>
+      <li>ForeignAssistance.gov. <a href="https://foreignassistance.gov" target="_blank" rel="noopener">foreignassistance.gov</a></li>
+      <li>GAO. GAO-24-106192, GAO-09-165, GAO-16-629. <a href="https://gao.gov" target="_blank" rel="noopener">gao.gov</a></li>
+      <li>House Committee on Oversight and Government Reform. UNRWA investigation, October 2025. <a href="https://oversight.house.gov" target="_blank" rel="noopener">oversight.house.gov</a></li>
+      <li>NED Annual Reports, 2001-2014. <a href="https://ned.org" target="_blank" rel="noopener">ned.org</a></li>
+      <li>SIGAR. SIGAR-21-46-LL, SIGAR-16-58-LL, quarterly reports 2008-2021, final report December 2025. <a href="https://sigar.mil" target="_blank" rel="noopener">sigar.mil</a></li>
+      <li>USAID OIG. All cited reports and investigative summaries. <a href="https://oig.usaid.gov" target="_blank" rel="noopener">oig.usaid.gov</a></li>
+      <li>USAspending.gov. <a href="https://usaspending.gov" target="_blank" rel="noopener">usaspending.gov</a></li>
+      <li>White House. "At USAID, Waste and Abuse Runs Deep." February 20, 2025. <a href="https://whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Court Records and DOJ Documents</span>
+    <ul class="bib-list">
+      <li>DOJ. IRC settlement, March 2021. <a href="https://justice.gov/usao-dc" target="_blank" rel="noopener">justice.gov/usao-dc</a></li>
+      <li>DOJ. Harbert Companies settlement, March 2012. <a href="https://justice.gov" target="_blank" rel="noopener">justice.gov</a></li>
+      <li>DOJ. Louis Berger Group, 2010-2018. <a href="https://justice.gov" target="_blank" rel="noopener">justice.gov</a></li>
+      <li>DOJ. DynCorp settlement. <a href="https://justice.gov" target="_blank" rel="noopener">justice.gov</a></li>
+      <li>DOJ. United States v. Mahmoud Al Hafyan. <a href="https://justice.gov/usao-dc" target="_blank" rel="noopener">justice.gov/usao-dc</a></li>
+      <li>United States ex rel. Miller v. Bill Harbert International Construction, Inc. 608 F.3d 871 (D.C. Cir. 2010).</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Books</span>
+    <ul class="bib-list">
+      <li>Carothers, Thomas. <em>Aiding Democracy Abroad: The Learning Curve.</em> Washington: Carnegie Endowment for International Peace, 1999.</li>
+      <li>Easterly, William. <em>The White Man's Burden: Why the West's Efforts to Aid the Rest Have Done So Much Ill and So Little Good.</em> New York: Penguin, 2006.</li>
+      <li>Scahill, Jeremy. <em>Dirty Wars: The World Is a Battlefield.</em> New York: Nation Books, 2013.</li>
+      <li>Wedel, Janine R. <em>Shadow Elite: How the World's New Power Brokers Undermine Democracy, Government, and the Free Market.</em> New York: Basic Books, 2009.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Reports and Investigative Analysis</span>
+    <ul class="bib-list">
+      <li>Associated Press. "U.S. Secretly Created 'Cuban Twitter' to Stir Unrest." April 3, 2014.</li>
+      <li>Center for Economic and Policy Research. "Bolivia Expels USAID." May 2013. <a href="https://cepr.net" target="_blank" rel="noopener">cepr.net</a></li>
+      <li>Center for Global Development. "Thinking Through Waste, Fraud and Corruption in U.S. Foreign Assistance." March 2025. <a href="https://cgdev.org" target="_blank" rel="noopener">cgdev.org</a></li>
+      <li>Center on Budget and Policy Priorities. November 2025. <a href="https://cbpp.org" target="_blank" rel="noopener">cbpp.org</a></li>
+      <li>Devex. "The Largest Donors in 2024." December 2024. <a href="https://devex.com" target="_blank" rel="noopener">devex.com</a></li>
+      <li>Pew Research Center. "What the Data Says About U.S. Foreign Aid." February 2025. <a href="https://pewresearch.org" target="_blank" rel="noopener">pewresearch.org</a></li>
+      <li>ProPublica. Foreign assistance investigations. <a href="https://propublica.org" target="_blank" rel="noopener">propublica.org</a></li>
+      <li>The Intercept. National security and foreign policy reporting. <a href="https://theintercept.com" target="_blank" rel="noopener">theintercept.com</a></li>
+      <li>Dropsite News. <a href="https://dropsiteews.com" target="_blank" rel="noopener">dropsiteews.com</a></li>
+      <li>Brennan Center for Justice. <a href="https://brennancenter.org" target="_blank" rel="noopener">brennancenter.org</a></li>
+      <li>State OIG and USAID OIG. Joint Best Practices Paper. June 2024. <a href="https://stateoig.gov" target="_blank" rel="noopener">stateoig.gov</a></li>
+      <li>Time Magazine. "The End of Bipartisan Support for Promoting Democracy." September 2025.</li>
+      <li>Washington Office on Latin America. Venezuela analysis. April 2025. <a href="https://wola.org" target="_blank" rel="noopener">wola.org</a></li>
+      <li>WikiLeaks. U.S. Embassy Caracas cable. Not officially declassified; not officially disputed. <a href="https://wikileaks.org" target="_blank" rel="noopener">wikileaks.org</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us &#8212; All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
