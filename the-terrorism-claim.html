@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Terrorism Claim — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .share-btn {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.5rem 0.9rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.3); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.55); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&#8250;</span>
+    <span class="current">The Terrorism Claim</span>
+  </div>
+  <span class="article-label">Current Events + Opinion &#8212; June 2026</span>
+  <h1 class="article-title">
+    The Terrorism
+    <span>Claim</span>
+  </h1>
+  <p class="article-subtitle">What Marco Rubio Said About Cuba, What the Record Shows, and Why the Sourcing Matters</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">June 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Region</span>
+      <span class="meta-value">Western Hemisphere</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Seven</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?url=https://politicalhypocrites.vercel.app/current-events/the-terrorism-claim&text=The+Terrorism+Claim%3A+What+Marco+Rubio+Said+About+Cuba%2C+What+the+Record+Shows%2C+and+Why+the+Sourcing+Matters" target="_blank" rel="noopener" class="share-btn">Share &#8599;</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- INTRODUCTION -->
+  <div class="article-section">
+    <span class="section-label">Introduction</span>
+    <h2 class="section-title">The Scene in the Caribbean</h2>
+
+    <p class="article-lede">On June 4, 2026, Secretary of State Marco Rubio announced sanctions against Cuban President Miguel Diaz-Canel, his wife, members of the Castro family, and five Cuban government entities including the Ministry of the Revolutionary Armed Forces and the Cuban Institute of Friendship with the Peoples. In the same statement, posted to X, Rubio declared that Cuba had "for decades" been "the world capital for radical left-wing terrorism." Two days earlier, testifying before the Senate Foreign Relations Committee, he told lawmakers that "virtually every left-wing radical, violent terrorist group in the western hemisphere has at some point relied on support from Cuba," and confirmed that Russia and China maintain intelligence facilities on the island. Three weeks before that, on May 17, Axios reported classified intelligence from a senior Trump administration official claiming Cuba had secretly acquired more than 300 military drones from Russia and Iran, and that Cuban military officials had begun internal discussions about potential strikes on Guantanamo Bay, American naval vessels, and Key West, Florida, located approximately 90 miles from Havana. The Justice Department has moved to indict a 94-year-old Raul Castro for a 1996 shootdown of civilian aircraft. Donald Trump has mused publicly about taking the island.</p>
+
+    <p>This is not a series of independent policy decisions landing by coincidence in the same news cycle. It is a sequence. And it does not begin with Cuba.</p>
+
+    <p>In May 2026, this outlet published <a href="/current-events/the-donroe-doctrine" style="color: var(--red); text-decoration: underline; text-underline-offset: 2px;">The Donroe Doctrine</a>, an examination of the Trump administration's November 2025 National Security Strategy and what it signals about the broader hemispheric project currently underway. That piece documents how the administration laid out its Western Hemisphere ambitions in a government publication that received almost no press coverage, and makes the case that Cuba is not the destination but the opening move in something considerably larger. Readers who want the full strategic picture are encouraged to read that piece alongside this one. What follows here is a ground-level examination of the specific public claims now being deployed to justify the pressure campaign against Cuba, each one measured against the documented record.</p>
+
+    <p>One thing must be stated plainly before the first fact is examined. The Cuban government is a repressive regime. It has imprisoned political dissidents, crushed free expression for generations, and presided over decades of economic failure that has left its population without reliable food, medicine, or electricity. This piece has no interest in the survival of that government and no sympathy for the people running it. That position will not waver regardless of what the evidence shows about American policy. Opposing a repressive government and scrutinizing the honesty of the justifications used against it are not contradictory positions. They are the same position, applied consistently.</p>
+
+    <p>The question this piece asks is a narrow one: whether the specific claims being made publicly by the Secretary of State hold up against the documented record, and whether the people making those claims have applied the same standard when equivalent logic has pointed in a direction less convenient to them. That is not a defense of Cuba. It is an application of evidence to argument, without regard for who benefits from the answer.</p>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> The claims examined in this piece are not complicated. They do not require classified access to evaluate, specialized expertise to scrutinize, or hours of research to challenge. They can be tested against publicly available government documents, military assessments, and the administration's own prior statements in a matter of minutes. If the reader reaches the end of this piece and concludes that the justifications do not hold up, one question follows immediately: how are these arguments, thin as they are, being seriously advanced as grounds for military action against a sovereign nation? Invasions have consequences. People die. Families are destroyed. Governments are toppled and the chaos that follows lasts for generations, as this country's recent history demonstrates at considerable cost. If the case for that level of action cannot survive a basic review of the public record, then the people making it are not informing the American public. They are counting on the American public not to look.</p>
+  </div>
+
+  <!-- PART ONE -->
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">What Was Actually Said, and Who Is Saying It</h2>
+
+    <p>On June 2, 2026, Secretary of State Marco Rubio appeared before the Senate Foreign Relations Committee to present the State Department's budget request for fiscal year 2027. Cuba was not the primary subject of the hearing. It came up anyway. "Virtually every left-wing radical, violent terrorist group in the western hemisphere has at some point relied on support from Cuba," Rubio told the committee.<a href="#fn1" class="fn" id="ref1">[1]</a> His named example was the Ejercito de Liberacion Nacional, known as the ELN, a Marxist-Leninist guerrilla organization that has operated in Colombia since the 1960s. In the same testimony, Rubio confirmed that Cuba "continues to host a pretty substantial collection of intelligence sites on behalf of the Chinese and the Russians."</p>
+
+    <p>Two days later, on June 4, Rubio announced sanctions against Cuban President Miguel Diaz-Canel, his wife, members of the Castro family, and five Cuban government entities. The sanctioned entities were the Ministry of the Revolutionary Armed Forces, the Cuban Institute of Friendship with the Peoples, Amistur Cuba S.A., the Committees for the Defense of the Revolution, and Minera La Victoria S.A. Secondary sanctions were threatened against any foreign bank or company continuing to do business with the sanctioned individuals and entities. In a post on X announcing the action, Rubio wrote: "For decades, Cuba has been the world capital for radical left-wing terrorism. The regime in Havana has recruited, trained and backed violent Marxist and third-worldist movements across our hemisphere and beyond. Today, we are targeting the network that enables and funds Cuba's subversive and radical operations."<a href="#fn2" class="fn" id="ref2">[2]</a></p>
+
+    <p>Three weeks before either of those statements, on May 17, Axios published a report citing classified intelligence disclosed by a senior Trump administration official. According to that report, Cuba had acquired more than 300 military drones from Russia and Iran since 2023, and Cuban military officials had begun internal discussions about potential strikes on the United States naval base at Guantanamo Bay, American naval vessels, and Key West, Florida, located approximately 90 miles from Havana.<a href="#fn3" class="fn" id="ref3">[3]</a> CIA Director John Ratcliffe traveled to Havana shortly before the story published to deliver what was described as an ultimatum on behalf of President Trump. The Axios report contained one detail that has received considerably less attention than the drone figures themselves. The senior administration official who disclosed the classified intelligence to the outlet acknowledged, in the same conversation, that the assessment "could become a pretext" for United States action against Cuba. That acknowledgment is not an interpretation applied after the fact by a critic of the administration. It is a description of the intelligence disclosure's potential function, offered voluntarily by the official making the disclosure, in the story the disclosure was designed to produce.</p>
+
+    <p>Before examining what the evidence shows about each of these claims, it is worth establishing who is making them and what relationship that person has to the subject matter.</p>
+
+    <p>Marco Rubio was born in Miami in 1971. His parents immigrated to the United States from Cuba in 1956, three years before Fidel Castro took power. That biographical fact, confirmed by naturalization records obtained by the Washington Post in 2011, is worth pausing on. For years, Rubio's Senate website described his parents as having come to America "following Fidel Castro's takeover," and in multiple television interviews he gave the year of their arrival as 1959, or "'58, '59." When the naturalization records surfaced, Rubio's office acknowledged the 1956 date, explaining that his parents "always held out the hope and the option of returning to Cuba if things improved." Rubio told the Post: "I'm going off the oral history of my family." The embellishment, presenting an economic immigration as a flight from Castro's revolution, was a defining feature of his political identity for years before documents corrected the record. It is noted here not as a peripheral curiosity but because this piece is, in significant part, an examination of whether claims about Cuba hold up against the documented record. The person now making those claims from the most powerful diplomatic position in the United States government has a prior documented instance of shaping his own Cuba narrative to fit a preferred story.</p>
+
+    <p>He has spoken about his family's experience and his personal connection to the question of Cuba's government throughout his political career, which began when he was elected to the West Miami City Commission and continued through the Florida House of Representatives, where he served as Speaker, and into the United States Senate, where he served two full terms and was into his third before being confirmed as Secretary of State on January 20, 2025, by a vote of 99 to 0.<a href="#fn4" class="fn" id="ref4">[4]</a> Cuba has been a defining issue for him for as long as he has held public office. That is not a criticism. It is a fact, and it is relevant context for evaluating the claims he is now making from the most powerful diplomatic position in the United States government.</p>
+
+    <p>Personal history and policy conviction are not disqualifying. But they are material when the question is whether a government official is making a sober evidentiary assessment or pursuing a long-held political objective with the tools of his current office. The federal government's mandate is to serve the people who elected it. It is not an instrument for resolving the personal grievances of its officials, however legitimate those grievances may be as a matter of human experience. When the Secretary of State is the son of Cuban immigrants, has built a significant portion of his political identity around opposition to the Cuban government, and is now the person deciding what intelligence to disclose and how to characterize Cuba's threat level to the American public, the conflict of interest is not theoretical. It is structural.</p>
+
+    <p>The financial dimension of that structure is documented in federal campaign finance records. According to FEC data compiled by ProPublica and OpenSecrets, Rubio received documented contributions from Raytheon PACs, Lockheed Martin's employee PAC, Airbus Americas, and L3 Harris Technologies across his Senate career, among others in the defense sector.<a href="#fn5" class="fn" id="ref5">[5]</a> OpenSecrets' industry-level tracking confirms defense and aerospace as a consistent and significant funding category for Rubio throughout his Senate tenure, making him one of the defense industry's most reliable recipients in that chamber.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+
+    <p>Those contributions did not flow in one direction only. Public reporting documents substantial military construction funding directed to Florida installations during Rubio's Senate tenure. In a single legislative cycle, the 2023 National Defense Authorization Act allocated $582.5 million to Florida military bases, including $252 million for Tyndall Air Force Base disaster recovery, $141.5 million for Naval Air Station Whiting Field, $131 million for MacDill Air Force Base, and $27 million for Patrick Space Force Base, among others.<a href="#fn7" class="fn" id="ref7">[7]</a> That is one year's allocation from one bill. MacDill Air Force Base in Tampa is the headquarters of United States Central Command and United States Special Operations Command. It is among the most strategically significant military installations in the country. The defense industry invested in Rubio's career. Rubio directed federal construction dollars to defense infrastructure in his home state. That is the documented relationship between the man making the Cuba threat argument and the industry that would contract the response to it.</p>
+
+    <p>None of this establishes that Rubio's claims about Cuba are false. The claims will be examined on their own terms in the sections that follow. What it establishes is that the person making those claims has a documented personal history with the subject, a political career built in significant part on this specific issue, and financial relationships with the industries that stand to benefit most directly if the claims produce the policy outcome being constructed around them. The reader is entitled to hold all of that in mind while evaluating what follows.</p>
+  </div>
+
+  <!-- PART TWO -->
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The Terrorism Designation Has a History</h2>
+
+    <p>Cuba was first designated a State Sponsor of Terrorism by the United States government in 1982. It remained on that list for 33 years. In May 2015, President Barack Obama removed it as part of the broader normalization of relations between the two countries, a diplomatic opening that included the restoration of embassies in Havana and Washington and the easing of select travel and trade restrictions. The stated basis for removal was that Cuba no longer met the statutory criteria for the designation.</p>
+
+    <p>It stayed off the list for five years and nine days.</p>
+
+    <p>On January 12, 2021, eight days before leaving office, Secretary of State Mike Pompeo redesignated Cuba as a State Sponsor of Terrorism.<a href="#fn8" class="fn" id="ref8">[8]</a> The stated predicate was specific: Cuba had refused to extradite leaders of the ELN, the same Colombian guerrilla organization Rubio named in his June 2026 Senate testimony, who had been present in Havana conducting peace negotiations with the Colombian government when a car bomb killed 22 cadets at a Bogota police academy in January 2019. Cuba's position was that it was bound by the terms of the peace process, which required it to maintain the negotiators' presence on the island. Pompeo's position was that harboring individuals sought on terrorism charges met the statutory threshold regardless of the diplomatic context.</p>
+
+    <p>Senator Patrick Leahy, at the time the most senior Democrat on the Senate Appropriations Committee, called the redesignation "a blatantly politicized move" that "makes a mockery of what had been a credible, objective measure of a foreign government's active support for terrorism." Few American allies accepted the designation as a genuine counterterrorism determination. The Associated Press reported at the time that many rejected it outright, viewing it as a reward for Florida's Cuban and Latino voters in the final days of the Trump administration rather than a documented change in Cuban behavior.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+
+    <p>The incoming Biden administration did not move quickly to reverse it. For nearly four years, Cuba remained on the list. In May 2024, the State Department quietly removed Cuba from a separate designation, the Not Fully Cooperating Country list, meaning the United States government now considered Cuba to be cooperating with American counterterrorism efforts. There was no press release. A spokesperson explained that circumstances had changed. Cuba had resumed law enforcement engagement with the FBI in 2023, and the United States-Cuba Law Enforcement Dialogue had met multiple times.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+
+    <p>On January 14, 2025, six days before leaving office, President Biden certified to Congress that the Cuban government "has not provided any support for international terrorism during the preceding six-month period" and "has provided assurances that it will not support acts of international terrorism in the future."<a href="#fn11" class="fn" id="ref11">[11]</a> That certification, a primary government document filed with Congress under the statutory requirements of the Foreign Assistance Act and the Arms Export Control Act, triggered a mandatory waiting period before the rescission could take effect. In exchange, Cuba agreed to release 553 political prisoners. The Catholic Church, under the leadership of Pope Francis, had brokered the arrangement.</p>
+
+    <p>The waiting period was still running on January 20, 2025. Donald Trump was inaugurated as the 47th President of the United States and revoked Biden's certification the same day, within hours of taking office. The redesignation was instantaneous. It did not follow a review. It did not cite new evidence of Cuban support for terrorism. It reversed a certification that the outgoing administration had filed under statutory oath six days earlier.<a href="#fn12" class="fn" id="ref12">[12]</a></p>
+
+    <p>The publication Just Security, which covers national security law and policy, characterized the resulting pattern plainly: "On in 1982. Off in 2015. On in 2021. Notice to remove in January 2025. Reinstated within hours of Trump's second inauguration. The list has stopped being a determination of fact. It has become a partisan struggle."<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+
+    <p>That characterization is not an opinion offered without basis. It is a description of the documented sequence. The statutory predicates for the designation, including the Foreign Assistance Act and the Arms Export Control Act, ask whether a government has repeatedly provided support for acts of international terrorism. Whether Cuba meets that standard in 2026 is what Secretary Rubio asserts. Whether the process used to make that determination has been applied consistently and in good faith is what the timeline above documents. Those are two different questions, and both of them deserve an answer.</p>
+  </div>
+
+  <!-- PART THREE -->
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">What the Terrorism Claim Would Actually Have to Mean</h2>
+
+    <p>Secretary Rubio's statement that "virtually every left-wing radical, violent terrorist group in the western hemisphere has at some point relied on support from Cuba" is a sweeping claim. It spans decades. It is constructed to be difficult to disprove because it reaches back to the Cold War, when Cuba did in fact provide material support to revolutionary movements across Latin America, a documented historical reality that no serious person disputes. The question is not whether Cuba supported armed leftist movements in the 1960s, 1970s, and 1980s. The question is what Cuba is doing in 2026 that meets the statutory definition of state sponsorship of terrorism, and whether the evidence presented publicly supports that designation today.</p>
+
+    <p>In his June 2 Senate testimony, Rubio had the opportunity to answer that question on the record, before a congressional committee, under the full weight of his office. The specific current example he chose was the ELN, the Ejercito de Liberacion Nacional. It is worth examining what the ELN actually is, what its connection to Cuba actually involves, and what happened to the legal predicate Rubio's predecessor used to justify the 2021 redesignation.</p>
+
+    <p>The ELN is a Marxist-Leninist guerrilla organization founded in Colombia in 1964. It is not a new organization. It is not a product of contemporary Cuban foreign policy. It emerged from the same Cold War revolutionary current that produced armed movements across Latin America during a period when the United States was itself backing coups, funding paramilitaries, and supporting the overthrow of elected governments throughout the region. Cuba's relationship with the ELN is historical, ideological, and rooted in a political era that ended before most Americans now living were born. The ELN has been engaged in on-and-off peace negotiations with successive Colombian governments for years. Cuba has served as a host nation for those negotiations, a role it took on at the request of the Colombian government itself.</p>
+
+    <p>The specific act that Secretary Pompeo cited in January 2021 when redesignating Cuba was Cuba's refusal to extradite ELN negotiators present in Havana when a car bomb killed 22 cadets at a Bogota police academy in January 2019. Cuba's stated position was that the terms of the peace process obligated it to maintain the negotiators' presence on the island. That was the predicate. That was the documented basis for the designation that Rubio inherited, maintained, and has now escalated into sanctions against Cuba's sitting president and his family.</p>
+
+    <p>In August 2022, the Colombian government under President Gustavo Petro suspended the arrest warrants it had previously asked Cuba to honor. Colombia, the country that issued the warrants, the country whose cadets were killed, the country whose legal requests formed the entire factual foundation of the 2021 designation, withdrew those requests. The predicate was gone. The designation remained. No new predicate was offered publicly to replace it. The United States government continued to list Cuba as a State Sponsor of Terrorism after the country that supplied the justification for that listing had itself moved on.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> When the Secretary of State stands before the Senate Foreign Relations Committee and is asked to justify a terrorism designation, and the best current example he can offer is a 1960s guerrilla organization whose arrest warrants were dropped by the requesting country four years ago, the designation is not describing present reality. It is performing a posture. That is not an accusation of bad faith as a matter of character. It is a description of what the evidence shows. The statutory standard asks whether a government is currently and repeatedly providing support for acts of international terrorism. A historical relationship with a Cold War-era guerrilla group, whose legal standing as the basis for the designation was withdrawn by the country that created it, does not meet that standard on its face. If the administration has current evidence that does meet that standard, it has not presented it in public. What it has presented in public is what this section documents. The reader can assess whether that is sufficient justification for what is being built.</p>
+  </div>
+
+  <!-- PART FOUR -->
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Military Reality</h2>
+
+    <p>There is a version of the Cuba threat argument that does not depend on the terrorism designation at all. It rests instead on geography and hardware. Cuba is 90 miles from the American coastline. It is accepting weapons from Russia and Iran. It hosts Russian and Chinese intelligence facilities. Whatever one thinks of the terrorism label, the physical proximity of an adversary-armed island to American soil is, the argument goes, a genuine security concern independent of legal designations and Cold War history.</p>
+
+    <p>That argument deserves to be taken seriously. It also deserves to be measured against what Cuba's military actually is in 2026.</p>
+
+    <p>According to GlobalFirepower's 2026 Military Strength Rankings, Cuba is ranked 65th out of 145 nations assessed globally.<a href="#fn15" class="fn" id="ref15">[15]</a> Its active military personnel number approximately 50,000, with 39,000 in reserve and 90,000 in paramilitary forces composed primarily of territorial militia and the Committees for the Defense of the Revolution. Its defense budget is $129 million. For context, the United States defense budget for fiscal year 2026 exceeds $900 billion. Cuba's entire annual military spending would not cover two hours of American defense expenditure.</p>
+
+    <div class="stat-callout">
+      <div class="stat-num">$129M</div>
+      <p class="stat-desc">Cuba's total annual defense budget. The United States spends more than this every two hours. Cuba is ranked 65th in global military power out of 145 nations assessed, with combat aircraft described by independent analysts as currently inoperable.</p>
+    </div>
+
+    <p>The Cuban Air and Air Defense Force presents the most direct measure of the island's actual offensive capacity. Its total aircraft inventory stands at 45 platforms, including 14 combat aircraft. Those 14 combat aircraft are assessed by multiple independent military analysts as currently inoperable. Analysis published in January 2026 describes Cuba's MiG-29s, its most advanced fighter aircraft, as non-functional due to fuel shortages, lack of spare parts, and years of deferred maintenance.<a href="#fn16" class="fn" id="ref16">[16]</a> The Cuban navy is limited to coastal patrol vessels with no blue-water capability. Its army operates Soviet-era equipment, predominantly T-54 and T-55 tanks from the 1950s through 1970s, with modest upgrades. Military Power Rankings, an open-source military assessment database, states explicitly that Cuba "has no ability to project power beyond its borders."<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+
+    <p>This is not a debatable characterization. It is a structural assessment of what the Cuban military can and cannot do based on its equipment, its budget, its fuel supply, and its doctrine. Cuban military doctrine is built entirely around homeland defense and mass mobilization against a superior invading force. It is, in the most literal strategic sense, a military designed to absorb an invasion, not to project one. The island nation that Rubio describes as the world capital of radical left-wing terrorism maintains a military whose combat aircraft cannot get off the ground.</p>
+
+    <p>The resource environment in which that military operates makes the picture clearer still. In January 2026, President Trump signed an executive order imposing a fuel blockade against Cuba on national security grounds. The United Nations Office for the Coordination of Humanitarian Affairs and the World Health Organization subsequently documented the results: blood banks, laboratories, immunization programs, and maternal and child health services across the island have been severely disrupted.<a href="#fn18" class="fn" id="ref18">[18]</a> The Cuban population is cooking over firewood. The power grid has collapsed multiple times. The armed forces are operating in the same resource environment as the civilians they are supposed to defend, which is to say they are operating in a state of accelerating material collapse.</p>
+
+    <p>The Cuban government that Secretary Rubio describes as an active threat to the United States homeland is a government that cannot keep its own lights on, cannot fuel its own aircraft, and cannot project military force beyond its own coastline by any independent assessment available in the public record. That does not mean the island has zero strategic relevance. The presence of Russian and Chinese intelligence facilities is a legitimate concern that deserves legitimate examination. But strategic relevance and military threat are not the same thing. A listening post is not a gun. An island with 300 drones, a $129 million defense budget, and an air force that cannot fly is not a military threat to a country that spends $900 billion a year on defense. Describing it as one is not a security assessment. It is a sales pitch.</p>
+  </div>
+
+  <!-- PART FOUR-A -->
+  <div class="article-section">
+    <span class="section-label">Part Four-A</span>
+    <h2 class="section-title">On the Source of the Drone Claim, and What Administration Threats Are Worth</h2>
+
+    <p>The drone intelligence that anchors the most urgent version of the Cuba threat argument rests on a specific evidentiary foundation: a single anonymous senior Trump administration official, speaking to one outlet, disclosing classified information whose own source acknowledged in the same conversation could be used as a pretext for action. That is not a characterization imposed from outside. It is the structure of the story as Axios itself reported it on May 17, 2026. The outlet's own language noted that the senior official acknowledged the assessment "could become a pretext for U.S. action."<a href="#fn19" class="fn" id="ref19">[19]</a> The scoop and its built-in caveat were published together, and the caveat has received a fraction of the attention the drone figures generated.</p>
+
+    <p>The outlet carrying that story has, during the same period, established a documentable pattern of publishing administration-sourced national security scoops from anonymous officials that have not produced the outcomes they described. In the four weeks between May 6 and May 28, 2026, Axios published at least three separate exclusive reports describing an Iran nuclear deal as imminent or agreed in principle. On May 6, the outlet reported that the United States and Iran were "closing in on a one-page memo to end the war," with sources describing it as "the closest the parties had been to an agreement since the war began."<a href="#fn20" class="fn" id="ref20">[20]</a> On May 24, a second exclusive reported on what was "inside the Iran deal Trump is close to signing," providing detailed terms sourced to a U.S. official.<a href="#fn21" class="fn" id="ref21">[21]</a> On May 28, a third scoop reported that negotiators had "reached an agreement" on a 60-day memorandum of understanding, pending Trump's final approval.<a href="#fn22" class="fn" id="ref22">[22]</a> As of the publication of this article, no final agreement has been signed. Each of those stories followed the same structural template as the Cuba drone disclosure: anonymous senior official, classified or private information, national security framing, and outcomes that had not materialized by the time the next version of the story appeared.</p>
+
+    <p>The Netanyahu phone call reporting illustrates the same pattern from a different angle. On June 1, 2026, Axios reported that Trump had delivered an expletive-laden rebuke to Israeli Prime Minister Benjamin Netanyahu over Lebanon, with a U.S. official summarizing Trump's words as: "You're fucking crazy. You'd be in prison if it weren't for me. I'm saving your ass. Everybody hates you now. Everybody hates Israel because of this."<a href="#fn23" class="fn" id="ref23">[23]</a> The story reported that Trump had "steamrolled" Netanyahu and that the planned strikes on Beirut would not be happening. Trump confirmed the call took place and acknowledged using strong language. That part is not in dispute.</p>
+
+    <p>What happened next is also not in dispute. Trump announced on Truth Social the same day that Israel had agreed there would be no troops going to Beirut and that both sides would stop attacking each other. Netanyahu's office issued its own statement the same afternoon saying the Israeli Defense Forces would continue operating in southern Lebanon as planned. His Defense Minister flatly denied that a ceasefire existed. Lebanon's state news agency documented Israeli airstrikes continuing in southern Lebanon that same night. NBC News reported fresh exchanges of fire the following morning despite Trump's announcement.<a href="#fn24" class="fn" id="ref24">[24]</a> When Israeli strikes on Beirut occurred after the Iran ceasefire was announced in April, Trump's public response was to describe Lebanon as a "separate skirmish" and move on.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+    <p>The phone call happened. The expletives were confirmed. The bombing continued. The announcement of a ceasefire and the continuation of the bombing it was supposed to stop existed simultaneously, in the same news cycle, sourced to the same administration. That is not an argument about whether Trump is sincere when he expresses frustration with Netanyahu. It is a documented record of what administration pressure has actually produced when tested against a real situation in real time.</p>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> When the administration discloses intelligence suggesting Cuba poses a military threat, and that disclosure comes from a single anonymous official in an outlet that has published multiple imminent-deal scoops that did not materialize, and the official making the disclosure volunteered that it could serve as a pretext, and the same administration's most forceful recent expression of pressure on its closest ally produced no change in that ally's military conduct within 24 hours of the announcement, the reader is entitled to ask what evidentiary weight the Cuba disclosure actually carries. That is not a partisan question. It is the question any honest reading of the documented record produces.</p>
+  </div>
+
+  <!-- PART FIVE -->
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">The Embargo Context Nobody Mentions</h2>
+
+    <p>The conversation about Cuba's behavior toward the United States rarely includes a full accounting of the United States' behavior toward Cuba. That omission is not incidental. The embargo has been in continuous effect for more than 60 years, making it one of the longest-running economic sanctions regimes in modern history. It is the backdrop against which every claim about Cuban hostility, Cuban poverty, Cuban military decline, and Cuban alignment with American adversaries has to be understood. You cannot discuss what Cuba is without discussing what has been done to Cuba, not because the Cuban government deserves sympathy, but because the causal relationships matter to any honest assessment of the current situation.</p>
+
+    <p>For 32 consecutive years through 2024, the United Nations General Assembly passed a resolution calling for an end to the United States embargo against Cuba. The 2024 vote saw 187 nations vote in favor, with only the United States and Israel voting against, and Moldova abstaining.<a href="#fn26" class="fn" id="ref26">[26]</a> The 2025 vote saw 165 nations in favor, with seven voting against as additional countries joined the U.S. and Israel in opposition, in part citing Cuba's support for Russia in Ukraine.<a href="#fn27" class="fn" id="ref27">[27]</a> Even at 165 in favor, the international community's position is not ambiguous. The United States has voted no every single time, exercising what its ambassador to the UN described in October 2025 as its sovereign right to choose its trading partners.</p>
+
+    <p>In January 2026, President Trump signed an executive order imposing a fuel-specific blockade against Cuba on national security grounds. The consequences were documented not by Cuban government propaganda but by the United Nations Office for the Coordination of Humanitarian Affairs and the World Health Organization. Both agencies reported that the fuel restrictions had severely disrupted blood banks, laboratories, immunization programs, and maternal and child health services across the island.<a href="#fn28" class="fn" id="ref28">[28]</a> Emergency care has been compromised. The power grid, which had already collapsed multiple times in 2025, has continued to fail. The Cuban population is, by documented account, cooking over firewood in a country whose government cannot keep the lights on.</p>
+
+    <p>The United States government's counter-position deserves to be presented in full and taken seriously. At the October 2025 UN General Assembly meeting on the Cuba embargo resolution, the American ambassador stated that the United States exported more than $585 million in food, medicine, and humanitarian goods to Cuba in 2024, and argued that a blockade by definition prevents all trade. "How is that a blockade?" the ambassador asked the assembly. "There is no blockade. That is absolutely false."<a href="#fn29" class="fn" id="ref29">[29]</a> The United States position is that food and medicine have always been exempt from the embargo's restrictions, that Cuba can trade freely with the rest of the world, and that the Cuban government's failures are products of its own economic model rather than American policy.</p>
+
+    <p>That argument is on the record and it is not without basis. Cuba does trade with other countries. Food and medicine exemptions do exist within the embargo's legal structure. The Cuban government has, over six decades, demonstrated a remarkable capacity to blame external pressure for internal failures that predate and exceed what American policy can reasonably be held to account for. Both of those things can be true simultaneously.</p>
+
+    <p>What cannot be reconciled with the American position as stated is the January 2026 fuel executive order and its documented humanitarian consequences. Food and medicine exemptions do not power hospital generators. They do not keep blood banks cold. They do not run the equipment in the laboratories the WHO reported as severely disrupted. The fuel blockade is a separate instrument from the broader embargo, imposed specifically and deliberately, and its effects on the Cuban civilian population have been documented by international health agencies that have no political stake in the outcome. The Cuban government says the embargo's cumulative economic damage amounts to $154.22 billion at current prices. That figure is Cuba's own and cannot be independently verified. What can be independently verified is what the UN and WHO reported about the fuel blockade's immediate humanitarian impact, because they reported it themselves.</p>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> The question of whether the United States is causing Cuba's electricity crisis is, in the strict sense, contested. The Cuban government says yes. The United States government says no. The documented record shows that a fuel-specific executive order was signed in January 2026, that fuel shortages followed, and that the UN and WHO reported humanitarian consequences directly attributable to those shortages. The reader can assess which of those positions is more consistent with the sequence of events. What is not contested is that the civilian population bearing the consequences of that sequence did not design the Cuban government, did not choose its economic system, and did not vote for the officials currently being sanctioned. They are the people cooking over firewood. They are the patients in the hospitals the WHO flagged. Whatever one thinks of the government that has failed them, the instrument currently being tightened around that government is tightening around them at the same time. That is worth stating plainly, because it is almost never stated at all.</p>
+  </div>
+
+  <!-- PART SIX -->
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">The Consistency Problem</h2>
+
+    <p>There is an argument, made seriously by serious people, that the United States was substantially responsible for provoking the war in Ukraine. It holds that NATO's eastward expansion following the collapse of the Soviet Union constituted a direct and foreseeable provocation of Russia, that American and Western officials were warned about this outcome repeatedly and chose to proceed anyway, and that Russia's invasion, whatever its moral status, was a predictable response to decades of encroachment on what Moscow considered its essential security perimeter. This is not a fringe position. It is not Russian propaganda dressed up in academic language. It is a documented argument made by some of the most respected figures in American foreign policy across the past three decades.</p>
+
+    <p>George Kennan, the architect of America's Cold War containment doctrine and among the most consequential strategic thinkers in the history of American foreign policy, warned in a February 1997 New York Times op-ed titled "A Fateful Error" that NATO expansion would be "the most fateful error of American policy in the entire post-Cold War era." He said it plainly: "I think it is the beginning of a new cold war. I think the Russians will gradually react quite adversely and it will affect their policies. I think it is a tragic mistake. There was no reason for this whatsoever. No one was threatening anybody else." Kennan wrote this in 1997, 25 years before the full-scale invasion of Ukraine.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+
+    <p>William Burns, who served as CIA Director under President Biden, warned about NATO expansion's effect on Russia as far back as 1995, when he was a political officer at the United States Embassy in Moscow. He reported to Washington that hostility to early NATO expansion was "almost universally felt across the domestic political spectrum" in Russia.<a href="#fn31" class="fn" id="ref31">[31]</a></p>
+
+    <p>John Mearsheimer of the University of Chicago, one of the most cited international relations scholars in the world, argued in a September/October 2014 Foreign Affairs article that the taproot of the Ukraine crisis was NATO enlargement and the broader Western strategy of pulling Ukraine out of Russia's orbit. That article has been viewed tens of millions of times.<a href="#fn32" class="fn" id="ref32">[32]</a></p>
+
+    <p>Secretary of State James Baker told Soviet leader Mikhail Gorbachev in 1990 that if Russia withdrew from its Warsaw Pact client states and accepted German reunification, NATO would not move "one inch eastward." Fourteen countries have been added to NATO since that assurance was given.<a href="#fn33" class="fn" id="ref33">[33]</a></p>
+
+    <p>The argument is straightforward: placing a military alliance on the border of a major power that has explicitly and repeatedly stated it considers such placement an existential threat, after giving assurances that you would not do so, is a provocation. Whether that provocation justifies invasion is a separate moral question. The strategic logic of the provocation itself is not seriously disputed by the people who study these things for a living.</p>
+
+    <p>Now apply that argument to Cuba.</p>
+
+    <p>Cuba is an island located 90 miles from the American coastline. The United States has formally and explicitly claimed the Western Hemisphere as its sphere of influence since the Monroe Doctrine of 1823 and has enforced that claim through military intervention, covert action, economic pressure, and diplomatic isolation across two centuries. Cuba has, according to a single anonymous administration official, acquired approximately 300 drones from Russia and Iran. It hosts Russian and Chinese intelligence facilities. It is doing these things while under an active fuel blockade, with a collapsing economy, a military ranked 65th in the world, and combat aircraft that cannot leave the ground.</p>
+
+    <p>If the principle underlying the NATO expansion argument has any validity at all, and George Kennan, William Burns, and John Mearsheimer believed it did, then Cuba acquiring weapons from Russia and China, 90 miles from American shores, inside the hemisphere the United States has claimed as its exclusive zone of influence for two centuries, under escalating American economic pressure, is not a justification for American military action. It is the same argument. Pointed in the other direction. A smaller country, under pressure from a larger one, accepting military hardware from the larger country's adversaries. That is what the NATO expansion critics said Ukraine was doing. The people who rejected that argument entirely are now making the Cuban version of it without apparent awareness of the contradiction.</p>
+
+    <p>Then there is Taiwan.</p>
+
+    <p>Taiwan is an island of 23 million people located approximately 100 miles off the Chinese coast. China has claimed it as sovereign territory for decades, considers American military involvement with Taiwan a direct provocation, and has stated repeatedly and on the record that it will not tolerate indefinite American military presence and arms sales to the island. In December 2025, the Trump administration, the same administration currently citing Cuba's acquisition of 300 drones as a national security emergency, announced $11.15 billion in arms sales to Taiwan, the largest single package in American history, bringing the total United States arms backlog to the island to approximately $32 billion.<a href="#fn34" class="fn" id="ref34">[34]</a> That package includes HIMARS rocket artillery systems, Army Tactical Missile Systems, self-propelled howitzers, Javelin and TOW missiles, and drones. The State Department's own justification for the sales was that they support Taiwan's efforts to "maintain a credible defensive capability" and "military balance" in the region.<a href="#fn35" class="fn" id="ref35">[35]</a></p>
+
+    <p>The United States is currently running a $32 billion weapons pipeline to an island 100 miles off the coast of a nuclear power that considers those weapons a direct threat to its territorial integrity. The same government is treating Cuba's acquisition of 300 drones from Russia and Iran as a national security emergency requiring sanctions, indictments, fuel blockades, and the public musing of a president about taking the island by force. If arming a smaller territory inside a great power's declared sphere of influence with offensive weapons systems constitutes an act of provocation justifying a military response, then the United States has been committing that act against China at scale for decades. If it does not constitute such a provocation, then the Cuba drone argument collapses on its own terms, because the same logic that clears American arms sales to Taiwan clears Russian and Iranian drone sales to Cuba.</p>
+
+    <p>The argument being made about Cuba is not a principle being applied consistently across cases. It is a policy preference being dressed in the language of principle and applied selectively to produce a predetermined outcome. The people making it have not applied it to NATO and Ukraine. They have not applied it to Taiwan and China. They are applying it to Cuba, where a Secretary of State with a documented personal history on the subject, financial relationships with the defense industry that would contract any military response, and a political career built substantially on this single issue is the person deciding what the American public is told about the threat level and what the classified intelligence means.</p>
+
+    <p>Both sides of every argument in this section have been presented. Kennan's position and the NATO expansionists' rebuttal are both part of the documented record. The United States government's justification for Taiwan arms sales is sourced to State Department language. The reader can assess whether the standard being applied to Cuba is the same one being applied everywhere else. The documented record makes that assessment possible. The answer it produces is not ambiguous.</p>
+  </div>
+
+  <!-- PART SEVEN -->
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Editorial Assessment</h2>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> Donald Trump ran for president in 2024 on a platform that included, explicitly and repeatedly, the promise of no new wars. It was among the most effective lines of his campaign. It resonated with a generation of younger voters who had watched the wars in Iraq and Afghanistan consume trillions of dollars, thousands of American lives, and the better part of two decades, producing outcomes that the most generous assessment would describe as inconclusive. Those voters showed up for Trump in numbers that surprised political analysts. They were not voting for a new war in the Caribbean. They were not voting to invade an island 90 miles off the Florida coast on the basis of a terrorism designation that has been applied and removed along partisan lines since 1982, a drone disclosure sourced to one anonymous official who simultaneously flagged its use as a pretext, and the personal passion project of a Secretary of State whose family history with the Cuban government is real, whose financial relationships with the defense industry are documented, and whose conflict of interest on this specific question is structural rather than incidental.</p>
+
+    <p>The Cuban government is going to be held to account in this editorial assessment the same way the American government is. It is a repressive regime. It has imprisoned thousands of political dissidents. It has suppressed free expression so completely and for so long that an entire generation of Cubans has grown up without access to basic political rights that most of the world takes for granted. It has managed its economy with such spectacular incompetence, compounded by genuine external pressure, that its population cannot reliably access food, medicine, or electricity. The people running that government are not victims. They are the authors of enormous and documented suffering visited upon their own people. Nothing in this piece changes that, and nothing was intended to.</p>
+
+    <p>But the question this piece set out to answer was not whether the Cuban government is good or bad. That question has a clear answer and it has been stated plainly in every section that touched it. The question was whether the specific justifications being offered for escalating American pressure, up to and including the military action that senior officials have declined to rule out, are honest ones supported by the documented record.</p>
+
+    <p>The terrorism designation has been on and off and on again based on which party controls the White House, not based on documented changes in Cuban behavior. The named predicate for the current designation, the ELN connection, lost its legal foundation in August 2022 when Colombia withdrew the arrest warrants that formed its entire factual basis. The drone disclosure came from one anonymous official in an outlet that published three imminent Iran deal scoops in four weeks, none of which produced a signed agreement, and the official making the disclosure volunteered that it could serve as a pretext. Cuba's military is ranked 65th in the world, operates Soviet-era equipment it cannot fuel, and has combat aircraft that independent analysts describe as currently inoperable. The fuel blockade's humanitarian consequences have been documented by the UN and WHO. The consistency standard being applied to Cuba cannot be reconciled with the standard applied to NATO expansion and Ukraine or to American arms sales to Taiwan, and the people making the Cuba argument are in many cases the same people who rejected both of those analogies when they pointed in a less convenient direction.</p>
+
+    <p>If the reader has followed the documented record through each of those sections and concluded that the justifications hold up, that conclusion is available to them and this piece does not foreclose it. What this piece does foreclose is the conclusion that those justifications have not been examined. They have been examined. Every claim has been sourced. Every counter-argument has been presented. The American government's position on the embargo, the terrorism designation, the drone threat, and the Taiwan arms sales has been included in full. The reader has everything they need to make an informed judgment.</p>
+
+    <p><span class="opinion-inline">Editorial Assessment</span> What they do not have, and what no honest accounting of the public record provides, is a justification for military action against a sovereign nation that survives basic scrutiny. The claims examined in this piece are not complicated. They do not require classified access to evaluate or specialized expertise to challenge. A person paying reasonable attention to publicly available government documents, independent military assessments, UN agency reports, and the administration's own prior statements can work through all of them in a matter of minutes. If those claims, thin as the record shows them to be, are being seriously advanced as grounds for an action that would cost human lives, displace families, and produce the kind of generational instability that this country's recent history in the Middle East has documented at enormous cost, then the people making them are not informing the public. They are counting on the public not to look. This piece looked. The reader can decide what to do with what it found.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Rubio's Statements and the Terrorism Designation</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Rubio testimony, Senate Foreign Relations Committee. June 2, 2026. <a href="https://local10.com" target="_blank" rel="noopener">local10.com</a> <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Secretary Marco Rubio. Post on X (@SecRubio). June 4, 2026. <a href="https://x.com/SecRubio" target="_blank" rel="noopener">x.com/SecRubio</a> <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] Axios. "U.S. eyes attack-drone threat from Cuba." May 17, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] Ballotpedia. "Marco Rubio." <a href="https://ballotpedia.org/Marco_Rubio" target="_blank" rel="noopener">ballotpedia.org</a> <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] ProPublica FEC Itemizer. Raytheon, Lockheed Martin, Airbus Americas, L3 Harris PAC contributions to Marco Rubio. <a href="https://projects.propublica.org/itemizer" target="_blank" rel="noopener">projects.propublica.org</a> <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] OpenSecrets. Marco Rubio career industry profile. <a href="https://opensecrets.org" target="_blank" rel="noopener">opensecrets.org</a> <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] The Center Square. "Florida military bases in line for $582.5 million in construction funding." July 2023. <a href="https://thecentersquare.com" target="_blank" rel="noopener">thecentersquare.com</a> <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn8">[8] U.S. State Department. "U.S. Announces Designation of Cuba as a State Sponsor of Terrorism." Secretary Pompeo Statement, January 11, 2021. <a href="https://2017-2021.state.gov" target="_blank" rel="noopener">2017-2021.state.gov</a> <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn9">[9] NBC News. "Biden administration will remove Cuba's designation as a state sponsor of terrorism." January 2025. <a href="https://nbcnews.com" target="_blank" rel="noopener">nbcnews.com</a> <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] Baker McKenzie Global Sanctions Blog. "Cuba's Designation as a State Sponsor of Terrorism." January 2025. <a href="https://sanctionsnews.bakermckenzie.com" target="_blank" rel="noopener">sanctionsnews.bakermckenzie.com</a> <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] President Biden. Certification of Rescission of Cuba's Designation as a State Sponsor of Terrorism. January 14, 2025. <a href="https://govinfo.gov" target="_blank" rel="noopener">govinfo.gov</a> <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn12">[12] Baker McKenzie Global Sanctions Blog. January 2025. <a href="https://sanctionsnews.bakermckenzie.com" target="_blank" rel="noopener">sanctionsnews.bakermckenzie.com</a> <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] Just Security. "The Pretext Behind the Trump Administration Labeling Cuba a State Sponsor of Terrorism." June 2026. <a href="https://justsecurity.org" target="_blank" rel="noopener">justsecurity.org</a> <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] Just Security. June 2026. <a href="https://justsecurity.org" target="_blank" rel="noopener">justsecurity.org</a> <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Cuba's Military Capacity</span>
+    <ul class="bib-list">
+      <li id="fn15">[15] GlobalFirepower. "2026 Cuba Military Strength." <a href="https://globalfirepower.com" target="_blank" rel="noopener">globalfirepower.com</a> <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] TheWorldData. "Cuba Army Statistics 2026." <a href="https://theworlddata.com" target="_blank" rel="noopener">theworlddata.com</a> <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn17">[17] Military Power Rankings. "Cuba Army Statistics 2026." <a href="https://militarypowerrankings.com" target="_blank" rel="noopener">militarypowerrankings.com</a> <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Drone Claim and Administration Sourcing</span>
+    <ul class="bib-list">
+      <li id="fn18">[18] UPI. "U.S. sanctions Cuban leader Miguel Diaz-Canel, military, Castro kin." June 4, 2026. <a href="https://upi.com" target="_blank" rel="noopener">upi.com</a> <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] Axios. "U.S. eyes attack-drone threat from Cuba." May 17, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] Axios. "U.S. and Iran closing in on one-page memo to end war." May 6, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn21">[21] Axios. "Exclusive: What's inside the Iran deal Trump is close to signing." May 24, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn22">[22] Axios. "U.S. and Iran reach deal but need Trump's final approval." May 28, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] Axios. "Trump to Netanyahu in call on Israel striking Lebanon: You're fucking crazy." June 1, 2026. <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a> <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] NBC News. "Israel and Hezbollah trade new attacks despite Trump ceasefire announcement." June 3, 2026. <a href="https://nbcnews.com" target="_blank" rel="noopener">nbcnews.com</a> <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn25">[25] Al Jazeera. "Trump backs Israel, says Lebanon a separate skirmish after ceasefire." April 8, 2026. <a href="https://aljazeera.com" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Embargo and Humanitarian Impact</span>
+    <ul class="bib-list">
+      <li id="fn26">[26] UN General Assembly Press Release. October 29, 2024. <a href="https://press.un.org" target="_blank" rel="noopener">press.un.org</a> <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn27">[27] UN General Assembly Press Release. October 2025. <a href="https://press.un.org" target="_blank" rel="noopener">press.un.org</a> <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] UPI. June 4, 2026. <a href="https://upi.com" target="_blank" rel="noopener">upi.com</a> <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn29">[29] U.S. Mission to the United Nations. Remarks on the Cuba embargo resolution. October 2025. <a href="https://usun.usmission.gov" target="_blank" rel="noopener">usun.usmission.gov</a> <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The NATO/Ukraine and Taiwan Parallels</span>
+    <ul class="bib-list">
+      <li id="fn30">[30] Kennan, George F. "A Fateful Error." New York Times op-ed. February 5, 1997. <a href="https://nytimes.com" target="_blank" rel="noopener">nytimes.com</a> <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] The Conversation. "Ukraine war follows decades of warnings that NATO expansion into Eastern Europe could provoke Russia." April 2026. <a href="https://theconversation.com" target="_blank" rel="noopener">theconversation.com</a> <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn32">[32] Mearsheimer, John J. "Why the Ukraine Crisis Is the West's Fault." Foreign Affairs. September/October 2014. <a href="https://foreignaffairs.com" target="_blank" rel="noopener">foreignaffairs.com</a> <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] Australian Institute of International Affairs. "Why NATO Expansion Explains Russia's Actions in Ukraine." July 2024. <a href="https://internationalaffairs.org.au" target="_blank" rel="noopener">internationalaffairs.org.au</a> <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] Taiwan Security Monitor. "Taiwan Arms Sale Backlog, December 2025 Update." <a href="https://tsm.schar.gmu.edu" target="_blank" rel="noopener">tsm.schar.gmu.edu</a> <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] NPR. "US announces massive package of arms sales to Taiwan valued at more than $10 billion." December 18, 2025. <a href="https://npr.org" target="_blank" rel="noopener">npr.org</a> <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us &#8212; All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
