@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Money Behind the Movement -- Political Hypocrites</title>
+  <meta name="description" content="How One Man's Fortune Built a Political Infrastructure Most Americans Have Never Heard Of. A documented investigation into Neville Roy Singham, his network, and the financial architecture behind American political organizing." />
+  <meta property="og:title" content="The Money Behind the Movement -- Political Hypocrites" />
+  <meta property="og:description" content="Remove his money and the question is not whether these organizations would have different politics. The question is whether most of them would exist at all." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/the-money-behind-the-movement" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Money Behind the Movement -- Political Hypocrites" />
+  <meta name="twitter:description" content="How One Man's Fortune Built a Political Infrastructure Most Americans Have Never Heard Of." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.25rem);
+      font-style: italic; color: rgba(20,10,5,0.50);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.40); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.3); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .part-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .part-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.4rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.2);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.30); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.60) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .partner-links {
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2.5rem 0;
+    }
+    .partner-links-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.30); display: block; margin-bottom: 0.8rem;
+    }
+    .partner-links-list {
+      display: flex; flex-wrap: wrap; gap: 1rem; list-style: none;
+    }
+    .partner-links-list a {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border-bottom: 1px solid var(--rule); padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .partner-links-list a:hover { color: var(--red); border-color: var(--red); }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.40); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.50); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: var(--red); }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>&#x203A;</span>
+    <span class="current">The Money Behind the Movement</span>
+  </div>
+  <span class="article-label">Investigation -- June 2026</span>
+  <h1 class="article-title">The Money Behind the Movement</h1>
+  <p class="article-subtitle">How One Man's Fortune Built a Political Infrastructure Most Americans Have Never Heard Of</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">June 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Ten</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Sources</span>
+      <span class="meta-value">48 Primary Sources</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Investigation</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=The+Money+Behind+the+Movement%3A+How+One+Man%27s+Fortune+Built+a+Political+Infrastructure+Most+Americans+Have+Never+Heard+Of&url=https%3A%2F%2Fpolitical-hypocrites.vercel.app%2Finvestigations%2Fthe-money-behind-the-movement" target="_blank" rel="noopener" class="share-btn">Share &#x2197;</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- PART ONE -->
+  <div class="article-section">
+    <span class="part-label">Part One</span>
+    <h2 class="part-title">The Origin</h2>
+
+    <p class="article-lede">Neville Roy Singham was born on May 13, 1954, in Middletown, Connecticut. His father, Archibald Singham, was a Sri Lankan political scientist and historian who taught at Brooklyn College of the City University of New York. His mother was Cuban. The household he grew up in was not politically neutral. Archibald Singham was a scholar of anti-colonial movements and Third World liberation politics, a man who spent his academic career documenting the struggles of nations attempting to break free from what he and others in that tradition called imperial domination. The worldview Neville Roy Singham would carry into adulthood did not emerge from nowhere.</p>
+
+    <p>As a young man, Singham moved to Detroit and joined the League of Revolutionary Black Workers, a Black nationalist organization with explicit Maoist influences that was active in the late 1960s and early 1970s. The League organized inside the auto plants, challenged both factory management and the established union leadership of the UAW, and positioned itself as a vanguard movement operating outside the boundaries of mainstream American labor politics. Singham's participation placed him, at a formative age, inside one of the most radical organized political movements operating on American soil at the time.</p>
+
+    <p>By 1974, when Singham was twenty years old, the Federal Bureau of Investigation had opened an investigation into him. According to a report later published by the Network Contagion Research Institute and subsequently cited in letters from the House Ways and Means Committee, the FBI flagged Singham as potentially dangerous because of his background, emotional instabilities, and activity in groups engaged in activities inimical to the United States. No charges were filed. The file exists.</p>
+
+    <p>Singham went on to attend Howard University, one of the country's most prominent historically Black universities, where he studied economics and political science. He graduated with honors. Whatever the FBI saw in the young man from Detroit, it did not slow his academic trajectory.</p>
+
+    <p>What the record establishes, before a single dollar of his eventual fortune enters the picture, is that Neville Roy Singham arrived at adulthood with a coherent and fully formed ideological identity. He was not radicalized later in life by disillusionment or grievance. The beliefs he would eventually fund at a scale of hundreds of millions of dollars were the beliefs he had held since before he had any money at all. That distinction matters. This is not a story about a man who made a fortune and then lost his way. It is a story about a man who always knew exactly where he was going and eventually acquired the means to get there.</p>
+  </div>
+
+  <!-- PART TWO -->
+  <div class="article-section">
+    <span class="part-label">Part Two</span>
+    <h2 class="part-title">The Fortune</h2>
+
+    <p>There is an irony at the center of Neville Roy Singham's story that he has never appeared particularly troubled by. The man who joined a Maoist organization in his youth, who has described his admiration for Hugo Chavez's Venezuela and the Chinese Communist Party's model of governance, who has spent the years since 2017 funding a global network of socialist and anti-capitalist organizations, built every dollar he ever had inside the American capitalist system. The fortune that funds the movement against that system came from the system itself.</p>
+
+    <p>In the late 1980s, Singham founded ThoughtWorks, a Chicago-based information technology consultancy. The company was formally incorporated in 1993. Its business was straightforward: it helped large corporations design and build custom software, advised on digital strategy, and provided the kind of technical consulting that the biggest institutions in American commerce and finance were willing to pay premium rates to receive. ThoughtWorks' client list was not a roster of community organizations or worker cooperatives. It included Microsoft, Oracle, major banks, and The Guardian newspaper. By 2008, the company employed more than one thousand people and was growing at a rate of twenty to thirty percent per year, with offices across multiple continents.</p>
+
+    <p>From 2001 to 2008, during this same period of ThoughtWorks' expansion, Singham served as a strategic technical consultant for Huawei, the Chinese telecommunications giant. Huawei's relationship with the Chinese Communist Party has been a subject of sustained scrutiny by American national security officials for years. The company maintains an internal CCP committee. In 2022, the Federal Communications Commission voted unanimously to ban the domestic sale of all new Huawei telecommunications equipment and devices, citing national security concerns. Singham's consulting relationship with Huawei predates his relocation to Shanghai by more than a decade and predates the ThoughtWorks sale by nine years. It is the earliest documented point of operational contact between Singham and Chinese government-linked institutions.</p>
+
+    <p>In 2005, ThoughtWorks opened offices in China. The timing placed Singham's company inside the Chinese market during the same window he was advising Huawei. Whether those two facts are connected in any operational sense is not established in the public record. What is established is that by the mid-2000s, Singham had built professional and institutional ties to China that went beyond ideology.</p>
+
+    <p>ThoughtWorks continued to grow. By 2017, the company employed approximately 4,500 people across fifteen countries and served clients including Bayer, Walmart, Thomson Reuters, and Axis Bank. In August of that year, Singham sold ThoughtWorks to the private equity firm Apax Partners. The New York Times later reported that it had reviewed the private deal sheet and confirmed the sale price: approximately $785 million. Singham owned the majority of the company's stock. The proceeds were his.</p>
+
+    <div class="stat-callout">
+      <span class="stat-num">$785M</span>
+      <p class="stat-desc">The documented sale price of ThoughtWorks to Apax Partners in 2017. Singham owned the majority of the company's stock. The proceeds became the engine of everything that followed.</p>
+    </div>
+
+    <p>He was sixty-three years old. He had spent nearly three decades building a company whose success depended entirely on the appetite of large capitalist institutions for technical expertise. He had made himself wealthy by serving the very system his politics had always opposed. And now, with the sale complete, he had the instrument he had always needed. The ideology was old. The money was new. What came next was the combination of both.</p>
+  </div>
+
+  <!-- PART THREE -->
+  <div class="article-section">
+    <span class="part-label">Part Three</span>
+    <h2 class="part-title">The Relocation</h2>
+
+    <p>In February 2017, Neville Roy Singham married Jodie Evans in Ocho Rios, Jamaica. Evans is the co-founder of CODEPINK Women for Peace, a grassroots anti-war organization that has over the years evolved into one of the more visible left-wing activist groups in the United States. The wedding was not a small private affair. It brought together, over four days of events at venues along the Jamaican coast, a gathering of activists, intellectuals, organizers, and ideological allies from across the global left. Among those present was actor Danny Glover, who would later join CODEPINK's public campaigns. Others in attendance would go on to appear as board members, funding recipients, public spokespeople, and organizational leaders across the network that Singham was about to build.</p>
+
+    <p>Fox News Digital, in its investigative series on what it called the House of Singham, described the wedding as something closer to a convening than a celebration. Alliances formed over those four days, according to that reporting, would shape protests, organizing campaigns, and political agitation across the following decade. Tax filings document the financial relationships that subsequently developed among people who were present at that gathering. The guest list, in retrospect, reads as something close to a founding roster.</p>
+
+    <p>Three things happened in 2017 in close succession. Singham sold ThoughtWorks for approximately $785 million. He married Jodie Evans. And he relocated to Shanghai, China, where he has lived ever since.</p>
+
+    <div class="pull-quote">
+      <p>In a single year, Singham converted his life's work into liquid capital, formalized his partnership with one of the most prominent anti-war activists in the country, and moved himself outside the jurisdiction of the United States government.</p>
+    </div>
+
+    <p>Whether those three decisions were coordinated or simply concurrent is not established in the public record. What is established is their combined effect. Singham now held hundreds of millions of dollars, was formally allied with a veteran activist network, and resided in a country with no extradition treaty with the United States, in a city whose local government he would later be documented attending workshops with.</p>
+
+    <p>Living in Shanghai carries specific legal implications that are not incidental to this story. The Foreign Agents Registration Act, the federal law that would most directly apply to questions about whether Singham's activities require public disclosure, is a U.S. law enforceable against U.S. persons. Singham is a U.S. citizen. FARA's reach does not end at the border. But the practical difficulty of compelling testimony, seizing records, or enforcing subpoenas against someone residing in the People's Republic of China is not a theoretical problem. It is a structural one. The congressional letters demanding investigation of Singham's network have accumulated for years. Singham has not appeared before any committee. He has not registered under FARA. He continues to operate from Shanghai.</p>
+
+    <p>His own explanation for his beliefs and activities has been consistent. In an email to the New York Times, he wrote: "I categorically deny and repudiate any suggestion that I am a member of, work for, take orders from, or follow instructions of any political party or government or their representatives. I am solely guided by my beliefs, which are my long-held personal views." That statement is his and it belongs in this piece. It is also the only substantial public response he has offered to years of investigative reporting and congressional scrutiny. The documented record of what his money has done exists independently of whether he takes orders from anyone.</p>
+
+    <p>What the relocation to Shanghai established, whatever its motivations, was a posture of distance. Distance from U.S. regulators. Distance from congressional subpoenas. Distance from the press. And proximity, in the most literal geographic sense, to the government whose narratives his network would spend the following years amplifying around the world.</p>
+  </div>
+
+  <!-- PART FOUR -->
+  <div class="article-section">
+    <span class="part-label">Part Four</span>
+    <h2 class="part-title">The Architecture</h2>
+
+    <p>The most important thing to understand about how Neville Roy Singham moves money is that the design of the system makes it difficult to follow. That difficulty is not accidental. The structure he uses, layers of donor-advised funds, intermediary nonprofits, fiscal sponsorship arrangements, and shell entities, exists precisely because American nonprofit law permits it and because the disclosure requirements that govern each layer are narrow enough that the full picture only becomes visible when investigators pull every filing simultaneously and map the connections manually. Most people never do that. The New York Times did. Congressional investigators did. What they found was not simple.</p>
+
+    <p>The entry point into the financial architecture is the donor-advised fund. A donor-advised fund allows a wealthy individual to contribute money to a sponsoring organization, claim an immediate tax deduction, and then recommend grants from that fund to other nonprofits over time. The donor's identity is shielded from the ultimate recipient. The transaction appears in public records as a grant from the sponsoring organization, not as a gift from the individual. In Singham's case, the Goldman Sachs Philanthropy Fund served as a documented intermediary. The Free Press reported, and congressional letters subsequently confirmed, that The People's Forum received approximately twenty million dollars between 2017 and 2022 routed through the Goldman Sachs Philanthropy Fund. Goldman Sachs has since distanced itself from The People's Forum, stating that it functions only as a conduit for clients to direct donations to charities of their choosing. The bank is not accused of wrongdoing. It is one link in a chain.</p>
+
+    <p>From the donor-advised fund level, money moved into a set of intermediary nonprofits that served as the next layer of the structure. The most significant of these were the United Community Fund, the Justice and Education Fund, and the Progress Unity Fund. The New York Times described several entities in this network as "UPS store nonprofits," a reference to the fact that public filings listed shipping company storefronts as their registered business addresses. These are not organizations with physical offices, public-facing programs, or identifiable staff in the conventional sense. They exist, in the documented record, primarily as vehicles through which money passes on its way to somewhere else.</p>
+
+    <div class="stat-callout">
+      <span class="stat-num">$68.7M</span>
+      <p class="stat-desc">The documented total received by the Justice and Education Fund, the largest single intermediary in the Singham financial network. Its board leadership overlaps directly with The People's Forum's management.</p>
+    </div>
+
+    <p>The Justice and Education Fund alone received $68.7 million in documented transfers connected to the Singham network, according to Fox News Digital's financial investigation. That figure makes it the largest single intermediary in the structure. Its board members, according to the Network Contagion Research Institute report, include Manolo De Los Santos, the founder of The People's Forum, and David Chung, The People's Forum's general manager. The organization that receives the money and the organization that controls the intermediary sending it share leadership. That overlap is visible in the public filings. It is not hidden. It simply requires someone to look.</p>
+
+    <p>The next mechanism in the structure is fiscal sponsorship. Under this arrangement, an established nonprofit with tax-exempt status agrees to sponsor a project or organization that does not itself have that status, allowing donors to contribute to the sponsored entity through the fiscal sponsor and receive a tax deduction. Congressional investigators have specifically flagged this practice in the Singham network, noting in letters to BreakThrough News, Tricontinental, and The People's Forum that their role as fiscal sponsors to other organizations may allow foreign-aligned funding to flow to downstream recipients with no disclosure requirement at that level. Each layer of fiscal sponsorship adds distance between the original source of funds and the ultimate beneficiary.</p>
+
+    <p>The IRS Form 990, the annual tax return that nonprofit organizations are required to file, is the primary public document through which this structure becomes partially visible. ProPublica's Nonprofit Explorer database makes these filings searchable. The Network Contagion Research Institute's May 2024 report built its financial map of the Singham network largely from 990 cross-referencing, tracing grant flows between entities, identifying shared board members, and documenting the concentration of funding from a single ultimate source. That report described the structure as one that exploits regulatory loopholes in the American nonprofit system to facilitate the flow of an enormous sum of dollars to left-wing organizations while obscuring the identity and intentions of the original donor.</p>
+
+    <p>It is worth stating clearly what this architecture is and what it is not. It is not, on its face, illegal. Donor-advised funds are legal. Intermediary nonprofits are legal. Fiscal sponsorship is legal. The same structural tools have been used by conservative dark money networks for decades, a point this investigation addresses directly in a later section. The question is not whether the structure violates the law as written. The question is whether the law as written is adequate to the situation it now faces, and whether a U.S. citizen residing in Shanghai, coordinating with Chinese government-linked institutions, and routing hundreds of millions of dollars through opaque nonprofit chains into American political organizing, was the kind of actor Congress had in mind when it designed a disclosure framework loose enough to make all of this invisible to the average observer.</p>
+
+    <p>The answer to that question is almost certainly no. The framework was not designed for this. And it has not been updated to address it.</p>
+  </div>
+
+  <!-- PART FIVE -->
+  <div class="article-section">
+    <span class="part-label">Part Five</span>
+    <h2 class="part-title">The Network</h2>
+
+    <p>The architecture described in the previous section is not interesting in the abstract. It becomes interesting when you look at what it built and what those built things do. The organizations that sit at the receiving end of Neville Roy Singham's financial pipeline are not obscure. Several of them have been present at some of the most visible moments of American political unrest over the past decade. The question this section asks is a simple one: what would these organizations look like without his money?</p>
+
+    <p>The People's Forum is the clearest place to start, because it is the organization that made the funding relationship public itself. On December 21, 2021, The People's Forum posted on X, then known as Twitter, describing Singham as a "Marxist comrade who sold his company and donated most of his wealth to nonprofits that focus on political education, culture, and internationalism." CODEPINK co-founder Medea Benjamin praised Singham publicly for his support of the organization at the time. The People's Forum has received a documented $22.44 million connected to the Singham network. It operates as a communist organizing hub in New York City. Its educational programming has included courses titled "Lenin and the Path to Revolution" and "China75: When the People Stand Up." Four days after the Hamas attacks of October 7, 2023, The People's Forum publicly praised Palestinian resistance. It has been involved in organizing major protest actions in New York City, including a Nakba Day bridge closure and economic blockade actions. The House Ways and Means Committee, in its September 2025 letter demanding records from the organization, cited its role in inciting protests and disruptive occupations of college campuses across the United States.</p>
+
+    <p>The Party for Socialism and Liberation and the ANSWER Coalition share office space at The People's Forum and share leadership with it. They are not separate organizational ecosystems. They are, in the documented record, overlapping entities operating out of the same physical address, funded through the same financial pipeline, and connected through the same personnel. When the ANSWER Coalition organizes a demonstration and the Party for Socialism and Liberation mobilizes its members, and The People's Forum provides the venue and the infrastructure, these are not three independent organizations independently reaching the same conclusions. They are components of a single funded structure.</p>
+
+    <p>CODEPINK received $1.33 million in documented transfers connected to the Singham network. The organization is co-founded by Jodie Evans, Singham's wife. Senator Tom Cotton's 2025 letter to Attorney General Pam Bondi noted that CODEPINK receives approximately twenty-five percent of its funding from Singham and documented what Cotton described as a shift in the organization's public positions on China that coincided with the period in which Singham's funding became significant. Before that funding relationship developed, CODEPINK's public posture on China was more critical. After it developed, the organization's output became more aligned with Chinese government positions. Cotton's letter asked the DOJ to investigate whether CODEPINK should be required to register under FARA. Senator Chuck Grassley sent a parallel letter making a similar request. Neither investigation has produced a registration or a charge.</p>
+
+    <p>BreakThrough News received $1.098 million. It operated out of the same address as The People's Forum. It functioned, in the description of congressional investigators, as a propaganda arm producing video content that amplified narratives consistent with Chinese government positions. The Justice and Education Fund transferred $483,000 to it directly.</p>
+
+    <p>Tricontinental: Institute for Social Research received $16.76 million. It describes itself as a research institute. Its executive director is Vijay Prashad, described in congressional correspondence as a close friend of Singham and a regular lecturer at The People's Forum. At an event in Qiao, China in 2020, Prashad was asked about the Uyghurs and responded: "The 'cultural genocide' charge is one that I'm not entirely sympathetic to." Singham is the chairman of Tricontinental's international advisory board. His son, Nate Singham, works there as a researcher. The organization is not an arm's-length recipient of philanthropic support. It is, by the documented record of personnel and governance, a family-connected institution.</p>
+
+    <p>The Justice and Education Fund received $68.7 million, making it the largest documented recipient in the network. As noted in the previous section, its board membership overlaps directly with The People's Forum's leadership. It has in turn transferred funds to entities outside the United States, including $2.3 million to Shanghai Maku Cultural Communications and documented payments to NewsClick in India. It functions less as an end recipient and more as a distribution hub.</p>
+
+    <p>Outside the United States, the network's documented reach extends to Brasil de Fato in Brazil, Centro Popular de Midias, and organizations in South Africa that blend left-wing politics with pro-China positioning. In South Africa, reporting has documented funding for training schools and political parties. The international footprint of this network, built entirely from the proceeds of a single American software company sale, spans multiple continents.</p>
+
+    <div class="pull-quote">
+      <p>Remove his money and the question is not whether these organizations would have different politics. The question is whether most of them would exist at all.</p>
+    </div>
+  </div>
+
+  <!-- PART SIX -->
+  <div class="article-section">
+    <span class="part-label">Part Six</span>
+    <h2 class="part-title">The China Connection</h2>
+
+    <p>Neville Roy Singham has been consistent in his public denial. In his email to the New York Times he stated that he categorically denies working for, taking orders from, or following instructions of any political party or government. That statement is his and it belongs in this piece. What also belongs in this piece is the documented record that exists alongside that denial, because the two things do not cancel each other out. A person can sincerely believe they are acting on their own convictions while simultaneously producing outcomes that serve another government's strategic interests. The question of intent is separate from the question of effect. The documented record speaks primarily to effect.</p>
+
+    <p>The New York Times investigation published in August 2023 was the first comprehensive mapping of the overlap between Singham's network and Chinese government institutions. What the Times found was not limited to ideological alignment, which would be constitutionally protected and editorially unremarkable. It found operational connections. Outlets within the Singham network were co-producing content with Shanghai's municipal propaganda department. Others were working with a Chinese university under an arrangement explicitly described as being designed to spread China's voice to the world. The Times also reported that Singham had attended a Chinese Communist Party workshop focused on promoting the party internationally. These are not the activities of someone whose connection to Chinese government institutions is purely philosophical.</p>
+
+    <p>The financial connections are the most concrete part of the documented record. Fox News Digital's investigative series reported that three Singham-linked American nonprofits sent a combined $9.1 million in seven payments to Shanghai Maku Cultural Communications Co. Ltd., a pro-China propaganda firm. These payments, according to Fox News Digital, had not been previously reported. Maku shared premises with Singham in Shanghai. The Justice and Education Fund, the largest intermediary in the domestic network, was among the entities making those transfers. American nonprofit dollars, flowing through a chain of tax-exempt organizations, arrived at a Chinese propaganda company operating in the same city where Singham lives.</p>
+
+    <div class="stat-callout">
+      <span class="stat-num">$9.1M</span>
+      <p class="stat-desc">The combined total sent by three Singham-linked American nonprofits to Shanghai Maku Cultural Communications Co. Ltd., a pro-China propaganda firm that shared premises with Singham in Shanghai. Seven payments. Previously unreported.</p>
+    </div>
+
+    <p>In November 2025, Singham appeared at a conference at the Golden Tulip Hotel in Shanghai. According to Fox News Digital's reporting on that event, he praised Chinese President Xi Jinping and described the Chinese Communist Party's vision as one for a new world order. This was not a private statement made in correspondence. It was a public appearance at a conference, documented by reporters covering the event. It came two years after his categorical denial to the New York Times and more than eight years after his relocation to Shanghai.</p>
+
+    <p>The content produced by outlets within his network is consistent with these relationships in ways that are documentable rather than merely inferential. BreakThrough News amplified narratives aligned with Chinese government positions. Tricontinental's executive director Vijay Prashad expressed skepticism about the characterization of China's treatment of the Uyghurs as cultural genocide at an event held in China. Jodie Evans co-authored a book titled "China is Not Our Enemy" with a researcher connected to a CCP-tied foundation and Dongsheng News. The People's Forum hosted courses glorifying the Chinese revolution. These are not random convergences of opinion. They are a pattern produced by a network whose funding source lives in Shanghai, attends CCP workshops, and has transferred millions of American nonprofit dollars to Chinese government-linked media entities.</p>
+
+    <p>The Network Contagion Research Institute, in its May 2024 report, described Singham as a known conduit for CCP geopolitical influence. It is worth noting, in the interest of transparency that this publication applies equally to all subjects, that NCRI is primarily funded by pro-Israel organizations. That funding relationship does not automatically invalidate its findings, which are grounded in publicly available financial filings and documented organizational connections. But readers are entitled to know who is doing the documenting and why, in the same way they are entitled to know who is doing the funding and why. Both questions belong in an honest accounting of this story.</p>
+
+    <p>What the U.S. government has made of all this, institutionally, is addressed in a later section. What is worth establishing here is the nature of what investigators across multiple countries have found when they looked. India's Enforcement Directorate raided NewsClick and issued a criminal summons to Singham. Canadian authorities have examined aspects of the network. Multiple U.S. congressional committees have written letters demanding action from the DOJ, the FBI, the IRS, and the Treasury Department spanning both the Biden and Trump administrations. The consistent finding across all of these inquiries, conducted by investigators with no particular coordination with one another and in several cases with adversarial relationships to each other, is the same. The money flows from Shanghai. It passes through American nonprofit structures. It funds organizations whose output is consistent with Chinese government interests. And the man at the center of it says he is simply following his own long-held personal views.</p>
+
+    <p>Both of those things are in the record. Readers can weigh them accordingly.</p>
+  </div>
+
+  <!-- PART SEVEN -->
+  <div class="article-section">
+    <span class="part-label">Part Seven</span>
+    <h2 class="part-title">The India Case</h2>
+
+    <p>Of all the countries whose institutions have examined Neville Roy Singham's network, only one has moved from investigation to active criminal proceedings. That country is India. The India case is worth examining in detail not because it is the most legally significant jurisdiction for an American audience, but because it is the only place in the world where the question of what Singham's money actually does when it arrives at a media outlet has been tested in a legal proceeding. It is the proof of concept, documented in a court record rather than a congressional letter.</p>
+
+    <p>NewsClick is a Delhi-based digital news outlet. It was founded in 2009 and positioned itself as a progressive media organization covering labor, politics, and social movements in India. It built a modest but real audience. It published in English and Hindi. It employed journalists. It looked, from the outside, like an independent news operation with a left-wing editorial perspective. What it was, according to Indian investigators, was something more complicated.</p>
+
+    <p>The New York Times investigation in August 2023 traced financial flows from the Singham network to NewsClick. According to the Times, the Justice and Education Fund transferred money to NewsClick across multiple payments over several years. Fox News Digital's subsequent reporting documented payments from Singham-linked entities to NewsClick totaling millions of dollars across the period from 2019 through 2023. The content NewsClick produced during this period included videos echoing the position that China's history continues to inspire the working classes, coverage that aligned with Chinese government narratives on multiple contested issues, and material that Indian authorities characterized as anti-India propaganda.</p>
+
+    <p>In October 2023, the Indian Enforcement Directorate raided NewsClick's offices in Delhi. Founder Prabir Purkayastha and human resources head Amit Chakravarty were arrested. The raid was part of a money laundering investigation. Indian authorities alleged that funds from the Singham network had been routed to NewsClick through a web of shell companies and that those funds had been used improperly to run what the government characterized as an anti-India, pro-China propaganda operation. The government subsequently issued a criminal summons to Singham himself, citing alleged election interference, money laundering, and terrorism. Singham, residing in Shanghai, did not appear. The NewsClick case is still awaiting a trial date.</p>
+
+    <p>The Indian government's characterization of NewsClick as a propaganda outlet has been contested. Press freedom organizations raised concerns about the raid, noting that Indian authorities under Prime Minister Narendra Modi's government have a documented record of using legal mechanisms against critical media outlets. The Committee to Protect Journalists and Reporters Without Borders both flagged the arrests as warranting scrutiny. Those concerns are legitimate and belong in any honest account of this case. The use of money laundering and terrorism statutes against journalists has a troubling history in multiple countries, including India, and the fact that authorities allege something does not establish that it is true.</p>
+
+    <p>What the India case establishes, even accounting for those legitimate concerns, is a specific and documented sequence. Money moved from Singham-linked American nonprofits to a media outlet in India. That outlet published content consistent with Chinese government positions on contested issues. Indian authorities investigated the financial relationship, found evidence they characterized as money laundering, arrested the outlet's leadership, and issued a criminal summons to the man whose network sent the money. Whether the Indian government's characterization of NewsClick's content as propaganda is accurate is a judgment call. Whether money moved from the Singham network to NewsClick is documented in financial filings reviewed by the New York Times and subsequently confirmed by multiple investigators.</p>
+
+    <p>The India case also illustrates something about the network's operating method that the domestic American story sometimes obscures. The model, as it appears in the documented record across multiple countries, is consistent. A media outlet or activist organization is established or supported in a target country. Funding arrives through intermediary structures that obscure the original source. The outlet produces content. Some of that content aligns with Chinese government positions on issues relevant to that country's relationship with Beijing. The outlet presents itself as an independent voice. The funding relationship is not disclosed to the audience.</p>
+
+    <p>India looked at that model, identified it, and acted on what it found. The United States, which has more legal tools available to it and more direct jurisdiction over the man at the center of the network, has spent the same period writing letters.</p>
+  </div>
+
+  <!-- PART EIGHT -->
+  <div class="article-section">
+    <span class="part-label">Part Eight</span>
+    <h2 class="part-title">The Legal Void</h2>
+
+    <p>The Foreign Agents Registration Act was passed by Congress in 1938. Its origins are not incidental to understanding why it exists. In the years before the Second World War, foreign governments, most visibly Nazi Germany, ran extensive propaganda operations inside the United States. A 1934 congressional investigation documented the scale of German influence efforts on American soil, including the financing of pro-Nazi organizations, the distribution of propaganda materials, and the cultivation of American political figures. The law that Congress passed in response required anyone acting as an agent of a foreign principal to register publicly with the Department of Justice, disclose the nature of the relationship, and report the money involved. The premise was straightforward. Americans are entitled to know when the political messaging they are receiving is being financed by a foreign government.</p>
+
+    <p>That premise has not changed. What has changed is the complexity of the structures through which foreign-aligned influence now operates, and the corresponding difficulty of applying an eighty-seven year old statute to arrangements its drafters could not have imagined.</p>
+
+    <p>FARA registration requires a person to be acting at the direction or control of a foreign principal, or at their request, in a political or quasi-political capacity. Singham's categorical denial that he acts at anyone's direction is therefore legally relevant, not merely rhetorically convenient. If he is genuinely acting on his own convictions rather than at the instruction of the Chinese government, the argument goes, FARA does not apply regardless of how closely his network's output aligns with Chinese government interests. This is the gap that investigators have been trying to close for years and have not yet closed.</p>
+
+    <p>The volume of congressional correspondence demanding action on this question is, at this point, substantial enough to constitute a record of its own. In 2023, then-Senator Marco Rubio wrote to Attorney General Merrick Garland asking him to immediately investigate all organizations linked to Singham for potential FARA violations. Garland's Justice Department did not produce a registration requirement or a charge. In July 2024, Rubio, then serving as Vice Chairman of the Senate Select Committee on Intelligence, and Senator Lindsey Graham, then Ranking Member of the Senate Judiciary Committee, wrote again to Garland raising concerns about Singham's activities on behalf of the CCP. The Biden administration did not act.</p>
+
+    <p>The Trump administration inherited the same file and the same set of unanswered questions. Senator Chuck Grassley, as Chairman of the Senate Judiciary Committee, wrote to the DOJ and FBI in April 2025 demanding scrutiny of The People's Forum and CODEPINK. Senator Tom Cotton wrote to Attorney General Pam Bondi requesting a FARA investigation of CODEPINK specifically. Senator Josh Hawley wrote to Bondi requesting a full investigation into protest funding. Senator Jim Banks wrote to both Bondi and Treasury Secretary Scott Bessent regarding anti-ICE activities and Singham's foreign influence. House Oversight Chairman James Comer and Task Force Chairwoman Anna Paulina Luna wrote to Bessent in September 2025 requesting a comprehensive evaluation of whether federal sanctions, civil remedies, or criminal penalties should be applied to Singham-linked entities.</p>
+
+    <p>In June 2025, the House Committee on Oversight filed a letter directly to Attorney General Bondi laying out the FARA argument in detail and requesting action. The letter cited Singham's Huawei consulting history, his attendance at CCP workshops, the financial transfers to Shanghai Maku, and the pattern of content produced by network-funded outlets as evidence that FARA registration obligations may exist regardless of Singham's stated personal convictions.</p>
+
+    <div class="doc-callout">
+      <span class="doc-callout-label">The documented record -- as of June 2026</span>
+      <p>No organization in the Singham network has registered under FARA. No charge has been filed. No registration has been compelled. The network continues to operate. The organizations continue to hold their tax-exempt status. The money continues to move.</p>
+    </div>
+
+    <p>The IRS dimension of this legal void is equally unresolved. The tax-exempt status granted to nonprofits under Section 501(c)(3) of the Internal Revenue Code carries with it specific restrictions. Organizations with that status are prohibited from engaging in substantial political activity and are required to operate for public benefit rather than private or foreign interests. House Ways and Means Chairman Jason Smith wrote to IRS leadership in October 2025 calling on the agency to prioritize examinations into the tax-exempt status of organizations previously referred for scrutiny. The People's Forum, BreakThrough News, and Tricontinental have all been the subject of formal congressional referrals to the IRS. None has lost its tax-exempt status.</p>
+
+    <p>What this accumulation of unanswered letters represents is something specific and documentable. It is not merely bureaucratic slowness. It is a bipartisan institutional failure spanning two administrations with different parties, different attorneys general, and different stated priorities on China. The Biden Justice Department received the same requests and produced the same result as the Trump Justice Department has so far produced. The network that congressional investigators from both parties have described as a potential foreign influence operation has navigated eight years of scrutiny without a single formal legal consequence.</p>
+
+    <p>There are two ways to read that outcome. One is that the evidence, however suggestive, has not met the legal threshold required for prosecution or compelled registration, and that the Justice Department in both administrations made a reasonable judgment about what the law requires. The other is that the architecture Singham built is specifically designed to stay below that threshold, and that the law as currently written is not equal to the structure it is being asked to address.</p>
+
+    <p>Both readings are available in the public record. What is not available in the public record is a satisfying explanation from either administration of why the answer, after eight years and dozens of letters from members of both parties, remains nothing.</p>
+  </div>
+
+  <!-- PART NINE -->
+  <div class="article-section">
+    <span class="part-label">Part Nine</span>
+    <h2 class="part-title">The Dark Money Parallel</h2>
+
+    <p>Any honest investigation of Neville Roy Singham's financial architecture has to reckon with an uncomfortable fact. The tools he uses are not tools he invented. Donor-advised funds, intermediary nonprofits, fiscal sponsorship chains, shell entities registered at commercial addresses, opaque grant flows that obscure the identity of the original donor from the ultimate recipient: none of these mechanisms were designed for or by the left. They were pioneered, refined, and deployed at scale by conservative donors and networks over decades before Singham sold a single share of ThoughtWorks. The architecture that allows a man in Shanghai to fund American political organizing without his name appearing on a single grant check is the same architecture that allowed a network of conservative billionaires to reshape American politics for a generation without most of the people whose votes they were trying to influence knowing who was paying for it.</p>
+
+    <p>That parallel does not excuse what Singham has built. It contextualizes it. And a publication committed to holding both parties to the same evidentiary standard is obligated to say so plainly.</p>
+
+    <p>The modern conservative dark money infrastructure took its current shape in the years following the Supreme Court's 2010 decision in Citizens United v. Federal Election Commission, though its roots go back further. The decision held that political spending by corporations, associations, and nonprofits is a form of protected speech under the First Amendment, removing limits on independent expenditures in federal elections. What followed was the large-scale deployment of 501(c)(4) social welfare organizations as vehicles for undisclosed political spending. Donors to 501(c)(4) organizations are not required to be publicly disclosed. The result is a legal structure in which very large sums of money can move into American political life with no public accounting of their source.</p>
+
+    <p>The most documented example of this infrastructure on the right is the network associated with Charles Koch, whose political operation has been extensively investigated by journalists including Jane Mayer, whose 2016 book Dark Money remains the most comprehensive account of how that system was built and what it accomplished. Koch-linked entities routed hundreds of millions of dollars through a constellation of nonprofits, think tanks, and advocacy organizations over multiple decades. The donors were not publicly disclosed. The organizations presented themselves as independent voices advancing policy ideas on their merits. The funding relationships behind those ideas were not visible to the audiences receiving them.</p>
+
+    <p>This is structurally identical to what Singham has built, with one significant difference that this investigation has documented at length. Koch and his allies were American citizens funding American political activity, however opaque the financial structure. Singham is an American citizen residing in a foreign country whose government has a documented strategic interest in the narratives his network amplifies. The foreign dimension is what transforms a domestic dark money story into a potential national security matter and what makes FARA, rather than merely campaign finance law, the relevant legal framework.</p>
+
+    <p>But the bipartisan failure to address dark money disclosure more broadly is the reason the Singham network was able to construct its architecture in the first place. The Koch network demonstrated that the system could be used. The legal framework that permitted it was left in place by both parties, because both parties have at various times benefited from the opacity it provides. Republicans benefited from conservative dark money for decades. Democrats built their own parallel infrastructure, including through organizations like the Arabella Advisors network, which has been documented routing hundreds of millions of dollars through a similar constellation of intermediary nonprofits with similarly opaque donor disclosure. The Intercept and other outlets have reported extensively on the left-aligned dark money infrastructure that developed in parallel to the right-aligned version.</p>
+
+    <p>Neither party has pursued the kind of disclosure reform that would close the structural gaps that make all of this possible. The DISCLOSE Act, which would have required organizations spending money on political activity to disclose their donors publicly, has been introduced in Congress repeatedly and has never passed. It has been blocked by Republican majorities when Democrats controlled the White House and ignored by Democratic majorities when they had the opportunity to advance it. The pattern is consistent enough to suggest that the opposition to disclosure is not ideological. It is institutional. Both parties have decided, at the level of actual legislative behavior rather than stated principle, that they prefer a system in which large amounts of money can move through political life without public accountability.</p>
+
+    <p>Singham did not create that preference. He inherited its consequences. The legal void documented in the previous section of this investigation is not a void that appeared in response to him specifically. It is a void that both parties constructed together over thirty years and have jointly declined to fill. He is, in that specific structural sense, a beneficiary of American political dysfunction that predates him and that neither party that is currently demanding action against him has any serious intention of remedying.</p>
+
+    <p>That does not make him less worth investigating. It makes the investigation more complete.</p>
+  </div>
+
+  <!-- PART TEN -->
+  <div class="article-section">
+    <span class="part-label">Part Ten</span>
+    <h2 class="part-title">The Organic Question</h2>
+
+    <p>There is a question that sits underneath everything documented in this investigation, and it is simpler than the legal arguments and more unsettling than the financial flows. It is this: if Neville Roy Singham's money stopped tomorrow, what would remain?</p>
+
+    <p>It is not a hypothetical asked in bad faith. It is the question that the financial record, assembled from IRS Form 990 filings, congressional letters, investigative reporting, and nonprofit disclosure databases, makes unavoidable. When a single funding source accounts for the overwhelming majority of an organization's revenue, that organization is not a mass movement. It is a funded operation. The distinction matters, not because the people involved are insincere, but because the appearance of scale and the reality of scale are two different things, and the American public is entitled to know which one it is looking at.</p>
+
+    <p>The People's Forum received $22.44 million from the Singham network. BreakThrough News received $1.098 million and operated out of The People's Forum's address. The Justice and Education Fund received $68.7 million and its board leadership overlaps directly with The People's Forum's management. The Party for Socialism and Liberation and the ANSWER Coalition share The People's Forum's physical space and personnel. CODEPINK received $1.33 million, and its co-founder is Singham's wife. Tricontinental received $16.76 million, and its international advisory board is chaired by Singham, with his son on staff. These are not organizations that developed independently and then attracted a common donor. They are, in the documented record, components of a single funded ecosystem whose internal connections run through personnel, physical space, governance structures, and financial relationships back to the same source.</p>
+
+    <p>What the 990 filings show, when examined in aggregate, is revenue concentration of a kind that would concern any analyst evaluating organizational sustainability. Nonprofits that depend on a single donor for the majority of their operating revenue are, by standard nonprofit governance principles, considered financially fragile and structurally dependent. The organizations in this network are not fragile in the conventional sense because the single donor has, so far, continued to provide. But the dependency is real and it is documented. Remove the donor and the question of what remains is not rhetorical. It is a financial projection with a fairly predictable answer.</p>
+
+    <p>This is the mechanism by which one man's checkbook produces what looks, from the outside, like a movement. The infrastructure is real. The venues exist. The media outlets publish. The demonstrations are organized. The press releases go out. The social media accounts post. All of that activity is genuine in the sense that it actually happens. But the capacity to sustain it at its current scale, the staff, the physical spaces, the production equipment, the travel, the international coordination, is a function of funding rather than membership. A movement with genuine mass support generates its own resources from its base. A funded operation generates its resources from its funder. The documentation assembled in this investigation points consistently toward the second description.</p>
+
+    <p>That distinction carries specific implications for how the American public should evaluate what it sees when these organizations appear in the news. When The People's Forum organizes a demonstration in New York City and hundreds of people show up, those people are real. Their grievances, whatever one thinks of their politics, are real. The organizational capacity that assembled them, the permits, the logistics, the amplification, the media outreach, the coordination with allied groups, that capacity was purchased. It did not grow organically from the community it claims to represent. It was built with money from a man in Shanghai who has attended CCP workshops, transferred millions to Chinese government-linked propaganda entities, and never disclosed any of it under the law that was designed precisely for this situation.</p>
+
+    <div class="pull-quote">
+      <p>The people in the street are not the story. The infrastructure that put them there is the story. And the infrastructure has one address. It is not in New York. It is not in Chicago. It is in Shanghai.</p>
+    </div>
+
+    <p>Neville Roy Singham has never been charged with a crime in the United States. He has never been compelled to register under FARA. His organizations retain their tax-exempt status. He continues to reside in Shanghai. He continues to fund the network. He continues to deny that he acts at anyone's direction. All of that is true and belongs in any honest accounting of where this investigation ends.</p>
+
+    <p>What also belongs in that accounting is what eight years of congressional letters, two administrations, four attorneys general, multiple committee investigations, a New York Times expose, a foreign criminal summons, and hundreds of pages of IRS filings have collectively produced in the way of legal consequence for the man at the center of all of it.</p>
+
+    <p>The answer is nothing.</p>
+
+    <p>What that answer means about the adequacy of American law, the seriousness of American institutions, and the question of who this country's disclosure framework is actually designed to protect, is a conclusion this publication leaves to the reader.</p>
+
+    <div class="partner-links">
+      <span class="partner-links-label">Further Reading -- Partner Resources</span>
+      <ul class="partner-links-list">
+        <li><a href="https://www.propublica.org/nonprofits" target="_blank" rel="noopener">ProPublica Nonprofit Explorer</a></li>
+        <li><a href="https://www.brennancenter.org" target="_blank" rel="noopener">Brennan Center for Justice</a></li>
+        <li><a href="https://theintercept.com" target="_blank" rel="noopener">The Intercept</a></li>
+        <li><a href="https://www.dropsitенews.com" target="_blank" rel="noopener">Dropsite News</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- BIBLIOGRAPHY -->
+<div class="bibliography-section">
+  <div class="bibliography-label">Source List</div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Primary Government Documents and Legal Filings</span>
+    <ol class="bib-list">
+      <li>Foreign Agents Registration Act (FARA), 22 U.S.C. 611 et seq., U.S. Department of Justice</li>
+      <li>U.S. House Committee on Oversight, Comer and Luna letter to Treasury Secretary Bessent requesting sanctions evaluation of Singham-linked entities (September 15, 2025)</li>
+      <li>U.S. House Ways and Means Committee, Chairman Jason Smith letter to The People's Forum demanding records re: CCP ties and tax-exempt status (September 4, 2025)</li>
+      <li>U.S. House Ways and Means Committee, Chairman Jason Smith letter to IRS leadership re: examination of Singham-network nonprofits (October 2025)</li>
+      <li>U.S. House Ways and Means Committee, letters to BreakThrough News, Tricontinental, and The People's Forum re: foreign coordination and fiscal sponsorship (2026)</li>
+      <li>U.S. Senate Judiciary Committee, Chairman Chuck Grassley letter to DOJ and FBI re: The People's Forum and CODEPINK (April 2025)</li>
+      <li>U.S. Senate, Tom Cotton letter to AG Pam Bondi requesting DOJ investigation of CODEPINK for FARA violations (2025)</li>
+      <li>U.S. Senate, Josh Hawley letter to AG Bondi requesting investigation of protest funding (2025)</li>
+      <li>U.S. Senate, Jim Banks letter to AG Bondi and Treasury Secretary Bessent re: anti-ICE activities and Singham foreign influence (2025)</li>
+      <li>U.S. House Committee on Oversight, letter to AG Bondi re: Singham FARA obligations (June 13, 2025)</li>
+      <li>U.S. Senate, Rubio and Graham letter to AG Merrick Garland re: Singham activities on behalf of CCP (July 10, 2024)</li>
+      <li>U.S. Senate, Marco Rubio letter to AG Garland requesting investigation of 18 Singham-tied nonprofits (2023)</li>
+      <li>India Enforcement Directorate proceedings, NewsClick money laundering and terrorism case (2023 -- ongoing)</li>
+      <li>IRS Form 990 filings: The People's Forum, United Community Fund, Justice and Education Fund, Progress Unity Fund, BreakThrough Media, Tricontinental Ltd. -- available via <a href="https://www.propublica.org/nonprofits" target="_blank" rel="noopener">ProPublica Nonprofit Explorer</a></li>
+      <li>FBI investigation file on Neville Roy Singham (1974) -- existence confirmed via NCRI report, congressional letters, and InfluenceWatch; obtainable via FOIA</li>
+      <li>Federal Communications Commission order unanimously banning domestic sale of new Huawei equipment (2022)</li>
+      <li>U.S. Treasury Department, OFAC administrative subpoenas to Hasan Piker and Medea Benjamin re: possible Cuba sanctions violations (2026)</li>
+      <li>ThoughtWorks incorporation records, State of Illinois (1993)</li>
+      <li>Apax Partners / ThoughtWorks deal documentation (2017) -- approximately $785 million</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Investigative Journalism -- Primary Reporting</span>
+    <ol class="bib-list">
+      <li>Hvistendahl, Mara; Fahrenthold, David A.; Chutel, Lynsey; Jhaveri, Ishaan. "A Global Web of Chinese Propaganda Leads to a U.S. Tech Mogul." The New York Times. August 2023.</li>
+      <li>Fox News Digital investigative series, "House of Singham" (multiple installments, 2025-2026) -- including "Shanghai Sabotage: Inside Singham's Secret Strategy to Demonize America" (March 25, 2026)</li>
+      <li>Fox News Digital, "Revolutionary Tourism: Inside the $600M Marriage of Dark Money and Far-Left Agitprop" (March 26, 2026)</li>
+      <li>Fox News Digital, "Power Couple of Chaos: How a Tycoon and Activist Built a Revolutionary Base at the House of Singham"</li>
+      <li>New Lines Magazine, early reporting on the Singham network (2022-2023)</li>
+      <li>amaBhungane (South African investigative outlet), reporting on Singham's South Africa connections</li>
+      <li>Kirkpatrick, David. "ThoughtWorks: A Software Socialist's Crusade." Fortune / CNN Money. March 14, 2008.</li>
+      <li>The Free Press, reporting on Goldman Sachs Philanthropy Fund transfers to The People's Forum (November 2023)</li>
+      <li>Washington Free Beacon, reporting on NCRI findings and People's Forum funding (May 2024)</li>
+      <li>Just the News, "CCP-linked Singham Network's Tax-Exempt Status Remains as Groups Avoid FARA Scrutiny for Years" (March 6, 2026)</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Think Tank and Research Reports</span>
+    <ol class="bib-list">
+      <li>Network Contagion Research Institute (NCRI / Rutgers University affiliate), "Shutdown for Palestine" report, May 2024. Note: NCRI is primarily funded by pro-Israel organizations; this funding relationship is disclosed as relevant context.</li>
+      <li>Jamestown Foundation, Martin Purbrick. "United Front Work and Beyond: How the Chinese Communist Party Penetrates the United States and Western Societies." -- cited in congressional correspondence.</li>
+      <li>InfluenceWatch profile on Neville Roy Singham (with primary source citations)</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Archival and Historical Sources</span>
+    <ol class="bib-list">
+      <li>League of Revolutionary Black Workers historical documentation -- Wayne State University Walter P. Reuther Library, Labor and Urban Affairs collection</li>
+      <li>Howard University academic records and Singham biographical background -- confirmed in multiple secondary sources</li>
+      <li>Archibald Singham, biographical record -- professor of political science, Brooklyn College, City University of New York</li>
+      <li>Huawei internal CCP committee documentation -- referenced in congressional correspondence and secondary reporting</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Nonprofit Financial Records</span>
+    <ol class="bib-list">
+      <li><a href="https://www.propublica.org/nonprofits" target="_blank" rel="noopener">ProPublica Nonprofit Explorer</a> -- Form 990 database for all Singham-linked entities</li>
+      <li>Goldman Sachs Philanthropy Fund 990 filings documenting transfers to The People's Forum (2019-2022)</li>
+      <li>Donor-advised fund transfer records as reported by The Free Press and Fox News Digital</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Singham's Own Statements and Public Record</span>
+    <ol class="bib-list">
+      <li>Singham email to The New York Times: "I categorically deny and repudiate any suggestion that I am a member of, work for, take orders from, or follow instructions of any political party or government or their representatives." (2023)</li>
+      <li>The People's Forum post on X (formerly Twitter), December 21, 2021, acknowledging Singham as a "Marxist comrade" who funded the organization</li>
+      <li>Singham appearance and remarks at CCP workshop on promoting the party internationally (reported by NYT, 2023)</li>
+      <li>Singham appearance at Shanghai Golden Tulip Hotel conference praising Xi Jinping and CCP's "new world order" vision (November 2025, reported by Fox News Digital)</li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Context and Analysis Sources</span>
+    <ol class="bib-list">
+      <li>Evans, Jodie and co-author (Dongsheng News researcher). "China is Not Our Enemy."</li>
+      <li><a href="https://theintercept.com" target="_blank" rel="noopener">The Intercept</a> -- relevant reporting on FARA enforcement and dark money nonprofit structures</li>
+      <li><a href="https://www.brennancenter.org" target="_blank" rel="noopener">Brennan Center for Justice</a> -- relevant work on foreign influence operations, FARA enforcement gaps, and nonprofit transparency law</li>
+      <li>U.S. State Department designation of The People's Forum and CODEPINK as potential risk organizations (reported 2026)</li>
+      <li>Vijay Prashad remarks on Uyghurs at Qiao, China event (2020) -- cited in Grassley letter</li>
+      <li>Nate Singham (son) role as researcher at Tricontinental Institute for Social Research -- confirmed in multiple sources</li>
+      <li>Mayer, Jane. Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right. Doubleday, 2016.</li>
+      <li>Citizens United v. Federal Election Commission, 558 U.S. 310 (2010)</li>
+      <li>The DISCLOSE Act -- legislative history and Congressional Record, multiple sessions</li>
+      <li>Arabella Advisors network reporting -- The Intercept and additional investigative outlets</li>
+      <li>Committee to Protect Journalists, reporting on NewsClick arrests (2023)</li>
+      <li>Reporters Without Borders, reporting on India press freedom and NewsClick case (2023)</li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us -- All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
