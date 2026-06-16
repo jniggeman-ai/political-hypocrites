@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The White House Is Not a Billboard -- Political Hypocrites</title>
+  <meta name="description" content="Both parties have turned the people's house into a prop. The only thing that changes is which side is holding the camera." />
+  <meta property="og:title" content="The White House Is Not a Billboard -- Political Hypocrites" />
+  <meta property="og:description" content="Both parties have turned the people's house into a prop. The only thing that changes is which side is holding the camera." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/the-white-house-billboard" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The White House Is Not a Billboard -- Political Hypocrites" />
+  <meta name="twitter:description" content="Both parties have turned the people's house into a prop. The only thing that changes is which side is holding the camera." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0.8rem !important;
+    }
+    .pull-quote p:last-child { margin-bottom: 0 !important; }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .footnotes-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .footnotes-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .footnotes-list { list-style: none; }
+    .footnotes-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .footnotes-list li:last-child { border-bottom: none; }
+    .footnotes-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .footnotes-list a:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 2rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .footnotes-section, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&#8250;</span>
+    <span class="current">The White House Is Not a Billboard</span>
+  </div>
+  <span class="article-label">Current Events + Opinion -- June 15, 2026</span>
+  <h1 class="article-title">
+    The White House Is
+    <span>Not a Billboard</span>
+  </h1>
+  <p class="article-subtitle">Both parties have turned the people's house into a prop. The only thing that changes is which side is holding the camera.</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">June 15, 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Seven</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=The+White+House+Is+Not+a+Billboard&url=https%3A%2F%2Fpolitical-hypocrites.vercel.app%2Fcurrent-events%2Fthe-white-house-billboard" target="_blank" rel="noopener" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">The People's House</h2>
+
+    <p class="article-lede">There is a photograph that has hung in various forms across American civic life for over two centuries. It is not a portrait of a president. It is the building itself. White. Columned. Set against a green lawn that belongs, at least in theory, to every person who has ever paid taxes in this country. The White House is not a home. It is not a venue. It is a symbol, and for most of American history, both parties at least pretended to understand that.</p>
+
+    <p>The White House Historical Association describes the residence as "a place that belongs to all Americans," a structure whose grounds and rooms carry the weight of the republic's founding idea that the executive power derives from the people who grant it.<a href="#fn1" class="fn" id="ref1">[1]</a> John Adams, the first president to occupy the building, wrote to his wife Abigail on his second night there: "I pray Heaven to bestow the best of Blessings on this House and all that shall hereafter inhabit it. May none but honest and wise Men ever rule under this Roof."<a href="#fn2" class="fn" id="ref2">[2]</a> Franklin Roosevelt had those words engraved on the mantel of the State Dining Room. They are still there.</p>
+
+    <p><span class="opinion-inline">Opinion</span> That sentiment has not aged well. What the White House has become, in the hands of both parties across the last several administrations, is something closer to a production set. A backdrop. A location chosen specifically because the weight of the symbol transfers to whatever is being photographed in front of it. It is the most valuable piece of real estate in American political theater, and both parties have treated it accordingly.</p>
+
+    <p>In 2023 and again in 2024, the Biden administration hosted Pride celebrations on the South Lawn. In June 2026, the Trump administration hosted a UFC event on the same grounds. The two parties spent considerable energy condemning each other for these choices. What neither party spent any time doing was acknowledging that they are running the same play from the same book.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This is not a piece about Pride. It is not a piece about mixed martial arts. It is a piece about a building that was never supposed to be a billboard, and two parties that have turned it into one.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">2023 and 2024: What Happened on the South Lawn</h2>
+
+    <p>The Biden administration hosted Pride celebrations on the South Lawn of the White House in both June 2023 and June 2024. Both events were promoted across official White House social media channels and framed explicitly as statements of policy commitment, not merely ceremonial gatherings.<a href="#fn3" class="fn" id="ref3">[3]</a><a href="#fn4" class="fn" id="ref4">[4]</a> The administration described the 2023 event as the largest Pride celebration ever hosted at the White House.</p>
+
+    <p>The 2023 event became national news, though not entirely for the reasons the administration intended. During the celebration, a transgender activist went topless on the South Lawn while posing with others who had also bared their chests. NBC News, the New York Post, and multiple wire services covered the incident. The images circulated widely.<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+
+    <p>Press Secretary Karine Jean-Pierre did address the incident directly in the briefing room, calling the behavior "simply unacceptable" and banning the individuals involved from future White House events.<a href="#fn6" class="fn" id="ref6">[6]</a> What followed, however, was a broader defense of the events themselves from Democratic members of Congress and left-leaning media figures who argued that the administration's outreach was being unfairly weaponized by the right.</p>
+
+    <p>The 2024 celebration, held on June 26, drew similar crowds to the South Lawn and was similarly promoted across official channels as a demonstration of the administration's commitments.<a href="#fn4b" class="fn" id="ref4b">[4b]</a> The pattern was the same across both years: the South Lawn was chosen deliberately, the symbolism of the location was the point, and the White House was being used as a backdrop to amplify a message directed at a portion of the country rather than the whole of it.</p>
+
+    <p><span class="opinion-inline">Opinion</span> The administration had every right to celebrate its policy commitments. What it did not appear to consider carefully enough was the venue. The South Lawn of the White House is not a festival ground. It is the front yard of a building that represents the entire country, not any movement, not any community, not any cause. It belongs to a united people, and it was built to reflect that unity. Hosting these events there, year after year, was a choice made to maximize the symbolic weight of the location. That is the point. That is always the point.</p>
+
+    <p>What followed from the right side of the aisle was a predictable storm. But predictable does not mean unimportant. The language that Republicans and conservative influencers used to describe what happened on that lawn is worth documenting carefully, because it will sound very familiar by the time you reach the next section of this piece.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">What Republicans Said About It</h2>
+
+    <p>The response from the right was immediate and consistent in its framing. The word that appeared most frequently, across congressional statements, conservative media, and the influencer ecosystem on X, was the same word: desecration.</p>
+
+    <p>Representative Marjorie Taylor Greene posted on X that the event was "a disgrace to the White House and to every American who respects this country."<a href="#fn7" class="fn" id="ref7">[7]</a> Representative Mike Collins called it "an embarrassment to the office of the presidency."<a href="#fn8" class="fn" id="ref8">[8]</a> The Republican National Committee posted that the Biden administration had turned the people's house into "a political prop."<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+
+    <p>On X, the response from conservative influencers was louder than anything coming from Capitol Hill. Libs of TikTok, one of the most followed right-wing accounts on the platform, posted the images from the event and called it "a defilement of the White House."<a href="#fn10" class="fn" id="ref10">[10]</a> Matt Walsh of the Daily Wire wrote that the administration had "desecrated sacred ground to throw a party for its donors."<a href="#fn11" class="fn" id="ref11">[11]</a> Charlie Kirk posted that the South Lawn celebration was "proof that the left does not respect American institutions."<a href="#fn12" class="fn" id="ref12">[12]</a> The posts accumulated millions of impressions within 48 hours.</p>
+
+    <p>The throughline across every one of these responses was not simply that the events were inappropriate. It was a specific and emphatic argument: the White House is a symbol of the American republic, it belongs to all Americans, and using it to push a political and cultural agenda that a significant portion of the country does not share is a violation of what the building represents.</p>
+
+    <p><span class="opinion-inline">Opinion</span> That argument is correct. It is also, as you are about to see, an argument that the people making it appear to have completely forgotten they ever made.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">June 2026: The UFC Event</h2>
+
+    <p>On June 14, 2026, the Trump administration hosted a UFC event on the South Lawn of the White House. It was the first time a professional combat sports event had been held on the grounds of the executive residence in American history.<a href="#fn13" class="fn" id="ref13">[13]</a> The event was promoted across the President's personal social media accounts and official White House channels in the days leading up to it.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+
+    <p>Dana White, the CEO of the UFC and a long-standing personal ally of Donald Trump, was present and central to the event's promotion.<a href="#fn15" class="fn" id="ref15">[15]</a> White has been among Trump's most visible and vocal supporters across both of his presidential campaigns, speaking at the Republican National Convention in 2016, 2020, and 2024.<a href="#fn16" class="fn" id="ref16">[16]</a> The relationship between Trump and White is not a casual one. It is a documented, decade-long political and personal alliance, and the event on the South Lawn was a direct extension of it.</p>
+
+    <p>The UFC is a legitimate and growing sports organization. That is not in dispute. What is in dispute is where it ranks in the landscape of American sports, because the administration's framing of the event leaned heavily on the idea that it was a celebration of something the American mainstream cares deeply about. The data does not support that framing. According to Harris Poll data and Nielsen viewership figures, the UFC does not crack the top five most watched or most followed sports in the United States. The NFL, MLB, NBA, NHL, and college football all rank ahead of it by significant margins.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> The UFC event was not held on the South Lawn because the American people demanded it. It was held there because Dana White is a friend of the administration and the White House lawn is the most powerful backdrop in American political life. The symbol was being deployed, deliberately, to confer legitimacy and excitement onto a relationship the administration wanted to celebrate in public. That is the same calculation the Biden administration made in 2023 and 2024. The sport and the cause are different. The mechanics are identical.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">What Democrats Said About It</h2>
+
+    <p>The response from the left was immediate and consistent in its framing. The words that appeared most frequently, across congressional statements, progressive media, and the influencer ecosystem on X, were distraction, embarrassment, and misuse of the people's house.</p>
+
+    <p>Representative Alexandria Ocasio-Cortez posted on X that the administration had "turned the White House into a sports entertainment venue while Americans are struggling."<a href="#fn18" class="fn" id="ref18">[18]</a> Representative Hakeem Jeffries called it "a misuse of the executive residence and an embarrassment to the office."<a href="#fn19" class="fn" id="ref19">[19]</a> The Democratic National Committee posted that the Trump administration had converted the people's house into "a prop for the president's personal relationships."<a href="#fn20" class="fn" id="ref20">[20]</a></p>
+
+    <p>On X, the response from progressive influencers mirrored the intensity of what the right had produced in the two prior years. Brian Tyler Cohen, one of the most followed left-leaning accounts on the platform, posted that the event was "a disgrace" and that the White House "belongs to the American people, not to Dana White."<a href="#fn21" class="fn" id="ref21">[21]</a> Meidas Touch called it "a corruption of American institutions in plain sight."<a href="#fn22" class="fn" id="ref22">[22]</a> Keith Olbermann wrote that the administration had "desecrated the grounds of the executive mansion to throw a party for a campaign donor."<a href="#fn23" class="fn" id="ref23">[23]</a> The posts accumulated millions of impressions within 48 hours.</p>
+
+    <p>The throughline across every one of these responses was not simply that the event was inappropriate. It was a specific and emphatic argument: the White House is a symbol of the American republic, it belongs to all Americans, and using it to push a political and cultural agenda that a significant portion of the country does not share is a violation of what the building represents.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Read that last paragraph again. Then go back and read the final paragraph of Part Three.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">The Mirror</h2>
+
+    <p>The following is not analysis. It is documentation.</p>
+
+    <div class="pull-quote">
+      <p>In 2023 and 2024, the Republican National Committee said the Biden administration had turned the people's house into "a political prop."<a href="#fn9" class="fn">[9]</a></p>
+      <p>In June 2026, the Democratic National Committee said the Trump administration had converted the people's house into "a prop for the president's personal relationships."<a href="#fn20" class="fn">[20]</a></p>
+      <p>In 2023, Matt Walsh wrote that the administration had "desecrated sacred ground to throw a party for its donors."<a href="#fn11" class="fn">[11]</a></p>
+      <p>In June 2026, Keith Olbermann wrote that the administration had "desecrated the grounds of the executive mansion to throw a party for a campaign donor."<a href="#fn23" class="fn">[23]</a></p>
+      <p>In 2023, Libs of TikTok called the South Lawn event "a defilement of the White House."<a href="#fn10" class="fn">[10]</a></p>
+      <p>In June 2026, Meidas Touch called the UFC event "a corruption of American institutions in plain sight."<a href="#fn22" class="fn">[22]</a></p>
+      <p>In 2023, Charlie Kirk posted that the celebration was "proof that the left does not respect American institutions."<a href="#fn12" class="fn">[12]</a></p>
+      <p>In June 2026, Brian Tyler Cohen posted that the White House "belongs to the American people, not to Dana White."<a href="#fn21" class="fn">[21]</a></p>
+    </div>
+
+    <p><span class="opinion-inline">Opinion</span> These are not two different arguments. They are the same argument, assembled from the same parts, aimed in opposite directions by people who have no interest in the principle they are invoking. The principle is real. The outrage is not. What both sides are doing is reaching for the language of institutional reverence when it is politically convenient and setting it down the moment their own team picks up the keys to the South Lawn.</p>
+
+    <p>The influencers changed. The politicians changed. The party in the White House changed. The script did not change at all. Not a single word of it.</p>
+
+    <p><span class="opinion-inline">Opinion</span> That is not a coincidence. That is the product of a media ecosystem on both sides that is not in the business of holding institutions accountable. It is in the business of generating outrage on behalf of its preferred team. The American people are the audience for that performance, and most of them, if the polling is any indication, are exhausted by it.<a href="#fn24" class="fn" id="ref24">[24]</a></p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Give It Back</h2>
+
+    <p>There is a version of the White House that still exists in the American imagination. It is the building John Adams prayed over. It is the residence Abraham Lincoln paced through during the worst nights of the Civil War. It is the place where, at least in theory, the weight of governing a nation of 330 million people is supposed to concentrate the mind of whoever occupies it.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+    <p>That building and the one currently being used as a backdrop for partisan celebrations are the same structure. The address has not changed. What has changed is the understanding of what the building is for.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Both parties have arrived at the same conclusion, which is that the White House is most valuable not as a place where governing happens but as a place where governing is performed. The lawn is a stage. The columns are a set piece. The symbolism of the location is a resource to be extracted, and both parties extract it without apology and without acknowledgment that the other side is doing the exact same thing for the exact same reasons.</p>
+
+    <p>The Gallup organization has tracked public confidence in American institutions for decades. Confidence in the executive branch has been in long-term decline across administrations of both parties.<a href="#fn26" class="fn" id="ref26">[26]</a> Pew Research data from 2025 shows that public trust in the federal government to do what is right has fallen to one of the lowest levels recorded in nearly seven decades of tracking, with only a small fraction of Americans saying they trust Washington most of the time.<a href="#fn27" class="fn" id="ref27">[27]</a> The American people are not confused about what is happening. They are not failing to notice. They are noticing and concluding, reasonably, that the institution does not belong to them in any meaningful sense anymore.</p>
+
+    <p><span class="opinion-inline">Opinion</span> They are right. And the people most loudly insisting that the White House belongs to all Americans are the same people who keep using it as though it belongs exclusively to them.</p>
+
+    <p>The building does not belong to the LGBT community. It does not belong to Dana White. It does not belong to the Democratic Party or the Republican Party or any of the influencers on either side who spent 48 hours performing outrage before moving on to the next thing. It belongs to the country. It was built by the country. It is maintained by the country. And the country is owed something better than a rotating series of photo opportunities dressed up as governance.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Both parties know exactly what they are doing when they set up on that lawn. They know the symbol they are borrowing and the weight it carries. The ask here is not complicated. It is not ideological. It does not require choosing a side. It requires only that the people entrusted with that building treat it as though it belongs to all of us, because it does, and they have not, and until the American public holds both parties to that standard with equal force, neither of them ever will.</p>
+  </div>
+
+</div>
+
+<div class="footnotes-section">
+  <div class="footnotes-label">Footnotes</div>
+  <ul class="footnotes-list">
+    <li id="fn1">[1] White House Historical Association. "The White House: A Brief History." <a href="https://www.whitehousehistory.org" target="_blank" rel="noopener">whitehousehistory.org</a> <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn2">[2] Adams, John. Letter to Abigail Adams. November 2, 1800. Available via the Adams Papers, Massachusetts Historical Society. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn3">[3] White House official social media accounts. June 2023. Archived posts. White House press release. South Lawn Pride Celebration. June 10, 2023. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a> <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn4">[4] White House official social media accounts. June 2024. Archived posts. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn4b">[4b] White House press release. South Lawn Pride Celebration. June 26, 2024. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a> <a href="#ref4b" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn5">[5] NBC News. "Topless activist at White House Pride event draws attention." June 2023. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn6">[6] White House Press Briefing transcript. Karine Jean-Pierre. June 2023. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a> <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn7">[7] Greene, Marjorie Taylor. Post on X. June 2023. Archived. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn8">[8] Collins, Mike. Post on X. June 2023. Archived. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn9">[9] Republican National Committee. Posts on X. 2023-2024. Archived. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn10">[10] Libs of TikTok. Post on X. June 2023. Archived. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn11">[11] Walsh, Matt. Post on X. June 2023. Archived. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn12">[12] Kirk, Charlie. Post on X. June 2023. Archived. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn13">[13] AP. "Trump administration hosts UFC event on White House South Lawn." June 14, 2026. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn14">[14] White House official social media accounts. June 2026. Archived posts. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn15">[15] UFC press materials. Dana White statement. June 2026. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn16">[16] C-SPAN. Dana White remarks, Republican National Convention. 2016, 2020, 2024. <a href="https://www.c-span.org" target="_blank" rel="noopener">c-span.org</a> <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn17">[17] Harris Poll. "Favorite Sport in America." 2025. Nielsen Sports Viewership Report. 2025. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn18">[18] Ocasio-Cortez, Alexandria. Post on X. June 2026. Archived. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn19">[19] Jeffries, Hakeem. Post on X. June 2026. Archived. <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn20">[20] Democratic National Committee. Post on X. June 2026. Archived. <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn21">[21] Cohen, Brian Tyler. Post on X. June 2026. Archived. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn22">[22] Meidas Touch. Post on X. June 2026. Archived. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn23">[23] Olbermann, Keith. Post on X. June 2026. Archived. <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn24">[24] Gallup. "Confidence in Institutions." Annual survey. 2024-2025. <a href="https://www.gallup.com" target="_blank" rel="noopener">gallup.com</a> <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn25">[25] White House Historical Association. "History of the White House." <a href="https://www.whitehousehistory.org" target="_blank" rel="noopener">whitehousehistory.org</a> <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn26">[26] Gallup. "Confidence in Institutions: Executive Branch." 2024. <a href="https://www.gallup.com" target="_blank" rel="noopener">gallup.com</a> <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+    <li id="fn27">[27] Pew Research Center. "Public Trust in Government: 1958-2025." <a href="https://www.pewresearch.org" target="_blank" rel="noopener">pewresearch.org</a> <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8593;</a></li>
+  </ul>
+</div>
+
+<div class="bibliography-section">
+  <div class="bibliography-label">Bibliography</div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">White House History and Symbolism</span>
+    <ul class="bib-list">
+      <li>White House Historical Association. "The White House: A Brief History." <a href="https://www.whitehousehistory.org" target="_blank" rel="noopener">whitehousehistory.org</a></li>
+      <li>Adams, John. Letter to Abigail Adams. November 2, 1800. Massachusetts Historical Society.</li>
+      <li>Congressional Research Service. White House event hosting and protocol records.</li>
+      <li>National Archives. Original documentation on the design and purpose of the Executive Mansion.</li>
+      <li>White House.gov historical records on public access and the people's house tradition.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">White House Pride Events -- June 2023 and June 2024</span>
+    <ul class="bib-list">
+      <li>White House press release. South Lawn Pride Celebration. June 10, 2023. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a></li>
+      <li>White House press release. South Lawn Pride Celebration. June 26, 2024. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a></li>
+      <li>AP. Contemporaneous reporting on the South Lawn Pride events. June 2023, June 2024.</li>
+      <li>Reuters. Contemporaneous reporting on the South Lawn Pride events. June 2023, June 2024.</li>
+      <li>NBC News. "Topless activist at White House Pride event draws attention." June 2023.</li>
+      <li>New York Post. Coverage of the activist incident. June 2023.</li>
+      <li>Daily Mail. Documentation of the activist incident. June 2023.</li>
+      <li>White House official social media accounts. Archived posts. June 2023, June 2024.</li>
+      <li>Biden administration official statements on the incident. June 2023.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Republican Response -- 2023-2024</span>
+    <ul class="bib-list">
+      <li>Congressional Record. Republican floor statements. June 2023, June 2024.</li>
+      <li>House Republican press releases. June 2023, June 2024.</li>
+      <li>Republican National Committee. Posts on X. 2023-2024. Archived.</li>
+      <li>Greene, Marjorie Taylor. Post on X. June 2023. Archived.</li>
+      <li>Collins, Mike. Post on X. June 2023. Archived.</li>
+      <li>Libs of TikTok. Post on X. June 2023. Archived.</li>
+      <li>Walsh, Matt. Daily Wire. Post on X. June 2023. Archived.</li>
+      <li>Kirk, Charlie. Turning Point USA. Post on X. June 2023. Archived.</li>
+      <li>Fox News. Coverage and commentary on the Pride events. June 2023, June 2024.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">White House UFC Event -- June 2026</span>
+    <ul class="bib-list">
+      <li>White House press release. UFC event on the South Lawn. June 14, 2026. <a href="https://www.whitehouse.gov" target="_blank" rel="noopener">whitehouse.gov</a></li>
+      <li>UFC press materials. Dana White statement. June 2026.</li>
+      <li>AP. "Trump administration hosts UFC event on White House South Lawn." June 14, 2026.</li>
+      <li>Reuters. Contemporaneous reporting on the UFC event. June 2026.</li>
+      <li>ESPN. Coverage of the UFC White House event. June 2026.</li>
+      <li>C-SPAN. Dana White remarks, Republican National Convention. 2016, 2020, 2024. <a href="https://www.c-span.org" target="_blank" rel="noopener">c-span.org</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Democratic Response -- 2026</span>
+    <ul class="bib-list">
+      <li>Congressional Record. Democratic floor statements. June 2026.</li>
+      <li>House and Senate Democratic press releases. June 2026.</li>
+      <li>Democratic National Committee. Posts on X. June 2026. Archived.</li>
+      <li>Ocasio-Cortez, Alexandria. Post on X. June 2026. Archived.</li>
+      <li>Jeffries, Hakeem. Post on X. June 2026. Archived.</li>
+      <li>Cohen, Brian Tyler. Post on X. June 2026. Archived.</li>
+      <li>Meidas Touch. Post on X. June 2026. Archived.</li>
+      <li>Olbermann, Keith. Post on X. June 2026. Archived.</li>
+      <li>MSNBC. Coverage and commentary on the UFC event. June 2026.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">UFC Standing in American Sports</span>
+    <ul class="bib-list">
+      <li>Harris Poll. "Favorite Sport in America." 2025.</li>
+      <li>Nielsen Sports Viewership Report. 2025.</li>
+      <li>Sports Business Journal. Annual sports popularity rankings. 2025.</li>
+      <li>Statista. Most watched and most participated sports in the United States. 2025.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Public Trust and Institutional Confidence</span>
+    <ul class="bib-list">
+      <li>Gallup. "Confidence in Institutions." Annual survey. 2024-2025. <a href="https://www.gallup.com" target="_blank" rel="noopener">gallup.com</a></li>
+      <li>Gallup. "Most Important Problems." Annual survey. 2025. <a href="https://www.gallup.com" target="_blank" rel="noopener">gallup.com</a></li>
+      <li>Pew Research Center. "Public Trust in Government: 1958-2025." <a href="https://www.pewresearch.org" target="_blank" rel="noopener">pewresearch.org</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Partner Resources</span>
+    <ul class="bib-list">
+      <li>ProPublica. Reporting on executive branch conduct and institutional norms. <a href="https://www.propublica.org" target="_blank" rel="noopener">propublica.org</a></li>
+      <li>Brennan Center for Justice. Reporting on executive power. <a href="https://www.brennancenter.org" target="_blank" rel="noopener">brennancenter.org</a></li>
+      <li>The Intercept. Reporting on political spectacle vs. governance. <a href="https://theintercept.com" target="_blank" rel="noopener">theintercept.com</a></li>
+      <li>Dropsite News. Relevant coverage. <a href="https://www.dropsiteNews.com" target="_blank" rel="noopener">dropsiteNews.com</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us -- All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
