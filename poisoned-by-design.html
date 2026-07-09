@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poisoned by Design — Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.5rem 0.9rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: #1A0F05;
+      margin: 2rem 0 1rem; font-style: italic;
+    }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .caveat-note {
+      border-left: 3px solid rgba(20,10,5,0.18);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.03);
+      margin: 2rem 0;
+    }
+    .caveat-note p {
+      font-size: 0.88rem !important; color: rgba(20,10,5,0.55) !important;
+      font-style: italic; margin-bottom: 0 !important; line-height: 1.75 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+    .fn.active { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-back {
+      color: var(--red); text-decoration: none; margin-left: 0.4rem;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span class="current">Poisoned by Design</span>
+  </div>
+  <span class="article-label">Investigation — July 2026</span>
+  <h1 class="article-title">Poisoned by Design</h1>
+  <p class="article-subtitle">How American Food Became the Most Profitable Public Health Problem in the World</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">July 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Investigation</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Eleven</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Sources</span>
+      <span class="meta-value">65 Documented</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=Poisoned+by+Design%3A+How+American+Food+Became+the+Most+Profitable+Public+Health+Problem+in+the+World&url=https://political-hypocrites.vercel.app/investigations/poisoned-by-design" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <p class="article-lede">Ask most Americans why they eat what they eat, and the answer usually comes down to taste. Food in the United States is, by most accounts, some of the most craveable in the world. That is not an accident of culture or culinary talent. It is the result of a decades long, well funded, scientifically rigorous effort to make food as difficult to stop eating as possible.</p>
+    <p>This investigation traces that effort from the laboratory to the lobbying office to the grocery aisle. It documents what is engineered into American food, what is banned everywhere else, who is paid to keep it that way, and why quitting is harder than willpower alone can fix. Every claim below is sourced. Where the science is contested rather than settled, it is labeled that way. Where this piece offers a judgment rather than a fact, that judgment is flagged as opinion.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">The Taste Engineering</h2>
+
+    <p>The clearest evidence for deliberate engineering comes from a 2019 inpatient trial conducted by Dr. Kevin Hall and his team at the National Institutes of Health.<a href="#fn1" class="fn" id="ref1">[1]</a> Twenty adults were admitted to the NIH Clinical Center and given unlimited access to food for four weeks, two weeks on a diet of ultra processed meals and two weeks on a diet of minimally processed meals. The two diets were matched, meal for meal, on calories, sugar, fat, sodium, and fiber. The only difference was the degree of processing. Participants were told to eat as much or as little as they wanted.</p>
+
+    <div class="stat-callout">
+      <span class="stat-num">+500</span>
+      <p class="stat-desc">Average additional calories per day participants ate on the ultra processed diet compared to the unprocessed diet, despite both diets being matched on sugar, fat, sodium, and fiber. Participants gained roughly two pounds over two weeks on the ultra processed diet and lost about the same on the unprocessed one.<a href="#fn1" class="fn" id="ref1b">[1]</a></p>
+    </div>
+
+    <p>What drives that effect remains scientifically contested. Researchers have proposed several candidate mechanisms, including a food's energy density, meaning how many calories are packed into a given volume or weight of food, and what researchers call hyperpalatability, a formal term for food engineered to hit specific combinations of fat, sugar, sodium, and carbohydrates simultaneously in ratios rarely found in nature. But a 2023 critical review of the evidence from a team at Purdue University found that palatability alone is a surprisingly weak predictor of how much people actually eat, and cautioned that despite a robust epidemiological association between ultra processed food and weight gain, no single mechanism has been established as the cause.<a href="#fn2" class="fn" id="ref2">[2]</a> In plain terms, something about industrial formulation is driving overconsumption, but which specific lever, energy density, palatability, eating rate, food texture, or some combination of these, is not yet settled science.</p>
+
+    <p>There is a reason the food supply is engineered this way at all, and it did not originate inside the food industry. A 2024 study published in the journal Addiction traced the modern hyperpalatable food supply back to the 1980s and 1990s, when American tobacco companies acquired major food and beverage brands.<a href="#fn3" class="fn" id="ref3">[3]</a> Researchers found that these companies applied the same product optimization techniques used to maximize the addictive properties of cigarettes to snack food formulation, and that hyperpalatable foods spread through the American food system at a measurably faster rate following those acquisitions.<a href="#fn4" class="fn" id="ref4">[4]</a> The generation of Americans now in their fifties, sixties, and older grew up as this shift was happening.</p>
+
+    <p>None of this required a conspiracy in the traditional sense. It required a business incentive: food that people cannot easily stop eating sells more food. The engineering was not hidden. It was patented, published, and in some cases openly discussed at industry conferences. What was hidden, or at least never volunteered to the public, was the extent to which the resulting food supply was designed around a metric that has nothing to do with nourishment and everything to do with repeat purchase.</p>
+
+    <p><span class="opinion-inline">Opinion</span> It is worth sitting with the fact that an entire industry now understands human appetite better than most consumers understand their own bodies, and has used that understanding for forty years to sell products, not to feed people.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">A Regulatory Philosophy Gap</h2>
+
+    <p>To understand why so many chemicals allowed in American food are prohibited elsewhere, it helps to understand that the United States and the European Union do not just disagree about individual ingredients. They start from opposite legal assumptions about food safety itself.</p>
+
+    <p>The European Union operates under what is formally known as the precautionary principle. Under EU Regulation No. 1333/2008, an additive can be restricted or banned if scientific evidence raises reasonable uncertainty about its safety, even if that evidence falls short of settled proof of harm.<a href="#fn5" class="fn" id="ref5">[5]</a> The burden of proof sits with the ingredient. If real doubt exists, the ingredient does not get used until that doubt is resolved.</p>
+
+    <p>The United States runs the opposite system. Under FDA regulations, an ingredient is generally presumed safe unless the agency determines otherwise, and a large share of ingredients never go through direct FDA review at all. They enter the market through a pathway called Generally Recognized as Safe, or GRAS.<a href="#fn6" class="fn" id="ref6">[6]</a> Under this process, a manufacturer can determine on its own, using its own selected experts, that an ingredient is safe, and place it on the market without ever submitting it to the FDA for premarket approval. The FDA does not maintain a comprehensive list of what has entered the food supply this way. As Jensen Jose, regulatory counsel at the Center for Science in the Public Interest, put it, the FDA frequently does not know what is in the food supply until an ingredient has already caused documented harm.<a href="#fn7" class="fn" id="ref7">[7]</a></p>
+
+    <p>This is not a minor technicality. It is the single structural fact that explains most of the divergence between what is sold in an American grocery store and what is sold in a European one. It is why the same product can look different on two sides of the Atlantic without either government being obviously wrong on the science. A Kellogg's cereal sold in the United States can legally contain Red 40, Blue 1, Yellow 5, and Yellow 6. The same cereal sold in Canada is colored with concentrated fruit juice, and the version sold in the European Union uses carotenes instead of synthetic dye.<a href="#fn8" class="fn" id="ref8">[8]</a> Same brand, same product name, different countries, different chemical formulation, because different regulatory defaults apply.</p>
+
+    <div class="caveat-note">
+      <p>It is important to be precise about what a European ban does and does not prove. A restriction under the precautionary principle reflects a judgment that reasonable doubt exists. It does not automatically mean an ingredient has been proven dangerous at the levels typically found in food. Some EU restricted ingredients carry strong evidence of harm at realistic human exposure levels. Others are restricted based on animal studies using doses far higher than a person would ever consume, or on theoretical concerns that have not been confirmed in human trials.<a href="#fn9" class="fn" id="ref9">[9]</a> Treating every EU ban as proof of an American poisoning would overstate the case.</p>
+    </div>
+
+    <p>The honest version of this story is narrower and, frankly, more damning: the United States has built a regulatory system that does not require companies to prove an ingredient is safe before it reaches your kitchen table, and has left that system largely unchanged for decades regardless of which party held the White House or Congress. The GRAS loophole was not created by one administration and has not been closed by any administration since, Republican or Democratic. It has persisted through Presidents of both parties, Congresses controlled by both parties, and multiple FDA commissioners. Closing it would require congressional action and formal FDA rulemaking, a process that, as of this writing, no administration has completed.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> A system where a company can privately decide its own product is safe, tell no one, and put it on shelves, is not a safety system in any meaningful sense. It is a permission structure. Both parties have had decades and multiple opportunities to fix this, and neither has.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">What's Actually Banned Abroad and Why</h2>
+
+    <p>The list of additives permitted in American food but restricted or banned in the European Union is long. What follows are the ones with the clearest documentation and the most direct relevance to what Americans eat every day, along with an honest account of how strong the evidence actually is for each one.</p>
+
+    <p><strong>Red Dye No. 3.</strong> A synthetic dye used in candies, gummies, and snack cakes. Studies dating back decades showed the dye caused thyroid tumors in lab rats.<a href="#fn11" class="fn" id="ref11">[11]</a> It was banned in the United States in cosmetics in the 1990s for this reason, but remained legal in food and ingested drugs for another three decades. The FDA finally revoked its authorization in food on January 15, 2025, following a 2022 petition from the Center for Science in the Public Interest. Manufacturers have until 2027 to reformulate food products and until 2028 for drugs. Europe had already prohibited the dye in food. This is one of the clearer cases in this section, since the FDA's own 1990 finding on cancer risk in animals was the basis for its own cosmetics ban, and the food ban took over thirty additional years.</p>
+
+    <p><strong>Titanium Dioxide.</strong> A whitening agent used in candies, pastries, sauces, and some dairy products. The European Union banned its use as a food additive in 2022, citing the possibility that it could cause DNA or chromosomal damage.<a href="#fn12" class="fn" id="ref12">[12]</a> It remains legal in the United States and, notably, has mostly survived the recent American dye reform push, since it is technically a color additive rather than one of the synthetic dyes targeted by the 2025 FDA initiative. Some companies, including the maker of Skittles, are phasing it out voluntarily ahead of anticipated regulation.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+
+    <p><strong>Potassium Bromate.</strong> Used to strengthen dough in bread and buns. It is classified as a possible human carcinogen. It is banned in the European Union, Canada, and several other countries, but remains legal in the United States, where several state level bills have targeted it directly.<a href="#fn14" class="fn" id="ref14">[14]</a><a href="#fn15" class="fn" id="ref15">[15]</a></p>
+
+    <p><strong>Brominated Vegetable Oil, or BVO.</strong> An emulsifier once used to keep citrus flavoring suspended in sodas like Mountain Dew. The FDA revoked authorization for BVO in food in 2024, following mounting evidence of health risks, bringing the US closer in line with the EU and other countries that had prohibited it earlier.<a href="#fn16" class="fn" id="ref16">[16]</a> This is a rare recent example of the American system actually closing a gap rather than opening one.</p>
+
+    <p><strong>BHA and BHT.</strong> Synthetic antioxidants used to keep vegetable oils and packaged snacks, including popular crackers, from going stale. Animal studies have suggested a possible link to increased cancer risk at high doses, though the data in humans at typical food exposure levels is not conclusive.<a href="#fn17" class="fn" id="ref17">[17]</a> BHT is banned in food in the EU over concerns about potential endocrine disrupting properties. In February 2026, the FDA ordered a new safety review of BHA, and in August 2025 it launched a postmarket safety assessment of BHT, indicating the agency itself considers the question unresolved.<a href="#fn18" class="fn" id="ref18">[18]</a> This is a case where the honest framing matters. The evidence here is genuinely contested, not settled, and should be presented that way rather than as a definitive American failure.</p>
+
+    <p><strong>rBST.</strong> A synthetic hormone used to increase milk production in dairy cows. It does not appear to harm humans directly, but it is associated with health problems in the cows themselves, including udder infections. It remains legal in the United States, though some American companies, including Ben and Jerry's, have voluntarily rejected it. Europe and Canada have banned its use.<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+
+    <p><strong>Artificial Trans Fats.</strong> Once common across the American food supply to extend shelf life and improve texture, artificial trans fats were finally banned by the FDA in a rule finalized to take full effect by 2020, decades after research first linked them to heart disease.<a href="#fn20" class="fn" id="ref20">[20]</a> This one is worth including specifically because it shows the pattern completing, harm well documented for years, industry resistance, eventual but very delayed federal action, arriving long after other countries had already moved.</p>
+
+    <p>Taken together, these cases show a consistent shape. Evidence emerges, sometimes strong and sometimes genuinely contested. Europe, operating under the precautionary principle, restricts the ingredient while the science is still being resolved. The United States, operating under a presumption of safety, continues to permit it, often for decades, until evidence becomes overwhelming enough to force action, and even then the compliance timelines run for years. This is not a story of American regulators being uniquely corrupt or European regulators being uniquely rigorous. It is what two different default legal assumptions produce over time.</p>
+
+    <p><span class="opinion-inline">Opinion</span> A three decade gap between a state banning a substance in cosmetics over cancer risk and that same government banning the identical substance in food is not a defensible pace for a health agency. That timeline belongs to a system optimized for market continuity, not public health.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Tobacco Playbook</h2>
+
+    <p>The hyperpalatable food supply described in Part One did not emerge from food companies working in isolation. Some of the most aggressive product engineering in American food history arrived through a direct pipeline from the tobacco industry, at the exact moment tobacco companies were facing the first serious legal and public health pressure of their existence.</p>
+
+    <p>In 1985, Philip Morris acquired General Foods. In 1988, the same company acquired Kraft, combining the two into Kraft General Foods. That same year, R.J. Reynolds Tobacco Company merged with Nabisco to form RJR Nabisco. For roughly the next decade, two of the largest cigarette manufacturers in the country also owned some of the largest packaged food brands in the country, brands that remain household names today.</p>
+
+    <p>A 2024 study published in the journal Addiction examined what happened next. Researchers found that tobacco companies applied the same product optimization science used to maximize the addictive properties of cigarettes, refining specific combinations of fat, sugar, sodium, and texture to maximize consumption, to the food brands they now owned.<a href="#fn21" class="fn" id="ref21">[21]</a> A companion study tracking hyper-palatable food availability in the American food system from 1988 to 2018 found that the presence of these engineered foods increased at a measurably faster rate during and after the period of tobacco company ownership.<a href="#fn22" class="fn" id="ref22">[22]</a></p>
+
+    <p>This is not a case of interpreting old documents generously to imply a connection. The researchers are describing a documented transfer of formulation science from one industry to another, timed to a specific ownership period that is a matter of public corporate record. Philip Morris and RJR Reynolds did not hide these acquisitions. They were front page business news at the time. What was not disclosed, and what only became clear decades later through this research, was the extent to which the underlying product science followed the money.</p>
+
+    <p>The generation of Americans now in their fifties and sixties spent their entire adult lives eating food shaped by this period. Snack and cereal brands developed or reformulated under tobacco company ownership are still on shelves largely unchanged in their basic engineering, even though both companies eventually divested from food entirely, Philip Morris spinning off Kraft in 2007 and RJR Nabisco having been broken up in the early 1990s following one of the most famous leveraged buyouts in American corporate history.</p>
+
+    <p><span class="opinion-inline">Opinion</span> An industry that spent decades perfecting how to make a product physically difficult to stop consuming, while lying to Congress about whether that product was harmful at all, is not a business you want anywhere near your national food supply. It got there anyway, and the food it shaped is still what most Americans eat.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">The Sugar Papers</h2>
+
+    <p>The idea that the food industry pays for science to protect its products is not a modern accusation. It is a documented historical pattern, and one of the clearest examples on record involves sugar, Harvard University, and a decision that shaped American dietary advice for the next half century.</p>
+
+    <p>In 1965, media attention was building around a possible link between sugar consumption and coronary heart disease. In response, a trade group called the Sugar Research Foundation, the predecessor to today's Sugar Association, initiated its first coronary heart disease research project.<a href="#fn23" class="fn" id="ref23">[23]</a> The foundation paid three Harvard researchers, Dr. Frederick Stare, D. Mark Hegsted, and Robert McGandy, the equivalent of roughly 49,000 dollars in today's money to produce a literature review on sugar, fat, and heart disease.<a href="#fn24" class="fn" id="ref24">[24]</a> The Sugar Research Foundation selected the studies to be included in the review, received drafts before publication, and set the review's central objective from the outset.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+    <p>The result, published in the New England Journal of Medicine in 1967 in two parts, concluded that the evidence linking sugar to coronary heart disease was limited, and that reducing dietary fat and cholesterol was the only intervention supported by the evidence.<a href="#fn26" class="fn" id="ref26">[26]</a> At the time, the New England Journal of Medicine did not require authors to disclose financial conflicts of interest, and none was disclosed. The sugar industry's funding and involvement in shaping the review remained unknown to the public and to the broader scientific community for the next fifty years.</p>
+
+    <p>The funding and the objective-setting were not uncovered through a leak or a whistleblower. They were found by Dr. Cristin Kearns, a researcher at the University of California, San Francisco, who discovered internal correspondence between the Sugar Research Foundation and the Harvard researchers while going through boxes of papers in a Harvard library archive.<a href="#fn27" class="fn" id="ref27">[27]</a> Kearns, along with Stanton Glantz and Laura Schmidt, published the findings in JAMA Internal Medicine in 2016, drawing a direct, documented line between industry funding, industry-selected source material, and a published conclusion that happened to align precisely with the funder's commercial interest.</p>
+
+    <p>The consequences were not abstract. The 1967 review was cited by policymakers and included in materials the sugar industry distributed to shape nutrition guidance for decades afterward, according to Kearns's research. For an entire generation, federal dietary guidance emphasized reducing fat while sugar consumption continued to climb, a pattern that later research would tie to the rise in obesity and related metabolic disease across that same period.</p>
+
+    <p>A related 2017 finding from the same research team documented a second, earlier instance: the Sugar Research Foundation funded animal research in the late 1960s and early 1970s examining whether sucrose consumption was linked to bladder cancer and to elevated blood lipid levels, and withheld the results from the public when they were unfavorable to sugar's reputation.<a href="#fn28" class="fn" id="ref28">[28]</a></p>
+
+    <div class="caveat-note">
+      <p>None of the three Harvard researchers involved in the original 1967 review are alive to respond to these findings. This is a genuine limitation the original UCSF researchers themselves acknowledged, and it means this section relies on internal documents and correspondence rather than direct testimony. The documents themselves, however, are not in dispute.</p>
+    </div>
+
+    <p><span class="opinion-inline">Opinion</span> This was not a case of one bad study. It was a fifty year head start for an entire industry to shape how Americans understood their own diets, purchased at a price of about 49,000 dollars, and it worked exactly as intended.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">Profit Over Health, By the Numbers</h2>
+
+    <p>If the previous sections establish that American food is engineered to be hard to stop eating and lightly regulated compared to other countries, this section asks a more basic question: who is paying to make the unhealthiest ingredients the cheapest ones, and why.</p>
+
+    <p>The answer starts with the federal farm subsidy system. Just four crops, corn, soybeans, wheat, and cotton, account for roughly 74 percent of all federal crop insurance payments from 1995 to 2022, according to the Environmental Working Group's Farm Subsidy Database.<a href="#fn29" class="fn" id="ref29">[29]</a> Commodity crops as a category, which include corn, soybeans, and cotton, receive about 90 percent of total agricultural subsidies, while specialty crops, the USDA's own classification for fruits and vegetables, receive roughly 10 percent.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+
+    <div class="caveat-note">
+      <p>On the scale of that support, estimates vary considerably. The R Street Institute, a fiscally conservative think tank, has put the figure at more than 100 billion dollars a year through the Federal Crop Insurance Program and related subsidy mechanisms, a figure considerably higher than other institutional estimates.<a href="#fn31" class="fn" id="ref31">[31]</a> The Congressional Budget Office and the Cato Institute, for comparison, put total federal crop insurance and commodity support costs closer to 10 to 20 billion dollars a year, and R Street's public materials do not fully specify how the larger figure is calculated.<a href="#fn37" class="fn" id="ref37">[37]</a> That gap is worth flagging rather than resolving. Even the more conservative government figures still show a system heavily weighted toward a handful of commodity crops.</p>
+    </div>
+
+    <p>Corn and soy are not, on their own, the foods driving America's health problems. What they become is the issue. Corn is refined into high fructose corn syrup, sweetening sodas and packaged snacks. Soybeans become the vegetable oil used to fry and preserve processed food. Wheat becomes the refined flour base of much of the packaged food supply. A 2010 to 2014 study using federal nutrition survey data found that about 56 percent of all calories Americans consume come from foods derived from subsidized commodity crops, and that people whose diets contained a higher proportion of these foods had measurably worse cardiometabolic health outcomes, including higher rates of obesity, hypertension, and abnormal blood sugar.<a href="#fn32" class="fn" id="ref32">[32]</a><a href="#fn34" class="fn" id="ref34">[34]</a></p>
+
+    <p>Marion Nestle, professor of nutrition, food studies, and public health at New York University, has argued the mechanism is straightforward: because corn, wheat, and soy are cheap, the sweeteners, oils, and starches derived from them are cheap, and the cheapest way to make food taste good is to add sugar and fat. Barry Popkin, a nutrition researcher at the University of North Carolina, has made a similar point using the government's own budget as evidence, noting federal spending on promoting fruits and vegetables amounts to a small fraction of what is spent supporting commodity crops.<a href="#fn35" class="fn" id="ref35">[35]</a></p>
+
+    <p>It is worth being precise here, in keeping with this site's standard, about where the evidence is strong and where it is contested. Not every economist agrees that farm subsidies are the primary driver of what ends up on your plate. Cornell agricultural economist David Just has argued that the direct impact of subsidies on retail food prices is comparatively small, since farmers typically receive only about 10 percent of what consumers pay at the register, meaning subsidy dollars do not translate directly, dollar for dollar, into cheaper junk food at the shelf.<a href="#fn36" class="fn" id="ref36">[36]</a> The honest version of this argument is not that subsidies alone force Americans to eat badly. It is that decades of policy have consistently made the building blocks of ultra processed food artificially cheap and abundant relative to the building blocks of a healthier diet, by making commodity crop farming reliably profitable and specialty crop farming comparatively riskier.</p>
+
+    <p>The scale of the resulting food supply is documented independently of the subsidy debate. Research from Northeastern University's Network Science Institute found that ultra processed foods make up about 73 percent of the American food supply, and that these products are, on average, 52 percent cheaper than their less processed alternatives.<a href="#fn29" class="fn" id="ref29b">[29]</a> Nearly 90 percent of the American population falls below the recommended dietary allowance for vegetables, and 80 percent fall below the recommendation for fruit.<a href="#fn30" class="fn" id="ref30b">[30]</a></p>
+
+    <p>None of this policy architecture was built by one party. The current farm subsidy structure has been reauthorized, largely unchanged in its basic commodity crop bias, through farm bills passed under Republican and Democratic majorities alike, and signed by presidents of both parties, for decades.</p>
+
+    <p><span class="opinion-inline">Opinion</span> A government that spends a fraction of one percent of its agricultural budget promoting the foods it tells citizens to eat more of, while spending well over a hundred billion dollars a year propping up the raw ingredients of the foods it tells citizens to eat less of, is not sending a mixed message. It is telling you exactly where its priorities are, regardless of which party wrote the check.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Who's Lobbying to Keep It This Way</h2>
+
+    <p>Every regulatory gap and every delayed ban documented in this investigation exists because someone actively worked to keep it that way. This section names them.</p>
+
+    <p>The most powerful trade association in this fight is the Consumer Brands Association. It was not always called that. Until 2020, it operated as the Grocery Manufacturers Association, one of the most powerful lobbying groups in Washington, until a scandal over its handling of GMO labeling policy caused it to lose roughly half its revenue as major member companies fled between 2016 and 2018.<a href="#fn38" class="fn" id="ref38">[38]</a> The organization rebranded as the Consumer Brands Association, promising what it called a consumer first mindset. It is now one of the primary backers of the newest industry effort to block state level food safety laws.</p>
+
+    <p>That effort is called Americans for Ingredient Transparency, or AFIT, launched in October 2025.<a href="#fn39" class="fn" id="ref39">[39]</a> Despite its name, watchdog groups across the political spectrum, including the Environmental Working Group and Consumer Reports, describe its actual purpose as blocking state laws rather than promoting transparency.<a href="#fn40" class="fn" id="ref40">[40]</a><a href="#fn41" class="fn" id="ref41">[41]</a> AFIT is funded by a list of the largest food and beverage companies in the country: The Coca-Cola Company, PepsiCo, Nestle, General Mills, Kraft Heinz, Tyson Foods, Conagra Brands, Keurig Dr Pepper, and Hormel Foods, along with more than a dozen food industry trade associations including the Consumer Brands Association, the American Beverage Association, and FMI, The Food Industry Association.</p>
+
+    <p>AFIT's stated agenda includes reforming the GRAS pathway discussed earlier in this piece, but its version of reform runs in the opposite direction from what consumer advocates want. The group is pushing Congress to pass a uniform national standard that would preempt and nullify existing state laws, including California's Food Safety Act, West Virginia's dye ban, and similar laws in Arkansas, Texas, and Utah. A bill mirroring AFIT's proposals, the FRESH Act, would also exempt already approved GRAS chemicals from additional FDA review going forward. This matters because, per the Environmental Working Group, nearly 99 percent of chemicals approved as GRAS since the year 2000 were approved by industry itself, not by the FDA.<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> Here is where the nonpartisan picture gets genuinely complicated, and worth sitting with. AFIT's senior advisor is Andy Koenig, a founding partner of the Washington lobbying firm Kwinn Consulting, who served as special assistant to the president in the first Trump administration's Office of Legislative Affairs, as policy director for the House Republican Conference, and as a senior policy advisor to then Representative Mike Pence. Politico has identified the network of conservative political and policy groups organized around Koenig's former employer, Freedom Partners Chamber of Commerce, as a central hub of the political infrastructure built by Charles and David Koch.<a href="#fn43" class="fn" id="ref43">[43]</a> In other words, a coalition staffed in part by Republican political operatives is actively lobbying against the food policy agenda of Robert F. Kennedy Jr., the current Health and Human Services Secretary under a Republican administration, whose Make America Healthy Again initiative has pushed for many of the same dye bans and additive restrictions AFIT is fighting. This is not a story of one party protecting industry while the other protects consumers. It is industry money working against reform regardless of which administration or which movement is pushing that reform, even when that movement carries the same party label as the lobbyists opposing it.</p>
+
+    <p>The state level fights are already underway. Color manufacturers sued West Virginia in an attempt to strike down its dye ban. According to Harvard Law School's Center for Health Law and Policy Innovation, at least 35 states introduced 93 bills addressing food additives in a single legislative session, with 10 enacted as of late June, including laws in red states like West Virginia, Texas, and Utah alongside blue states like California.<a href="#fn44" class="fn" id="ref44">[44]</a> The fact that this fight is not breaking down along the expected party lines at the state level, while a Republican-aligned lobbying operation fights a Republican administration's own health secretary at the federal level, is itself evidence against the idea that this is a simple left versus right story. It is an industry versus reform story, and industry has allies in both parties.</p>
+
+    <p>Not every company chose to fight. Walmart announced in October 2025 that it would remove synthetic dyes and other controversial ingredients from its private label products, citing direct customer demand.<a href="#fn45" class="fn" id="ref45">[45]</a> It is worth noting plainly that a company as large as Walmart choosing reformulation over lobbying suggests the industry's public position, that these ingredients are safe and reformulation is unnecessary, is not a position every major player actually believes is commercially necessary to defend.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Watching a Republican-connected lobbying firm organize the food industry's largest players to fight the health agenda of a Republican cabinet secretary tells you almost everything you need to know about how these fights actually work. It was never about which party is in power. It is about which lobbyists showed up first.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">SNAP, the Iron Triangle, and an Uncomfortable Finding for Both Sides</h2>
+
+    <p>The Supplemental Nutrition Assistance Program, the modern name for what most people still call food stamps, serves roughly 41 million people across more than 21 million households.<a href="#fn46" class="fn" id="ref46">[46]</a> It exists, per its own statutory language, to combat food insecurity and improve nutrition. What it actually funds tells a different story, and the reasons why involve both political parties in ways that complicate the easy assumption that this is simply a left versus right fight.</p>
+
+    <p>Start with the current fight. Since 2025, Agriculture Secretary Brooke Rollins, working alongside Health and Human Services Secretary Robert F. Kennedy Jr. as part of the Make America Healthy Again initiative, approved SNAP waiver requests from 23 states seeking to restrict what recipients could buy with benefits, primarily soda, candy, and energy drinks.<a href="#fn47" class="fn" id="ref47">[47]</a> On June 22, 2026, US District Judge Amy Berman Jackson, an Obama appointee, ruled that USDA had exceeded its statutory authority in approving five of those waivers, covering Colorado, Iowa, Nebraska, Tennessee, and West Virginia.<a href="#fn48" class="fn" id="ref48">[48]</a> The judge's reasoning was narrow and specifically procedural: Congress defined what counts as food under the Food and Nutrition Act, and the agency does not have authority to redefine that term through a waiver process meant for pilot projects testing program efficiency, not for pursuing health outcomes.<a href="#fn49" class="fn" id="ref49">[49]</a> The ruling did not evaluate whether the restrictions themselves would have improved health outcomes, only whether USDA had the legal authority to impose them this way.</p>
+
+    <p>Secretary Rollins called the decision the product of an activist judge and vowed to continue what she described as the fight to make SNAP about food rather than what she called sugar bombs. The financial stakes are real on both sides of this fight. Numerator, a data analytics firm, projected that SNAP restrictions reaching full implementation could produce an estimated 830 million dollars in lost sales for soda, candy, and energy drink categories, and that the restrictions would eventually reach 7.5 million households by 2027.<a href="#fn50" class="fn" id="ref50">[50]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> Now for the part of this story that should complicate anyone's assumptions about which side is defending public health. The primary advocacy organization opposing SNAP nutrition restrictions is the Food Research and Action Center, known as FRAC, a group that presents itself publicly as an anti-hunger, anti-poverty organization and that responded to the June 2026 ruling by calling it significant while noting the broader debate over SNAP restrictions is far from settled.<a href="#fn51" class="fn" id="ref51">[51]</a> According to research published in the academic journal Society by Harvard public policy scholar Robert Paarlberg and collaborators, industry groups including the American Beverage Association have become substantial funders of FRAC over the years.<a href="#fn52" class="fn" id="ref52">[52]</a> The same research describes this as functionally bipartisan industry influence: the beverage industry gains access to Democratic lawmakers through its financial relationship with FRAC, while FRAC gains access to Republican lawmakers through its association with corporate lobbyists. This same coalition pattern is not new. When the first Trump administration attempted to limit SNAP spending on sugary items in 2018, a coalition including the American Beverage Association, the Food Marketing Institute, and the National Grocers Association organized opposition alongside FRAC.</p>
+
+    <p>This finding does not mean FRAC's anti-hunger mission is fraudulent, and it would be dishonest to claim otherwise without direct evidence of that. Access to healthy, adequate food is a legitimate and serious policy goal, and FRAC has a long institutional history built around it. What the funding relationship does mean is that an organization whose public identity is built around protecting low income Americans from hunger has, according to documented industry funding patterns, also served as a channel through which beverage and food companies protect their own sales to that same population, a population with limited ability to simply shop elsewhere. That is not a story where one political tribe is captured by industry and the other is clean. It is a story where industry money reaches into both tribes' preferred institutions, wearing whatever institutional face gets it furthest with each audience.</p>
+
+    <p>The opposition to the 2026 waivers was not limited to FRAC. The National Association of Convenience Stores also opposed the restrictions, though on different grounds, arguing the state by state patchwork created unworkable administrative complexity for retailers rather than defending the underlying products themselves.<a href="#fn51" class="fn" id="ref51b">[51]</a> That is a legitimate operational concern distinct from the industry funding question above, and this piece treats it as such rather than folding every objection into a single narrative of bad faith.</p>
+
+    <p><span class="opinion-inline">Opinion</span> A program that exists specifically to feed hungry Americans should not be a battlefield where beverage companies fund the same advocacy groups fighting for its continued use to buy soda, regardless of which party those advocacy groups are more useful to at any given moment. If your anti-hunger organization is partly funded by the industry whose products it is defending inside that program, the public deserves to know that before deciding whose side of this fight they are actually on.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">The Cost of Getting Off It</h2>
+
+    <p>Understanding that American food is engineered, cheaply subsidized, and lightly regulated does not, by itself, explain why so many people who know all of this still cannot simply stop eating it. The honest answer is that for a meaningful share of the population, quitting is not a matter of willpower. It resembles quitting something the body has become physiologically dependent on.</p>
+
+    <p>The primary research tool for measuring this is the Yale Food Addiction Scale, developed in 2009 and updated in 2016, which applies the same eleven diagnostic criteria the DSM-5 uses for substance use disorders, including diminished control over intake, persistent cravings, withdrawal, and continued use despite clear negative consequences, directly to eating behavior. A 2023 review in The BMJ, by University of Michigan researchers Ashley Gearhardt and Alexandra DiFeliceantonio, found that the global prevalence of food addiction measured by the Yale Food Addiction Scale stands at roughly 14 percent for adults and 12 to 15 percent for children and adolescents.<a href="#fn53" class="fn" id="ref53">[53]</a> Among people with obesity specifically, a separate systematic review and meta-analysis found the prevalence rises substantially, to an estimated 28 percent of adults.<a href="#fn54" class="fn" id="ref54">[54]</a> For context, that 14 percent adult prevalence rate is comparable to documented prevalence rates for other legal substance addictions.</p>
+
+    <div class="stat-callout">
+      <span class="stat-num">4x</span>
+      <p class="stat-desc">How much more likely people experiencing food insecurity were to show signs of ultra-processed food addiction compared to those who were food secure, in a national study of low income adults.<a href="#fn55" class="fn" id="ref55">[55]</a></p>
+    </div>
+
+    <p>Withdrawal is not a metaphor in this research. Using the YFAS, between about 18 and 30 percent of people in general community samples report classic withdrawal symptoms when they cut down on certain foods, including irritability, sadness, and physical symptoms like headache or fatigue, and that number rises to as much as 55 percent in clinical samples involving obesity or binge eating disorder.<a href="#fn56" class="fn" id="ref56">[56]</a> A 2022 review in Current Addiction Reports found that repeated consumption of ultra-processed food produces measurable changes in the brain's mesolimbic dopamine system consistent with pharmacological tolerance, meaning it takes more of the food to produce the same reward response over time, and that humans show progressively weaker neural reward responses to these foods with frequent consumption.<a href="#fn57" class="fn" id="ref57">[57]</a> This is the same basic mechanism, tolerance requiring escalating exposure to achieve a stable effect, that defines dependence on nicotine, alcohol, and other addictive substances.</p>
+
+    <p>There is a socioeconomic dimension to this that connects directly back to the SNAP findings in the previous section. Ultra-processed food is, per the subsidy structure documented earlier in this piece, the cheapest and most accessible caloric option available. This means the population most financially dependent on that food supply is also the population showing the highest documented rates of addictive response to it, a genuinely difficult convergence for policy to address, since restricting access without addressing affordability or the underlying addictive properties of the food risks punishing the exact people the restriction claims to help.</p>
+
+    <div class="caveat-note">
+      <p>It is important to be precise about the state of this science, in keeping with this site's evidentiary standard. Food addiction is not currently a recognized clinical diagnosis in the DSM-5 itself, and researchers in the field openly acknowledge the absence of established, evidence-based treatment protocols as a result.<a href="#fn58" class="fn" id="ref58">[58]</a> What exists is strong, converging behavioral and neurological evidence that ultra-processed food produces addiction-like patterns in a meaningful share of the population, not a settled clinical consensus that food addiction is formally equivalent to drug or alcohol addiction. Early intervention research is nonetheless promising: one 2022 study following 103 participants through low carbohydrate and psychoeducational programs found significant reductions in food addiction symptoms alongside modest weight loss and improved mental wellbeing at twelve month follow up.<a href="#fn58" class="fn" id="ref58b">[58]</a></p>
+    </div>
+
+    <p><span class="opinion-inline">Opinion</span> Telling someone to just eat better, when the food supply itself is engineered to produce measurable tolerance and withdrawal, and when that same food is the cheapest thing available to people with the least money to spend, is not health advice. It is blaming an individual for the predictable result of a system built, quite deliberately, to produce exactly this outcome.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">Reform Attempts and Why They Stall</h2>
+
+    <p>Reform is not new. Every era of American food policy has produced some version of a reform push. What is consistent, across administrations of both parties, is how often those pushes end up voluntary, delayed, or quietly abandoned once the press conference ends.</p>
+
+    <p>The most recent example is instructive. On April 22, 2025, HHS Secretary Robert F. Kennedy Jr. and FDA Commissioner Marty Makary announced what was widely covered as a plan to phase out eight artificial food dyes.<a href="#fn59" class="fn" id="ref59">[59]</a> The actual substance of the announcement was narrower than the coverage suggested. The FDA moved to revoke authorization for exactly two dyes, Citrus Red No. 2 and Orange B, both of which Thomas Galligan of the Center for Science in the Public Interest noted were already very rarely used and had essentially been abandoned by the industry already.<a href="#fn60" class="fn" id="ref60">[60]</a> For the remaining six commonly used dyes, including Red 40, Yellow 5, and Blue 1, the plan relied entirely on voluntary industry cooperation.</p>
+
+    <div class="doc-callout">
+      <span class="doc-callout-label">HHS Secretary Robert F. Kennedy Jr. — April 22, 2025 press conference</span>
+      <p>Asked directly whether food companies had actually agreed to comply: "We don't have an agreement; we have an understanding."</p>
+    </div>
+
+    <p>That distinction matters enormously, and it is worth being precise about it rather than letting the press conference framing stand. Galligan pointed out that the FDA has the legal authority to ban these dyes outright if it chose to, and called the voluntary framing a bit of a strange announcement. Peter Lurie, president of CSPI, was more direct, stating that relying on voluntary food industry compliance has, historically, proven to be what he called a fool's errand.<a href="#fn61" class="fn" id="ref61">[61]</a> The industry's own recent track record supports that skepticism. Kellogg's pledged in 2015 to remove all artificial colors and flavors from its cereal and snack bars by 2018. As of 2025, its Froot Loops and Apple Jacks still contained Red 40, Blue 1, Yellow 5, and Yellow 6 in the American market, while the same cereals sold in the European Union and Canada used natural coloring instead.<a href="#fn62" class="fn" id="ref62">[62]</a> Kellogg's response was to say American consumers had responded less favorably to naturally colored cereal than Canadian consumers had, effectively blaming its own customers for a promise the company had made and broken.</p>
+
+    <p>One year after the April 2025 announcement, the results confirmed the skeptics' concerns rather than Kennedy's optimism. As of April 2026, Consumer Reports found that major companies including Coca-Cola, Mondelez, and Unilever had made no concrete public commitments to remove the dyes, and no pharmaceutical company had pledged to remove them from medications at all. The FDA's own stated deadline for the voluntary phase out had quietly slipped from the end of 2026 to the end of 2027.<a href="#fn63" class="fn" id="ref63">[63]</a> Meanwhile, a Consumer Reports survey of over two thousand American adults found 72 percent were concerned about synthetic dyes in food, and 66 percent believed companies should be legally required to stop using them.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This is where the pattern from earlier sections repeats. Internal industry documents obtained by Bloomberg showed the Consumer Brands Association had proposed the voluntary framework to HHS itself, in a March 2025 meeting, and reportedly asked for tariff exemptions in exchange for cooperation.<a href="#fn64" class="fn" id="ref64">[64]</a> The same trade association that helped shape the voluntary structure of this reform is the one now backing Americans for Ingredient Transparency, the effort documented earlier in this piece to preempt and nullify the stronger, mandatory state laws that have actually produced enforceable bans, such as West Virginia's.<a href="#fn65" class="fn" id="ref65">[65]</a> The pattern is consistent regardless of which party occupies the White House: meaningful, binding reform tends to happen at the state level, while federal reform tends to arrive as a voluntary understanding that industry itself had a hand in drafting.</p>
+
+    <p>It would be inaccurate to claim this is purely partisan theater, however, and this piece will not claim that. Not every voice raising caution here is industry-aligned. Susan Mayne, a Yale School of Public Health professor and former FDA official, has raised a genuine scientific concern that rapid reformulation away from synthetic dyes could carry unintended consequences, including potentially working against separate public health goals like sodium reduction, and could raise food costs.<a href="#fn64" class="fn" id="ref64b">[64]</a> That is a legitimate, evidence-based caution rather than industry spin, and it belongs in an honest account of why reform is complicated, not just why it stalls.</p>
+
+    <p><span class="opinion-inline">Opinion</span> An understanding is not a law, and a health secretary standing on a stage announcing a phase out that his own industry partners helped write is not reform. It is a press conference. The dyes will leave American shelves when it becomes cheaper for these companies to remove them than to keep them, and not meaningfully before that, regardless of which party's health secretary is holding the microphone.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eleven</span>
+    <h2 class="section-title">You Decide</h2>
+
+    <p>Every claim in this investigation is documented above, sourced, and where the evidence was contested rather than settled, labeled as such. What remains is a judgment call this piece will not make for you.</p>
+
+    <h3>The case that this is simply how a market works</h3>
+    <p>America is a large, wealthy country with cheap agricultural inputs, a legal system built on the presumption that products are safe until proven otherwise, and a population that has consistently, at the register, rewarded convenience and craveability over cost or nutrition. Food companies did not invent demand for cheap, delicious, shelf-stable calories, they responded to it. The GRAS pathway exists because Congress, decades ago, decided that requiring premarket approval for every minor ingredient tweak would be an impossible burden on a functioning food industry, not because anyone intended to poison the public. Farm subsidies for corn, soy, and wheat exist because those crops are foundational to the American diet and agricultural economy generally, not merely as inputs to junk food. Companies like Walmart and PepsiCo have voluntarily reformulated products in response to consumer demand, evidence that the market can and does correct itself without government mandates, given enough time and enough public pressure. FRAC's willingness to work with beverage industry funding does not erase decades of genuine anti-hunger advocacy. Reasonable regulators, reasonable scientists, and reasonable economists can look at the same additive and land on different, defensible conclusions given the actual, sometimes limited strength of the evidence. Not every EU ban proves an American failure. Some may reflect precaution more than proof.</p>
+
+    <h3>The case that this is a documented pattern of institutional capture</h3>
+    <p>The Sugar Research Foundation paid Harvard scientists to shift public blame from sugar to fat in 1967, and that funding was concealed for fifty years. Tobacco companies, while lying to Congress about the addictiveness of cigarettes, bought major food brands and applied the same product optimization science to snack formulation, and that food is still on shelves. A regulatory pathway allows companies to declare their own ingredients safe, with no requirement that the FDA even be told. When state legislatures of both parties began closing that gap one law at a time, the food industry did not primarily reformulate, it organized a nine figure lobbying coalition, staffed in part by operatives connected to a Republican presidential administration, to nullify those laws at the federal level, including laws passed under Republican governors. That same coalition helped write the voluntary framework of the current administration's own signature food reform, ensuring it carried no binding enforcement mechanism, and a year later, most major companies had made no real commitments under it. The nutrition assistance program meant to feed America's poorest citizens is, by documented funding relationships, partly shaped by the same beverage industry whose products it funds, filtered through an advocacy group with access to both parties. And a meaningful share of the population, disproportionately the same population that relies on that assistance program, shows measurable, physiological patterns of tolerance and withdrawal in response to food engineered, quite deliberately, to produce exactly that response. None of that happened by accident, and none of it happened under just one party's watch.</p>
+
+    <div class="pull-quote">
+      <p>Both of these things are true at the same time. American food is a product of legitimate market forces responding to real consumer preference, and it is also the product of a documented, decades long pattern of industry funded science, regulatory capture, and lobbying that has spanned Republican and Democratic administrations without meaningful interruption from either. Reasonable people, looking honestly at the same record, can weigh those two truths differently.</p>
+    </div>
+
+    <p><strong>You decide.</strong></p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part One — The Taste Engineering</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Hall, K.D. et al. "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain." <em>Cell Metabolism</em>, 2019.<a href="#ref1" class="bib-back">↩</a></li>
+      <li id="fn2">[2] Valicente, V.M., Peng, C.-H., Pacheco, K.N., Lin, L., Kielb, E.I., Dawoodani, E., Abdollahi, A., & Mattes, R.D. "Ultraprocessed Foods and Obesity Risk: A Critical Review of Reported Mechanisms." <em>Advances in Nutrition</em>, 14(4), 718–738, 2023.<a href="#ref2" class="bib-back">↩</a></li>
+      <li id="fn3">[3] Fazzino, T.L. et al. "US tobacco companies selectively disseminated hyper-palatable foods into the US food system." <em>Addiction</em>, 2024.<a href="#ref3" class="bib-back">↩</a></li>
+      <li id="fn4">[4] Demeke, S. et al. "Change in hyper-palatable food availability in the US food system over 30 years: 1988-2018." <em>Public Health Nutrition</em>, 2023.<a href="#ref4" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Two — A Regulatory Philosophy Gap</span>
+    <ul class="bib-list">
+      <li id="fn5">[5] European Commission. Regulation (EC) No 1333/2008 on food additives.<a href="#ref5" class="bib-back">↩</a></li>
+      <li id="fn6">[6] U.S. Food and Drug Administration. Generally Recognized as Safe (GRAS) program overview and 21 CFR food additive regulations.<a href="#ref6" class="bib-back">↩</a></li>
+      <li id="fn7">[7] Jensen Jose, regulatory counsel, Center for Science in the Public Interest, as quoted in <em>Newsweek</em>, March 2025.<a href="#ref7" class="bib-back">↩</a></li>
+      <li id="fn8">[8] Center for Science in the Public Interest (CSPI) reporting, May 2025, on Kellogg's differing formulations across US, Canadian, and EU markets.<a href="#ref8" class="bib-back">↩</a></li>
+      <li id="fn9">[9] PlainIngredients regulatory comparison guide, citing FDA SAFFA database, EFSA food additive database, and IARC monographs, 2026.<a href="#ref9" class="bib-back">↩</a></li>
+      <li id="fn10">[10] Forbes reporting, April 2025, on the legislative and rulemaking barriers to GRAS reform.<a href="#ref10" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Three — What's Actually Banned Abroad and Why</span>
+    <ul class="bib-list">
+      <li id="fn11">[11] Forbes reporting, April 2025, on Red Dye No. 3 and thyroid tumor findings in lab animals.<a href="#ref11" class="bib-back">↩</a></li>
+      <li id="fn12">[12] European Commission. 2022 ruling on titanium dioxide (E171) as a food additive.<a href="#ref12" class="bib-back">↩</a></li>
+      <li id="fn13">[13] The Atlantic, cited in The Week, March 2026, on titanium dioxide's continued use in the US.<a href="#ref13" class="bib-back">↩</a></li>
+      <li id="fn14">[14] IngrediCheck. Banned food additives reference guide.<a href="#ref14" class="bib-back">↩</a></li>
+      <li id="fn15">[15] Environmental Working Group. State food chemical bill tracker, 2026.<a href="#ref15" class="bib-back">↩</a></li>
+      <li id="fn16">[16] U.S. Food and Drug Administration. 2024 final determination on brominated vegetable oil.<a href="#ref16" class="bib-back">↩</a></li>
+      <li id="fn17">[17] Ito, N. et al. <em>Critical Reviews in Toxicology</em>, 1985; Williams, G.M. et al. <em>Food and Chemical Toxicology</em>, 1999.<a href="#ref17" class="bib-back">↩</a></li>
+      <li id="fn18">[18] The Week, March 2026, reporting on FDA postmarket assessments of BHA and BHT.<a href="#ref18" class="bib-back">↩</a></li>
+      <li id="fn19">[19] GoodRx. "6 U.S. Food Ingredients That Are Banned Abroad." 2025.<a href="#ref19" class="bib-back">↩</a></li>
+      <li id="fn20">[20] U.S. Food and Drug Administration. Final determination on partially hydrogenated oils, 2018.<a href="#ref20" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Four — The Tobacco Playbook</span>
+    <ul class="bib-list">
+      <li id="fn21">[21] Fazzino, T.L., Jun, D., Chollet-Hinton, L., Bjorlie, K. "US tobacco companies selectively disseminated hyper-palatable foods into the US food system: empirical evidence and current implications." <em>Addiction</em>, 2024.<a href="#ref21" class="bib-back">↩</a></li>
+      <li id="fn22">[22] Demeke, S., Rohde, K., Chollet-Hinton, L., Sutton, C., Kong, K.L., Fazzino, T.L. "Change in hyper-palatable food availability in the US food system over 30 years: 1988-2018." <em>Public Health Nutrition</em>, 2023.<a href="#ref22" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Five — The Sugar Papers</span>
+    <ul class="bib-list">
+      <li id="fn23">[23] ScienceDaily. "Historical analysis examines sugar industry role in heart disease research." 2016, summarizing Kearns, Schmidt, and Glantz.<a href="#ref23" class="bib-back">↩</a></li>
+      <li id="fn24">[24] ABC News. "Sugar Industry Paid for Medical Review in 1960s That Downplayed Link Between Sugar and Heart Disease." September 2016.<a href="#ref24" class="bib-back">↩</a></li>
+      <li id="fn25">[25] Kearns, C.E., Schmidt, L.A., Glantz, S.A. "Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents." <em>JAMA Internal Medicine</em>, 2016.<a href="#ref25" class="bib-back">↩</a></li>
+      <li id="fn26">[26] McGandy, R.B., Hegsted, D.M., Stare, F.J. "Dietary Fats, Carbohydrates and Atherosclerotic Disease." <em>New England Journal of Medicine</em>, 1967.<a href="#ref26" class="bib-back">↩</a></li>
+      <li id="fn27">[27] STAT News. "Sugar industry secretly paid for favorable Harvard research." September 2016.<a href="#ref27" class="bib-back">↩</a></li>
+      <li id="fn28">[28] Kearns, C.E. et al. "Sugar industry sponsorship of germ-free rodent studies linking sucrose to hyperlipidemia and cancer: An historical analysis of internal documents." <em>PLOS Biology</em>, 2017.<a href="#ref28" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Six — Profit Over Health, By the Numbers</span>
+    <ul class="bib-list">
+      <li id="fn29">[29] Food Tank. "Feeding the Crisis: Agricultural Subsidies and the Rise of Ultra-Processed Diets." 2024, citing Northeastern University Network Science Institute and Emory University/CDC research.<a href="#ref29" class="bib-back">↩</a></li>
+      <li id="fn30">[30] Farm Action. "Putting Our Money Where Our Mouths Should Be." 2025.<a href="#ref30" class="bib-back">↩</a></li>
+      <li id="fn31">[31] R Street Institute. "End Farm Subsidies for Ultra-Processed Foods." 2024.<a href="#ref31" class="bib-back">↩</a></li>
+      <li id="fn32">[32] National Geographic. "Do Corn Subsidies Really Make Us Fat?" summarizing CDC/multi-institution research.<a href="#ref32" class="bib-back">↩</a></li>
+      <li id="fn34">[34] "Consumption of Foods Derived from Subsidized Crops Remains Associated with Cardiometabolic Risk." Peer-reviewed study using NHANES 2009-2014 data.<a href="#ref34" class="bib-back">↩</a></li>
+      <li id="fn35">[35] "The Fat of the Land: Do Agricultural Subsidies Foster Poor Health?" Citing Marion Nestle (NYU) and Barry Popkin (UNC Chapel Hill).<a href="#ref35" class="bib-back">↩</a></li>
+      <li id="fn36">[36] David Just, Cornell University agricultural and behavioral economist, as cited in National Geographic reporting.<a href="#ref36" class="bib-back">↩</a></li>
+      <li id="fn37">[37] Congressional Budget Office, baseline projections for Agriculture Risk Coverage, Price Loss Coverage, and the Federal Crop Insurance Program; Cato Institute, "Cutting Federal Farm Subsidies," 2023, cited for comparison with the R Street estimate.<a href="#ref37" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Seven — Who's Lobbying to Keep It This Way</span>
+    <ul class="bib-list">
+      <li id="fn38">[38] US Right to Know. "Big Food 'transparency' campaign seeks to block tough new food safety laws." 2026, on the Grocery Manufacturers Association to Consumer Brands Association rebrand.<a href="#ref38" class="bib-back">↩</a></li>
+      <li id="fn39">[39] Food Dive. "Food industry prepares to fight MAHA in states." October 2025.<a href="#ref39" class="bib-back">↩</a></li>
+      <li id="fn40">[40] Environmental Working Group. "Big Food launches misleading 'transparency' front group to block state food safety laws," statement from Scott Faber, October 2025.<a href="#ref40" class="bib-back">↩</a></li>
+      <li id="fn41">[41] Food Safety Magazine. "Industry Giants Support New Coalition Aimed at Stopping MAHA-Aligned State Food Additive Bans." October 2025, quoting Brian Ronholm, Consumer Reports.<a href="#ref41" class="bib-back">↩</a></li>
+      <li id="fn42">[42] Environmental Working Group. "Your favorite brands might be in the fight against stricter food safety laws." April 2026, on the FRESH Act and GRAS approval statistics.<a href="#ref42" class="bib-back">↩</a></li>
+      <li id="fn43">[43] US Right to Know. "Americans for Ingredient Transparency: Product defense for unhealthy ultra-processed foods." December 2025, on Andy Koenig, Kwinn Consulting, and Freedom Partners Chamber of Commerce.<a href="#ref43" class="bib-back">↩</a></li>
+      <li id="fn44">[44] Food Dive. "Food industry prepares to fight MAHA in states." October 2025, on West Virginia litigation and state legislative data from Harvard Law School's Center for Health Law and Policy Innovation.<a href="#ref44" class="bib-back">↩</a></li>
+      <li id="fn45">[45] Food Ingredients First. "US F&B giants form ingredient transparency coalition as critics question motives." October 2025, on Walmart's reformulation announcement.<a href="#ref45" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Eight — SNAP, the Iron Triangle, and an Uncomfortable Finding for Both Sides</span>
+    <ul class="bib-list">
+      <li id="fn46">[46] PMC systematic review. "Are Supplemental Nutrition Assistance Program Restrictions on Sugar-Sweetened Beverages Effective in Reducing Purchase or Consumption?"<a href="#ref46" class="bib-back">↩</a></li>
+      <li id="fn47">[47] CNN Politics. "Federal judge blocks state bans on buying soda and candy with food stamps." June 2026.<a href="#ref47" class="bib-back">↩</a></li>
+      <li id="fn48">[48] The Hill. "Federal judge blocks bans on SNAP use for soda." June 2026, on Judge Amy Berman Jackson's ruling.<a href="#ref48" class="bib-back">↩</a></li>
+      <li id="fn49">[49] Food Dive. "Judge blocks states from excluding soda and candy from SNAP." June 2026.<a href="#ref49" class="bib-back">↩</a></li>
+      <li id="fn50">[50] Food Dive, citing Numerator research. "SNAP waivers could lead to $830M sales loss for soda, candy, energy drinks." May 2026.<a href="#ref50" class="bib-back">↩</a></li>
+      <li id="fn51">[51] FoodNavigator-USA. "Court ruling halts SNAP food restriction pilots in five states." June 2026, quoting FRAC and the National Association of Convenience Stores.<a href="#ref51" class="bib-back">↩</a></li>
+      <li id="fn52">[52] Paarlberg, R. et al. Untitled analysis of SNAP sugar-sweetened beverage politics. <em>Society</em>, 2018, on American Beverage Association funding of FRAC and the 2018 lobbying coalition.<a href="#ref52" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Nine — The Cost of Getting Off It</span>
+    <ul class="bib-list">
+      <li id="fn53">[53] Gearhardt, A.N., & DiFeliceantonio, A.G. "Social, clinical, and policy implications of ultra-processed food addiction." <em>BMJ</em>, 383, e075354, 2023.<a href="#ref53" class="bib-back">↩</a></li>
+      <li id="fn54">[54] Praxedes, D.R.S., Silva-Júnior, A.E., da Silva, J.A.O., de Melo, I.S.V., & de Oliveira, A.C.M. "Prevalence of food addiction in individuals with overweight and obesity: A systematic review and meta-analysis." <em>European Eating Disorders Review</em>, 30(3), 241–254, 2022.<a href="#ref54" class="bib-back">↩</a></li>
+      <li id="fn55">[55] University of Michigan Institute for Healthcare Policy and Innovation. "Policy Brief: Recognizing and Addressing the Addictive Nature of Ultra-Processed Foods." 2025.<a href="#ref55" class="bib-back">↩</a></li>
+      <li id="fn56">[56] "Development of the Highly Processed Food Withdrawal Scale." ScienceDirect, citing Gearhardt, Corbin, and Brownell, 2016, and Hauck et al., 2017.<a href="#ref56" class="bib-back">↩</a></li>
+      <li id="fn57">[57] "Preliminary Evidence that Tolerance and Withdrawal Occur in Response to Ultra-processed Foods." <em>Current Addiction Reports</em>, Springer Nature, 2022.<a href="#ref57" class="bib-back">↩</a></li>
+      <li id="fn58">[58] "Low carbohydrate and psychoeducational programs show promise for the treatment of ultraprocessed food addiction: 12-month follow-up." PMC, 2022, on the absence of a formal DSM-5 diagnosis and on program outcomes.<a href="#ref58" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Ten — Reform Attempts and Why They Stall</span>
+    <ul class="bib-list">
+      <li id="fn59">[59] ABC News. "RFK Jr. unveils plan to phase out 8 artificial food dyes in the US." April 2025.<a href="#ref59" class="bib-back">↩</a></li>
+      <li id="fn60">[60] NPR. "RFK Jr. and FDA push to phase out synthetic food dyes." April 2025, quoting Thomas Galligan, CSPI.<a href="#ref60" class="bib-back">↩</a></li>
+      <li id="fn61">[61] Axios. "Food dye ban rfk pepsi." April 2025, quoting Peter Lurie, CSPI.<a href="#ref61" class="bib-back">↩</a></li>
+      <li id="fn62">[62] Center for Science in the Public Interest. "FDA Asked Companies to Cut Food Dyes. Is It Enough?" 2025, on Kellogg's 2015 pledge and current formulation.<a href="#ref62" class="bib-back">↩</a></li>
+      <li id="fn63">[63] Consumer Reports. "One Year After RFK Called For Phase Out of Harmful Dyes." April 2026.<a href="#ref63" class="bib-back">↩</a></li>
+      <li id="fn64">[64] Axios. "Food dye ban rfk pepsi." April 2025, on the Consumer Brands Association memo and Susan Mayne's comments.<a href="#ref64" class="bib-back">↩</a></li>
+      <li id="fn65">[65] US Right to Know / Food Dive reporting on Americans for Ingredient Transparency and Consumer Brands Association, as cited in Part Seven.<a href="#ref65" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
