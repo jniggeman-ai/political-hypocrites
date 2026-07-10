@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boycotting Israel Will Cost You Your State Contract -- Political Hypocrites</title>
+  <meta name="description" content="What anti-BDS laws actually do, the Abbott vs. San Marcos fight, why the shield is specific to Israel, and how the international comparison to Israel, France, and the UK actually holds up." />
+  <meta property="og:title" content="Boycotting Israel Will Cost You Your State Contract -- Political Hypocrites" />
+  <meta property="og:description" content="No state restricts a contractor from boycotting Russia, China, or Myanmar. Only Israel gets a legal shield in 37 states. Here is how that shield works, who built it, and who it protects." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/boycotting-israel-state-contract" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Boycotting Israel Will Cost You Your State Contract -- Political Hypocrites" />
+  <meta name="twitter:description" content="No state restricts a contractor from boycotting Russia, China, or Myanmar. Only Israel gets a legal shield in 37 states." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.02;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2rem; font-weight: 400;
+    }
+    .share-btn {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.15rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&rsaquo;</span>
+    <span class="current">Boycotting Israel Will Cost You Your State Contract</span>
+  </div>
+  <span class="article-label">Current Events + Opinion, July 2026</span>
+  <h1 class="article-title">
+    Boycotting Israel Will Cost You Your State Contract.
+    <span>Boycotting Anyone Else Will Not.</span>
+  </h1>
+  <p class="article-subtitle">What anti-BDS laws actually do, how they spread to 37 states, what happened when Texas threatened San Marcos over a ceasefire resolution, and why no equivalent law protects any other country on earth.</p>
+  <a href="https://twitter.com/intent/tweet?text=Boycotting+Israel+Will+Cost+You+Your+State+Contract.+Boycotting+Anyone+Else+Will+Not.&url=https://political-hypocrites.vercel.app/current-events/boycotting-israel-state-contract" target="_blank" class="share-btn">Share on X</a>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">July 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Eight</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">What Anti-BDS Laws Actually Do</h2>
+    <p class="article-lede">Before any argument about whether these laws are wise or fair, it is worth being precise about what they actually are, because the debate around them is full of people arguing past each other over two different things.</p>
+
+    <p>No state or city sends its own tax dollars to the Israeli government. Military aid to Israel, roughly 3.8 to 4 billion dollars a year, is a federal appropriation. There is no state or municipal budget line that funds a foreign government directly. When you see a figure like &ldquo;San Marcos residents&rsquo; taxes sent to Israel,&rdquo; that is a calculated pro rata estimate of federal tax contribution, not an actual line item any city controls. This distinction matters because it is frequently blurred in both directions, by supporters of these laws who talk as though a city boycotting Israel would cut off U.S. aid, and by critics who talk as though the state is somehow bankrolling a foreign government&rsquo;s military. Neither is what is actually happening at the state level.</p>
+
+    <p>What state anti-BDS laws actually do is condition access to state money, specifically state contracts and, in some states, public pension investment, on a certification that the contracting entity is not boycotting Israel. As of the most recent comprehensive tracking, 37 states have some form of binding law or executive order in effect, one has a resolution only, and 12 have no measure at all.<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+
+    <p>These laws take one of two forms, and many states combine both.</p>
+
+    <p>The first is contract certification. A company, typically one with ten or more employees, seeking a state contract above a dollar threshold, commonly 100,000 dollars, must sign a written certification that it is not currently engaged in a boycott of Israel and will not engage in one for the duration of the contract. Texas, Florida, Arkansas, and South Carolina use this model.<a href="#fn2" class="fn" id="ref2">[2]</a> Texas&rsquo;s version, codified at Government Code sections 2270 and 2271, is the specific statute at the center of the Abbott and San Marcos fight covered in Part Three.<a href="#fn3" class="fn" id="ref3">[3]</a></p>
+
+    <p>The second is investment and divestment. State pension funds and public investment vehicles are barred from holding, or required to divest from, companies the state has placed on a published list of entities boycotting Israel. Illinois, Colorado, Arizona, and Iowa use this model.<a href="#fn4" class="fn" id="ref4">[4]</a></p>
+
+    <p>It is worth stating clearly what these laws do not do, because this is where most bad faith arguments on both sides start. They do not make it a crime for a private citizen or a private company to boycott Israeli products. A consumer choosing not to buy an Israeli good, or a company like McDonald&rsquo;s declining an Israeli supplier for any stated reason, breaks no law anywhere in the United States. There is no fine, no criminal liability, and no injunction against the boycott itself. The entire consequence is ineligibility for a specific pool of government money. Ordinary commercial revenue, private contracts, and personal purchasing decisions are untouched.</p>
+
+    <p>That may sound like a narrow, technical distinction. It is also the exact distinction the courts have spent the last eight years fighting over, which is where this piece goes next.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The Scale, and How It Spread This Fast</h2>
+
+    <p>Anti-BDS legislation is a recent phenomenon, and its spread across 37 states in roughly a decade did not happen organically state by state. It happened because of a deliberate, coordinated legislative strategy, and understanding that strategy is not an accusation, it is documented legislative history.</p>
+
+    <p>The first state action came from Tennessee, where the legislature passed a unanimous resolution condemning BDS in April 2015.<a href="#fn5" class="fn" id="ref5">[5]</a> South Carolina and Illinois followed within weeks with the first binding laws, both in 2015.<a href="#fn6" class="fn" id="ref6">[6]</a> From there, the pace accelerated sharply through 2016, when roughly a dozen more states passed similar measures.</p>
+
+    <p>The reason so many states adopted such similar language so quickly is that they were largely working from the same template. The Israel Allies Foundation, an Israeli advocacy group focused on building pro-Israel caucuses in foreign legislatures, drafted a model act combining South Carolina&rsquo;s and Illinois&rsquo;s laws and announced in 2015 that eighteen additional states had committed to introducing versions of it.<a href="#fn7" class="fn" id="ref7">[7]</a> Reporting on the spread of model legislation in state politics has also documented direct lobbying involvement from AIPAC, the Israel Action Network, and local Jewish Federations, and in Arizona, California, and Nevada specifically, from lobbyist Dillon Hosier working on behalf of the Israeli-American Council.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+
+    <p>None of this is unusual as a matter of how state legislation typically spreads. Model legislation drafted by an advocacy group and shopped to multiple statehouses is a standard tool used across the political spectrum, by the American Legislative Exchange Council on the right and by groups like the ACLU or Everytown on the left. What makes it worth naming plainly here is that it explains why 37 states ended up with laws that are, in the words of one of the trackers used for this piece, &ldquo;very similar across states,&rdquo; despite having no coordinating federal law requiring them to be.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think it is fair to point out, without taking a side on Israel itself, that when this many states pass nearly identical legislation this quickly, off the back of one advocacy campaign, it is worth asking whether that reflects 37 independent legislative judgments or one well funded template getting rubber stamped 37 times. That is a question worth asking about any model legislation, from any lobby, on any issue. It does not mean the underlying policy is automatically wrong. It does mean the &ldquo;this is just organic state level consensus&rdquo; framing you sometimes hear from supporters of these laws does not hold up against the actual timeline.</p>
+
+    <p>The pattern did not stop with Israel. Once the contract certification template existed and had survived initial legal challenges, other interests reused it for entirely unrelated targets. Texas passed a law in 2021 barring the state from contracting with companies that boycott the firearms and ammunition industries.<a href="#fn10" class="fn" id="ref10">[10]</a> Other states have since applied the same certification model to fossil fuel companies, and in a handful of states, to companies with certain DEI or reproductive and gender-affirming care policies.<a href="#fn11" class="fn" id="ref11">[11]</a> This matters for the nonpartisan case this piece is building: the legal mechanism itself is not a partisan invention. It has been picked up and pointed in whatever direction the state legislature in question wanted, by both parties, once the template existed.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">Case Study, Abbott vs. San Marcos</h2>
+
+    <p>If Parts One and Two explain the machinery in the abstract, this is what it looks like when that machinery gets used against an American city for taking a position on a foreign war.</p>
+
+    <p>In April 2025, the San Marcos City Council, led by council members Alyssa Garza and Amanda Rodriguez, scheduled a vote on a resolution calling for &ldquo;an Immediate, Permanent, and Sustained Ceasefire in Occupied Palestine, Arms Embargo on the State of Israel, Recognition of Palestinian Sovereignty and Protection of Constitutional Rights.&rdquo;<a href="#fn12" class="fn" id="ref12">[12]</a> The resolution also explicitly condemned &ldquo;anti-Palestinian, Islamophobic, antisemitic, and all xenophobic rhetoric and attacks,&rdquo; and cited the World Health Organization, the United Nations, Amnesty International, Human Rights Watch, and Pope Francis among the bodies it said it was aligning with.<a href="#fn13" class="fn" id="ref13">[13]</a> It was, by its own text, a symbolic council resolution. It carried no enforcement power and did not obligate the city to do anything concrete.</p>
+
+    <p>On April 29, 2025, Governor Greg Abbott sent San Marcos Mayor Jane Hughson a letter calling the resolution &ldquo;antisemitic&rdquo; and &ldquo;openly flouting Texas state law.&rdquo;<a href="#fn14" class="fn" id="ref14">[14]</a> The letter cited Texas Government Code sections 2270 and 2271, which bar any governmental entity, a category the letter states explicitly includes political subdivisions like San Marcos, from entering into or maintaining contracts worth 100,000 dollars or more without certifying it does not boycott Israel.<a href="#fn15" class="fn" id="ref15">[15]</a> Abbott&rsquo;s office was more specific than a warning. The letter states plainly that the Governor&rsquo;s Office was &ldquo;already reviewing active grants with San Marcos to determine whether the City has breached terms,&rdquo; and that if the council adopted the resolution, his office &ldquo;will not enter into any future grant agreements with the city and will act swiftly to terminate active grants for non-compliance.&rdquo;<a href="#fn16" class="fn" id="ref16">[16]</a> He further directed all other state agencies to review their own agreements with the city for possible breach.</p>
+
+    <div class="doc-callout">
+      <span class="doc-callout-label">Worth sitting with</span>
+      <p>A city council considering a non-binding statement of opinion about a foreign war triggered a review of that city&rsquo;s existing state funding, initiated by the state&rsquo;s chief executive, before the council had even voted.</p>
+    </div>
+
+    <p>The resolution failed. On May 6, 2025, the San Marcos City Council voted 5 to 2 to reject it, following what reporting describes as many hours of public comment.<a href="#fn17" class="fn" id="ref17">[17]</a> Whether the funding threat was decisive in that outcome is not something this piece can prove and does not claim to. What is verifiable is the sequence: the threat came first, publicly and in writing, and the rejection came six days later.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think it&rsquo;s worth naming the obvious tension here directly. In January 2025, Abbott posted that Biden needed to stop giving money to foreign countries like Ukraine and start helping Americans instead, calling it tragic and outrageous that homes were burning while foreign aid kept flowing.<a href="#fn18" class="fn" id="ref18">[18]</a> That is a legitimate policy position, and plenty of people across the political spectrum hold some version of it. But it is difficult to square with threatening to defund an American city for making structurally the identical argument about a different foreign conflict, that money spent supporting a war overseas might be better spent at home. One version of &ldquo;our money shouldn&rsquo;t fund foreign wars&rdquo; gets you a viral post and applause. The other version gets your city&rsquo;s grants pulled. If the principle is that foreign aid dollars are better spent domestically, that principle should apply evenly. It does not appear to.</p>
+
+    <p>It is also worth noting what critics on the other side of this got right procedurally, even if you disagree with the resolution itself. San Marcos City Council member Amanda Rodriguez responded to Abbott&rsquo;s letter by saying that conflating opposition to what she described as genocide with antisemitism is a deliberate and dangerous tactic meant to silence moral outrage.<a href="#fn19" class="fn" id="ref19">[19]</a> Whatever your view of that framing, the underlying point, that a state government can use funding leverage to suppress a city&rsquo;s ability to even debate a resolution, regardless of how that debate would have ended, is the same structural concern raised by the ACLU and free speech advocates about these laws generally, covered in Part Six.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">Is This Specific to Israel?</h2>
+
+    <p>Yes, and this is where the double standard at the heart of this piece becomes hardest to defend on neutral grounds.</p>
+
+    <p>No state statute restricts a contractor from boycotting Russia over Ukraine, China over Uyghur forced labor, or Myanmar&rsquo;s military junta. A company can announce tomorrow that it refuses to do business with any entity tied to any of those governments, for any stated reason, and face zero consequence to its eligibility for a single state contract anywhere in the country. Only one foreign government, Israel, has a dedicated legal shield in 37 states that converts a company&rsquo;s political and moral judgment about it into a disqualifying business decision.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I&rsquo;ll say plainly what I think: what Israel has done in Gaza is a genocide. I&rsquo;ve watched the footage myself, and I am not interested in waiting for a tribunal to give me permission to call it what it is. That is my judgment, and I am not pretending otherwise.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Which is what makes this legal setup so absurd. If a company decided it no longer wanted to do business with an entity committing what it believed to be atrocities, in almost any other context that is just called having a conscience. Nobody is stripping a contractor&rsquo;s state contract for boycotting Russia over Ukraine, or China over the Uyghurs, or Myanmar&rsquo;s junta. Only one country gets a legal shield that turns criticism into a punishable business decision. That is not a neutral policy. That is a single foreign government getting carved out from the ordinary rules of American political speech, and it should make everyone, regardless of party, uncomfortable.</p>
+
+    <p><span class="opinion-inline">Opinion</span> It is worth sitting with the hypocrisy here too. The same political movement that spent 2024 running on free speech as an almost sacred, unqualified right is the one authoring and defending laws that say, in effect: you can say whatever you want, except this.</p>
+
+    <p>The template has also proven exportable, just not to other countries. As covered in Part Two, the identical certification mechanism has since been repurposed by state legislatures to target boycotts of fossil fuel companies, firearms and ammunition manufacturers, and, in a smaller number of states, companies with certain DEI or reproductive and gender-affirming care policies.<a href="#fn20" class="fn" id="ref20">[20]</a> That expansion actually undercuts the strongest defense of these laws, that Israel uniquely deserves this protection as a critical U.S. ally. Once the same legal tool gets pointed at gun manufacturers by one legislature and healthcare providers by another, the &ldquo;unique ally&rdquo; justification stops explaining the pattern. What explains it instead is that this is now a generic mechanism for using state contracting power to punish disfavored political positions, and Israel was simply first.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">Both Parties Own This</h2>
+
+    <p>If the last section made this legal framework look uniquely troubling, this one has to complicate it fairly, because there is no clean partisan villain here. This is one of the rare issues where Republicans and Democrats have voted the same way, repeatedly, at both the federal and state level.</p>
+
+    <p>The clearest evidence is the federal vote record. On January 28, 2019, the U.S. Senate passed S.1, a bill containing anti-boycott provisions, by a vote of 74 to 19.<a href="#fn21" class="fn" id="ref21">[21]</a> That is not a party line vote. It reflects broad support across both caucuses. The House followed on July 24, 2019, passing a resolution condemning the BDS movement by a vote of 398 to 17.<a href="#fn22" class="fn" id="ref22">[22]</a> A vote that lopsided is not possible without the overwhelming majority of both parties&rsquo; House members voting for it.</p>
+
+    <p>The origin of the most significant piece of federal anti-BDS legislation, the Israel Anti-Boycott Act, is itself bipartisan by design. It was drafted and introduced by Senator Ben Cardin, a Democrat from Maryland, and Senator Rob Portman, a Republican from Ohio, in 2018.<a href="#fn23" class="fn" id="ref23">[23]</a> Its Senate cosponsor list included 42 Republicans and 15 Democrats.<a href="#fn24" class="fn" id="ref24">[24]</a> The bill&rsquo;s more recent iteration, the Combating BDS Act of 2023, was reintroduced by a group of Republican senators, Marco Rubio, Bill Cassidy, Mike Braun, Rick Scott, Bill Hagerty, and Steve Daines.<a href="#fn25" class="fn" id="ref25">[25]</a> Both parties have authored versions of this legislation at different points, even though the current push is more concentrated on the Republican side.</p>
+
+    <p>At the state level, the pattern holds just as clearly. Democratic governors have signed these laws themselves, not merely tolerated Republican ones. New York&rsquo;s Andrew Cuomo signed an executive order in 2016 mandating a state blacklist of BDS-participating entities.<a href="#fn26" class="fn" id="ref26">[26]</a> California&rsquo;s Jerry Brown signed a certification requirement the same year.<a href="#fn27" class="fn" id="ref27">[27]</a> North Carolina&rsquo;s Roy Cooper and Colorado&rsquo;s John Hickenlooper both signed binding anti-BDS measures into law, in 2017 and 2016 respectively.<a href="#fn28" class="fn" id="ref28">[28]</a> This is not a law that exists because one party imposed it on the other. It exists because, for a decade, opposing it in a floor vote, or vetoing it from the governor&rsquo;s desk, has carried real political risk for members of both parties.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This is exactly the kind of issue this publication exists to point at. It would be easy, and dishonest, to write this piece as though one party invented this problem and the other is the resistance. They are not. Both parties have had chances to draw a line on this, in Congress and in statehouses, and both have mostly chosen not to. The uniparty pattern this site keeps returning to is not a rhetorical device. This is what it actually looks like: an issue where the base of neither party is fully aligned with what their elected officials keep voting for, and where dissent, when it happens, comes from a small cross-partisan minority rather than from either party&rsquo;s leadership.</p>
+
+    <p><span class="opinion-inline">Opinion</span> That minority is worth naming, because it is the clearest evidence this is not really a partisan fight underneath the surface. Opposition to these laws in Congress has come from an unusual combination: libertarian-leaning Republicans skeptical of government overreach into private contracting, and progressive Democrats focused on First Amendment grounds. Figures like Rand Paul and Barbara Lee, or Ron Paul-aligned voices and Bernie Sanders, represent the kind of cross-partisan reform coalition this site has highlighted before. They are a minority in both parties, but they are the ones actually applying a consistent principle here rather than a convenient one.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">The Legal Fight</h2>
+
+    <p>Every court fight over these laws starts from the same place: a 1982 Supreme Court case that has nothing to do with Israel.</p>
+
+    <p><em>NAACP v. Claiborne Hardware Co.</em> arose from a boycott organized by NAACP activists against white-owned businesses in Claiborne County, Mississippi, meant to pressure local officials into meeting a list of civil rights demands.<a href="#fn29" class="fn" id="ref29">[29]</a> The Supreme Court ruled that a boycott organized for political purposes is protected First Amendment expression, sitting at what the Court called the highest rung of the hierarchy of First Amendment values. That single holding is the foundation both sides of the anti-BDS legal fight build on, and they read it in opposite directions.</p>
+
+    <p>Opponents of anti-BDS laws argue Claiborne settles the question: boycotting for political reasons is speech, full stop, and a state cannot condition a government contract on abandoning that speech. Three federal courts initially agreed. In 2018, a federal court blocked Arizona&rsquo;s law, finding its purpose was to penalize the efforts of those engaged in political boycotts of Israel.<a href="#fn30" class="fn" id="ref30">[30]</a> The same year, a federal court struck down Kansas&rsquo;s law after a schoolteacher was told she had to certify she would not boycott Israel in order to participate in a state math training program.<a href="#fn31" class="fn" id="ref31">[31]</a> In April 2019, a federal judge in Texas struck down that state&rsquo;s original anti-BDS law as facially unconstitutional.<a href="#fn32" class="fn" id="ref32">[32]</a> All three rulings leaned directly on Claiborne.</p>
+
+    <p>Supporters of these laws read Claiborne differently. Their argument, most associated with legal scholar Eugene Kontorovich, who helped draft several of these statutes, is that Claiborne protects the right to call for a boycott, but not the underlying commercial conduct of actually carrying one out.<a href="#fn33" class="fn" id="ref33">[33]</a> On this reading, refusing to purchase from an Israeli supplier is a business decision, not speech, and the state is free to regulate who it does business with based on that decision the same way it regulates any other contracting term.</p>
+
+    <p>This second argument won decisively in the case that currently controls how enforceable these laws are. In 2018, the Arkansas Times refused to certify it would not boycott Israel in order to run advertisements for a state college, and sued.<a href="#fn34" class="fn" id="ref34">[34]</a> After a divided panel initially struck the law down, the full Eighth Circuit, sitting en banc, reversed and upheld Arkansas&rsquo;s law in June 2022. The majority held that while advocating for a boycott is protected speech, the purchasing decisions at the heart of a boycott are purely commercial, non-expressive conduct that the state can regulate freely.<a href="#fn35" class="fn" id="ref35">[35]</a> The Arkansas Times appealed to the U.S. Supreme Court. The Court declined to hear the case in February 2023, letting the Eighth Circuit&rsquo;s ruling, and the law, stand.<a href="#fn36" class="fn" id="ref36">[36]</a></p>
+
+    <p>That refusal to hear the case matters more than it might sound. It does not mean the Supreme Court endorsed the Eighth Circuit&rsquo;s reasoning, a cert denial is not a ruling on the merits. But it does mean the most defendant favorable circuit court reading of these laws is currently the closest thing to a controlling national precedent, since the Supreme Court has not resolved the circuit split directly.</p>
+
+    <p>That split is real and unresolved. Georgia&rsquo;s law was struck down by a federal court in May 2021 on the same First Amendment grounds as Arizona and Kansas.<a href="#fn37" class="fn" id="ref37">[37]</a> Meanwhile, several states responded to early losses not by repealing their laws but by narrowing them, raising the employee count and dollar thresholds until the original plaintiffs lost standing to sue, then effectively reinstating the same policy. Appeals courts have since dismissed several of these renewed challenges as moot rather than ruling on the underlying constitutional question again.<a href="#fn38" class="fn" id="ref38">[38]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think the honest read here is that this is genuinely unsettled law, not a case where one side is obviously right and the courts just have not caught up yet. Both readings of Claiborne are coherent. What bothers me is the pattern of states redrafting a law just enough to run out the clock on a lawsuit rather than defending the policy on the merits again. That is a strategy for avoiding a constitutional answer, not getting one.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">The International Comparison</h2>
+
+    <p>If you assume the United States is uniquely aggressive about protecting Israel from boycotts, the international picture complicates that. Some countries have gone further. Others have gone nowhere at all. The comparison is genuinely instructive, not just for what it says about Israel, but for what it says about how differently democracies treat the line between commercial regulation and political speech.</p>
+
+    <p>Start with Israel&rsquo;s own law, since it is the most direct point of comparison and the one most often left out of this conversation. In 2011, the Knesset passed an anti-boycott law making calls for boycotts of Israel or its settlements a civil wrong.<a href="#fn39" class="fn" id="ref39">[39]</a> It allows targets of a boycott to sue for damages without having to prove actual economic harm, and it lets the government deny contracts or withdraw funding from boycott promoters. It creates no criminal offense and carries no risk of jail time. Notably, the law was controversial inside Israel itself, opposed by left-wing and Arab political parties and by Israeli human rights organizations, who saw it as government overreach into political speech.<a href="#fn40" class="fn" id="ref40">[40]</a> Israel&rsquo;s own domestic law, in other words, is civil rather than criminal, and it was contested domestically on nearly identical free speech grounds to the U.S. debate.</p>
+
+    <p>France is the country that actually went further than either Israel or the United States, and its path there is worth walking through because it shows how quickly this kind of law can escalate. Since 1977, France has had a legal framework, built on its 1881 Press Law and a later addition to the penal code, that criminalizes hindering the normal exercise of any economic activity as a form of discrimination, originally passed in response to the Arab League&rsquo;s boycott of Israel.<a href="#fn41" class="fn" id="ref41">[41]</a> For decades this statute was rarely enforced. That changed in 2010, when the French Ministry of Justice issued the Circulaire Alliot-Marie, a directive specifically instructing prosecutors to bring charges against BDS activists.<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+
+    <p>The resulting prosecutions went well beyond anything attempted in the United States. In 2009 and 2010, activists in eastern France entered supermarkets, handed out leaflets, and urged shoppers not to buy Israeli products. No violence, no property damage. They were convicted in 2013 of inciting economic discrimination, fined, and ordered to pay damages, a conviction France&rsquo;s highest appeals court upheld in 2015.<a href="#fn43" class="fn" id="ref43">[43]</a> Unlike the American model, which restricts a company&rsquo;s eligibility for a government contract if it boycotts, French law at that point criminalized the act of calling for a boycott at all, regardless of who was calling for it or whether they had any relationship to the French state.</p>
+
+    <p>That is a meaningfully different and more severe restriction than anything on the books in any U.S. state. As one commentator put it at the time, the French approach meant it was legal to advocate sanctions against Iran, Russia, or Sudan, but a criminal act to advocate the same thing about Israel specifically.<a href="#fn44" class="fn" id="ref44">[44]</a> In 2020, the European Court of Human Rights ruled in <em>Baldassi and Others v. France</em> that the convictions violated the activists&rsquo; freedom of expression, finding that a boycott is a legitimate way of expressing a political opinion on a matter of public interest.<a href="#fn45" class="fn" id="ref45">[45]</a> The French Court of Cassation reopened the case in 2022 and formally cancelled the convictions, awarding damages to the activists.<a href="#fn46" class="fn" id="ref46">[46]</a> Even after that reversal, legal observers have noted the ruling has been applied narrowly since, and France remains the only Council of Europe member state where this kind of criminal prosecution was ever attempted.<a href="#fn47" class="fn" id="ref47">[47]</a></p>
+
+    <p>The United Kingdom does not have a France-style criminal law targeting boycott advocacy specifically, and no equivalent prosecution of BDS activists has occurred there. But it would be misleading to hold the UK up as a free speech contrast case on that basis alone. UK police have made roughly 12,000 arrests a year for offensive online communications in recent reporting, a figure that has more than doubled since 2017, and the country&rsquo;s internet freedom rating was downgraded in 2025 specifically over this trend.<a href="#fn48" class="fn" id="ref48">[48]</a> The honest comparison is not that France restricts speech while Britain protects it. It is that Britain restricts a much broader category of speech generally through a different legal mechanism, communications and public order law, while not having singled out Israel boycotts the way France did. That is a different problem, not a better one.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Lay these models side by side and the American approach actually looks like the moderate one, which is not what I expected going into this piece. Israel&rsquo;s own law is civil only. France went as far as criminal prosecution for the act of speech itself, before its own courts and the European Court of Human Rights struck that down. The U.S. model restricts eligibility for a government contract, not speech itself, and a boycott advocate here can say whatever they want without fear of prosecution the way French activists briefly could. That does not mean the U.S. model is fine. Conditioning a government benefit on abandoning a political position is still a real free speech problem, and Part Six covers why courts are still split on it. But the international comparison matters because it shows this is a genuine, unresolved tension between government contracting power and political speech that multiple democracies are still working through in different ways, not a uniquely American overreach invented to protect one country from criticism.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">The Ethics Question, You Decide</h2>
+
+    <p>Here is the honest tension at the center of everything covered in this piece, laid out as fairly as possible for both sides.</p>
+
+    <p><strong>The case for these laws.</strong> A state government is not a neutral platform. It chooses who it contracts with and where it invests public pension money constantly, based on all kinds of criteria that have nothing to do with price or quality: minority-owned business preferences, environmental standards, labor practices, sanctions compliance with countries like Iran or Sudan. Conditioning a contract on not boycotting a specific ally is, on this view, just one more criterion among many, and states have always had this kind of discretion over their own money. Supporters also point out these laws are overwhelmingly bipartisan, passed by Democratic and Republican legislatures and signed by governors of both parties, which suggests this reflects a genuine, broad political consensus about Israel&rsquo;s status as an ally rather than one faction imposing its will on another.</p>
+
+    <p><strong>The case against them.</strong> Claiborne Hardware sits at the top of First Amendment jurisprudence for a reason: boycotts organized around a political cause have always been treated as protected speech in this country, going back to the civil rights movement. These laws are the only instance where the government conditions a contract not on how a company operates, but on what political position it holds about a specific foreign country. No equivalent law exists for any other nation on earth. Critics, including the ACLU, CAIR, and the federal judges who struck down the Arizona, Kansas, and original Texas versions, argue that carving out one country for this kind of protection while leaving every other boycott untouched reveals the law&rsquo;s actual purpose: not neutral contract administration, but insulating one foreign government&rsquo;s reputation from a specific form of political pressure that remains completely legal when aimed at anyone else.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Where I land, clearly marked as my own opinion: I think the strongest evidence against these laws is the one this piece keeps returning to. Nobody has managed to explain, on genuinely neutral terms, why Israel specifically needed this shield when Russia, China, and Myanmar did not. Once you notice that the same legal template got reused for gun manufacturers and DEI policies the moment other interests wanted it, the &ldquo;unique ally&rdquo; justification stops holding up as the real explanation. That does not mean everyone who voted for these laws did so in bad faith. It means the policy, whatever its original intent, now functions as a mechanism for punishing one specific political position while leaving every comparable position untouched, and that should trouble anyone who takes free speech seriously regardless of where they land on Israel and Palestine itself.</p>
+
+    <p>You may read the same record and land somewhere else entirely. That is the point of this section. The facts above are the facts. What you do with them is yours to decide.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Mechanism, Scale, and Legislative Origins</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Palestine Legal / Just Vision. Anti-Boycott Legislation Tracker. State count and law, resolution, and none breakdown, cross referenced against Jewish Virtual Library, State Anti-BDS Legislation. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Just Vision / Palestine Legal Anti-Boycott Legislation Tracker, state provision summaries for Texas, Florida, Arkansas, and South Carolina. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] Texas Government Code sections 2270 and 2271; Governor Greg Abbott letter to the City of San Marcos, April 29, 2025, gov.texas.gov. <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] Just Vision / Palestine Legal Anti-Boycott Legislation Tracker, state provision summaries for Illinois, Colorado, Arizona, and Iowa. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] Tennessee Senate Joint Resolution 170, passed 123 to 1, April 21, 2015. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] South Carolina and Illinois binding anti-BDS laws, 2015, per Washington Post reporting by Eugene Kontorovich, May and June 2015. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] Israel Allies Foundation model act announcement, 2015, per Wikipedia&rsquo;s Anti-BDS laws entry, cross referenced against the Copy, Paste, Legislate investigation into model legislation in state politics. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn8">[8] Same investigation, on AIPAC, the Israel Action Network, local Jewish Federations, and lobbyist Dillon Hosier&rsquo;s role in Arizona, California, and Nevada. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn9">[9] Just Vision / Palestine Legal Anti-Boycott Legislation Tracker. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] Texas SB 19 (2021), firearms and ammunition boycott law, per Akin Gump Strauss Hauer &amp; Feld, &ldquo;Texas Prohibits State Contracts With Financial Institutions That Boycott Firearms Companies,&rdquo; Sustainability Legislation Tracker; International Center for Not-for-Profit Law, &ldquo;New Threats to the Right to Boycott.&rdquo; <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] Just Vision / Palestine Legal tracker, issue area filter noting expansion to fossil fuel, firearms, DEI, and reproductive and gender-affirming care boycotts. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The San Marcos Case Study</span>
+    <ul class="bib-list">
+      <li id="fn12">[12] San Marcos ceasefire resolution text, per KUT (Austin NPR) and Spectrum News reporting, April and May 2025. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] Resolution text, per KUT reporting citing the resolution&rsquo;s language on international bodies referenced. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] Governor Greg Abbott letter to Mayor Jane Hughson, Office of the Texas Governor, April 29, 2025. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn15">[15] Texas Government Code sections 2270 and 2271, as cited in Abbott&rsquo;s letter and the Governor&rsquo;s Office press release. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] Governor Greg Abbott letter to San Marcos, April 29, 2025, full text via gov.texas.gov. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn17">[17] San Marcos City Council vote, 5 to 2 to reject the resolution, May 6, 2025, per Spectrum Local News. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn18">[18] Greg Abbott, post on X, January 2025, calling for redirecting foreign aid including Ukraine toward domestic needs. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] Amanda Rodriguez statement, per KUT reporting, April 30, 2025. <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] Just Vision / Palestine Legal tracker, issue area expansion to fossil fuel, firearms, DEI, and reproductive and gender-affirming care boycotts, as covered in Part Two. <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Federal and State Vote Record</span>
+    <ul class="bib-list">
+      <li id="fn21">[21] Senate vote on S.1, 74 to 19, January 28, 2019, per multiple trackers including the International Center for Not-for-Profit Law and Jewish Virtual Library. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn22">[22] House resolution condemning BDS, 398 to 17, July 24, 2019, per same sources. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] Israel Anti-Boycott Act, introduced by Senator Ben Cardin (D-MD) and Senator Rob Portman (R-OH), 115th Congress, 2018. <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] Israel Anti-Boycott Act Senate cosponsor breakdown, 42 Republicans and 15 Democrats. <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn25">[25] Combating BDS Act of 2023, reintroduced May 2023, sponsor list per Palestine Legal tracker. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn26">[26] Governor Andrew Cuomo, Executive Order 157, signed June 5, 2016, per UKLFI Charitable Trust legislative archive and Center for Constitutional Rights. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn27">[27] Governor Jerry Brown, AB 2844, signed September 24, 2016, per UKLFI Charitable Trust legislative archive. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] Governor Roy Cooper, HB 161, signed July 27, 2017; Governor John Hickenlooper, HB 16-1284, signed 2016, per UKLFI Charitable Trust legislative archive. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Legal Fight</span>
+    <ul class="bib-list">
+      <li id="fn29">[29] <em>NAACP v. Claiborne Hardware Co.</em>, 458 U.S. 886 (1982). <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn30">[30] <em>Jordahl v. Brnovich</em>, District of Arizona, 2018, per International Center for Not-for-Profit Law summary. <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] <em>Koontz v. Watson</em>, District of Kansas, 2018. <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn32">[32] <em>Amawi v. Pflugerville Independent School District</em>, Western District of Texas, 2019, original Texas anti-BDS law struck down. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] Eugene Kontorovich&rsquo;s legal reasoning on Claiborne&rsquo;s scope, per International Center for Not-for-Profit Law and LegalClarity summaries of the pro-enforcement position. <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] <em>Arkansas Times LP v. Waldrip</em>, background per International Center for Not-for-Profit Law, &ldquo;New Threats to the Right to Boycott.&rdquo; <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] Eighth Circuit en banc ruling, June 2022, quoted language per International Center for Not-for-Profit Law summary. <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn36">[36] Supreme Court cert denial, February 2023, per ACLU statement and Louis D. Brandeis Center statement on the same. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn37">[37] Georgia anti-BDS law struck down, May 2021, per International Center for Not-for-Profit Law. <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn38">[38] General pattern of narrowing statutes and subsequent mootness dismissals, per International Center for Not-for-Profit Law and Wikipedia&rsquo;s Anti-BDS laws entry, cross checked. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The International Comparison</span>
+    <ul class="bib-list">
+      <li id="fn39">[39] Israel&rsquo;s 2011 Knesset anti-boycott law, civil rather than criminal framework, per Wikipedia&rsquo;s Anti-BDS laws entry; Amnesty International, &ldquo;Israel: Anti-boycott law an attack on freedom of expression,&rdquo; July 2011. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn40">[40] Domestic Israeli opposition to the 2011 law from left-wing and Arab parties and human rights organizations, per Amnesty International, &ldquo;Israel: Anti-boycott law an attack on freedom of expression,&rdquo; July 2011. <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn41">[41] France&rsquo;s 1977 Press Law and penal code addition, per Wikipedia&rsquo;s Anti-BDS laws entry. <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn42">[42] Circulaire Alliot-Marie, February 12, 2010, per Global Freedom of Expression (Columbia University) case summary of <em>Baldassi and Others v. France</em>. <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn43">[43] Mulhouse activists&rsquo; 2013 conviction, upheld by the Court of Cassation in 2015, per European Legal Support Center case summary. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn44">[44] Commentary on the France, Iran, Russia, and Sudan double standard, per The Electronic Intifada, citing Glenn Greenwald. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn45">[45] <em>Baldassi and Others v. France</em>, European Court of Human Rights, June 11, 2020, per Amnesty International and European Legal Support Center summaries. <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn46">[46] French Court of Cassation reopening and cancelling the convictions, April 2022, per Council of Europe case summary. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn47">[47] France as the only Council of Europe member state with this kind of prosecution, per Global Freedom of Expression case summary. <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn48">[48] UK online communications arrest data, approximately 12,000 per year, per The Times, &ldquo;Police make 30 arrests a day for offensive online messages,&rdquo; April 4, 2025, and UK Parliament Hansard debate, July 17, 2025; Freedom House, &ldquo;United Kingdom: Freedom on the Net 2025,&rdquo; internet freedom score decline attributed to the rise in criminal charges for online speech. <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us, All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
