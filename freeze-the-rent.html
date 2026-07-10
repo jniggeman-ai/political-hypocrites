@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freeze the Rent — Political Hypocrites</title>
+  <meta name="description" content="How Both Parties Learned to Love Price Controls. Democratic leadership is implementing rent control against near-uniform economic consensus, while a growing share of Republican voters quietly abandon their own party's free-market orthodoxy on the same issue." />
+  <meta property="og:title" content="Freeze the Rent — Political Hypocrites" />
+  <meta property="og:description" content="Both parties spend their time warning that government cannot be trusted with power, then both reach for direct price controls the moment it's politically convenient. Rent is where that contradiction is clearest." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/freeze-the-rent" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.8rem 2rem 1.8rem 2.2rem;
+      border-left: 3px solid var(--red);
+      background: var(--ink2);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem !important;
+      font-style: italic;
+      line-height: 1.7 !important;
+      color: rgba(20,10,5,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .stat-callout {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--red); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-desc {
+      font-size: 0.88rem; line-height: 1.65;
+      color: rgba(20,10,5,0.50); font-weight: 300;
+      margin: 0 !important;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .you-decide {
+      background: var(--ink2); border: 1px solid var(--rule);
+      padding: 2.2rem 2.4rem; margin-top: 1rem;
+    }
+    .you-decide-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(255,255,255,0.28); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .article-meta { gap: 1.2rem; }
+      .share-btn { margin-left: 0; }
+      .stat-callout { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>›</span>
+    <span class="current">Freeze the Rent</span>
+  </div>
+  <span class="article-label">Current Events + Opinion — July 10, 2026</span>
+  <h1 class="article-title">
+    Freeze the Rent
+    <span>How Both Parties Learned to Love Price Controls</span>
+  </h1>
+  <p class="article-subtitle">Democratic leadership is implementing rent control against a near-uniform economic consensus. A growing share of Republican voters is asking for the same thing their own party's leadership has spent decades rejecting. Neither side comes out of this looking like it believes what it says about government power.</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">July 10, 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Topic</span>
+      <span class="meta-value">Housing Policy</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Ten</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=Freeze+the+Rent%3A+How+Both+Parties+Learned+to+Love+Price+Controls&url=https://political-hypocrites.vercel.app/current-events/freeze-the-rent" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <p class="article-lede">Ask a Republican voter whether the federal government should be setting prices in a private market and the reflexive answer, going back to Reagan, is no. Ask a Democratic voter the same question about almost anything else the government touches, healthcare, energy, education, and you will often hear the opposite reflex: that markets left alone produce cruelty, and government has to step in.</p>
+
+    <p><span class="opinion-inline">Opinion</span> What is strange, and worth sitting with, is that on the question of rent, those two instincts have started to trade places, or at least blur into something closer to agreement than either party would admit.</p>
+
+    <p>In June 2026, New York City froze rent on roughly one million stabilized apartments, delivering on the single loudest promise of Mayor Zohran Mamdani's campaign.<a href="#fn1" class="fn" id="ref1">[1]</a> Two years earlier, the Democratic presidential nominee stood in front of ten thousand people in Atlanta and promised to cap national rent increases at 5 percent for large landlords.<a href="#fn2" class="fn" id="ref2">[2]</a> That is the version of this story most people already know. The version most people do not know is that support for that same idea now runs at roughly 75 percent among Republican voters in New York State, according to a 2025 statewide survey, nearly closing the gap with the 88 percent of Democrats who support it.<a href="#fn3" class="fn" id="ref3">[3]</a></p>
+
+    <div class="stat-callout">
+      <span class="stat-num">75%</span>
+      <p class="stat-desc">Share of Republican voters in a 2025 statewide New York survey who "definitely" or "probably" supported rent stabilization, compared to 88 percent of Democrats.</p>
+    </div>
+
+    <p><span class="opinion-inline">Opinion</span> That number should stop you. It is not a fringe position anymore on either side of the aisle. It is close to a consensus among voters, at the exact moment it remains close to the opposite of a consensus among the economists who study it.</p>
+
+    <p>Because that is the other half of this story. Rent control is one of the rare policy questions where the professional literature is not divided. Ninety three percent of economists surveyed by the American Economic Association agreed that rent ceilings reduce the quantity and quality of available housing.<a href="#fn4" class="fn" id="ref4">[4]</a> When the IGM Forum asked a panel of leading economists across the political spectrum whether rent control had improved affordable housing in cities like New York and San Francisco, exactly one of them said yes.<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> This is not a case of dueling experts. It is closer to the closest thing economics has to a settled fact, and voters in both parties are increasingly asking their governments to do it anyway.</p>
+
+    <p>This piece is not about which party is worse. Both are guilty of the same thing here, just from different directions. Democratic leadership is actively building and defending rent control policy at the national and municipal level. Republican leadership still opposes it on paper, but a growing share of the party's own voters no longer agree with their leaders. <span class="opinion-inline">Opinion</span> Neither party comes out of this looking like it actually believes what it says about government power. That contradiction, and how we got here, is what the rest of this piece is going to walk through.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">What Rent Control Actually Is</h2>
+
+    <p>Before going further, it's worth being precise about terms, because the phrase "rent control" gets used loosely and that looseness does real work in this debate, usually in favor of whoever is using it.</p>
+
+    <p>Economist Richard Arnott's taxonomy, still the standard reference point, splits rent regulation into two broad categories.<a href="#fn6" class="fn" id="ref6">[6]</a> First generation rent control, the kind most people picture, freezes nominal rents outright or holds them near a fixed level indefinitely. This was the wartime and postwar model, born out of federal price controls during World War Two and never fully repealed in a handful of cities. Second generation rent control, more accurately called rent stabilization, is what most of today's policy debate is actually about. It caps how much rent can rise year over year, often tied to inflation, and typically carves out exemptions for new construction and for units once a tenant moves out.</p>
+
+    <p>New York City is the clearest illustration of how these categories stack on top of each other. Its rent stabilized units, roughly 1 million of the city's apartments, are buildings constructed between 1947 and 1974, or units built more recently under a tax incentive program that came with stabilization strings attached.<a href="#fn7" class="fn" id="ref7">[7]</a> A "rent freeze," like the one Mayor Mamdani delivered in June 2026, is a specific action within that stabilization system: the city's Rent Guidelines Board, which sets the maximum allowable increase every year, simply set it at zero. It is not a new law. It is an existing regulatory lever, pulled all the way to one side.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This distinction matters for the rest of this piece, because it is where a lot of dishonest framing happens on both sides. Advocates for these policies often describe modern rent stabilization as something gentler and more modern than "rent control," implying the old failures don't apply to it. Opponents often do the reverse, describing any rent stabilization measure with the same language used for 1970s hard freezes, implying maximum damage regardless of design. Neither framing is fully honest. The mechanism is a price ceiling either way. What changes between first and second generation versions is only the degree, not the underlying economics.</p>
+
+    <p>At the state level, as of late 2025, three states, Oregon, Washington, and California, have statewide rent control frameworks, along with Washington D.C.<a href="#fn8" class="fn" id="ref8">[8]</a> Oregon was first, in 2019. Washington followed in 2025, capping annual increases at 10 percent. Massachusetts, which banned local rent control by ballot measure in 1994 after voters there concluded it wasn't working, saw a campaign to reverse that ban qualify enough signatures for the November 2026 ballot, only for the state's Supreme Judicial Court to strike the question down in June 2026 over an unrelated constitutional defect: the measure's exemption for religious institutions ran afoul of the state constitution's bar on initiative petitions that touch religion.<a href="#fn37" class="fn" id="ref37">[37]</a> Advocates say they are now pressing the Legislature directly for a narrower, local-option version of the same policy rather than waiting for another ballot cycle. That attempt, and its abrupt collapse on a technicality rather than on the merits, is on its own a small preview of the larger argument this piece is making: a policy voters once rejected on the evidence is being revisited on the politics, even when the revival itself doesn't survive first contact with the process.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">The Economic Verdict</h2>
+
+    <p>This is the section where the piece stops being a story about politics for a moment and becomes a story about evidence, because on this narrow question, the evidence is not close.</p>
+
+    <p>Start with the surveys. The American Economic Association's 1990 poll of its own membership found that 93 percent agreed a ceiling on rents reduces the quality and quantity of available housing.<a href="#fn4" class="fn" id="ref4b">[4]</a> That number has not moved with time or changing politics. When the IGM Forum, a panel that specifically includes Nobel laureates and economists from across the ideological spectrum, was asked in 2012 whether rent control in cities like New York and San Francisco had positively affected the amount and quality of affordable housing over the prior three decades, exactly one economist agreed, and that economist noted low confidence in the answer.<a href="#fn5" class="fn" id="ref5b">[5]</a> Eighty one percent disagreed outright.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> It is difficult to find another live policy question in American politics where the expert consensus is this lopsided and this durable.</p>
+
+    <p>The empirical research behind those survey numbers tells a consistent story across different cities and different decades. Stanford economist Rebecca Diamond's widely cited study of San Francisco's rent control expansion found that covered landlords reduced their rental housing supply by roughly 15 percent, converting units to condominiums or owner occupied housing to escape the regulation entirely.<a href="#fn10" class="fn" id="ref10">[10]</a> The same study found tenants in rent controlled units stayed in place up to 20 percent longer than they otherwise would have, regardless of whether the unit still matched their needs, a widowed retiree holding a three bedroom apartment because the rent is a fraction of market rate, while a young family that actually needs the space cannot find one.</p>
+
+    <p>Boston area data tells a similar story from a different angle. Economists David Autor, Christopher Palmer, and Parag Pathak studied what happened when Cambridge, Massachusetts ended its rent control system in 1994, and found that decontrol led to a substantial increase in property values and reinvestment in previously controlled buildings, evidence read in reverse as a measure of how much control had suppressed both.<a href="#fn11" class="fn" id="ref11">[11]</a> Separately, in the 1980s, under Massachusetts rent control before that repeal, the total number of rental units in Cambridge and Brookline fell by 8 and 12 percent respectively, as landlords converted properties out of the rental market entirely.<a href="#fn12" class="fn" id="ref12">[12]</a> Edward Glaeser and Erzo Luttmer's research into New York City found what economists call misallocation: rent controlled housing simply is not distributed according to need, since the incentive to move out once your household changes shrinks or grows disappears once your rent is locked below market.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+
+    <p>The Federal Reserve Bank of St. Louis, reviewing this body of research in 2024, summarized the trade off plainly: rent control policies do hold down rents in the units they cover, but they do this by reducing the overall rental housing stock and reducing landlords' incentive to maintain the units that remain, which worsens the exact affordability and quality problems the policy claims to solve.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> None of this means the underlying problem, rent that has outpaced income for millions of Americans, is imaginary. It very much is not, and the next sections of this piece take that seriously. But the specific tool of a government imposed price ceiling on rent has been tested repeatedly, in different decades, different cities, and different political environments, and it keeps failing in the same predictable way. That is not a partisan claim. It is closer to a settled empirical one, and it is the baseline the rest of this piece measures both parties against.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Democratic Case, Present Day</h2>
+
+    <p>If Part Three establishes what the research says, this section establishes what Democratic leadership has done with that research in hand, because none of what follows happened in ignorance of the economic consensus. It happened alongside it.</p>
+
+    <p>The clearest national example came in the final stretch of the 2024 presidential race. In the last weeks before he withdrew from the campaign, President Biden unveiled a proposal calling on Congress to cap annual rent increases at 5 percent for landlords owning more than 50 units nationwide, with the penalty for noncompliance being the loss of valuable federal tax breaks.<a href="#fn15" class="fn" id="ref15">[15]</a> New construction and property rehabilitation were exempted, a design choice meant to blunt the standard objection that rent control chokes off new housing supply.<a href="#fn16" class="fn" id="ref16">[16]</a> Two weeks later, at her first major rally as the party's new nominee, Vice President Harris told a crowd of roughly 10,000 people in Atlanta that she would "take on corporate landlords and cap unfair rent increases," explicitly picking up Biden's plan as her own.<a href="#fn2" class="fn" id="ref2b">[2]</a></p>
+
+    <p>The reaction from the economics and housing policy world was immediate and almost uniformly critical, including from voices generally sympathetic to Democratic priorities. The National Multifamily Housing Council called the proposal a "farce" that would impede future development. The National Association of Realtors argued the plan would depress housing supply and harm the very renters it claimed to help.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> What stands out about this moment is not that industry groups opposed it, industry groups oppose nearly everything that touches their margins, but that the criticism echoed the same academic literature covered in Part Three almost word for word. This was not a case of the campaign proposing something untested. It was a case of the campaign proposing something the research had already tested and found wanting, and doing it anyway because the politics were good.</p>
+
+    <p>The politics, it should be said, were genuinely good. A May 2024 poll from Navigator, a Democratic aligned research group, showed broad support for the plan among the voters Harris needed most. The tenant advocacy world treated the moment as a breakthrough, with groups like the Tenant Union Federation crediting grassroots pressure for pushing Biden to act in the first place.<a href="#fn18" class="fn" id="ref18">[18]</a></p>
+
+    <p>The more consequential example, because it moved from campaign rhetoric to actual governance, is New York City. "Freeze the rent" was the organizing line of Zohran Mamdani's 2025 mayoral campaign, repeated with what one outlet called "almost monomaniacal zeal" across ads, speeches, and rallies.<a href="#fn19" class="fn" id="ref19">[19]</a> It was not an empty promise. Six months into his term, a Rent Guidelines Board he had reshaped through his own appointments voted 7 to 1 to freeze rent on both one and two year leases for roughly 1 million stabilized apartments, the first time a freeze had ever been extended to two year leases.<a href="#fn7" class="fn" id="ref7b">[7]</a> Christina Smyth, one of the board's two landlord aligned seats and an Eric Adams appointee, resigned hours before the vote, writing that "the rebuilt board was required to deliver a rent freeze" and that "everything since has been theater."<a href="#fn20" class="fn" id="ref20">[20]</a><a href="#fn36" class="fn" id="ref36">[36]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> Whatever one thinks of Mamdani personally, it is worth being fair to what actually happened here: he told voters exactly what he intended to do, and then he did it, using entirely legal and structurally available levers of city government. That is different, and arguably more serious, than a campaign trail promise that quietly dies in Congress. The Harris-Biden proposal never became law. Mamdani's freeze is now in effect, running through September 2027, covering apartments ranging from luxury high rises to 150 year old walkups.<a href="#fn21" class="fn" id="ref21">[21]</a> It is the single clearest present day instance of a major party actually implementing the policy this piece's economic section says does not work.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">The Republican Voter Drift</h2>
+
+    <p>If Part Four is a story about Democratic leadership building and defending rent control policy, this section is a different kind of story. It is not about Republican leaders embracing price controls. It is about a widening gap between what Republican leadership still says and what a meaningful and growing share of Republican voters now believe.</p>
+
+    <p>Start with where the party's leadership actually stands. Institutionally, the Republican coalition's position on rent control has not moved. The American Enterprise Institute, a think tank closely aligned with Republican policy circles, published research concluding that economists "from across the political spectrum" agree even modest rent controls fail to help middle income Americans, and that increasing housing supply, not capping prices, is the only durable fix.<a href="#fn22" class="fn" id="ref22">[22]</a> On the electoral side, analysis of President Trump's stated positions shows him favoring deregulation and builder incentives over rent control as his preferred approach to housing costs, consistent with his first term.<a href="#fn23" class="fn" id="ref23">[23]</a> This is the position Republican leadership has held for decades: rent control is a Democratic idea, and a bad one.</p>
+
+    <p>The voters are a different story. A 2025 statewide survey by the Community Service Society found 75 percent of Republican respondents in New York "definitely" or "probably" supported rent stabilization, compared to 88 percent of Democrats.<a href="#fn3" class="fn" id="ref3b">[3]</a> That 13 point gap is not nothing, but it is far smaller than the gap in rhetoric between the two parties' leadership would predict. In California, a 2024 Public Policy Institute poll on a ballot measure to expand local rent control authority found 32 percent of Republican voters in favor, alongside 70 percent of Democrats.<a href="#fn24" class="fn" id="ref24">[24]</a> Thirty two percent is still a minority, but it is a substantial one for a policy Republican leadership treats as settled and rejected.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This is the part of the story that should actually worry conservatives more than it worries progressives, and it is why this section exists separately from the Democratic one rather than as a mirror image of it. Commentator Cremieux, in a widely circulated social media thread, highlighted this exact tension, noting that despite a research record and expert consensus that stand "undivided" against rent control, public support for it runs at roughly 75:25 in favor, and rising.<a href="#fn25" class="fn" id="ref25">[25]</a> The thread featured Rob Henderson, a senior fellow at the Manhattan Institute, a think tank with real standing in conservative policy circles, explaining the psychological mechanism: voters respond to the simple, visible promise of a price going down, and discount the slower, diffuse cost of a shrinking housing supply that follows. Henderson's presence in that conversation is worth noting on its own. This is not an argument being made by rent control's supporters to claim bipartisan cover. It is a warning being raised from inside the conservative policy world itself.</p>
+
+    <p><span class="opinion-inline">Opinion</span> The uncomfortable read here is not that Republican voters have become secret progressives. It is that a meaningful share of the party's base has quietly stopped trusting the free market answer their own leadership keeps giving them, on this issue specifically, even while continuing to describe themselves as skeptical of government power in general. That is not hypocrisy in the usual sense of a politician saying one thing and doing another. It is closer to a party's voters and its leadership drifting in different directions on the same question, each still using the same old language to describe positions that no longer fully match.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">The Genuine Grievance Underneath the Bad Policy</h2>
+
+    <p>Every argument made so far in this piece rests on treating rent control supporters as mistaken about economics, not as irrational or acting in bad faith. This section is where that distinction matters most, because some of the anger fueling this movement is not a misunderstanding of supply and demand. It is a response to a real, documented case of landlords coordinating on price.</p>
+
+    <p>In October 2022, ProPublica published an investigation into RealPage, a Texas based software company whose algorithmic pricing tool was used to help set rents across millions of apartment units nationwide.<a href="#fn26" class="fn" id="ref26">[26]</a> The investigation found that RealPage's software pooled nonpublic, competitively sensitive pricing and occupancy data from competing landlords and fed it into a shared algorithm, which then recommended rent levels back to those same landlords, effectively letting competitors coordinate pricing without ever picking up a phone. Legal experts told ProPublica the arrangement could amount to cartel-like behavior, the kind of price coordination antitrust law exists specifically to prevent.</p>
+
+    <p>That reporting did not stay contained to journalism. It triggered dozens of federal lawsuits from tenants, and in August 2024, the Department of Justice, joined by eight state attorneys general, filed its own civil antitrust suit against RealPage.<a href="#fn27" class="fn" id="ref27">[27]</a> The complaint, more than 100 pages long, quoted RealPage executives and landlord clients describing the software's purpose in strikingly candid terms, including one landlord who said the value of the product was that "your algorithm uses proprietary data from other subscribers to suggest rents," which DOJ officials called, without much hedging, "classic price fixing."<a href="#fn28" class="fn" id="ref28">[28]</a> By January 2025, DOJ expanded its case, suing six of the country's largest landlords directly, together managing more than 1.3 million apartments across 43 states, alleging they had used RealPage's software to improperly coordinate pricing among themselves.<a href="#fn29" class="fn" id="ref29">[29]</a> In November 2025, RealPage reached a settlement with DOJ, agreeing to limit its data collection practices, accept a court appointed compliance monitor, and cooperate with the government's ongoing case against its landlord customers, without admitting wrongdoing.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> It's worth being precise about what this case does and does not prove. It does not vindicate rent control as a policy; nothing about algorithmic price coordination changes the supply and construction math covered in Part Three. But it does mean that when a renter says the market feels rigged, that isn't automatically a misunderstanding of economics. In at least this instance, federal prosecutors, under both the outgoing Biden administration and the incoming Trump administration's DOJ, which continued pursuing the case through 2025, agreed with them.</p>
+
+    <p><span class="opinion-inline">Opinion</span> This is also where the piece's argument has to hold itself to its own standard. If elected officials in both parties deserve scrutiny for reaching for rent control instead of addressing the actual mechanism of the harm, they equally deserve scrutiny for how slow the political system was to act on RealPage in the first place. The DOJ's case took roughly two years to move from ProPublica's initial reporting to an actual lawsuit, during which rents kept climbing in the markets RealPage's software touched. A public that watched that delay, and then watched politicians offer rent freezes as the more visible fix, was not being unreasonable. It was responding to a system that gave it very few faster, better options.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Why Voters Want It Anyway</h2>
+
+    <p>If the economics are this lopsided, the natural question is why a policy nearly every economist rejects keeps winning at the ballot box and in campaign polling. The answer isn't public ignorance. It's that rent control is solving a real, immediate, deeply felt problem for the people it covers, and the costs it creates are slower, more diffuse, and easier to not notice.</p>
+
+    <p>Stanford's Rebecca Diamond, whose research on San Francisco was covered in Part Three, has described the appeal in terms of insurance rather than affordability.<a href="#fn10" class="fn" id="ref10b">[10]</a> From a renter's point of view, a price ceiling is protection against being priced out of a neighborhood you've built a life in, a form of certainty in a housing market that otherwise offers none. That framing helps explain something the raw economics can't: why rent control support tends to spike specifically in moments when rents are rising fastest, not when they're already low. It isn't a steady ideological position. It's closer to a defensive reflex against volatility.</p>
+
+    <p>The Glaeser research referenced in Part Three points to the other half of the psychology, the tenure lock-in effect.<a href="#fn13" class="fn" id="ref13b">[13]</a> Once a household has a rent controlled unit, moving becomes financially irrational almost regardless of whether the unit still fits their life. <span class="opinion-inline">Opinion</span> That single fact does a lot of quiet work in this debate. It means the people with the loudest, most personal stake in defending rent control, current occupants of controlled units, are also the people most insulated from ever experiencing its downsides directly. The family priced out of the market entirely, unable to find a unit because supply has shrunk, rarely shows up at a City Council meeting to explain why, because they don't know what they're missing. The retiree in the three bedroom apartment does show up, because the policy is visibly, personally protecting them.</p>
+
+    <div class="pull-quote">
+      <p><span class="opinion-inline">Opinion</span> The winners and losers of rent control are almost never in the same room. A policy that delivers a concrete, immediate, personally felt benefit to a large and vocal minority, while distributing its costs broadly, slowly, and invisibly across a much larger population of people who haven't been born yet or simply never connected their high market rent to a regulation covering someone else's apartment, will poll well almost by design.</p>
+    </div>
+
+    <p>That asymmetry maps directly onto the "75:25" polling result raised in Part Five. This is not a flaw unique to rent control. It's a pattern that shows up anywhere government intervenes to protect an existing group at the expense of a future or dispersed one, tariffs protecting an established industry at consumers' expense, occupational licensing protecting incumbents at the expense of new entrants. Rent control just happens to be an unusually clean version of it.</p>
+
+    <p>None of this means voters are being irrational when they support it. <span class="opinion-inline">Opinion</span> It means they're responding rationally to the incentives directly in front of them, while the policy's actual costs get paid by people who aren't in a position to object. That gap, between who feels the benefit and who pays the price, is arguably the real engine behind everything documented in Parts Four and Five, more than partisanship itself.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">The Uniparty Thread</h2>
+
+    <p><span class="opinion-inline">Opinion</span> Step back from the details of RealPage, the Rent Guidelines Board, and the polling crosstabs, and a pattern emerges that goes beyond housing policy. It is the same pattern this publication has documented across other issues, and it is worth naming directly: both parties spend most of their time telling voters that government, specifically the other party's version of government, cannot be trusted with power, and then both parties reach for direct government price setting the moment it becomes politically convenient to do so.</p>
+
+    <p>Democratic leadership's version of this contradiction is the more straightforward one, because it is less about hidden motive and more about selective consistency. The same party that generally argues government intervention corrects market failures, in healthcare, in labor markets, in consumer protection, treats rent control as simply one more application of that worldview. There is an internal logic to it. But that logic runs directly into a body of research, covered in Part Three, that the party's own economists and policy staff are functionally aware of, and largely choose not to center in their messaging. <span class="opinion-inline">Opinion</span> Harris's Atlanta rally line did not mention the AEA survey data or the Stanford findings. It didn't need to. The politics worked without them.</p>
+
+    <p>The Republican version, documented in Part Five, is quieter and in some ways more revealing, because it isn't a story about leadership choosing convenience over consistency. It's a story about a party's voters no longer fully believing the small government framework their leadership keeps repeating, at least on this one issue, even as those same voters continue to describe themselves as skeptical of government power everywhere else. <span class="opinion-inline">Opinion</span> A party that spent decades building its identity around distrust of centralized authority now has a quarter to three quarters of its own base, depending on the state and the survey, asking that same authority to set the price of their apartment. Leadership hasn't caught up to that shift, or has noticed it and decided not to say so out loud.</p>
+
+    <p><span class="opinion-inline">Opinion</span> What ties these two threads together is not that Democrats and Republicans have secretly become the same party. It's that on this specific question, the stated philosophy of each side turns out to be less load bearing than either side would like to admit. Democratic leadership will intervene in a market its own experts say the intervention will hurt, because the alternative, being the party that offered nothing to renters watching prices climb, is worse politics. Republican voters will ask for an intervention their own party's leadership has spent decades warning against, because in the moment, the promise of a frozen rent bill feels more real than an abstract argument about long run housing supply. Neither of those is a story about bad people. It's a story about a policy question where the short term incentive to act, or to be seen wanting to act, is stronger in both parties than the long term philosophy each claims to hold. That is the uniparty thread this piece has been building toward: not a conspiracy, but a shared willingness, on both sides, to set aside stated principle when the politics of the moment reward it.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">What Actually Works Instead</h2>
+
+    <p>If rent control is the wrong tool, the obligation this piece has is to say what the right one looks like, at least briefly, because "the government should do nothing" is its own kind of dodge when 24 percent of Massachusetts voters just named housing their top concern.<a href="#fn31" class="fn" id="ref31">[31]</a></p>
+
+    <p>The research covered throughout this piece points toward the same conclusion from nearly every direction: the underlying problem is a supply shortage, not a pricing problem, and the fix has to address supply directly. AEI's research, cited in Part Five, states this plainly: housing unaffordability is caused by demand outpacing supply, and increasing supply is "the key to unlocking lasting affordability."<a href="#fn22" class="fn" id="ref22b">[22]</a> The National Multifamily Housing Council makes the same argument from the industry side, less disinterested but not wrong on the data: effective alternatives to rent control exist, and they center on removing the barriers that make building housing slow and expensive rather than capping what existing housing can charge.<a href="#fn32" class="fn" id="ref32">[32]</a></p>
+
+    <p>What that looks like in practice varies by state, but the pattern is consistent. Congressional Research Service analysis identifies zoning restrictions, permitting delays, and construction labor shortages as the primary drags on housing supply nationally, noting that multifamily "for rent" construction was down 7 percent from historical averages even before accounting for recent immigration policy effects on the construction labor force.<a href="#fn33" class="fn" id="ref33">[33]</a> Montana, a state with no particular reputation for housing activism, passed a significant statewide zoning reform package that has been credited with meaningfully increasing housing production, evidence that this is not a strictly blue state or red state solution. California, despite being ground zero for some of the country's worst affordability numbers, has also passed a wave of state level zoning preemption laws over the past several years aimed at overriding restrictive local zoning that blocks new construction.<a href="#fn34" class="fn" id="ref34">[34]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> There is a useful, and unusually current, bipartisan marker on this exact question: the 21st Century ROAD to Housing Act, the biggest federal housing bill in over thirty years, built jointly by Senator Elizabeth Warren, a Democrat, and Senator Tim Scott, a Republican, along with their House counterparts.<a href="#fn35" class="fn" id="ref35">[35]</a> As of this writing, it is not a marker sitting quietly in Congress; it is an active, unresolved story. The bill cleared the Senate 85 to 5 and the House 358 to 32 in late June 2026, veto-proof margins in both chambers, and its core is squarely supply side: streamlined environmental review, zoning and permitting incentives, and new limits on institutional investors buying up single family homes.<a href="#fn38" class="fn" id="ref38">[38]</a> President Trump then abruptly canceled a planned signing ceremony, saying he would withhold his signature until Congress separately passed an unrelated voter identification bill, the SAVE America Act. Under the Constitution, a bill presented to the president becomes law without his signature if he neither signs nor vetoes it within ten days, excluding Sundays, while Congress remains in session, and that clock is expiring as this piece goes to print.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Whatever one thinks of the standoff, the underlying point holds and is arguably sharpened by it: two senators from opposite ends of the political spectrum, and a bipartisan majority in both chambers large enough to override a veto, agreed that the fix belongs on the supply side, not the price ceiling side, badly enough that the policy may become law over the objection of a president from one of the two parties that supposedly disagree about the role of government here. That is a genuinely rare point of alignment in this debate, and it deserves more attention than it gets from either party's base.</p>
+
+    <p><span class="opinion-inline">Opinion</span> None of this is a fast fix, and that is precisely the political problem with it. Zoning reform, permitting reform, and construction incentives take years to show up as lower rent. A price freeze shows up on a lease renewal notice next month. That mismatch, between what actually solves the problem and what is politically satisfying in the short term, is the same mismatch this piece has been describing since Part Seven. It is not a coincidence that the harder, slower, better answer is also the less popular one.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">You Decide</h2>
+
+    <div class="you-decide">
+      <span class="you-decide-label">The Case For</span>
+      <p>Rent in most major American cities has outpaced income for years, and the people paying the price are not abstractions, they are families choosing between rent and everything else. The RealPage case, covered in Part Six, proved that at least some of what renters have been feeling isn't paranoia, it's documented, DOJ litigated price coordination among the very landlords setting those rents. Supply side fixes, covered in Part Nine, are almost certainly the better long term answer, but they take years to materialize, and a renter facing a lease renewal next month does not have years. A rent freeze is blunt, but it is fast, and it is the one lever most cities and states can actually pull without waiting on zoning boards, developers, or Congress. Zohran Mamdani did not hide what he intended to do. He told voters directly, and delivered exactly what he promised, using entirely legal tools of city government. That is a form of political honesty this publication has praised in other contexts, and it deserves to be weighed here too.</p>
+    </div>
+
+    <div class="you-decide" style="margin-top: 1.5rem;">
+      <span class="you-decide-label">The Case Against</span>
+      <p>The research is not close, and it has not been close for over thirty years, across cities as different as San Francisco, Cambridge, and New York. Rent control does not create housing. It redistributes a shrinking supply of it, protecting current occupants while making it harder for everyone not already inside a controlled unit to find a place to live. The retiree in Part Seven, sitting in a three bedroom apartment decades after her children moved out, is not a villain in this story, but she is also not evidence that the policy is working. She is evidence of exactly the misallocation the economics predicts. Every dollar of political energy spent defending a price ceiling is a dollar not spent on the slower, harder work of building more housing, which both the AEI research on the right and the Economic Security Project's own reporting on the left agree is the actual root cause. A policy this uniformly rejected by economists across the political spectrum should carry a heavier burden of proof before elected officials in either party reach for it again.</p>
+    </div>
+
+    <p style="margin-top: 2.5rem;"><span class="opinion-inline">Opinion</span> What this piece has tried to show is that neither party gets to claim the moral high ground here. Democratic leadership is implementing a policy its own experts say will not work, because the politics of being seen to act outweigh the politics of being right. Republican voters are increasingly asking for the same policy their own party's leadership has spent decades rejecting, because in the moment, a frozen number on a lease feels more real than an argument about long run housing supply. Both are understandable. Neither is a defense of the stated principles either side claims to hold everywhere else.</p>
+
+    <p>You decide whether the immediate relief is worth the long run cost, whether a fast, blunt tool beats a slow, correct one, and whether either party actually believes what it says about the proper size and reach of government, or whether rent, like so much else in American politics, is simply the issue where both sides quietly agree to set that belief aside.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">New York City Rent Freeze</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Time. "Mamdani's Promised Rent Freeze Approved in New York: What to Know." June 2026. <a href="https://time.com/article/2026/06/26/new-york-rent-freeze-stabilized-apartments-zohran-mamdani-housing-promise/" target="_blank" rel="noopener">time.com</a> <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn7">[7] Al Jazeera. "New York City freezes rents for one million regulated apartments." June 2026. <a href="https://www.aljazeera.com/economy/2026/6/26/new-york-city-freezes-rents-for-one-million-regulated-apartments" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn19">[19] Fortune. "Mamdani lives up to campaign promise, freezing rent for about 1 million New Yorkers." June 2026. <a href="https://fortune.com/2026/06/26/what-does-zohran-mamdani-rent-freeze-mean-new-york-city/" target="_blank" rel="noopener">fortune.com</a> <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn20">[20] Al Jazeera. "New York City freezes rents for one million regulated apartments." June 2026. <a href="https://www.aljazeera.com/economy/2026/6/26/new-york-city-freezes-rents-for-one-million-regulated-apartments" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn21">[21] Reason. "Mamdani got his rent freeze wish. Don't expect New York City housing to become more affordable." June 2026. <a href="https://reason.com/2026/06/26/mamdani-got-his-rent-freeze-wish-dont-expect-new-york-city-housing-to-become-more-affordable/" target="_blank" rel="noopener">reason.com</a> <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn36">[36] Gothamist. "NYC landlord rep accuses rent board of crossing a 'legal line,' quits ahead of major vote." June 2026. <a href="https://gothamist.com/news/nyc-landlord-rep-accuses-rent-board-of-crossing-a-legal-line-quits-ahead-of-major-vote" target="_blank" rel="noopener">gothamist.com</a>; THE CITY, "Landlord Rent Board Rep Resigns, Protesting Mandate to 'Deliver a Rent Freeze.'" June 2026; Bisnow, "Landlord Representative Resigns From RGB On Day Of Rent Freeze Vote." June 2026. <a href="https://www.bisnow.com/new-york/news/multifamily/christina-smyth-resigns-rent-guidelines-board-135167" target="_blank" rel="noopener">bisnow.com</a> <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Economics of Rent Control</span>
+    <ul class="bib-list">
+      <li id="fn4">[4] Alston, Kearl, and Vaughan. "Is There a Consensus Among Economists in the 1990's?" American Economic Review, 1992, as cited by George Mason University, "Rent Control: The Ceiling Trap," <a href="https://mason.gmu.edu/~atabarro/RentControl/" target="_blank" rel="noopener">mason.gmu.edu</a>, and National Multifamily Housing Council, "Rent Control vs. Rent Stabilization: A New Name for a Failed Concept." <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn5">[5] IGM Economic Experts Panel. "Rent Control." February 2012, Kent A. Clark Center, as cited by American Enterprise Institute, "Rent Control: A Proven Way to Make Housing Scarce and Expensive." <a href="https://www.aei.org/research-products/report/rent-control-a-proven-way-to-make-housing-scarce-and-expensive/" target="_blank" rel="noopener">aei.org</a> <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn6">[6] Richard Arnott's 1995 rent control taxonomy, as summarized in George Mason University, "Rent Control: The Ceiling Trap." <a href="https://mason.gmu.edu/~atabarro/RentControl/" target="_blank" rel="noopener">mason.gmu.edu</a> <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn8">[8] National Apartment Association. "NAA's Rent Control Outlook: Fall 2025." October 2025. <a href="https://naahq.org/news/naas-rent-control-outlook-fall-2025" target="_blank" rel="noopener">naahq.org</a> <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn9">[9] The American Prospect. "Economists Hate Rent Control. Here's Why They're Wrong." Citing a University of Chicago Booth School / IGM Forum poll finding 81 percent of economists opposed rent control. May 2023. <a href="https://prospect.org/2023/05/16/2023-05-16-economists-hate-rent-control/" target="_blank" rel="noopener">prospect.org</a> <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn10">[10] Freakonomics Radio. "Why Rent Control Doesn't Work (Update)." Featuring Stanford economist Rebecca Diamond. November 2024. <a href="https://freakonomics.com/podcast/why-rent-control-doesnt-work-update/" target="_blank" rel="noopener">freakonomics.com</a> <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn11">[11] David Autor, Christopher Palmer, and Parag Pathak. 2014 study on the end of rent control in Cambridge, Massachusetts, as cited by Federal Reserve Bank of St. Louis, "What Are the Long-run Trade-offs of Rent-Control Policies?" February 2024. <a href="https://www.stlouisfed.org/on-the-economy/2024/feb/what-are-long-run-trade-offs-rent-control-policies" target="_blank" rel="noopener">stlouisfed.org</a> <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn12">[12] National Multifamily Housing Council. "The High Cost of Rent Control." <a href="https://www.nmhc.org/news/articles/the-high-cost-of-rent-control/" target="_blank" rel="noopener">nmhc.org</a> <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn13">[13] Edward Glaeser and Erzo Luttmer. 2003 study on housing under rent control in New York City, as cited by Federal Reserve Bank of St. Louis, "What Are the Long-run Trade-offs of Rent-Control Policies?" <a href="https://www.stlouisfed.org/on-the-economy/2024/feb/what-are-long-run-trade-offs-rent-control-policies" target="_blank" rel="noopener">stlouisfed.org</a> <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn14">[14] Federal Reserve Bank of St. Louis. "What Are the Long-run Trade-offs of Rent-Control Policies?" February 2024. <a href="https://www.stlouisfed.org/on-the-economy/2024/feb/what-are-long-run-trade-offs-rent-control-policies" target="_blank" rel="noopener">stlouisfed.org</a> <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Democratic Case, 2024 to 2026</span>
+    <ul class="bib-list">
+      <li id="fn2">[2] Benzinga via Yahoo Finance. "Kamala Harris' Promise To 'Take On Corporate Landlords And Cap Unfair Rent Increases' Is A Hit With Voters But A Miss With Economists." August 2024. <a href="https://finance.yahoo.com/news/kamala-harris-promise-corporate-landlords-151521003.html" target="_blank" rel="noopener">yahoo.com</a>; HousingWire, "Kamala Harris: I'm ready to 'take on corporate landlords and cap unfair rent increases.'" July 2024. <a href="https://www.housingwire.com/articles/kamala-harris-im-ready-to-take-on-corporate-landlords-and-cap-unfair-rent-increases/" target="_blank" rel="noopener">housingwire.com</a> <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn15">[15] HousingWire. "Kamala Harris: I'm ready to 'take on corporate landlords and cap unfair rent increases.'" July 2024. <a href="https://www.housingwire.com/articles/kamala-harris-im-ready-to-take-on-corporate-landlords-and-cap-unfair-rent-increases/" target="_blank" rel="noopener">housingwire.com</a> <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn16">[16] Urban Institute Housing Matters. "Breaking Down the Biden Administration's National Rent Stabilization Proposal." <a href="https://housingmatters.urban.org/articles/breaking-down-biden-administrations-national-rent-stabilization-proposal" target="_blank" rel="noopener">housingmatters.urban.org</a> <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn17">[17] National Multifamily Housing Council. "Harris' Misguided Rent Control Proposal." <a href="https://www.nmhc.org/news/nmhc-news/2024/harris-misguided-rent-control-proposal/" target="_blank" rel="noopener">nmhc.org</a> <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn18">[18] Revolving Door Project. "Kamala Harris Must Ignore Corporate Landlord Apologists and Double Down On Protecting Tenants." August 2024. <a href="https://therevolvingdoorproject.org/biden-harris-rent-cap/" target="_blank" rel="noopener">therevolvingdoorproject.org</a> <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Republican Voter Drift</span>
+    <ul class="bib-list">
+      <li id="fn3">[3] Community Service Society 2025 statewide survey, as reported by City & State New York, "New survey finds almost everyone supports rent stabilization." February 2025. <a href="https://www.cityandstateny.com/politics/2025/02/new-survey-finds-almost-everyone-supports-rent-stabilization/403301/" target="_blank" rel="noopener">cityandstateny.com</a>; Davis Vanguard, "New Survey Reveals Broad Bipartisan Support for Rent Stabilization." March 2025. <a href="https://davisvanguard.org/2025/03/new-survey-reveals-broad-bipartisan-support-for-rent-stabilization/" target="_blank" rel="noopener">davisvanguard.org</a> <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn22">[22] American Enterprise Institute. "Rent Control: A Proven Way to Make Housing Scarce and Expensive." <a href="https://www.aei.org/research-products/report/rent-control-a-proven-way-to-make-housing-scarce-and-expensive/" target="_blank" rel="noopener">aei.org</a> <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn23">[23] iSideWith.com. "Donald Trump's policy on Rent Control." <a href="https://www.isidewith.com/candidates/donald-trump/policies/housing/rent-control" target="_blank" rel="noopener">isidewith.com</a> <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn24">[24] Public Policy Institute of California poll on Proposition 33 (Justice for Renters Act), as reported by The Business Journal, "Poll: Majority of Californians favor proposition expanding rent control." November 2023. <a href="https://thebusinessjournal.com/poll-majority-of-californians-favor-proposition-expanding-rent-control/" target="_blank" rel="noopener">thebusinessjournal.com</a> <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn25">[25] Cremieux (@cremieuxrecueil) on X. Thread featuring Rob Henderson, senior fellow at the Manhattan Institute. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">RealPage and the DOJ Antitrust Case</span>
+    <ul class="bib-list">
+      <li id="fn26">[26] ProPublica. Original RealPage investigation. October 2022, as referenced in ProPublica, "DOJ and RealPage Agree to Settle Rental Price-Fixing Case." November 2025. <a href="https://www.propublica.org/article/doj-realpage-settlement-rental-price-fixing-case" target="_blank" rel="noopener">propublica.org</a> <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn27">[27] ProPublica. "DOJ Backs Tenants in Price-Fixing Case Against Big Landlords and Real Estate Tech Company." August 2025. <a href="https://www.propublica.org/article/doj-backs-tenants-price-fixing-case-big-landlords-real-estate-tech" target="_blank" rel="noopener">propublica.org</a> <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn28">[28] ProPublica. "DOJ Files Antitrust Suit Against RealPage, Maker of Rent-Setting Algorithm." August 2024. <a href="https://www.propublica.org/article/realpage-lawsuit-doj-antitrustdoj-files-antitrust-suit-against-maker-of-rent-setting-algorithm" target="_blank" rel="noopener">propublica.org</a> <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn29">[29] ProPublica. "DOJ Sues Six Large Landlords in Effort to Stop Alleged Price-Fixing in Rental Markets." January 2025. <a href="https://www.propublica.org/article/justice-department-sues-landlords-alleged-price-fixing-realpage-rent" target="_blank" rel="noopener">propublica.org</a>; U.S. Department of Justice, Office of Public Affairs, "Justice Department Sues Six Large Landlords for Algorithmic Pricing Scheme that Harms Millions of American Renters." January 2025. <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn30">[30] ProPublica. "DOJ and RealPage Agree to Settle Rental Price-Fixing Case." November 2025. <a href="https://www.propublica.org/article/doj-realpage-settlement-rental-price-fixing-case" target="_blank" rel="noopener">propublica.org</a> <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">State and Federal Policy Landscape</span>
+    <ul class="bib-list">
+      <li id="fn31">[31] State House News Service. "Poll shows more support for rent control, tax cut." February 2026. <a href="https://www.statehousenews.com/news/politics/elections/poll-shows-more-support-for-rent-control-tax-cut/article_13e35823-17f0-4a18-abb1-c31d622c0ca3.html" target="_blank" rel="noopener">statehousenews.com</a> <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn32">[32] National Multifamily Housing Council. "The High Cost of Rent Control." <a href="https://www.nmhc.org/news/articles/the-high-cost-of-rent-control/" target="_blank" rel="noopener">nmhc.org</a> <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn33">[33] Congressional Research Service. "Housing Supply: Current Trends and Policy Considerations." <a href="https://www.congress.gov/crs-product/R48892" target="_blank" rel="noopener">congress.gov</a> <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn34">[34] Economic Security Project. "Building Affordability: The Policy Agenda for America's Housing Crisis." <a href="https://economicsecurityproject.org/resource/building-affordability/" target="_blank" rel="noopener">economicsecurityproject.org</a> <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn35">[35] Coverage of the 21st Century ROAD to Housing Act, sponsored by Senator Elizabeth Warren and Senator Tim Scott, as referenced in Economic Security Project, "Building Affordability." <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn37">[37] Massachusetts Supreme Judicial Court. Ruling on the rent control initiative petition. June 23, 2026, as reported by The Boston Globe, "SJC throws out rent control ballot question." June 2026. <a href="https://www.bostonglobe.com/2026/06/23/business/court-rent-control-ballot-question/" target="_blank" rel="noopener">bostonglobe.com</a>; Ballotpedia, "Massachusetts Rent Control Initiative (2026)." <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+      <li id="fn38">[38] CNN. "Trump cancels signing of largest housing affordability bill in a generation." June 2026; CBS News, "Trump cancels bipartisan housing bill signing, reiterates demand for SAVE America Act." June 2026; NBC News/ms.now, "Sweeping bipartisan housing bill could become law without Trump's signature." July 2026. <a href="https://www.npr.org/2026/06/23/nx-s1-5867575/congress-passes-housing-affordability-bill" target="_blank" rel="noopener">npr.org</a>; Bipartisan Policy Center, "Inside the Deal: What's in the Final 21st Century ROAD to Housing Act." <a href="https://bipartisanpolicy.org/issue-brief/inside-the-deal-whats-in-the-final-21st-century-road-to-housing-act/" target="_blank" rel="noopener">bipartisanpolicy.org</a> <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">↩</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
