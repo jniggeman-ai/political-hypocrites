@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribal by Design — Political Hypocrites</title>
+  <meta name="description" content="An investigation into how political loyalty replaced political thought: the business model, the psychology, the platforms, the vacuum, the punishment for dissent, and who actually wins." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="Tribal by Design — Political Hypocrites" />
+  <meta property="og:description" content="How political loyalty replaced political thought, and why the reaction to the next headline is already written before it happens." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/tribal-by-design" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tribal by Design — Political Hypocrites" />
+  <meta name="twitter:description" content="How political loyalty replaced political thought, and why the reaction to the next headline is already written before it happens." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(20,10,5,0.18);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 0 0 3rem;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.42);
+      font-style: italic; margin-bottom: 0; line-height: 1.7;
+    }
+    .source-note strong { color: rgba(20,10,5,0.60); font-style: normal; }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+      color: #1A0F05; margin: 2.6rem 0 1.1rem; line-height: 1.2;
+    }
+    .article-body p {
+      font-size: 1.02rem; line-height: 1.9; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4.5rem 0 2.2rem;
+    }
+    .part-divider:first-of-type { margin-top: 0; }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+    .fn.active { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 780px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.40); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-back {
+      color: var(--red); text-decoration: none;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This investigation includes the author's analysis and perspective, clearly labeled inline where it appears. The documented record forms the spine. The view is separate, and it is disclosed.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span>Tribal by Design</span>
+  </div>
+  <span class="article-label">Investigation + Opinion</span>
+  <h1 class="article-title">Tribal by Design</h1>
+  <p class="article-subtitle">How Political Loyalty Replaced Political Thought — An Investigation into the Manufacturing of American Political Reaction</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> July 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Academic research, campaign finance data, primary news reporting</span>
+    <a href="https://twitter.com/intent/tweet?text=Tribal+by+Design%3A+How+Political+Loyalty+Replaced+Political+Thought&url=https://political-hypocrites.vercel.app/investigations/tribal-by-design" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">I already know what you are going to say about this article before you say it. That is not an insult. It is the entire premise of the piece. Reactions to major political events in this country have become so predictable that the outcome of the argument is often set before the facts arrive, and I wanted to understand why. What follows is an investigation into the business model that made anger profitable, the psychology that makes tribal loyalty feel like independent thought, the platforms and the collapse of local news that emptied out the space where politics used to be boring and verifiable, the punishment reserved for anyone who breaks from their own side, and the donor class that funds both tribes at once and does not much care which one wins.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every factual claim in this investigation is sourced below. Interpretation and argument are flagged inline with an <span class="opinion-inline" style="margin-right:0.3rem;">Opinion</span> tag wherever they appear. The two are never blended in this piece without disclosure.</p>
+  </div>
+
+  <div class="part-divider"><span>Part One — The Architecture of Belief</span></div>
+
+  <h2>A Business Model Older Than Cable</h2>
+  <p>I think it's tempting to treat American political tribalism as a uniquely modern disease, born somewhere between the invention of cable news and the invention of the algorithm. I don't think that's right. The business model came first, and it's well over a century old.</p>
+  <p>In the 1890s, two newspaper publishers, Joseph Pulitzer of the New York World and William Randolph Hearst of the New York Journal, fought a circulation war that reshaped American journalism. Both men used sensationalism and attention grabbing techniques to boost circulation, a competition that shifted journalistic style and influenced public opinion on national and international affairs, including the Spanish American War. When the USS Maine exploded in Havana harbor on February 15, 1898, killing 260 people aboard, Hearst's Journal blamed Spain and ran headlines demanding U.S. government action, with the slogan "Remember the Maine, to hell with Spain" becoming a national rallying cry. The competitive pressure to sell papers, not any coherent political ideology, drove the coverage.<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+  <p>I want to be precise about what this history does and doesn't prove, because I think overselling it would undercut the argument I'm actually making. Historians are broadly skeptical of the notion that the yellow press of Hearst and Pulitzer actually caused the war with Spain, and no serious historian of the period embraces that claim outright.<a href="#fn2" class="fn" id="ref2">[2]</a> What I do think the era demonstrates, cleanly and without needing exaggeration, is that manufactured public sentiment for profit is not a twenty-first century invention. The Journal and the World were rival businesses locked in a fight for eyeballs, and manufactured outrage sold copies then the same way it drives engagement now. What's changed between 1898 and today isn't the incentive. It's the speed, the reach, and the number of hands on the lever.</p>
+
+  <h2>The Partisan Brain</h2>
+  <p>If the profit motive explains why tribal content gets produced, it doesn't by itself explain why audiences consume it so eagerly, defend it so fiercely, and resist correction so completely. For that, I've found the more useful literature isn't media history but cognitive science.</p>
+  <p>Political polarization is most likely when users employ moral or emotional language, and online discussions of politicized topics increasingly resemble echo chambers, with posts on these topics shared primarily among people who already hold similar ideological preferences.<a href="#fn3" class="fn" id="ref3">[3]</a> The identity based model of political belief, developed by NYU psychologist Jay Van Bavel and his collaborators, offers what I think is the clearest account of why this happens. Partisan identities can serve numerous psychological goals, including belonging, status, and moral standing, and when the value of those identity goals outweighs the value of simple accuracy, belief itself becomes distorted.<a href="#fn4" class="fn" id="ref4">[4]</a> In plainer terms, people aren't only failing to reason well about politics. Large portions of the brain's belief forming machinery are, under the right conditions, working to protect group loyalty ahead of protecting truth.</p>
+  <p>There's extensive evidence that people engage in motivated political reasoning, and partisanship has been shown to alter memory, implicit evaluation, and even perceptual judgment.<a href="#fn4" class="fn" id="ref4b">[4]</a> I want to be clear that this isn't a partisan finding I'm weaponizing against one side, because it isn't one. Group loyalty and its accompanying cognitive biases appear to exist in all groups, and the shared evolutionary history of liberals and conservatives gives little reason to expect that pro-tribe bias runs deeper on one side of the spectrum than the other.<a href="#fn4" class="fn" id="ref4c">[4]</a> That detail matters to me for a publication built on holding both parties to the same standard. The science doesn't say conservatives are more tribal than progressives, or the reverse. It says tribalism is a structural feature of the human mind that both parties' media ecosystems have learned, independently and effectively, to exploit.</p>
+
+  <h2>The Predictability Problem</h2>
+  <p>Put the business model and the psychology together and I think a specific, testable claim emerges: reactions to major political events should be forecastable in advance, not because the public is stupid, but because the machinery producing those reactions is largely fixed before the event occurs.</p>
+  <p><span class="opinion-inline">Opinion</span>This is where I'll make the piece's central argument in my own words. Anyone who has watched a mass shooting, a Supreme Court ruling, or a foreign policy crisis unfold in real time already knows the shape of the next forty eight hours before it happens. I already know the cable panel assignments before they're announced. I already know the framing each outlet will choose. I already know which influencers will amplify each framing, and roughly what words they'll use to do it. What's being produced isn't analysis arriving at a conclusion. It's a conclusion arriving in search of supporting material, and the identity based model of belief explains exactly why that production process feels, to the people inside it, like independent thought.</p>
+
+  <div class="part-divider"><span>Part Two — The Business of Anger</span></div>
+
+  <h2>Selling Anger, Not Selling News</h2>
+  <p>I think if you ask most people why cable news feels more hostile than it did fifteen years ago, they'll tell you it's because the politics got worse. I don't think that's the real explanation. I think the business model changed, and the politics followed.</p>
+  <p>Researchers at the University of Colorado Boulder analyzed closed caption transcripts from six major cable networks spanning 2012 to 2024, and found a clear shift in emphasis over that period, away from coverage that promotes a network's own political side and toward coverage built around attacking the opposing party. The researchers describe this directly as networks "selling anger" rather than informing their viewers.<a href="#fn5" class="fn" id="ref5">[5]</a> I don't think that framing is unfair. It matches what I see every time I turn on a panel segment. Nobody is being sold an argument for their own side anymore. They're being sold a reason to be furious at the other one, because fury is a better retention product than persuasion ever was.</p>
+
+  <h2>What the Algorithm Actually Rewards</h2>
+  <p>If cable news figured this out through trial and error, Silicon Valley figured it out with data, and I think the difference matters. In 2021, Facebook product manager turned whistleblower Frances Haugen left the company with tens of thousands of pages of internal research, which she disclosed to the Wall Street Journal, the Securities and Exchange Commission, and the United States Senate. Among the findings was that Facebook's own research showed content that is hateful, divisive, and polarizing is easier to provoke engagement with than any other kind of content, and that the platform's 2018 shift to engagement based ranking, publicly framed as promoting "meaningful social interactions," in practice rewarded posts that generated reactions, comments, and shares regardless of what those reactions were.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+  <p>I want to sit on one detail from Haugen's testimony longer than the rest, because I think it's the most important sentence in this entire section. She told the Senate that political parties themselves had been quoted, in Facebook's own internal research, acknowledging that they had shifted toward more extreme positions because they knew the algorithm rewarded it.<a href="#fn6" class="fn" id="ref6b">[6]</a> That is not a claim about voters being manipulated by a platform without anyone's knowledge. That is professional political operatives, on both sides of the aisle, knowingly feeding a system they understood was optimized for anger, because it worked. Facebook's own engineers reportedly weighted the angry emoji reaction at five times the value of a like for roughly three years before dialing it back in 2018.<a href="#fn6" class="fn" id="ref6c">[6]</a></p>
+  <p>I'd also note, because I think it's owed here, that this is not a story about one platform or one political direction. The mechanism Haugen described, engagement based ranking rewarding divisive content, is architecture. It doesn't care whether the divisive post comes from the left or the right. It rewards whichever side is more willing to feed it.</p>
+
+  <h2>The Platforms Sort Themselves</h2>
+  <p>The predictable result of years of this incentive structure is that the platforms themselves have stopped being neutral spaces where the country argues with itself, and have become sorted rooms where each side mostly argues with its own reflection. Pew Research Center's 2025 data on political polarization across social platforms found rising ideological sorting across the board over the prior two years, and one shift in particular stands out to me. X's user base, which had leaned Democratic for most of its history, flipped to a majority Republican composition following Elon Musk's acquisition of the platform in 2022.<a href="#fn7" class="fn" id="ref7">[7]</a></p>
+  <p>I don't say that as a criticism of anyone who left or anyone who stayed. I say it because I think it proves the point of this entire section. When a platform's audience can flip that dramatically in a period of a few years, what you're watching isn't organic political migration. You're watching people sort themselves into the room that already agrees with them, on a platform whose business model rewards them for staying angry once they get there.</p>
+
+  <div class="part-divider"><span>Part Three — The Vacuum</span></div>
+
+  <h2>Fifty Years of Losing Faith</h2>
+  <p>I don't think either party wants to admit how thoroughly Americans have stopped trusting them, because the truth doesn't flatter anyone. In September 2025, Gallup found trust in mass media had fallen to a new low of 28 percent, with only about a quarter of independents saying they trust newspapers, television, and radio to report the news fully, fairly, and accurately. Republicans registered trust in the single digits. Democrats held on to a bare majority, just barely above 50 percent.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+  <p>I want to be direct about why I'm including that breakdown instead of just citing the overall number. If this were a story about one party's grievance with the media, I'd expect one side's numbers to be collapsing while the other's held steady. That isn't what the data shows. Every group is losing faith, just at different speeds and for different stated reasons. I think that's the more honest and more damning version of the story, because it means this isn't a partisan complaint that only one tribe is allowed to have. It's a national one.</p>
+
+  <h2>Where Local News Used to Be</h2>
+  <p>I think the more overlooked half of this story is what's disappeared underneath the national shouting match, not what's grown louder within it. Northwestern's Medill School has tracked the collapse of local journalism for years, and its 2025 report found the country lost roughly 136 newspapers over the prior year alone, part of a longer collapse that has cost the country nearly 3,500 newspapers and more than 270,000 newspaper jobs over the past two decades. Tens of millions of Americans now live in what researchers call news deserts, places with little or no access to reliable local reporting on their own city council, school board, or county government.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+  <p>I think this matters more to the tribalism argument than it first appears to. When the reporter who used to cover your town's budget meeting is gone, the vacuum doesn't stay empty. It gets filled by national content, because national content is what's still being produced, funded, and algorithmically pushed in front of you. You lose the coverage of the actual, boring, nonpartisan facts of your own community, and you gain a cable panel telling you what to think about a senator three states away. I don't think that trade has made anyone better informed about the decisions that actually shape their daily life. I think it's made people more fluent in a national argument they have almost no power to affect, and less fluent in the local one they actually do.</p>
+
+  <h2>The Two Vacuums Meet</h2>
+  <p><span class="opinion-inline">Opinion</span>Put these two findings next to each other and I think they explain each other. A public that has stopped trusting the institutions telling them the news is a public primed to look elsewhere for a version of events that feels honest, even if it isn't. A public that has simultaneously lost the local reporting that used to ground them in verifiable, low stakes fact is a public with nowhere else to look except the national tribal media that both created the trust problem and is standing by, ready, to fill the space left behind. I don't think this is a coincidence of timing. I think the collapse of trust and the collapse of local coverage are feeding the same machine from two different directions.</p>
+
+  <div class="part-divider"><span>Part Four — The Price of Going Off Script</span></div>
+
+  <h2>Predictable Before the Facts Arrive</h2>
+  <p>I think the clearest proof that something is broken in how we process events isn't in the events themselves, it's in how fast the reaction arrives relative to the facts. In July 2026, ICE agents fatally shot two people within days of each other, in Biddeford, Maine, and in Houston, Texas. In both cases, the government's account of what happened was disputed almost immediately by eyewitnesses and by the victims' own attorneys, and in both cases neither man had been the actual target of the operation.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+  <p>I don't think it's my place in this piece to adjudicate exactly what happened in either vehicle stop, because the investigations were still ongoing and the facts remain genuinely contested. What I do think is fair to say is this: I knew what each side would say about these shootings before I watched a single second of footage. I knew which outlets would lead with the officer's account and which would lead with the family's. I knew which senators would call for accountability and which would call for patience. None of that knowledge required me to see any evidence. It only required me to know which team was talking.</p>
+
+  <h2>The Republican Who Voted With His Party 90 Percent of the Time</h2>
+  <p>I think Kentucky Congressman Thomas Massie is one of the cleanest test cases available for what actually gets someone excommunicated from a party, because his voting record makes the excuse of "he wasn't really a Republican" hard to sustain. Massie voted with Trump roughly 90 percent of the time during the president's second term.<a href="#fn14" class="fn" id="ref14">[14]</a> He is also a longtime opponent of foreign aid on principle, having said he has never voted for aid to Egypt, Syria, Israel, or Ukraine.<a href="#fn15" class="fn" id="ref15">[15]</a></p>
+  <p>That last part is what ended his career. In May 2026, Massie lost his primary to a Trump endorsed challenger in what became the most expensive House primary in American history, with more than 32 million dollars spent, much of it from pro-Israel groups including AIPAC's affiliated super PAC, which had called Massie the most anti-Israel Republican in the House.<a href="#fn14" class="fn" id="ref14b">[14, 15]</a> Trump spent months attacking him personally, calling him a "moron," a "nut job," and posting that Massie should be voted out because he is "not a Republican."<a href="#fn14" class="fn" id="ref14c">[14]</a> The Republican Jewish Coalition celebrated the result by saying there is "no place in the Republican Party for those who turn their back on the MAGA agenda."<a href="#fn15" class="fn" id="ref15b">[15]</a></p>
+  <p>I think it's worth sitting with what that sentence actually claims. Not that Massie was wrong on policy. That there is no place in the party for the position at all, regardless of how the rest of his record lined up. A 90 percent voting record with your own party bought him nothing against a 10 percent deviation on one issue.</p>
+
+  <h2>When MAGA's Own Turned</h2>
+  <p>I think the same dynamic showed up almost immediately afterward, aimed at people who had spent years building Trump's media apparatus rather than voting in Congress. Beginning in late February 2026, after the joint U.S. and Israeli strikes on Iran, Tucker Carlson, Megyn Kelly, Candace Owens, and Alex Jones, four of the most prominent media figures in MAGA world, broke publicly with Trump over the war, a rift that escalated through the following weeks. Carlson called the strikes "absolutely disgusting and evil" and accused Trump of being beholden to Israeli Prime Minister Netanyahu, at one point calling the president a "slave." Owens said she was "embarrassed" she had backed him. Some of the group floated invoking the 25th Amendment to remove him from office.<a href="#fn16" class="fn" id="ref16">[16]</a></p>
+  <p>Trump's response was immediate and personal. By April, he called them "nut jobs," "losers," and "stupid people" in a lengthy Truth Social post, said they were only trying to "latch on to MAGA" with their "third rate podcasts," and dismissed their views as irrelevant because they were "the opposite of MAGA."<a href="#fn16" class="fn" id="ref16b">[16]</a> I think what's notable isn't that a political fight broke out. It's the speed and totality of the reclassification. These were not lifelong critics being dismissed as outsiders. These were his own most visible messengers, weeks removed from being his most valuable allies, discarded the moment they stopped agreeing with him on one issue.</p>
+
+  <h2>The Democrat Who Became the Party's Enemy</h2>
+  <p>I don't think this instinct belongs to one party, and I want to be just as direct about the other side of it. Tulsi Gabbard was a rising star in the Democratic Party, a sitting congresswoman who ran for its 2020 presidential nomination. In 2022, she left the party entirely, describing it as having fallen under the control of what she called "an elitist cabal of warmongers driven by cowardly wokeness," a break driven substantially by her opposition to the party's positions on Ukraine and U.S. military involvement in Syria, including a widely criticized 2017 trip in which she met with Bashar al-Assad.<a href="#fn17" class="fn" id="ref17">[17]</a> By 2024, Trump had nominated her to serve as his Director of National Intelligence.<a href="#fn18" class="fn" id="ref18">[18]</a></p>
+  <p>I think Gabbard is a genuinely complicated figure, and I don't want to flatten that for the sake of a clean parallel. Her views on Syria and Russia have drawn serious, substantive criticism from national security experts across the spectrum, not just from party loyalists defending a status quo.<a href="#fn18" class="fn" id="ref18b">[18]</a> But the mechanism that pushed her out is the same one that pushed Massie out in the opposite direction. She didn't lose her standing in the party over corruption, incompetence, or scandal. She lost it over a foreign policy disagreement, and once she was out, the party had no further use for reconciling with her.</p>
+
+  <h2>The Same Sentence, Twice</h2>
+  <p><span class="opinion-inline">Opinion</span>I think punishing dissent is only half the story, because it doesn't explain why the loyalty on the other side of that line so often looks scripted rather than felt. In July 2026, amid speculation about Senate Minority Leader Mitch McConnell's health, CNN commentator Scott Jennings announced he'd just had a phone call with McConnell. Within the hour, Senate Majority Leader John Thune and Senate Whip John Barrasso each released statements that were, by multiple accounts, strikingly similar and unusually polished, both also claiming to have just spoken with McConnell for roughly twenty minutes. One MS NOW host publicly mocked how uniform the timing and language across all three accounts turned out to be.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+  <p>I'd put that next to March 2025, when more than twenty Senate Democrats, including Cory Booker, Elizabeth Warren, and Chuck Schumer, posted video statements using verbatim identical scripts as part of a coordinated communications push tied to Trump's joint address to Congress, organized through the Senate Democrats' Strategic Communications Committee, which Booker chairs, and reflecting the Democratic National Committee's broader media strategy for the event.<a href="#fn11" class="fn" id="ref11">[11]</a> These two moments aren't identical in kind. The Senate Democrats' videos were an openly organized party messaging campaign. The McConnell statements are murkier, because they involve senators appearing to independently confirm a specific personal conversation using suspiciously matching language, in the middle of a health rumor news cycle. But I think what unites them is the point I actually care about here. In both cases, elected officials handed the public language that was centrally produced and asked us to receive it as a spontaneous, individual reaction. I think that's an insult to the intelligence of the people watching, and I don't think we should keep accepting it just because it comes wrapped in a familiar face.</p>
+
+  <h2>The Government's Own Hand</h2>
+  <p><span class="opinion-inline">Opinion</span>I think the most uncomfortable version of this story is the one where the government itself is alleged to be a scriptwriter. In Murthy v. Missouri, a federal district court found evidence that Biden administration officials pressured social media platforms to remove or suppress certain content during the pandemic and the 2020 election period. The Fifth Circuit Court of Appeals narrowed but upheld part of the resulting injunction. The Supreme Court ultimately dismissed the case on standing grounds in a 6 to 3 decision, meaning the plaintiffs hadn't shown they personally were harmed enough to sue, and the Court never ruled on whether the underlying conduct was constitutional.<a href="#fn12" class="fn" id="ref12">[12]</a></p>
+  <p><span class="opinion-inline">Opinion</span>I think it's important to say plainly that reasonable people dispute what actually happened here. Some read this as legitimate public health coordination between government and platforms during a genuine crisis. Others read it as improper government coercion of speech. I don't think this argument belongs exclusively to either party's grievance list, because I think both parties would use this exact tool if they had it and thought they could get away with it. The question this case actually raises, how much influence should any government have over what citizens are allowed to see, is not a Republican question or a Democratic question. It's the question underneath everything else in this section.</p>
+
+  <h2>Two Parties, One Instinct</h2>
+  <p><span class="opinion-inline">Opinion</span>I think if you put all of this next to each other, Massie, Carlson's group, Gabbard, the matching statements, the platform pressure, it stops looking like five unrelated news stories and starts looking like a single mechanism with two different logos on it. Deviate from the party's position and it doesn't matter what your record says the other 90 percent of the time, you get treated as a defector. Stay in line and what you're often reciting isn't even your own sentence. I think that's a strange way to run a country that was supposedly built on the idea that citizens, and their representatives, are allowed to think for themselves. I think, honestly, it's a little bit cult-like on both sides, and I don't think either party would enjoy hearing that comparison made about them specifically, which might be the clearest evidence that it's true of both.</p>
+
+  <div class="part-divider"><span>Part Five — Who Actually Wins</span></div>
+
+  <h2>The Donor Who Doesn't Pick a Side</h2>
+  <p>I think if you want to see how seriously some of the biggest players in this country actually take the tribal war, you don't look at who they vote for. You look at who they write checks to. The National Association of Realtors has been the single largest organizational donor in American politics for cycle after cycle, and its giving has consistently split nearly evenly between the two parties, election after election, regardless of which party held power or which party's rhetoric was louder that year.<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+  <p>I don't think that's an accident, and I don't think it's really a political position at all. I think it's a business decision. An organization that needs favorable treatment on housing policy, tax rules, and zoning doesn't actually care who wins. It needs a seat at the table no matter who wins, so it buys a seat at both tables at once.</p>
+
+  <h2>Has This Always Been the Case?</h2>
+  <p>I asked myself the same question I think a careful reader would ask, so I want to walk through the actual history instead of assuming the pattern has always looked this way, because it hasn't.</p>
+  <p>When Barack Obama was inaugurated in 2009, his committee banned corporate donations outright and capped individual contributions at 50,000 dollars, and still raised 53 million dollars, largely from small donors. Four years later, for his second inauguration, Obama's team reversed course entirely and began accepting unlimited corporate money, citing donor fatigue after what was then the most expensive campaign in history.<a href="#fn24" class="fn" id="ref24">[24]</a> George W. Bush had capped his own inaugural donations at 250,000 dollars per donor for both of his inaugurations, raising around 40 million dollars each time.<a href="#fn24" class="fn" id="ref24b">[24]</a> Trump's first inauguration in 2017 broke records at roughly 107 million dollars. His second, in 2025, didn't just break that record, it obliterated it, pulling in somewhere between 239 and 251 million dollars depending on the source counting it, more than double his own 2017 total and roughly four times what Joe Biden raised for his pandemic scaled 2021 inauguration.<a href="#fn21" class="fn" id="ref21">[21]</a></p>
+  <p>So no, this hasn't always been the case. What I see in that timeline isn't a static, unchanging system. I see a ratchet that only ever tightens. Every cycle, the guardrails that used to limit this kind of money get quietly removed and never put back, and the sums involved keep climbing regardless of which party is in the White House when it happens.</p>
+
+  <h2>The Money Chases the Winner, Not the Conviction</h2>
+  <p><span class="opinion-inline">Opinion</span>I think the most revealing evidence isn't the total dollar amount, it's who specifically wrote the checks in 2025 and what they'd said about Trump only months earlier. Meta suspended Trump's Facebook and Instagram accounts after January 6, 2021, and Mark Zuckerberg once called him a threat to democracy in everything but name. In December 2024, Meta pledged a million dollars to Trump's inauguration fund, a donation finalized ahead of the January 2025 ceremony.<a href="#fn22" class="fn" id="ref22">[22, 23]</a> Chevron didn't donate to Biden's 2021 inauguration at all, a choice that lined up with Biden's policy of declining fossil fuel industry donations, then gave 2 million dollars to Trump's 2025 inauguration once he'd won.<a href="#fn22" class="fn" id="ref22b">[22]</a> Trump himself said it plainly at Mar-a-Lago after the election: in his first term, he said, everyone was fighting him, and this time, everyone wanted to be his friend.<a href="#fn23" class="fn" id="ref23">[23]</a></p>
+  <p><span class="opinion-inline">Opinion</span>I don't think that's loyalty, and I don't think it's really even about Trump specifically. I think it's proof that a meaningful slice of corporate America isn't ideologically committed to either party at all. It's committed to whoever is about to be in a position to regulate them, tax them, or award them contracts, and it will reverse a public position within weeks if the election results require it. I'd bet real money the same reversal would happen just as fast in the other direction if the outcome had gone the other way.</p>
+
+  <h2>Two Different Kinds of Money</h2>
+  <p>I want to be honest about a distinction here too, because I think collapsing it would oversell my own argument. Not all political money behaves like the Realtors' money or like Meta's post election check. In the 2024 cycle, the top 100 billionaire donor families in the country poured roughly 2.6 billion dollars into federal elections, about double what they spent in 2020, and roughly 70 percent of that total went to Republican aligned committees against about 23 percent for Democratic aligned ones.<a href="#fn20" class="fn" id="ref20">[20]</a> That's a real ideological tilt among the wealthiest individual donors, and I'm not going to pretend it isn't there.</p>
+  <p>But the corporate money, the kind that flows from company treasuries and PACs rather than individual billionaires with a personal cause, keeps telling the same story I opened this section with. The financial and securities industry is consistently the largest single source of corporate political money in the country, and it funds both parties substantially, not out of conviction but because Wall Street needs favorable regulators no matter who's writing the rules.</p>
+
+  <h2>What This Means for Everyone Else</h2>
+  <p><span class="opinion-inline">Opinion</span>I think this is where I want to land the actual argument of this section. Whether it's the Realtors hedging evenly every cycle, or Meta and Chevron reversing themselves within weeks of a winner being declared, the tribal fight that dominates cable news and social media every single day is, for a meaningful slice of the donor class, close to irrelevant. They don't need their tribe to win. They need a tribe to win, whichever one it turns out to be, so long as it's one they can write a check to fast enough. I think the rest of us are the only people actually invested in who wins the argument. The people writing the biggest checks are invested in making sure it doesn't matter.</p>
+
+  <div class="part-divider"><span>Part Six — The Civilian in the Middle</span></div>
+
+  <h2>The Exhaustion Thesis</h2>
+  <p>I think if you've read this far, the picture I've built across five parts adds up to something specific. A business model built on selling anger since before the twentieth century began. A brain wired to protect group identity ahead of accuracy. Platforms and networks that make more money the angrier we get. A collapse of local news that emptied out the one space where politics used to be boring and verifiable. Politicians and commentators who get excommunicated the moment they deviate, reciting scripts that were written for them somewhere upstream. And underneath all of it, a donor class that funds both sides at once, or reverses its own stated principles within weeks of an election, because it was never actually loyal to either team to begin with.</p>
+  <p>I think the people this actually costs the most are the ones with no stake in any of it beyond wanting an honest account of what happened today. I don't think most Americans wake up loyal to a party the way they're loyal to a family member. I think a huge number of people have simply gone quiet, worn down by having to sort every single piece of news through a filter of who benefits from them believing it. That exhaustion isn't apathy. I think it's closer to a rational response to being lied to, gently and constantly, by people who need you angry more than they need you informed.</p>
+
+  <h2>Disagreement Is Not Betrayal</h2>
+  <p><span class="opinion-inline">Opinion</span>I want to close with the argument I think this entire piece has been building toward, because diagnosing the problem without naming what a healthy alternative looks like feels incomplete to me.</p>
+  <p><span class="opinion-inline">Opinion</span>The idea that agreeing with your own party 90 percent of the time still makes you a traitor over the other 10 percent isn't just cruel to the individual politician or commentator on the receiving end of it. I think it's a betrayal of what this country was actually built on. The Constitution itself wasn't ratified by a unified founding generation who agreed on everything and then handed down a finished product. It was ratified after a year of genuinely vicious public disagreement between Federalists and Anti-Federalists, disagreement so intense that in July 1788, a Federalist march through Albany, New York collided with a group of Anti-Federalists and turned into an actual street brawl fought with swords, bayonets, clubs, and stones.<a href="#fn25" class="fn" id="ref25">[25]</a> Massachusetts only ratified the Constitution by a narrow vote after Anti-Federalist opposition forced the Federalists to promise a Bill of Rights would follow.<a href="#fn26" class="fn" id="ref26">[26]</a> The document we treat as sacred and unified in hindsight was, at the time, the product of people who thought the other side might ruin the country, arguing it out in public, sometimes violently, until they reached something workable.</p>
+  <p><span class="opinion-inline">Opinion</span>I don't think the founding generation would recognize what we've built instead. A Republican who breaks with 10 percent of his party's positions isn't participating in the tradition this country was founded on. He's living it. A Democrat who leaves her party over a foreign policy disagreement isn't betraying a cause, she's doing exactly what Anti-Federalists did when they refused to sign onto a document they thought was dangerously incomplete. I think 100 percent agreement was never the goal, was never the design, and was never even present at the moment this country was created. I think we should be challenging each other, inside our own parties, every single day, and I think the fact that doing so now gets you labeled a traitor by your own side is one of the starkest signs of how far off course we've drifted.</p>
+
+  <h2>What I Think Is Coming</h2>
+  <p><span class="opinion-inline">Opinion</span>I want to end with something more speculative than anything else in this piece, because I think it's honest to say where I believe this actually leads. I think in due time, a meaningful share of this country's population is going to have a legitimate case to make that they were subjected to a form of psychological manipulation they never consented to and, for most of their lives, never even knew was happening. I don't know exactly what accountability for that looks like yet, whether it's legal, political, or something else entirely. But I think the people who did the work of escaping the tribal machinery this piece has spent six parts describing, who noticed the script, who refused to treat disagreement as betrayal, deserve to be taken seriously when they say they were used as test subjects in something much larger than an election cycle. I don't think that's an exaggeration. I think it's the plainest way I know how to say it.</p>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Sources</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Media History &amp; Business Model</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Britannica. "Yellow journalism." <a href="https://britannica.com/topic/yellow-journalism" target="_blank" rel="noopener">britannica.com</a> <a href="#ref1" class="bib-back">&#8617;</a></li>
+      <li id="fn2">[2] History.com. "Did Yellow Journalism Fuel the Outbreak of the Spanish American War?" <a href="https://history.com/articles/spanish-american-war-yellow-journalism-hearst-pulitzer" target="_blank" rel="noopener">history.com</a> <a href="#ref2" class="bib-back">&#8617;</a></li>
+      <li id="fn5">[5] University of Colorado Boulder / Leeds School of Business. "Selling Anger," working paper, 2025. Closed caption analysis of six cable networks, 2012 to 2024. <a href="#ref5" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Psychology &amp; Platforms</span>
+    <ul class="bib-list">
+      <li id="fn3">[3] Reuters Institute, University of Oxford. Literature review on echo chambers, filter bubbles, and polarisation, 2022, cited via Humanities and Social Sciences Communications. <a href="#ref3" class="bib-back">&#8617;</a></li>
+      <li id="fn4">[4] Van Bavel, J.J. and Pereira, A. "The Partisan Brain: An Identity-Based Model of Political Belief." Trends in Cognitive Sciences, 2018. <a href="#ref4" class="bib-back">&#8617;</a> <a href="#ref4b" class="bib-back">&#8617;</a> <a href="#ref4c" class="bib-back">&#8617;</a></li>
+      <li id="fn6">[6] Frances Haugen Facebook disclosures: CBS News 60 Minutes interview, October 3, 2021; U.S. Senate testimony, October 5, 2021; Wall Street Journal "Facebook Files" series, 2021. <a href="https://cbsnews.com/news/facebook-whistleblower-frances-haugen-60-minutes-polarizing-divisive-content" target="_blank" rel="noopener">cbsnews.com</a> <a href="#ref6" class="bib-back">&#8617;</a> <a href="#ref6b" class="bib-back">&#8617;</a> <a href="#ref6c" class="bib-back">&#8617;</a></li>
+      <li id="fn7">[7] Pew Research Center, 2025 data on political polarization across social media platforms; X user base shift toward Republican majority following the 2022 acquisition by Elon Musk. <a href="#ref7" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Trust &amp; Local News</span>
+    <ul class="bib-list">
+      <li id="fn8">[8] Gallup. "Trust in Media at New Low of 28% in U.S." September 2025. <a href="https://news.gallup.com" target="_blank" rel="noopener">news.gallup.com</a> <a href="#ref8" class="bib-back">&#8617;</a></li>
+      <li id="fn9">[9] Northwestern University Medill School. State of Local News report, 2025. <a href="https://localnewsinitiative.northwestern.edu" target="_blank" rel="noopener">localnewsinitiative.northwestern.edu</a> <a href="#ref9" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Price of Dissent</span>
+    <ul class="bib-list">
+      <li id="fn10">[10] Daily Caller News Foundation. "Email Suggests Mitch McConnell Health Response Is Coordinated Effort." July 7, 2026. <a href="https://dailycaller.com/2026/07/07/emails-mcconnell-health-response/" target="_blank" rel="noopener">dailycaller.com</a>; Axios, "Top Senate Republicans say they've spoken with McConnell," July 7, 2026, <a href="https://axios.com" target="_blank" rel="noopener">axios.com</a>; Washington Examiner, July 2026, <a href="https://washingtonexaminer.com" target="_blank" rel="noopener">washingtonexaminer.com</a>; The Daily Beast, on MS NOW's Joe Scarborough questioning the pattern, July 2026, <a href="https://thedailybeast.com" target="_blank" rel="noopener">thedailybeast.com</a>. <a href="#ref10" class="bib-back">&#8617;</a></li>
+      <li id="fn11">[11] Fox News. "Conservatives flip script on Senate Dems pushing identical talking points against Trump: 'Like robots.'" March 4, 2025. <a href="https://foxnews.com" target="_blank" rel="noopener">foxnews.com</a>; Roll Call, "Senate Democrats approve leadership team for new Congress," December 3, 2024, <a href="https://rollcall.com" target="_blank" rel="noopener">rollcall.com</a>, on Senator Cory Booker's role as chair of the Senate Democrats' Strategic Communications Committee. <a href="#ref11" class="bib-back">&#8617;</a></li>
+      <li id="fn12">[12] Murthy v. Missouri case reporting: Fifth Circuit Court of Appeals ruling and Supreme Court decision, June 2024 (6-3, dismissed on standing grounds). <a href="#ref12" class="bib-back">&#8617;</a></li>
+      <li id="fn13">[13] CNN. "DHS breaks hours of silence on deadly ICE shooting in Maine." July 2026. <a href="https://cnn.com" target="_blank" rel="noopener">cnn.com</a>; Boston Globe, "ICE changed its story about the shooting in Maine," July 2026, <a href="https://bostonglobe.com" target="_blank" rel="noopener">bostonglobe.com</a>; Reason, "ICE keeps shooting people," July 2026, <a href="https://reason.com" target="_blank" rel="noopener">reason.com</a>. <a href="#ref13" class="bib-back">&#8617;</a></li>
+      <li id="fn14">[14] Al Jazeera. "Republican Thomas Massie who stood up to Trump defeated in Kentucky primary." May 20, 2026. <a href="https://aljazeera.com" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref14" class="bib-back">&#8617;</a> <a href="#ref14b" class="bib-back">&#8617;</a> <a href="#ref14c" class="bib-back">&#8617;</a></li>
+      <li id="fn15">[15] The Times of Israel. "Anti-Israel Republican Thomas Massie loses primary to Trump-backed candidate." May 20, 2026. <a href="https://timesofisrael.com" target="_blank" rel="noopener">timesofisrael.com</a>; The Intercept, "Rep. Thomas Massie Loses His Seat in a Win for Trump and AIPAC," May 2026, <a href="https://theintercept.com" target="_blank" rel="noopener">theintercept.com</a>. <a href="#ref15" class="bib-back">&#8617;</a> <a href="#ref15b" class="bib-back">&#8617;</a></li>
+      <li id="fn16">[16] Forbes. "Trump Attacks MAGA Iran War Critics." April 10, 2026; Newsweek, "Trump eviscerates Tucker Carlson, Megyn Kelly, Candace Owens and Alex Jones," April 9, 2026; CNN, "MAGA malaise festers into some high-profile buyers' remorse," April 22, 2026; ABC News/IBTimes UK reporting on Tucker Carlson's February 28, 2026 comment following the joint U.S.-Israeli strikes on Iran. <a href="#ref16" class="bib-back">&#8617;</a> <a href="#ref16b" class="bib-back">&#8617;</a></li>
+      <li id="fn17">[17] NBC News. "Tulsi Gabbard announces she's leaving the Democratic Party." October 2022. <a href="https://nbcnews.com" target="_blank" rel="noopener">nbcnews.com</a> <a href="#ref17" class="bib-back">&#8617;</a></li>
+      <li id="fn18">[18] Foreign Policy. "Tulsi Gabbard's Views on Russia, Syria, and Assad: Everything We Know." December 10, 2024. <a href="https://foreignpolicy.com" target="_blank" rel="noopener">foreignpolicy.com</a> <a href="#ref18" class="bib-back">&#8617;</a> <a href="#ref18b" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Campaign Finance &amp; the Donor Class</span>
+    <ul class="bib-list">
+      <li id="fn19">[19] Quorum. "Corporate Donations by Party: 2024 Election Data." <a href="https://quorum.us/blog/corporate-donations" target="_blank" rel="noopener">quorum.us</a>, analyzing OpenSecrets data on the National Association of Realtors and other top PAC donors. <a href="#ref19" class="bib-back">&#8617;</a></li>
+      <li id="fn20">[20] Americans for Tax Fairness billionaire donor family data, 2024 cycle, cited via factually.co compilation. <a href="#ref20" class="bib-back">&#8617;</a></li>
+      <li id="fn21">[21] OpenSecrets. "Trump Administrations: 2025 Inauguration Donors." <a href="https://opensecrets.org/trump/2025-inauguration-donors" target="_blank" rel="noopener">opensecrets.org</a> <a href="#ref21" class="bib-back">&#8617;</a></li>
+      <li id="fn22">[22] CNBC. "Corporate America shelled out millions for Trump's inauguration." April 23, 2025. <a href="https://cnbc.com" target="_blank" rel="noopener">cnbc.com</a>; Washington Post, "Meet the top donors who pumped millions into Trump's inauguration," May 9, 2025; Brennan Center for Justice, "Million-Dollar Donors Flooded Trump's Second Inauguration," 2025, <a href="https://brennancenter.org" target="_blank" rel="noopener">brennancenter.org</a>. <a href="#ref22" class="bib-back">&#8617;</a> <a href="#ref22b" class="bib-back">&#8617;</a></li>
+      <li id="fn23">[23] Washington Post. "Zuckerberg's Meta donates $1 million to Trump inauguration fund." December 12, 2024; Fox News, "Billionaires cozy up to Trump with seven-figure inaugural donations after past feuds with incoming president," December 29, 2024, <a href="https://foxnews.com" target="_blank" rel="noopener">foxnews.com</a>. <a href="#ref23" class="bib-back">&#8617;</a></li>
+      <li id="fn24">[24] Democracy Now! "The Big Money Inauguration." January 21, 2013; Center for Public Integrity, "Obama inauguration fueled by corporations, unions," <a href="https://publicintegrity.org" target="_blank" rel="noopener">publicintegrity.org</a>; Campaign Legal Center, "Filling the Swamp: Inauguration and Transition Funding," <a href="https://campaignlegal.org" target="_blank" rel="noopener">campaignlegal.org</a>. <a href="#ref24" class="bib-back">&#8617;</a> <a href="#ref24b" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Founding Era</span>
+    <ul class="bib-list">
+      <li id="fn25">[25] Gilder Lehrman Institute of American History. "A brawl between Federalists and anti-Federalists, 1788." <a href="https://gilderlehrman.org" target="_blank" rel="noopener">gilderlehrman.org</a> <a href="#ref25" class="bib-back">&#8617;</a></li>
+      <li id="fn26">[26] American Battlefield Trust, "Ratifying the Constitution," <a href="https://battlefields.org" target="_blank" rel="noopener">battlefields.org</a>; Bill of Rights Institute, "The Ratification Debate on the Constitution," <a href="https://billofrightsinstitute.org" target="_blank" rel="noopener">billofrightsinstitute.org</a>. <a href="#ref26" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
