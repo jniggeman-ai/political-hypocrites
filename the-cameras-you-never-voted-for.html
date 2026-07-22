@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cameras You Never Voted For, Paid for By You -- Political Hypocrites</title>
+  <meta name="description" content="What Flock Safety cameras are, who can access what they record, who profits from them, and why no resident of any city that funds them was ever given a direct vote on the matter." />
+  <meta property="og:title" content="The Cameras You Never Voted For, Paid for By You -- Political Hypocrites" />
+  <meta property="og:description" content="Over 100,000 cameras. Over 5,000 communities. Federal access under both parties. A private company worth billions, built on public money nobody voted on directly." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/the-cameras-you-never-voted-for" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Cameras You Never Voted For, Paid for By You -- Political Hypocrites" />
+  <meta name="twitter:description" content="Over 100,000 cameras. Over 5,000 communities. Federal access under both parties. A surveillance network nobody voted on directly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.02;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2rem; font-weight: 400;
+    }
+    .share-btn {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.15rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears in Part Eight. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&rsaquo;</span>
+    <span class="current">The Cameras You Never Voted For</span>
+  </div>
+  <span class="article-label">Current Events + Opinion, July 2026</span>
+  <h1 class="article-title">
+    The Cameras You Never Voted For,
+    <span>Paid for By You</span>
+  </h1>
+  <p class="article-subtitle">What Flock Safety cameras are, who can access what they record, who profits from them, and why no resident of any city that funds them was ever given a direct vote on the matter.</p>
+  <a href="https://twitter.com/intent/tweet?text=The+Cameras+You+Never+Voted+For%2C+Paid+for+By+You&url=https://political-hypocrites.vercel.app/current-events/the-cameras-you-never-voted-for" target="_blank" class="share-btn">Share on X</a>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">July 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Eight</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">What Flock Actually Is, and How Big It's Gotten</h2>
+    <p class="article-lede">Before I get into who is looking at this data or what it can be used for, I want to be precise about what these cameras actually are, because Flock's own marketing and its critics describe two very different things, and I think the truth sits closer to the critics than the company would like.</p>
+
+    <p>Flock Safety cameras are automated license plate readers, commonly called ALPRs. They are motion activated, solar powered in most deployments, and mounted on poles at intersections, along neighborhood entrances, and on major roads.<a href="#fn1" class="fn" id="ref1">[1]</a> When a vehicle passes, the camera captures several frames and runs them through computer vision software that reads the license plate and logs what the company calls a vehicle fingerprint, meaning the make, model, color, and other visible details like roof racks, bumper stickers, and existing damage.<a href="#fn2" class="fn" id="ref2">[2]</a> Flock states plainly that its system does not use facial recognition and is not designed to identify individual people.<a href="#fn3" class="fn" id="ref3">[3]</a></p>
+
+    <p>That is the company's framing. When I looked at the practical record, it complicates that framing considerably. The cameras are triggered by motion, which means they capture whatever passes in front of them, not just cars. Pedestrians, cyclists, and anyone else in frame get recorded along with the vehicle.<a href="#fn4" class="fn" id="ref4">[4]</a> And while the system may not run facial recognition, tracking a specific car with enough precision tells you a great deal about the person who owns it, since that person is very likely inside it. I do not think that distinction matters much in practice.</p>
+
+    <p>The network built around this technology has grown fast, and the scale surprised me when I dug into the numbers. Flock was founded in 2017.<a href="#fn5" class="fn" id="ref5">[5]</a> By 2026 the company had more than 100,000 cameras deployed, under contract with more than 5,000 communities and roughly 4,500 to 5,000 law enforcement agencies across 49 states.<a href="#fn6" class="fn" id="ref6">[6]</a> The system processes something on the order of 20 billion scans a month.<a href="#fn7" class="fn" id="ref7">[7]</a> That is the scale I am working from for the rest of this piece.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">Who's Actually Looking at Your Plate</h2>
+
+    <p>Flock's system runs on a national lookup network called FlockOS, which allows a police department in one state to search camera data collected by a department in another, provided both have opted into sharing.<a href="#fn8" class="fn" id="ref8">[8]</a> Flock states it has no contract with ICE or any Department of Homeland Security subagency and does not share customer data without explicit customer permission.<a href="#fn9" class="fn" id="ref9">[9]</a> That statement describes only Flock's own contracts. It does not describe what its customers, meaning individual police departments, actually do with the access they control.</p>
+
+    <p>The federal government's reach into this network predates the current administration and continues under it. The FBI ran its own pilot access program with Flock from July 2021 to July 2023.<a href="#fn10" class="fn" id="ref10">[10]</a> Flock later ran pilot programs with Customs and Border Protection and Homeland Security Investigations from March through August of 2025.<a href="#fn11" class="fn" id="ref11">[11]</a> A public records request out of Danville, Illinois found more than 4,000 Flock searches nationwide logged for immigration related reasons between June 2024 and May 2025, a window that spans two administrations.<a href="#fn12" class="fn" id="ref12">[12]</a> In Illinois, an audit found Customs and Border Protection had accessed camera data in the state despite a state law barring exactly that use.<a href="#fn13" class="fn" id="ref13">[13]</a> In Colorado, Loveland police gave the ATF access to their account, and an ATF agent then used that access to run searches for ICE.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+
+    <p>Local access runs through cities controlled by both parties, and the record shows breaches on both sides regardless of the city's stated policy. In Richmond, Virginia, under a Democratic mayor, the city announced it would block federal agencies and any jurisdiction with a 287(g) ICE agreement from accessing its data, then kept funding the contract at 1.2 million dollars a year while police acknowledged two separate breaches, including one officer who shared footage directly with the FBI.<a href="#fn15" class="fn" id="ref15">[15]</a> In Texas, under Republican state leadership, a local officer searched more than 83,000 cameras nationwide, reaching into states where abortion is legal, to track down a woman suspected of a self-administered abortion.<a href="#fn16" class="fn" id="ref16">[16]</a> In San Francisco, a Democratic-run city with its own state privacy law on the books, out-of-state and federal agencies including ICE, CBP, the FBI, and the ATF queried the city's cameras more than 1.6 million times in seven months, according to a pending class action.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+
+    <p>Access to this network is not confined to the agency that owns a given camera, and once a department opts into national sharing, the practical control any single city, state, or party claims over its own data does not hold up against the record of who has actually gotten into it.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">Paid For By You, Owned By Him</h2>
+
+    <p>Every dollar that built this network came from somewhere, and I think it is worth being specific about where.</p>
+
+    <p>Flock does not sell cameras outright in most cases. It leases them to police departments, schools, and municipalities under multi-year contracts, typically funded through police department budgets, general fund allocations, or grant money, all of which trace back to taxpayers.<a href="#fn18" class="fn" id="ref18">[18]</a> The costs vary widely by city size and package. Covington, Georgia signed a ten-year, 5.2 million dollar contract.<a href="#fn19" class="fn" id="ref19">[19]</a> Huntington, West Virginia approved a five-year, 2 million dollar deal after a five and a half hour public hearing.<a href="#fn20" class="fn" id="ref20">[20]</a> Massachusetts police departments have spent more than 2 million dollars collectively on the technology over three years.<a href="#fn21" class="fn" id="ref21">[21]</a> Richmond, Virginia allocated 1.2 million dollars in a single budget year to keep its contract running.<a href="#fn22" class="fn" id="ref22">[22]</a> These are public dollars, appropriated through public budgets, for a private company's product.</p>
+
+    <p>That private company has grown into one of the most valuable surveillance businesses in the country. Flock was valued at 4.8 billion dollars in 2024, 7.5 billion dollars in March 2025, and 8.4 billion dollars by April 2026.<a href="#fn23" class="fn" id="ref23">[23]</a> Annual recurring revenue crossed 300 million dollars, with growth of roughly 70 percent year over year, driven overwhelmingly by its more than 5,000 government and law enforcement customers.<a href="#fn24" class="fn" id="ref24">[24]</a> Garrett Langley, the company's founder and CEO, holds a substantial equity stake in the business he leads, alongside co-founders Matt Feury and Paige Todd, and the company's ownership is otherwise distributed among major venture investors, including Andreessen Horowitz. No public cap table confirms Langley as the single largest individual shareholder, and I want to be precise about that rather than overstate it.<a href="#fn25" class="fn" id="ref25">[25]</a> He had already sold a previous company for roughly 200 million dollars before founding Flock in 2017.<a href="#fn26" class="fn" id="ref26">[26]</a> I am not aware of any public reporting on Langley's exact personal net worth, and I want to be precise about that rather than guess at a number, but his position as a founder and the chief executive of a multibillion dollar company built substantially on public sector contracts is a matter of public record.</p>
+
+    <p>I think the arrangement here is straightforward to describe. Cities across the country, run by officials of both parties, have voted to spend public money on a private surveillance product, and the value created by those thousands of individual public budget decisions has flowed into a private valuation now measured in the billions.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">DeFlock and the &ldquo;Terroristic Organization&rdquo; Comment</h2>
+
+    <p>In 2024, a software engineer named Will Freeman moved from Washington state to Huntsville, Alabama and started noticing black poles topped with solar panels and cameras at intersections along his route.<a href="#fn27" class="fn" id="ref27">[27]</a> He photographed one, searched it, and found Flock's website. From there, he started mapping every camera he could find, first around Huntsville, then with contributions from people around the country and eventually the world.<a href="#fn28" class="fn" id="ref28">[28]</a> He called the project DeFlock. It runs on OpenStreetMap, an open source mapping platform, and lets anyone report a camera's location and the direction it faces.<a href="#fn29" class="fn" id="ref29">[29]</a> As of mid-2026, DeFlock had cataloged more than 100,000 camera locations nationwide, a running tally that now matches or exceeds Flock's own published network size, and the project added a feature that lets drivers route around ALPR cameras entirely, in partnership with backing from the Electronic Frontier Foundation.<a href="#fn30" class="fn" id="ref30">[30]</a> Freeman has said plainly that his goal is for the cameras to come down, or at minimum for them to be clearly marked with signage.<a href="#fn31" class="fn" id="ref31">[31]</a> Flock sent DeFlock a cease and desist letter alleging trademark dilution. Freeman declined to comply, and the EFF is providing his legal backing.<a href="#fn32" class="fn" id="ref32">[32]</a></p>
+
+    <p>I think DeFlock is a useful thing to know about regardless of where anyone lands on the underlying privacy debate. It does not disable a single camera. It simply tells you where they are, which is information Flock itself does not publish.</p>
+
+    <p>Flock's CEO did not describe the project that way. In an interview reported by Forbes, Langley called DeFlock a &ldquo;terroristic organization&rdquo; and said its &ldquo;primary motivation is chaos.&rdquo;<a href="#fn33" class="fn" id="ref33">[33]</a> He has also compared it to Antifa.<a href="#fn34" class="fn" id="ref34">[34]</a> I want to be precise about what that comment was and was not describing. It was not describing an act of violence, a plot, or a threat. It was describing an open source mapping project that publishes camera locations, the same category of information a person could gather by driving around with a notepad.</p>
+
+    <p>That comment did not sit well across the political spectrum. Conservative commentator Tucker Carlson called Flock's network the &ldquo;largest mass surveillance operation in history&rdquo; and called Langley a &ldquo;douchebag billionaire&rdquo; on air.<a href="#fn35" class="fn" id="ref35">[35]</a> The ACLU, from the other direction, called Langley's posture toward critics &ldquo;simplistic, juvenile, and ultimately authoritarian.&rdquo;<a href="#fn36" class="fn" id="ref36">[36]</a> By July 2026, facing what Forbes described as a genuinely bipartisan backlash, Langley told Forbes his comments had been a mistake and that he apologized for them.<a href="#fn37" class="fn" id="ref37">[37]</a> I think it is worth taking that apology at face value while also noting that it came only after the criticism had become large enough, and loud enough from both political directions, that the company's own PR position had become untenable.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">No Opt-Out, and What That Makes Possible</h2>
+
+    <p>Every other conversation about digital privacy includes some version of the same escape hatch. Do not like how an app uses your data, stop using the app. Do not like what a website tracks, use a different browser or block the trackers. Flock's network does not offer that option, and I think that is the detail that separates it from almost every other privacy debate in this country.</p>
+
+    <p>A license plate is a legal requirement to operate a vehicle on public roads.<a href="#fn38" class="fn" id="ref38">[38]</a> Driving, in most of this country, is not a lifestyle choice. It is how people get to work, to a hospital, to a grocery store, in places with no meaningful public transit alternative. DeFlock's founder put it plainly: on a phone, you can opt out by simply not using the service. With an ALPR network covering public roads, the only way to opt out is to not drive, which is not a realistic option for most people, most places, most days.<a href="#fn39" class="fn" id="ref39">[39]</a> I think that is a structural difference, not a matter of degree, from every other surveillance debate people are used to having.</p>
+
+    <p>Once you accept that almost no one can opt out, the question becomes what a database like this can actually be used to build, and the record already contains real examples rather than hypotheticals. In May 2025, a Texas officer searched more than 83,000 cameras nationwide, including cameras in states where abortion is legal, while trying to locate a woman suspected of a self-administered abortion.<a href="#fn40" class="fn" id="ref40">[40]</a> An Institute for Justice study identified officers across the country caught using Flock to track a romantic partner or ex, including one Florida officer who ran his ex-girlfriend's plate at least 69 times in a single summer and then invited a colleague on what he called a stakeout to find her.<a href="#fn41" class="fn" id="ref41">[41]</a> The Electronic Frontier Foundation, reviewing more than 12 million searches logged by nearly 3,900 agencies, found patterns consistent with tracking people attending protests, exercising First Amendment rights that have nothing to do with any crime.<a href="#fn42" class="fn" id="ref42">[42]</a> None of these searches required a warrant, because current law generally treats a license plate captured from a public road as information with no reasonable expectation of privacy, the same legal theory that applies to a license plate a person could photograph by hand.<a href="#fn43" class="fn" id="ref43">[43]</a></p>
+
+    <p>That legal theory may be starting to narrow. On June 29, 2026, the Supreme Court ruled 6 to 3 in <em>Chatrie v. United States</em> that accessing a person's detailed cell phone location history is itself a Fourth Amendment search, meaning it requires a warrant grounded in probable cause and particularity. The Court did not rule on whether the specific warrant at issue, or bulk location data searches generally, actually satisfy those requirements, and sent that question back to the lower court to decide.<a href="#fn44" class="fn" id="ref44">[44]</a> Legal observers have pointed out that an ALPR bulk query raises much the same concern as the location tracking technology at the center of that case, since it logs everyone who passes, regardless of suspicion, and lets an officer search backward through that log later.<a href="#fn45" class="fn" id="ref45">[45]</a> Flock has not issued a public statement on how, or whether, this ruling affects its product.<a href="#fn46" class="fn" id="ref46">[46]</a></p>
+
+    <p>I do not think anyone needs to imagine a dystopian future to take this seriously. A record already exists of this exact technology being used to track a woman seeking a legal medical procedure across state lines, to stalk a romantic partner, and to monitor people at a protest. The only thing standing between the system was used this way once and the system gets used this way as a matter of course is whether departments choose to allow it, and the record so far suggests plenty of them do.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">Not a Red or Blue Problem</h2>
+
+    <p>If this were a story where one party built the surveillance network and the other opposed it, this section would be short. It is not that story.</p>
+
+    <p>In May 2026, Representative Scott Perry, a Republican from Pennsylvania and a member of the Freedom Caucus, and Representative Jesus &ldquo;Chuy&rdquo; Garcia, a Democrat from Illinois, co-sponsored an amendment to a federal highway funding bill that would have barred any jurisdiction receiving federal highway money from using ALPR systems for anything other than toll collection.<a href="#fn47" class="fn" id="ref47">[47]</a> The amendment would have effectively forced a choice between federal highway funding and continued use of Flock's network nationwide.<a href="#fn48" class="fn" id="ref48">[48]</a> It failed in committee, 20 to 44.<a href="#fn49" class="fn" id="ref49">[49]</a> Legislators from both parties acknowledged documented abuses of the technology during the debate, and most said some form of regulation was warranted. They still voted it down.<a href="#fn50" class="fn" id="ref50">[50]</a></p>
+
+    <p>The opposition and support inside that vote did not split cleanly by party. Representative Maxwell Frost, a progressive Democrat from Florida, supported the amendment. So did libertarian-leaning Republicans aligned with Perry's wing of the party.<a href="#fn51" class="fn" id="ref51">[51]</a> Representative Rick Larsen, a Democrat from Washington who had cosponsored the broader highway bill, argued against the amendment and pointed to his own state's more limited regulatory law as a preferable model, a position that put him closer to law enforcement's stance than to his co-sponsor Garcia's.<a href="#fn52" class="fn" id="ref52">[52]</a> An IPVM investigation into the amendment's failure found lobbying connections tying at least one of the amendment's opponents to Flock directly.<a href="#fn53" class="fn" id="ref53">[53]</a></p>
+
+    <p>Public commentary followed the same pattern of crossing party lines rather than respecting them. Tucker Carlson, a conservative commentator, called Flock's network the &ldquo;largest mass surveillance operation in history.&rdquo;<a href="#fn54" class="fn" id="ref54">[54]</a> A UFC fighter posted support on X for people physically disabling Flock cameras.<a href="#fn55" class="fn" id="ref55">[55]</a> The ACLU and the Electronic Frontier Foundation, both civil liberties organizations more commonly associated with the left, ran parallel campaigns against the same technology, and EPIC organized a coalition letter urging Congress to ban it outright, citing the FBI's own plans to spend 36 million dollars on a nationwide license plate tracking system.<a href="#fn56" class="fn" id="ref56">[56]</a></p>
+
+    <p>I do not think this pattern reflects two parties finding common ground and fixing the problem. I think it reflects a technology that has become widespread enough, and been misused publicly enough, that concern about it no longer sorts neatly by party, while the actual legislative outcome, the vote that would have restricted it, still failed. Bipartisan concern and bipartisan inaction turned out to be compatible.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Where It Stands Now</h2>
+
+    <p>As of mid-2026, this fight is happening in real time in dozens of cities simultaneously, and the outcomes are genuinely mixed rather than trending cleanly in one direction.</p>
+
+    <p>More than 50 cities have canceled or paused their Flock contracts.<a href="#fn57" class="fn" id="ref57">[57]</a> Santa Cruz, Mountain View, and Santa Clara County in California all terminated their agreements.<a href="#fn58" class="fn" id="ref58">[58]</a> In Washington state, Redmond suspended its contract, Lynnwood terminated a 171,000 dollar deal, and Mountlake Terrace ended its agreement before the cameras were even installed, while still owing the first year's payment.<a href="#fn59" class="fn" id="ref59">[59]</a> Dayton, Ohio could not immediately exit its contract, so city workers covered 72 cameras with garbage bags instead.<a href="#fn60" class="fn" id="ref60">[60]</a> Other cities have gone the opposite direction. Huntington, West Virginia approved a new 2 million dollar, five-year contract in July 2026 after an extended public hearing.<a href="#fn61" class="fn" id="ref61">[61]</a> Richmond, Virginia kept funding its contract at 1.2 million dollars a year despite the breaches described earlier in this piece.<a href="#fn62" class="fn" id="ref62">[62]</a> Cleveland extended its contract for six more months while citing an increase in case closure rates, from 15.5 percent before Flock to 18.7 percent after, though city officials themselves cautioned that figure does not establish how many of those closures Flock actually caused.<a href="#fn63" class="fn" id="ref63">[63]</a></p>
+
+    <p>Litigation is moving forward alongside the local votes. The class action filed in San Francisco Superior Court in February 2026 is seeking 2,500 dollars per violation under California's ALPR Privacy Act, a figure that could run into the billions given the 1.6 million queries alleged in the complaint.<a href="#fn64" class="fn" id="ref64">[64]</a> Separately, legal observers are watching how courts apply the Supreme Court's June 2026 ruling in <em>Chatrie v. United States</em> to bulk ALPR searches. The Court held that accessing detailed location tracking data of the kind Flock collects is a Fourth Amendment search requiring a warrant, without deciding whether a search structured like Flock's national lookup network would satisfy that warrant's particularity and probable cause requirements, a question the Court's reasoning appears to raise squarely even though it left the answer to the lower courts.<a href="#fn65" class="fn" id="ref65">[65]</a></p>
+
+    <p>On the legislative side, the picture is one of narrow, state-by-state regulation rather than any broad federal restriction. Colorado's Senate Bill 26-070 would require a warrant before accessing ALPR data more than 72 hours after a crime.<a href="#fn66" class="fn" id="ref66">[66]</a> Washington's House passed a bill creating a regulatory framework for ALPR use while preserving the underlying police tool.<a href="#fn67" class="fn" id="ref67">[67]</a> The federal Perry-Garcia amendment, the one closest to an outright restriction, failed in committee, as covered in the previous section.<a href="#fn68" class="fn" id="ref68">[68]</a> Flock itself continues expanding, crossing 100,000 cameras installed even as the 53 cancellations were happening simultaneously, and the company is reportedly positioning for a possible IPO in 2026 or 2027.<a href="#fn69" class="fn" id="ref69">[69]</a></p>
+
+    <p>I think the fairest way to describe where this stands is unresolved, and moving in two directions at once. A meaningful number of cities are pulling out. A larger number are staying in, some after public hearings that ran past midnight, and the company is still growing overall. Nothing at the federal level has passed that would settle the question either way.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">Opinion: A Surveillance State We Never Approved</h2>
+
+    <p><span class="opinion-inline">Opinion</span> I want to say plainly what I think after putting this together, because I do not think hedging serves anyone at this point.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Nobody voted on this. I do not mean that in a technical sense, since I know full well that elected city councils held votes, sometimes after hours of public comment, sometimes past midnight, before signing these contracts. I mean that no resident of Covington, Georgia or Huntington, West Virginia or Richmond, Virginia was ever handed a ballot that asked them directly whether they wanted their license plate logged every time they drove to work, to church, to a doctor's appointment, or to a protest. A handful of council members made that decision on behalf of everyone else in the city, using public money, and called the matter settled. I do not think a council vote is the same thing as public consent, and I think the distinction matters enormously when the product being purchased is a permanent record of where every resident goes.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I am also not interested in pretending either party comes out of this looking better than the other, because I do not think either one does. Republican officials in Texas used this network to hunt down a woman over a legal medical decision made in another state. Democratic officials in Richmond promised to block federal access and then kept funding the system anyway while it leaked to the FBI regardless. The FBI ran its own pilot under a Democratic administration. CBP and HSI ran theirs under a Republican one. Illinois' Democratic secretary of state caught a violation that Illinois' own Democratic legislature had already tried and failed to fully prevent. I am not handing out credit to anyone in either party for occasionally noticing a problem they had every opportunity to stop from the start. Noticing a fire you helped fund is not the same as putting it out.</p>
+
+    <p><span class="opinion-inline">Opinion</span> What bothers me most is not any single misuse, though the abortion tracking case and the officers stalking their exes both turned my stomach. What bothers me is the structure underneath all of it. This is a private company, now worth somewhere between 7.5 and 8.4 billion dollars, that built its entire business model on public money, contract by contract, city by city, with almost no resident anywhere getting a direct say in whether they wanted to fund it. There is no opt-out. You cannot uninstall this the way you delete an app. You cannot simply stop driving in most of this country and still live a normal life. I think that combination, permanent tracking with no consent mechanism and no exit, is the definition of a surveillance state, regardless of which party's officials signed the check.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I do not think either party is going to fix this on its own, because I do not think either party has shown, so far, that it wants to. I think residents in every one of these cities deserve the chance to vote directly on whether this technology gets funded with their money, not just the chance to watch a council vote on it after the fact. Until that happens, I think everyone paying taxes in a city with these cameras is funding a surveillance network they never actually agreed to.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <div class="bibliography-label">Sources</div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part One: What Flock Is and How Big It's Gotten</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] City of Bartlesville, Oklahoma, &ldquo;Flock Safety Camera System FAQ,&rdquo; cityofbartlesville.org. Flock Safety, &ldquo;What Is Flock,&rdquo; flocksafety.com. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Flock Safety, &ldquo;What Do Flock Cameras Actually Capture?&rdquo; flocksafety.com/blog. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] Flock Safety, &ldquo;What Is Flock,&rdquo; flocksafety.com. <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] ACLU of Oregon, &ldquo;Know Your Tech: Flock,&rdquo; aclu-or.org. Center for Human Rights and Privacy, &ldquo;Dissection of Flock Safety Camera,&rdquo; cehrp.org. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] Wikipedia, &ldquo;Flock Safety,&rdquo; en.wikipedia.org. TechCrunch, &ldquo;Y Combinator's Police Surveillance Darling Flock Safety Raises 275M at 7.5B Valuation,&rdquo; March 13, 2025. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] TechTimes, &ldquo;Flock Safety Crosses 100,000 Cameras as 53 Cities Cancel Over Unauthorized Federal Data Access,&rdquo; June 29, 2026. Berkeleyside, &ldquo;What Are Flock Cameras, and Why Are They Controversial in Berkeley?&rdquo; July 13, 2026. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] Common Dreams, &ldquo;'Get the Flock Out': Nationwide Backlash Grows Against AI-Powered Surveillance Tech,&rdquo; July 2026, citing ACLU figures. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Two: Federal and Cross-Party Access</span>
+    <ul class="bib-list">
+      <li id="fn8">[8] State of Surveillance, &ldquo;Flock Safety's Private Surveillance State: 80 Cities Are Pulling Out,&rdquo; June 5, 2026. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn9">[9] Flock Safety, &ldquo;Does Flock Share Data With ICE?&rdquo; flocksafety.com/blog, January 6, 2026. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] Flock Safety, &ldquo;Does Flock Share Data With ICE?&rdquo; flocksafety.com/blog, listing FBI pilot dates of July 21, 2021 to July 14, 2023. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] Flock Safety, &ldquo;Does Flock Share Data With ICE?&rdquo; flocksafety.com/blog, listing HSI pilot (March 3 to May 1, 2025) and CBP pilot (May 9 to August 24, 2025). KEZI, &ldquo;Flock Safety Halts Federal Pilot Programs with Homeland Security Agencies,&rdquo; August 29, 2025. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn12">[12] 404 Media, via Yahoo News / AOL, &ldquo;Illinois Cops Gave ICE Access to More Than 5,000 Surveillance Cameras Nationwide,&rdquo; Reason.com, Autumn Billings. Virginia Center for Investigative Journalism at WHRO, &ldquo;Fed's Hidden Immigration Weapon, Virginia's Surveillance Network,&rdquo; July 2, 2025. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] NBC Chicago, &ldquo;Flock Violated Illinois Law by Sharing Data with Federal Agency: Giannoulias,&rdquo; August 26, 2025. Illinois Secretary of State, &ldquo;Giannoulias Audit Finds License Plate Reader Company in Violation of State Law,&rdquo; August 25, 2025. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] 9News (Denver), &ldquo;Flock Admits Federal Immigration Agents Have Direct Access to Tracking Data, Despite Previous Claims,&rdquo; August 19, 2025. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn15">[15] WRIC ABC 8News, &ldquo;Richmond Approves 2026-27 Budget with Continued Funding for Flock Camera System Despite Public Opposition,&rdquo; May 12, 2026. VPM, &ldquo;Community Groups Question Richmond Police's Use of Flock Safety Cameras,&rdquo; June 4, 2026. Style Weekly, &ldquo;It's Time to Turn Off the Flock Safety Cameras,&rdquo; June 10, 2026. City of Richmond, &ldquo;Richmond's Response to Federal Immigration Action,&rdquo; rva.gov. WTVR CBS 6, &ldquo;Richmond Police Sergeant Loses Flock Access After Policy Violation,&rdquo; April 30, 2026. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] Rep. Robert Garcia and Rep. Raja Krishnamoorthi, letter to Flock Safety CEO Garrett Langley, August 6, 2025, krishnamoorthi.house.gov, citing 404 Media, &ldquo;A Texas Cop Searched License Plate Cameras Nationwide for a Woman Who Got an Abortion,&rdquo; May 29, 2025, and EFF, &ldquo;She Got an Abortion. So a Texas Cop Used 83,000 Cameras to Track Her Down,&rdquo; May 30, 2025. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn17">[17] The Gateway Pundit, &ldquo;Flock Safety's Billion-Dollar Surveillance Machine Caught Sharing Your Data With The Feds,&rdquo; July 2026, describing Gibbs Mura / Milberg PLLC class action, San Francisco Superior Court, filed February 26, 2026. TechTimes, June 29, 2026. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Three: Taxpayer Contracts and Company Valuation</span>
+    <ul class="bib-list">
+      <li id="fn18">[18] Get Safe and Sound, &ldquo;Flock Safety Pricing Explained: Costs and Fees (2026),&rdquo; getsafeandsound.com. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] Rockdale Newton Citizen, &ldquo;Covington Enters 5 Million Flock Safety Contract,&rdquo; rockdalenewtoncitizen.com. <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] WSAZ, &ldquo;Huntington City Council Adopts Resolution to Purchase New Flock Security Technology,&rdquo; July 13, 2026. Herald-Dispatch, &ldquo;Huntington City Council Approves Contract for Flock Safety Cameras.&rdquo; <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn21">[21] ACLU of Massachusetts, Data for Justice Project, &ldquo;Flock Gives Law Enforcement All Over the Country Access to Your Location,&rdquo; data.aclum.org. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn22">[22] WRIC ABC 8News, &ldquo;Richmond Approves 2026-27 Budget with Continued Funding for Flock Camera System Despite Public Opposition,&rdquo; May 12, 2026. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] Atlrank.com, &ldquo;Garrett Langley and Flock Safety: Inside the Atlanta Founder's 8.4B Surveillance Empire.&rdquo; TechCrunch, &ldquo;Watch Flock Safety CEO Garrett Langley Discuss the Future of Surveillance at TechCrunch Disrupt 2026.&rdquo; Sacra, &ldquo;Flock Safety Revenue, Funding and Growth Rate.&rdquo; <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] TechCrunch, March 13, 2025. GetLatka.com, &ldquo;Flock Safety Revenue 2025: 300M ARR, 7.5B Valuation.&rdquo; <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn25">[25] Sacra, &ldquo;Flock Safety Revenue, Funding and Growth Rate,&rdquo; sacra.com, on founder and investor equity distribution, including Andreessen Horowitz's stake. Atlrank.com, &ldquo;Garrett Langley and Flock Safety.&rdquo; <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn26">[26] Atlrank.com, &ldquo;Garrett Langley and Flock Safety.&rdquo; Georgia Tech, InVenture Prize, &ldquo;Garret Langley&rdquo; profile, inventureprize.gatech.edu, on the 2014 acquisition of Langley's prior company, Experience, by Cox Enterprises. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Four: DeFlock and the CEO's Comments</span>
+    <ul class="bib-list">
+      <li id="fn27">[27] 404 Media, &ldquo;The Open Source Project DeFlock Is Mapping License Plate Surveillance Cameras All Over the World,&rdquo; November 11, 2024. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] 404 Media, November 11, 2024. Autoevolution, &ldquo;Crowd-Sourced Project DeFlock Mapping Out License Plate Reader Cameras To Raise Awareness,&rdquo; November 12, 2024. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn29">[29] Adafruit Blog, &ldquo;Deflock, an Open-Source Project Mapping License Plate Readers,&rdquo; June 10, 2026. GovTech, &ldquo;Software Engineer Maps Locations of License Plate Readers,&rdquo; November 15, 2024. <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn30">[30] SOFX, &ldquo;New Map Tool Helps Drivers Dodge License Plate Cameras and Bluetooth Trackers,&rdquo; June 2026. Gizmodo, &ldquo;Flock's CEO Is Sorry for Calling Privacy Activists 'Terrorists.'&rdquo; Gadget Review, &ldquo;Flock Cameras Spread Across Southwest Florida, Raising Privacy Fears.&rdquo; <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] GovTech, &ldquo;Software Engineer Maps Locations of License Plate Readers,&rdquo; November 15, 2024. <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn32">[32] SOFX, &ldquo;New Map Tool Helps Drivers Dodge License Plate Cameras and Bluetooth Trackers,&rdquo; June 2026. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] Forbes, &ldquo;Flock CEO Apologizes For Calling Activists 'Terrorists,'&rdquo; July 17, 2026. Gizmodo, &ldquo;Flock's CEO Is Sorry for Calling Privacy Activists 'Terrorists.'&rdquo; <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] IPVM, &ldquo;Flock Condemns False Child Predator Allegations, Yet Calls Its Own Critics Terrorists,&rdquo; April 17, 2026. <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] Forbes, &ldquo;Flock CEO Apologizes For Calling Activists 'Terrorists,'&rdquo; July 17, 2026. <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn36">[36] IPVM, &ldquo;Flock Condemns False Child Predator Allegations, Yet Calls Its Own Critics Terrorists,&rdquo; April 17, 2026. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn37">[37] Forbes, &ldquo;Flock CEO Apologizes For Calling Activists 'Terrorists,'&rdquo; July 17, 2026. Gizmodo, same date range. <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Five: Privacy, Misuse, and the Legal Standard</span>
+    <ul class="bib-list">
+      <li id="fn38">[38] State vehicle registration and licensing statutes generally. See also DeFlock.org mission statement on the mandatory nature of license plates. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn39">[39] GovTech, &ldquo;Software Engineer Maps Locations of License Plate Readers,&rdquo; November 15, 2024, quoting Will Freeman. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn40">[40] EFF, &ldquo;She Got an Abortion. So a Texas Cop Used 83,000 Cameras to Track Her Down,&rdquo; May 30, 2025. 404 Media, May 29, 2025. <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn41">[41] Institute for Justice, &ldquo;Police Have Reportedly Used License Plate Readers to Stalk Romantic Interests at Least 24 Times in Recent Years,&rdquo; April 27, 2026. <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn42">[42] Electronic Frontier Foundation, &ldquo;EFF's Investigations Expose Flock Safety's Surveillance Abuses: 2025 in Review,&rdquo; December 30, 2025. <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn43">[43] General discussion of third-party doctrine and public-view exposure as applied to ALPR data. See Uticaphoenix.net analysis below for the doctrine's current legal status. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn44">[44] Supreme Court of the United States, <em>Chatrie v. United States</em>, No. 25-112, decided June 29, 2026 (slip opinion). Uticaphoenix.net, &ldquo;SCOTUS Geofence Ruling Challenges Flock Safety ALPR Data in 2026,&rdquo; July 2, 2026. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn45">[45] Uticaphoenix.net, &ldquo;SCOTUS Geofence Ruling Challenges Flock Safety ALPR Data in 2026,&rdquo; July 2, 2026. <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn46">[46] Uticaphoenix.net, &ldquo;SCOTUS Geofence Ruling Challenges Flock Safety ALPR Data in 2026,&rdquo; July 2, 2026, noting no public Flock statement as of that date. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Six: Bipartisan Legislative Record</span>
+    <ul class="bib-list">
+      <li id="fn47">[47] Police1, &ldquo;Bill Amendment Would Limit Police Use of LPRs Nationwide,&rdquo; May 28, 2026. Yahoo News, &ldquo;Congress Moves to Kill Police License Plate Tracking Nationwide as Bipartisan Revolt Targets Flock Cameras,&rdquo; May 27, 2026. <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn48">[48] Yahoo News, &ldquo;Congress Moves to Kill Police License Plate Tracking Nationwide,&rdquo; May 27, 2026. <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn49">[49] Washington Privacy Organizers, &ldquo;Bipartisan Amendment to Ban Flock and Other ALPRs Fails, But There's Support for Regulation,&rdquo; May 22, 2026. IPVM, &ldquo;Legislation Killed That Would Have Effectively Blocked Police LPR, Including Flock,&rdquo; May 28, 2026. <a href="#ref49" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn50">[50] Washington Privacy Organizers, May 22, 2026. <a href="#ref50" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn51">[51] Washington Privacy Organizers, May 22, 2026. <a href="#ref51" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn52">[52] Washington Privacy Organizers, May 22, 2026. <a href="#ref52" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn53">[53] IPVM, &ldquo;Legislation Killed That Would Have Effectively Blocked Police LPR, Including Flock,&rdquo; May 28, 2026. <a href="#ref53" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn54">[54] Forbes, &ldquo;Flock CEO Apologizes For Calling Activists 'Terrorists,'&rdquo; July 17, 2026. <a href="#ref54" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn55">[55] Forbes, &ldquo;Flock CEO Apologizes For Calling Activists 'Terrorists,'&rdquo; July 17, 2026, citing Sean Strickland's post on X. <a href="#ref55" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn56">[56] EPIC, &ldquo;EPIC, Coalition Urge Congress to Ban Flock Automatic License Plate Readers,&rdquo; May 20, 2026. <a href="#ref56" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Seven: Current Status: Contracts, Litigation, Legislation</span>
+    <ul class="bib-list">
+      <li id="fn57">[57] TechTimes, &ldquo;Flock Safety Crosses 100,000 Cameras as 53 Cities Cancel Over Unauthorized Federal Data Access,&rdquo; June 29, 2026. <a href="#ref57" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn58">[58] ACLU, &ldquo;Fight Creepy ALPR Cameras,&rdquo; aclu.org/campaigns-initiatives/get-the-flock-out. Local News Matters, &ldquo;Santa Clara County Cities Weigh Ending Flock Safety Contracts Over ICE Access,&rdquo; February 3, 2026. <a href="#ref58" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn59">[59] KOMO News, &ldquo;Washington Cities Face Financial Questions After Pausing Flock Camera Contracts,&rdquo; March 18, 2026. <a href="#ref59" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn60">[60] TechTimes, June 29, 2026, describing Dayton, Ohio. The Gateway Pundit, July 2026. <a href="#ref60" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn61">[61] WSAZ, &ldquo;Huntington City Council Adopts Resolution to Purchase New Flock Security Technology,&rdquo; July 13, 2026. <a href="#ref61" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn62">[62] WRIC ABC 8News, May 12, 2026. <a href="#ref62" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn63">[63] Signal Cleveland, &ldquo;Takeaways from Cleveland's Flock License Plate Camera Debate,&rdquo; July 2026. <a href="#ref63" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn64">[64] The Gateway Pundit, July 2026, describing the Gibbs Mura / Milberg PLLC class action. State of Surveillance, June 5, 2026. <a href="#ref64" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn65">[65] Supreme Court of the United States, <em>Chatrie v. United States</em>, No. 25-112, decided June 29, 2026 (slip opinion). Uticaphoenix.net, July 2, 2026. <a href="#ref65" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn66">[66] Colorado Sun, &ldquo;A Colorado Bill Takes Aim at Flock Cameras, Police Surveillance Technology. Here's What's in It,&rdquo; April 21, 2026. Colorado General Assembly, Senate Bill 26-070, leg.colorado.gov. <a href="#ref66" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn67">[67] The Center Square, via AOL, &ldquo;WA House Passes License Plate Reader Bill Limiting Surveillance, Preserving Police Tools.&rdquo; <a href="#ref67" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn68">[68] Washington Privacy Organizers, May 22, 2026. Police1, May 28, 2026. <a href="#ref68" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn69">[69] TechTimes, June 29, 2026. WhoIsTheOwnerOf.com, June 6, 2026, on anticipated IPO timeline. <a href="#ref69" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us, All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>

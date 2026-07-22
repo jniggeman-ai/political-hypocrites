@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/investigations", "destination": "/investigations.html" },
+    { "source": "/current-events", "destination": "/current-events.html" },
+    { "source": "/investigations/from-friends-to-enemies", "destination": "/from-friends-to-enemies.html" },
+    { "source": "/investigations/the-climate-machine", "destination": "/the-climate-machine.html" },
+    { "source": "/investigations/political-hypocrites", "destination": "/political-hypocrites.html" },
+    { "source": "/investigations/the-permanent-war-machine", "destination": "/the-permanent-war-machine.html" },
+    { "source": "/investigations/the-covid-machine", "destination": "/the-covid-machine.html" },
+    { "source": "/investigations/the-invisible-conduit", "destination": "/the-invisible-conduit.html" },
+    { "source": "/current-events/the-tab-we-cannot-pay", "destination": "/the-tab-we-cannot-pay.html" },
+    { "source": "/current-events/the-grid-and-the-grab", "destination": "/the-grid-and-the-grab.html" },
+    { "source": "/current-events/the-donroe-doctrine", "destination": "/the-donroe-doctrine.html" },
+    { "source": "/current-events/get-out-of-jail-free", "destination": "/get-out-of-jail-free.html" },
+    { "source": "/current-events/the-massie-primary", "destination": "/the-massie-primary.html" },
+    { "source": "/current-events/born-free-voting-red", "destination": "/born-free-voting-red.html" },
+    { "source": "/current-events/the-terrorism-claim", "destination": "/the-terrorism-claim.html" },
+    { "source": "/current-events/the-white-house-billboard", "destination": "/the-white-house-billboard.html" },
+    { "source": "/current-events/freeze-the-rent", "destination": "/freeze-the-rent.html" },
+    { "source": "/current-events/boycotting-israel-state-contract", "destination": "/boycotting-israel-state-contract.html" },
+    { "source": "/current-events/the-cameras-you-never-voted-for", "destination": "/the-cameras-you-never-voted-for.html" },
+    { "source": "/investigations/the-nixon-file", "destination": "/the-nixon-file.html" },
+    { "source": "/investigations/poisoned-by-design", "destination": "/poisoned-by-design.html" },
+    { "source": "/investigations/tribal-by-design", "destination": "/tribal-by-design.html" },
+    { "source": "/investigations/natos-war-on-yugoslavia", "destination": "/natos-war-on-yugoslavia.html" }
+  ]
+}
