@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All At Once -- Political Hypocrites</title>
+  <meta name="description" content="A 30 day map of every active conflict on earth, and where America actually stands in each one. Iran, Ukraine, the Caspian Sea, the South China Sea, Lebanon, Sudan, and Myanmar, sourced and dated theater by theater." />
+  <meta property="og:title" content="All At Once -- Political Hypocrites" />
+  <meta property="og:description" content="A 30 day map of every active conflict on earth, and where America actually stands in each one. The reporting comes first. The opinion is clearly marked at the end." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/all-at-once" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All At Once -- Political Hypocrites" />
+  <meta name="twitter:description" content="A 30 day map of every active conflict on earth, and where America actually stands in each one." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.02;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2rem; font-weight: 400;
+    }
+    .share-btn {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.15rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .doc-callout {
+      background: var(--ink2); border: 1px solid var(--rule);
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>&rsaquo;</span>
+    <span class="current">All At Once</span>
+  </div>
+  <span class="article-label">Current Events + Opinion, August 2026</span>
+  <h1 class="article-title">
+    All At Once
+    <span>A 30 day map of every active conflict on earth, and where America actually stands in each one</span>
+  </h1>
+  <p class="article-subtitle">Eight active conflicts, running at the same time, sourced and dated theater by theater, followed by my own case for why I think America is more entangled in all of it than most people realize, and why I don't think we can afford to be.</p>
+  <a href="https://twitter.com/intent/tweet?text=All+At+Once%3A+A+30+Day+Map+of+Every+Active+Conflict+on+Earth&url=https://political-hypocrites.vercel.app/current-events/all-at-once" target="_blank" class="share-btn">Share on X</a>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">August 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Thirteen</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">Framing</h2>
+    <p class="article-lede">Over the past thirty days, I have been watching a pattern that most news coverage treats as separate stories: a missile strike in Kyiv here, a coast guard clash in the South China Sea there, a satellite photo of stealth fighters in Tibet, a drone strike on a Sudanese village that barely makes the wire. Read individually, each of these is a regional story with its own history and its own logic. Read together, over the same thirty day window, they start to look like something else.</p>
+
+    <p>This piece is not a prediction dressed up as reporting. The reporting comes first, theater by theater, sourced and dated. What happened in each region over the last month is laid out on its own terms, with contested claims attributed to whoever is making them, not asserted as settled fact. Only at the end do I step outside that reporting and make an argument, clearly marked as my opinion, about what I think it adds up to.</p>
+
+    <p>But I want to be upfront about the throughline before we get into the details. Since late June of 2026, the United States has been conducting an active air and naval campaign against Iran under a named military operation, Operation Epic Fury, ordered directly by the president. Russia has continued to launch some of the largest missile and drone barrages of the war against Ukrainian cities. China has moved a visible concentration of fifth generation stealth fighters to bases facing India&rsquo;s northern border for the first time. Chinese and Philippine forces have physically clashed three times in a single week in the South China Sea. Israel and Hezbollah are fighting a war that restarted in March and never fully stopped, despite a framework deal both governments have publicly discussed. Sudan&rsquo;s civil war has escalated into a drone campaign that a UN human rights office has directly documented killing civilians by name and location. Myanmar&rsquo;s junta and its resistance are locked into a fourth year of a war that keeps almost tipping and never quite does.</p>
+
+    <p>None of these conflicts started in the last thirty days. What is new is that they are all active, all escalating or holding at high intensity, and all happening at the same time, while the United States Navy repositions its largest and most visible assets, a decommissioning carrier, a carrier strike group tied by name to the Iran campaign, and an amphibious ready group explicitly assigned to a blockade operation, across three oceans simultaneously.</p>
+
+    <p>And America is not a bystander in any of these. The relationship looks different in each theater, and I want to be precise about that rather than flatten it into one storyline. In Iran, the United States is a direct combatant, striking targets under its own named operation. In Ukraine, the United States is not firing weapons itself, but Russia is an adversary this country has armed Ukraine against for years, and the outcome of that war shapes how seriously Washington&rsquo;s other commitments are taken. In the China-India standoff, the United States has no formal treaty obligation to India, but China is our most significant strategic competitor, and a Chinese air buildup on India&rsquo;s border is a data point in a much larger rivalry. In the South China Sea, the Philippines is a treaty ally, which means an American carrier group repositioning after a Chinese coast guard clash is not incidental, it is close to an obligation. In Lebanon, Israel is the closest security partner the United States has in the region, and the framework deal on the table was brokered by an American administration. Sudan and Myanmar are the theaters where American involvement is thinnest, mostly limited to sanctions and statements rather than assets or alliances, and I am not going to pretend otherwise just to make the pattern look tighter than it is. Where America is not directly fighting, it is very often allies or adversaries of ours doing the fighting instead, which is its own kind of involvement. That distinction, direct combatant in some theaters, backer or rival-by-proxy in others, matters, and I will keep drawing it section by section rather than letting it blur.</p>
+
+    <p>I am not asking you to take my word for any of this. Every claim in the sections that follow is sourced to primary military statements, wire reporting, or documentation from monitoring groups like the UN human rights office and the Council on Foreign Relations. Where a claim is contested, I say so and tell you who is making it. Where I think the pattern points somewhere specific, I tell you that too, and I flag it as my opinion, not as fact.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">Iran, Operation Epic Fury</h2>
+
+    <p>Operation Epic Fury is not a euphemism I am applying to something the government has kept quiet about. It is the actual, named designation the Department of War uses for its own campaign, and the department has built an entire public spotlight page around it, complete with a timeline, fact sheets, and press briefing transcripts. According to that page, the operation began on February 28, 2026, under the direct order of the president. Secretary of War Pete Hegseth has described the mission as laser focused on three things, destroying Iran&rsquo;s offensive missiles, destroying Iran&rsquo;s missile production capacity, and destroying Iran&rsquo;s navy and other security infrastructure, with the stated goal of ensuring Iran never acquires nuclear weapons.<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+
+    <p>What followed was not a single strike or a short punitive action. Britannica&rsquo;s explainer on the 2026 Iran war lays out the broader arc: after years of failed attempts to renegotiate a nuclear deal following the collapse of the original JCPOA, and after Iran&rsquo;s weakened position following the twelve day war with Israel in June 2025, a memorandum of understanding was announced on June 14, 2026, intended to bring the conflict to a formal end within sixty days. That truce did not hold. Iran struck three commercial vessels that had bypassed its preapproved shipping routes in early July, and President Trump said publicly that he considered the truce over.<a href="#fn2" class="fn" id="ref2">[2]</a></p>
+
+    <p>From there, the campaign escalated quickly and has stayed escalated. CNN reported that on July 13, the United States launched a third consecutive night of strikes at the president&rsquo;s direction, targeting Iranian coastal surveillance systems, drone capabilities, and missile infrastructure, alongside a reimposed naval blockade of Iranian ports.<a href="#fn3" class="fn" id="ref3">[3]</a> By July 20, CNN reported the Pentagon disclosed that nearly one hundred US service members had suffered injuries, mostly minor, since July 7, and that the United States was increasing its fighter jet presence in the region while additional fuelers arrived in Israel.<a href="#fn4" class="fn" id="ref4">[4]</a> Al Jazeera&rsquo;s interactive tracker, updated July 22, counted more than one hundred US air attacks across Iran since July 8, with Iranian officials reporting at least fifty people killed and more than five hundred wounded, a figure I cannot independently verify and am attributing directly to the Iranian government rather than presenting as confirmed.<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+
+    <p>The most recent major escalation came at the end of July. CNN reported that on July 29, President Trump vowed retribution after the US military said it had intercepted a surprise Iranian attack on American positions, ending a period of relative calm. The following night, US Central Command completed what it called a heavy wave of strikes against southern Iran, with Iranian state media reporting explosions across Bandar Abbas and the island of Kish.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+
+    <p>I want to be precise about what this section is and is not doing. It is not evaluating whether Operation Epic Fury is justified, proportionate, or wise. That question belongs in the Opinion section at the end, where I address it directly. What I am establishing here is simpler and, I think, more important for understanding everything that follows in this piece: the United States has been an active combatant in a named, ongoing war for five months, and the last thirty days represent one of its most intense phases, not its beginning and not, as far as the sourcing shows, anywhere near its end.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">The Blockade and the Strait of Hormuz</h2>
+
+    <p>If Operation Epic Fury is the military campaign, the naval blockade is the economic one, and it is worth treating as its own story because of how directly it touches ordinary commerce and ordinary people, not just military targets.</p>
+
+    <p>CNN reported that the United States reimposed a blockade of Iranian ports in mid July, with President Trump announcing the move as oil prices surged in response. Brent crude jumped 9.59 percent to settle at 83.30 dollars a barrel, its highest level since mid June, as traders priced in the risk to Gulf shipping.<a href="#fn7" class="fn" id="ref7">[7]</a> This is not a symbolic gesture. Documentation of the blockade, cross referenced against Department of War video releases, shows specific enforcement actions, including a Botswana flagged tanker that ignored repeated US warnings while transiting toward Kharg Island and was ultimately disabled by a Hellfire missile fired into its engine room, and an Iranian flagged cargo vessel disabled in April for attempting to violate the blockade while sailing toward an Iranian port.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+
+    <p>The effect on shipping traffic has been dramatic. CNN&rsquo;s July 20 coverage cited MarineTraffic data showing that in the twenty four hours prior, only nine vessels passed through the Strait of Hormuz, seven cargo ships entering the Gulf and two vessels exiting into the Gulf of Oman. For comparison, the article cited Library of Congress figures showing an average of 130 ships passed through daily just five months earlier, before the conflict resumed. That is close to a 93 percent collapse in traffic through one of the world&rsquo;s most important oil transit points.<a href="#fn4" class="fn" id="ref4b">[4]</a></p>
+
+    <p>Iran has not been a passive party in this. CNN&rsquo;s July 13 coverage reported that Iran&rsquo;s military said it struck and disabled two vessels it called rogue supertankers, describing the action as enforcement of its own preferred shipping routes, hours after the UAE said Iranian missiles had hit two of its tankers in Omani territorial waters.<a href="#fn3" class="fn" id="ref3b">[3]</a> Britannica&rsquo;s explainer frames Iran&rsquo;s broader strategy as an attempt to coerce commercial vessels and the international community into following routes and protocols set by Iran, which would let it control the strait and collect fees on ships passing through it. I want to flag that framing as coming from Britannica&rsquo;s editorial judgment rather than as a claim from either government directly, since it characterizes Iranian intent rather than just describing an action.<a href="#fn2" class="fn" id="ref2b">[2]</a></p>
+
+    <p>Both sides, in other words, are now using the strait itself as a weapon, the United States through a formal blockade enforced with lethal force against noncompliant vessels, and Iran through direct strikes on tankers it considers to be violating its own claimed authority over the waterway. Neither of these is a minor skirmish. Together they represent a serious disruption to one of the most consequential chokepoints in the global economy, and that disruption has held for weeks, not days.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">When Iran&rsquo;s War Stops Staying in Iran</h2>
+
+    <p class="article-lede">By late July, Operation Epic Fury and the blockade around it had stopped being contained to Iranian and Gulf waters. Three separate fronts opened up within the same week, and I think each one deserves to be treated on its own terms rather than folded into a single vague regional tensions line.</p>
+
+    <p><strong>Kuwait, Bahrain, and Jordan.</strong> CNN&rsquo;s July 20 coverage reported Kuwait intercepted what it called hostile targets in the run up to that day&rsquo;s US strikes, air raid sirens sounded in Bahrain, and Jordan said it shot down Iranian missiles over its territory. What stands out to me here is that these are three US aligned Gulf and regional states reporting direct exposure to Iranian missile fire, or the credible threat of it, in the same short window, not spread out over months.<a href="#fn4" class="fn" id="ref4c">[4]</a></p>
+
+    <p><strong>The Houthis and the Red Sea.</strong> On July 23, Yemen&rsquo;s Iran aligned Houthi movement claimed responsibility for striking two Saudi oil tankers, the Encelia and the Layla, in the Red Sea, and I&rsquo;m attributing that claim directly to their military spokesperson Yahya Saree, who made it publicly. Al Jazeera reported the Saudi Press Agency confirmed the Encelia had been hit and that its crew was safe.<a href="#fn9" class="fn" id="ref9">[9]</a> CENTCOM had completed its twelfth consecutive night of strikes against Iran the same night, and the Institute for the Study of War noted at least seven vessels had already changed course to avoid the Bab el-Mandeb Strait because of the Houthi threat.<a href="#fn10" class="fn" id="ref10">[10]</a> Lloyd&rsquo;s List Intelligence, a maritime data firm cited in Spectrum News&rsquo;s coverage, called this a double whammy on top of the Strait of Hormuz disruption, since Saudi Arabia had been routing oil through the Red Sea specifically to work around the Hormuz blockade.<a href="#fn11" class="fn" id="ref11">[11]</a> I want to be clear that Houthi attacks on shipping did not start in 2026, they trace back to October 2023 and the Gaza war, but this specific attack on Saudi tankers, tied to a new Houthi declared blockade against Saudi Arabia itself rather than Israel linked shipping, is a distinct and new development within this thirty day window.</p>
+
+    <p><strong>The Caspian Sea.</strong> This is the one I think matters most for the argument I&rsquo;m building toward, because it isn&rsquo;t adjacent escalation to me, it&rsquo;s direct convergence. On July 25, Ukraine struck a vessel near Russia&rsquo;s Astrakhan port in the Volga Delta, according to Iran International and CNN. One sailor was killed and three others wounded, per Iranian accounts.<a href="#fn12" class="fn" id="ref12">[12]</a><a href="#fn13" class="fn" id="ref13">[13]</a> The two sides dispute which ship was actually hit. Iran and the BBC identified the vessel as the Ana, an Iranian owned cargo ship, and Russian Foreign Minister Sergey Lavrov said it had departed Astrakhan carrying civilian cargo. Ukraine&rsquo;s own account is different: its Security Service, the SBU, said its drones struck two other, Russian flagged vessels instead, the Port Olya 2, owned by a sanctioned operator, and the Begey, which Ukrainian intelligence records as having made repeated calls at Iranian ports. I&rsquo;m presenting both identifications here because the sourcing genuinely conflicts on this point, not because one side is more credible than the other.<a href="#fn12" class="fn" id="ref12b">[12]</a> Ukrainian President Volodymyr Zelensky confirmed the operation directly on X, stating Ukraine had targeted vessels used in military cargo shipments involving Iran, alongside a Russian warship.<a href="#fn14" class="fn" id="ref14">[14]</a> Ukraine&rsquo;s foreign minister, Andrii Sybiha, went further, writing that Iran is a direct accomplice to Russian aggression against Ukraine, fueling Moscow&rsquo;s criminal war with weapons that have killed Ukrainians since 2022, and later telling Iran&rsquo;s foreign minister directly to end support for Russia.<a href="#fn15" class="fn" id="ref15">[15]</a> Iran&rsquo;s foreign minister, Abbas Araghchi, called the strike a violation of the UN Charter and said it cannot go unanswered, and I saw Iranian state commentary accusing Israel of orchestrating the strike to drag Europe into the war, which I&rsquo;m attributing directly to that source rather than treating as established.<a href="#fn16" class="fn" id="ref16">[16]</a> CNN put it about as plainly as I could: two wars fought until now a continent apart are beginning to converge into a single theater.<a href="#fn13" class="fn" id="ref13b">[13]</a></p>
+
+    <p><strong>The diplomatic aftermath.</strong> Three days after the Caspian strike, on July 28, Zelensky and Israeli Prime Minister Benjamin Netanyahu each met separately with Trump at the White House on the same day, per ABC News, Al Jazeera, and NPR.<a href="#fn17" class="fn" id="ref17">[17]</a><a href="#fn18" class="fn" id="ref18">[18]</a><a href="#fn19" class="fn" id="ref19">[19]</a> The occasion was the funeral of Senator Lindsey Graham, a longtime advocate for both Ukraine and Israel, but I don&rsquo;t think the substance stopped there. NPR reported Zelensky came prepared to brief Trump on intelligence regarding Russia-Iran cooperation, which I read as a direct line back to the reasoning Ukraine had already given for the Caspian strike itself.<a href="#fn19" class="fn" id="ref19b">[19]</a> Al Jazeera reported the two also discussed licenses for Ukraine to domestically produce Patriot interceptor missiles and efforts to revive peace talks with Russia.<a href="#fn18" class="fn" id="ref18b">[18]</a></p>
+
+    <p>That same week, I noticed a shift inside Trump&rsquo;s own online base that I think is worth including. Laura Loomer, a prominent pro-Trump activist, had spent years telling her nearly two million followers that Ukraine was, in her words, full of Nazi sympathizers, that the Azov Brigade was neo-Nazi, and had at one point called Zelensky a self-hating Nazi Jew, according to reporting I pulled from the Washington Times, PBS, The Hill, and the Jerusalem Post.<a href="#fn20" class="fn" id="ref20">[20]</a><a href="#fn21" class="fn" id="ref21">[21]</a><a href="#fn22" class="fn" id="ref22">[22]</a><a href="#fn23" class="fn" id="ref23">[23]</a> In a Kyiv interview published July 24 through 26, Loomer reversed that position, telling Zelensky directly she had been bamboozled by Russian propaganda, and later telling the Wall Street Journal that supporting Ukraine is actually America first. Trump posted her interview to Truth Social captioned Very Good.<a href="#fn22" class="fn" id="ref22b">[22]</a> I want to be careful not to overstate this: I have strong sourcing for Loomer&rsquo;s own reversal, but not for a broader organized shift among other pro-Trump online figures. I&rsquo;ll note that Tucker Carlson has staked out a different position within the same movement, he has argued consistently, including in a recent podcast appearance, that continuing the war isn&rsquo;t in America&rsquo;s interest, and that NATO expansion is the root cause of the conflict, a view Putin himself has made directly to Carlson in a past interview.<a href="#fn24" class="fn" id="ref24">[24]</a><a href="#fn25" class="fn" id="ref25">[25]</a> That NATO expansion causation claim is disputed by other analysts, who point instead to Russia&rsquo;s own territorial ambitions, so I&rsquo;m presenting it here as Carlson&rsquo;s stated position, not as settled fact.<a href="#fn26" class="fn" id="ref26">[26]</a></p>
+
+    <p>None of these threads individually convinces me the Iran war has become a world war. But taken together, I think they show something the regional conflict label undersells: within roughly a week, an active Gulf blockade, a Yemeni-Saudi shipping war, a direct Ukraine-Iran naval strike, and a same day scramble of American diplomacy with both Kyiv and Jerusalem all became entangled with each other, pulling in at least six additional states or armed groups beyond the two original combatants, and visibly reshaping the debate inside America&rsquo;s own governing coalition.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">Ukraine Doesn&rsquo;t Pause for Other Wars</h2>
+
+    <p class="article-lede">While the world&rsquo;s attention pulled toward Iran, Ukraine&rsquo;s war never slowed down, and in some ways it got worse. I want to walk through three separate threads here: Russia&rsquo;s late July bombardment of Ukrainian cities, Ukraine&rsquo;s own long range strike deep into Russia, and a domestic political crisis inside Kyiv that I think tells its own story about the strain this war is putting on Ukraine&rsquo;s leadership.</p>
+
+    <p><strong>Russia&rsquo;s barrage.</strong> Reuters coverage, republished by US News, reported that on the night of July 29 into 30, Russia launched more than 70 missiles and roughly 280 drones at Ukraine, killing nine people, including children, according to figures Zelensky gave in a statement. Kyiv and the western city of Lviv, near Ukraine&rsquo;s border with Poland, were the main targets, per Ukraine&rsquo;s air force. Zelensky used the moment to say publicly that delays in allied air defense missile shipments were costing lives.<a href="#fn27" class="fn" id="ref27">[27]</a> This wasn&rsquo;t an isolated night either. NPR reported that on July 19, Russia launched 41 missiles, 25 of them ballistic, along with 125 attack drones in a single overnight assault on Kyiv, killing one person and wounding sixteen, with Ukrainian forces intercepting 108 drones and 18 missiles.<a href="#fn28" class="fn" id="ref28">[28]</a> The Kyiv Independent reported that on July 25, a Russian ballistic missile struck a residential building in Kyiv, just two days after a separate Russian ballistic missile hit an arms exhibition taking place in the capital, killing at least ten people and injuring around a hundred.<a href="#fn29" class="fn" id="ref29">[29]</a> I&rsquo;m treating these as three distinct, separately sourced strikes within the same two week span, not one blurred event.</p>
+
+    <p><strong>Ukraine&rsquo;s reach into Russia.</strong> On the night of July 16, Ukraine&rsquo;s Security Service, the SBU, used long range drones to strike Engels-2 airbase in Russia&rsquo;s Saratov region, roughly 800 kilometers inside Russian territory. Multiple outlets, including Kyiv Post, Militarnyi, and United24Media, reported that satellite imagery independently analyzed by the open source group AviVector and Radio Free Europe&rsquo;s Schemes project confirmed a Tu-95MS strategic bomber at the base suffered catastrophic tail damage, rendering it beyond repair.<a href="#fn30" class="fn" id="ref30">[30]</a><a href="#fn31" class="fn" id="ref31">[31]</a><a href="#fn32" class="fn" id="ref32">[32]</a> Zelensky confirmed the strike himself, calling it another successful long range sanction against Russia, and noted the aircraft had been used in missile attacks on Ukrainian cities. This wasn&rsquo;t Ukraine hitting a border town, it was Ukraine reaching deep into Russian strategic aviation infrastructure, hundreds of kilometers from the front line, using domestically built drones.</p>
+
+    <p><strong>A leadership crisis inside Kyiv.</strong> According to NBC News, the Washington Post, and CNN, Zelensky fired his popular, reform minded defense minister, Mykhailo Fedorov, in mid July, a decision that triggered daily street protests in Kyiv, some of the first sustained public protests of the war.<a href="#fn33" class="fn" id="ref33">[33]</a><a href="#fn34" class="fn" id="ref34">[34]</a><a href="#fn35" class="fn" id="ref35">[35]</a> Fedorov, who built his reputation on modernizing Ukraine&rsquo;s drone warfare capability, had reportedly clashed with commander in chief Oleksandr Syrskyi over military strategy, with Syrskyi described by the Washington Post as favoring a more traditional infantry and artillery approach.<a href="#fn34" class="fn" id="ref34b">[34]</a> Protesters organized around two demands, reinstating Fedorov and removing Syrskyi, and on July 21, Zelensky gave in on the second one, firing Syrskyi and replacing him with the younger general Mykhailo Drapatyi.<a href="#fn35" class="fn" id="ref35b">[35]</a> I could not independently confirm a separate claim that Russia is preparing to receive twenty to thirty thousand additional North Korean troops for a fall offensive, so I&rsquo;m leaving it out rather than repeating an unverified figure.</p>
+
+    <p>What this section shows, alongside Part Four, is that Ukraine is not a static backdrop to the Iran story. It is an active war generating its own record setting strikes on both sides and its own internal political strain, running on a completely separate track from Iran, at the exact same time, with Ukraine now demonstrably willing and able to reach into a second active conflict when it judges its own interests are at stake.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">China&rsquo;s Quiet Buildup on India&rsquo;s Border</h2>
+
+    <p class="article-lede">Compared to Iran and Ukraine, this next story moves at a much slower, quieter pace, but I think that&rsquo;s exactly why it belongs in this piece. Nobody is shooting at anybody here. What&rsquo;s happening instead is a visible shift in military posture that several defense outlets are calling unprecedented.</p>
+
+    <p><strong>What the imagery shows.</strong> Commercial satellite imagery taken in late June and early July, reported by Defence Security Asia, Army Recognition, and 19FortyFive, shows China has stationed at least eleven Chengdu J-20 Mighty Dragon stealth fighters at two air bases facing India, Hotan in Xinjiang and Damxung in Tibet.<a href="#fn36" class="fn" id="ref36">[36]</a><a href="#fn37" class="fn" id="ref37">[37]</a><a href="#fn38" class="fn" id="ref38">[38]</a> The imagery dated July 9 showed seven J-20s at Hotan, roughly 245 kilometers from India&rsquo;s forward airfield at Daulat Beg Oldie and about 389 kilometers from Leh, while four more were positioned at Damxung, about 344 kilometers from the Tawang sector in Arunachal Pradesh. Army Recognition reported the imagery itself came from the commercial satellite firm Vantor and was first published by India&rsquo;s NDTV on July 27.<a href="#fn37" class="fn" id="ref37b">[37]</a> Some outlets, including Indiablooms and Asian Mirror, reported the total as twelve rather than eleven, so I&rsquo;m treating the precise count as somewhere in the eleven to twelve range rather than pinning it to one exact figure.<a href="#fn39" class="fn" id="ref39">[39]</a></p>
+
+    <p><strong>Why the geography matters.</strong> Army Recognition&rsquo;s analysis lays this out clearly: Hotan covers the western sector of the disputed border, giving China reach toward Aksai Chin, the Karakoram, and northern Ladakh, while Damxung covers the eastern sector facing Arunachal Pradesh and the Tawang region. Having stealth aircraft positioned at both locations simultaneously means China can theoretically respond along two geographically separated axes of the border at once, rather than concentrating its most advanced aircraft in a single area.<a href="#fn37" class="fn" id="ref37c">[37]</a></p>
+
+    <p><strong>What is not confirmed, and I think this matters.</strong> 19FortyFive&rsquo;s own reporting states plainly that Beijing has said nothing publicly about the mission, readiness state, or expected duration of this deployment, and cautions against overreacting to a satellite photograph alone. India&rsquo;s Air Force and Ministry of Defence have likewise not issued a public assessment, according to the same coverage.<a href="#fn38" class="fn" id="ref38b">[38]</a> This is not without precedent. Indian Defence News and Deccan Herald both note earlier, smaller sightings, six J-20s spotted near Shigatse close to Sikkim in May 2024, and reports of as many as fourteen aircraft there in March 2026, meaning this pattern of stealth fighter rotations near the border has been building for at least two years, not appearing out of nowhere this month.<a href="#fn40" class="fn" id="ref40">[40]</a><a href="#fn41" class="fn" id="ref41">[41]</a></p>
+
+    <p><strong>The broader imbalance.</strong> One detail worth including without editorializing on it: 19FortyFive&rsquo;s reporting notes that India currently operates no fifth generation aircraft of its own, and its indigenous Advanced Medium Combat Aircraft program remains years from being operational. I&rsquo;m stating that as a fact about relative capability, not as a claim about anyone&rsquo;s intentions.<a href="#fn38" class="fn" id="ref38c">[38]</a></p>
+
+    <p>So here is what I feel comfortable saying happened, and what I don&rsquo;t. What happened: China visibly, and for the first time at this scale, positioned advanced stealth fighters at bases covering both the western and eastern sectors of its disputed border with India, within the same thirty day window covered by this piece. What I can&rsquo;t say, because the sourcing doesn&rsquo;t support it, is why, or what Beijing intends to do with that positioning next.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">Three Clashes in One Week in the South China Sea</h2>
+
+    <p class="article-lede">I found this to be one of the more concrete, physical escalations in the entire thirty day window, because unlike the China-India buildup, this one involved actual contact between forces, not just aircraft sitting on a tarmac.</p>
+
+    <p>It&rsquo;s worth saying plainly that this kind of confrontation is not new. Chinese and Philippine vessels have clashed repeatedly at these same shoals for years, including a February 2023 incident in which a Chinese Coast Guard vessel used a military-grade laser against a Philippine Coast Guard ship near Second Thomas Shoal, a June 2024 clash in which Chinese personnel used knives and axes against Philippine sailors and rigid-hull boats and one Filipino sailor lost a thumb, and recurring water-cannon incidents in 2023 and 2024 that damaged Philippine resupply boats and injured crew. What follows below is this same pattern continuing and intensifying within this specific thirty day window, not a new phenomenon.</p>
+
+    <p><strong>The Second Thomas Shoal clash.</strong> On July 20, CNN reported that a China Coast Guard vessel dispatched a smaller boat that approached the BRP Sierra Madre, the grounded World War II era Philippine Navy ship that Manila has used since 1999 to maintain a physical presence on the shoal. The Philippine military said it launched two inflatable boats to escort the Chinese boat away, and Philippine video reviewed by CNN shows a group of eight Chinese personnel in a boat ramming one of the smaller Philippine craft, with blows exchanged using wooden batons and oars. Two Philippine service members were injured and evacuated for treatment, according to their own military.<a href="#fn42" class="fn" id="ref42">[42]</a> The U.S. Mission to ASEAN issued an official statement the same day condemning what it called China&rsquo;s dangerous and aggressive actions, reaffirming the 2016 Arbitral Tribunal ruling that found China&rsquo;s expansive South China Sea claims have no basis in international law.<a href="#fn43" class="fn" id="ref43">[43]</a> That ruling is a real, binding legal finding, not a rhetorical talking point, though China has never accepted it and continues to reject its authority.</p>
+
+    <p><strong>The Scarborough Shoal clash.</strong> Just four days later, on July 24, CNN and Rappler both reported a second, separate confrontation. China&rsquo;s Coast Guard said it drove away two Philippine vessels it accused of intruding into waters near Scarborough Shoal, known to the Philippines as Bajo de Masinloc. The Philippine military said Chinese ships used water cannon and dangerous navigational maneuvers against Bureau of Fisheries vessels attempting to resupply Filipino fishermen in the area. No injuries were reported, and Rappler noted the Philippine mission continued despite the interference.<a href="#fn42" class="fn" id="ref42b">[42]</a><a href="#fn44" class="fn" id="ref44">[44]</a></p>
+
+    <p><strong>A third incident in the same week.</strong> The Council on Foreign Relations&rsquo; Global Conflict Tracker confirms China and the Philippines clashed three separate times in a single week in July across these two shoals, which prompted a joint response.<a href="#fn45" class="fn" id="ref45">[45]</a> US Navy tracking data through USNI News and The War Zone&rsquo;s Where Are The Aircraft Carriers series confirms the United States, Japan, and the Philippines conducted joint maritime exercises in the region shortly after, and that the American response went beyond exercises alone.</p>
+
+    <p><strong>The American carrier&rsquo;s direct response.</strong> Navy Times reported that the USS George Washington, America&rsquo;s only forward-deployed carrier, sailed from the Philippine Sea into the South China Sea within days of the July 20 incident, arriving in Da Nang, Vietnam, for a port visit on July 30.<a href="#fn46" class="fn" id="ref46">[46]</a> Forbes and The War Zone both confirmed the carrier transited the Luzon Strait on July 22, just two days after the baton clash, and that it had previously taken part in the Valiant Shield exercises with Japan&rsquo;s Maritime Self-Defense Force in June.<a href="#fn47" class="fn" id="ref47">[47]</a><a href="#fn48" class="fn" id="ref48">[48]</a> The U.S. Ambassador to the Philippines, Lee Lipton, posted directly on X that the carrier group&rsquo;s presence, including its embarked F-35s, was upholding freedom of navigation and challenging what he called excessive maritime claims, language clearly aimed at Beijing without naming it outright in that specific post.<a href="#fn48" class="fn" id="ref48b">[48]</a></p>
+
+    <p>I don&rsquo;t think I need to editorialize much here, because I think the sequence speaks for itself. Within about ten days, I can trace a physical clash injuring Philippine sailors, a second confrontation involving water cannons, a formal US government condemnation citing international law, and a repositioning of America&rsquo;s only forward-deployed aircraft carrier directly into the contested waters. That is a treaty ally being physically confronted, and an American carrier group moving to back it up, inside the same thirty day window as everything else in this piece.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">A War Most People Missed Restarting</h2>
+
+    <p class="article-lede">Most Americans have no idea a full war between Israel and Hezbollah restarted this year. It gets covered as background noise to the Iran story, when it deserves to be understood on its own terms.</p>
+
+    <p>This latest war between Israel and Hezbollah erupted on March 2, 2026, according to Al Jazeera. By mid July, more than 4,000 Lebanese had been killed and over a million displaced, according to figures from Lebanon&rsquo;s Ministry of Public Health, which I&rsquo;m attributing directly to that source. I have not found a comparable Israeli casualty figure from this specific phase of the conflict, so I&rsquo;m not going to imply parity or asymmetry here without numbers to back it up either way.<a href="#fn49" class="fn" id="ref49">[49]</a></p>
+
+    <p>The framework deal matters as much for its limits as for its existence. On June 26, 2026, Israel and Lebanon signed a US-brokered framework agreement in Washington. Under its terms, Israel is meant to gradually withdraw from parts of southern Lebanon it has occupied, starting with two so-called pilot zones where the Lebanese army would take over from Israeli forces, in exchange for progress toward disarming Hezbollah. Secretary of State Marco Rubio called the framework a path toward lasting peace. But the agreement itself sets no firm timeline for a full Israeli withdrawal, and Israeli officials, including Prime Minister Netanyahu, have said Israeli forces will remain in an expanded security zone in southern Lebanon until Hezbollah&rsquo;s military capabilities are, in their words, dismantled.<a href="#fn50" class="fn" id="ref50">[50]</a></p>
+
+    <p>Hezbollah rejected the framework outright. Secretary-General Naim Qassem called it a surrender and null and void, arguing it legitimizes Israel&rsquo;s continued military presence in southern Lebanon, and said Hezbollah would continue what he called resistance until Israeli forces fully leave Lebanese territory. That is Qassem&rsquo;s own characterization, not a neutral description of the deal itself.<a href="#fn51" class="fn" id="ref51">[51]</a></p>
+
+    <p>Around June 28, before the framework was even a week old, an Israeli platoon commander, Captain David Hazutt of the Golani Brigade, was killed during an operation against a Hezbollah operative in the village of Deir Siryan. That timing is worth sitting with, a combat death inside the first days of a deal both governments were calling a step toward peace.<a href="#fn51" class="fn" id="ref51b">[51]</a></p>
+
+    <p>The strikes didn&rsquo;t stop from there either. On July 24, nearly a month later, Israel carried out strikes across southern Lebanon despite the framework agreement still being in place, according to Al Jazeera. Talks between the two sides continued anyway. Lebanon and Israel held a sixth round of face to face negotiations by mid July in Rome, with a US official saying the two sides made progress specifically on the pilot zone mechanism, and a seventh round has since been scheduled for August 4 in Italy.<a href="#fn52" class="fn" id="ref52">[52]</a><a href="#fn53" class="fn" id="ref53">[53]</a> When reporters asked Trump directly whether there would be a timeline for Israel&rsquo;s full withdrawal, he said, They&rsquo;re in the process of doing that. They&rsquo;re in the process of redeploying to other sections. The vagueness of that answer tells you something on its own.<a href="#fn52" class="fn" id="ref52b">[52]</a></p>
+
+    <p>This is the same Netanyahu who met separately with Trump at the White House on July 28, the same day as Zelensky. The leader overseeing this still-active war was in Washington making his case to the American president in the same window as everything else in this piece.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">Sudan&rsquo;s Drone War</h2>
+
+    <p class="article-lede">Sudan&rsquo;s civil war has been running since April 2023, when former allies Abdel Fattah al-Burhan of the Sudanese Armed Forces and Mohamed Hamdan Dagalo, known as Hemedti, of the paramilitary Rapid Support Forces, turned on each other after seizing power together in a coup. What I found happening in the last thirty days is a sharp escalation in how that war is being fought, and I think it deserves far more attention than it gets.<a href="#fn54" class="fn" id="ref54">[54]</a></p>
+
+    <p>Both sides have shifted heavily toward drone warfare. According to Africa Defense Forum, a publication of the United States Africa Command, cited in CNN&rsquo;s reporting, both the SAF and RSF have moved their tactics to airborne weapons and away from ground forces, which have largely reached a stalemate. The SAF has leaned on Turkish-supplied Bayraktar TB2 drones, while the RSF has increasingly used its own strike drones against both military and civilian targets.<a href="#fn54" class="fn" id="ref54b">[54]</a></p>
+
+    <p>The North Kordofan region, and specifically the city of El Obeid, has become the center of this. The UN&rsquo;s human rights office documented fifteen drone strikes on El Obeid and surrounding areas in a single three week stretch, killing at least 45 civilians, according to UN News. High Commissioner Volker Turk described the weapons as having repeatedly struck markets, schools, fuel stations, water infrastructure and civilian vehicles, and said residents are now selling their belongings just to afford an escape from the city, calling constant attacks on exit routes a barrier to leaving at all.<a href="#fn55" class="fn" id="ref55">[55]</a></p>
+
+    <p>The fighting intensified further at the end of July. The Sudanese army launched a ground offensive on July 25 and 26 that secured control over several towns, including Jabrat al-Sheikh, Bara, and Um Sayala, granting the military full control of the export road linking North Kordofan to Khartoum, according to Sudan Tribune.<a href="#fn56" class="fn" id="ref56">[56]</a> On July 30, Sudan Tribune reported the Sudanese air force followed that up with heavy airstrikes on RSF positions across North and West Kordofan, hitting named towns including Um Badr, Sodari, and Al-Nuhud, in what military sources called one of the most intense aerial escalations since the war began.<a href="#fn57" class="fn" id="ref57">[57]</a></p>
+
+    <p>The RSF&rsquo;s response, per Sudan Tribune&rsquo;s July 29 reporting, was to launch reprisal attacks against civilians in the towns its forces were retreating from, looting markets, raiding homes, and arresting residents accused of sharing coordinates with the Sudanese military. The RSF also shut down and sabotaged Starlink satellite internet devices across several West Kordofan towns, cutting communities off from communication entirely.<a href="#fn56" class="fn" id="ref56b">[56]</a></p>
+
+    <p>Civilian casualty reports from this same window are grim and specific. Emergency Lawyers, a Sudanese rights group, reported that a drone struck a water station in the village of Um Nabqa Mur on July 24, and a separate drone strike hit a civilian vehicle in Um Daraba the following day, killing two people.<a href="#fn58" class="fn" id="ref58">[58]</a> The Sudan Doctors Network separately reported at least seven civilians, including two women, killed and fourteen wounded in an RSF attack on the Al-Jamama area, attributing that assault directly to RSF fighters and describing it as part of a pattern of deadly assaults on civilian communities.<a href="#fn59" class="fn" id="ref59">[59]</a></p>
+
+    <p>I want to be clear about why this section belongs in a piece about the risk of wider global conflict, even though Sudan has no American troops and no formal American alliance obligations attached to it. It&rsquo;s not because outside powers are on the verge of direct involvement here the way they are in Iran or Ukraine. It&rsquo;s because this is what full-scale drone warfare looks like when it&rsquo;s turned loose on a civilian population with almost no international attention or restraint, and I think that matters as a preview of what escalation elsewhere could look like if the guardrails keep slipping the way they have in every other section of this piece.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">Myanmar&rsquo;s War That Keeps Almost Tipping</h2>
+
+    <p class="article-lede">Myanmar&rsquo;s civil war has now run for more than four years since the 2021 coup, and what I found in this thirty day window is a conflict that keeps looking like it&rsquo;s about to reach a decisive moment without ever quite getting there.</p>
+
+    <p>The broader picture, based on War on the Rocks&rsquo; analysis from late June, is a stalemate. Myanmar&rsquo;s military junta, the Tatmadaw, has been on what the piece describes as a steady roll of countrywide advances that pushed the opposition onto the defensive, this after an electoral process in December 2025 and January 2026 that the piece calls an electoral charade installing military dictator-turned-president Min Aung Hlaing behind a facade of civilian frontmen. I&rsquo;m flagging that electoral charade language as the publication&rsquo;s own characterization, not a neutral description. At the same time, the analysis argues the junta&rsquo;s gains expose real weaknesses, strained manpower and brittle morale, while the resistance, though disparate, has shown resilience. In March 2026, four of the most significant resistance forces, the National Unity Government, the Chin National Front, the Kachin Independence Army, and the Karen National Union, along with the Karenni National Progressive Party, announced a Steering Council for the Emergence of a Federal Democratic Union, an attempt to unify a coalition that has struggled with internal divisions.<a href="#fn60" class="fn" id="ref60">[60]</a></p>
+
+    <p>On the ground in July, fighting was active on multiple fronts at once. Burma News International reported on July 22 that the junta rotated battered frontline troops near the Thai border, pulling back its Light Infantry Division 55 after it sustained heavy casualties near Hpalu and Minletpan villages in Karen State, replacing it with fresh units from Light Infantry Division 22.<a href="#fn61" class="fn" id="ref61">[61]</a> In northern Kachin State, the Kachin army mounted a surprise attack that captured three junta camps in Kaunglanpu Township between July 10 and 13, killing at least twenty junta troops, according to Burma Coup Resistance Notes, an independent tracker citing Kachin army sources directly, and the Kachin retook two more camps in Indawgyi Township on July 17 that the junta had seized during a June offensive.<a href="#fn62" class="fn" id="ref62">[62]</a> The same source reported that in a sign of the junta&rsquo;s defensive posture, its forces used gyrocopters to bomb a key bridge on July 14 specifically to prevent Kachin resupply, which the Arakan Army said it had other routes to work around.</p>
+
+    <p>The Arakan Army specifically is worth flagging, because the sourcing on it is striking. Burma Coup Resistance Notes cites a July 16 assessment from the Jamestown Foundation, a Washington-based think tank, describing the Arakan Army as the most effective insurgent force in Myanmar, one that controls nearly all of Arakan militarily, has established functioning civilian governance through its political wing, and holds strategic corridors that matter to both China and India. That&rsquo;s a research institution&rsquo;s assessment, not a claim from the Arakan Army about itself.<a href="#fn62" class="fn" id="ref62b">[62]</a></p>
+
+    <p>Unlike Iran or the South China Sea, I found no evidence of direct American military involvement or treaty obligation here. What I do think matters is the pattern: a war that has ground on for four years, that keeps producing crunch time analysis without ever crunching, involving China&rsquo;s quiet backing of the junta on one side, and that sits in the same thirty day window as five other active conflicts, three of which do carry direct American stakes. Myanmar on its own does not point toward global escalation. Myanmar as one more simultaneous fire, on a planet that already has several others burning at once, is part of why I think the total picture matters more than any single piece of it.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eleven</span>
+    <h2 class="section-title">The Asset Map, Where America&rsquo;s Navy Actually Is</h2>
+
+    <p class="article-lede">I&rsquo;ve referenced pieces of this throughout the piece already, the Abraham Lincoln in the Arabian Sea, the George Washington repositioning after the Philippine clashes, but I want to pull it together into one picture, because I don&rsquo;t think any single mention captures what it looks like when you see it all at once.</p>
+
+    <p>Through USNI News&rsquo;s Fleet and Marine Tracker for July 20, the USS Abraham Lincoln Carrier Strike Group is operating in the Arabian Sea specifically, in the Navy&rsquo;s own words, in support of Operation Epic Fury. That&rsquo;s not my characterization of what the carrier is doing there, that&rsquo;s the Navy&rsquo;s own stated purpose for the deployment.<a href="#fn63" class="fn" id="ref63">[63]</a> The War Zone&rsquo;s Where Are The Aircraft Carriers series for July 20 confirmed the USS George H.W. Bush is also in the Arabian Sea, alongside Abraham Lincoln, with roughly fourteen guided-missile destroyers and a mix of other surface ships, which the outlet described as the primary naval assets supporting what it called Blockade 2.0 and the renewed strike campaign against Iran.<a href="#fn64" class="fn" id="ref64">[64]</a> The USS Boxer, flagship of the sole amphibious ready group currently deployed to the Middle East, conducted a vertical replenishment with a supply ship on July 20, keeping it in theater and tied to the same blockade operation.<a href="#fn65" class="fn" id="ref65">[65]</a></p>
+
+    <p>On the other side of the world, the USS George Washington&rsquo;s movements track almost exactly with the South China Sea incidents covered earlier. Forbes reported the carrier began its 2026 deployment on May 10 from its home port in Yokosuka, Japan, and had been operating in the Philippine Sea before transiting the Luzon Strait on July 22, two days after the baton clash at Second Thomas Shoal, and moving directly into the South China Sea itself.<a href="#fn47" class="fn" id="ref47b">[47]</a> Navy Times reported it arrived in Da Nang, Vietnam, on July 30 for a scheduled port visit, explicitly noting the ship had sailed from the Philippine Sea into the South China Sea in the days following the July 20 incident between Chinese and Philippine forces.<a href="#fn46" class="fn" id="ref46b">[46]</a></p>
+
+    <p>Then there&rsquo;s the USS Nimitz, and I think this one is different in kind from the others, because it isn&rsquo;t tied to an active conflict, it&rsquo;s the literal end of an era. USNI News and The War Zone both confirmed Nimitz arrived at Naval Station Norfolk on July 9, completing a four month transit that included circumnavigating South America, and that this is a permanent homeport shift ahead of the carrier&rsquo;s eventual decommissioning, which the Navy has delayed to March 2027, later than its original schedule.<a href="#fn66" class="fn" id="ref66">[66]</a><a href="#fn67" class="fn" id="ref67">[67]</a> Nimitz had been away from Norfolk for decades, based instead at Naval Base Kitsap in Washington State. I don&rsquo;t think this belongs in the same category as the other deployments in this section, since it&rsquo;s a retirement, not a response to any of the conflicts I&rsquo;ve covered, but I wanted to include it because I think it&rsquo;s worth noticing that even as the Navy is winding down one of its oldest carriers, it&rsquo;s simultaneously running two other carrier strike groups against Iran and repositioning a third across the Pacific, all at once.</p>
+
+    <p>I want to state plainly what I think this section adds up to, without overselling it. This is not evidence that America is entering a wider war. Much of what I&rsquo;ve described here is either directly tied to a conflict the United States is already fighting, Operation Epic Fury, or is a measured, non-combat response to an ally being harassed, the George Washington&rsquo;s move into the South China Sea. But I do think it&rsquo;s fair to say that in the same thirty day window covered by this entire piece, the United States had two carrier strike groups actively supporting a shooting war, a third carrier repositioning in direct response to a treaty ally being physically confronted, and an amphibious ready group tied by name to a blockade operation, spread across three different oceans, simultaneously. That is not a military at rest.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Twelve</span>
+    <h2 class="section-title">Connecting the Dots</h2>
+
+    <p class="article-lede">I&rsquo;ve now walked through eleven sections covering Iran, Ukraine, the Caspian Sea, China and India, the South China Sea, Israel and Lebanon, Sudan, Myanmar, and America&rsquo;s own naval posture across three oceans. Before I move into my own opinion in the final section, I want to lay out, still as reporting, what these theaters actually have in common structurally, because I don&rsquo;t think that pattern is something I&rsquo;m imposing on the facts. I think it&rsquo;s sitting right there in them.</p>
+
+    <p>The first pattern is that almost none of these conflicts are new. Iran&rsquo;s war traces back through the June 2025 twelve-day war with Israel and a February 2026 operational start date. Ukraine&rsquo;s war is now in its fifth year. Israel and Hezbollah&rsquo;s current war started in March. Sudan&rsquo;s war started in 2023. Myanmar&rsquo;s in 2021. China&rsquo;s air posture near India and its clashes with the Philippines build on years of prior smaller incidents. What&rsquo;s different about this specific thirty day window isn&rsquo;t that any of these started here. It&rsquo;s that all of them were simultaneously active, and in most cases simultaneously escalating, at the same time.</p>
+
+    <p>The second pattern is that American allies and adversaries are doing a large share of the direct fighting themselves, in ways that still pull the United States in. Ukraine struck an Iranian-linked vessel on its own initiative and then had its president fly to Washington days later to brief Trump on the intelligence behind it. The Philippines absorbed a physical confrontation with China and had an American carrier group reposition into the contested waters within forty eight hours. Israel is fighting a war Washington brokered a framework to pause, one that neither side has actually stopped fighting. In each case, the United States isn&rsquo;t the one pulling the trigger, but it isn&rsquo;t a bystander either.</p>
+
+    <p>The third pattern is that where the United States is a direct combatant, in Iran, the campaign is not winding down. It is, by the Pentagon&rsquo;s own count reported by Al Jazeera, past one hundred strikes since early July, with nearly one hundred American service members injured as of the Pentagon&rsquo;s July 20 disclosure, and a blockade that has cut Strait of Hormuz traffic by roughly ninety three percent according to the shipping data cited earlier. That&rsquo;s not a limited action. That&rsquo;s a sustained war that has already spilled sideways into Kuwaiti, Bahraini, and Jordanian airspace, into the Red Sea through the Houthis, and now onto the Caspian Sea through Ukraine.</p>
+
+    <p>The fourth pattern is domestic. Real strain is showing up inside the governing coalitions on both sides of this. Zelensky faced the most serious political crisis of his presidency this month, forced into firing his own army commander after street protests most of the war hadn&rsquo;t produced before now. And inside Trump&rsquo;s own online base, one of his most prominent supporters publicly reversed five years of rhetoric about Ukraine in the same week that another prominent voice in that same movement was making the opposite argument, that the war isn&rsquo;t in America&rsquo;s interest at all. That is not a small detail. It means the debate over how deep America should be in any of this is not settled, even among people who generally agree with each other.</p>
+
+    <p>I want to end this section by being honest about what I have and haven&rsquo;t shown. I have not shown that any of these conflicts are formally linked to each other by treaty, command structure, or coordinated strategy. Iran is not fighting alongside Myanmar&rsquo;s junta. China&rsquo;s posture near India has no documented connection to Sudan&rsquo;s civil war. What I have shown, with sourcing at every step, is that these conflicts are now overlapping in time, occasionally overlapping directly in substance, as with Ukraine and Iran on the Caspian, and consistently overlapping in their demands on American attention, American alliances, and American naval assets.</p>
+
+    <p>What I think that adds up to is where I&rsquo;m going next, in my own words, clearly marked as mine.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Thirteen</span>
+    <h2 class="section-title">Why I Think We&rsquo;re More Involved Than We Realize, And Why We Can&rsquo;t Afford It</h2>
+
+    <p><span class="opinion-inline">Opinion</span> Everything above this section is reporting. This part is me. I want to say clearly what I think all of this adds up to, and where I could be wrong about it.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think the honest answer to is any of this connected is that I can&rsquo;t fully prove it is, not in the way a prosecutor proves a conspiracy. What I can point to is geography, alliances, and money, and I think those three things together make a much stronger case than any single event in this piece does on its own.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Start with the chokepoints. The Strait of Hormuz is already at the center of a war America is directly fighting. The Bab el-Mandeb Strait is now contested by the Houthis against Saudi Arabia. The South China Sea has had three physical clashes in a week. And the Strait of Malacca, the single largest oil transit point on earth at roughly 29 percent of global seaborne oil trade, sits right next to the exact waters where China has been pressuring the Philippines and positioning itself more broadly.<a href="#fn68" class="fn" id="ref68">[68]</a> The United States signed a new defense agreement with Indonesia in April specifically covering access near Malacca.<a href="#fn69" class="fn" id="ref69">[69]</a> I don&rsquo;t think it&rsquo;s a coincidence that America is quietly locking down access to a second major chokepoint at the same time the first one, Hormuz, is on fire. I think it&rsquo;s a hedge, and I think the fact that we felt the need to hedge tells you something about how seriously this is being taken behind closed doors, even if nobody is saying it publicly.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Here&rsquo;s the part that worries me most. Russia is already backing Iran, fighting Ukraine directly, and now had a vessel tied to that Iran relationship struck by Ukraine in the Caspian Sea. Israel is fighting Hezbollah, an Iranian-backed group, in a war that hasn&rsquo;t stopped despite a framework deal. If the Israel front and the Ukraine front ever stop being two separate wars that happen to share an Iran-Russia connection, and start being one front, I think that&rsquo;s the moment this stops being a collection of regional conflicts and becomes something else. I think that alliance between Russia and Iran is being tested right now by everything happening simultaneously, and I don&rsquo;t think it&rsquo;s good for anyone, including us, if the pressure ends up strengthening it instead of straining it.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Then there&rsquo;s India. Outside this thirty day window, in February, Modi made a state visit to Israel and the two countries upgraded their relationship to what they&rsquo;re calling a Special Strategic Partnership.<a href="#fn70" class="fn" id="ref70">[70]</a> What I find genuinely striking, and I want to be careful here because I&rsquo;m relying on one diplomat&rsquo;s speculation reported by The Diplomat, not a confirmed fact, is that Operation Epic Fury began less than 48 hours after Modi left Israel.<a href="#fn71" class="fn" id="ref71">[71]</a> I can&rsquo;t prove Modi was briefed in advance. I can prove the timing. I&rsquo;ll let you draw your own conclusion, because I&rsquo;m honestly not sure what to make of it myself. What I do know is that India has had friction with Pakistan in recent months, China has been positioning aircraft directly on India&rsquo;s border in this same window, and India has been deepening ties with Israel at the same time. I think there&rsquo;s a real possibility a third front opens here, one where India, a nuclear power, is standing closer to Israel and further from a more neutral posture, right as tensions with a second nuclear power, Pakistan, sit unresolved, next to a third nuclear power, China, moving stealth fighters into position. Three nuclear-armed countries, all with active or recent friction, in the same region, in the same window. I find that genuinely terrifying, and I don&rsquo;t think that&rsquo;s an overreaction.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Now the money, because I think this is where my argument actually lands. As of this year, the United States became the world&rsquo;s largest oil exporter, surpassing both Saudi Arabia and Russia, according to Reuters.<a href="#fn72" class="fn" id="ref72">[72]</a> That&rsquo;s a real reversal from where we were even five years ago. I bring that up because I think it destroys the strongest old argument for staying entangled in the Middle East, that we need the oil. We don&rsquo;t. We&rsquo;re now selling more of it to the world than anyone else. If we&rsquo;re not fighting for our own energy security, then every dollar and every American life spent on Operation Epic Fury, on backing Israel&rsquo;s war, on posturing across three oceans at once, is a choice, not a necessity.</p>
+
+    <p><span class="opinion-inline">Opinion</span> And I don&rsquo;t think we&rsquo;re in a financial position to keep making that choice. I&rsquo;m not going to pretend I can back that with a specific number in this piece, that&rsquo;s a different article I&rsquo;d want to do properly, with real budget figures. But I think the plain logic holds up on its own: we are simultaneously running two carrier strike groups against Iran, repositioning a third across the Pacific, funding air defense for Ukraine, and backing Israel diplomatically and militarily, while our own infrastructure, housing costs, and domestic manufacturing base have been neglected for years. Every resource we&rsquo;re fighting over overseas, energy, trade routes, influence, we can get through ethical trade deals and our own production instead. We don&rsquo;t need to bomb and pillage the rest of the world so we don&rsquo;t have to use our own resources, especially when it turns out we didn&rsquo;t need to in the first place.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I want to be clear about what I&rsquo;m not saying. I&rsquo;m not saying every ally should be abandoned or that alliances don&rsquo;t matter. I&rsquo;m not saying any single one of these eight conflicts is fake or overstated, the reporting above speaks for itself. What I am saying is that Americans do not need to keep dying and spending for conflicts where our actual, hard interest, energy security, is no longer the justification it used to be. I think we&rsquo;re more entangled in this than most people realize, across more fronts than most people are tracking, and I think the first step in getting out of that hole is admitting we&rsquo;re standing in it. Fix what&rsquo;s broken here first. Everything else gets easier to handle from a position of strength instead of overextension.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Iran, Operation Epic Fury, and the Blockade</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] U.S. Department of War, &ldquo;Operation Epic Fury&rdquo; spotlight page, war.gov/Spotlights/Operation-Epic-Fury. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Britannica, &ldquo;2026 Iran war,&rdquo; britannica.com/event/2026-Iran-war. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] CNN, &ldquo;US resumes strikes while Iran says it struck two tankers in Strait of Hormuz,&rdquo; July 13, 2026. <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] CNN, &ldquo;US completes more strikes against Iran after Trump warning to Tehran,&rdquo; July 20, 2026. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] Al Jazeera, &ldquo;Mapping the latest US strikes across Iran,&rdquo; updated July 22, 2026. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] CNN, &ldquo;Trump says it&rsquo;s our turn after intercepted Iranian attack, US completes Iran strikes,&rdquo; July 29 to 30, 2026. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] CNN, oil price coverage tied to reimposed Iran port blockade, mid July 2026. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn8">[8] U.S. Central Command video releases, war.gov, blockade enforcement actions. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Gulf Spillover and the Caspian Sea</span>
+    <ul class="bib-list">
+      <li id="fn9">[9] Al Jazeera, &ldquo;Yemen&rsquo;s Houthis claim attack on two Saudi oil tankers,&rdquo; July 22, 2026. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] CNBC, &ldquo;Trump says U.S. will hold Iran responsible for Houthi attacks after oil tankers targeted in Red Sea,&rdquo; July 23, 2026. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] Spectrum News, &ldquo;Yemen&rsquo;s Houthis attack Saudi tankers in the Red Sea,&rdquo; July 23, 2026. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn12">[12] Iran International, &ldquo;Ukraine&rsquo;s Iran ship strike was more about messaging than a new front, analysts say,&rdquo; July 28, 2026; BBC and Russian Foreign Ministry statements on vessel identification. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] CNN, &ldquo;The Iran and Ukraine wars are colliding on the world&rsquo;s biggest lake. Here&rsquo;s what to know,&rdquo; July 27, 2026. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] Newsweek, &ldquo;Ukraine Hit an Iranian-Linked Vessel in the Caspian Sea, Why It Matters,&rdquo; July 2026. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn15">[15] World Socialist Web Site / Ukraine Foreign Ministry statements via Andrii Sybiha, X, July 2026. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] Al Jazeera, &ldquo;Iran warns Ukraine of retaliation after deadly Caspian Sea strike,&rdquo; July 27, 2026. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Diplomatic Aftermath and the MAGA Split on Ukraine</span>
+    <ul class="bib-list">
+      <li id="fn17">[17] ABC News, &ldquo;Netanyahu and Zelenskyy meet separately with Trump at the White House,&rdquo; July 28, 2026. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn18">[18] Al Jazeera, &ldquo;Zelenskyy and Trump discuss Patriot deal and reviving Russian peace talks,&rdquo; July 28, 2026. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] NPR, &ldquo;Trump to meet with Ukraine&rsquo;s Zelenskyy and Israel&rsquo;s Netanyahu,&rdquo; July 28, 2026. <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] Washington Times, &ldquo;Exclusive: In a Ukrainian bomb shelter, Laura Loomer explains shift on Russia&rsquo;s war,&rdquo; July 26, 2026. <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn21">[21] PBS News, &ldquo;From a Kyiv bomb shelter, Laura Loomer explains her shift on Russia&rsquo;s war in Ukraine,&rdquo; July 2026. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn22">[22] The Hill, &ldquo;Laura Loomer backs Ukraine, Volodymyr Zelensky and warns of Russian propaganda,&rdquo; July 2026. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] Jerusalem Post, &ldquo;MAGA influencer Laura Loomer mounts Jewish apology tour in Ukraine,&rdquo; July 2026. <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] Pravda NATO / East Meets West podcast, Tucker Carlson remarks, July 2026. <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn25">[25] Kremlin transcript, &ldquo;Interview to Tucker Carlson,&rdquo; en.kremlin.ru. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn26">[26] The Conversation, &ldquo;Vladimir Putin justifies his imperial aims in Tucker Carlson interview,&rdquo; 2026. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Ukraine and Russia</span>
+    <ul class="bib-list">
+      <li id="fn27">[27] Reuters via US News, &ldquo;Russia Pounds Ukraine in New Air Attack, Killing 9, Including Children,&rdquo; July 30, 2026. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] NPR, &ldquo;Deadly overnight Russian attack on Ukraine targets the capital,&rdquo; July 19, 2026. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn29">[29] Kyiv Independent, &ldquo;Residential building struck in Kyiv as Russia launches ballistic missiles towards capital,&rdquo; July 26, 2026. <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn30">[30] Kyiv Post, &ldquo;Ukraine Says SBU Destroyed Tu-95 Bomber 800 km Inside Russia at Engels Air Base, Zelensky Confirms,&rdquo; July 17, 2026. <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] Militarnyi, &ldquo;Satellite Images Confirm Destruction of Russian Tu-95MS Bomber,&rdquo; July 2026. <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn32">[32] United24Media, &ldquo;New Satellite Images Show Impact of Ukrainian Strikes on Russia&rsquo;s Engels Air Base,&rdquo; July 2026. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] NBC News, &ldquo;Ukraine&rsquo;s Zelenskyy fires his commander in chief after protests and major rift,&rdquo; July 21, 2026. <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] Washington Post, &ldquo;Zelensky ousts Ukraine&rsquo;s military commander as major shake-up continues,&rdquo; July 21, 2026. <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] CNN, &ldquo;Zelensky sacks Ukraine&rsquo;s military chief following widespread protests,&rdquo; July 21, 2026. <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">China and India</span>
+    <ul class="bib-list">
+      <li id="fn36">[36] Defence Security Asia, &ldquo;China&rsquo;s J-20 Surge Near India,&rdquo; late July 2026. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn37">[37] Army Recognition, &ldquo;China&rsquo;s J-20 Stealth Fighter Deployment Near India Reflects a Shifting Himalayan Airpower Landscape,&rdquo; July 2026. <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn38">[38] 19FortyFive, &ldquo;Satellite Images Show 11 J-20 Stealth Fighters at Two Chinese Bases,&rdquo; July 2026. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn39">[39] Indiablooms, &ldquo;China&rsquo;s J-20 stealth jets near India: Satellite images reveal growing airpower presence along LAC,&rdquo; July 2026. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn40">[40] Indian Defence News, &ldquo;China Expands J-20 Stealth Fighter Deployments Near Indian Border,&rdquo; July 2026. <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn41">[41] Deccan Herald, &ldquo;China deploys J-20 stealth fighters near Indian border close to Sikkim,&rdquo; May 2024. <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The South China Sea</span>
+    <ul class="bib-list">
+      <li id="fn42">[42] CNN, &ldquo;Chinese ship shoots water cannon at Philippine vessel near South China Sea flashpoint,&rdquo; July 24, 2026. <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn43">[43] U.S. Mission to ASEAN, &ldquo;China&rsquo;s Actions Against Philippine Navy Personnel at Second Thomas Shoal,&rdquo; July 20, 2026. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn44">[44] Rappler, &ldquo;China fires water cannon on PH ship in Bajo de Masinloc,&rdquo; July 23, 2026. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn45">[45] Council on Foreign Relations, Global Conflict Tracker, &ldquo;Territorial Disputes in the South China Sea,&rdquo; 2026. <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn46">[46] Navy Times, &ldquo;USS George Washington arrives in Vietnam amid China-Philippines strain,&rdquo; July 30, 2026. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn47">[47] Forbes, &ldquo;US Navy&rsquo;s Forward-Deployed Carrier Now In Waters Claimed By Beijing,&rdquo; July 28, 2026. <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn48">[48] The War Zone, &ldquo;Where Are The Aircraft Carriers: July 28, 2026.&rdquo; <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Israel and Lebanon</span>
+    <ul class="bib-list">
+      <li id="fn49">[49] Al Jazeera, &ldquo;Lebanon and Israel end sixth round of US-brokered talks,&rdquo; July 15, 2026. <a href="#ref49" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn50">[50] Al Jazeera, &ldquo;US, Lebanese delegations meet to discuss Israeli pilot zones withdrawal,&rdquo; July 11, 2026. <a href="#ref50" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn51">[51] Jewish Dallas, &ldquo;Israel Update: July 2, 2026.&rdquo; <a href="#ref51" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn52">[52] Al Jazeera, &ldquo;Israel carries out blasts across south Lebanon despite ceasefire deal,&rdquo; July 24, 2026. <a href="#ref52" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn53">[53] Al Jazeera, &ldquo;Lebanon, Israel hold talks in Rome on implementing framework deal,&rdquo; July 14, 2026. <a href="#ref53" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Sudan</span>
+    <ul class="bib-list">
+      <li id="fn54">[54] CNN, &ldquo;You cannot hide from a drone strike: The terror falling from the sky in Sudan,&rdquo; July 20, 2026. <a href="#ref54" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn55">[55] UN News, &ldquo;Sudan&rsquo;s people subject to relentless drone strikes in El Obeid,&rdquo; July 2026. <a href="#ref55" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn56">[56] Sudan Tribune, &ldquo;Retreating RSF troops launch reprisal attacks on civilians in North Kordofan,&rdquo; July 29, 2026. <a href="#ref56" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn57">[57] Sudan Tribune, &ldquo;Sudanese army launches heavy airstrikes on RSF positions in Kordofan,&rdquo; July 30, 2026. <a href="#ref57" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn58">[58] Sudan Tribune, &ldquo;Dozens killed in North Kordofan air strikes, rights group says,&rdquo; July 28, 2026. <a href="#ref58" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn59">[59] Al Bawaba, &ldquo;RSF attack kills nine civilians, displaces residents in Sudan&rsquo;s North Kordofan,&rdquo; July 2026. <a href="#ref59" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Myanmar</span>
+    <ul class="bib-list">
+      <li id="fn60">[60] War on the Rocks, &ldquo;Misreading Myanmar&rsquo;s War: Why the Junta&rsquo;s Recent Gains Don&rsquo;t Mean Imminent Victory,&rdquo; June 2026. <a href="#ref60" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn61">[61] Burma News International, &ldquo;Myanmar Junta Rotates Battalions to Sustain Offensive Near Thai Border,&rdquo; July 22, 2026. <a href="#ref61" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn62">[62] Burma Coup Resistance Notes (Substack), July 18, 2026. <a href="#ref62" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Navy Asset Map</span>
+    <ul class="bib-list">
+      <li id="fn63">[63] USNI News, Fleet and Marine Tracker, July 20, 2026. <a href="#ref63" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn64">[64] The War Zone, &ldquo;Where Are The Aircraft Carriers: July 20, 2026.&rdquo; <a href="#ref64" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn65">[65] The War Zone, &ldquo;Where Are The Aircraft Carriers: July 28, 2026.&rdquo; <a href="#ref65" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn66">[66] USNI News, Fleet and Marine Tracker, July 13, 2026. <a href="#ref66" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn67">[67] The War Zone, &ldquo;Where Are The Aircraft Carriers: July 13, 2026.&rdquo; <a href="#ref67" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Opinion Section Sourcing</span>
+    <ul class="bib-list">
+      <li id="fn68">[68] Anadolu Agency, &ldquo;Around 70% of global oil demand transported through strategic maritime chokepoints,&rdquo; 2026; U.S. Energy Information Administration data. <a href="#ref68" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn69">[69] The National Interest, &ldquo;How the US Strengthened Its Hand in the Strait of Malacca,&rdquo; June 18, 2026; The Hill, &ldquo;America gains a foothold in the world&rsquo;s most critical chokepoint,&rdquo; May 2026. <a href="#ref69" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn70">[70] Al Jazeera, &ldquo;India&rsquo;s Modi visits Israel: What&rsquo;s on the agenda, and why it matters,&rdquo; February 25, 2026; PM India, India-Israel Joint Statement. <a href="#ref70" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn71">[71] The Diplomat, &ldquo;Modi Puts India Firmly in the Israel-US Camp,&rdquo; March 3, 2026. <a href="#ref71" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn72">[72] Reuters via Independent Sentinel, &ldquo;The U.S. Is the Largest Exporter of Crude Oil &amp; Petro Products,&rdquo; June 12, 2026. <a href="#ref72" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us, All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
