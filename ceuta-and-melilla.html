@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ceuta and Melilla | Political Hypocrites</title>
+  <meta name="description" content="A full history of Ceuta and Melilla, the current migration crisis, Thomas Massie's claim about the House vote, Yair Netanyahu's 2019 post, Pedro Sanchez's posture toward Israel, and the NATO angle, reported factually." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="Ceuta and Melilla | Political Hypocrites" />
+  <meta property="og:description" content="Five centuries of contested sovereignty, a chokepoint on the Strait of Gibraltar, and a migration crisis that arrived two weeks after a House vote nobody was watching." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/ceuta-and-melilla" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ceuta and Melilla | Political Hypocrites" />
+  <meta name="twitter:description" content="Five centuries of contested sovereignty, a chokepoint on the Strait of Gibraltar, and a migration crisis that arrived two weeks after a House vote nobody was watching." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: rgba(20,10,5,0.85);
+      margin: 2rem 0 0.8rem; font-style: italic;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.72); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4rem 0 2.5rem;
+    }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(0,0,0,0.1);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.38);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.55); font-style: normal; }
+
+    /* FACT NOTE */
+    .fact-note {
+      border-left: 3px solid var(--blue);
+      padding: 1rem 1.3rem; background: rgba(29,58,107,0.05);
+      margin: 1.5rem 0 2rem;
+    }
+    .fact-note p {
+      font-size: 0.8rem; color: rgba(20,10,5,0.55);
+      font-style: italic; margin-bottom: 0;
+    }
+    .fact-note strong { color: var(--blue); font-style: normal; }
+
+    /* OPINION INLINE TAG */
+    .opinion-tag {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--red); border: 1px solid var(--red);
+      padding: 0.1rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -0.1rem;
+    }
+
+    /* FOOTNOTES */
+    .footnotes {
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem; padding-top: 2.5rem;
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .footnote {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); margin-bottom: 0.7rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .footnote::before {
+      content: attr(data-n);
+      position: absolute; left: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red);
+    }
+    .footnote a.backlink {
+      color: rgba(20,10,5,0.32); text-decoration: none;
+      font-family: 'Space Mono', monospace; margin-left: 0.4rem;
+    }
+    .footnote a.backlink:hover { color: var(--red); }
+    sup.cite { font-size: 0.7em; }
+    sup.cite a {
+      color: var(--red); text-decoration: none;
+      font-family: 'Space Mono', monospace;
+    }
+    sup.cite a:hover { text-decoration: underline; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 3rem 1.5rem 4rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>/</span>
+    <span>Ceuta and Melilla</span>
+  </div>
+  <span class="article-label">Current Events + Opinion</span>
+  <h1 class="article-title">Ceuta and Melilla</h1>
+  <p class="article-subtitle">Five centuries of contested sovereignty, a chokepoint on the Strait of Gibraltar, and a migration crisis that arrived two weeks after a House vote almost nobody was watching</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> August 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Public records, official statements, direct X posts, contemporary reporting</span>
+    <a href="https://twitter.com/intent/tweet?text=Ceuta+and+Melilla%3A+the+history%2C+the+crisis%2C+and+who+said+what&url=https%3A%2F%2Fpolitical-hypocrites.vercel.app%2Fcurrent-events%2Fceuta-and-melilla" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">In the final days of July 2026, tens of thousands of people crossed from Morocco into Spain's North African enclaves of Ceuta and Melilla in the span of roughly a day. The crisis arrived at the intersection of a five hundred year old territorial dispute, a House vote in Washington nobody outside a handful of observers noticed, a seven year old post from the Israeli prime minister's son, and Spain's own break with Israel over Gaza. What follows is a factual account of each of those threads, sourced and attributed, with my own view reserved for the close and clearly marked as such.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every claim below is sourced to official statements, direct X posts, government records, or contemporary reporting. Contested characterizations are attributed to the person or outlet making them, not asserted as settled fact.</p>
+  </div>
+
+  <div class="part-divider"><span>Part One: The Current Crisis</span></div>
+
+  <h2>What Happened</h2>
+  <p>In the final days of July 2026, an estimated 60,000 people, most of them young men, crossed the border from Morocco into the Spanish autonomous city of Ceuta.<sup class="cite" id="ref8"><a href="#fn8">8</a></sup> Smaller numbers attempted the same crossing roughly 250 miles away in Melilla, the other Spanish enclave on Morocco's Mediterranean coast. Most entered by swimming around the Tarajal and Benzu breakwaters or by moving along the shoreline on foot.<sup class="cite" id="ref8b"><a href="#fn8">8</a></sup> It happened over the course of roughly twenty four hours starting Thursday, July 30.</p>
+  <p>By the following Saturday, Spanish officials said that around 50,000 of those who crossed had voluntarily returned to Morocco, and Spain's interior minister Fernando Grande-Marlaska told reporters the situation had been "almost entirely reversed."<sup class="cite" id="ref9"><a href="#fn9">9</a></sup> That reversal did not come without cost. At least 67 people died in the crossing, some by drowning and others in a stampede at the breakwater barrier, though some reports put the toll higher; Sky News cited local officials putting the number at 86, and diving teams from the Guardia Civil and Salvamento Maritimo continued searching the coastline for bodies in the days that followed.<sup class="cite" id="ref8c"><a href="#fn8">8</a></sup></p>
+  <p>Spanish authorities have pointed to a specific legal trigger for the timing of the surge. On June 29, 2026, Spain's Supreme Court ruled that authorities could not summarily return migrants who arrive in Ceuta and Melilla by sea without first affording them due process.<sup class="cite" id="ref7"><a href="#fn7">7</a></sup> The ruling did not legalize irregular entry or guarantee that anyone who swam across could stay in Spain, and it did not apply to migrants entering by land, including those who climb the border fence. Spain's Interior Ministry said human trafficking networks exploited the ruling to encourage the flow, and Spanish broadcaster RTVE reported that news of the ruling spread on Moroccan social media in the days before the crossing began.<sup class="cite" id="ref7b"><a href="#fn7">7</a></sup></p>
+  <p>The numbers for Ceuta specifically stand out against the broader national picture. Irregular arrivals across all of Spain actually fell from 17,990 in the first half of 2025 to 12,138 in the same period of 2026. Ceuta alone saw land arrivals jump from 978 in that window last year to 2,582 this year, an increase of 164 percent, according to Spain's Interior Ministry.<sup class="cite" id="ref10"><a href="#fn10">10</a></sup></p>
+  <p>The political reaction was immediate. President Trump called the scenes "terrible," and Vice President Vance pointed to them as evidence of the consequences of mass migration. The U.S. State Department expressed support for Spain's sovereignty over the territories. Twenty two European Union heads of state sent a letter to European Commission President Ursula von der Leyen citing Spain's April 2026 mass regularization announcement, under which 1.2 million migrants applied for legal status, as a "pull factor" behind the crisis.<sup class="cite" id="ref8d"><a href="#fn8">8</a></sup> Italian Prime Minister Giorgia Meloni temporarily suspended the Schengen free movement agreement for air and sea travel from Spain.<sup class="cite" id="ref15"><a href="#fn15">15</a></sup></p>
+
+  <div class="fact-note">
+    <p><strong>Note on the death toll:</strong> Figures for this crisis ranged from 67 (Spanish officials, as of early August 2026) to 86 (Sky News, citing local officials), with search and recovery operations ongoing at time of publication. Readers should check current reporting for the most up to date confirmed number.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Two: A Full History, and What the Strait Is Worth</span></div>
+
+  <h2>Five Centuries of Contested Sovereignty</h2>
+  <p>To understand why two small cities on the North African coast are at the center of a geopolitical argument in 2026, it helps to go back more than 500 years.</p>
+  <p>Ceuta's modern European history begins in 1415, when Portuguese forces under King John I conquered the city from the Marinid Sultanate, a conquest significant enough that historians generally mark it as the beginning of the Portuguese Empire.<sup class="cite" id="ref2"><a href="#fn2">2</a></sup> Ceuta sits directly on the Strait of Gibraltar, and its strategic value was already understood in antiquity: in 711, the city had served as a launching point for the Umayyad conquest of the Iberian Peninsula, the event that began nearly eight centuries of Muslim rule in what is now Spain and Portugal.<sup class="cite" id="ref2b"><a href="#fn2">2</a></sup> Portugal held Ceuta for over two centuries, fighting off a Marinid siege in 1419 to keep it.</p>
+  <p>Melilla's history under European control began later. In 1497, five years after the fall of Granada ended the Reconquista, the Duke of Medina Sidonia sent a naval commander named Pedro de Estopinan to seize the city on behalf of the Catholic Monarchs, Ferdinand and Isabella. He took it with almost no resistance, and a Moroccan attempt to retake it shortly after was repelled by cannon fire from Spanish ships offshore.<sup class="cite" id="ref1"><a href="#fn1">1</a></sup> Melilla was incorporated into the Crown of Castile and has remained under Spanish sovereignty ever since.</p>
+  <p>Ceuta's path to Spanish control came later and by a different route. In 1580, the crowns of Spain and Portugal were united under a single monarch during the period known as the Iberian Union, and Ceuta fell under Spanish authority as part of that union. When Portugal restored its independence in 1640, Ceuta did not go with it. It remained under Spanish administration, and that arrangement was formally recognized in the Treaty of Lisbon in 1668.<sup class="cite" id="ref3"><a href="#fn3">3</a></sup> Morocco has never accepted that treaty as settling the question of sovereignty, on the grounds that it was negotiated between Spain and Portugal without Moroccan participation.<sup class="cite" id="ref4"><a href="#fn4">4</a></sup></p>
+  <p>Both cities have remained Spanish for centuries since, including through the era of the Spanish Protectorate in Morocco from 1912 to 1956. When Morocco gained independence in 1956, Spain returned most of the territory it had held under that protectorate but kept Ceuta, Melilla, and several smaller offshore islands, known collectively as the plazas de soberania.<sup class="cite" id="ref3b"><a href="#fn3">3</a></sup> Morocco does not recognize Spanish sovereignty over these territories and considers them part of an unfinished decolonization process. Spain, for its part, treats Ceuta and Melilla as full and integral parts of the Spanish nation, legally and constitutionally no different from Madrid or Barcelona.</p>
+
+  <h3>Why the Strait Matters</h3>
+  <p>The dispute is not simply about land. Ceuta and Melilla sit on one of the most consequential maritime chokepoints in the world. The Strait of Gibraltar is the only water passage connecting the Mediterranean Sea to the Atlantic Ocean, and an enormous volume of global shipping traffic, including oil and container traffic bound for European and North African ports, passes through it.<sup class="cite" id="ref5"><a href="#fn5">5</a></sup> Control of territory directly on that strait has carried outsized military and economic weight for as long as ships have needed to move between the Mediterranean and the Atlantic, which is part of why both Portugal and Spain fought to hold Ceuta specifically rather than settling for outposts further down the coast.</p>
+  <p>Today, Ceuta and Melilla carry a second layer of significance beyond the strait itself: they are the only land borders the European Union shares with the African continent.<sup class="cite" id="ref7c"><a href="#fn7">7</a></sup> That single fact is what makes them a recurring flashpoint for migration, since they represent the only place someone can walk from Africa into EU territory without crossing open water to reach the Spanish or Italian mainland.</p>
+  <p>That combination, five centuries of contested sovereignty layered on top of one of the world's most important shipping chokepoints and the EU's only African land border, is the backdrop against which everything else in this piece happened.</p>
+
+  <div class="part-divider"><span>Part Three: The House Vote</span></div>
+
+  <h2>Thomas Massie's Claim, and the House Vote Behind It</h2>
+  <p>In the same week the Ceuta crisis was unfolding, Kentucky Congressman Thomas Massie posted on X accusing his own party of manufactured outrage. His post read: "Don't fall for the fake Fox/GOP outrage. Two weeks ago the House passed a bill that greenlighted the transfer of Spanish territory to Morocco. Every Republican except me voted for it, but now THEY are acting shocked at the invasion."<sup class="cite" id="ref12"><a href="#fn12">12</a></sup></p>
+  <p>The bill Massie referenced is H.R. 8595, the National Security, Department of State, and Related Programs Appropriations Act, 2027, a $47.32 billion fiscal year 2027 State Department spending package.<sup class="cite" id="ref13"><a href="#fn13">13</a></sup> It passed the House on July 15, 2026, by a vote of 217 to 209. Massie was the only Republican to vote no. Most Democrats voted against the bill as well, for reasons tied to the broader spending package rather than this specific provision.<sup class="cite" id="ref12b"><a href="#fn12">12</a></sup></p>
+  <p>What is contested is not the vote itself, but what the bill's language means and what it did or did not do.</p>
+  <p>Massie's position is that a bill accompanied by language favorable to Morocco's territorial claim, passed nearly unanimously by his own party, undercuts the party's ability to express shock at a crisis rooted in that same territorial dispute two weeks later. In further posts, Massie pointed to $40 million in assistance to Morocco included in the same bill, and tied the vote to Spain's broader posture toward Israel, writing: "Spain denounces Israel, Bibi Netanyahu and refuses to participate in war against Iran. Then the U.S. government and Israel immediately team up with Morocco to advocate for the invasion of Spanish territory."<sup class="cite" id="ref11"><a href="#fn11">11</a></sup></p>
+  <p>Critics of Massie's framing point to a specific textual distinction. According to reporting that reviewed the bill and its accompanying committee report directly, the report "notes" that Ceuta and Melilla sit in territory Morocco claims and "supports" continued diplomatic talks between Morocco and Spain over their status. The bill's actual statutory text contains no language about Morocco, Spain, Ceuta, or Melilla at all.<sup class="cite" id="ref13b"><a href="#fn13">13</a></sup> The Congressional Research Service has stated that appropriations report language is generally not legally binding in the way statutory text is, though federal agencies do treat it seriously as an expression of congressional intent. The Ceuta paragraph is also not among the specific report provisions incorporated into the bill through Section 7019, which does bind certain funding tables and reporting requirements.<sup class="cite" id="ref13c"><a href="#fn13">13</a></sup> On that basis, critics argue "greenlighted the transfer" overstates what a non-binding committee report can legally do, since it does not transfer sovereignty or recognize Moroccan ownership.<sup class="cite" id="ref14"><a href="#fn14">14</a></sup></p>
+  <p>Both readings rest on facts that check out. The vote happened as described, and Massie was the lone Republican no. The report does contain language favorable to Morocco's position. Where the two sides diverge is on how much weight a non-binding report carries, and by extension, how fair it is to describe supporting that report as "greenlighting" anything. That is a judgment about political meaning rather than a dispute over what happened, and it is presented here with both positions attributed to the people making them.</p>
+
+  <div class="part-divider"><span>Part Four: The 2019 Post</span></div>
+
+  <h2>Yair Netanyahu's 2019 Post</h2>
+  <p>In May 2019, Yair Netanyahu, the eldest son of Israeli Prime Minister Benjamin Netanyahu, posted on Twitter addressing "Arabs and Muslims" directly. The post read: "Dear Arabs and Muslims. Want to free occupied Arab Islamic lands? Here's a good start!" The post included a map highlighting Ceuta and Melilla as occupied territory.<sup class="cite" id="ref16"><a href="#fn16">16</a></sup></p>
+  <p>The post drew an immediate response from Santiago Abascal, leader of Spain's Vox party, who called Netanyahu "ignorant and frivolous," writing that Spain had been invaded by Islamist forces and had recovered the territory after an eight century Reconquista.<sup class="cite" id="ref17"><a href="#fn17">17</a></sup></p>
+  <p>Netanyahu did not walk the post back. He responded directly to Abascal, writing: "Dear Spanish people. I see you all got upset. Ceuta and Melilla are tiny territories you own across the sea on another continent. Now imagine how we feel when your government calls for Israel to give away Judea and Samaria (West Bank), which is the Jewish heartland." He went on to describe Judea and Samaria as the Jewish people's birthplace referenced in the Bible, located near Tel Aviv and cutting through Jerusalem, and comparable in size to Palma de Mallorca.<sup class="cite" id="ref15b"><a href="#fn15">15</a></sup></p>
+  <p>Netanyahu then proposed what he framed as a reciprocal arrangement, writing: "Let's make a deal, we won't fund NGOs in your country calling you to give away Ceuta and Melilla, and you will stop funding NGOs in our country that calls us to give away Judea and Samaria."<sup class="cite" id="ref15c"><a href="#fn15">15</a></sup> That line is significant because it was Netanyahu himself, in 2019, who first raised the idea of NGO funding tied to Ceuta and Melilla's status, a detail that has taken on new weight given how the current crisis has unfolded.</p>
+  <p>The 2019 exchange had largely faded from public attention until this past week, when it resurfaced widely on social media alongside coverage of the Ceuta crisis. Commentators sharing the old post have asked why Netanyahu's son was calling for Arabs and Muslims to "free" Ceuta in 2019, years before the current migration surge, if the recent crisis is solely a function of Spain's present day political alignment against Israel.<sup class="cite" id="ref18"><a href="#fn18">18</a></sup> Separately, Israel's ambassador to the United Nations, Danny Danon, posted on X this year that Spain "should explain to the world why it maintains colonial enclaves in Africa," a comment that has also been read alongside the resurfaced 2019 thread.<sup class="cite" id="ref19"><a href="#fn19">19</a></sup></p>
+  <p>It is worth being precise about what the 2019 record does and does not establish. It shows that Yair Netanyahu, a private citizen and the son of Israel's prime minister rather than an Israeli government official himself, publicly called for Ceuta and Melilla's "liberation" and floated the idea of NGO funding tied to that goal, seven years before the current crisis. It does not, on its own, establish that the Israeli government funded or organized anything connected to the July 2026 crossing. Those are two separate claims, and only the first is documented by the 2019 posts themselves.</p>
+
+  <div class="part-divider"><span>Part Five: Spain's Break With Israel, and the Strategic Stakes</span></div>
+
+  <h2>Pedro Sanchez's Posture Toward Israel</h2>
+  <p>Spanish Prime Minister Pedro Sanchez has spent the past several years positioning himself as one of the most vocal critics of Israel among world leaders. In September 2025, Sanchez announced a package of measures against Israel over its conduct in Gaza, describing the war in stark terms: "This is not self-defence, it's not even an attack, it's the extermination of a defenceless people. It is a violation of all humanitarian laws, and despite that, the international community is failing to stop this tragedy." He also said, "There is a difference between defending your country and bombing hospitals or starving innocent children."<sup class="cite" id="ref20"><a href="#fn20">20</a></sup></p>
+  <p>Those measures included a full arms embargo, a ban on ships carrying fuel for the Israeli military from docking at Spanish ports, a denial of Spanish airspace to aircraft transporting Israeli defense material, an embargo on goods from Israeli settlements in the West Bank and Gaza, and increased humanitarian aid to Gaza and the Palestinian Authority.<sup class="cite" id="ref20b"><a href="#fn20">20</a></sup> Spain's Parliament formally enshrined the arms embargo into law on October 8, 2025, in a vote of 178 to 169, with support from the smaller Podemos party helping the governing coalition secure passage. The law's preamble states that Israel's response to the October 7, 2023 Hamas attack "ended up becoming an indiscriminate attack against the Palestinian population that the majority of experts have called genocide."<sup class="cite" id="ref21"><a href="#fn21">21</a></sup></p>
+  <p>Sanchez's government has also called for Israel to be banned from international sporting events over the war, and Spain has recognized the state of Palestine. Spain's political right, including the People's Party and Vox, has criticized Sanchez's approach, though that criticism has centered more on domestic political alignment than on offering an alternative account of the war itself.</p>
+
+  <h3>What Moroccan Control Would Mean</h3>
+  <p>This is the backdrop against which questions about Ceuta and Melilla's future status have to be read. Spain, under Sanchez, has taken one of the harder diplomatic lines against Israel of any Western European government. Morocco, meanwhile, has normalized relations with Israel through the 2020 Abraham Accords framework and has an increasingly close security and defense relationship with Israel, a dynamic separate from anything to do with Ceuta or Melilla but relevant to understanding who the interested parties are.</p>
+  <p>What would it actually mean if Morocco gained control of Ceuta and Melilla? Strategically, it would hand Rabat direct control of territory sitting on the Strait of Gibraltar, the only water passage between the Mediterranean and the Atlantic. It would end Spain's centuries long physical presence on the African continent and eliminate the EU's only land border with Africa as currently configured. For Morocco, gaining the cities would also fit into a broader diplomatic strategy: Morocco's primary foreign policy goal in the region is international recognition of its claimed sovereignty over Western Sahara, a territory it has controlled since Spain's 1975 withdrawal but which remains contested by the Algeria backed Polisario Front. Morocco has previously used loosened border enforcement at Ceuta and Melilla as leverage in disputes with Spain, including during a 2021 crisis, and analysts have noted that eased crossings have historically tracked with moments of friction, such as Spanish outreach to Algeria, Morocco's regional rival and a major gas supplier to southern Europe.<sup class="cite" id="ref6"><a href="#fn6">6</a></sup></p>
+  <p>Whether any of that connects to the current crisis in a direct, coordinated way is a separate and unproven question. Online commentary following the July 2026 crossing has included claims that Israel or Israeli aligned think tanks encouraged Morocco to pressure Spain as retaliation for Sanchez's stance on Gaza, and some analysts have pointed to earlier 2026 commentary in which pro-Israel analysts argued Israel should help Morocco pressure Spain over Ceuta specifically because of Spain's support for Palestinians.<sup class="cite" id="ref18b"><a href="#fn18">18</a></sup> That theory has circulated widely, but it remains an argument made by specific commentators and analysts rather than a documented, confirmed chain of coordination, and it is presented here as exactly that: a claim made by identified people, not an established fact.</p>
+
+  <div class="fact-note">
+    <p><strong>Note on sourcing:</strong> The claim that Israel encouraged or engineered this crisis traces to commentary highlighted by analyst Bruno Macaes and unnamed "analysts at Israel-funded think tanks" per Middle East Monitor's reporting. It is presented here as an attributed claim, not a verified fact.</p>
+  </div>
+
+  <div class="part-divider"><span>Part Six: NATO, and Who Said What</span></div>
+
+  <h2>The NATO Angle and the Reactions</h2>
+  <p>The Ceuta crisis did not happen in a diplomatic vacuum. It landed on top of an existing rift between Spain and Washington over NATO obligations, one that the same House Appropriations Committee report discussed in Part Three addressed directly and separately from the Ceuta and Melilla language.</p>
+  <p>According to reporting that reviewed the committee report accompanying H.R. 8595, the report criticized Spain over its NATO defense spending levels and condemned Madrid's refusal to allow Iran related U.S. military operations to use Spanish military bases and airspace.<sup class="cite" id="ref13d"><a href="#fn13">13</a></sup> That refusal is connected to Spain's broader posture toward the Israel Iran conflict: Spain has declined to participate in or facilitate U.S. military action against Iran, a position consistent with the Sanchez government's wider distancing from Israel described above.</p>
+  <p>That is the throughline Thomas Massie pointed to in his own posts, tying the Ceuta language, the NATO spending criticism, and Spain's Iran posture together as part of the same appropriations fight, and asking why Republicans who voted for a bill containing all three elements were expressing shock at a crisis touching on one of them. Whether that connection reflects actual coordinated pressure on Spain or simply reflects unrelated grievances landing in the same spending bill is, like the sovereignty question above, a matter of interpretation rather than settled fact.</p>
+  <p>What is documented is the range of official reactions once the crisis became public. President Trump described the scenes in Ceuta as "terrible" and a "catastrophe." Vice President Vance said the images highlighted the consequences of mass migration. The U.S. State Department expressed support for Spain's sovereignty over Ceuta and Melilla even as the same week's appropriations report language drew criticism for appearing to lean the other way.<sup class="cite" id="ref15d"><a href="#fn15">15</a></sup></p>
+  <p>In Europe, the reaction split along different lines. Twenty two European Union heads of state signed a letter to European Commission President Ursula von der Leyen pointing to Spain's April 2026 mass regularization announcement as a contributing "pull factor" to the Ceuta surge. Italian Prime Minister Giorgia Meloni temporarily suspended the Schengen free movement agreement for air and sea travel from Spain in response.<sup class="cite" id="ref15e"><a href="#fn15">15</a></sup> Spanish officials, including Sanchez, defended the government's handling of the crisis and pointed to the Supreme Court ruling, rather than the regularization program, as the direct legal trigger for the timing of the crossing.</p>
+  <p>Taken together, the NATO friction, the Iran related base access dispute, and the international reaction to the crisis show a Spain that entered this crisis already at odds with Washington and much of the transatlantic security relationship on multiple fronts, not only on migration. Whether the Ceuta crisis was a cause, a consequence, or simply a coincidence relative to that friction is not something the public record currently settles, and it is presented here as an open question rather than a conclusion.</p>
+
+  <div class="part-divider"><span>Close</span></div>
+
+  <h2><span class="opinion-tag">Opinion</span>Where I Land on This</h2>
+  <p><span class="opinion-tag">Opinion</span>I want to be upfront here. Mass migration events like this are never a good thing, for the people forced into them or for the countries absorbing them, and nothing about pretending otherwise serves anyone. But something about the timing of all of this feels off to me.</p>
+  <p><span class="opinion-tag">Opinion</span>Two weeks before this crisis, House Republicans nearly unanimously backed language favorable to Morocco's claim over Ceuta and Melilla. Years earlier, the Israeli prime minister's own son was publicly calling for Arabs and Muslims to "free" those same two cities and floating the idea of NGO funding to make it happen. Spain, meanwhile, has spent the past year as one of Israel's loudest critics on the world stage, cutting arms deals, refusing U.S. use of its bases for operations against Iran, and drawing criticism from Washington over both. Individually, none of these facts prove anything. Together, they are a strange coincidence at minimum.</p>
+  <p><span class="opinion-tag">Opinion</span>I want to be careful here, because I know I am capable of the same instinct I am about to criticize. It is very easy to look at anything involving Israel and immediately say "they did it," and I think that instinct is corrosive. It flattens real, documented grievances into background noise, and it lets people dismiss legitimate criticism as conspiracy thinking. So I am not saying Israel or the United States engineered this. What I am saying is that the pattern here is strange enough that it deserves an actual investigation, not a shrug and not a reflexive accusation either. If it turns out to be coincidence, fine. But nobody should be comfortable simply assuming that.</p>
+  <p><span class="opinion-tag">Opinion</span>What worries me more than the coincidence itself is what it would mean if the answer turns out to be yes. If the United States quietly had no problem with a NATO ally getting destabilized because that ally broke from Israel over Gaza, that is not a small thing. It tells every other NATO member exactly where they stand if they ever step out of line the same way. It is the kind of signal that lets Israel treat Turkey, another NATO country with real friction with Israel, as the next adversary in waiting, because Washington already showed once that alliance loyalty has limits when Israel is involved. That should concern anyone who cares about NATO functioning as an actual alliance and not a one way arrangement.</p>
+  <p><span class="opinion-tag">Opinion</span>I do not know what the full truth here is. I understand the argument that this is a genuine humanitarian crisis with genuine domestic causes in Spain, and I understand the argument that the timing is too convenient to ignore. I think both of those things can be worth taking seriously at once. What I am confident about is that this deserves real scrutiny, not spin from either direction.</p>
+
+  <div class="footnotes">
+    <span class="footnotes-label">Sources</span>
+    <p class="footnote" id="fn1" data-n="1">Wikipedia, "Conquest of Melilla." The 1497 conquest by forces sent by the Duke of Medina Sidonia. <a class="backlink" href="#ref1">back</a></p>
+    <p class="footnote" id="fn2" data-n="2">Wikipedia, "Portuguese conquest of Ceuta." 1415 Portuguese conquest, transferred to Spain 1668. <a class="backlink" href="#ref2">back</a></p>
+    <p class="footnote" id="fn3" data-n="3">Voz.us, "Ceuta and Melilla are not colonies: History, law, and full integration into Spain." Iberian Union 1580 to 1640, Treaty of Lisbon 1668, Spanish Protectorate era 1912 to 1956. <a class="backlink" href="#ref3">back</a></p>
+    <p class="footnote" id="fn4" data-n="4">Morocco World News, "Why Ceuta, Not Melilla? The History and Geography Behind Morocco's Occupied Cities." <a class="backlink" href="#ref4">back</a></p>
+    <p class="footnote" id="fn5" data-n="5">The Olive Press, "The history behind how Spain came to own Ceuta and Melilla." <a class="backlink" href="#ref5">back</a></p>
+    <p class="footnote" id="fn6" data-n="6">Wikipedia, "Siege of Ceuta (1419)," and reporting on Morocco's use of border enforcement as diplomatic leverage in prior disputes with Spain. <a class="backlink" href="#ref6">back</a></p>
+    <p class="footnote" id="fn7" data-n="7">Al Jazeera, "Spain's PM visits Ceuta after 57 migrants die breaching border from Morocco." <a class="backlink" href="#ref7">back</a></p>
+    <p class="footnote" id="fn8" data-n="8">Wikipedia, "2026 Morocco-Spain border incident"; Euronews and Sky News reporting on casualty figures and reversal of the crossing. <a class="backlink" href="#ref8">back</a></p>
+    <p class="footnote" id="fn9" data-n="9">Euronews, "Situation in Ceuta 'almost entirely reversed' as death toll climbs to 67, Spain says." <a class="backlink" href="#ref9">back</a></p>
+    <p class="footnote" id="fn10" data-n="10">TIME, "Thousands of Moroccan Migrants Cross Into Spanish Enclave," citing Spain's Interior Ministry arrival statistics. <a class="backlink" href="#ref10">back</a></p>
+    <p class="footnote" id="fn11" data-n="11">Thomas Massie (@RepThomasMassie), posts on X, August 1 to 2, 2026. <a class="backlink" href="#ref11">back</a></p>
+    <p class="footnote" id="fn12" data-n="12">LBC, "'Now they're acting shocked at the invasion' US representative accuses Republicans of hypocrisy over Ceuta crisis." <a class="backlink" href="#ref12">back</a></p>
+    <p class="footnote" id="fn13" data-n="13">The Deep Dive, "Massie accuses Republicans of enabling Morocco's Ceuta claim," reviewing H.R. 8595 and its accompanying committee report. <a class="backlink" href="#ref13">back</a></p>
+    <p class="footnote" id="fn14" data-n="14">Mario Nawfal (@MarioNawfal), post on X analyzing the distinction between H.R. 8595's statutory text and its committee report language. <a class="backlink" href="#ref14">back</a></p>
+    <p class="footnote" id="fn15" data-n="15">Yair Netanyahu (@YairNetanyahu), original X/Twitter posts, May 25 to 26, 2019; Newsweek and additional 2026 reporting on U.S. and EU reactions to the crisis. <a class="backlink" href="#ref15">back</a></p>
+    <p class="footnote" id="fn16" data-n="16">Morocco World News, "Netanyahu's Son Calls on 'Arabs and Muslims' to 'Free' Ceuta and Melilla," May 2019. <a class="backlink" href="#ref16">back</a></p>
+    <p class="footnote" id="fn17" data-n="17">Yabiladi, "Benjamin Netanyahu's son and Vox's leader argue over Ceuta and Melilla," May 2019, documenting the Abascal exchange. <a class="backlink" href="#ref17">back</a></p>
+    <p class="footnote" id="fn18" data-n="18">Middle East Monitor, "Ceuta crisis sparks online speculation over Israel's role in pressuring Spain." <a class="backlink" href="#ref18">back</a></p>
+    <p class="footnote" id="fn19" data-n="19">Al Bawaba, "'Give Away Ceuta and Melilla': Viral Netanyahu post fuels claims Israel engineered Ceuta crisis," citing Danny Danon's X post. <a class="backlink" href="#ref19">back</a></p>
+    <p class="footnote" id="fn20" data-n="20">Al Jazeera, "Spain imposes total arms embargo on Israel to stop 'genocide in Gaza,'" September 2025. <a class="backlink" href="#ref20">back</a></p>
+    <p class="footnote" id="fn21" data-n="21">Times of Israel, "Spanish parliament approves arms embargo on Israel," October 2025. <a class="backlink" href="#ref21">back</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us. All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
