@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Decline of American Education — Political Hypocrites</title>
+  <meta name="description" content="A documented investigation into why American education is declining: the bipartisan testing regime, grade inflation, the authority vacuum in the classroom, chronic absenteeism, classroom violence, the teacher pay penalty, the curriculum culture war, smartphone bans, and the fight over the Department of Education." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="The Decline of American Education — Political Hypocrites" />
+  <meta property="og:description" content="Both parties built this. Both parties defended it. A documented investigation into the testing regime, grade inflation, teacher pay, classroom violence, and the culture war that missed the actual problem." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/the-decline-of-american-education" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Decline of American Education — Political Hypocrites" />
+  <meta name="twitter:description" content="Both parties built this. Both parties defended it. A documented investigation into the testing regime, grade inflation, teacher pay, classroom violence, and the culture war that missed the actual problem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(20,10,5,0.18);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 0 0 3rem;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.42);
+      font-style: italic; margin-bottom: 0; line-height: 1.7;
+    }
+    .source-note strong { color: rgba(20,10,5,0.60); font-style: normal; }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+      color: #1A0F05; margin: 2.6rem 0 1.1rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.1rem; color: rgba(20,10,5,0.85);
+      margin: 1.8rem 0 0.8rem; font-style: italic;
+    }
+    .article-body p {
+      font-size: 1.02rem; line-height: 1.9; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4.5rem 0 2.2rem;
+    }
+    .part-divider:first-of-type { margin-top: 0; }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+    .fn.active { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 780px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.40); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-back {
+      color: var(--red); text-decoration: none;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This investigation includes the author's analysis and perspective, clearly labeled inline where it appears. The documented record forms the spine. The view is separate, and it is disclosed.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span>The Decline of American Education</span>
+  </div>
+  <span class="article-label">Investigation + Opinion</span>
+  <h1 class="article-title">The Decline of American Education</h1>
+  <p class="article-subtitle">Twelve Failures Both Parties Built, Defended, and Left Standing While They Fought Over the Curriculum</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> August 2026</span>
+    <span class="meta-item"><strong>Sources</strong> NAEP, ACT, EPI, RAND, APA, EdWeek Research Center, PEN America, federal court records</span>
+    <a href="https://twitter.com/intent/tweet?text=The+Decline+of+American+Education%3A+Twelve+Failures+Both+Parties+Built%2C+Defended%2C+and+Left+Standing&url=https%3A%2F%2Fpolitical-hypocrites.vercel.app%2Finvestigations%2Fthe-decline-of-american-education" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">American reading and math scores are at or near record lows, chronic absenteeism has not returned to pre-pandemic levels six years later, teacher pay has fallen further behind comparable professions than at any point in three decades, and a meaningful share of teachers now go to work afraid. Most public arguments about why blame one ideology. This investigation started from that same instinct and abandoned it once the numbers didn't support it. What follows instead is a documented account of a testing regime both parties built and defended, a grading system that collapsed under a collective-action problem nobody in it benefits from fixing alone, an authority vacuum in the classroom, a pay penalty that has nearly quadrupled since 1996, and a curriculum culture war that, by the data's own account, is not actually about what is driving the decline.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every factual claim in this investigation is sourced below. Interpretation and argument are flagged inline with an <span class="opinion-inline" style="margin-right:0.3rem;">Opinion</span> tag wherever they appear. The two are never blended in this piece without disclosure.</p>
+  </div>
+
+  <div class="part-divider"><span>Section One — The Premise Correction</span></div>
+
+  <p><span class="opinion-inline">Opinion</span>I want to start this piece by admitting something most writers on this topic will not. When I sat down to investigate why American education is falling apart, my first instinct was to point at ideology. It is the easiest target. Teachers unions donate almost exclusively to one party, university education departments are some of the most ideologically lopsided institutions in the country, and anyone who has watched a school board meeting in the last five years has seen the culture war play out in real time. I assumed the numbers would back up the simplest version of that story. They do not, and I am not going to pretend otherwise just because it would make for a cleaner narrative.</p>
+
+  <p>Here is what the data actually shows. Individual K through 12 teachers, when surveyed directly, land closer to moderate than radical. Nearly 30 percent describe themselves as liberal or very liberal, 27 percent describe themselves as conservative or very conservative, and the plurality land somewhere in the middle.<a href="#fn1" class="fn" id="ref1">[1]</a> That is not the profile of a workforce that is 95 percent one ideology. It is a profile of a workforce slightly left of the general public, not radically different from it.</p>
+
+  <p>Where the picture changes is money and training. Teachers unions have given Democrats at least 94 percent of the funds they contributed to candidates and parties going back to 1990, the earliest year for which data exists.<a href="#fn2" class="fn" id="ref2">[2]</a> And at the university level, where the next generation of teachers is actually trained, the skew is not subtle. A study of registered voters found 3,623 Democrats to 314 Republicans among professors at forty leading institutions, an eleven and a half to one ratio, with some departments running as high as thirty three to one.<a href="#fn3" class="fn" id="ref3">[3]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>So both things are true at once, and I think that nuance matters more than the talking point. The people standing in front of a classroom every day are not, in aggregate, extremists. The institutions that fund political campaigns in education's name and the institutions that train the next generation of teachers are a different story entirely. If I collapse those three things into one number, I am doing exactly what I criticize both parties for doing elsewhere in this publication: taking a complicated reality and flattening it into a slogan.</p>
+
+  <p><span class="opinion-inline">Opinion</span>And that flattening is itself part of the problem I want to investigate. Ideology makes for a satisfying villain because it does not require anyone to look at the boring, bipartisan machinery that actually built this crisis. No Child Left Behind was signed by a Republican president with overwhelming bipartisan support and defended by both parties for over a decade before it was federally replaced, though never fully abandoned, with many states still enforcing its core provisions. Grade inflation is not a partisan project. Chronic absenteeism does not check a voter registration card before it doubles. A teacher who no longer feels safe in her own classroom does not care which party controls the school board.</p>
+
+  <p>This piece is going to walk through each of those pieces on their own terms, with their own sourcing, and let the reader decide how the pieces fit together. What I am not going to do is start from a conclusion and go looking for numbers to support it. That is the entire premise this publication was built to reject.</p>
+
+  <div class="part-divider"><span>Section Two — The Numbers Nobody Wants to Sit With</span></div>
+
+  <p>Before assigning any cause, the baseline has to be established plainly. This is the scale of the decline, in the government's own numbers.</p>
+
+  <p>Reading is the clearest signal. In 2024, average reading scores on the Nation's Report Card declined by 2 points for both 4th and 8th grade students compared to 2022, steepening a 3-point decline seen in both grades between 2019 and 2022. No state saw gains in either grade compared to 2022. Fewer than a third of students nationwide are working at the NAEP Proficient level in reading at both grades, and around 40 percent of 4th graders are working below NAEP Basic, the largest share since 2002. About a third of 8th graders nationwide are failing to hit the NAEP Basic benchmark, the largest share ever recorded.<a href="#fn4" class="fn" id="ref4">[4]</a></p>
+
+  <p>It gets worse further up the pipeline, not better. By September 2025, the Nation's Report Card showed an 8-point drop for 8th graders in science and a 3-point decrease for 12th graders in both math and reading since 2019. Average reading and math scores among 12th graders fell to their lowest levels on record in 2024. Compared with NAEP's first 12th-grade reading assessment in 1992, today's average score is 10 points lower.<a href="#fn5" class="fn" id="ref5">[5]</a> The acting director of the Institute of Education Sciences did not mince words about the trajectory, noting that scores for the lowest-performing students are at historic lows, a decline that has been building for more than a decade and was flagged by his predecessor and his predecessor's predecessor before him.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I want to pause on that quote, because it undercuts any narrative that blames a single administration or a single policy for this. Three consecutive officials, presumably spanning different political appointments, watched the same decline and sounded the same alarm. That is not what an ideologically driven crisis looks like. That is what an institutional failure looks like.</p>
+
+  <p>Internationally, the picture is more complicated than the domestic headlines suggest, and I think it is important to present that complication honestly rather than cherry-pick the worst framing. While U.S. scores on the 2022 PISA assessment fell across math, reading, and science, the United States actually improved its international ranking compared to 2018, moving from 29th to 26th in math, 8th to 6th in reading, and 11th to 10th in science, because other countries fell further.<a href="#fn7" class="fn" id="ref7">[7]</a> Still, the 13-point drop in U.S. math scores was among the lowest ever measured by PISA for this country, and lower than the 2012 result.<a href="#fn8" class="fn" id="ref8">[8]</a> Math performance has been deteriorating worldwide for two decades, with school closures explaining only about 11 percent of the variation in how much scores fell across countries, meaning roughly 90 percent of the decline is attributable to other, unclear factors.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>That last point matters for the rest of this piece. If school closures only explain a tenth of the international decline, the remaining explanation is not going to be a single American culture war fight either. It points toward something broader and harder to legislate away.</p>
+
+  <p>One dissenting voice deserves inclusion for balance. Some researchers argue PISA results are better understood as a measure of childhood poverty than academic achievement, and point out that 45 percent of students said they felt anxious without their phone nearby and 65 percent felt distracted by it during math lessons specifically.<a href="#fn10" class="fn" id="ref10">[10]</a> That framing does not erase the decline, but it does complicate any single-cause explanation for it, and I want that complication on the record before this piece moves into causes in the sections ahead.</p>
+
+  <div class="part-divider"><span>Section Three — No Child Left Behind, The Bipartisan Trap</span></div>
+
+  <p>No Child Left Behind was not passed by one party in a strict-line vote. The No Child Left Behind Act of 2001 was the first national law to require consequences for U.S. schools based on students' standardized test scores. It carried the signature of a Republican president and the sponsorship of one of the Senate's most prominent Democrats, and it passed with overwhelming support from both parties.<a href="#fn11" class="fn" id="ref11">[11]</a> If this were a story about one ideology hijacking education policy, NCLB would be the hardest piece of evidence against that story.</p>
+
+  <p><span class="opinion-inline">Opinion</span>I think that bipartisan origin is exactly why NCLB gets left out of the ideology blame conversation entirely. It is far easier to point at a teacher's political registration than to admit that both parties built and defended, for over a decade, a testing regime that produced measurable harm.</p>
+
+  <p>NCLB was not quietly retired. The NCLB era officially came to a close in December 2015 when it was replaced by the Every Student Succeeds Act, but ESSA continues to include consequences for schools according to standardized test scores, while allowing states greater flexibility in implementation and requiring them to choose additional measures of school quality beyond the four required academic indicators.<a href="#fn11" class="fn" id="ref11b">[11]</a> In practice, that means the federal mandate changed shape rather than disappeared. States were handed the wheel, and many of them kept driving in the same direction. High-stakes testing, school ratings tied to those tests, and consequences for schools that miss the mark are still standard practice in a large number of states today, just administered under state law instead of a single federal statute.</p>
+
+  <p>The record on what that regime actually produced is not kind to either party's stewardship of it. Perhaps the most adverse unintended consequence of NCLB is that it created incentives for schools to rid themselves of students who were not doing well, producing higher scores at the expense of vulnerable students' education. Studies in Massachusetts, New York, and Texas documented schools retaining students in grade so that grade-level scores would look better, even though those same students ultimately did worse and dropped out at higher rates, and schools excluding or encouraging the transfer of low-scoring students.<a href="#fn12" class="fn" id="ref12">[12]</a></p>
+
+  <p>The curriculum itself narrowed under the weight of the testing regime. By emphasizing testing as the sole measure of progress, NCLB's accountability provisions narrowed curriculum to focus only on tested subjects and gave teachers incentive to teach to the test rather than teach the material. One consequence was a steady reduction in time spent on social studies instruction, with Maryland, California, and Illinois all seeing social studies instruction decline in favor of increased reading instruction after NCLB's passage.<a href="#fn13" class="fn" id="ref13">[13]</a> Gifted programs took a similar hit. When NCLB was enacted in 2001, it forced schools to subsidize the education of students performing below grade level, and gifted and talented programs suffered as a result, with Illinois alone losing 16 million dollars in gifted program funding.<a href="#fn14" class="fn" id="ref14">[14]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>This is the part of the story I think gets buried the most: the rate of improvement was actually worse after NCLB than before it. While there was modest improvement in elementary and middle schools during the period after NCLB's passage, the rate of improvement for the student body as a whole, and for disadvantaged students specifically, was greater in the period before NCLB became law, the exact opposite of what would be expected if the law had a positive effect. That improvement was also limited entirely to elementary and middle school levels, with no improvement at all for high school students after NCLB took effect.<a href="#fn15" class="fn" id="ref15">[15]</a> A policy both parties championed for over a decade did not just fail to reverse the decline. By this measure, it coincided with a slower rate of progress than the years before it existed.</p>
+
+  <p>States did eventually get room to adjust course. ESEA Flexibility waivers allowed states to move away from strict NCLB proficiency targets if they adopted college and career-ready standards, and states that adopted the Common Core state standards were able to secure those waivers more easily.<a href="#fn16" class="fn" id="ref16">[16]</a> That created its own patchwork, some states leaning harder into standardized testing accountability, others building different models, which is part of why how much of NCLB is still in effect does not have a single national answer today. It depends entirely on which state one is standing in.</p>
+
+  <div class="part-divider"><span>Section Four — The Authority Vacuum in the Classroom</span></div>
+
+  <p>Two structural failures are working at the same time here, and I think they deserve to be treated separately before anyone tries to blend them into a single narrative. The first is what happens in real time, in the moment a student misbehaves. The second is what happens on paper, months later, when a report card gets printed regardless of whether the work was ever done.</p>
+
+  <h3>Parents overriding discipline in real time</h3>
+
+  <p>This is not a fringe complaint from a handful of burned-out teachers. In a nationally representative EdWeek Research Center survey of 990 district leaders, school leaders, and teachers, 72 percent agreed that student misbehavior is worse than pre-pandemic levels, up from 70 percent in 2023 and 66 percent in 2021.<a href="#fn17" class="fn" id="ref17">[17]</a> That is not a spike. That is a trend line moving in one direction for four straight years.</p>
+
+  <p>When teachers were asked what would actually fix it, the answer was not more ideology in the curriculum or a different politics in the school board. Over half of respondents to the EdWeek survey said limits on how much parents can undermine the consequences their kids get would have a major positive impact on student behavior, and 58 percent said parents themselves need instruction on how to teach their kids to behave appropriately in a school setting.<a href="#fn18" class="fn" id="ref18">[18]</a> The specific behavior teachers are describing is concrete. Parents pull their kids out of school on the day they are scheduled to receive detention, or they strongly disagree with the punishment a teacher or principal chose and lobby to have it changed.<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+
+  <p>This is not limited to occasional pickup-line disputes either. A nationally representative survey of over 5,800 educators found that teachers said their own job satisfaction would improve if school leaders could limit parents from undermining the consequences given to their children.<a href="#fn20" class="fn" id="ref20">[20]</a> It shows up even during class time itself. Teachers report that parents contacting students directly on their cellphones during instruction creates a direct clash of authority, with one Massachusetts teacher describing cellphone contact from parents during class as the single biggest disruption in her classroom, and a New Jersey teacher noting that some parents explicitly tell their kids it is fine to break a school's no-phone rule.<a href="#fn21" class="fn" id="ref21">[21]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I want to be precise about what this data does and does not show. It does not show that parents, as a group, are failing their kids or acting in bad faith. Most parents advocating for their child in a specific dispute believe they are doing right by them. What it shows is a systemic erosion of the idea that a teacher's decision in her own classroom is final, absent a serious problem with that decision. When that erosion becomes normal, at scale, across tens of thousands of classrooms, the effect on instructional time and teacher retention is not a matter of opinion. It is showing up in the surveys.</p>
+
+  <p>More than 75 percent of educators surveyed by one state teachers association reported a lack of parental support in dealing with student discipline.<a href="#fn22" class="fn" id="ref22">[22]</a> That is not one outlier district. It echoes across state affiliate surveys nationally.</p>
+
+  <h3>Grading and promotion policy removing consequences on paper</h3>
+
+  <p>The second failure does not require a single confrontation between an adult and a teacher. It is baked into policy. A growing number of schools have adopted grading floors where a teacher cannot assign anything lower than 50 percent, meaning a student who turns in nothing on an assignment still receives half credit for it. Critics of the practice point out that a normal ten-point grading scale already treats a D as the bare minimum of acceptable work, so eliminating the zero converts a sixty-point gap between a D and a zero into something disproportionate in the other direction.<a href="#fn23" class="fn" id="ref23">[23]</a></p>
+
+  <p>This is not a settled question, and I want to present the other side honestly. Proponents of minimum grading argue the practice helps preserve a healthy locus of control and motivation in students who might otherwise give up entirely after one failing grade.<a href="#fn24" class="fn" id="ref24">[24]</a> But even districts that adopted the policy in good faith have walked it back after watching what it actually produced. Leominster Public Schools in Massachusetts rescinded its own no-zero grading policy after officials concluded that years of the practice left kids not learning to be responsible.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+  <p>Social promotion is the older, more entrenched version of the same problem, and it did not begin with today's culture war. The practice of advancing students by age rather than mastery traces back to the earliest age-graded American schools in the 1840s, and the backlash against it intensified in the 1990s, with Chicago Public Schools among the major urban districts that led a policy reversal.<a href="#fn26" class="fn" id="ref26">[26]</a> Even a Democratic president who otherwise gets credited by the left for expanding education funding drew a hard line on it. Bill Clinton's proposed Education Accountability Act would have required every school district receiving federal help to end social promotion, on the reasoning that no child should graduate unable to read, and that passing kids along without mastering the material does them no favors.<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I include that Clinton reference deliberately. If ending social promotion were a purely conservative position, a Democratic president would not have proposed federal legislation to kill it twenty-five years ago. This is another data point for the argument I opened this piece with: the mechanisms actually eroding classroom standards were not built or defended by one side of the aisle. They were tolerated, adjusted, and occasionally challenged by both.</p>
+
+  <div class="part-divider"><span>Section Five — Grade Inflation as Institutional Cover-Up</span></div>
+
+  <p>The evidence here is about as clean a paper trail as this investigation is going to find. ACT's own longitudinal data, drawn from more than four million students who took the exam between 2010 and 2021, shows average high school GPA climbing from 3.22 to 3.39 over that period, while the average ACT Composite score fell from 21.0 to 20.3 over the same years. The three years between 2018 and 2021 alone produced more grade inflation than the preceding eight years combined.<a href="#fn28" class="fn" id="ref28">[28]</a></p>
+
+  <p>This is not a pandemic-only phenomenon, even though the pandemic accelerated it. Grade inflation has been described by ACT researchers as persistent and systemic even prior to the pandemic, and the trend was especially pronounced among Black students and those from low- to moderate-income households. Schools with a higher proportion of students receiving free or reduced-price lunch, and schools with fewer students of color, both experienced grade inflation at higher rates over time.<a href="#fn29" class="fn" id="ref29">[29]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I want to sit with that finding for a moment, because it complicates a simple story in an important way. If grade inflation were simply a story of well-meaning progressive policy softening standards to protect the most vulnerable students, one would not expect wealthier, whiter schools to be inflating at a faster clip. The data suggests something closer to a systemwide incentive problem than an ideological one.</p>
+
+  <p>That incentive problem has a name once one follows the money and the pressure. Teachers report inflating grades preemptively to avoid conflict, administrators back down when parents push back, and schools operate inside a college admissions process that has placed GPA at the center of the decision, meaning no single actor in the system benefits from holding the line on rigor while every actor pays a real cost for trying.<a href="#fn30" class="fn" id="ref30">[30]</a> That is a textbook collective action problem, not a partisan one.</p>
+
+  <p><span class="opinion-inline">Opinion</span>I would add my own read here: this dovetails directly with what I laid out in the last section. Parents undermining discipline in real time and grade inflation on paper are two symptoms of the same underlying condition, an educational culture that has made avoiding short-term conflict more valuable, at every level, than holding a standard.</p>
+
+  <p>There is a credible counter-argument, and I am not going to bury it. FairTest's Bob Schaeffer has argued that ACT's grade inflation reporting functions as a straw man built to slow the test-optional and test-blind admissions movement that grew during the pandemic, and that the existence of grade inflation does not mean grades have lost their predictive value. Schaeffer contends that high school GPA has consistently proven to be the best available predictor of undergraduate success, considerably better than standardized test scores, which is precisely why so many colleges dropped testing requirements in the first place.<a href="#fn31" class="fn" id="ref31">[31]</a> That is a legitimate methodological objection, and ACT does have a direct financial interest in the outcome of this debate, since a world with less test-optional admissions is a world that sells more ACT tests.</p>
+
+  <p><span class="opinion-inline">Opinion</span>Both things can be true. ACT has a financial stake in this argument, and the underlying data on rising GPAs alongside flat or falling standardized scores is still real regardless of who is reporting it, since it shows up independently in NAEP's own transcript studies as well as ACT's. I am not going to pretend the messenger's incentives erase the message, but I want the reader to know the messenger's incentives exist.</p>
+
+  <p>The pattern is now visible enough that it has started producing a backlash from an unexpected direction. Hundreds of University of California faculty demanded the reinstatement of SAT and ACT math score requirements after the state dropped them, arguing that grade inflation has left professors unable to rely on GPA as an honest signal of student preparation.<a href="#fn32" class="fn" id="ref32">[32]</a> That reversal did not come from a political campaign. It came from professors who found themselves unable to trust the transcripts sitting in front of them.</p>
+
+  <div class="part-divider"><span>Section Six — Chronic Absenteeism and the Collapse of the &ldquo;Show Up&rdquo; Norm</span></div>
+
+  <p>The baseline before the pandemic was already a quiet crisis. In the 2018 and 2019 school years, the nation's chronic absenteeism rate, defined as missing 10 percent or more of the school year, hovered around 15 percent, a level already considered a crisis by researchers, just a stable one. Then the floor fell out. By the 2021-22 school year, chronic absenteeism hit an unprecedented height of over 28 percent, nearly double the pre-pandemic rate.<a href="#fn33" class="fn" id="ref33">[33]</a></p>
+
+  <p>The recovery since then has been real but is now stalling in a way that should concern anyone paying attention regardless of politics. The rate improved by about 3 percentage points in 2023 and by just over 2 points in 2024, but in 2025 that improvement slowed to under 1 percentage point, an outcome researchers describe as an ominous slowdown that should be met with urgent action rather than acceptance. Even with that progress, the 2024-25 chronic absenteeism rate across the states reporting data stood at 23 percent, still well above the pre-pandemic 15 percent baseline six full years after schools reopened.<a href="#fn34" class="fn" id="ref34">[34]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>Six years is long enough that &ldquo;pandemic hangover&rdquo; stops being a sufficient explanation on its own. Something about the relationship between American families and the expectation of daily attendance changed permanently, or at minimum has not yet snapped back, and neither party's education platform has produced a plan that has meaningfully accelerated the recovery.</p>
+
+  <p>The consequences are not abstract. Districts with persistently high chronic absenteeism rates across 2022, 2023, and 2024 were about 50 percent further from academic recovery in math achievement compared to districts that never experienced high absenteeism.<a href="#fn35" class="fn" id="ref35">[35]</a> The link between attendance and achievement shows up directly in the government's own NAEP data, with the National Center for Education Statistics drawing a direct association between rising absenteeism and declining student achievement. Thirty-six states and Washington D.C. use chronic absenteeism itself as an accountability measure of school quality under the Every Student Succeeds Act, the same ESSA framework that succeeded No Child Left Behind.<a href="#fn36" class="fn" id="ref36">[36]</a></p>
+
+  <p>This is not distributed evenly, and the disparity is worth stating plainly rather than glossing over. Chronic absenteeism among low-income students remains more than 9 percentage points above 2018-19 levels, compared to about 7.5 points statewide, and the attendance gap between low-income students and their wealthier peers has widened in 23 of 27 states analyzed, growing from roughly a 7-point gap to a 9-point gap on average. In Ohio, roughly a third of low-income students were chronically absent in 2024-25, compared with just 11 percent of more affluent students, with similar gaps in Rhode Island and Washington state.<a href="#fn37" class="fn" id="ref37">[37]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>This is where I think the ideology-first framing breaks down completely. There is no faction on either side of the aisle that benefits from a child not showing up to school, and no faction that has a clean answer for why the recovery has stalled. Both parties talk about attendance in press releases. Neither has produced a policy that has closed this gap.</p>
+
+  <p>Researchers studying the problem point toward something more structural than politics. Chronic absence often points to barriers such as untreated health conditions, unreliable transportation, or unmet mental health needs, but researchers also note the pandemic changed how many students and families think about school itself, undermining the routines and relationships that once supported regular attendance.<a href="#fn38" class="fn" id="ref38">[38]</a> One AEI researcher put the scale of what is required bluntly: if the pandemic brought a genuine shift in the culture of attendance among American students, families, and schools, reversing it may take nothing less than another cultural shift back to the attendance norms that were standard just seven years ago.<a href="#fn39" class="fn" id="ref39">[39]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>&ldquo;Another cultural shift&rdquo; is a heavy lift for any single policy lever, federal or state, red or blue. I think that is the honest note to end this section on. This is not a problem either party built on purpose, and it is not one either party has solved by accident either.</p>
+
+  <div class="part-divider"><span>Section Seven — Classroom Violence as a Direct Barrier to Learning</span></div>
+
+  <p>This section stands on its own, separate from any argument about which discipline model a district has chosen. Regardless of policy, a classroom where a meaningful share of adults fear being physically harmed is not an environment built for reading gains, math fluency, or critical thinking. The evidence that this fear is rising, and that it is now widespread, is well documented.</p>
+
+  <p>Research published by the American Psychological Association found that while threats and violence against pre-K through 12th grade teachers and school personnel declined during the pandemic, once restrictions were lifted, incidents rebounded to levels equal to or exceeding those seen before the pandemic. The specific numbers are stark. Sixty-five percent of teachers reported at least one incident of verbal harassment or threatening behavior from a student before the pandemic, a rate that dropped to 33 percent during remote learning and then rose to 80 percent once schools fully reopened. Physical violence from students followed the same arc: 42 percent before the pandemic, 14 percent during it, and 56 percent afterward.<a href="#fn40" class="fn" id="ref40">[40]</a></p>
+
+  <p>The consequence for the profession itself is direct. The percentage of teachers expressing intentions to resign or transfer rose from 49 percent during the pandemic to 57 percent after restrictions were lifted.<a href="#fn41" class="fn" id="ref41">[41]</a> The study's lead author was blunt about what this represents. Susan Dvorak McMahon of DePaul University, who chaired the APA's task force on the issue, said the research demonstrates that violence and aggression against teachers from students, parents, colleagues, and administrators leads to anxiety and stress, which in turn drives intentions to transfer schools or leave teaching altogether, calling it a growing national crisis.<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+
+  <p>This is not a one-time survey spike. RAND has tracked the same trend annually and found it holding steady or worsening. In RAND's survey of the 2024-2025 school year, just over one in five teachers and 15 percent of principals said they were worried about being attacked or harmed at school themselves, and just over a quarter of those surveyed work in schools where teachers or administrators have received direct threats of violence tied to instructional or policy decisions they made. Concern for students has grown even faster than concern for self. Nearly half of teachers and principals expressed concern about their own students being attacked or harmed at school during the 2024-2025 year, a 12-percentage-point increase from when RAND first asked teachers this question in 2022.<a href="#fn43" class="fn" id="ref43">[43]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I want to flag an important distinction RAND itself makes, because I think it matters for how seriously readers take this section. RAND's own researchers note that educators' fear about the possibility of school violence is more widespread than direct experience with violence itself, meaning the share of educators who report being afraid is higher than the share who report having actually experienced an incident in their own district.<a href="#fn44" class="fn" id="ref44">[44]</a> That does not make the fear irrelevant. A teacher who spends part of her mental energy each day managing fear of an attack has less of that energy left for teaching, whether or not an attack ever occurs at her specific school. But it does mean I should not conflate &ldquo;teachers are afraid&rdquo; with &ldquo;teachers are being attacked at equally high rates,&rdquo; and I want to keep those two claims separate rather than blur them together for effect.</p>
+
+  <p>The safety concern is not limited to the rare, high-profile incidents that dominate news coverage. RAND researchers who study this area directly note that while active shooter incidents draw the most media attention, they remain statistically rare, and educators consistently report being more concerned about day-to-day safety issues, with bullying and cyberbullying topping the list of concerns in RAND's surveys for three consecutive years.<a href="#fn45" class="fn" id="ref45">[45]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>This is the section I most want to be understood correctly. I am not arguing that any particular discipline policy caused this rise, and I am not going to pretend the data supports that causal claim, because it does not. I am arguing something simpler and, I think, harder to dispute: an environment where a fifth of teachers fear for their own safety and half fear for their students' safety is not a welcoming environment for learning, full stop. That is true no matter what caused it, and it is true no matter which party is in charge of the school board when it happens.</p>
+
+  <div class="part-divider"><span>Section Eight — The Pay Penalty and the Shrinking, Changing Applicant Pool</span></div>
+
+  <p>The compensation numbers are unambiguous, and they have gotten worse every year researchers have tracked them. The gap between weekly wages for public school teachers and other college graduates hit a record 26.9 percent in 2024, up from just 6.1 percent in 1996. On average, teachers earned 73.1 cents for every dollar earned by similarly educated professionals in 2024, down from 93.9 cents in 1996. Over the last decade alone, inflation-adjusted weekly wages for teachers declined by 46.39 dollars, while wages for other college graduates increased by 220.46 dollars over the same period. Better benefits packages do not close that gap. Even accounting for benefits, the total compensation penalty stood at 17.1 percent in 2024. This is not a problem confined to one kind of state. Teachers were paid less than comparable college graduates in every state measured, with the pay gap ranging from 10 percent in Rhode Island to 38.5 percent in Colorado, and the penalty exceeded 25 percent in twenty states.<a href="#fn46" class="fn" id="ref46">[46]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>This does not need much interpretation. A job that has gotten measurably harder, in every dimension this piece has documented so far, testing pressure, grading and promotion fights, parents undermining discipline, rising fear of violence, has simultaneously gotten worse paid relative to every other option available to a college graduate. That is not a partisan outcome. It is a compounding one.</p>
+
+  <p>The harder question is whether that combination has changed who is willing to do the job, and how prepared they are for it. The research on this does not move in a straight line, and the honest version of the story has to include the reversal in the middle of it.</p>
+
+  <p>A widely cited 2010 report claimed almost half of new American teachers came from the bottom third of their class, as measured by SAT scores. Subsequent research using more precise data found that decline, while real from the 1960s through the 1990s, was not as severe as that report suggested, and had already reversed by the late 2000s.<a href="#fn47" class="fn" id="ref47">[47]</a> Graduates entering teaching in the 2008-09 school year had average SAT scores that slightly exceeded the average scores of their peers entering other occupations, a notable reversal from the mid-1990s and early 2000s.<a href="#fn48" class="fn" id="ref48">[48]</a> Researchers have directly linked that improvement to policy: New York State's move around 1999 toward stricter teacher certification requirements is credited with helping raise the academic profile of teachers entering the state's classrooms, evidence that accountability policy can move this number in either direction.<a href="#fn49" class="fn" id="ref49">[49]</a></p>
+
+  <p>More recent research shows the trend reversing again. Newer studies, including a large-scale analysis of college applications and a separate study using Washington State university data, both find that students with lower SAT scores are now overrepresented among teacher trainees and applicants to teaching majors, a pattern researchers describe as an evolving negative academic selection into the profession.<a href="#fn50" class="fn" id="ref50">[50]</a> One study using 64 million college applications from 11.5 million prospective students between 2014 and 2025 found declining interest in teaching over that period, particularly among men, students of color, and students with higher SAT scores.<a href="#fn51" class="fn" id="ref51">[51]</a> A separate analysis of applicants to public universities in Washington State found that 18.6 percent of teaching applicants had SAT scores under 1000, and another 40 percent scored between 1000 and 1299.<a href="#fn51" class="fn" id="ref51b">[51]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>Put plainly: the &ldquo;bottom third&rdquo; narrative from 2010 was overstated at the time, teacher academic quality actually improved through the late 2000s, and then it started sliding again more recently, right alongside the pay penalty hitting record highs and the job itself becoming measurably harder by every other measure in this piece. This does not mean teachers today are inherently worse people or worse professionals, and I don't want to imply that about anyone doing this job right now. It means the incentive structure got worse at exactly the moment it needed to get better, and the data on who is choosing to enter the profession is starting to reflect that.</p>
+
+  <p>Certification standards tell a similar story of eroding standards meeting an unsolved shortage problem, and New Jersey is one clear example among many. New Jersey signed a law in mid-2024, taking effect January 2025, that eliminates the requirement for teacher candidates to pass a basic skills test in reading, writing, and math, a change the state's largest teachers union had pushed for since 2023 as a way to remove what it called a barrier to entry amid an acute educator shortage. Candidates who skip the test can still become certified, but not without conditions: a candidate who doesn't take the exam receives an alternate teaching certificate and then earns a standard certificate after four years of continuous employment, and teachers are still required to pass specialized subject-area tests along with meeting minimum GPA, credit, and degree requirements.<a href="#fn52" class="fn" id="ref52">[52]</a></p>
+
+  <p>This is not a one-state story, and it is not a one-party story. About a dozen states relaxed teacher credentialing standards or were actively considering it as of 2022, according to Education Week's reporting, and the examples span the map politically. California eliminated two licensing exams in 2021 in favor of coursework requirements, Oklahoma removed its general education exam requirement, and Arizona allowed substitute teachers to move into full-time teaching positions while also letting candidates still working toward their degree teach at the same time.<a href="#fn53" class="fn" id="ref53">[53]</a> Mississippi has lowered required Praxis scores going back to at least 2018, while Florida and Illinois don't use the Praxis exam at all.<a href="#fn54" class="fn" id="ref54">[54]</a> This is a longer-running, cross-state pattern of loosening entry requirements in response to shortages, not a single new policy tied to one legislature.</p>
+
+  <p>There is real, on-record disagreement about whether this is good policy. The president of the National Council on Teacher Quality has argued directly against this trend, saying she does not understand why the policy response to shortage concerns is to lower the standard of entry, and warning that asking less of teachers in terms of content knowledge simply shifts the burden onto students, who are disproportionately students of color and low-income students already more likely to be taught by less-experienced teachers.<a href="#fn55" class="fn" id="ref55">[55]</a> The unions and legislators backing these changes argue the previous requirements screened out otherwise qualified candidates, disproportionately low-income ones, over a single standardized test unrelated to actual teaching ability.<a href="#fn52" class="fn" id="ref52b">[52]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I'm not going to declare a winner in that argument, because the evidence doesn't hand me a clean one. What the evidence does support is this: the job has gotten harder and paid worse at the same time several states have made the door easier to walk through, and those two trends are not unrelated. States facing severe shortages are lowering entry requirements because the pay and conditions problems documented above haven't been fixed, and lowering entry requirements is the tool available to legislators who can't or won't fix the underlying compensation and working-condition problems that created the shortage in the first place.</p>
+
+  <div class="part-divider"><span>Section Nine — The Curriculum Culture War, Two Sides of the Same Distraction</span></div>
+
+  <p>This is the fight that dominates headlines and school board meetings, and I found it to be almost entirely disconnected from what the actual data shows is happening in classrooms.</p>
+
+  <p>Start with the premise both sides have argued for years: are American classrooms being systematically pushed by one ideology. The most rigorous recent survey on this question found no evidence of that. A study of high school students found teachers ranked low as an influence on students' political beliefs, with only 17 percent of students calling teachers &ldquo;very influential,&rdquo; ranking below podcasts, print media, and radio. Students named parents, family, and social media as far more influential than their teachers.<a href="#fn56" class="fn" id="ref56">[56]</a> A separate nationally representative survey of K-12 teachers, conducted by a conservative think tank rather than a left-leaning one, found that while more than half of teachers agreed that white supremacy is a major problem rooted in the country's founding, teacher views overall were moderate or slightly left of center, and the average teacher response was consistently more moderate than the average self-identified liberal in the same national sample. The researchers who ran that survey concluded there is little evidence that a large percentage of teachers are systematically imposing a radical political agenda in K-12 classrooms, and suggested teachers may often be allies rather than opponents of parents worried about politicized curricula.<a href="#fn57" class="fn" id="ref57">[57]</a></p>
+
+  <p>That finding cuts against the loudest version of the conservative case. But the data complicates the progressive dismissal of the concern too. Forty percent of teachers reported in a fall 2025 survey that they had modified at least some curriculum or class discussion content due to political pressure, and that pressure comes from multiple directions at once, private school teachers reporting more pressure from parents, public school teachers reporting more from administrators.<a href="#fn58" class="fn" id="ref58">[58]</a> Political pressure on curriculum is real and widespread. It just isn't flowing in one direction, and it isn't producing the one-sided indoctrination either side's most extreme voices describe.</p>
+
+  <p>The legislative response has been sweeping regardless of what the underlying evidence shows. State governments enacted 51 separate bills and policies placing direct prohibitions on K-12 instruction between 2021 and 2025, and at least 35 states have signed into law or formally proposed legislation restricting how race-related concepts can be taught.<a href="#fn59" class="fn" id="ref59">[59]</a> That legislative pace has since slowed, with only two such bills passing in 2024, but lawmakers simply redirected the same energy into adjacent fights, &ldquo;parents' rights&rdquo; bills letting parents pull kids from objectionable lessons, restrictions targeting how gender identity is discussed, and a wave of laws governing library and classroom book content.<a href="#fn60" class="fn" id="ref60">[60]</a></p>
+
+  <p>That last front has produced the most measurable results, and I want to give the actual numbers rather than a characterization. PEN America recorded 6,870 instances of books being pulled from school libraries during the 2024-2025 school year alone, across 23 states and 87 districts, with three states, Florida, Texas, and Tennessee, accounting for roughly 80 percent of that total. Since 2021, PEN America counts nearly 23,000 book-ban instances nationwide.<a href="#fn61" class="fn" id="ref61">[61]</a> It is worth noting PEN America is an advocacy organization opposed to these laws, not a neutral government tracker, so that framing should be attached to their numbers rather than presented as if it came from an independent referee. States defending these laws describe the goal as protecting children from sexually explicit or age-inappropriate material, not as ideological censorship, and that framing deserves a place in this section rather than being erased by the advocacy group's numbers alone.<a href="#fn62" class="fn" id="ref62">[62]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>Here is where I land on this section, and I want to say it plainly. Both the anti-CRT legislative wave and the book-banning wave function as a kind of political theater that displaces the conversation this piece has actually been having up to this point. Neither side's culture war combatants are talking about the testing regime, grade inflation, absenteeism, teacher pay, or classroom violence documented in the sections before this one. A parent furious about a library book and an activist furious about a state ban are both, in their own way, treating a symbolic fight as a substitute for the unglamorous, expensive, bipartisan work of actually fixing the things measurably breaking American education. I don't think either side is arguing in bad faith. I think both sides have found it easier to fight over what's on the shelf than to fight for what it would actually cost, politically and financially, to fix chronic absenteeism or close the teacher pay gap.</p>
+
+  <p>The public agrees with this more than either party's base might expect. When surveyed on why they think K-12 education is struggling, a majority of Republicans who said the country was headed in the wrong direction pointed to schools not spending enough time on core academic subjects, while a majority of Democrats pointed to inadequate funding and resources.<a href="#fn63" class="fn" id="ref63">[63]</a> Different diagnoses, but the same underlying complaint: neither side named the culture war fights themselves as the actual problem. The base issues both parties' voters care about are the ones documented across the last eight sections. The curriculum fight is the one getting the floor time.</p>
+
+  <div class="part-divider"><span>Section Ten — Smartphones and the Attention Economy</span></div>
+
+  <p>This is the rare front in this fight where the two parties largely agree, and I think it deserves attention precisely because it breaks the pattern the rest of this piece has documented.</p>
+
+  <p>Twenty-six states now have state-level bans or restrictions on cellphone use in schools, and at least 31 states plus Washington D.C. require or restrict phone use, according to Education Week's tracking, with 22 of those imposing a full &ldquo;bell-to-bell&rdquo; ban rather than a class-time-only restriction.<a href="#fn64" class="fn" id="ref64">[64]</a> This has happened with genuine bipartisan sponsorship. Florida passed the first statewide ban in May 2023 under a Republican legislature and governor.<a href="#fn65" class="fn" id="ref65">[65]</a> North Dakota's Republican governor signed a bell-to-bell K-12 ban in April 2025.<a href="#fn66" class="fn" id="ref66">[66]</a> New York's Democratic governor rolled out a statewide ban that took effect in September 2025.<a href="#fn67" class="fn" id="ref67">[67]</a> Georgia's Republican governor signed a K-8 ban and the legislature is now debating extending it through high school. Denver Public Schools, hardly a conservative district, enacted its own bell-to-bell ban by unanimous school board vote.<a href="#fn68" class="fn" id="ref68">[68]</a> There is no clear state where this fight broke down on a clean party line, which is unusual enough in this piece to flag explicitly.</p>
+
+  <p>The policy is popular with the people actually running classrooms. A 2024 National Education Association survey found 90 percent of teachers favor banning cellphones during class, and 83 percent support the stricter bell-to-bell version.<a href="#fn69" class="fn" id="ref69">[69]</a> A 2025 RAND survey found 70 percent of principals, and 81 percent of middle and high school principals specifically, believe the bans have had a positive effect on school climate.<a href="#fn69" class="fn" id="ref69b">[69]</a></p>
+
+  <p>Where this section slows down is the actual evidence on outcomes, because the popularity of these bans has outpaced the research behind them, and the researchers studying this are saying so themselves. One economist who led the largest study to date on the subject put it bluntly: the policy action is happening at a level that far surpasses the available evidence, and what existed before his study was largely people's hunches.<a href="#fn70" class="fn" id="ref70">[70]</a> His research, the largest to date, analyzed actual cellphone usage data, not self-reported school policy compliance, across roughly 4,600 schools. The findings are more modest than the political consensus behind the policy would suggest. Test score effects were consistently close to zero on average, with high schools seeing modest positive effects, particularly in math, while middle schools saw small negative effects.<a href="#fn71" class="fn" id="ref71">[71]</a> A separate, earlier analysis using Florida's ban, the first in the country, found bigger test-score gains in schools that had the highest rates of phone usage before the law took effect, an effect the researchers characterized as real but modest, around a single percentile point.<a href="#fn72" class="fn" id="ref72">[72]</a></p>
+
+  <p>The Florida study also surfaced a genuine equity concern worth including. Enforcing the ban led to a spike in disciplinary actions, with the largest effects falling on Black students, though that disparity disappeared by the second year of implementation.<a href="#fn71" class="fn" id="ref71b">[71]</a> That is worth including precisely because this section otherwise reads as good news with bipartisan support, and a policy's early enforcement costs should not be presented as if they didn't happen just because the policy is popular.</p>
+
+  <p>Compliance itself remains uneven regardless of what the law says. A 2025 University of Southern California study found most students continue using phones during the school day regardless of restrictions, even though more than half of surveyed teens said enforcement this year is stricter than the year before.<a href="#fn73" class="fn" id="ref73">[73]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>Here is what I take from this section, and it's a different kind of point than the rest of this piece has been making. Everywhere else in this investigation, testing policy, grading, discipline, teacher pay, curriculum fights, both parties are either quietly complicit in the same failure or loudly fighting each other over a symbolic front while the real problem went unaddressed. Cellphone policy is the one place I found actual bipartisan action moving at real speed, and the honest result of that speed is that the policy got ahead of the evidence. I don't think that's a scandal. I think it's what responsible governance looks like when the underlying problem, a generation of kids who cannot get through a class period without checking a screen, is obvious enough that legislators on both sides decided to act before waiting for a decade of randomized trials. I'd rather see both parties move fast and imperfectly on a real problem than watch them spend another decade fighting over a textbook while phones sit in every kid's pocket.</p>
+
+  <div class="part-divider"><span>Section Eleven — The Department of Education Fight as Current-Events Hook</span></div>
+
+  <p>On March 20, 2025, President Trump signed an executive order directing Education Secretary Linda McMahon to take all steps permitted by law to facilitate the closure of the Department of Education and return authority over education to states and local communities. The order followed steps already underway. On March 11, the department announced it would place nearly half its workforce on administrative leave starting March 21, shrinking the agency from over 4,100 employees to roughly 2,183.<a href="#fn74" class="fn" id="ref74">[74]</a></p>
+
+  <p>The legal reality is straightforward and matters more than the political rhetoric surrounding it. A sitting president cannot unilaterally abolish a federal agency created by an act of Congress, and the Department of Education was established by Congress in 1979. Multiple legal analyses at the time noted this directly, one stating plainly that it was not clear the administration had legal authority to cut staff or limit the agency's activities, since the department's programs are authorized and funded by Congress, and moving a program like IDEA, the law governing special education, to a different department would itself require congressional approval.<a href="#fn75" class="fn" id="ref75">[75]</a> The administration's own path forward has acknowledged this constraint. Rather than eliminating the department outright, Secretary McMahon has pursued what she called shrinking it as much as possible as its practical final mission, offloading programs to other agencies through interagency agreements rather than through the legislative repeal that full abolition would require. As of this writing, the department has entered into fourteen such interagency agreements with six other federal agencies, transferring day-to-day management of nearly 150 programs out of the department, a total that has grown steadily as the administration has continued signing new agreements through the middle of 2026.<a href="#fn76" class="fn" id="ref76">[76]</a></p>
+
+  <p>The specific transfers have generated the sharpest, most concrete disputes, because they touch programs serving some of the most vulnerable student populations directly. In June 2026, the department moved forward with agreements shifting a substantial share of its special education programming, including responsibilities under IDEA, the law entitling students with disabilities to a free appropriate public education, to the Department of Health and Human Services, and shifting core civil rights enforcement, student privacy, and desegregation activities to the Department of Justice.<a href="#fn77" class="fn" id="ref77">[77]</a> Congressional Democrats formally objected in writing, arguing the moves violate congressional intent, threaten legal protections for millions of students with disabilities, and shift special education oversight toward a medical model rather than an educational rights framework, since HHS has neither the institutional expertise nor the established relationships with state education agencies that the Department of Education has built over decades.<a href="#fn78" class="fn" id="ref78">[78]</a></p>
+
+  <p>The Office for Civil Rights took a substantial staffing hit early in the administration's efforts, and the numbers here are stark regardless of which side of this debate one falls on. In March 2025, the department placed roughly half of OCR's staff, 299 of 575 employees, on administrative leave and closed seven of its twelve regional civil rights offices.<a href="#fn79" class="fn" id="ref79">[79]</a> A federal watchdog later found that between March and September 2025, while most of that staff sat idle on paid leave, OCR resolved the vast majority of the more than 9,000 discrimination complaints it received by dismissing them outright, roughly 90 percent, without conducting a full investigation. By late 2025 the office's unresolved backlog had grown into the tens of thousands of cases.<a href="#fn80" class="fn" id="ref80">[80]</a> A former OCR attorney described the effect bluntly: the office that once helped enforce equal opportunity in American education has been gutted, repurposed, and reduced in capacity, while the underlying discrimination complaints themselves have not gone away.<a href="#fn81" class="fn" id="ref81">[81]</a></p>
+
+  <p>Litigation has followed nearly every major move, and the results so far are mixed rather than a clean win for either side. A coalition of public school districts, educators, and labor unions sued to block the mass layoffs, and courts issued preliminary injunctions temporarily slowing implementation while litigation proceeded.<a href="#fn82" class="fn" id="ref82">[82]</a> But the administration has also won real victories in court. On February 6, 2026, the Fourth Circuit Court of Appeals vacated a nationwide preliminary injunction that had blocked key provisions of the administration's DEI-related executive orders, ruling that a president may set his own funding priorities and instruct agencies to act on them, and that the challenged provisions were not unconstitutionally vague on their face.<a href="#fn83" class="fn" id="ref83">[83]</a> Separately, the department itself dropped its defense of its February 2025 &ldquo;Dear Colleague&rdquo; letter restricting DEI programs in schools after a federal court found the letter procedurally deficient and outside the department's statutory authority to control curriculum content, effectively ending enforcement of that specific directive even as the broader executive orders behind it remain in force and continue to be enforced through other channels.<a href="#fn84" class="fn" id="ref84">[84]</a></p>
+
+  <p>The core argument on each side has stayed consistent throughout. The administration and congressional Republicans frame this as returning constitutionally appropriate authority to states and local communities, arguing the department has consumed enormous federal spending, over three trillion dollars since 1979 by the White House's own figure, without corresponding gains in outcomes, the same decline in scores this piece has documented from the start.<a href="#fn85" class="fn" id="ref85">[85]</a> Democratic officials and education advocacy groups counter that the department's core functions, enforcing civil rights law, administering aid for low-income and disabled students, and providing oversight no state government currently has the infrastructure to replicate, cannot simply be redistributed to other federal agencies without real disruption to the students those programs serve, and that dismantling the department by attrition sidesteps the congressional approval the law actually requires.<a href="#fn78" class="fn" id="ref78b">[78]</a></p>
+
+  <p><span class="opinion-inline">Opinion</span>I'm not going to resolve that argument here, because I don't think either side has fully proven its case yet, and the litigation itself is still working through the courts as this piece is being written. What I will say is this: the fight over whether the Department of Education should exist has consumed enormous political energy on both sides for over a year, while the actual, measurable problems this piece has spent ten sections documenting, reading and math scores, absenteeism, grade inflation, teacher pay, classroom violence, keep moving in whatever direction they were already moving in, mostly untouched by this particular battle. That is the closing point I want this piece to leave the reader with, and it's the subject of the final section.</p>
+
+  <div class="part-divider"><span>Section Twelve — Synthesis, Rejecting the Single-Cause Narrative</span></div>
+
+  <p>I started this piece by admitting I went in wanting a simple villain. Ideology was the easiest one to reach for, and I laid out honestly why the data didn't support the version of that story I originally had in my head. What I found instead, across eleven sections, was something less satisfying to write and, I think, more true: a set of failures that span decades, cross party lines, and reinforce each other in ways that make any single fix incomplete on its own.</p>
+
+  <p>Look at what actually compounds here. A testing regime built and defended by both parties for over a decade narrowed what gets taught and pushed schools to game their own numbers rather than teach the material. Grading policy followed the same collective-action logic, no single teacher or administrator benefits from holding a hard line on standards while every one of them pays a real cost for trying, so GPAs climbed while ACT scores fell, across red states and blue states, wealthy districts and poor ones alike. Parents, acting in good faith on behalf of their own kids, increasingly override the discipline decisions teachers make in real time, while the same collective erosion shows up in policy on paper through no-zero grading and social promotion. Chronic absenteeism sits nearly ten points above its pre-pandemic baseline six years later, with no party's platform having produced a plan that meaningfully accelerated the recovery. A meaningful share of teachers now go to work afraid, not because of any single discipline philosophy, but because violence against educators genuinely rebounded past pre-pandemic levels once schools reopened. And underneath all of it, the job itself pays 27 percent less than comparable work, a gap that has nearly quadrupled since 1996, at the exact moment the job became harder along every other dimension in this piece.</p>
+
+  <p>Meanwhile, the fights that dominate school board meetings and cable news, the CRT laws, the book bans, the DEI executive orders, the fight over whether the Department of Education should exist at all, are being fought by people who mostly aren't lying about what they believe, but who are also, by the data's own account, not fighting about the things actually driving the decline. Students themselves rank teachers as one of the least influential sources shaping their political views, well behind their own parents and social media. The public agrees the system is broken while diagnosing entirely different causes along partisan lines, and neither diagnosis, more academic rigor from the right, more funding from the left, actually maps onto the specific mechanisms this piece traced: the testing regime, the grading collapse, the authority vacuum, the absenteeism crisis, the violence, the pay penalty.</p>
+
+  <p><span class="opinion-inline">Opinion</span>If I had to state the thesis of this entire investigation in one sentence, it would be this: American education isn't collapsing because one political tribe captured it. It's collapsing because both tribes found it easier to fight symbolic battles over curriculum and staffing charts than to do the unglamorous, expensive, politically thankless work of paying teachers what the job is worth, holding a line on academic standards without abandoning struggling kids, and rebuilding the basic expectation that a child shows up, does the work, and faces the consequence when they don't.</p>
+
+  <p><span class="opinion-inline">Opinion</span>None of this is a both-sides shrug meant to let anyone off the hook. Republicans who spent a decade defending a testing regime that measurably slowed the rate of academic improvement don't get credit for correctly diagnosing grade inflation now. Democrats who built political infrastructure on teachers' union donations don't get to claim the moral high ground on protecting educators while chronic absenteeism festers under governors of both parties. Both sides have real arguments and real blind spots, and I tried to give each of them a fair hearing throughout this piece rather than picking a side to prosecute from the start.</p>
+
+  <p>I'm not going to hand the reader a verdict wrapped in a bow, because I don't think this problem has one. What I'll say instead is this: every mechanism documented in this investigation, the tests, the grades, the discipline, the pay, the violence, the staffing shortages, is a policy choice that was made by someone, defended by someone, and could still be changed by someone. None of it is inevitable. All of it has a name, a date, and a vote attached to it, whether that vote happened in 2001, in a state legislature last year, or in a school board meeting last month. The information in this piece is the record of those choices. What gets done with it isn't up to me. It's up to the people reading it, and the people they choose to hold accountable at the next election, in either party, for the next decision they make about a child who is currently sitting in a classroom that isn't working the way it should.</p>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Sources</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Teacher ideology, union spending, and faculty registration</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Heritage Foundation. "Political Opinions of K-12 Teachers: Results from a Nationally Representative Survey." <a href="https://www.heritage.org/education/report/political-opinions-k-12-teachers-results-nationally-representative-survey" target="_blank" rel="noopener">heritage.org</a> <a href="#ref1" class="bib-back">&#8617;</a></li>
+      <li id="fn2">[2] OpenSecrets. "Teachers Unions Summary." <a href="https://www.opensecrets.org/industries/indus?ind=L1300" target="_blank" rel="noopener">opensecrets.org</a> <a href="#ref2" class="bib-back">&#8617;</a></li>
+      <li id="fn3">[3] Langbert, Quain, and Klein. "Faculty Voter Registration in Economics, History, Journalism, Communications, Law, and Psychology." Econ Journal Watch. <a href="https://econjwatch.org/articles/faculty-voter-registration-in-economics-history-journalism-communications-law-and-psychology" target="_blank" rel="noopener">econjwatch.org</a> <a href="#ref3" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">National test scores: NAEP and PISA</span>
+    <ul class="bib-list">
+      <li id="fn4">[4] National Assessment of Educational Progress (NAEP), 2024 reading results. Nation's Report Card, National Assessment Governing Board. <a href="https://www.nationsreportcard.gov" target="_blank" rel="noopener">nationsreportcard.gov</a> <a href="#ref4" class="bib-back">&#8617;</a></li>
+      <li id="fn5">[5] NAEP long-term trend results, September 2025 release, 12th grade math, reading, and 8th grade science. National Assessment Governing Board. <a href="https://www.nagb.gov" target="_blank" rel="noopener">nagb.gov</a> <a href="#ref5" class="bib-back">&#8617;</a></li>
+      <li id="fn6">[6] Institute of Education Sciences, acting director statement on 2024-2025 NAEP results, reported via NPR and Education Week. <a href="https://www.edweek.org" target="_blank" rel="noopener">edweek.org</a> <a href="#ref6" class="bib-back">&#8617;</a></li>
+      <li id="fn7">[7] The 74. "American Math Scores Fall on International Test, But Many Other Countries Suffered More." <a href="https://www.the74million.org/article/american-math-scores-fall-on-international-test-but-many-other-countries-suffered-more/" target="_blank" rel="noopener">the74million.org</a>; Axios, "U.S. students' math scores plunge in global education assessment." <a href="https://www.axios.com/2023/12/05/us-students-pisa-global-assessment" target="_blank" rel="noopener">axios.com</a> <a href="#ref7" class="bib-back">&#8617;</a></li>
+      <li id="fn8">[8] K-12 Dive. "PISA results show math performance declined globally amid COVID-19." <a href="https://www.k12dive.com/news/PISA-2022-math-decline-covid-19/701519/" target="_blank" rel="noopener">k12dive.com</a> <a href="#ref8" class="bib-back">&#8617;</a></li>
+      <li id="fn9">[9] Hechinger Report. "PROOF POINTS: There is a worldwide problem in math and it's not just about the pandemic." <a href="https://hechingerreport.org/proof-points-there-is-a-worldwide-problem-in-math-and-its-not-just-about-the-pandemic/" target="_blank" rel="noopener">hechingerreport.org</a> <a href="#ref9" class="bib-back">&#8617;</a></li>
+      <li id="fn10">[10] FairTest. "Interpreting PISA Results: It's Poverty, Stupid (With a Bit of the iPhone)." <a href="https://fairtest.org/interpreting-pisa-results-its-poverty-stupid-with-a-bit-of-the-iphone/" target="_blank" rel="noopener">fairtest.org</a> <a href="#ref10" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">No Child Left Behind and the Every Student Succeeds Act</span>
+    <ul class="bib-list">
+      <li id="fn11">[11] American Bar Association. "A Past, Present, and Future Look at No Child Left Behind." U.S. Department of Education, ESSA overview. <a href="https://www.ed.gov" target="_blank" rel="noopener">ed.gov</a> <a href="#ref11" class="bib-back">&#8617;</a> <a href="#ref11b" class="bib-back">&#8617;</a></li>
+      <li id="fn12">[12] Stanford Graduate School of Education, Educational Policy Analysis Archives. NCLB unintended consequences and school gaming of scores. <a href="https://edpolicy.stanford.edu" target="_blank" rel="noopener">edpolicy.stanford.edu</a> <a href="#ref12" class="bib-back">&#8617;</a></li>
+      <li id="fn13">[13] Education Week. "A Broken NCLB and Its Unintended Consequences." <a href="https://www.edweek.org" target="_blank" rel="noopener">edweek.org</a> <a href="#ref13" class="bib-back">&#8617;</a></li>
+      <li id="fn14">[14] Forum on Public Policy. NCLB's effect on gifted student programs, Illinois funding data. <a href="https://eric.ed.gov" target="_blank" rel="noopener">eric.ed.gov</a> <a href="#ref14" class="bib-back">&#8617;</a></li>
+      <li id="fn15">[15] Whitney, Camille, and Christopher Candelaria. Analysis of NCLB's effect on rate of academic improvement, SAGE journals. <a href="https://eric.ed.gov" target="_blank" rel="noopener">eric.ed.gov</a> <a href="#ref15" class="bib-back">&#8617;</a></li>
+      <li id="fn16">[16] U.S. Department of Education. ESEA Flexibility waiver program and Common Core adoption records. <a href="https://www.ed.gov" target="_blank" rel="noopener">ed.gov</a> <a href="#ref16" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Parental authority, discipline, grading, and social promotion</span>
+    <ul class="bib-list">
+      <li id="fn17">[17] Education Week Research Center. "What's the Secret to Managing Today's Classrooms? Teachers Weigh In." <a href="https://www.edweek.org/teaching-learning/whats-the-secret-to-managing-todays-classrooms-teachers-weigh-in/2025/10" target="_blank" rel="noopener">edweek.org</a> <a href="#ref17" class="bib-back">&#8617;</a></li>
+      <li id="fn18">[18] Education Week. "Teachers Say Behavior Problems Aren't Just About Students. It's the Parents." <a href="https://www.edweek.org/the-state-of-teaching/2026/leadership/teachers-say-behavior-problems-arent-just-about-students-its-the-parents" target="_blank" rel="noopener">edweek.org</a> <a href="#ref18" class="bib-back">&#8617;</a></li>
+      <li id="fn19">[19] Education Week. "Teachers Say Student Behavior Has Made the Job (Almost) Impossible." <a href="https://www.edweek.org/the-state-of-teaching/teaching-learning/teachers-say-student-behavior-has-made-the-job-almost-impossible/2026/03" target="_blank" rel="noopener">edweek.org</a> <a href="#ref19" class="bib-back">&#8617;</a></li>
+      <li id="fn20">[20] Education Week. "School Leaders Face More Parental Threats Than Teachers." State of Teaching project, 5,800-educator national survey. <a href="https://www.edweek.org/leadership/school-leaders-face-more-parental-threats-than-teachers/2026/07" target="_blank" rel="noopener">edweek.org</a> <a href="#ref20" class="bib-back">&#8617;</a></li>
+      <li id="fn21">[21] Education Week. "'Mom Is Texting': Teachers Say Parents Are a Daily Distraction During Class." <a href="https://www.edweek.org/technology/mom-is-texting-teachers-say-parents-are-a-daily-distraction-during-class/2024/10" target="_blank" rel="noopener">edweek.org</a> <a href="#ref21" class="bib-back">&#8617;</a></li>
+      <li id="fn22">[22] National Education Association. "The Survey Says: 'We're at a Crisis Point.'" State affiliate discipline surveys. <a href="https://www.nea.org/nea-today/all-news-articles/survey-says-were-crisis-point" target="_blank" rel="noopener">nea.org</a> <a href="#ref22" class="bib-back">&#8617;</a></li>
+      <li id="fn23">[23] Fordham Institute. "A 'no zeroes' grading policy is the worst of all worlds." <a href="https://fordhaminstitute.org/national/commentary/no-zeroes-grading-policy-worst-all-worlds" target="_blank" rel="noopener">fordhaminstitute.org</a> <a href="#ref23" class="bib-back">&#8617;</a></li>
+      <li id="fn24">[24] ERIC. "Do Minimum Grading Practices Lower Academic Standards and Produce Social Promotions?" Educational Horizons, 2010. <a href="https://eric.ed.gov/?id=EJ895689" target="_blank" rel="noopener">eric.ed.gov</a> <a href="#ref24" class="bib-back">&#8617;</a></li>
+      <li id="fn25">[25] Edutopia. "Do No-Zero Policies Help or Hurt Students?" Leominster Public Schools case. <a href="https://www.edutopia.org/article/do-no-zero-policies-help-or-hurt-students/" target="_blank" rel="noopener">edutopia.org</a> <a href="#ref25" class="bib-back">&#8617;</a></li>
+      <li id="fn26">[26] Grokipedia. "Social promotion," sourced history of age-graded schooling and 1990s policy reversal. <a href="https://grokipedia.com/page/Social_promotion" target="_blank" rel="noopener">grokipedia.com</a>; Larry Cuban on School Reform and Classroom Practice, "Whatever Happened to Social Promotion?" <a href="https://larrycuban.wordpress.com/2023/01/29/whatever-happened-to-social-promotion/" target="_blank" rel="noopener">larrycuban.wordpress.com</a> <a href="#ref26" class="bib-back">&#8617;</a></li>
+      <li id="fn27">[27] University of North Carolina Horizon Project. "One More Time: The Social Promotion Debate," Clinton Education Accountability Act proposal. <a href="http://horizon.unc.edu/projects/issues/papers/one_more_time.html" target="_blank" rel="noopener">horizon.unc.edu</a> <a href="#ref27" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Grade inflation</span>
+    <ul class="bib-list">
+      <li id="fn28">[28] ACT, Inc. "Grade Inflation Continues to Grow in the Past Decade." Research Report R2134. <a href="https://www.act.org/content/dam/act/unsecured/documents/2022/R2134-Grade-Inflation-Continues-to-Grow-in-the-Past-Decade-Final-Accessible.pdf" target="_blank" rel="noopener">act.org</a>; Hechinger Report, "PROOF POINTS: New evidence of high school grade inflation," <a href="https://hechingerreport.org/proof-points-new-evidence-of-high-school-grade-inflation/" target="_blank" rel="noopener">hechingerreport.org</a> <a href="#ref28" class="bib-back">&#8617;</a></li>
+      <li id="fn29">[29] ACT Leadership Blog. "Grade Inflation a Systemic Problem in US High Schools, ACT Report Shows." Demographic breakdown by income and race. <a href="https://leadershipblog.act.org/2022/05/grade-inflation-past-decade.html" target="_blank" rel="noopener">leadershipblog.act.org</a> <a href="#ref29" class="bib-back">&#8617;</a></li>
+      <li id="fn30">[30] Dwyer, Joshua. "Grade Inflation Nation." Education Progress. <a href="https://www.educationprogress.org/p/grade-inflation-nation" target="_blank" rel="noopener">educationprogress.org</a> <a href="#ref30" class="bib-back">&#8617;</a></li>
+      <li id="fn31">[31] Inside Higher Ed. "ACT says high school GPAs are rising," Bob Schaeffer / FairTest response. <a href="https://www.insidehighered.com/admissions/article/2022/05/16/act-says-high-school-gpas-are-rising" target="_blank" rel="noopener">insidehighered.com</a>; Higher Ed Dive, similar coverage. <a href="https://www.highereddive.com/news/act-study-finds-grade-inflation-in-high-school-gpas-over-the-past-decade/623823/" target="_blank" rel="noopener">highereddive.com</a> <a href="#ref31" class="bib-back">&#8617;</a></li>
+      <li id="fn32">[32] Fox News. "California professor argues need for 'objective measures' after state drops ACT/SAT requirement." <a href="https://www.foxnews.com/media/california-professor-argues-need-objective-measures-after-state-drops-act-sat-requirement" target="_blank" rel="noopener">foxnews.com</a> <a href="#ref32" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Chronic absenteeism</span>
+    <ul class="bib-list">
+      <li id="fn33">[33] American Enterprise Institute. "Lingering Absence in Public Schools: Tracking Post-Pandemic Chronic Absenteeism into 2024." <a href="https://www.aei.org/research-products/report/lingering-absence-in-public-schools-tracking-post-pandemic-chronic-absenteeism-into-2024/" target="_blank" rel="noopener">aei.org</a> <a href="#ref33" class="bib-back">&#8617;</a></li>
+      <li id="fn34">[34] American Enterprise Institute. "From Attendance Crisis to Chronic Condition? Tracking Post-Pandemic Chronic Absenteeism into 2025." <a href="https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/" target="_blank" rel="noopener">aei.org</a> <a href="#ref34" class="bib-back">&#8617;</a></li>
+      <li id="fn35">[35] K-12 Dive. "Persistent chronic absenteeism slows academic recovery," citing NWEA analysis. <a href="https://www.k12dive.com/news/chronic-absenteeisms-impact-on-academic-recovery/825926/" target="_blank" rel="noopener">k12dive.com</a> <a href="#ref35" class="bib-back">&#8617;</a></li>
+      <li id="fn36">[36] National Assessment Governing Board. "A Primer on Attendance and Absenteeism on the Nation's Report Card and Beyond." <a href="https://www.nagb.gov/naep/chronic-absenteeism.html" target="_blank" rel="noopener">nagb.gov</a> <a href="#ref36" class="bib-back">&#8617;</a></li>
+      <li id="fn37">[37] FutureEd. "Chronic Absenteeism by Income, English Learner Status, and Race." <a href="https://www.future-ed.org/chronic-absenteeism-by-income-english-learner-status-and-race/" target="_blank" rel="noopener">future-ed.org</a> <a href="#ref37" class="bib-back">&#8617;</a></li>
+      <li id="fn38">[38] FutureEd. "Tracking State Trends in Chronic Absenteeism." <a href="https://www.future-ed.org/tracking-state-trends-in-chronic-absenteeism/" target="_blank" rel="noopener">future-ed.org</a> <a href="#ref38" class="bib-back">&#8617;</a></li>
+      <li id="fn39">[39] American Enterprise Institute. "Progress on Absenteeism Is Stalling. What Can We Do About It?" Nat Malkus. <a href="https://www.aei.org/commentary/progress-on-absenteeism-is-stalling-what-can-we-do-about-it/" target="_blank" rel="noopener">aei.org</a> <a href="#ref39" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Classroom violence and teacher safety</span>
+    <ul class="bib-list">
+      <li id="fn40">[40] American Psychological Association. "Violence, aggression against educators grew post-pandemic." McMahon et al., American Psychologist, May 30, 2024. <a href="https://www.apa.org/news/press/releases/2024/05/violence-against-educators-post-pandemic" target="_blank" rel="noopener">apa.org</a> <a href="#ref40" class="bib-back">&#8617;</a></li>
+      <li id="fn41">[41] Education Week. "Rising Reports of School Violence Are Pushing Teachers to Want to Quit." <a href="https://www.edweek.org/leadership/rising-reports-of-school-violence-are-pushing-teachers-to-want-to-quit/2024/07" target="_blank" rel="noopener">edweek.org</a> <a href="#ref41" class="bib-back">&#8617;</a></li>
+      <li id="fn42">[42] DePaul University. "New study: Violence, aggression against educators reaching concerning levels." Susan Dvorak McMahon statement. <a href="https://resources.depaul.edu/newsroom/news/press-releases/Pages/violence-against-educators.aspx" target="_blank" rel="noopener">resources.depaul.edu</a> <a href="#ref42" class="bib-back">&#8617;</a></li>
+      <li id="fn43">[43] RAND Corporation. "Understanding School Safety Trends: Insights for a Safer Future." <a href="https://www.rand.org/pubs/research_reports/RRA3930-2.html" target="_blank" rel="noopener">rand.org</a> <a href="#ref43" class="bib-back">&#8617;</a></li>
+      <li id="fn44">[44] RAND Corporation. "Addressing the Fear of School Violence Is Its Own Policy Challenge." <a href="https://www.rand.org/pubs/research_reports/RRA3930-3.html" target="_blank" rel="noopener">rand.org</a> <a href="#ref44" class="bib-back">&#8617;</a></li>
+      <li id="fn45">[45] RAND Corporation. "Improving School Safety: What the Evidence Says," podcast transcript. <a href="https://www.rand.org/pubs/podcasts/policy-minded/2025/improving-school-safety-what-the-evidence-says.html" target="_blank" rel="noopener">rand.org</a> <a href="#ref45" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Teacher pay and applicant pool</span>
+    <ul class="bib-list">
+      <li id="fn46">[46] Economic Policy Institute. "The teacher pay penalty reached a record high in 2024." <a href="https://www.epi.org/publication/the-teacher-pay-penalty-reached-a-record-high-in-2024-three-decades-of-leaving-public-school-teachers-behind/" target="_blank" rel="noopener">epi.org</a>; Center for Economic and Policy Research, same report. <a href="https://cepr.net/publications/teacher-pay-penalty-hits-record-high/" target="_blank" rel="noopener">cepr.net</a> <a href="#ref46" class="bib-back">&#8617;</a></li>
+      <li id="fn47">[47] U.S. News and World Report. "Debunking a Myth About U.S. Teachers." <a href="https://www.usnews.com/news/articles/2015/01/26/debunking-a-myth-about-us-teachers" target="_blank" rel="noopener">usnews.com</a> <a href="#ref47" class="bib-back">&#8617;</a></li>
+      <li id="fn48">[48] Hechinger Report. "Debunking one myth about U.S. teachers," NCES Baccalaureate and Beyond survey data. <a href="https://hechingerreport.org/debunking-one-myth-about-u-s-teachers/" target="_blank" rel="noopener">hechingerreport.org</a> <a href="#ref48" class="bib-back">&#8617;</a></li>
+      <li id="fn49">[49] Stanford Center for Education Policy Analysis. "More People With Higher SAT Scores Are Going Into Teaching." New York certification policy. <a href="https://cepa.stanford.edu/news/more-people-higher-sat-scores-are-going-teaching" target="_blank" rel="noopener">cepa.stanford.edu</a> <a href="#ref49" class="bib-back">&#8617;</a></li>
+      <li id="fn50">[50] Frontiers in Education. "Determinants of entering the teaching profession: a longitudinal study," citing Bartanen and Kwok (2023) and Goldhaber et al. (2025). <a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1733747/full" target="_blank" rel="noopener">frontiersin.org</a> <a href="#ref50" class="bib-back">&#8617;</a></li>
+      <li id="fn51">[51] EdChoice. "A Bleak Look at Teaching in America Offers an Opportunity for School Choice," citing Bartanen, Avitabile, and Kwok's Common Application study and Goldhaber Washington State analysis. <a href="https://www.edchoice.org/2025-bleak-look-at-teaching-in-america-offers-an-opportunity-for-school-choice/" target="_blank" rel="noopener">edchoice.org</a> <a href="#ref51" class="bib-back">&#8617;</a> <a href="#ref51b" class="bib-back">&#8617;</a></li>
+      <li id="fn52">[52] New Jersey Monitor. "New law would let New Jersey teacher candidates skip basic skills exam." Kean University Alternate Route FAQs on P.L.2024, c.26. <a href="https://newjerseymonitor.com/2023/11/27/new-law-would-let-new-jersey-teacher-candidates-skip-basic-skills-exam/" target="_blank" rel="noopener">newjerseymonitor.com</a>; Fox News, "New Jersey ends basic reading and writing skills test requirement for teachers." <a href="https://www.foxnews.com/media/new-jersey-ends-basic-reading-writing-skills-test-requirement-teachers.print" target="_blank" rel="noopener">foxnews.com</a> <a href="#ref52" class="bib-back">&#8617;</a> <a href="#ref52b" class="bib-back">&#8617;</a></li>
+      <li id="fn53">[53] Education Week. "States Relax Teacher Certification Rules to Combat Shortages." <a href="https://www.edweek.org/teaching-learning/states-relax-teacher-certification-rules-to-combat-shortages/2022/06" target="_blank" rel="noopener">edweek.org</a>; Stateline, "Plagued by teacher shortages, some states turn to fast-track credentialing." <a href="https://stateline.org/2023/07/24/plagued-by-teacher-shortages-some-states-turn-to-fast-track-credentialing/" target="_blank" rel="noopener">stateline.org</a> <a href="#ref53" class="bib-back">&#8617;</a></li>
+      <li id="fn54">[54] Defending Education. "Teacher Shortages, Lowering Teacher Licensing Standards, and Diversity." Mississippi and Florida Praxis policy case studies. <a href="https://defendinged.org/resources/teacher-shortages-lowering-teacher-licensing-standards-and-diversity/" target="_blank" rel="noopener">defendinged.org</a> <a href="#ref54" class="bib-back">&#8617;</a></li>
+      <li id="fn55">[55] Education Week. "States Relax Teacher Certification Rules to Combat Shortages," Heather Peske, National Council on Teacher Quality. <a href="https://www.edweek.org/teaching-learning/states-relax-teacher-certification-rules-to-combat-shortages/2022/06" target="_blank" rel="noopener">edweek.org</a> <a href="#ref55" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Curriculum politics, book bans, and public opinion</span>
+    <ul class="bib-list">
+      <li id="fn56">[56] Education Week. "This Is How 'Woke' Schools Really Are, According to Students." <a href="https://www.edweek.org/teaching-learning/this-is-how-woke-schools-really-are-according-to-students/2025/01" target="_blank" rel="noopener">edweek.org</a> <a href="#ref56" class="bib-back">&#8617;</a></li>
+      <li id="fn57">[57] Heritage Foundation. "Political Opinions of K-12 Teachers: Results from a Nationally Representative Survey." <a href="https://www.heritage.org/education/report/political-opinions-k-12-teachers-results-nationally-representative-survey" target="_blank" rel="noopener">heritage.org</a> <a href="#ref57" class="bib-back">&#8617;</a></li>
+      <li id="fn58">[58] EdChoice. "School Year Off to Rocky Start in New Teacher Survey," Morning Consult partnership, September 2025. <a href="https://www.edchoice.org/2025-school-year-off-to-rocky-start-in-new-teacher-survey/" target="_blank" rel="noopener">edchoice.org</a> <a href="#ref58" class="bib-back">&#8617;</a></li>
+      <li id="fn59">[59] PEN America. "The Bills Igniting Book Bans." State legislative count 2021-2025. <a href="https://pen.org/report/the-bills-igniting-book-bans/" target="_blank" rel="noopener">pen.org</a>; World Population Review, "Critical Race Theory Ban States 2026." <a href="https://worldpopulationreview.com/state-rankings/critical-race-theory-ban-states" target="_blank" rel="noopener">worldpopulationreview.com</a> <a href="#ref59" class="bib-back">&#8617;</a></li>
+      <li id="fn60">[60] Education Week. "Anti-Critical-Race-Theory Laws Are Slowing Down. Here Are 3 Things to Know." <a href="https://www.edweek.org/teaching-learning/anti-critical-race-theory-laws-are-slowing-down-here-are-3-things-to-know/2024/03" target="_blank" rel="noopener">edweek.org</a> <a href="#ref60" class="bib-back">&#8617;</a></li>
+      <li id="fn61">[61] PEN America. "The Normalization of Book Banning: Banned in the USA, 2024-2025." <a href="https://pen.org/report/the-normalization-of-book-banning/" target="_blank" rel="noopener">pen.org</a>; Newsweek, "Map shows states that have banned most school books." <a href="https://www.newsweek.com/map-states-banned-school-books-10852349" target="_blank" rel="noopener">newsweek.com</a> <a href="#ref61" class="bib-back">&#8617;</a></li>
+      <li id="fn62">[62] Utah Office of the Legislative Auditor General, Performance Audit of Sensitive Materials in Schools, cited in PEN America, "The Bills Igniting Book Bans." <a href="https://pen.org/report/the-bills-igniting-book-bans/" target="_blank" rel="noopener">pen.org</a> <a href="#ref62" class="bib-back">&#8617;</a></li>
+      <li id="fn63">[63] Education Next. "The Year in Public Opinion on U.S. K-12 Education Policy." Houston, D.M., Winter 2025. <a href="https://www.educationnext.org/the-year-in-public-opinion-on-u-s-k-12-education-policy/" target="_blank" rel="noopener">educationnext.org</a> <a href="#ref63" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Smartphone and cellphone bans</span>
+    <ul class="bib-list">
+      <li id="fn64">[64] Education Week. "Do School Cellphone Bans Work? What Early Findings Tell Us." <a href="https://www.edweek.org/technology/do-school-cellphone-bans-work-what-early-findings-tell-us/2025/10" target="_blank" rel="noopener">edweek.org</a> <a href="#ref64" class="bib-back">&#8617;</a></li>
+      <li id="fn65">[65] Harvard Kennedy School. "Many states are banning cellphones in schools. Is it working?" Florida's May 2023 ban. <a href="https://www.hks.harvard.edu/faculty-research/policy-topics/education-training-labor/many-states-are-banning-cellphones-schools" target="_blank" rel="noopener">hks.harvard.edu</a> <a href="#ref65" class="bib-back">&#8617;</a></li>
+      <li id="fn66">[66] Washington Times. "School cellphone bans help students focus but have little impact on test scores, new research shows." North Dakota Gov. Kelly Armstrong signing. <a href="https://www.washingtontimes.com/news/2026/may/6/study-finds-school-cellphone-bans-help-students-focus-show-little/" target="_blank" rel="noopener">washingtontimes.com</a> <a href="#ref66" class="bib-back">&#8617;</a></li>
+      <li id="fn67">[67] ABC News. "1 year into school cellphone bans, educators report calmer classrooms, stronger student connections." Gov. Kathy Hochul, New York statewide survey. <a href="https://abcnews.com/GMA/Family/1-year-school-cellphone-bans-educators-report-calmer/story?id=133595015" target="_blank" rel="noopener">abcnews.com</a> <a href="#ref67" class="bib-back">&#8617;</a></li>
+      <li id="fn68">[68] ABC News. "1 year into school cellphone bans," Denver Public Schools board vote and Georgia K-8 ban. <a href="https://abcnews.com/GMA/Family/1-year-school-cellphone-bans-educators-report-calmer/story?id=133595015" target="_blank" rel="noopener">abcnews.com</a> <a href="#ref68" class="bib-back">&#8617;</a></li>
+      <li id="fn69">[69] Education Next. "Can Banning Cellphones Save Student Learning? Evidence from Florida, home of the first statewide mandate." Figlio, D.N. and Özek, U., citing 2024 NEA survey and 2025 RAND survey. <a href="https://www.educationnext.org/can-banning-cellphones-save-student-learning-evidence-florida-mandate/" target="_blank" rel="noopener">educationnext.org</a> <a href="#ref69" class="bib-back">&#8617;</a> <a href="#ref69b" class="bib-back">&#8617;</a></li>
+      <li id="fn70">[70] Chalkbeat. "Cellphone bans give modest boost to test scores, new study finds." David Figlio quote. <a href="https://www.chalkbeat.org/2025/10/20/new-study-finds-cell-phone-ban-benefits-to-test-scores/" target="_blank" rel="noopener">chalkbeat.org</a> <a href="#ref70" class="bib-back">&#8617;</a></li>
+      <li id="fn71">[71] Washington Times. "School cellphone bans help students focus but have little impact on test scores, new research shows." NBER working paper, Duke, Stanford, Michigan, Penn researchers, 4,600 schools. <a href="https://www.washingtontimes.com/news/2026/may/6/study-finds-school-cellphone-bans-help-students-focus-show-little/" target="_blank" rel="noopener">washingtontimes.com</a> <a href="#ref71" class="bib-back">&#8617;</a> <a href="#ref71b" class="bib-back">&#8617;</a></li>
+      <li id="fn72">[72] Education Week. "Do School Cellphone Bans Work? What Early Findings Tell Us," Florida percentile-point analysis. <a href="https://www.edweek.org/technology/do-school-cellphone-bans-work-what-early-findings-tell-us/2025/10" target="_blank" rel="noopener">edweek.org</a> <a href="#ref72" class="bib-back">&#8617;</a></li>
+      <li id="fn73">[73] Stateline. "As school cellphone bans gain in popularity, lawmakers say it's time to go bell-to-bell." USC compliance study. <a href="https://stateline.org/2026/02/03/as-school-cellphone-bans-gain-in-popularity-lawmakers-say-its-time-to-go-bell-to-bell/" target="_blank" rel="noopener">stateline.org</a> <a href="#ref73" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Department of Education dismantling and litigation</span>
+    <ul class="bib-list">
+      <li id="fn74">[74] Al Jazeera. "US Education Department to halve staff as Trump pushes for elimination." <a href="https://www.aljazeera.com/news/2025/3/12/trump-slashes-us-education-department-staff-in-step-toward-dismantlement" target="_blank" rel="noopener">aljazeera.com</a>; Atkinson, Andelson, Loya, Ruud & Romo, legal alert on Executive Order 14242. <a href="https://www.aalrr.com/newsroom-alerts-4123" target="_blank" rel="noopener">aalrr.com</a> <a href="#ref74" class="bib-back">&#8617;</a></li>
+      <li id="fn75">[75] Economic Policy Institute. "Executive Order on closing parts of the Department of Education." Legal authority analysis. <a href="https://www.epi.org/policywatch/executive-order-on-closing-parts-of-the-department-of-education/" target="_blank" rel="noopener">epi.org</a>; Brookings Institution, "The status of litigation against the Trump administration's K-12 education agenda." <a href="https://www.brookings.edu/articles/the-status-of-litigation-against-the-trump-administrations-k-12-education-agenda-a-guide-for-education-leaders/" target="_blank" rel="noopener">brookings.edu</a> <a href="#ref75" class="bib-back">&#8617;</a></li>
+      <li id="fn76">[76] National Education Association. "The Plan to Abolish the Education Department, One Year Later." Interagency agreement and program transfer count. <a href="https://www.nea.org/nea-today/all-news-articles/plan-abolish-education-department-one-year-later" target="_blank" rel="noopener">nea.org</a> <a href="#ref76" class="bib-back">&#8617;</a></li>
+      <li id="fn77">[77] Scanlon, U.S. House of Representatives. Letter to Secretary McMahon regarding oversight of special education services and IDEA transfer to HHS. <a href="https://scanlon.house.gov/UploadedFiles/Letter_to_ED_regarding_Oversight_of_Special_Education_Services.pdf" target="_blank" rel="noopener">scanlon.house.gov</a> <a href="#ref77" class="bib-back">&#8617;</a></li>
+      <li id="fn78">[78] Scanlon, U.S. House of Representatives, congressional letter opposing IDEA transfer. <a href="https://scanlon.house.gov/UploadedFiles/Letter_to_ED_regarding_Oversight_of_Special_Education_Services.pdf" target="_blank" rel="noopener">scanlon.house.gov</a>; NEA, "The Plan to Abolish the Education Department, One Year Later." <a href="https://www.nea.org/nea-today/all-news-articles/plan-abolish-education-department-one-year-later" target="_blank" rel="noopener">nea.org</a> <a href="#ref78" class="bib-back">&#8617;</a> <a href="#ref78b" class="bib-back">&#8617;</a></li>
+      <li id="fn79">[79] NEA / Nevada State Education Association. "The Plan to Abolish the Education Department, One Year Later," OCR staffing figures. <a href="https://www.nsea-nv.org/advocating-change/new-from-nsea/plan-abolish-education-department-one-year-later" target="_blank" rel="noopener">nsea-nv.org</a> <a href="#ref79" class="bib-back">&#8617;</a></li>
+      <li id="fn80">[80] NEA. "The Plan to Abolish the Education Department, One Year Later," complaint dismissal and backlog figures. <a href="https://www.nea.org/nea-today/all-news-articles/plan-abolish-education-department-one-year-later" target="_blank" rel="noopener">nea.org</a> <a href="#ref80" class="bib-back">&#8617;</a></li>
+      <li id="fn81">[81] NEA. "The Plan to Abolish the Education Department, One Year Later," Michael Pillera, former OCR attorney. <a href="https://www.nea.org/nea-today/all-news-articles/plan-abolish-education-department-one-year-later" target="_blank" rel="noopener">nea.org</a> <a href="#ref81" class="bib-back">&#8617;</a></li>
+      <li id="fn82">[82] Democracy Forward. "Educators, School Districts, and Workers Sue to Stop Trump's Plan to Dismantle the Department of Education." <a href="https://democracyforward.org/work/legal/educators-school-districts-and-workers-sue-to-stop-trumps-plan-to-dismantle-the-department-of-education/" target="_blank" rel="noopener">democracyforward.org</a> <a href="#ref82" class="bib-back">&#8617;</a></li>
+      <li id="fn83">[83] United States Court of Appeals for the Fourth Circuit. National Association of Diversity Officers in Higher Education v. Trump, No. 25-1189, February 6, 2026. <a href="https://www.ca4.uscourts.gov/opinions/251189.P.pdf" target="_blank" rel="noopener">ca4.uscourts.gov</a>; Saul Ewing LLP, "Fourth Circuit Lifts Injunction on DEI Executive Orders." <a href="https://www.saul.com/insights/alert/fourth-circuit-lifts-injunction-dei-executive-orders" target="_blank" rel="noopener">saul.com</a> <a href="#ref83" class="bib-back">&#8617;</a></li>
+      <li id="fn84">[84] Foley Hoag LLP. "Higher Education Litigation and Federal Policy: 2025 Year in Review," Dear Colleague letter litigation status. <a href="https://foleyhoag.com/news-and-insights/publications/alerts-and-updates/2026/january/higher-education-litigation-and-federal-policy-2025-year-in-review/" target="_blank" rel="noopener">foleyhoag.com</a>; NACE, "Latest Federal Update." <a href="https://www.naceweb.org/public-policy-and-legal/legislation-and-regulations/latest-federal-update" target="_blank" rel="noopener">naceweb.org</a> <a href="#ref84" class="bib-back">&#8617;</a></li>
+      <li id="fn85">[85] News on Air. "US President Trump signs executive order initiating process of shutting down Education Dept," White House three trillion dollar spending figure. <a href="https://www.newsonair.gov.in/us-president-trump-signs-executive-order-initiating-process-of-shutting-down-education-dept" target="_blank" rel="noopener">newsonair.gov.in</a> <a href="#ref85" class="bib-back">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us &mdash; All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
