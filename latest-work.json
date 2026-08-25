@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Investigation",
+    "title": "The Degradation of Our Privacy",
+    "hook": "How both parties built the American surveillance state, and why blaming one side misses the machine.",
+    "date": "2026-08-24",
+    "url": "/investigations/the-degradation-of-our-privacy"
+  },
+  {
+    "label": "Investigation",
+    "title": "The Business of Sickness",
+    "hook": "How financial incentives, not just prices, broke American healthcare.",
+    "date": "2026-08-21",
+    "url": "/investigations/the-business-of-sickness"
+  },
+  {
+    "label": "Current Events + Opinion",
+    "title": "Turkey Is the Next Iran",
+    "hook": "Israel, Turkey, and the question of whether NATO holds.",
+    "date": "2026-08-21",
+    "url": "/current-events/turkey-is-the-next-iran"
+  }
+]
