@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Degradation of Our Privacy -- Political Hypocrites</title>
+  <meta name="description" content="How both parties built the American surveillance state, from COINTELPRO through the Patriot Act, Edward Snowden, Carpenter v. United States, and the data broker loophole, and why the argument that Trump broke our politics misses the machine he inherited." />
+  <meta property="og:title" content="The Degradation of Our Privacy -- Political Hypocrites" />
+  <meta property="og:description" content="Both parties built this machine. Both parties expanded it. A documented investigation into the American surveillance state, from J. Edgar Hoover to the FISA fight of 2026." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/the-degradation-of-our-privacy" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Degradation of Our Privacy -- Political Hypocrites" />
+  <meta name="twitter:description" content="Both parties built this machine. Both parties expanded it. A documented investigation into the American surveillance state, from J. Edgar Hoover to the FISA fight of 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+    .opinion-inline {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--red); border: 1px solid var(--red);
+      padding: 0.1rem 0.4rem; margin-right: 0.5rem;
+      display: inline-block; vertical-align: middle;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.02;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2rem; font-weight: 400;
+    }
+    .share-btn {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap; display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+    .article-lede {
+      font-size: 1.05rem !important; line-height: 1.85 !important;
+      color: var(--text-body) !important; font-weight: 300;
+      margin-bottom: 1.4rem;
+    }
+    .article-body p {
+      font-size: 0.98rem; line-height: 1.85; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .doc-callout {
+      border-left: 3px solid rgba(20,10,5,0.28);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .doc-callout-label {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); display: block; margin-bottom: 0.8rem;
+    }
+    .doc-callout p {
+      font-size: 0.95rem !important;
+      line-height: 1.8 !important;
+      color: rgba(20,10,5,0.65) !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-partner {
+      font-style: italic; color: rgba(185, 28, 28, 0.65);
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is an Investigation. It is built primarily from public record, and it includes the author's analysis and perspective at points, clearly labeled where it appears.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>&rsaquo;</span>
+    <span class="current">The Degradation of Our Privacy</span>
+  </div>
+  <span class="article-label">Investigation, August 2026</span>
+  <h1 class="article-title">The Degradation of Our Privacy</h1>
+  <p class="article-subtitle">How both parties built the American surveillance state, and why the argument that Trump broke our politics misses the machine he inherited.</p>
+  <a href="https://twitter.com/intent/tweet?text=The+Degradation+of+Our+Privacy%3A+How+Both+Parties+Built+the+American+Surveillance+State&url=https://political-hypocrites.vercel.app/investigations/the-degradation-of-our-privacy" target="_blank" class="share-btn">Share on X</a>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">August 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Investigation</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Twelve</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">Introduction</h2>
+    <p class="article-lede">I did not set out to write a story about Donald Trump. I set out to write a story about a machine, one that has been running for nearly a century, one that both parties built, both parties fed, and both parties have, at different points, run away from once it was politically convenient to pretend they never touched it.</p>
+    <p>That machine is the American surveillance state. It did not arrive with any single president, and it did not begin on September 11th. It began decades earlier, in the files the FBI kept on civil rights leaders and anti-war protesters, and it has been rebuilt, reformed, and rebuilt again ever since, each time under the banner of a different threat.</p>
+    <p><span class="opinion-inline">Opinion</span>I think the easiest and laziest argument in American politics right now is the one that says Donald Trump broke the system. I do not buy it. I think Trump walked into a system that was already broken, a system built by Republicans and expanded by Democrats, and I think in some very specific and documentable ways, he has become a victim of the very system he once ran against. That is not an excuse for him. It is an indictment of everyone who came before him and everyone who will come after him if nothing changes.</p>
+    <p>This piece is going to trace that machine from its earliest form under J. Edgar Hoover, through the Senate investigation that tried to kill it, through its rebirth after September 11th, through the man who exposed how far it had grown, through the courts that tried and mostly failed to rein it in, through the president who campaigned against it and then quietly kept it running, and up to the president who screamed to kill it on his way into office and then signed off on keeping it alive once he was the one holding the keys.</p>
+    <p>I am not interested in whether you voted for Nixon, Bush, Obama, or Trump. I am interested in whether your phone records, your location history, and your digital life have been swept up in a system that was never supposed to touch you in the first place. Because according to the government&rsquo;s own admissions, they have been.</p>
+    <p>That is the throughline of this piece: civilians versus corruption, not left versus right. Nobody in this story gets a pass because of the letter next to their name.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">COINTELPRO and the Pre-1970s Surveillance State</h2>
+    <p>Before there was a Patriot Act, before there was an NSA program with a name like PRISM, there was a program run out of the FBI that never had to answer to a warrant, a court, or the public it was spying on.</p>
+    <p>It was called COINTELPRO, short for Counter Intelligence Program, and it ran under FBI Director J. Edgar Hoover from the mid-1950s into the early 1970s. It targeted civil rights leaders, anti-war activists, Black nationalist organizations, socialist and communist groups, and eventually just about anyone Hoover&rsquo;s FBI decided was a threat to the existing order. Martin Luther King Jr. was one of its targets. So was the Southern Christian Leadership Conference. So were the Black Panthers, the Socialist Workers Party, and student anti-war groups on college campuses across the country.<a href="#fn1" class="fn" id="ref1">[1]</a></p>
+    <p>This was not intelligence gathering aimed at foreign spies or terrorist plots. It was the federal government using its surveillance powers to monitor, disrupt, and discredit American citizens for their political beliefs and their political organizing. Wiretaps without warrants. Infiltration of organizations. Letters written to spouses and employers designed to destroy marriages and careers. None of it required a judge&rsquo;s signature, because at the time, nothing forced it to.</p>
+    <p>The public did not learn the scope of any of this because a congressional committee decided to investigate it out of nowhere. The public learned about it because a group of private citizens broke into a small FBI field office in Media, Pennsylvania in 1971, took the files inside, and mailed them to journalists. That act of theft, illegal on its face, is the only reason any of this ever came to light.<a href="#fn2" class="fn" id="ref2">[2]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think it says something damning about how this country oversees its own intelligence agencies that the first real public accounting of COINTELPRO did not come from Congress, or from a court, or from an internal watchdog. It came from a burglary. That should bother you regardless of your politics, because it means the system built to check these agencies failed on its own, and it took private citizens breaking the law to force a reckoning that our institutions were either unwilling or unable to force themselves.</p>
+    <p>What the leaked files exposed set off a chain reaction. Congress could no longer pretend it did not know, and that pretense collapsing is what set up the next chapter of this story: the Senate investigation that tried, for a brief moment, to actually rein this machine in.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">The Church Committee and the Birth of FISA</h2>
+    <p>In 1975, the Senate did something it had never really done before. It formed a committee, chaired by Senator Frank Church of Idaho, and gave it a mandate to investigate the entire American intelligence apparatus: the FBI, the CIA, the NSA, all of it. What the Church Committee found filled roughly 2,700 pages, and it was not flattering to either political party.<a href="#fn3" class="fn" id="ref3">[3]</a></p>
+    <p>The committee documented abuses of the civil rights of U.S. citizens in the name of national security interest involving administrations of both Democratic and Republican presidents. It confirmed the scope of COINTELPRO. It also exposed programs most Americans had never heard of: Shamrock, a decades-long NSA program that intercepted telegrams entering and leaving the country, and Minaret, an NSA watchlist program used to monitor the communications of American citizens, including members of Congress and civil rights leaders, without a warrant. The committee even uncovered details of MK-ULTRA, the CIA&rsquo;s mind control experimentation program, run on unwitting subjects for decades.<a href="#fn4" class="fn" id="ref4">[4]</a></p>
+    <p>Frank Church himself put it in terms that read as prophetic today. He warned publicly that the government&rsquo;s surveillance capability was so total that no American would have any privacy left, and that if that capability were ever turned inward on the country&rsquo;s own citizens, there would be no place to hide.<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think Church&rsquo;s warning is one of the most important sentences in this entire piece, because it was made about analog technology, wiretaps, telegrams, paper files, decades before smartphones, before location tracking, before a private company could sell your movements to a government agency without a warrant. If a senator was worried about total surveillance in 1975, I think we should be a lot more worried about it now.</p>
+    <p>The committee&rsquo;s work produced two lasting results. The first was the creation of the Senate Select Committee on Intelligence, meant to give Congress ongoing oversight of the intelligence community rather than the after-the-fact accounting the Church Committee had to perform. The second, and more consequential for this piece, was the Foreign Intelligence Surveillance Act of 1978, known as FISA.<a href="#fn6" class="fn" id="ref6">[6]</a></p>
+    <p>It is worth sitting with what FISA actually was when it was written. It was not a tool built to expand government surveillance. It was built as a direct response to the abuses the Church Committee uncovered, an attempt to put a judicial check on a power that had operated for decades without one. Under FISA, if the government wanted to conduct surveillance for foreign intelligence purposes, it had to go before a newly created court, the Foreign Intelligence Surveillance Court, and show probable cause that its target was a foreign power or an agent of one.<a href="#fn7" class="fn" id="ref7">[7]</a></p>
+    <p>For a while, that structure held. It is also worth noting that around the same period, in 1981, President Reagan signed Executive Order 12333, which set the rules for how the seventeen agencies that make up the U.S. intelligence community operate. That order still governs a significant amount of American intelligence collection today, largely outside the kind of public scrutiny FISA eventually attracted, and it deserves at least this mention because it is still on the books, still in force, and still mostly invisible to the public it affects.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+    <p>But a law built to constrain a surveillance apparatus is only as strong as the willingness of future Congresses and future presidents to leave it alone. Two decades later, one morning in September changed all of that.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Patriot Act, Six Weeks After 9/11</h2>
+    <p>On September 11, 2001, nearly three thousand Americans were murdered in a single morning. What Congress did in response, six weeks later, reshaped the relationship between the American government and the American people for the next twenty-five years and counting.</p>
+    <p>The USA PATRIOT Act is an acronym, standing for Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism. It ran ten titles and hundreds of pages, and it amended at least fifteen existing federal statutes.<a href="#fn9" class="fn" id="ref9">[9]</a> Attorney General John Ashcroft gave Congress roughly one week to pass the bill without changes. The Senate version, closely resembling what Ashcroft&rsquo;s Justice Department had requested, went straight to the floor with no meaningful discussion, no committee hearings, and no conference report.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think it is important to say plainly that this is not how a law that rewrites the boundaries of the Fourth Amendment should ever be passed. A week is not deliberation. A week is a rubber stamp dressed up as urgency, and I think both parties, who voted for this bill in overwhelming numbers, share the blame for letting fear do the job that debate was supposed to do.</p>
+    <p>Most of the Patriot Act&rsquo;s provisions were uncontroversial: more communication between federal agencies, tighter rules on money laundering, additional border security funding. The part of the law that matters for this piece sits in Title II, which amended FISA itself, the very law the Church Committee had built to prevent exactly this kind of expansion.</p>
+    <p>Section 215 is the provision that did the most damage. It allowed the FBI to compel any business, doctors, libraries, bookstores, universities, internet service providers, to turn over records on their own customers, and it removed the requirement that the government show the target was an agent of a foreign power. That single change gutted the protection FISA had been built around in 1978.<a href="#fn11" class="fn" id="ref11">[11]</a> Section 206 authorized what are called roving wiretaps, letting the government follow a single target across multiple devices and phones under one authorization instead of separate court orders for each device.<a href="#fn12" class="fn" id="ref12">[12]</a> Section 213 authorized so-called sneak and peek searches, allowing law enforcement to search a home or business and delay notifying the owner that a search had even occurred.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+    <p>Most of these provisions were written with sunset dates, meaning they were supposed to expire unless Congress affirmatively renewed them. In 2006, Congress made fourteen of the original sunset provisions permanent, and extended two of the most contested ones, Sections 206 and 215, to the end of 2009.<a href="#fn14" class="fn" id="ref14">[14]</a> That pattern, provisions that were sold to the public as temporary wartime measures becoming permanent fixtures of American law, is one that repeats throughout this entire piece, under presidents of both parties.</p>
+    <p>What almost nobody outside of government understood at the time was just how far Section 215 would eventually be stretched. The public would not learn that for another twelve years, until a twenty-nine-year-old NSA contractor decided the American people deserved to know what had been done in their name.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">Who Edward Snowden Is and What Actually Happened</h2>
+    <p class="article-lede">Before this piece goes any further into what Edward Snowden revealed, I think it is worth stopping to explain who he actually is, because his name gets thrown around by both sides of the political spectrum as either a traitor or a hero, and very few people ever slow down to lay out the actual facts of his case.</p>
+    <p>Snowden was twenty-nine years old in 2013, working as a contractor for the NSA through the private firm Booz Allen Hamilton in Hawaii. He was not a career case officer or a lifelong dissident. He was a systems administrator with access to some of the most classified surveillance programs in the country.<a href="#fn15" class="fn" id="ref15">[15]</a> According to his own account, the moment that pushed him toward blowing the whistle was watching Director of National Intelligence James Clapper testify before the Senate in March 2013. Senator Ron Wyden asked Clapper directly whether the NSA collected any type of data on millions of Americans, and Clapper said no.<a href="#fn16" class="fn" id="ref16">[16]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think that exchange matters more than almost anything else in this section, because it was not a leaked document or an anonymous source claiming the government lied. It was the country&rsquo;s top intelligence official, under oath, telling an elected senator something that turned out to be false. Whatever you think of what Snowden did next, that lie is the reason he says he did it.</p>
+    <p>In June 2013, Snowden left the United States for Hong Kong and handed a trove of classified documents to journalists Glenn Greenwald and Laura Poitras. Those documents became the basis for a series of stories in The Guardian and The Washington Post exposing the bulk metadata program and PRISM, both of which the next two sections of this piece will cover in detail. The United States charged Snowden under the Espionage Act of 1917, a law that offers no legal defense based on public interest or whistleblower intent. Facing decades in prison, Snowden did not return to the U.S. He instead ended up stranded in Russia after his passport was revoked mid-transit, and he has lived there since, first under temporary asylum and later under permanent residency.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+    <p>What makes Snowden&rsquo;s case genuinely useful for a piece like this one is how badly he scrambles the normal left-right script. In the years since his disclosures, calls for his pardon or clemency have come from libertarian-leaning Republicans like Senator Rand Paul and Representatives Justin Amash and Thomas Massie, alongside progressive Democrats.<a href="#fn18" class="fn" id="ref18">[18]</a> Bernie Sanders called for clemency in 2016. Alexandria Ocasio-Cortez told The Intercept that Snowden should be considered for a pardon.<a href="#fn19" class="fn" id="ref19">[19]</a> Tulsi Gabbard, as a Democratic congresswoman, publicly urged clemency, though in her 2025 confirmation hearing to serve as director of national intelligence in the Trump administration, she declined to advocate for a pardon, telling senators that doing so fell outside her responsibilities, while still maintaining that Snowden&rsquo;s disclosures had exposed &ldquo;egregious, illegal and unconstitutional programs.&rdquo;<a href="#fn20" class="fn" id="ref20">[20]</a> Meanwhile, mainstream figures in both parties, including much of the Obama administration&rsquo;s own national security team, treated him as a straightforward criminal.</p>
+    <p>Trump&rsquo;s own position has moved. During the 2016 campaign, he called Snowden a total traitor and said he would deal with him harshly. By the end of his first term, he said he would take a look at pardoning him, a shift that lines up with Trump&rsquo;s broader and increasingly public hostility toward the intelligence agencies he calls the deep state.<a href="#fn21" class="fn" id="ref21">[21]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I am not going to tell you whether Snowden is a hero or a traitor in this piece, because I think that question distracts from the more important one. Regardless of what you think of the man, the documents he leaked were real, the programs they exposed were real, and the government&rsquo;s public denials about those programs, made under oath, were false. That is the part of this story that should never get lost in the fight over Snowden&rsquo;s character.</p>
+    <p>The next section covers exactly what those documents showed.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">PRISM and the Bulk Metadata Program</h2>
+    <p>The documents Snowden handed to journalists in June 2013 exposed two surveillance programs that, together, gave the American government a window into the communications of millions of people who were never suspected of any crime.</p>
+    <p>The first was the bulk telephony metadata program. Under Section 215 of the Patriot Act, the government had been compelling major phone companies, including Verizon, AT&amp;T, and Sprint, to turn over records on every call made through their networks, continuously, on a daily basis. This was not the content of the calls themselves. It was metadata: who called whom, when, and for how long. But metadata at that scale is not as harmless as it sounds. A record of who you call, how often, and for how long can reconstruct a detailed picture of your relationships, your habits, your associations, and your movements, all without a single word of conversation ever being recorded. All together, this amounted to several billion calls&rsquo; worth of records per day, collected on hundreds of millions of Americans who had never been accused of anything.<a href="#fn22" class="fn" id="ref22">[22]</a></p>
+    <p>The second program was PRISM. Where the metadata program targeted phone records, PRISM gave the NSA a mechanism to obtain internet communications, emails, chat logs, stored files, and more, from at least nine major technology companies, including Google, Facebook, Microsoft, Yahoo, and Apple. The legal basis for PRISM was Section 702 of the FISA Amendments Act of 2008, the law passed after the Bush administration&rsquo;s warrantless wiretapping program was exposed and Congress chose to legalize it rather than shut it down.<a href="#fn23" class="fn" id="ref23">[23]</a></p>
+    <p>The technology companies involved spent the weeks after the leaks denying that the government had direct, unrestricted access to their servers, insisting they only released user data in response to specific legal orders. Later testimony complicated that picture. In 2014, the NSA&rsquo;s top lawyer told a civil liberties oversight board that companies including Google, Yahoo, Apple, Microsoft, and Facebook knew about the program and had full knowledge of what was being requested of them, even as those same companies had publicly denied involvement.<a href="#fn24" class="fn" id="ref24">[24]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think the gap between what these companies said publicly and what NSA&rsquo;s own lawyer said under oath is worth sitting with. It tells you that the surveillance apparatus built after 9/11 did not just rely on secret laws and secret courts. It also relied on the cooperation, willing or coerced, of the same private companies that hundreds of millions of Americans trust with their most personal information every single day.</p>
+    <p>None of this was theoretical or hypothetical. It was confirmed, repeatedly, by the government&rsquo;s own officials once the documents forced their hand. And once the public had that confirmation, the fight moved out of the shadows and into the courts.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">The Courts Push Back</h2>
+    <p>Once the bulk metadata program was confirmed rather than denied, the legal challenges that had been sitting in federal courts for years finally had the evidence behind them to move forward.</p>
+    <p>In May 2015, the U.S. Court of Appeals for the Second Circuit issued a ruling that the government had been waiting to avoid for over a decade. The court held that the bulk collection of American phone records under Section 215 of the Patriot Act was illegal. The judges found that the provision of the Patriot Act permitting the FBI to collect business records deemed relevant to a counterterrorism investigation could not be legitimately interpreted to permit the systematic, indiscriminate bulk collection of domestic calling records on hundreds of millions of Americans who had no connection to any investigation at all.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+    <p>The ruling did not shut the program down immediately. The appeals court stopped short of ruling on the program&rsquo;s constitutionality and instead urged Congress to act, since the underlying authority was set to expire on its own that June. That set up a genuine, if brief, moment of bipartisan urgency in Washington.</p>
+    <p>Congress responded with the USA Freedom Act of 2015. The law ended the NSA&rsquo;s practice of collecting and holding bulk phone records itself. Going forward, phone companies would retain the records, and the NSA would have to obtain a targeted court order from the Foreign Intelligence Surveillance Court before requesting specific records tied to a specific investigation, rather than vacuuming up everyone&rsquo;s data by default. In 2018, the NSA was compelled to delete millions of records it had collected without proper legal authority even under this narrower program, and the following year the agency shuttered the successor collection program entirely rather than continue trying to operate it within the bounds of the law.<a href="#fn26" class="fn" id="ref26">[26]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I am not willing to hand out credit for this one as easily as it might look. When both parties pass something without much of a fight, my instinct is not to assume good faith, it&rsquo;s to ask who benefits from that agreement. A law that ends one specific, narrow, already-exposed program while leaving the much larger Section 702 authority completely untouched is not obviously a genuine act of restraint. It is just as easily read as the two parties agreeing to give up the least amount of power possible while looking like they did something. I am not saying that with proof of intent. I am saying it because a pattern of both parties conceding just enough to survive a bad news cycle, and no more, is exactly what this piece keeps finding at every turn.</p>
+    <p>But I also think it would be dishonest to present the USA Freedom Act as the end of the story, because it was not. It closed one specific program. It did nothing to touch Section 702, the authority behind PRISM, and it did nothing to address the deeper problem this piece keeps returning to: a government that had already shown, repeatedly, that when the public was not watching closely enough, it would stretch these authorities as far as they could possibly go. The next two decades would prove that pattern did not end with one court ruling and one reform bill. It just moved to new administrations and new technology.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">Obama&rsquo;s Reversal</h2>
+    <p>In 2008, candidate Barack Obama built part of his campaign identity around opposition to the surveillance excesses of the Bush years. He criticized warrantless wiretapping. He positioned himself as a check on an executive branch that had expanded its own power in the name of counterterrorism. Then, in July 2008, months before he was even elected, he reversed course and announced support for a sweeping surveillance law that largely legalized the NSA&rsquo;s warrantless eavesdropping program and granted retroactive immunity to the telecom companies that had cooperated with it. That law was the FISA Amendments Act of 2008, and its Section 702 is the same authority that would go on to power PRISM.<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+    <p>The reversal cost him support from his own base. One supporter, writing on Obama&rsquo;s own campaign website at the time, said simply that they were disgusted.<a href="#fn28" class="fn" id="ref28">[28]</a> It did not stop him from winning the election, and it did not stop the pattern from continuing once he was in office.</p>
+    <p>By the time the Snowden documents became public in 2013, Obama was five years into a presidency that had not just preserved the surveillance infrastructure he once criticized, it had actively defended it. His administration continued applying for a FISA court order every three months to compel American phone companies to turn over the entirety of their call records to the NSA, the exact bulk collection program his own Justice Department would later have to defend in the federal court case that eventually ruled it illegal.<a href="#fn29" class="fn" id="ref29">[29]</a></p>
+    <p>In August 2013, facing mounting public pressure after the Snowden leaks, Obama held a press conference where he promised to work with Congress on what he called appropriate reforms to the Patriot Act, aimed specifically at Section 215. He said that even though he had confidence in the programs himself, the American people needed to have that confidence too. He announced further changes in January 2014.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+    <p>A year after those promises, the Brennan Center for Justice reviewed what had actually changed. Their conclusion was blunt: the administration was still applying for a FISA court order every three months directing phone companies to turn over their records, and it was still exploiting a program nominally targeted at foreigners to sweep up the phone calls and emails of Americans without a warrant. The review found that the big picture had not changed.<a href="#fn31" class="fn" id="ref31">[31]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think Obama&rsquo;s case is actually the more important one for a piece like this to get right, because he is so rarely held to this standard by the people who otherwise praise him. He did not inherit this machine the way Trump later did. He ran directly against it, told voters he would rein it in, and then spent his presidency defending and extending the same authorities he had criticized as a candidate. I am not saying that to excuse what came after him. I am saying it because if I am going to argue that Trump inherited a broken system rather than built one, intellectual honesty requires me to point out that Obama had the exact same opportunity to actually dismantle it, and chose not to.</p>
+    <p>By the time Obama left office, the legal architecture behind PRISM and bulk collection was still standing, just with a few more oversight procedures bolted onto it. The next real check on any of it would not come from Congress or the White House. It would come from the Supreme Court.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">Carpenter v. United States</h2>
+    <p>In 2018, the Supreme Court finally addressed a question that had been sitting unresolved since the smartphone era began: does the government need a warrant to get your cell phone location history?</p>
+    <p>The case started with a string of armed robberies. Federal prosecutors, investigating Timothy Carpenter, obtained his cell-site location records from his wireless carriers, not through a warrant, but through a court order under the Stored Communications Act of 1986, a much lower legal bar than probable cause. Those records gave prosecutors nearly thirteen thousand data points on Carpenter&rsquo;s movements over one hundred and twenty-seven days. He was convicted, and his appeal made the case that using this data without a warrant violated his Fourth Amendment rights.<a href="#fn32" class="fn" id="ref32">[32]</a></p>
+    <p>The government&rsquo;s argument rested on something called the third-party doctrine, a longstanding legal principle holding that once you voluntarily hand information to a third party, in this case a cell carrier, you no longer have a reasonable expectation of privacy in that information, and the government can obtain it without a warrant. That doctrine had governed decades of surveillance law, and lower courts, including the Sixth Circuit in Carpenter&rsquo;s own case, had consistently ruled that it applied to cell phone records the same way it applied to anything else.<a href="#fn33" class="fn" id="ref33">[33]</a></p>
+    <p>In a five to four decision, the Supreme Court disagreed. Chief Justice John Roberts, writing for the majority, held that cell-site location information was different in kind from the kinds of records the third-party doctrine had originally been built around. The Court described the information as deeply revealing, given its depth, breadth, and comprehensive reach, and the practically inescapable and automatic nature of how it gets collected simply by carrying a phone. The Court ruled that the government generally needs a warrant, backed by probable cause, before it can obtain historical cell-site records from a wireless carrier.<a href="#fn34" class="fn" id="ref34">[34]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think Carpenter deserves to be treated as a genuine, meaningful check on government power, and I want to be fair enough to say that clearly rather than treat every ruling in this piece with automatic suspicion. A five-justice majority that includes both conservative and liberal appointees looked at the ballooning capabilities of modern surveillance and said no, the old rules do not automatically apply just because a private company is holding the data. That is exactly the kind of course correction this piece has been arguing the country needs more of.</p>
+    <p>But the Court was careful, almost to a fault, about how narrow it wanted this ruling to be. The majority opinion explicitly described its own decision as a narrow one. It applied specifically to historical cell-site location records. It said nothing about real-time location tracking. It said nothing about tower dumps, which reveal every device connected to a specific cell tower at a given time. And critically, it said nothing at all about what happens when the government does not compel a company to hand over data, but simply buys that same data on the open market instead.<a href="#fn35" class="fn" id="ref35">[35]</a></p>
+    <p>That last gap did not stay theoretical for long. It became the loophole the next two decades of surveillance policy would be built around.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">The Data Broker Loophole</h2>
+    <p>Carpenter told the government it needed a warrant to compel a cell carrier to hand over your location history. It said nothing about what happens if the government simply becomes a customer instead, and buys that same information from a private company on the open market. That gap is not hypothetical. It is how a huge amount of American surveillance actually works right now, in 2026.</p>
+    <p>An entire industry of data brokers exists to collect information from cell phone apps and web browsers, package it, and sell it, primarily to advertisers. That same industry also sells that data, including bulk cell phone location data, to police departments and federal agencies. Companies including Venntel and Babel Street have supplied this kind of data to agencies across the federal government. According to reporting on the practice, agencies including ICE, the FBI, DHS, the DEA, and the IRS have all purchased location, browsing, or personal data through this market, without a warrant, because current law only restricts the government from collecting this information directly, not from buying it after a private company has already collected it.<a href="#fn36" class="fn" id="ref36">[36]</a></p>
+    <p>This year, that loophole became a matter of public record in a way that is hard to dismiss as speculation. Senator Ron Wyden directly asked FBI Director Kash Patel whether he would commit to not buying Americans&rsquo; location data. Patel declined to make that commitment, telling Wyden that the FBI uses all tools available to it, including commercially available information. That is about as close to an on-the-record admission as this kind of practice gets.<a href="#fn37" class="fn" id="ref37">[37]</a></p>
+    <p>The scale involved is not small. DHS received a budget of one hundred sixty-five billion dollars in 2025, with roughly seventy-five billion of that allocated to ICE.<a href="#fn38" class="fn" id="ref38">[38]</a> DHS has separately signed a data and technology contract with Palantir worth roughly one billion dollars to build AI-powered systems using this kind of purchased data.<a href="#fn39" class="fn" id="ref39">[39]</a> ICE has also pursued a contract worth roughly one hundred twenty-five million dollars with Thomson Reuters CLEAR, a data aggregation product that bundles license plate reads, geolocation, and personal identifying information into a single searchable interface, though ICE walked back the contract&rsquo;s voter fraud provisions after public backlash over the deal.<a href="#fn40" class="fn" id="ref40">[40]</a></p>
+    <p>Congress has not been silent on this. In 2024, a bipartisan majority in the House passed the Fourth Amendment Is Not For Sale Act, aimed at closing this exact loophole. Multiple other bills, including the Government Surveillance Reform Act from Senator Wyden, have been introduced with the same goal. As of this writing, none of them have become law.<a href="#fn41" class="fn" id="ref41">[41]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think this is the clearest example in this entire piece of a bipartisan failure that is still ongoing, not a historical one. This is not a program from the Bush years or a promise Obama broke a decade ago. This is happening right now, documented on the record by the FBI&rsquo;s own director, and Congress, controlled at different points by both parties during this exact window, has had a bipartisan-passed bill sitting in front of it and has not sent it to a president&rsquo;s desk. I am not interested in which party controls which chamber when you read this. I am interested in the fact that a fix exists, has support from both sides, and still has not happened.</p>
+    <p>This loophole is also the clearest illustration of why Carpenter, as important as it was, could not be the last word on any of this. A warrant requirement only matters if the government cannot simply buy its way around the requirement, and right now, it can.</p>
+    <p>That gap, and who is currently in the White House while it stays open, brings this piece to Trump.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eleven</span>
+    <h2 class="section-title">Trump&rsquo;s Reversal, and the Pattern It Fits</h2>
+    <p>If there is one figure in this entire piece whose relationship with the surveillance state has been the most publicly erratic, it&rsquo;s Donald Trump, and his record on this issue goes back further than most people remember.</p>
+    <p>In January 2018, during his first term, Trump&rsquo;s own administration issued an official Statement of Administration Policy supporting House passage of a bill reauthorizing FISA Section 702. The next morning, with the vote in doubt, Trump tweeted a suggestion that the same law had been used, with the help of a discredited dossier, to badly surveil and abuse his 2016 campaign. His own White House had to walk the confusion back within hours. Section 702 was reauthorized anyway.<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+    <p>In March 2020, he did it again, this time more consequentially. As Congress worked through a bipartisan compromise to reauthorize FISA authorities, Trump tweeted that Republican senators wanted him to veto the bill until the origins of what he called the illegal attempted coup against his presidency were investigated. The Senate did not take the bill up immediately, and the underlying FISA authorities actually lapsed for a period as a direct result.<a href="#fn43" class="fn" id="ref43">[43]</a></p>
+    <p>Then came April 2024. As House Republicans prepared to vote on reauthorizing Section 702 again, Trump posted, in all capital letters, that Congress should kill FISA, because it had been illegally used against him and his campaign. That claim conflated two different parts of the law: the Carter Page warrants that were the subject of a genuine, documented Justice Department inspector general finding of FBI misconduct came from a separate FISA provision, Title I, one that was not even part of the bill up for renewal. The Section 702 authority Trump was calling to kill is the one that lets the government collect foreign communications, the same authority behind PRISM.<a href="#fn44" class="fn" id="ref44">[44]</a></p>
+    <p><span class="opinion-inline">Opinion</span>I think it&rsquo;s worth being precise here rather than just repeating the &ldquo;Trump was wrong&rdquo; framing, because I think there&rsquo;s a kernel of a legitimate grievance buried inside a technically incorrect tweet. Trump&rsquo;s underlying complaint, that FISA was abused to surveil his 2016 campaign, was confirmed by the Justice Department&rsquo;s own inspector general.<a href="#fn45" class="fn" id="ref45">[45]</a> His mistake was aiming that grievance at the wrong section of the law. That distinction matters, but it doesn&rsquo;t erase the larger pattern, which is that Trump has spent nearly a decade sending mixed signals on this exact authority depending on how it personally affected him in the moment.</p>
+    <p>That pattern reached its most direct contradiction in 2026. As a sitting president, with FISA&rsquo;s Section 702 up for renewal again, Trump reversed his own &ldquo;KILL FISA&rdquo; position and pushed Congress toward reauthorization. He pointed to a package of fifty-six reforms passed in the 2024 reauthorization as sufficient protection for Americans&rsquo; civil liberties.<a href="#fn46" class="fn" id="ref46">[46]</a> Watchdog groups, including the Brennan Center for Justice and the Electronic Privacy Information Center, along with the libertarian group FreedomWorks, called those fifty-six reforms ineffective tweaks that codified the unacceptable status quo rather than genuine change.<a href="#fn47" class="fn" id="ref47">[47]</a> Compounding the concern, the Privacy and Civil Liberties Oversight Board, the one federal body that had warned in 2023 about Section 702&rsquo;s significant privacy and civil liberties risks, was effectively gutted in January 2025 after Trump returned to office, removing one of the few independent checks that existed on how the program is used.<a href="#fn48" class="fn" id="ref48">[48]</a></p>
+    <p><span class="opinion-inline">Opinion</span>This is the part of the piece where I think my original premise actually holds up under scrutiny. Trump did not invent this system. He inherited a surveillance apparatus that Bush built, that Obama expanded and defended, and that survived a Supreme Court ruling only by finding a new loophole in the data broker market. What I think happened to Trump specifically is that he spent years as a candidate and even as a first-term president treating this system as an enemy that had been weaponized against him personally, and then, once he held the levers of that same system as a second-term president, he chose to preserve it rather than dismantle it, the same way every president before him did. That is not me excusing him. I think it&rsquo;s actually a more damning conclusion than &ldquo;Trump broke the system,&rdquo; because it means the system is bigger than any one president, powerful enough to convert its loudest critic into one of its defenders the moment he was the one holding the keys.</p>
+    <p>This is also where I want to return to the broader argument I opened this piece with. People love to point to Trump&rsquo;s reversed campaign promises as evidence of dishonesty unique to him. I think FISA shows something different: it shows a machine that has now converted a Democratic reformer and a Republican populist into defenders of the same authorities they once ran against. That is not a story about one man&rsquo;s character. It&rsquo;s a story about the durability of the system itself.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Twelve</span>
+    <h2 class="section-title">Where This Leaves Us</h2>
+    <p>I started this piece by saying I did not want to write a story about Donald Trump. Having traced this all the way from J. Edgar Hoover&rsquo;s FBI to a Truth Social post in 2026, I can say I kept that promise, because Trump turns out to be one relatively small character in a much older and much bigger story.</p>
+    <p>Here is what actually happened, laid out plainly. The federal government spent decades spying on civil rights leaders and anti-war protesters with no warrant and no oversight. When that was exposed, Congress built FISA specifically to stop it from happening again. Twenty-three years later, fear after September 11th let Congress gut the exact protections it had built, in a bill almost nobody in the Capitol had time to read. A twenty-nine-year-old contractor risked his freedom to show the country how far that gutting had gone, and the government&rsquo;s own top intelligence official had lied under oath about it. The courts eventually agreed the bulk collection program was illegal, and Congress passed a narrow fix that left the bigger authority, Section 702, completely intact. A Democratic president who ran against warrantless surveillance defended and extended it for eight years. The Supreme Court finally forced a warrant requirement for cell phone location data, and the government responded by simply buying that same data from private brokers instead. A Republican president who called to kill the very same authority he once said was used against him turned around, once he controlled it himself, and pushed to keep it alive.</p>
+    <p><span class="opinion-inline">Opinion</span>If you take one thing from this piece, I want it to be this. Both parties built this machine. Both parties expanded it. Both parties, at some point, campaigned against it and then quietly kept it running once they were the ones in charge of it. I do not think that is a coincidence, and I do not think it is unique to any single president&rsquo;s character. I think it is what happens when a system generates real value for whoever controls it, regardless of party, and I think the two-party structure of American politics gives each side a built-in excuse to blame the other for a machine they have both, at different points, chosen to preserve.</p>
+    <p>That brings me back to the argument that opened this piece. I do not think Donald Trump broke American politics. I think he walked into a system that was already broken, a system that had already survived a burglary, a Senate investigation, a whistleblower, a federal court ruling, and a Supreme Court decision, and I think in the specific and documented case of FISA, he became exactly what every president before him became: a man who ran against the machine and then decided, once he was the one holding the keys, that the machine was worth keeping.</p>
+    <p>A genuine fix would not be complicated to describe, even if it would be hard to pass. It would mean closing the data broker loophole the same way Carpenter closed the direct warrant loophole, so the government cannot simply buy its way around the Fourth Amendment. It would mean restoring real independent oversight, like the board that was gutted in 2025, rather than leaving the public to rely on the next leaker or the next lawsuit to find out what is actually happening. And it would mean voters on both sides holding their own party to the same standard they hold the other party to, instead of treating surveillance abuse as something that only matters when the other team is in office.</p>
+    <p>Until that happens, I think the honest conclusion is the uncomfortable one: this was never a story about one villain. It is a story about a machine neither party has ever been willing to fully turn off, because both of them, eventually, get a turn at the controls.</p>
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Sources</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">COINTELPRO, the Church Committee, and the Birth of FISA</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Frank Church Institute, Boise State University. &ldquo;Curtailment of the National Security State: The Church Senate Committee of 1975&ndash;1976,&rdquo; on COINTELPRO&rsquo;s targets under FBI Director J. Edgar Hoover. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Frank Church Institute, Boise State University, on the 1971 break-in at the FBI field office in Media, Pennsylvania. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] Britannica. &ldquo;Foreign Intelligence Surveillance Act | FISA, Church Committee, Edward Snowden, Controversies, &amp; Reform,&rdquo; on the Church Committee&rsquo;s scope and 2,700-page report. <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] Britannica, Foreign Intelligence Surveillance Act entry, on Shamrock, Minaret, and MK-ULTRA; cross-referenced against the Frank Church Institute. <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] Britannica, Foreign Intelligence Surveillance Act entry, quoting Senator Frank Church. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] Frank Church Institute, Boise State University, on the creation of the Senate Select Committee on Intelligence and passage of FISA in 1978. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] Pfiffner, James P. &ldquo;Presidents Bush, Obama and the Surveillance of Americans.&rdquo; George Mason University, Schar School of Policy and Government; Wikipedia, &ldquo;Foreign Intelligence Surveillance Act,&rdquo; legislative history and enactment dates. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn8">[8] University of Michigan Safe Computing. &ldquo;History of Surveillance Timeline,&rdquo; on Executive Order 12333, signed 1981. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Patriot Act</span>
+    <ul class="bib-list">
+      <li id="fn9">[9] Britannica. &ldquo;USA PATRIOT Act &ndash; Reauthorizations, Surveillance, Terrorism,&rdquo; on the act&rsquo;s ten titles and amended statutes. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] ACLU. &ldquo;Surveillance Under the USA/PATRIOT Act,&rdquo; on Attorney General John Ashcroft&rsquo;s one-week timeline and the absence of hearings. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] ACLU. &ldquo;Surveillance Under the USA/PATRIOT Act,&rdquo; on Section 215&rsquo;s third-party records provision. <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn12">[12] Britannica, USA PATRIOT Act entry, on Section 206 roving wiretaps. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] Electronic Privacy Information Center (EPIC). &ldquo;PATRIOT Act,&rdquo; on Section 213 sneak-and-peek searches. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] Britannica. &ldquo;USA PATRIOT Act &ndash; Reauthorizations, Surveillance, Terrorism,&rdquo; on the 2006 reauthorization making fourteen provisions permanent. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Edward Snowden</span>
+    <ul class="bib-list">
+      <li id="fn15">[15] State of Surveillance. &ldquo;Edward Snowden: What Changed, What Didn&rsquo;t,&rdquo; on Snowden&rsquo;s role at Booz Allen Hamilton. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] Reason. &ldquo;Trump Can Take Revenge on the &lsquo;Deep State&rsquo;: Pardon Snowden,&rdquo; on the March 2013 Wyden&ndash;Clapper exchange. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn17">[17] Electronic Privacy Information Center (EPIC). &ldquo;About Edward Snowden,&rdquo; on the Hong Kong disclosures, the Espionage Act charges, and his residency in Russia. <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn18">[18] HuffPost. &ldquo;Almost No Democrats Are Calling On Trump To Pardon Edward Snowden,&rdquo; on Rand Paul, Justin Amash, and Thomas Massie. <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] HuffPost, same article, on Bernie Sanders; The Intercept, &ldquo;Snowden and Assange Deserve Pardons. So Do the Whistleblowers Trump Imprisoned,&rdquo; on Alexandria Ocasio-Cortez. <span class="bib-partner">(The Intercept, editorial partner.)</span> <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] ABC News. &ldquo;Gabbard stands firm on Snowden, frustrating key senators,&rdquo; January 30, 2025; The Intercept, &ldquo;Tulsi Gabbard Once Called for an Edward Snowden Pardon. Will She Flip-Flop Now?&rdquo; <span class="bib-partner">(The Intercept, editorial partner.)</span> <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn21">[21] Inquirer.net. &ldquo;Trump to &lsquo;take a look&rsquo; at pardoning Snowden,&rdquo; on Trump&rsquo;s 2016 &ldquo;total traitor&rdquo; remark and his later reversal. <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">PRISM and the Bulk Metadata Program</span>
+    <ul class="bib-list">
+      <li id="fn22">[22] Center for Democracy &amp; Technology. &ldquo;Issue Brief: Bulk Collection of Records Under Section 215 of the PATRIOT Act.&rdquo; <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] ProPublica. &ldquo;FAQ: What You Need to Know About the NSA&rsquo;s Surveillance Programs,&rdquo; on PRISM and Section 702 of the FISA Amendments Act of 2008. <span class="bib-partner">(ProPublica, editorial partner.)</span> <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] GlobalSecurity.org, on NSA general counsel Rajesh De&rsquo;s March 2014 testimony; cross-referenced against The Next Web, &ldquo;Technology companies knew about data collection, NSA general counsel says.&rdquo; <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Courts and the USA Freedom Act</span>
+    <ul class="bib-list">
+      <li id="fn25">[25] BBC News. &ldquo;NSA phone data collection &lsquo;illegal,&rsquo; US court rules,&rdquo; on the Second Circuit&rsquo;s May 2015 ruling. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn26">[26] Electronic Frontier Foundation. &ldquo;10 Years After Snowden: Some Things Are Better, Some We&rsquo;re Still Fighting For,&rdquo; on the USA Freedom Act, the 2018 records deletion, and the program&rsquo;s 2019 shutdown. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Obama-Era Surveillance Policy</span>
+    <ul class="bib-list">
+      <li id="fn27">[27] Foreign Policy. &ldquo;Every Move You Make,&rdquo; on Obama&rsquo;s July 2008 reversal and support for the FISA Amendments Act. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] Foreign Policy, same article, on supporter reaction. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn29">[29] Goitein, Elizabeth. &ldquo;Obama&rsquo;s Surveillance Reform Promises, One Year Later.&rdquo; Brennan Center for Justice. <span class="bib-partner">(Brennan Center for Justice, editorial partner.)</span> <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn30">[30] Al Jazeera. &ldquo;Obama pledges spy programme transparency,&rdquo; on the August 2013 press conference. <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] Goitein, Elizabeth. &ldquo;Obama&rsquo;s Surveillance Reform Promises, One Year Later.&rdquo; Brennan Center for Justice. <span class="bib-partner">(Brennan Center for Justice, editorial partner.)</span> <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Carpenter v. United States</span>
+    <ul class="bib-list">
+      <li id="fn32">[32] Princeton Legal Journal. &ldquo;Carpenter v. United States, the Stored Communications Act, &amp; the Third Party Doctrine in the Digital Age,&rdquo; on the case facts. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] FindLaw. &ldquo;Carpenter v. United States (2018),&rdquo; on the third-party doctrine and Sixth Circuit ruling. <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] Supreme Court of the United States. <em>Carpenter v. United States</em>, 585 U.S. ___ (2018); National Constitution Center, &ldquo;Carpenter v. United States.&rdquo; <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] FindLaw. &ldquo;Carpenter v. United States (2018),&rdquo; on the ruling&rsquo;s explicit narrowness. <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">The Data Broker Loophole (2026)</span>
+    <ul class="bib-list">
+      <li id="fn36">[36] NPR. &ldquo;Your data is everywhere. The government is buying it without a warrant,&rdquo; March 2026. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn37">[37] TechCrunch. &ldquo;FBI is buying location data to track US citizens, director confirms,&rdquo; March 18, 2026; The Register, &ldquo;Patel dodges question about FBI buying location data,&rdquo; March 19, 2026. <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn38">[38] American Immigration Council, &ldquo;What&rsquo;s in the Big Beautiful Bill? Immigration &amp; Border Security Unpacked&rdquo;; DHS, &ldquo;DHS and Secretary Mullin Mark One Year Anniversary of Historic Big Beautiful Bill,&rdquo; July 4, 2026, on DHS and ICE budget figures. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn39">[39] SiliconANGLE. &ldquo;DHS awards Palantir up to $1B to deploy AI and data analytics platforms,&rdquo; February 2026. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn40">[40] 404 Media, reported via Yahoo/Moneywise, &ldquo;ICE Plans $125 Million Thomson Reuters Contract to Hunt &lsquo;Voter Fraud,&rsquo;&rdquo; July 2026; Democracy Docket, &ldquo;ICE backs off exclusive voter fraud contract with Thomson Reuters after public outcry.&rdquo; <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn41">[41] Project On Government Oversight (POGO). &ldquo;Fact Sheet: Closing the Data Broker Loophole.&rdquo; <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Trump and FISA Section 702</span>
+    <ul class="bib-list">
+      <li id="fn42">[42] Lawfare. &ldquo;The Ides of March Are Come: A Trump Tweet Causes FISA Authorities to Expire,&rdquo; on the January 2018 Statement of Administration Policy and Trump&rsquo;s tweet. <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn43">[43] Lawfare. &ldquo;The Ides of March Are Come: A Trump Tweet Causes FISA Authorities to Expire,&rdquo; on the March 2020 veto threat and lapse. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn44">[44] The Hill, &ldquo;Trump on warrantless surveillance reauthorization: &lsquo;KILL FISA,&rsquo;&rdquo; April 2024; Forbes, &ldquo;&lsquo;Kill FISA&rsquo; Trump Tells Congress Ahead Of House Vote,&rdquo; April 2024; CNN, &ldquo;Analysis: What information is the government actually collecting under FISA?&rdquo; April 2024. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn45">[45] Cato Institute. &ldquo;Trump and FISA: A Fact Check,&rdquo; on the DOJ Inspector General finding regarding the Carter Page warrants. <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn46">[46] Reason. &ldquo;Trump reverses course, backs Section 702 reauthorization after &lsquo;KILL FISA&rsquo; post,&rdquo; March 2026; The Hill, &ldquo;House approves reauthorization of FISA 702 warrantless spy powers,&rdquo; April 2026; House Permanent Select Committee on Intelligence, &ldquo;Chairman Crawford Statement on FISA 702 Reauthorization,&rdquo; April 2026. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn47">[47] Reason, same article, quoting the joint statement from the Electronic Privacy Information Center, the Brennan Center for Justice, and FreedomWorks; EPIC, &ldquo;Reason Magazine: Trump Backs Section 702 Reauthorization After Once Calling To &lsquo;KILL FISA.&rsquo;&rdquo; <span class="bib-partner">(Brennan Center for Justice, editorial partner.)</span> <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn48">[48] Brennan Center for Justice. &ldquo;Section 702 of the Foreign Intelligence Surveillance Act (FISA): 2026 Resource Page,&rdquo; on the Privacy and Civil Liberties Oversight Board. <span class="bib-partner">(Brennan Center for Justice, editorial partner.)</span> <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us -- All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>

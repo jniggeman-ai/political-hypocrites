@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investigations -- Political Hypocrites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .page-header {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .page-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4rem); line-height: 0.92;
+      letter-spacing: -0.02em; color: #1A0F05;
+    }
+    .page-title span { color: #f87171; font-style: italic; display: block; }
+    .page-desc {
+      font-size: 0.85rem; line-height: 1.7; color: rgba(20,10,5,0.40);
+      max-width: 340px; font-weight: 300; font-style: italic;
+    }
+
+    .cards-section {
+      max-width: 1100px; margin: 0 auto; padding: 3.5rem 3rem 5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--ink2);
+      border: 1px solid var(--rule);
+      padding: 2.2rem 2.2rem 2rem;
+      text-decoration: none; color: #1A0F05;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .article-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover {
+      background: var(--ink3);
+      border-color: rgba(20,10,5,0.18);
+    }
+    .article-card:hover::after { transform: scaleX(1); }
+
+    .card-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem; display: block;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 700; color: #1A0F05; line-height: 1.25;
+      margin-bottom: 0.6rem; flex: 1;
+    }
+    .card-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem; font-style: italic;
+      color: rgba(20,10,5,0.40); line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+    .card-desc {
+      font-size: 0.82rem; line-height: 1.75;
+      color: rgba(20,10,5,0.40); font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: auto; padding-top: 1.2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .card-date {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28);
+    }
+    .card-read {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .article-card:hover .card-read { color: #1A0F05; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-header { padding: 3rem 1.5rem 2rem; }
+      .cards-section { padding: 2.5rem 1.5rem 4rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div>
+    <span class="page-label">01 -- Investigations</span>
+    <h1 class="page-title">
+      Documented
+      <span>History</span>
+    </h1>
+  </div>
+  <p class="page-desc">Long-form investigations built entirely from public record. The history hiding in plain sight, finally read and connected.</p>
+</div>
+
+<div class="cards-section">
+  <div class="cards-grid">
+
+    <a href="/investigations/the-degradation-of-our-privacy" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Degradation of Our Privacy</h2>
+      <p class="card-subtitle">How Both Parties Built the American Surveillance State</p>
+      <p class="card-desc">The FBI spied on civil rights leaders with no warrant. The Senate built FISA to stop it. Six weeks after 9/11, Congress gutted the same protections it had built. A whistleblower exposed how far it went, the courts ruled it illegal, and a Democratic president kept it running anyway. A documented investigation into a surveillance machine both parties built, both parties expanded, and both parties have quietly defended once they held the keys, ending with the Republican president who called to kill it and then chose to keep it alive.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-business-of-sickness" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Business of Sickness</h2>
+      <p class="card-subtitle">How Financial Incentives, Not Just Prices, Broke American Healthcare</p>
+      <p class="card-desc">A family that took hundreds of millions out of their own company a year after pleading guilty to a federal felony. Seventy two billion dollars in quiet payments from drug companies to doctors. A quarter of all healthcare spending that buys nothing for the patient. A documented investigation into why American healthcare rewards volume over outcomes, built from court filings, federal payment data, and the Supreme Court case that finally caught up with the Sackler family.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/a-war-that-was-never-ours" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">A War That Was Never Ours</h2>
+      <p class="card-subtitle">How We Entered Iran Without Cause</p>
+      <p class="card-desc">A president who campaigned against new wars. His own intelligence chief testifying under oath that the nuclear threat wasn't real. His own counterterrorism director resigning over it. A documented investigation into a war that has moved its justification three times, killed eighteen American service members, and left Russia, China, and Israel as its clearest beneficiaries while the American public opposed it from day one.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-decline-of-american-education" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Decline of American Education</h2>
+      <p class="card-subtitle">Twelve Failures Both Parties Built, Defended, and Left Standing While They Fought Over the Curriculum</p>
+      <p class="card-desc">Reading and math scores at record lows. Teacher pay nearly a third behind comparable work. A testing regime both parties defended for a decade that coincided with slower progress than before it existed. A documented investigation into why American education is actually declining, and why the culture war fight isn't about any of it.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/operation-northwoods" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">Operation Northwoods</h2>
+      <p class="card-subtitle">The Plan to Manufacture a War</p>
+      <p class="card-desc">In 1962, the Chairman of the Joint Chiefs of Staff signed a plan proposing staged terrorist attacks on Americans to justify invading Cuba. Kennedy said no. A documented investigation into the room that produced it, the 35 year burial that followed, and the nearly identical playbook used two years later in the Gulf of Tonkin.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/tribal-by-design" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">Tribal by Design</h2>
+      <p class="card-subtitle">How Political Loyalty Replaced Political Thought</p>
+      <p class="card-desc">Reactions to major political events have become forecastable before the facts even arrive. A documented investigation into the business model that made anger profitable, the psychology that makes tribal loyalty feel like independent thought, the collapse of local news, the punishment reserved for anyone who deviates from their own party, and the donor class that funds both tribes at once.</p>
+      <div class="card-footer">
+        <span class="card-date">July 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/natos-war-on-yugoslavia" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">NATO's War on Yugoslavia</h2>
+      <p class="card-subtitle">What the Bombing of Serbia Really Cost, and Who It Really Served</p>
+      <p class="card-desc">A war fought without a UN mandate, justified by forensic evidence that was never fully made public, defended by casualty figures that do not match each other, and pushed hardest from inside the White House by the First Lady herself. A documented investigation into the 1999 NATO bombing campaign, the contested case for why it happened, and the seven countries it left behind.</p>
+      <div class="card-footer">
+        <span class="card-date">July 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/poisoned-by-design" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">Poisoned by Design</h2>
+      <p class="card-subtitle">How American Food Became the Most Profitable Public Health Problem in the World</p>
+      <p class="card-desc">Food engineered for maximum craveability by a pipeline that runs straight back to tobacco companies. Sugar science bought and buried for fifty years. Farm subsidies that make the worst ingredients the cheapest. A lobbying coalition fighting its own party's health secretary. An eleven part investigation into who profits from a food supply built, quite deliberately, to be hard to stop eating.</p>
+      <div class="card-footer">
+        <span class="card-date">July 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-climate-machine" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Climate Machine</h2>
+      <p class="card-subtitle">An Investigation into the Politicization of the Environment</p>
+      <p class="card-desc">The fossil fuel industry knew for sixty years and built a denial campaign borrowed from the tobacco playbook. The green energy donor class built a financial apparatus that profits from the policies it advocates. The carbon credit market fails to deliver a real reduction in emissions the vast majority of the time. And the people running the debate fly to Switzerland by private jet to discuss what everyone else should do differently. A documented investigation into who profits while the planet argues with itself.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-money-behind-the-movement" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Money Behind the Movement</h2>
+      <p class="card-subtitle">How One Man's Fortune Built a Political Infrastructure Most Americans Have Never Heard Of</p>
+      <p class="card-desc">A Connecticut-born socialist sold his company for $785 million, married a prominent activist, relocated to Shanghai, and built one of the most opaque political funding networks in American history. The organizations it finances could not exist at their current scale without him. A documented investigation into Neville Roy Singham, the financial architecture behind the American left, and the bipartisan legal void that has allowed it to operate for eight years without consequence.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-escalator-and-the-swamp" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Escalator and the Swamp</h2>
+      <p class="card-subtitle">Donald Trump's Political Career, 2015 to 2026</p>
+      <p class="card-desc">He promised to drain it. He became it. A documented record of every promise made, every promise broken, the four criminal indictments, the comeback, the second term, and the collapse of the most powerful political coalition in modern American history. Built entirely from primary government records, court documents, and named institutional sources.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-invisible-conduit" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Invisible Conduit</h2>
+      <p class="card-subtitle">How the United States Government Uses Foreign Aid Intermediaries to Disburse, Obscure, and Lose Accountability Over American Taxpayer Dollars Abroad</p>
+      <p class="card-desc">Both parties built it. Both parties funded it. A documented examination of 60 years of foreign assistance accountability failures: food aid diverted to Al-Qaeda affiliates, shell company programs hidden from Congress, $145 billion spent in Afghanistan with results documented by the government's own watchdog, and the Inspector General fired the day after he filed his warning. Built entirely from primary government records, DOJ court filings, and Inspector General reports.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/political-hypocrites" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">Political Hypocrites</h2>
+      <p class="card-subtitle">How the Divide Was Designed, Who Built It, and What the Record Shows</p>
+      <p class="card-desc">The partisan hatred that defines American life was not organic. It was cultivated. A century of documented evidence showing how the same donor class financed both parties, neutralized both the anti-war movement and the Tea Party, purchased the American media landscape, and built a system of accountability designed to fail. No criminal charges required to see it. The absence of charges is the point.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-permanent-war-machine" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Permanent War Machine</h2>
+      <p class="card-subtitle">Who Profits, Who Pays, and Why America Cannot Stop Fighting</p>
+      <p class="card-desc">The blueprint was written in 2000. The personnel were in place in 2001. The contracts were signed in 2002. A documented examination of the political, financial, and media architecture that has made permanent war the default condition of American life, built from congressional records, declassified documents, SEC filings, and the admissions of the participants themselves.</p>
+      <div class="card-footer">
+        <span class="card-date">May 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/from-friends-to-enemies" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">From Friends to Enemies</h2>
+      <p class="card-subtitle">A Complete History of American Relations with the Muslim and Middle Eastern World, 1776 to the Present</p>
+      <p class="card-desc">Morocco was the first nation to recognize American independence. For two centuries, the United States enjoyed a reputation in the Muslim world that no European power could match. This investigation traces exactly how that changed, and who made it happen.</p>
+      <div class="card-footer">
+        <span class="card-date">May 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-nixon-file" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The Nixon File</h2>
+      <p class="card-subtitle">Guilt, Targeting, and the Secrets He Knew</p>
+      <p class="card-desc">The cover-up is documented. The crime beneath it is not. A full investigation into the Watergate break-in team's CIA roots, the intelligence bureaucrat who destroyed Nixon to settle a personal score, what Nixon knew about the Kennedy assassination, and why the man who filed the lawsuit to discredit the most damaging account chose to ensure it never went to trial.</p>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+    <a href="/investigations/the-covid-machine" class="article-card">
+      <span class="card-label">Investigation</span>
+      <h2 class="card-title">The COVID Machine</h2>
+      <p class="card-subtitle">Official Failures, Suppressed Science, and the Institutions That Got It Wrong</p>
+      <p class="card-desc">The lab leak hypothesis was dismissed by a scientist who funded the lab. The natural immunity data was buried. A Nobel Prize-winning drug was called a horse dewormer. A federal court later said the FDA had no authority to stop doctors from prescribing it. A documented examination of how institutional self-interest shaped public health policy during the COVID-19 era.</p>
+      <div class="card-footer">
+        <span class="card-date">May 2026</span>
+        <span class="card-read">Read investigation &#x2192;</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us -- All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
