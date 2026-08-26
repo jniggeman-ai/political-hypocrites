@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Investigation",
+    "title": "Who Really Runs the American Economy",
+    "hook": "BlackRock, Vanguard, State Street, and the Big Three, and why the reputation doesn't match the record.",
+    "date": "2026-08-25",
+    "url": "/investigations/who-really-runs-the-american-economy"
+  },
+  {
+    "label": "Investigation",
+    "title": "The Degradation of Our Privacy",
+    "hook": "How both parties built the American surveillance state, and why blaming one side misses the machine.",
+    "date": "2026-08-24",
+    "url": "/investigations/the-degradation-of-our-privacy"
+  },
+  {
+    "label": "Investigation",
+    "title": "The Business of Sickness",
+    "hook": "How financial incentives, not just prices, broke American healthcare.",
+    "date": "2026-08-21",
+    "url": "/investigations/the-business-of-sickness"
+  }
+]

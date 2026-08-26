@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who Really Runs the American Economy — Political Hypocrites</title>
+  <meta name="description" content="BlackRock, Vanguard, State Street, and the Big Three. A documented investigation into the asset managers that hold the largest shareholder position in nearly the entire American economy." />
+  <meta property="og:title" content="Who Really Runs the American Economy — Political Hypocrites" />
+  <meta property="og:description" content="BlackRock is not secretly buying your neighborhood. But it, Vanguard, and State Street have become the largest shareholder in nearly the entire American economy, and both parties have relied on, staffed with, and turned against the same firm depending on what was politically convenient." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/who-really-runs-the-american-economy" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Who Really Runs the American Economy — Political Hypocrites" />
+  <meta name="twitter:description" content="BlackRock, Vanguard, State Street, and the Big Three" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.5rem 0.9rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-lede {
+      font-size: 1.18rem; line-height: 1.85; font-weight: 400;
+      color: rgba(20,10,5,0.82); margin-bottom: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+    .fn.active { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.55); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-back {
+      color: var(--red); text-decoration: none; margin-left: 0.4rem;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span class="current">Who Really Runs the American Economy</span>
+  </div>
+  <span class="article-label">Investigation — August 2026</span>
+  <h1 class="article-title">Who Really Runs the American Economy</h1>
+  <p class="article-subtitle">BlackRock, Vanguard, State Street, and the Big Three</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">August 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Investigation</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Twelve</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Sources</span>
+      <span class="meta-value">48 Documented</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=Who+Really+Runs+the+American+Economy%3A+BlackRock%2C+Vanguard%2C+State+Street%2C+and+the+Big+Three&url=https://political-hypocrites.vercel.app/investigations/who-really-runs-the-american-economy" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <p class="article-lede">In America, we tend to talk about BlackRock the way people used to talk about the Illuminati: a name everyone recognizes, attached to a power almost nobody can actually explain. I set out to answer a simpler question than the internet usually asks. Not &ldquo;is BlackRock secretly running the world,&rdquo; but &ldquo;what is BlackRock, actually, and does the reputation match the documented record?&rdquo; Because BlackRock is not alone at the top of the American economy, this investigation covers it alongside Vanguard and State Street, the two other firms that make up what researchers call the &ldquo;Big Three.&rdquo;</p>
+    <p>Every claim below is sourced. Where the popular version of a claim turned out to be false, I say so directly and explain what the more accurate, more interesting version actually is. Where this piece offers a judgment rather than a fact, that judgment is flagged as opinion.</p>
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">What BlackRock, Vanguard, and State Street Actually Are</h2>
+
+    <p>I want to start with the basic question most people never actually get answered before they start repeating claims about these companies online: what is BlackRock, really, and why does its name show up in every corner of the internet like it's some kind of secret government?</p>
+
+    <p>BlackRock is not a bank. It doesn't hold your checking account, and it isn't lending out your deposits the way JPMorgan or Bank of America does. It's an asset manager, which means its business is investing money on behalf of other people and institutions, not investing its own money for its own benefit. As of the middle of 2026, BlackRock manages roughly $15.3 trillion in assets.<a href="#fn1" class="fn" id="ref1">[1]</a> To put that number in perspective, that's larger than the annual GDP of every country on earth except the United States and China.<a href="#fn2" class="fn" id="ref2">[2]</a> But here's the part that gets lost constantly: that $15.3 trillion isn't BlackRock's money. It belongs to the pension funds, government retirement systems, university endowments, insurance companies, and everyday people who have put their savings into BlackRock funds and ETFs. When someone says “BlackRock owns Apple” or “BlackRock owns your mortgage,” what's actually true is that BlackRock manages funds that hold those assets on behalf of millions of individual investors, many of whom have no idea BlackRock is even in the chain.</p>
+
+    <p>BlackRock isn't alone in this. Vanguard and State Street run the same kind of business at a similar scale, and together the three of them are commonly referred to as the “Big Three.”<a href="#fn3" class="fn" id="ref3">[3]</a> Vanguard manages somewhere around $12 trillion and State Street manages several trillion more, and between the three of them they are collectively the largest shareholder in a staggering percentage of corporate America, a number I'll get into with real figures in the next section.<a href="#fn4" class="fn" id="ref4">[4]</a> I bring Vanguard and State Street in now, at the very start, because I don't think it's honest or useful to make this a story about one company. If BlackRock is a villain, so are the other two, and if the real story is about the structure of modern investing rather than a single company's intentions, that needs to be clear from the first paragraph, not buried in a footnote later.</p>
+
+    <p>BlackRock was founded in 1988 as a bond and risk management business seeded by the private equity firm Blackstone, operating for its first several years as a joint venture in which Blackstone held a declining minority stake in exchange for its initial funding. In 1992 the firm adopted the BlackRock name, at which point Blackstone still held roughly a third of the business. Full independence didn't come until 1994, when an internal dispute between Larry Fink and Blackstone's Stephen Schwarzman over how to share equity with new hires led Blackstone to sell its stake to PNC Financial Services. That original connection to Blackstone, and the similarity of the two names, has caused a huge amount of confusion over the years, confusion I'll deal with directly later in this piece when I get into the claims about single family homes. They are not the same company, they haven't been the same company since 1994, and conflating them has produced some genuinely false claims that have spread for years.<a href="#fn5" class="fn" id="ref5">[5]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think the reason BlackRock in particular became the household name, rather than Vanguard or State Street, comes down to visibility. BlackRock's CEO Larry Fink writes a widely covered annual letter to CEOs, the company has been publicly associated with ESG investing, and it's been the company the Fed has called on during two separate financial crises, all of which I'll walk through in the sections ahead. Vanguard and State Street do almost exactly the same thing at almost exactly the same scale, but they've stayed quieter, and I think that quietness is worth remembering every time someone treats BlackRock like it's uniquely powerful. It isn't unique. It's just the one that talks.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">How They Got This Big</h2>
+
+    <p>BlackRock's growth from a small bond shop into the largest financial institution most Americans have never worked for did not happen by accident, and it did not happen overnight. It happened through one specific business bet that paid off bigger than almost anyone could have predicted, and one specific acquisition that turned that bet into an empire.</p>
+
+    <p>BlackRock started in 1988 as a fixed income shop, and by 1989, less than a year after launching, it was already managing $2.7 billion.<a href="#fn2" class="fn" id="ref2a">[2]</a> By 1991 that number had grown to $9 billion, and in 1992 the firm adopted the BlackRock name, though Blackstone still held roughly a third of the business at that point; full independence didn't arrive until 1994.<a href="#fn2" class="fn" id="ref2b">[2]</a><a href="#fn5" class="fn" id="ref5a">[5]</a> In 1999, BlackRock went public on the New York Stock Exchange, and by that point its assets under management had already crossed $165 billion.<a href="#fn2" class="fn" id="ref2c">[2]</a> That's a real growth story on its own, but it's not the part of BlackRock's history that explains its current scale. The part that actually explains it happened a decade later, in 2009.</p>
+
+    <p>On June 16, 2009, in the middle of the financial crisis, BlackRock announced it had reached a deal to acquire Barclays Global Investors, known as BGI, from the British bank Barclays.<a href="#fn6" class="fn" id="ref6">[6]</a> BGI wasn't just any asset management arm. It owned iShares, which was, and still is, the dominant platform for exchange traded funds, the low-cost, easily tradable index funds that had started reshaping how ordinary people invest.<a href="#fn7" class="fn" id="ref7">[7]</a> The deal closed on December 1, 2009, structured as roughly $6.65 billion in cash plus about 37.8 million shares of BlackRock stock, and the moment it closed, the combined firm was managing more than $3.2 trillion.<a href="#fn8" class="fn" id="ref8">[8]</a><a href="#fn9" class="fn" id="ref9">[9]</a> That single acquisition didn't just make BlackRock bigger. It put BlackRock at the center of the passive investing wave that was about to take over the entire industry.</p>
+
+    <p>Here's why that mattered so much. Over the fifteen years that followed, American investors, both individuals and massive institutions like pension funds, moved trillions of dollars out of actively managed funds, where a person picks stocks and charges a real fee for it, and into passive index funds, which simply track a market index like the S&amp;P 500 for a fraction of the cost. iShares, now owned by BlackRock, was one of the two or three biggest players positioned to catch that wave as it happened. Vanguard, which had pioneered low-cost index investing back in the 1970s under founder John Bogle, caught the same wave from the other direction, building its entire business model around it from the start. State Street had already created the very first ETF, the S&amp;P 500 SPDR, back in 1993, giving it its own early foothold in the same shift. All three firms ended up in the same place, managing an enormous and growing share of the money Americans put toward retirement, not because of some coordinated plan, but because they were the three firms best positioned when millions of ordinary people decided that low fees and broad diversification made more sense than paying someone to try to beat the market.</p>
+
+    <p>BlackRock became the first asset manager in history to cross $10 trillion in assets under management in 2021.<a href="#fn2" class="fn" id="ref2d">[2]</a> After a dip in 2022 tied to a difficult market year, it kept climbing, and it now sits above $15 trillion.<a href="#fn2" class="fn" id="ref2e">[2]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this is the part of the story people skip past because it isn't dramatic enough. There's no secret meeting, no shadowy plan, just one well-timed acquisition in the middle of a financial crisis and a genuine, decades-long shift in how regular people chose to invest their money. That doesn't make the size of what resulted any less worth scrutinizing. It just means the honest starting point is “this is what happens when a good business decision meets a real structural shift in the economy,” not “this is a conspiracy.” I'd rather build the case against concentrated financial power on what's actually true than on something invented.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">The Scale of Their Combined Ownership</h2>
+
+    <p>This is the number that tends to shock people once they see it laid out plainly, and it's also the number most likely to get exaggerated into something it isn't, so I want to walk through it carefully.</p>
+
+    <p>A 2020 paper published by the American Economic Liberties Project found that combined, BlackRock, Vanguard, and State Street are the single largest shareholder in 88 percent of S&amp;P 500 companies.<a href="#fn10" class="fn" id="ref10">[10]</a> BlackRock alone holds a stake of at least 5 percent in roughly 97.5 percent of S&amp;P 500 companies.<a href="#fn10" class="fn" id="ref10a">[10]</a> Combined, the three firms manage somewhere in the range of $15 to $23 trillion depending on the year and the source cited, a figure larger than three quarters the size of the entire United States economy.<a href="#fn3" class="fn" id="ref3a">[3]</a><a href="#fn11" class="fn" id="ref11">[11]</a> These firms hold major stakes in companies across every sector you can think of: Apple, JPMorgan Chase, Pfizer, Lockheed Martin, and the major airlines all count the Big Three among their largest shareholders.<a href="#fn3" class="fn" id="ref3b">[3]</a><a href="#fn11" class="fn" id="ref11a">[11]</a></p>
+
+    <p>Here's the part that requires care. “Largest shareholder” does not mean “owner” in the way people usually mean that word. As I laid out in Part One, the shares BlackRock, Vanguard, and State Street hold in these companies mostly belong to their clients, meaning millions of individual retirement accounts, pension funds, and institutional investors, not to the firms themselves. So when a headline says “BlackRock owns Apple,” what's actually being described is that BlackRock's funds, funded by other people's money, collectively hold more Apple stock than any other single shareholder. That's a real and significant form of power, but it's not the same thing as BlackRock's executives personally owning Apple or being free to do whatever they want with those shares.</p>
+
+    <p>What that power actually translates into is voting power. When you own shares in a public company, you get to vote on things like who sits on the board of directors, executive pay packages, mergers, and shareholder proposals on everything from climate policy to political spending disclosure. Because the Big Three hold such enormous blocks of stock across nearly the entire S&amp;P 500, their votes carry disproportionate weight in essentially every major corporate decision made in this country. Researchers have noted that combined, the three firms cast votes at tens of thousands of shareholder meetings every year, and BlackRock alone reported voting on more than 157,000 individual ballot items in a single year, according to its own Investment Stewardship Annual Report.<a href="#fn12" class="fn" id="ref12">[12]</a></p>
+
+    <p>What that power actually translates into is voting power. When you own shares in a public company, you get to vote on things like who sits on the board of directors, executive pay packages, mergers, and shareholder proposals on everything from climate policy to political spending disclosure. Because the Big Three hold such enormous blocks of stock across nearly the entire S&amp;P 500, their votes carry disproportionate weight in essentially every major corporate decision made in this country. Researchers have noted that combined, the three firms cast votes at tens of thousands of shareholder meetings every year, and BlackRock alone reported voting on more than 152,000 individual proposals during the 2024-25 proxy year, according to its own Investment Stewardship voting report.<a href="#fn12" class="fn" id="ref12a">[12]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think the honest reaction to these numbers isn't “BlackRock secretly controls everything.” It's closer to “three companies that almost nobody votes for, and that most Americans couldn't identify if you showed them a logo, now have more say over how corporate America is run than most elected regulators do.” That's true whether or not you think it's a problem, and I think it's true regardless of which political party happens to be complaining about it in a given year, which is exactly the pattern I'm going to walk through next.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Revolving Door and the 2008 Financial Crisis</h2>
+
+    <p>This is where the story stops being about market share and starts being about political access, and it's also where I think the strongest, most defensible case for scrutiny actually lives.</p>
+
+    <p>In 2008, as the financial system was collapsing, the Federal Reserve Bank of New York hired BlackRock to provide advisory services during the crisis.<a href="#fn15" class="fn" id="ref15">[15]</a> BlackRock's risk management software, called Aladdin, short for Asset, Liability, and Debt and Derivative Investment Network, gave the firm a unique tool for assessing and pricing the toxic mortgage-backed assets that were sinking the financial system.<a href="#fn16" class="fn" id="ref16">[16]</a> Using that system, BlackRock was brought in to help the government evaluate and dispose of troubled assets tied to the collapse of Bear Stearns, and it played a role in the response to AIG's near collapse as well, at a moment when AIG's stock had fallen roughly 79 percent over three quarters largely due to the credit default swaps it had issued.<a href="#fn16" class="fn" id="ref16a">[16]</a><a href="#fn17" class="fn" id="ref17">[17]</a> BlackRock was also brought in to help monitor Fannie Mae's balance sheet, which at the time held roughly $5 trillion in assets.<a href="#fn16" class="fn" id="ref16b">[16]</a></p>
+
+    <p>I want to flag something directly here rather than let it slide past: BlackRock and Larry Fink were also pioneers in packaging mortgage-backed securities in the years leading up to the crisis.<a href="#fn17" class="fn" id="ref17a">[17]</a> So the same firm whose tools helped create the kind of financial products that caused the meltdown was then paid by the government to help clean up the aftermath. That's a real conflict worth sitting with, not because it proves bad intent, but because it shows how being at the center of the financial system means profiting on the way in and getting paid again on the way out.</p>
+
+    <p>That 2008 relationship didn't end when the crisis passed. It became the beginning of a pattern. Since 2008, more than 100 individuals have moved through the revolving door between BlackRock and the federal government, including the Fed, the Treasury, central banks, and other government-sponsored entities.<a href="#fn18" class="fn" id="ref18">[18]</a> BlackRock now spends more than $2 million a year on federal lobbying.<a href="#fn18" class="fn" id="ref18a">[18]</a> By 2020, BlackRock's Aladdin platform reportedly monitored roughly $18 trillion in assets across the Fed, Treasury, and countless corporations and governments that rely on it, which means the same software company that manages trillions of dollars for private clients also happens to be the tool the government reaches for during every subsequent crisis.<a href="#fn18" class="fn" id="ref18b">[18]</a></p>
+
+    <p>I'm not going to fully unpack the 2020 CARES Act bailout here since that deserves its own section next, but it's worth stating plainly at the end of this one: the 2008 relationship is what made the 2020 relationship possible. Once the federal government had already leaned on BlackRock once, in a genuine emergency, with no real alternative readily available at that scale, it became the default choice the next time a crisis hit, regardless of which party held the White House.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this section is the clearest example in this entire piece of something that isn't a conspiracy but should still worry you. Nobody snuck BlackRock into this role. The Fed hired them, in public, because they had a tool no one else had built. But once a private company becomes the tool the government reaches for every single time the financial system nearly breaks, that company stops being just a market participant and starts being something closer to permanent infrastructure, and infrastructure that profits from the very crises it's called in to fix deserves a level of public scrutiny it has mostly never gotten.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">The 2020 CARES Act Bailout and the Conflict of Interest</h2>
+
+    <p>If the 2008 crisis was the beginning of BlackRock's relationship with Washington, the COVID-19 crash in 2020 is where that relationship produced a conflict of interest so direct that even mainstream financial reporters flagged it as remarkable at the time.</p>
+
+    <p>In March 2020, as markets collapsed under the weight of the pandemic, the Federal Reserve announced it had hired BlackRock as investment adviser and asset manager for multiple debt-buying programs created under the CARES Act, a package worth hundreds of billions of dollars.<a href="#fn19" class="fn" id="ref19">[19]</a> BlackRock's job was to help the Fed carry out unlimited purchases of Treasury bonds and mortgage-backed securities, along with commercial mortgage-backed securities, and to run the Fed's corporate bond and bond ETF purchasing programs.<a href="#fn19" class="fn" id="ref19a">[19]</a><a href="#fn20" class="fn" id="ref20">[20]</a> The corporate bond piece alone was reported to be worth up to $750 billion in primary and secondary market purchases.<a href="#fn18" class="fn" id="ref18c">[18]</a></p>
+
+    <p>Here is the conflict, stated as plainly as I can put it. BlackRock is one of the largest sellers of bond ETFs in the world through its iShares platform.<a href="#fn18" class="fn" id="ref18d">[18]</a> Under the terms of its arrangement with the Fed, BlackRock was in a position to purchase some of its own ETF products on behalf of the central bank.<a href="#fn19" class="fn" id="ref19b">[19]</a> That means a private company was paid by the government to decide which bonds and which funds to buy in order to stabilize the market, and some of the funds available for it to choose from were its own, funds on which it collects a management fee regardless of who is buying. This wasn't a hidden detail. It was reported directly by Bloomberg and by financial outlets across the political spectrum at the time.<a href="#fn19" class="fn" id="ref19c">[19]</a></p>
+
+    <p>This arrangement was also awarded without competitive bidding.<a href="#fn20" class="fn" id="ref20a">[20]</a> Multiple advocacy organizations, including groups focused on both financial oversight and climate policy, wrote to the Fed and Treasury during this period raising concerns that BlackRock's history of fossil fuel investments meant these bond-buying programs could effectively function as an indirect bailout for fossil fuel companies unless real climate safeguards were applied.<a href="#fn20" class="fn" id="ref20b">[20]</a> Separately, Representatives Pressley, García, and Tlaib sent a formal letter to the Fed and Treasury specifically warning that the access and information BlackRock was gaining through this role risked making the federal government structurally dependent on a single private firm for managing future financial crises.<a href="#fn18" class="fn" id="ref18e">[18]</a></p>
+
+    <p>I want to be fair here and note what BlackRock's defenders would say, because I think it matters. Nobody has seriously disputed that BlackRock had the technical capacity to run these programs quickly during a genuine national emergency, when speed mattered and few if any other firms had tools like Aladdin ready to deploy at that scale. The question this section raises isn't whether BlackRock could do the job. It's whether the process by which it got the job, and the fact that it stood to profit on both sides of the transactions it was managing, ever received the scrutiny that kind of arrangement should require, regardless of which administration was in office when it happened.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I don't think this is a case of hidden corruption. I think it's a case of a government agency reaching for the fastest available tool during a real emergency and never fully reckoning with what it gave up by doing so without competitive bidding or a serious conflict of interest review. That distinction matters to how you should feel about it. This wasn't a secret. It was disclosed, reported, and mostly shrugged off, and I think the shrugging off is the actual scandal here, not the arrangement itself.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">Bipartisan Reliance, Not Partisan Capture</h2>
+
+    <p>I think it would be easy, and dishonest, to tell this story as if one party built BlackRock's power and the other party is its victim. That's not what the record shows. What the record actually shows is a company that both parties have relied on, staffed their administrations with, and occasionally turned against, depending on what was politically useful at the time.</p>
+
+    <p>Start with the Obama administration. Brian Deese served as deputy director of both the National Economic Council and the Office of Management and Budget under President Obama, and helped negotiate both the 2009 auto industry bailout and the Paris Climate Agreement.<a href="#fn21" class="fn" id="ref21">[21]</a> When he left government, he went to BlackRock, where he became Global Head of Sustainable Investing starting in 2017.<a href="#fn21" class="fn" id="ref21a">[21]</a></p>
+
+    <p>Then came the flip. In December 2020, President-elect Biden named Deese to run his National Economic Council, making him one of the most powerful economic voices in the incoming administration.<a href="#fn22" class="fn" id="ref22">[22]</a> Biden also selected Wally Adeyemo, who had served as chief of staff to BlackRock CEO Larry Fink, as his nominee for deputy treasury secretary.<a href="#fn22" class="fn" id="ref22a">[22]</a> This is where the bipartisan part of the story gets interesting, because the loudest objections to these picks didn't come from Republicans. They came from progressive groups within Biden's own coalition. The Revolving Door Project's founder said directly that Deese's relationship to BlackRock made it less likely the federal government would rein in the firm the way progressives believed it should.<a href="#fn23" class="fn" id="ref23">[23]</a> Sunrise Movement NYC organized protests outside BlackRock's offices over the pick, and other environmental groups sent letters demanding Deese explain how his approach would differ from his work at what they called the world's biggest financier of fossil fuel destruction.<a href="#fn24" class="fn" id="ref24">[24]</a> Deese ultimately stepped down from BlackRock to take the job, and went on to help push Biden's $1.9 trillion stimulus package through Congress.<a href="#fn25" class="fn" id="ref25">[25]</a></p>
+
+    <p>Now hold that next to the Trump administration's own reliance on the firm. As I laid out in Part Five, it was under Trump, in March 2020, that the Federal Reserve handed BlackRock a no-bid contract to manage the CARES Act's corporate bond and mortgage-backed securities purchasing programs, the same arrangement that put BlackRock in a position to buy its own ETF products with government backing.<a href="#fn19" class="fn" id="ref19d">[19]</a><a href="#fn20" class="fn" id="ref20c">[20]</a> That decision was made by a Republican administration's Treasury Department and a Fed chair appointed by that same administration, and it happened without the kind of progressive backlash that met Deese's appointment eight months later, largely because the emergency nature of the pandemic response made it easy to wave through with minimal scrutiny.</p>
+
+    <p>So here is the pattern as I see it, laid out plainly. A Democratic administration built the personnel pipeline that normalized moving between BlackRock and the highest levels of economic policymaking. A Republican administration handed the firm one of the largest no-bid emergency finance contracts in modern history. And the sharpest public criticism of BlackRock's political access came not from across the aisle, but from progressives criticizing their own party's president for the exact same revolving door dynamic conservatives would later invoke when attacking BlackRock over ESG, which I'll get into next.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I don't think this pattern is evidence of some grand bipartisan conspiracy either. I think it's evidence of something more mundane and, in a way, more concerning: BlackRock has become so large and so technically embedded in how the U.S. government manages financial crises and staffs economic policy that avoiding it has become genuinely difficult regardless of who wins an election. That's not a story about Democrats or Republicans being captured by a company. It's a story about a company that has made itself close to unavoidable, and I think both parties deserve equal scrutiny for letting that happen rather than building any real alternative.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">The ESG Fight From Both Directions</h2>
+
+    <p>If there's one issue that proves BlackRock isn't simply a tool of one party or the other, it's ESG, and I think the whole saga is one of the clearest examples in modern corporate history of a company getting hit from both sides of the political spectrum for contradictory reasons.</p>
+
+    <p>ESG stands for environmental, social, and governance investing, a framework where fund managers factor things like climate risk, labor practices, and board diversity into investment decisions alongside traditional financial metrics. BlackRock, under CEO Larry Fink, became the most visible corporate face of this approach for years, largely through Fink's widely covered annual letters to CEOs urging companies to focus on long-term sustainability and stakeholder considerations.<a href="#fn26" class="fn" id="ref26">[26]</a> BlackRock also used its enormous voting bloc to back activist campaigns pushing this approach, most notably supporting Engine No. 1, a small hedge fund that won three board seats at ExxonMobil in 2021 on a platform of pushing the oil giant toward a cleaner energy transition.<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+
+    <p>That's when the backlash from the right began in earnest. Republican-led states accused BlackRock of using ESG investing to functionally boycott the fossil fuel industry, an accusation Fink has repeatedly denied.<a href="#fn18" class="fn" id="ref18f">[18]</a> Starting around 2022, state after state took action. Texas passed a law targeting firms it determined were boycotting energy companies. Florida's legislature passed HB 3, banning ESG-based investing and proxy voting across state and local government funds and prohibiting the issuance of ESG bonds.<a href="#fn27" class="fn" id="ref27a">[27]</a> Louisiana pulled nearly $794 million out of BlackRock funds.<a href="#fn33" class="fn" id="ref33">[33]</a> West Virginia and Missouri did the same.<a href="#fn18" class="fn" id="ref18g">[18]</a><a href="#fn28" class="fn" id="ref28">[28]</a> The largest single blow came from a Republican-led pension fund: the Texas Permanent School Fund announced it would pull $8.5 billion from BlackRock, the largest divestment by a GOP-led fund at that point.<a href="#fn28" class="fn" id="ref28a">[28]</a> Sixteen Republican state attorneys general sent letters questioning BlackRock's fund directors directly about its ESG practices, and BlackRock itself acknowledged in a 10-K filing with the SEC that these state actions posed legal, regulatory, and reputational risk to the business.<a href="#fn29" class="fn" id="ref29">[29]</a> Tennessee sued BlackRock outright, alleging the firm made inconsistent and misleading statements about its investment strategies that deprived consumers of the ability to make an informed choice, a claim BlackRock has rejected, saying it fully and accurately discloses its investment practices.<a href="#fn30" class="fn" id="ref30">[30]</a> Mississippi has separately sought a multimillion-dollar penalty against the firm on similar grounds.<a href="#fn30" class="fn" id="ref30a">[30]</a></p>
+
+    <p>Now here's the other half of the story, the half that gets left out when this is framed as a purely conservative-versus-BlackRock fight. In 2023, President Biden used the first veto of his presidency specifically to block a Republican-led congressional proposal that would have barred pension fund managers from using ESG factors like climate risk in their investment decisions at all.<a href="#fn30" class="fn" id="ref30b">[30]</a> Biden said at the time that the legislation would put the retirement savings of individuals across the country at risk.<a href="#fn30" class="fn" id="ref30c">[30]</a> So while red states were actively pulling billions of dollars away from BlackRock for being too focused on ESG, the sitting Democratic president was using his veto power to defend the entire premise of ESG investing against Republican efforts to restrict it nationally.</p>
+
+    <p>And critics from the left have hit BlackRock too, just from the opposite direction. Environmental advocates have criticized the firm for not doing nearly enough given its public ESG branding, pointing out that BlackRock remains one of the largest institutional investors in the world in companies like ExxonMobil and ConocoPhillips.<a href="#fn33" class="fn" id="ref33a">[33]</a> In other words: conservatives have spent years attacking BlackRock as a woke activist investor strong-arming American energy companies, while environmentalists have spent the same years attacking BlackRock as a firm using ESG as a marketing label while still bankrolling fossil fuels at massive scale. Both criticisms cannot be fully true at once, and I think that contradiction is the most important thing to understand about this entire fight.</p>
+
+    <p>Fink himself eventually stepped back from the center of it. Facing pressure from both directions, BlackRock split its stewardship function into separate teams with distinct voting policies, and in early 2024 Fink said publicly that he would stop using the term ESG altogether, saying it had been weaponized by political figures on both the right and the left.<a href="#fn27" class="fn" id="ref27b">[27]</a><a href="#fn32" class="fn" id="ref32">[32]</a> At an Institute of International Finance meeting in 2022, he had already put it more bluntly: he said he suspected oil and gas companies would be part of the solution to the clean energy transition, and that facts simply weren't important to some subgroups in the country anymore, a comment aimed squarely at critics from the right.<a href="#fn31" class="fn" id="ref31">[31]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this is the single clearest piece of evidence in this entire investigation that BlackRock's problem isn't a left-wing problem or a right-wing problem. It's a scale problem. When one company is big enough that its voting decisions can meaningfully shape corporate behavior across an entire economy, both political sides are eventually going to demand that power get pointed in their preferred direction, and both sides are going to be furious when it doesn't fully cooperate. Neither side is wrong that BlackRock has enormous influence. They're just both assuming that influence should serve their side instead of asking whether one investment firm should have that much influence over anyone's politics in the first place.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">The Antitrust and “Common Ownership” Question</h2>
+
+    <p>I introduced the basic idea of common ownership back in Part Three, but this is where it stopped being an academic theory and became an actual federal court case, one that could reshape the entire index fund industry regardless of how you feel about ESG or bailouts or anything else in this piece.</p>
+
+    <p>In November 2024, Texas Attorney General Ken Paxton led a coalition of eleven Republican-led states in filing a lawsuit against BlackRock, State Street, and Vanguard, the same Big Three from Part Three.<a href="#fn34" class="fn" id="ref34">[34]</a> The suit's core allegation is specific and, notably, has nothing to do with ESG rhetoric directly, even though it grew out of the same fight. It alleges that the three firms acquired substantial minority stakes in essentially every major publicly traded U.S. coal company, and then used that shared ownership to collectively and intentionally reduce coal production as part of various ESG-related commitments, in the process artificially constricting the coal market and driving up energy costs for consumers in states like Texas that rely heavily on coal power.<a href="#fn34" class="fn" id="ref34a">[34]</a></p>
+
+    <p>This matters far beyond coal, because of the legal theory underneath it. The case puts the “common ownership” theory in front of a federal judge for what a Columbia University analysis by Denise Hearn and Cynthia Hanawalt describes as the first time this specific theory has faced real judicial scrutiny.<a href="#fn34" class="fn" id="ref34b">[34]</a> The theory, again, is that when the same handful of large shareholders own big stakes in multiple companies that are supposed to be competing against each other, those shareholders have less financial incentive to push any single company to compete aggressively, since undercutting a rival just shifts profit from one holding to another holding they also own.<a href="#fn13" class="fn" id="ref13">[13]</a> Legal scholar Einer Elhauge of Harvard Law has argued this kind of common ownership likely violates Section 7 of the Clayton Antitrust Act, which bars acquisitions that substantially lessen market competition, even without proof that the firms explicitly coordinated anything.<a href="#fn12" class="fn" id="ref12b">[12]</a></p>
+
+    <p>Here's where it becomes genuinely bipartisan rather than a simple story of Republican states versus a woke asset manager. On May 22, 2025, the FTC and the Department of Justice's Antitrust Division, both under the Trump administration at that point, filed a formal Statement of Interest in the case.<a href="#fn35" class="fn" id="ref35">[35]</a> That filing specifically flagged the antitrust risk facing private equity firms and other passive investors when their conduct across competing portfolio companies runs contrary to federal policy goals.<a href="#fn35" class="fn" id="ref35a">[35]</a> So this isn't only a story of state-level Republican officials fighting a corporate ESG boogeyman. It's now a case with the backing of the two most powerful federal antitrust enforcement bodies in the country, both of which report to the same administration that also relied on BlackRock to run its 2020 pandemic bond-buying programs, which I covered in Part Five. The same federal government leaning on BlackRock's tools with one hand is scrutinizing its market structure with the other.</p>
+
+    <p>I do want to be fair to the research on this, because it is genuinely mixed, not a settled slam dunk in either direction. Some academic studies have found that common ownership by the Big Three correlates with less support for board diversity or reduced pressure on firm disclosure.<a href="#fn14" class="fn" id="ref14">[14]</a> Other studies examining voting behavior directly found no significant difference in how these firms vote on governance issues or director elections compared to other large shareholders.<a href="#fn14" class="fn" id="ref14a">[14]</a> Roughly half of the broader research on common ownership's effects on competition finds a negative impact, and roughly half finds no meaningful effect at all.<a href="#fn14" class="fn" id="ref14b">[14]</a> State Street and Vanguard have both declined to comment publicly on the Texas case as it proceeds.<a href="#fn34" class="fn" id="ref34c">[34]</a></p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this is the section of the investigation where I'd ask you to hold two things at once. The legal theory here is genuinely serious, backed by respected legal scholars, and now taken seriously enough by federal regulators to warrant direct intervention in a live case. At the same time, the underlying research on whether common ownership actually harms competition in practice is far from settled, and I don't think it's honest to present this lawsuit as proof of guilt just because it's been filed. What I do think is fair to say is that the very fact serious antitrust law is being tested against these three companies, using a theory built entirely around their sheer size and reach, tells you something about how far outside historical norms that size has grown.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">Too Big to Fail, in Practice if Not in Name</h2>
+
+    <p>The term “too big to fail” got burned into the American vocabulary in 2008, referring to banks the government decided it couldn't allow to collapse because the damage to the broader economy would be too severe. BlackRock has never been formally given that label. Whether it should have been is a fair question, and the answer depends on whether you're looking at the legal designation or the actual role the firm plays.</p>
+
+    <p>Legally, BlackRock has successfully avoided being designated a Systemically Important Financial Institution, the formal category that would subject it to the kind of enhanced regulatory oversight applied to the largest banks after the 2008 crisis. After months of lobbying during the Obama administration, BlackRock and other large asset managers avoided that designation in 2014, even as the Financial Stability Oversight Council debated whether firms of their size and interconnectedness posed the same systemic risks that banks do.<a href="#fn3" class="fn" id="ref3c">[3]</a> An antimonopoly research group has since argued that FSOC should designate the Big Three's platform and custody services specifically as systemically important market utilities, which would open them to greater regulatory oversight without necessarily labeling the entire company a systemic risk the way a bank would be.<a href="#fn3" class="fn" id="ref3d">[3]</a></p>
+
+    <p>In practice, though, the case for BlackRock functioning as systemically important infrastructure regardless of its legal label rests heavily on one piece of technology: Aladdin. Aladdin, which stands for Asset, Liability, and Debt and Derivative Investment Network, is BlackRock's risk management and analytics platform, and it doesn't just manage BlackRock's own money. It's licensed out to other banks, insurers, pension funds, and governments to help them monitor and manage their own risk. Reporting has put the total assets monitored through Aladdin, across BlackRock's own holdings and its third-party clients combined, at roughly $18 to $21 trillion.<a href="#fn18" class="fn" id="ref18h">[18]</a><a href="#fn36" class="fn" id="ref36">[36]</a> That means a huge portion of the global financial system, banks and governments that have nothing to do with BlackRock as an investor, is nonetheless running its risk calculations through software built and maintained by BlackRock. If Aladdin had a major failure or an undetected flaw, the consequences would ripple far beyond BlackRock's own client base.</p>
+
+    <p>This is really what “too big to fail in practice” means for a company like this. It's not that BlackRock itself would need a bailout the way a bank might. It's that so many other systemically important institutions, including the Fed and Treasury during two separate crises, have come to depend on BlackRock's tools and expertise that removing BlackRock from the picture entirely is no longer a realistic option for the government during an emergency. That's a form of systemic importance that doesn't require a formal SIFI label to be real, and it's arguably harder to regulate precisely because it doesn't fit neatly into the post-2008 regulatory framework that was built with banks, not asset managers or risk-management software vendors, in mind.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think the honest answer to “is BlackRock too big to fail” is that we've built a financial system where the question almost doesn't matter anymore, because BlackRock has made itself close to too useful to remove, which functions the same way in a crisis. A bank that's too big to fail gets bailed out because letting it collapse would be catastrophic. A firm that's too embedded to remove just gets called back in every time, contract after contract, without ever facing the kind of hard regulatory reckoning that too-big-to-fail banks eventually did after 2008. I'd argue that's arguably a bigger blind spot in our regulatory system, not a smaller one.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">Dissecting the Myths, Including the Single Family Homes Claim</h2>
+
+    <p>I want to spend this section doing exactly what I told you I'd do from the start of this project: take a claim that's everywhere online, trace it back to where it actually came from, and show you what's true, what's false, and what got lost in between. No claim fits that mission better than the idea that BlackRock is secretly buying up all the single-family homes in America.</p>
+
+    <p>This claim shows up constantly, often with specific numbers attached, like a supposed filing to acquire $22 billion in homes across 14 states. Fact-checkers at Snopes traced that particular version back to a social media account that describes itself as parody, and found no evidence any such filing ever existed.<a href="#fn37" class="fn" id="ref37">[37]</a> Wikipedia's own entry on what it calls the “BlackRock house-buying conspiracy theory” states plainly that major news organizations and housing researchers describe the claim as unfounded, and that it's often rooted in confusion between BlackRock and Blackstone, a separate company with a similar name and a shared history decades ago, but no current ownership relationship.<a href="#fn5" class="fn" id="ref5b">[5]</a> I covered that origin point back in Part One.</p>
+
+    <p>When President Trump proposed banning large institutional investors from buying single-family homes in early 2026, BlackRock issued one of its most direct public statements on the matter, telling reporters plainly: “We don't buy single-family homes. We have other real estate exposure, but we do not own single-family housing.”<a href="#fn38" class="fn" id="ref38">[38]</a> The company said it had been trying to correct this misconception since at least 2021, running social media campaigns and working directly with fact-checkers.<a href="#fn38" class="fn" id="ref38a">[38]</a> A Dow Jones Newswires report on the market reaction to Trump's proposal was itself corrected after its original headline incorrectly implied BlackRock bought single-family homes, which I think says something about how deep this confusion runs, even inside financial newsrooms that should know better.<a href="#fn39" class="fn" id="ref39">[39]</a></p>
+
+    <p>Here's what I think is the more honest and more useful version of this story, the one that doesn't require a false claim to be worth writing about. Institutional investors, meaning large companies rather than individual “mom-and-pop” landlords, genuinely do buy single-family homes to rent out, just not BlackRock directly. The three major publicly traded companies in this space are Invitation Homes, American Homes 4 Rent, and Tricon Residential.<a href="#fn40" class="fn" id="ref40">[40]</a> Nationally, institutional investors account for somewhere between 3 and 7 percent of single-family home purchases in a given quarter, depending on the year and the data source, though that share climbed as high as 34 percent of all home purchases by any kind of investor, institutional or individual, in some markets by late 2025.<a href="#fn41" class="fn" id="ref41">[41]</a><a href="#fn42" class="fn" id="ref42">[42]</a> The impact is regional and uneven. In cities like Atlanta, institutional investors own close to 29 percent of single-family rental properties specifically, and in Jacksonville that figure is around 24 percent.<a href="#fn43" class="fn" id="ref43">[43]</a> Phoenix has seen institutional buyers account for nearly 9 percent of the entire single-family housing inventory in that metro alone.<a href="#fn40" class="fn" id="ref40a">[40]</a> So while the national “BlackRock owns America's houses” framing is false, the underlying concern that large institutional capital is reshaping who owns homes in specific, fast-growing metro areas is real, measurable, and worth writing about on its own terms.</p>
+
+    <p>And here's the part that connects back to the earlier sections of this piece. BlackRock, through its index funds, is a major shareholder in the very companies doing this direct buying, including Invitation Homes and American Homes 4 Rent, the same way it's a major shareholder in nearly every other large public company in America.<a href="#fn10" class="fn" id="ref10b">[10]</a> That's not the same as BlackRock buying your neighbor's house directly. But it does mean that dismissing the entire concern as pure myth misses something real: BlackRock profits from institutional single-family rental buying happening at scale, even if it isn't the company signing the purchase agreements.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this is the pattern that shows up over and over with BlackRock. The viral version of the claim is usually false, sometimes wildly so, and repeating it uncritically actually does the opposite of what people intend, because it hands BlackRock an easy, true rebuttal that lets the company dodge the more accurate and more damning version of the story. The real version doesn't need exaggeration. It needs precision. BlackRock doesn't need to personally own your street for its structural position at the top of nearly every major American industry to be worth serious scrutiny.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eleven</span>
+    <h2 class="section-title">The Panama Canal Ports Deal</h2>
+
+    <p>I want to close out the “what is BlackRock actually doing right now” portion of this investigation with a story that's still unfolding as I write this, because I think it shows a different dimension of the firm's power than anything covered so far: not domestic financial influence, but direct entry into global infrastructure and great-power geopolitics.</p>
+
+    <p>In March 2025, BlackRock partnered with the Mediterranean Shipping Company, a major Swiss-Italian containership operator, to acquire the bulk of the global port terminal business owned by CK Hutchison, a Hong Kong conglomerate controlled by billionaire Li Ka-shing.<a href="#fn44" class="fn" id="ref44">[44]</a> The deal, valued at roughly $22.8 billion, covered 43 ports around the world, including two of the most strategically significant ports on earth: Balboa and Cristobal, sitting at either end of the Panama Canal.<a href="#fn45" class="fn" id="ref45">[45]</a> The timing wasn't a coincidence. President Trump had spent months publicly claiming that China was effectively “running” the Panama Canal through Hutchison's ownership of those two ports, and had floated reclaiming American control over the canal outright.<a href="#fn45" class="fn" id="ref45a">[45]</a> When the sale was announced, Trump referenced it directly in a State of the Union address, saying an American company was buying both ports around the canal.<a href="#fn45" class="fn" id="ref45b">[45]</a></p>
+
+    <p>China did not stay quiet. Once the deal became public, Chinese officials and state media began criticizing Li Ka-shing's decision to sell to a Western-led consortium without first consulting Beijing.<a href="#fn45" class="fn" id="ref45c">[45]</a><a href="#fn48" class="fn" id="ref48">[48]</a> By mid-2025, reporting indicated China was pushing hard for its own state-owned shipping giant, Cosco, to be brought into the deal as an equal partner and shareholder alongside BlackRock and MSC.<a href="#fn46" class="fn" id="ref46">[46]</a> BlackRock, MSC, and Hutchison reportedly became open to giving Cosco a stake to keep the deal alive, but by December 2025, talks had hit an impasse after China raised its demands further, pushing for Cosco to receive a controlling stake rather than an equal one.<a href="#fn47" class="fn" id="ref47">[47]</a> In January 2026, Panama's Supreme Court annulled Hutchison's concession to operate the two canal-adjacent ports outright, and by February 2026 Panamanian authorities had seized control of both terminals, temporarily handing operations to subsidiaries of Maersk and MSC while CK Hutchison launched international arbitration against the Panamanian government itself. In the months that followed, CK Hutchison's port unit escalated further, separately accusing Maersk of colluding with Panama to engineer the takeover, with the whole situation described by CNBC as a live geopolitical flashpoint between Washington and Beijing, with Panama caught directly in the middle.<a href="#fn44" class="fn" id="ref44a">[44]</a></p>
+
+    <p>I think what makes this story worth including, separate from anything about ESG or bailouts or lobbying, is what it reveals about where BlackRock is heading next. In his 2025 annual letter, Fink specifically pointed to infrastructure, including ports, power grids, and data centers, as the assets he believes will define the future of the global economy, and he framed BlackRock's private markets push over the prior year as a deliberate strategy to get ahead of what the firm estimates could be a $68 trillion infrastructure investment boom.<a href="#fn45" class="fn" id="ref45d">[45]</a> Buying into two of the most strategically vital ports on the planet, ports currently sitting at the center of a direct standoff between the American president and the Chinese government, is not a passive index fund position. It's BlackRock stepping directly into the kind of hard geopolitical territory that used to belong almost exclusively to governments and state-backed companies, not private asset managers.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I think this deal deserves more attention than it's gotten, precisely because it doesn't fit neatly into either the left's usual case against BlackRock or the right's. This isn't an ESG story. It isn't a domestic bailout story. It's a private American financial firm positioning itself as a direct player in a live territorial and trade standoff between two nuclear powers, at a canal that has been a flashpoint of American foreign policy for over a century. Whether you think that's BlackRock helping execute American strategic interests or BlackRock inserting itself into a fight that used to belong to elected governments alone, I think it's worth sitting with the fact that a private company most Americans can't fully explain the business model of is now a direct party to one of the most consequential geopolitical disputes on the map.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Twelve</span>
+    <h2 class="section-title">You Decide</h2>
+
+    <p>I set out at the beginning of this piece to answer a question I think most Americans have never actually gotten a straight answer to: what is BlackRock, really, and does the reputation match the reality. I think the honest answer, after walking through all of it, is that the reputation and the reality overlap in some places and diverge sharply in others, and the version of BlackRock worth being concerned about isn't the one living in most viral posts.</p>
+
+    <p>BlackRock is not secretly buying your neighborhood. It is not a bank, and the trillions of dollars it manages mostly belong to pension funds, retirement accounts, and ordinary investors, not to the company itself. Those are the parts of the popular narrative that don't hold up. What does hold up, documented across SEC filings, congressional letters, court filings, and reporting spanning three presidential administrations, is a company that has become one of the largest shareholders in nearly the entire American economy, that both parties have leaned on during financial emergencies, that both parties have staffed their governments with, and that both parties have turned against when it suited them politically. Republican states pulled billions over ESG while a Democratic president used his first veto to defend it. Progressive activists protested a Democratic president's own BlackRock-linked appointee while a Republican administration handed the same firm a no-bid pandemic bailout contract. Right now, federal antitrust regulators under one administration are questioning the same common ownership structure that another arm of the federal government relied on just a few years earlier to stabilize the bond market.</p>
+
+    <p>That pattern is the actual story here, more than any single scandal. It isn't that one party built BlackRock's power and the other party is fighting to tear it down. It's that BlackRock has made itself close to unavoidable to both parties, useful enough in a crisis and large enough in ordinary times that neither side has been willing to seriously restructure the relationship, no matter how loudly either side complains about it when it's politically convenient to do so.</p>
+
+    <p>I've tried to give you the documented version of this story rather than the version that spreads fastest online, even where the documented version is less dramatic than the myth. I think that's actually the more useful version, because it doesn't hand BlackRock an easy rebuttal, and it doesn't let either political party off the hook by making this someone else's scandal. The revolving door, the no-bid contracts, the Aladdin platform monitoring trillions across the entire financial system, the antitrust case now testing decades-old assumptions about how much concentrated ownership one part of the economy should be allowed to hold: none of that requires a conspiracy theory to be worth your attention. It just requires you to look at what's already public record.</p>
+
+    <p>Whether that adds up to a company that's simply very good at a business model most people don't understand, or a company that has quietly become a permanent and largely unaccountable fixture of American financial and political life regardless of who wins an election, I'll leave for you to decide.</p>
+
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part One — What BlackRock, Vanguard, and State Street Actually Are</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] BlackRock, Inc., Form 10-Q, Q2 2026, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/Archives/edgar/data/0002012383/000119312526337177/blk-20260630.htm" target="_blank" rel="noopener">www.sec.gov</a><a href="#ref1" class="bib-back">↩</a></li>
+      <li id="fn2">[2] “BlackRock's Assets Under Management (AUM) in 2026,” Investing in the Web. <a href="https://investingintheweb.com/brokers/blackrock-assets-under-management/" target="_blank" rel="noopener">investingintheweb.com</a><a href="#ref2" class="bib-back">↩</a></li>
+      <li id="fn3">[3] “BlackRock and the $15 trillion fund industry should be broken up, antimonopoly group says,” CNN Business. <a href="https://amp.cnn.com/cnn/2020/11/24/business/blackrock-vanguard-state-street-biden/index.html" target="_blank" rel="noopener">amp.cnn.com</a><a href="#ref3" class="bib-back">↩</a></li>
+      <li id="fn4">[4] “BlackRock,” Britannica Money. <a href="https://www.britannica.com/money/BlackRock-Inc" target="_blank" rel="noopener">www.britannica.com</a><a href="#ref4" class="bib-back">↩</a></li>
+      <li id="fn5">[5] “BlackRock house-buying conspiracy theory,” Wikipedia. <a href="https://en.wikipedia.org/wiki/BlackRock_house-buying_conspiracy_theory" target="_blank" rel="noopener">en.wikipedia.org</a><a href="#ref5" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Two — How They Got This Big</span>
+    <ul class="bib-list">
+      <li id="fn6">[6] BlackRock, Inc., Form 8-K, June 16, 2009, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/Archives/edgar/data/0001364742/000134100409001256/black8k.htm" target="_blank" rel="noopener">www.sec.gov</a><a href="#ref6" class="bib-back">↩</a></li>
+      <li id="fn7">[7] BlackRock, Inc., Form 8-K, Exhibit 99.1, June 11, 2009, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/Archives/edgar/data/0001364742/000134100409001192/blackrock_ex99-1.htm" target="_blank" rel="noopener">www.sec.gov</a><a href="#ref7" class="bib-back">↩</a></li>
+      <li id="fn8">[8] BlackRock, Inc., Form 424B5, 2009, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/Archives/edgar/data/0001364742/000119312509248003/d424b5.htm" target="_blank" rel="noopener">www.sec.gov</a><a href="#ref8" class="bib-back">↩</a></li>
+      <li id="fn9">[9] BlackRock, Inc., Form 8-K, December 1, 2009, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/Archives/edgar/data/0001364742/000134100409002413/blackrock_ex99-1.htm" target="_blank" rel="noopener">www.sec.gov</a><a href="#ref9" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Three — The Scale of Their Combined Ownership</span>
+    <ul class="bib-list">
+      <li id="fn10">[10] “The New Money Trust: How Large Money Managers Control Our Economy and What We Can Do About It,” American Economic Liberties Project. <a href="https://www.economicliberties.us/our-work/new-money-trust/" target="_blank" rel="noopener">www.economicliberties.us</a><a href="#ref10" class="bib-back">↩</a></li>
+      <li id="fn11">[11] “The Big Three,” Section 14 Substack. <a href="https://section14.substack.com/p/the-big-three-asset-managers" target="_blank" rel="noopener">section14.substack.com</a><a href="#ref11" class="bib-back">↩</a></li>
+      <li id="fn12">[12] “Three Firms Own Everything: BlackRock, Vanguard, State Street,” Red String. <a href="https://red-string.ai/money-blackrock" target="_blank" rel="noopener">red-string.ai</a><a href="#ref12" class="bib-back">↩</a></li>
+      <li id="fn13">[13] “These three firms own corporate America,” The Conversation. <a href="https://theconversation.com/these-three-firms-own-corporate-america-77072" target="_blank" rel="noopener">theconversation.com</a><a href="#ref13" class="bib-back">↩</a></li>
+      <li id="fn14">[14] “Is three the magic number for corporate governance?” Esade. <a href="https://dobetter.esade.edu/en/big-three-governance" target="_blank" rel="noopener">dobetter.esade.edu</a><a href="#ref14" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Four — The Revolving Door and the 2008 Financial Crisis</span>
+    <ul class="bib-list">
+      <li id="fn15">[15] “Reps. Pressley, García, Tlaib Call for Stricter Oversight over BlackRock Contracts,” Office of Rep. Ayanna Pressley. <a href="https://pressley.house.gov/2020/04/22/reps-pressley-garc-tlaib-call-stricter-oversight-over-blackrock-contracts/" target="_blank" rel="noopener">pressley.house.gov</a><a href="#ref15" class="bib-back">↩</a></li>
+      <li id="fn16">[16] “BlackRock and its Many Faces,” Concordia Business Review. <a href="https://www.concordiabusinessreview.com/post/blackrock" target="_blank" rel="noopener">www.concordiabusinessreview.com</a><a href="#ref16" class="bib-back">↩</a></li>
+      <li id="fn17">[17] “A Comprehensive Look at BlackRock's Rise,” ChainCatcher. <a href="https://www.chaincatcher.com/en/article/2177497" target="_blank" rel="noopener">www.chaincatcher.com</a><a href="#ref17" class="bib-back">↩</a></li>
+      <li id="fn18">[18] Congressional letter to the Federal Reserve and Treasury Department, April 22, 2020, Office of Rep. Chuy García. <a href="https://chuygarcia.house.gov/sites/evo-subsites/chuygarcia-evo.house.gov/files/Congressional%20Letter%20to%20Fed%20Treas%204_22.pdf" target="_blank" rel="noopener">chuygarcia.house.gov</a><a href="#ref18" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Five — The 2020 CARES Act Bailout and the Conflict of Interest</span>
+    <ul class="bib-list">
+      <li id="fn19">[19] “The Dawn of the BlackRock Era,” The American Prospect. <a href="https://prospect.org/economy/the-dawn-of-the-blackrock-era/" target="_blank" rel="noopener">prospect.org</a><a href="#ref19" class="bib-back">↩</a></li>
+      <li id="fn20">[20] “A Glaring New Conflict Of Interest Undermines Public Trust In Federal Reserve,” Forbes. <a href="https://www.forbes.com/sites/pedrodacosta/2020/04/20/a-glaring-new-conflict-of-interest-undermines-public-trust-in-federal-reserve/" target="_blank" rel="noopener">www.forbes.com</a><a href="#ref20" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Six — Bipartisan Reliance, Not Partisan Capture</span>
+    <ul class="bib-list">
+      <li id="fn21">[21] “Visible Hands: When One Door Closes,” Visible Hands Media. <a href="https://visiblehandsmedia.substack.com/p/visible-hands-when-one-door-closes" target="_blank" rel="noopener">visiblehandsmedia.substack.com</a><a href="#ref21" class="bib-back">↩</a></li>
+      <li id="fn22">[22] “Brian Deese likely pick for top White House economic post,” Associated Press via Yahoo News. <a href="https://news.yahoo.com/brian-deese-likely-pick-top-000018242.html" target="_blank" rel="noopener">news.yahoo.com</a><a href="#ref22" class="bib-back">↩</a></li>
+      <li id="fn23">[23] “Visible Hands: When One Door Closes,” Visible Hands Media (Revolving Door Project commentary). <a href="https://visiblehandsmedia.substack.com/p/visible-hands-when-one-door-closes" target="_blank" rel="noopener">visiblehandsmedia.substack.com</a><a href="#ref23" class="bib-back">↩</a></li>
+      <li id="fn24">[24] “Former Obama adviser Brian Deese: Biden's $1.9T economic plan will tackle COVID crisis,” Fox News. <a href="https://www.foxnews.com/politics/bidens-economic-advise-climate-crisis-blackrock-deforestation" target="_blank" rel="noopener">www.foxnews.com</a><a href="#ref24" class="bib-back">↩</a></li>
+      <li id="fn25">[25] “BlackRock Alum Who Helped Obama Now Runs Point on Biden Stimulus,” Bloomberg. <a href="https://www.bloomberg.com/news/articles/2021-02-04/biden-aide-deese-draws-on-obama-era-rescues-for-stimulus-fight" target="_blank" rel="noopener">www.bloomberg.com</a><a href="#ref25" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Seven — The ESG Fight From Both Directions</span>
+    <ul class="bib-list">
+      <li id="fn26">[26] “After a Year of Backlash, BlackRock Sticks to Its Proxy Voting Principles,” Institutional Investor. <a href="https://www.institutionalinvestor.com/article/2bstpz09bb6ghpzfev400/corner-office/after-a-year-of-backlash-blackrock-sticks-to-its-proxy-voting-principles" target="_blank" rel="noopener">www.institutionalinvestor.com</a><a href="#ref26" class="bib-back">↩</a></li>
+      <li id="fn27">[27] “ESG Evolution &amp; Backlash Timeline,” European Corporate Governance Institute. <a href="https://www.ecgi.global/projects/responsible-capitalism/esg-evolution-backlash-timeline" target="_blank" rel="noopener">www.ecgi.global</a><a href="#ref27" class="bib-back">↩</a></li>
+      <li id="fn28">[28] “BlackRock Is Still Getting Red-State Pushback on ESG Investments,” The Daily Upside. <a href="https://www.thedailyupside.com/finance/markets/blackrock-is-still-getting-red-state-pushback-on-esg-investments/" target="_blank" rel="noopener">www.thedailyupside.com</a><a href="#ref28" class="bib-back">↩</a></li>
+      <li id="fn29">[29] “16 Republican AGs question BlackRock fund directors over ESG,” ESG Dive. <a href="https://www.esgdive.com/news/16-republican-ags-question-blackrock-fund-directors-over-esg/709353/" target="_blank" rel="noopener">www.esgdive.com</a><a href="#ref29" class="bib-back">↩</a></li>
+      <li id="fn30">[30] “Another state takes on BlackRock claiming fraudulent action with its ESG policies as ESG backlash intensifies,” Benzinga. <a href="https://benzinga.com/general/24/04/38049708/another-state-takes-on-blackrock-claiming-fraudulent-action-with-its-esg-policies-as-esg-backlash-in" target="_blank" rel="noopener">benzinga.com</a><a href="#ref30" class="bib-back">↩</a></li>
+      <li id="fn31">[31] “BlackRock CEO Larry Fink says he's being attacked equally by the left and right in ESG fight, so I'm doing something right,” Fortune. <a href="https://www.fortune.com/2022/10/13/blackrock-ceo-larry-fink-says-hes-being-attacked-equally-by-the-left-and-right-in-esg-fight-so-im-doing-something-right" target="_blank" rel="noopener">www.fortune.com</a><a href="#ref31" class="bib-back">↩</a></li>
+      <li id="fn32">[32] “ESG isn't dying. It's getting voted out,” Washington Examiner. <a href="https://www.washingtonexaminer.com/restoring-america/fairness-justice/4587356/esg-voted-out-exxon-mobil/" target="_blank" rel="noopener">www.washingtonexaminer.com</a><a href="#ref32" class="bib-back">↩</a></li>
+      <li id="fn33">[33] “BlackRock Faces More ESG Fallout as Louisiana Pulls $794 Million,” Bloomberg via AOL. <a href="https://www.aol.com/news/blackrock-faces-more-esg-fallout-201831246.html" target="_blank" rel="noopener">www.aol.com</a><a href="#ref33" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Eight — The Antitrust and “Common Ownership” Question</span>
+    <ul class="bib-list">
+      <li id="fn34">[34] “Texas vs. BlackRock Could Have Implications Beyond ESG,” Institutional Investor. <a href="https://www.institutionalinvestor.com/article/texas-vs-blackrock-could-have-implications-beyond-esg-0" target="_blank" rel="noopener">www.institutionalinvestor.com</a><a href="#ref34" class="bib-back">↩</a></li>
+      <li id="fn35">[35] “Statement of Interest in BlackRock Reflects Increased Antitrust Risk for Firms Holding Passive Interests in Competing Companies,” Godfrey &amp; Kahn. <a href="https://www.gklaw.com/Insights/Statement-of-Interest-in-BlackRock-Reflects-Increased-Antitrust-Risk-for-Firms-Holding-Passive-Interests-in-Competing-Companies.htm" target="_blank" rel="noopener">www.gklaw.com</a><a href="#ref35" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Nine — Too Big to Fail, in Practice if Not in Name</span>
+    <ul class="bib-list">
+      <li id="fn36">[36] Reporting on BlackRock's Aladdin platform and its third-party reach, cross-referenced against congressional correspondence (see note 18).<a href="#ref36" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Ten — Dissecting the Myths, Including the Single Family Homes Claim</span>
+    <ul class="bib-list">
+      <li id="fn37">[37] “Don't buy claim BlackRock 'quietly filed' to acquire $22B in single-family homes across 14 states,” Snopes. <a href="https://www.snopes.com/fact-check/blackrock-single-family-homes/" target="_blank" rel="noopener">www.snopes.com</a><a href="#ref37" class="bib-back">↩</a></li>
+      <li id="fn38">[38] “Exclusive: BlackRock Says It Does Not Buy Single-Family Homes After Trump Proposal,” Sahm Capital. <a href="https://www.sahmcapital.com/news/content/exclusive-blackrock-says-does-not-buy-single-family-homes-after-trump-proposal-2026-01-09" target="_blank" rel="noopener">www.sahmcapital.com</a><a href="#ref38" class="bib-back">↩</a></li>
+      <li id="fn39">[39] Dow Jones Newswires correction notice, January 7, 2026, via MarketScreener. <a href="https://www.marketscreener.com/news/blackstone-blackrock-shares-fall-on-trump-plan-to-stop-institutional-investment-in-single-family-ho-ce7e59dcde8cf524" target="_blank" rel="noopener">www.marketscreener.com</a><a href="#ref39" class="bib-back">↩</a></li>
+      <li id="fn40">[40] “Although Growing, Institutional Ownership Of Single-Family Rentals Is Not As Big As You'd Think,” Benzinga (citing Moody's Analytics). <a href="https://benzinga.com/z/32483618" target="_blank" rel="noopener">benzinga.com</a><a href="#ref40" class="bib-back">↩</a></li>
+      <li id="fn41">[41] “Investors snap up growing share of US homes as traditional buyers struggle to afford one,” Associated Press via MarketBeat. <a href="https://www.marketbeat.com/articles/investors-snap-up-growing-share-of-us-homes-as-traditional-buyers-struggle-to-afford-one-2025-07-08" target="_blank" rel="noopener">www.marketbeat.com</a><a href="#ref41" class="bib-back">↩</a></li>
+      <li id="fn42">[42] “Investors own a quarter of Nevada's houses, but are 'misunderstood' says report,” Yahoo Finance. <a href="https://finance.yahoo.com/news/investors-own-quarter-nevada-houses-130030384.html" target="_blank" rel="noopener">finance.yahoo.com</a><a href="#ref42" class="bib-back">↩</a></li>
+      <li id="fn43">[43] “Hedge Fund Housing Ban: A Game-Changer For The US Single-family Home Market?” Benzinga (citing Urban Institute). <a href="https://benzinga.com/z/36166472" target="_blank" rel="noopener">benzinga.com</a><a href="#ref43" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Part Eleven — The Panama Canal Ports Deal</span>
+    <ul class="bib-list">
+      <li id="fn44">[44] “Panama ports deal in jeopardy as U.S.-China proxy battle over strategic canal intensifies,” CNBC. <a href="https://www.cnbc.com/2026/02/13/panama-ports-us-china-ck-hutchison-trump.html" target="_blank" rel="noopener">www.cnbc.com</a><a href="#ref44" class="bib-back">↩</a></li>
+      <li id="fn45">[45] “China has Blocked the Panama Canal Terminals Deal: BlackRock Chief says Ports 'Will Define the Future,'” Newsroom Panama. <a href="https://newsroompanama.com/2025/04/04/china-has-blocked-the-panama-canal-terminals-deal-blackrock-chief-says-ports-will-define-the-future/" target="_blank" rel="noopener">newsroompanama.com</a><a href="#ref45" class="bib-back">↩</a></li>
+      <li id="fn46">[46] “China Issues New Threats to Block Panama Canal Ports Deal,” Farm Policy News. <a href="https://farmpolicynews.illinois.edu/2025/07/china-issues-new-threats-to-block-panama-canal-ports-deal/" target="_blank" rel="noopener">farmpolicynews.illinois.edu</a><a href="#ref46" class="bib-back">↩</a></li>
+      <li id="fn47">[47] “Panama Ports Deal Hits Impasse as China Makes New Demands for Its Approval,” Newsroom Panama. <a href="https://newsroompanama.com/2025/12/17/panama-ports-deal-hits-impasse-as-china-makes-new-demands-for-its-approval/" target="_blank" rel="noopener">newsroompanama.com</a><a href="#ref47" class="bib-back">↩</a></li>
+      <li id="fn48">[48] “Panama's Port Deal Provokes Strong Backlash from China,” uscnpm.substack.com. <a href="https://uscnpm.substack.com/p/panamas-port-deal-provokes-strong" target="_blank" rel="noopener">uscnpm.substack.com</a><a href="#ref48" class="bib-back">↩</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 PoliticalHypocrites.us — All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
