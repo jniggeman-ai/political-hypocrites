@@ -1,0 +1,23 @@
+[
+  {
+    "label": "President Series",
+    "title": "George Washington",
+    "hook": "The man who invented the presidency, with no template to work from. What he built, what he got wrong, and whether we'd still see him the way we're taught to today.",
+    "date": "2026-08-28",
+    "url": "/presidents/george-washington"
+  },
+  {
+    "label": "Investigation",
+    "title": "Who Really Runs the American Economy",
+    "hook": "BlackRock, Vanguard, State Street, and the Big Three, and why the reputation doesn't match the record.",
+    "date": "2026-08-25",
+    "url": "/investigations/who-really-runs-the-american-economy"
+  },
+  {
+    "label": "Investigation",
+    "title": "The Degradation of Our Privacy",
+    "hook": "How both parties built the American surveillance state, and why blaming one side misses the machine.",
+    "date": "2026-08-24",
+    "url": "/investigations/the-degradation-of-our-privacy"
+  }
+]
