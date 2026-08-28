@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presidents - Political Hypocrites</title>
+  <meta name="description" content="President Series: first-person deep dive biographies on every American president, in chronological order. What they were for, what they accomplished, what they were criticized for, and how they'd be seen today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .page-header {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .page-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4rem); line-height: 0.92;
+      letter-spacing: -0.02em; color: #1A0F05;
+    }
+    .page-title span { color: #f87171; font-style: italic; display: block; }
+    .page-desc {
+      font-size: 0.85rem; line-height: 1.7; color: rgba(20,10,5,0.40);
+      max-width: 360px; font-weight: 300; font-style: italic;
+    }
+
+    .progress-bar-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 1.6rem 3rem 0;
+    }
+    .progress-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+    .progress-label span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(20,10,5,0.35);
+    }
+    .progress-label strong { color: var(--red); font-weight: 700; }
+    .progress-track {
+      width: 100%; height: 4px; background: var(--rule);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: linear-gradient(to right, var(--blue), var(--red));
+    }
+
+    /* CARD GRID */
+    .cards-section {
+      max-width: 1100px; margin: 0 auto; padding: 3rem 3rem 5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--ink2);
+      border: 1px solid var(--rule);
+      padding: 2.2rem 2.2rem 2rem;
+      text-decoration: none; color: #1A0F05;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .article-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover {
+      background: var(--ink3);
+      border-color: rgba(20,10,5,0.18);
+    }
+    .article-card:hover::after { transform: scaleX(1); }
+
+    .card-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem; display: block;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 700; color: #1A0F05; line-height: 1.25;
+      margin-bottom: 0.6rem; flex: 1;
+    }
+    .card-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem; font-style: italic;
+      color: rgba(20,10,5,0.40); line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+    .card-desc {
+      font-size: 0.82rem; line-height: 1.75;
+      color: rgba(20,10,5,0.40); font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: auto; padding-top: 1.2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .card-date {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28);
+    }
+    .card-read {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .article-card:hover .card-read { color: #1A0F05; }
+    .card-read::after { content: '\2192'; transition: transform 0.2s; }
+    .article-card:hover .card-read::after { transform: translateX(3px); }
+
+    /* PLACEHOLDER CARDS FOR UPCOMING PRESIDENTS */
+    .placeholder-card {
+      background: rgba(20,10,5,0.02);
+      border: 1px dashed rgba(20,10,5,0.14);
+      padding: 1.6rem 1.8rem;
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: 110px;
+    }
+    .placeholder-number {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.14em; color: rgba(20,10,5,0.22);
+      margin-bottom: 0.4rem;
+    }
+    .placeholder-name {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1rem; color: rgba(20,10,5,0.28);
+    }
+    .placeholders-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.30); display: block;
+      margin: 3.5rem 0 1.5rem;
+    }
+    .placeholders-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-header { padding: 3rem 1.5rem 2rem; }
+      .progress-bar-wrap { padding: 1.6rem 1.5rem 0; }
+      .cards-section { padding: 2.5rem 1.5rem 4rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .placeholders-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/presidents" class="active">Presidents</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div>
+    <span class="page-label">President Series</span>
+    <h1 class="page-title">
+      Every President,
+      <span>In Order</span>
+    </h1>
+  </div>
+  <p class="page-desc">First-person deep dive biographies on every American president, in chronological order. What they were for, what they accomplished, what they were criticized for, and how their presidency and personality would be viewed by Americans today.</p>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-label">
+    <span>Series progress</span>
+    <span><strong>1</strong> of 45 published</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" style="width: 2.2%;"></div>
+  </div>
+</div>
+
+<div class="cards-section">
+  <div class="cards-grid">
+
+    <a href="/presidents/george-washington" class="article-card">
+      <span class="card-label">President Series, Part I</span>
+      <h2 class="card-title">George Washington</h2>
+      <p class="card-subtitle">The Man Who Invented the Presidency</p>
+      <p class="card-desc">He had no template to work from. Every choice he made, from what to call himself to how many terms to serve, became the default for the office forever after. A real accounting of what he built, what he got wrong, and whether the country would still see him the way we're taught to today.</p>
+      <div class="card-footer">
+        <span class="card-date">August 2026</span>
+        <span class="card-read">Read biography</span>
+      </div>
+    </a>
+
+  </div>
+
+  <span class="placeholders-label">Coming up next in the series</span>
+  <div class="placeholders-grid">
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part II</span>
+      <span class="placeholder-name">John Adams</span>
+    </div>
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part III</span>
+      <span class="placeholder-name">Thomas Jefferson</span>
+    </div>
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part IV</span>
+      <span class="placeholder-name">James Madison</span>
+    </div>
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part V</span>
+      <span class="placeholder-name">James Monroe</span>
+    </div>
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part VI</span>
+      <span class="placeholder-name">John Quincy Adams</span>
+    </div>
+    <div class="placeholder-card">
+      <span class="placeholder-number">Part VII</span>
+      <span class="placeholder-name">Andrew Jackson</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 PoliticalHypocrites.us. All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
