@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Adams - Political Hypocrites</title>
+  <meta name="description" content="President Series, Part II. A first-person deep dive into John Adams: the Boston Massacre defense, the XYZ Affair, the choice of peace over war with France, the Alien and Sedition Acts, and whether America would still see him the way we're taught to today." />
+  <meta property="og:title" content="John Adams - Political Hypocrites" />
+  <meta property="og:description" content="He had a war his own party wanted, and a country ready to give it to him. He chose peace instead, and it cost him the presidency." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/presidents/john-adams" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="John Adams - Political Hypocrites" />
+  <meta name="twitter:description" content="He had a war his own party wanted, and a country ready to give it to him. He chose peace instead, and it cost him the presidency." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-style: italic; font-size: 1.1rem;
+      color: #1A0F05; margin: 2.2rem 0 0.9rem;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.68); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(20,10,5,0.15);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.03);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.50);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.65); font-style: normal; }
+
+    .fn {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      color: var(--red); text-decoration: none; vertical-align: super;
+    }
+    .fn:hover { text-decoration: underline; }
+
+    /* VERDICT SECTION */
+    .verdict-block { margin-top: 1rem; }
+    .verdict-block h3 {
+      font-style: italic;
+    }
+
+    /* FOOTNOTES */
+    .footnotes {
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem; padding-top: 2.5rem;
+    }
+    .footnotes-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.5rem; display: block;
+    }
+    .footnote {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.45); margin-bottom: 0.7rem;
+      padding-left: 1.6rem; position: relative;
+    }
+    .footnote::before {
+      content: attr(data-n);
+      position: absolute; left: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--red);
+    }
+
+    /* BIBLIOGRAPHY */
+    .bibliography {
+      border-top: 1px solid var(--rule);
+      margin-top: 3.5rem; padding-top: 2.5rem;
+    }
+    .bib-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 1.8rem; display: block;
+    }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue); margin: 1.8rem 0 0.8rem;
+    }
+    .bib-group-title:first-of-type { margin-top: 0; }
+    .bib-item {
+      font-size: 0.82rem; line-height: 1.7;
+      color: rgba(20,10,5,0.50); margin-bottom: 0.5rem;
+      padding-left: 1rem; position: relative;
+    }
+    .bib-item::before {
+      content: '\2014'; position: absolute; left: 0;
+      color: rgba(20,10,5,0.25);
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 3rem 1.5rem 4rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/presidents" class="active">Presidents</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/presidents">Presidents</a>
+    <span>/</span>
+    <span class="current">John Adams</span>
+  </div>
+  <span class="article-label">President Series, Part II</span>
+  <h1 class="article-title">John Adams<span style="display:block; font-style:italic; font-size:0.55em; color:rgba(20,10,5,0.55); font-weight:400; margin-top:0.4rem;">The Man Who Chose Peace Over His Own Party</span></h1>
+  <p class="article-subtitle">A first-person deep dive into what he was for, what he accomplished, what he was criticized for, and whether America would still see him the way we're taught to today.</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Julian</span>
+    <span class="meta-item"><strong>Published</strong> August 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Founders Online, Massachusetts Historical Society, McCullough, Ferling, Miller Center</span>
+    <a href="https://twitter.com/intent/tweet?text=John+Adams%3A+The+Man+Who+Chose+Peace+Over+His+Own+Party+%E2%80%94+President+Series+Part+II&url=https://political-hypocrites.vercel.app/presidents/john-adams" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">Every president after Washington had something Washington didn't: a template. John Adams became the second President of the United States on March 4, 1797, and he became it as the first man in American history who had to follow someone else's act, and a nearly impossible act at that. This is the second entry in the President Series: first-person deep dives into every American president, in order, covering what they were for, what they accomplished, what they were criticized for, and how their presidency and personality would be viewed by Americans today.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every factual claim in this piece is sourced, drawing primarily on the Massachusetts Historical Society's Adams Papers, the National Archives' Founders Online collection, David McCullough's <em>John Adams</em>, John Ferling's <em>John Adams: A Life</em>, and the Miller Center's presidential biography archive. Opinion is marked inline wherever it appears and is never blended silently into the factual record.</p>
+  </div>
+
+  <h2>Introduction</h2>
+  <p><span class="opinion-inline">Opinion</span> I want to be upfront about something before I get into Adams' record. He is one of the most underappreciated founders in American memory. Most people can tell you Washington was first and Jefferson wrote the Declaration. Fewer people can tell you what Adams actually did, or that he made a decision as president that cost him a second term because he thought it was right. That's the lens I'm writing through.</p>
+  <p>Adams came into office as a Federalist, elected in the first contested presidential election in American history, and he inherited Washington's cabinet almost wholesale, a decision that would cause him real problems throughout his presidency. He was a former diplomat, a former vice president, and long before either of those things, a Massachusetts lawyer who once defended British soldiers in a courtroom full of people who wanted them hanged.</p>
+
+  <h2>The Boston Massacre Defense</h2>
+  <p>Before Adams was a revolutionary, he was a defense attorney, and the case he took on tells you almost everything about how he operated for the rest of his life.</p>
+  <p>On the night of March 5, 1770, British soldiers stationed in Boston opened fire on a crowd of colonists who had been taunting and throwing objects at them, killing five people.<a href="#fn1" class="fn" id="ref1">[1]</a> The event became known as the Boston Massacre, and it was immediately used by radical voices in Boston, including Samuel Adams, as evidence of British tyranny. Public anger in the city was severe enough that no other lawyer in Boston would agree to represent the soldiers.</p>
+  <p>Adams took the case. He was already a committed advocate for colonial rights and no friend of the Crown's policies, which made his decision more remarkable, not less. He believed every defendant deserved a defense and that the rule of law had to hold even when public opinion demanded otherwise. He represented Captain Thomas Preston and the eight soldiers involved, and won acquittals for six of them, with two convicted of manslaughter rather than murder. Adams later wrote that this decision was one of the best pieces of service he ever rendered his country, though he also acknowledged it likely cost him legal business and public standing in the short term.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this episode is the single most underrated thing Adams ever did, more than anything from his presidency. It's easy to defend unpopular people when there's no cost to you. Adams did it when it actually could have ended his career, before he was famous, before anyone owed him anything. That's not a small thing, and I don't think it gets nearly enough attention in how he's remembered.</p>
+
+  <h2>Revolutionary and Diplomatic Career</h2>
+  <p>By the mid-1770s, Adams had moved from courtroom defender to one of the loudest voices in the Continental Congress pushing for full independence, a position that was far from universally popular even among the delegates who would eventually sign the Declaration.</p>
+  <p>Adams served on the committee tasked with drafting the Declaration of Independence alongside Thomas Jefferson, Benjamin Franklin, Roger Sherman, and Robert Livingston. While Jefferson did the actual writing, Adams was widely credited by his colleagues, including Jefferson himself in later correspondence, as one of the Declaration's most forceful advocates on the floor of Congress. Jefferson later called him the pillar of its support on the floor of Congress, its ablest advocate and defender.<a href="#fn2" class="fn" id="ref2">[2]</a></p>
+  <p>In 1780, Adams wrote the Massachusetts Constitution, which remains in effect today and is the oldest still functioning written constitution in the world.<a href="#fn3" class="fn" id="ref3">[3]</a> It became a direct model for elements of the United States Constitution, including its structure of separated executive, legislative, and judicial powers.</p>
+  <p>Adams spent much of the Revolutionary War and the years immediately after it serving as a diplomat in Europe. He worked to secure loans and recognition from the Dutch Republic, served as one of the American negotiators of the Treaty of Paris in 1783 that ended the Revolutionary War, and later became the first American minister to Great Britain, a post that required him to stand before King George III as the representative of the country that had just defeated him.<a href="#fn4" class="fn" id="ref4">[4]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I find that last detail remarkable and I don't think it gets talked about enough. Adams had to walk into the court of the king he'd spent a decade fighting against and be received as an equal. That takes a specific kind of nerve, and it's part of why I don't think Adams gets a fair shake historically compared to how much he actually carried.</p>
+
+  <h2>Vice Presidency Under Washington</h2>
+  <p>Adams served two full terms as the first Vice President of the United States, from 1789 to 1797, under George Washington. It's a role he famously found frustrating, and he wasn't shy about saying so.</p>
+  <p>In a letter to Abigail, Adams described the vice presidency as the most insignificant office that ever the invention of man contrived or his imagination conceived. The Constitution gave the vice president almost no defined power beyond presiding over the Senate and casting tie-breaking votes. Adams cast 29 tie-breaking votes, a figure confirmed by Senate historical records.<a href="#fn5" class="fn" id="ref5">[5]</a> That stood as the record until John C. Calhoun reached 31 in the 1820s; Kamala Harris later set the all-time mark at 33. Adams' total remains among the highest in history.</p>
+  <p>Despite his frustration with the office itself, the role placed him at the center of the earliest political fault lines in the new republic. He watched, and increasingly participated in, the emerging split between Federalists, who favored a stronger central government and closer ties with Britain, and Democratic-Republicans led by Jefferson and Madison, who favored stronger state power and sympathy toward revolutionary France. Adams aligned with the Federalists, though he was never fully comfortable with the party label or with some of the more aggressive figures within his own party, a tension that would define his presidency.</p>
+  <p>The vice presidency gave him a front-row seat to how Washington governed, but almost no hand in actually shaping policy. When he took office as president himself in 1797, he did so having watched the job closely for eight years without ever really having done it.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this is worth sitting with. Adams walked into the presidency more prepared, on paper, than almost any president since. He'd been a diplomat, a constitutional author, and Washington's number two. And he still walked into a mess almost immediately, partly because Washington's shadow was enormous and partly because Adams inherited people, not just a job.</p>
+
+  <h2>The Election of 1796 and Taking Office</h2>
+  <p>The election of 1796 was the first genuinely contested presidential election in American history. Washington's decision not to seek a third term ended the only period in which the outcome had been a foregone conclusion, and it exposed just how fast the country's political factions had hardened.</p>
+  <p>Adams ran as the Federalist candidate against Thomas Jefferson, the Democratic-Republican candidate. Under the electoral system in place at the time, the runner-up in the presidential vote became vice president regardless of party. Adams won narrowly, receiving 71 electoral votes to Jefferson's 68, which meant the new president and vice president came from opposing, increasingly hostile political factions.<a href="#fn6" class="fn" id="ref6">[6]</a> That arrangement lasted only one election cycle before the Twelfth Amendment changed the process in 1804, largely because of how unworkable this outcome proved to be.</p>
+  <p>Adams made a decision early in his presidency that would create ongoing problems for him: he chose to retain nearly all of Washington's cabinet rather than build his own. This included figures like Secretary of State Timothy Pickering and Secretary of the Treasury Oliver Wolcott Jr., both of whom held stronger loyalty to Alexander Hamilton, who remained enormously influential within the Federalist Party despite holding no formal office, than to Adams himself.<a href="#fn7" class="fn" id="ref7">[7]</a> Hamilton and Adams had a difficult relationship dating back years, and Adams' own cabinet would, at points during his presidency, coordinate with Hamilton behind Adams' back on matters of policy.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this was Adams' single biggest unforced error as president, and it's one I don't think gets enough attention when people talk about what went wrong for him. He had the chance to build a cabinet loyal to him and chose continuity instead, and it cost him control of his own administration at multiple points. Washington could get away with keeping strong personalities around him because nobody was above him. Adams didn't have that luxury, and I don't think he fully reckoned with that difference going in.</p>
+
+  <h2>The XYZ Affair and the Quasi-War with France</h2>
+  <p>Adams' presidency was immediately consumed by a crisis inherited from Washington's final years in office: deteriorating relations with revolutionary France.</p>
+  <p>France viewed the Jay Treaty, which Washington had negotiated with Britain in 1794, as a betrayal of the 1778 Franco-American alliance that had helped win the Revolutionary War. In response, French privateers began seizing American merchant ships, and France refused to receive the American minister sent to smooth relations. Adams, hoping to avoid war, sent a three-man diplomatic commission to France in 1797 consisting of Charles Cotesworth Pinckney, John Marshall, and Elbridge Gerry.</p>
+  <p>When the American commissioners arrived, French Foreign Minister Talleyrand's agents, later referred to in American dispatches only as X, Y, and Z to protect their identities, demanded a substantial bribe and a loan to France before any formal negotiations could even begin. The American commissioners refused and the negotiations collapsed.<a href="#fn8" class="fn" id="ref8">[8]</a></p>
+  <p>When Adams released the commissioners' dispatches to Congress in 1798, with the agents' names redacted, the public reaction was immediate and furious. The phrase millions for defense, but not one cent for tribute, commonly attributed to Pinckney though its exact origin and wording are disputed among historians, became a rallying cry. War fever swept the country. Congress authorized an expansion of the navy, created the Department of the Navy as a standalone cabinet position, and authorized the raising of a provisional army.<a href="#fn9" class="fn" id="ref9">[9]</a> What followed was an undeclared naval conflict known as the Quasi-War, fought almost entirely at sea between American and French vessels from 1798 to 1800.</p>
+  <p>Adams' own party, led in spirit by Hamilton, wanted a full declaration of war against France and the buildup of a large standing army, with Hamilton himself angling for a senior military command. Adams resisted a formal declaration of war throughout the crisis, even as pressure from within his own Federalist Party mounted.</p>
+
+  <h2>Adams' Defining Decision: Avoiding War</h2>
+  <p><span class="opinion-inline">Opinion</span> This is the section of Adams' presidency I think matters most, and it's the one I'd point to first if someone asked me why he deserves more credit than he usually gets.</p>
+  <p>By 1798 and into 1799, the pressure on Adams to seek a formal declaration of war against France was immense, and it was coming from inside his own party. Hamilton and the Federalist faction aligned with him wanted a full-scale conflict, a large standing army, and Hamilton positioned himself to command it. Adams did allow the buildup of a provisional army and authorized Washington, brought out of retirement, to nominally lead it, largely to manage Hamilton's ambitions by keeping him under Washington's authority rather than independent.</p>
+  <p>Despite this pressure, Adams made the decision in early 1799 to send a new peace commission to France without consulting his cabinet in advance, a move that reportedly stunned and angered several of his own department secretaries when they learned of it. This led to the negotiations that produced the Treaty of Mortefontaine, signed in 1800, which formally ended the Quasi-War and released the United States from its remaining obligations under the 1778 alliance with France.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+  <p>The decision was deeply unpopular within Adams' own party. Hamilton and the more aggressive Federalists saw it as a betrayal of the momentum they'd built toward a larger military posture and, in Hamilton's case, his own path to a prominent military command. The rift this created within the Federalist Party is widely cited by historians as a significant factor in the party's fracturing ahead of the 1800 election.</p>
+  <p>Adams himself later wrote that he considered the peace with France one of the most important accomplishments of his life, and reportedly wanted it inscribed on his tombstone alongside his authorship of the Massachusetts Constitution.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this is the closest thing to a defining moral test that Adams faced as president, and I think he passed it in a way that most politicians, then or now, would not have. He had a war that would have been politically popular, a party pushing him toward it, and a clear path to reelection if he'd gone along with it. He chose peace instead, knowing it would likely cost him the presidency, and it did. I don't think you can overstate how rare that is. Most people in politics protect their own position first. Adams didn't, at least not here, and I think that's the single strongest argument for how he should be remembered.</p>
+
+  <h2>The Alien and Sedition Acts</h2>
+  <p><span class="opinion-inline">Opinion</span> If the Treaty of Mortefontaine is the accomplishment I'd point to first, the Sedition Act in particular is the piece of Adams' record I think deserves the harshest, most direct criticism, and I'm not going to soften that part.</p>
+  <p>In the summer of 1798, with war fever against France running high, Congress passed four laws collectively known as the Alien and Sedition Acts. Adams signed all four into law.<a href="#fn11" class="fn" id="ref11">[11]</a></p>
+  <p>The Naturalization Act extended the residency requirement for citizenship from five years to fourteen years. Historians commonly frame this as a Federalist attempt to delay citizenship, and with it the right to vote, for recent immigrants who tended to favor the opposing Democratic-Republican Party. That reading is well documented in the congressional debate at the time. It's also fair to note, and contested among historians, that a longer residency requirement is not inherently illegitimate as a citizenship standard on its own; the criticism centers more on the political timing and motive behind the change than on the number fourteen itself.</p>
+  <p><span class="opinion-inline">Opinion</span> I don't think a fourteen year residency requirement to become a citizen is unreasonable on its face, then or now. I'm in favor of legal immigration, and I think the standard to become a citizen should be both rigorous and accessible, not instant and not indefinite. Where I think the 1798 version and today's immigration reality differ is scale and method: the concern in 1798 was about immigrants who were already going through a legal process taking too long to become voters. That's a very different situation from someone entering the country illegally, whether over land or by boat, and I don't think the same leniency should apply to that case.</p>
+  <p>The Alien Friends Act gave the president the power to deport any non-citizen he judged dangerous to the country, without a trial or any requirement to show evidence. The Alien Enemies Act, which remains on the books in modified form today, allowed the detention or deportation of citizens of a hostile nation during wartime. The Sedition Act made it a federal crime to publish false, scandalous, and malicious writing against the government, Congress, or the president, with penalties of fines and imprisonment.</p>
+  <p>The Sedition Act was used to prosecute Adams' political opponents. Roughly two dozen individuals, mostly Democratic-Republican newspaper editors and at least one sitting member of Congress, Matthew Lyon of Vermont, were indicted under the law.<a href="#fn12" class="fn" id="ref12">[12]</a> Lyon was convicted and served four months in prison for criticizing Adams' vanity and pursuit of power in a published letter, and was reelected to Congress while still incarcerated. Several other newspaper editors were fined or imprisoned for similar criticism of the administration.</p>
+  <p>Jefferson and Madison responded with the Kentucky and Virginia Resolutions, arguing that states had the authority to judge the constitutionality of federal laws, an argument that would echo forward into later and far more dangerous states' rights disputes in American history.<a href="#fn13" class="fn" id="ref13">[13]</a> The Sedition Act and Alien Friends Act both contained sunset clauses and expired in 1801, shortly after Adams left office. The Alien Enemies Act did not, and portions of it remain part of federal law today.</p>
+  <p>Historians differ on how directly to blame Adams personally versus his party and Congress. Adams did not propose the Sedition Act and reportedly had reservations about parts of it, but he signed all four bills into law, never vetoed any of them, and made no public effort to temper enforcement while prosecutions were actively underway against his own political critics.</p>
+  <p><span class="opinion-inline">Opinion</span> I'm not going to give Adams a pass on the Sedition Act. Using federal law to jail people, including a sitting congressman, for criticizing the president is a direct violation of the First Amendment's spirit, seven years after that amendment was ratified. He signed it. He could have vetoed it and didn't. This is the clearest stain on his presidency and I think it should be treated as one.</p>
+
+  <h2>The Adams-Jefferson Rupture</h2>
+  <p>Adams and Jefferson had been close collaborators and friends since serving together in the Continental Congress in the 1770s, working side by side on the committee that drafted the Declaration of Independence. That friendship did not survive the 1790s.</p>
+  <p>As the Federalist and Democratic-Republican parties hardened into opposing camps, Adams and Jefferson found themselves on opposite sides of nearly every major fight of the decade: the response to the French Revolution, the scope of federal power, the Alien and Sedition Acts, and eventually the presidency itself. Jefferson, as Adams' own vice president after the 1796 election, quietly worked against significant portions of Adams' agenda, including opposing the Alien and Sedition Acts through the Kentucky Resolutions, which he authored anonymously.</p>
+  <p>The 1800 election turned into one of the ugliest and most personal campaigns in early American history. Federalist newspapers and operatives, some connected to Adams' own party though not directly to Adams himself, attacked Jefferson as a dangerous atheist and a radical sympathizer with the bloodshed of the French Revolution. Democratic-Republican papers, in turn, attacked Adams as a closet monarchist who wanted to establish a hereditary presidency, a charge Adams found particularly insulting given his actual record. Neither man conducted these attacks personally in the way a modern candidate would, campaigning directly was still considered undignified at the time, but both allowed and in some cases encouraged surrogates to wage the fight on their behalf.</p>
+  <p>When Adams lost the election, the personal breach was severe enough that the two men did not correspond for years afterward. Adams, by most historical accounts, felt the loss both politically and personally, having lost not just the presidency but a friendship he'd valued for decades.</p>
+  <p>The reconciliation did not begin until 1812, when Adams initiated contact through a brief letter, reportedly prompted by their mutual friend Benjamin Rush. What followed was one of the most significant correspondences in American historical memory, spanning fourteen years and covering philosophy, religion, politics, and reflections on the revolution they had both lived through.<a href="#fn14" class="fn" id="ref14">[14]</a> That correspondence is preserved and is one of the primary sources historians use to understand both men's later thinking.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this rupture and its repair says something honest about political division that we could stand to learn from today. These were two men who fundamentally disagreed on how the country should be run, said genuinely harsh things about each other through surrogates, and lost a real friendship over it. And they still found their way back to each other before the end. I don't think every political rivalry needs to end in permanent enmity, and I think Adams and Jefferson proved that.</p>
+
+  <h2>The Election of 1800 and the Peaceful Transfer of Power</h2>
+  <p>Adams lost the election of 1800 to Jefferson, and the loss itself was messy before it was even resolved. Because of the flawed electoral system of the time, Jefferson and his own running mate, Aaron Burr, ended up tied with 73 electoral votes each, throwing the decision into the House of Representatives. The House took 36 ballots over several days before finally electing Jefferson, with Hamilton, despite his history with Adams, working behind the scenes to help swing Federalist votes toward Jefferson over Burr, whom he considered far more dangerous.<a href="#fn15" class="fn" id="ref15">[15]</a> That deadlock is what led directly to the Twelfth Amendment in 1804, which separated the presidential and vice presidential ballots going forward.</p>
+  <p>In the final months of his presidency, Adams made a series of judicial appointments that would become one of the more controversial footnotes of his term. Congress, still controlled by the outgoing Federalist majority, passed the Judiciary Act of 1801, which created a number of new federal judgeships. Adams filled these positions in his last weeks in office, appointments that came to be known as the midnight judges. One of these commissions, for a man named William Marbury, was never delivered before Adams left office, and the resulting dispute became the basis for Marbury v. Madison in 1803, the case that established the principle of judicial review.<a href="#fn16" class="fn" id="ref16">[16]</a></p>
+  <p>Adams' most consequential appointment from this period, though not one of the controversial midnight judgeships, was naming John Marshall as Chief Justice of the Supreme Court in January 1801. Marshall would go on to serve for 34 years and is widely regarded by legal historians as the most influential Chief Justice in American history, shaping the powers of the judiciary in ways that are still felt today.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+  <p>Adams left Washington before dawn on March 4, 1801, the morning of Jefferson's inauguration, and did not attend the ceremony. Historians differ on why. Some attribute it to bitterness over the loss and the personal rupture with Jefferson. Others note that it was not yet an established custom for outgoing presidents to attend, and that Adams may have left simply to travel home to Massachusetts in time to be with Abigail, whose family was dealing with the recent death of their son Charles. What is not in dispute is that the transfer of power itself, however personally painful for Adams, happened peacefully, with the losing party accepting the outcome and vacating office without incident, something that was not guaranteed to work in a country only twelve years into its constitutional government.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this last point gets undersold historically because we take it for granted now. This was the first time in American history that political power passed from one party to a rival party that had spent years attacking it. Nobody knew for certain that would happen peacefully. Adams not attending the inauguration is a small, human, understandable failure of grace. But he still left. He didn't contest it, he didn't call out the military, he didn't claim fraud. He just left. I think that matters more than the optics of the exit.</p>
+
+  <h2>Domestic Life and Character</h2>
+  <p>No account of Adams is complete without Abigail Adams, who was far more than a supporting figure in his life and career. The two married in 1764 and maintained one of the most extensive and substantive correspondences of any presidential couple in American history, exchanging over 1,100 letters across their lifetime, many of which survive and are preserved through the Massachusetts Historical Society's Adams Papers project.</p>
+  <p>Abigail was Adams' closest political confidante, and he regularly sought her judgment on matters of policy and appointments, corresponding with her about affairs of state in a level of detail that was unusual for the period. Her March 1776 letter urging him to remember the ladies in the new code of laws being drafted, warning that women would not hold themselves bound by laws in which they had no voice, is one of the most cited pieces of early American writing on the exclusion of women from the founding political order.<a href="#fn18" class="fn" id="ref18">[18]</a> Adams did not act on this request in any binding legal sense, and women's legal and political status did not change as a result, but the exchange is a significant historical document of the era's debates, or lack thereof, over who the new republic's rights actually extended to.</p>
+  <p>On matters of temperament, Adams was widely regarded by contemporaries, and by his own repeated self-description, as vain, blunt, and thin-skinned. He acknowledged this about himself directly in his own writings and diary entries throughout his life, at one point describing his own vanity as a fault he recognized but struggled to master. Benjamin Franklin, who worked closely with Adams as a fellow diplomat in France, wrote that Adams was always an honest man, often a wise one, but sometimes and in some things, absolutely out of his senses, a characterization historians frequently cite as capturing both genuine respect and real exasperation.<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+  <p>Adams was also, by most historical accounts, deeply religious in a Congregationalist and later Unitarian tradition, intellectually serious to the point of being described as pedantic by some contemporaries, and possessed of a work ethic that showed up consistently across his legal, diplomatic, and political careers. He was not, by nearly every account including his own, a naturally charismatic or popular public figure in the way Washington or later Jefferson could be.</p>
+  <p><span class="opinion-inline">Opinion</span> I think Adams' self-awareness about his own flaws is one of the more admirable things about him, and it's rare in a historical figure of his stature. He didn't pretend to be even-tempered or universally liked. He knew he was prickly and said so in his own hand. I respect that kind of honesty more than performative humility, and I think it's part of why his marriage to Abigail worked as well as it did. She wasn't managing an ego that couldn't see itself.</p>
+
+  <h2>Later Life and the Jefferson Reconciliation</h2>
+  <p>After leaving the presidency in 1801, Adams retired to his farm in Quincy, Massachusetts, largely withdrawing from national political life for the remainder of his years. He spent much of his retirement writing, reading, and corresponding, including the eventual restoration of his friendship with Jefferson that began in 1812.</p>
+  <p>The Adams-Jefferson correspondence that followed is considered one of the most significant bodies of writing to survive the founding generation. Over the following fourteen years, the two men exchanged letters covering religion, political philosophy, their competing recollections of the revolution, and reflections on mortality and legacy. Both men were candid in these letters in a way they had not been able to be during their years as political rivals, and historians rely heavily on this correspondence to understand how each man's thinking evolved later in life.</p>
+  <p>Adams also lived to see his son, John Quincy Adams, rise through a distinguished diplomatic and political career of his own, and was still alive when John Quincy was elected president in 1824 and inaugurated in March 1825.<a href="#fn20" class="fn" id="ref20">[20]</a> Adams became the first person in American history to see his son become president, a distinction that would not occur again until George H.W. Bush lived to see George W. Bush's presidency generations later.</p>
+  <p>Adams died on July 4, 1826, at his home in Quincy, at the age of 90, the oldest of the first five presidents at the time of his death.<a href="#fn21" class="fn" id="ref21">[21]</a> His last words, as recorded by those present, were reportedly Thomas Jefferson survives, though Jefferson had in fact died earlier that same day at Monticello, a coincidence Adams was unaware of. The fact that both men died on the fiftieth anniversary of the Declaration of Independence, within hours of each other, struck contemporaries as extraordinary and has remained one of the most noted coincidences in American history since.</p>
+  <p><span class="opinion-inline">Opinion</span> I don't think I need to add much editorializing to this one. The facts speak for themselves here, and I think that's rare enough in this piece that it's worth just letting it sit as it is.</p>
+
+  <h2>Legacy and Historical Standing</h2>
+  <p>Adams' historical reputation has followed an unusual arc compared to most of his founding-era peers. For much of the nineteenth and twentieth centuries, he sat in a kind of shadow, overshadowed by Washington's stature, Jefferson's authorship of the Declaration, and Hamilton's outsized influence on the country's financial architecture. That began to shift substantially with the modern reappraisal of his life, most notably through David McCullough's 2001 biography and the HBO miniseries it inspired, which brought his role in the founding, and Abigail's role alongside him, to a much wider audience than academic history alone had reached.</p>
+  <p>In modern presidential historian rankings, including surveys conducted by the Siena College Research Institute and C-SPAN's periodic presidential historian surveys, Adams typically lands in the middle tier, generally ranked somewhere between the mid-teens and low twenties out of 45 presidencies.<a href="#fn22" class="fn" id="ref22">[22]</a> Historians most consistently credit him for maintaining peace with France against his own party's wishes and for the peaceful transfer of power in 1801, and most consistently criticize him for the Alien and Sedition Acts and for retaining Washington's cabinet rather than building his own.</p>
+  <p>Adams' own assessment of his legacy was notably specific. In his later years, he expressed the wish to be remembered for three things: the Massachusetts Constitution of 1780, his negotiation of peace with France, and his choice of John Marshall as Chief Justice. Notably, he did not ask to be remembered as president first, which several historians have pointed to as evidence of how he personally weighed his own accomplishments.</p>
+  <p><span class="opinion-inline">Opinion</span> I think Adams himself had a more accurate read on his own legacy than most retrospectives give him credit for. The presidency was arguably not the most consequential thing he did with his life, and I don't think that's a knock on him. A lot of people spend their whole careers chasing the title without ever doing something as durable as writing a state constitution that's still in effect 245 years later, or shaping the judiciary through a single, well-chosen appointment. Adams did both of those things and still gets remembered mostly as the second president in casual conversation. I think that undersells him.</p>
+
+  <h2>Modern Verdict</h2>
+
+  <div class="verdict-block">
+    <h3>Would Adams be a polarizing or unifying figure today?</h3>
+    <p><span class="opinion-inline">Opinion</span> I think Adams would win in a landslide in today's political climate, and I say that mainly because of one thing: his restraint on war. He had a country baying for war against France, a war his own party wanted, and he chose peace anyway, knowing it would cost him politically. That is exactly the instinct I think a huge share of the country is starving for right now. We are watching one of the most unpopular wars in recent memory unfold, and a leader who was willing to tell his own base no, we are not doing this, when it would have been easy and popular to say yes, that is rare in any era, and I think it would resonate powerfully today across party lines. Anti-war sentiment right now cuts across the political spectrum in a way it hasn't in decades, and Adams' actual record on this is about as strong as it gets.</p>
+    <p><span class="opinion-inline">Opinion</span> That's my honest read, and it's the main reason I think he'd be unifying rather than polarizing today. Where I'd add nuance is that the Alien and Sedition Acts would be a real liability in a modern campaign, and a dishonest opponent would absolutely use them against him. But I think the peace with France, framed correctly, would outweigh that for most voters the way it should.</p>
+
+    <h3>What holds up under modern scrutiny?</h3>
+    <p>His decision to pursue peace with France over the objections of his own party holds up as well as almost anything any president has ever done. It was not the popular choice in the moment, it cost him his own reelection, and it turned out to be the right call, both morally and strategically. His insistence on a peaceful transfer of power in 1801, even under personal bitterness toward Jefferson, also holds up completely. And his role authoring the Massachusetts Constitution, a functioning document nearly two and a half centuries later, is the kind of accomplishment that only gets more impressive with time, not less.</p>
+
+    <h3>What wouldn't survive contact with today's press and social media?</h3>
+    <p>The Alien and Sedition Acts would still draw real criticism today, but I'm less certain than I was in an earlier draft that it would actually cost Adams votes.</p>
+    <p><span class="opinion-inline">Opinion</span> Looking at recent political history, Donald Trump ran on one of the most aggressive immigration platforms of the modern era and still won the popular vote in 2024, which tells me immigration restriction alone is not the political liability it's often assumed to be.<a href="#fn23" class="fn" id="ref23">[23]</a> And on the sedition side, I think both parties in the current environment have shown a willingness to use legal, regulatory, or platform pressure against political speech they don't like, whether that's through lawsuits, deplatforming, or selective enforcement. I don't think either side has particularly clean hands here right now. So while the optics of jailing a sitting congressman for criticizing the president would generate real backlash in the news cycle, I'm not convinced it would be the vote-moving scandal it might have been in a different political era. People have shown they'll tolerate a lot from a leader they otherwise agree with, on both sides of the aisle.</p>
+    <p><span class="opinion-inline">Opinion</span> What I think would more consistently hurt him is the retention of Washington's cabinet and the resulting internal sabotage from Hamilton loyalists. That's not a partisan issue, it's a competence and control issue, and voters across the spectrum tend to punish that regardless of party. His famously thin skin and self-admitted vanity would also likely get turned into a defining caricature the way it happens to nearly every modern public figure with a visible temper, though that's more personality than substance.</p>
+  </div>
+
+  <div class="footnotes">
+    <span class="footnotes-label">Sources</span>
+    <p class="footnote" data-n="1">McCullough, David. John Adams. Simon and Schuster, 2001. Ferling, John. John Adams: A Life.</p>
+    <p class="footnote" data-n="2">Founders Online, National Archives, Jefferson correspondence on Adams' role in the Declaration debate.</p>
+    <p class="footnote" data-n="3">Massachusetts Constitution of 1780, primary text, principal author John Adams.</p>
+    <p class="footnote" data-n="4">Miller Center, University of Virginia, presidential biography and administration history. McCullough, John Adams.</p>
+    <p class="footnote" data-n="5">Senate Historical Office. List of tie-breaking votes cast by vice presidents of the United States.</p>
+    <p class="footnote" data-n="6">Miller Center, University of Virginia, presidential biography and administration history. National Archives, 1796 election records.</p>
+    <p class="footnote" data-n="7">Ferling, John Adams: A Life. McCullough, John Adams.</p>
+    <p class="footnote" data-n="8">XYZ Affair dispatches and related State Department correspondence, National Archives.</p>
+    <p class="footnote" data-n="9">Miller Center, University of Virginia, presidential biography and administration history.</p>
+    <p class="footnote" data-n="10">Treaty of Mortefontaine (1800), primary treaty text. McCullough, John Adams.</p>
+    <p class="footnote" data-n="11">Alien and Sedition Acts of 1798, primary legislative text, National Archives.</p>
+    <p class="footnote" data-n="12">Bird, Wendell. "New Light on the Sedition Act of 1798: The Missing Half of the Prosecutions." Law and History Review.</p>
+    <p class="footnote" data-n="13">Kentucky and Virginia Resolutions, primary text, National Archives. Miller Center, University of Virginia.</p>
+    <p class="footnote" data-n="14">Massachusetts Historical Society, Adams Papers digital edition. Founders Online, National Archives, Adams-Jefferson correspondence.</p>
+    <p class="footnote" data-n="15">Miller Center, University of Virginia, presidential biography and administration history. National Archives, 1800 election records.</p>
+    <p class="footnote" data-n="16">Judiciary Act of 1801, primary legislative record, including the midnight judges appointments, National Archives.</p>
+    <p class="footnote" data-n="17">White House Historical Association, Adams biographical materials. Miller Center, University of Virginia.</p>
+    <p class="footnote" data-n="18">Massachusetts Historical Society, Adams Papers digital edition, Abigail Adams correspondence, March 1776.</p>
+    <p class="footnote" data-n="19">McCullough, John Adams, citing Franklin's correspondence.</p>
+    <p class="footnote" data-n="20">Miller Center, University of Virginia, presidential biography and administration history. White House Historical Association.</p>
+    <p class="footnote" data-n="21">Adams National Historical Park, National Park Service, biographical and historical materials. McCullough, John Adams.</p>
+    <p class="footnote" data-n="22">C-SPAN, American Presidents: Life Portraits archival materials and presidential historian surveys. Siena College Research Institute presidential rankings.</p>
+    <p class="footnote" data-n="23">Associated Press and major news outlet reporting confirming the 2024 presidential election national popular vote result.</p>
+  </div>
+
+  <div class="bibliography">
+    <span class="bib-label">Bibliography</span>
+
+    <div class="bib-group-title">Primary Documents and Archives</div>
+    <p class="bib-item">Founders Online, National Archives. Adams' correspondence, including the Adams-Jefferson letters.</p>
+    <p class="bib-item">Massachusetts Historical Society. The Adams Papers digital edition.</p>
+    <p class="bib-item">Massachusetts Constitution of 1780. Primary text.</p>
+    <p class="bib-item">Alien and Sedition Acts of 1798. Primary legislative text, National Archives.</p>
+    <p class="bib-item">XYZ Affair dispatches and related State Department correspondence, National Archives.</p>
+    <p class="bib-item">Treaty of Mortefontaine (1800). Primary treaty text.</p>
+    <p class="bib-item">Judiciary Act of 1801. Primary legislative record.</p>
+
+    <div class="bib-group-title">Institutional and Historical Resources</div>
+    <p class="bib-item">Adams National Historical Park, National Park Service.</p>
+    <p class="bib-item">Miller Center, University of Virginia.</p>
+    <p class="bib-item">White House Historical Association.</p>
+    <p class="bib-item">C-SPAN, American Presidents: Life Portraits.</p>
+    <p class="bib-item">Senate Historical Office, tie-breaking vote records.</p>
+
+    <div class="bib-group-title">Biographies and Scholarship</div>
+    <p class="bib-item">McCullough, David. John Adams. Simon and Schuster, 2001.</p>
+    <p class="bib-item">Ellis, Joseph. Passionate Sage: The Character and Legacy of John Adams.</p>
+    <p class="bib-item">Ferling, John. John Adams: A Life.</p>
+    <p class="bib-item">Bird, Wendell. "New Light on the Sedition Act of 1798." Law and History Review.</p>
+
+    <div class="bib-group-title">Editorial Partners</div>
+    <p class="bib-item">ProPublica</p>
+    <p class="bib-item">The Intercept</p>
+    <p class="bib-item">Brennan Center for Justice</p>
+    <p class="bib-item">Dropsite News</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 PoliticalHypocrites.us. All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>

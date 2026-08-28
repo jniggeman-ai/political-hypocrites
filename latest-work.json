@@ -1,0 +1,23 @@
+[
+  {
+    "label": "President Series",
+    "title": "John Adams",
+    "hook": "He had a war his own party wanted and a country ready to give it to him. He chose peace with France instead, knowing it would cost him the presidency, and it did.",
+    "date": "2026-08-28",
+    "url": "/presidents/john-adams"
+  },
+  {
+    "label": "President Series",
+    "title": "George Washington",
+    "hook": "The man who invented the presidency, with no template to work from. What he built, what he got wrong, and whether we'd still see him the way we're taught to today.",
+    "date": "2026-08-28",
+    "url": "/presidents/george-washington"
+  },
+  {
+    "label": "Investigation",
+    "title": "Who Really Runs the American Economy",
+    "hook": "BlackRock, Vanguard, State Street, and the Big Three, and why the reputation doesn't match the record.",
+    "date": "2026-08-25",
+    "url": "/investigations/who-really-runs-the-american-economy"
+  }
+]
