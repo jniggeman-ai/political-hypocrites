@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Best Investment in Washington Is a Seat in Congress | Political Hypocrites</title>
+  <meta name="description" content="A documented investigation into the STOCK Act, the closed-door briefings, the committee trades, and the fourteen years of bipartisan reform bills that keep stalling before they pass." />
+  <!-- Open Graph for X/Twitter sharing -->
+  <meta property="og:title" content="The Best Investment in Washington Is a Seat in Congress | Political Hypocrites" />
+  <meta property="og:description" content="A documented investigation into the STOCK Act, the closed-door briefings, the committee trades, and the fourteen years of bipartisan reform bills that keep stalling before they pass." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/investigations/the-best-investment-in-washington" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Best Investment in Washington Is a Seat in Congress | Political Hypocrites" />
+  <meta name="twitter:description" content="A documented investigation into the STOCK Act, the closed-door briefings, the committee trades, and the fourteen years of bipartisan reform bills that keep stalling before they pass." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.68);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 780px; margin: 0 auto;
+      padding: 5rem 3rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .breadcrumb a { color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { color: rgba(0,0,0,0.12); }
+
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic;
+      color: rgba(20,10,5,0.50); line-height: 1.5; margin-bottom: 2rem;
+    }
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .meta-item {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32);
+    }
+    .meta-item strong { color: rgba(20,10,5,0.60); font-weight: 400; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 3rem 3rem;
+    }
+
+    .article-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.9; font-weight: 300;
+      color: rgba(20,10,5,0.75);
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: #1A0F05; margin: 3rem 0 1.2rem; line-height: 1.2;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.15rem; color: rgba(20,10,5,0.85);
+      margin: 2rem 0 0.8rem; font-style: italic;
+    }
+    .article-body p {
+      font-size: 1rem; line-height: 1.9; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.4rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .part-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 4rem 0 2.5rem;
+    }
+    .part-divider::before, .part-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+    .part-divider span {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+      white-space: nowrap;
+    }
+
+    .source-note {
+      border-left: 3px solid rgba(20,10,5,0.14);
+      padding: 1rem 1.3rem; background: rgba(0,0,0,0.04);
+      margin: 2rem 0;
+    }
+    .source-note p {
+      font-size: 0.82rem; color: rgba(20,10,5,0.38);
+      font-style: italic; margin-bottom: 0;
+    }
+    .source-note strong { color: rgba(20,10,5,0.55); font-style: normal; }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.42); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.50); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-note {
+      font-size: 0.72rem; color: rgba(20,10,5,0.35);
+      font-style: italic; margin-top: 1.5rem; line-height: 1.6;
+    }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .article-header { padding: 3rem 1.5rem 2rem; }
+      .article-body { padding: 3rem 1.5rem 2rem; }
+      .bibliography-section { padding: 2rem 1.5rem 4rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations" class="active">Investigations</a></li>
+    <li><a href="/current-events">Current Events</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/investigations">Investigations</a>
+    <span>/</span>
+    <span>The Best Investment in Washington Is a Seat in Congress</span>
+  </div>
+  <span class="article-label">Investigation</span>
+  <h1 class="article-title">The Best Investment in Washington Is a Seat in Congress</h1>
+  <p class="article-subtitle">How the STOCK Act Was Supposed to End Congressional Insider Trading, and Why It Hasn't</p>
+  <div class="article-meta-bar">
+    <span class="meta-item"><strong>By</strong> Political Hypocrites</span>
+    <span class="meta-item"><strong>Published</strong> September 2026</span>
+    <span class="meta-item"><strong>Sources</strong> Legislative record, federal disclosures, academic studies, investigative journalism</span>
+    <a href="https://twitter.com/intent/tweet?text=The+Best+Investment+in+Washington+Is+a+Seat+in+Congress%3A+How+the+STOCK+Act+Was+Supposed+to+End+Congressional+Insider+Trading%2C+and+Why+It+Hasn%27t&url=https://political-hypocrites.vercel.app/investigations/the-best-investment-in-washington" target="_blank" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro">I am publishing this investigation because the question of whether Congress can be trusted to police its own stock trading is one of the rare issues that isn't actually split along party lines, even though the coverage of it often is. I have tried throughout this piece to hold both parties to the same evidentiary standard, to name the members involved regardless of party, and to be honest about where the academic research is genuinely mixed rather than flattening it into a cleaner story than the evidence supports. Where the record ends, I say so directly. My own opinions appear only where explicitly labeled as such.</p>
+
+  <div class="source-note">
+    <p><strong>Sourcing standard:</strong> Every claim in this investigation is sourced to the legislative record, federal disclosure filings, academic research, or named reporting. Contested claims are presented as contested. Opinion is labeled inline and never mixed into reported fact.</p>
+  </div>
+  <h2>Section 1: The Setup</h2>
+  <p>On June 17, 2022, Paul Pelosi, husband of then Speaker of the House Nancy Pelosi, exercised call options to purchase 20,000 shares of Nvidia stock.<a href="#fn1" class="fn" id="ref1">[1]</a> Weeks later, the Senate passed the CHIPS and Science Act, a bill built to send billions of dollars in subsidies to American semiconductor manufacturers, Nvidia included.<a href="#fn2" class="fn" id="ref2">[2]</a> Nancy Pelosi had publicly supported the bill.<a href="#fn3" class="fn" id="ref3">[3]</a> A month after the options were exercised, and a day before the Senate vote, Paul Pelosi sold 25,000 Nvidia shares at a loss of $341,365, a move his wife's office said was made to head off accusations of impropriety.<a href="#fn4" class="fn" id="ref4">[4]</a> It didn't work. The story ran everywhere.</p>
+  <p>I want to be precise about what that trade actually was, because the version that spreads on social media is not quite the version in the disclosure filings. The June 2022 position did not make the Pelosis money. It was sold at a loss before the bill even passed. What did eventually make them millions was a separate, unrelated Nvidia options position opened in November 2023, over a year later, that rode the AI stock boom into an enormous return.<a href="#fn5" class="fn" id="ref5">[5]</a> Both of these are documented facts. Neither one, on its own, proves insider trading. What they prove, together with hundreds of similar trades by members of both parties, is a pattern of a Congress that keeps placing bets adjacent to the very legislation it writes, and keeps deciding that's acceptable.</p>
+  <p>Six years before Pelosi's Nvidia options made headlines, Senator Richard Burr, Republican of North Carolina, sat through a closed-door Senate briefing on the developing COVID-19 pandemic on January 24, 2020.<a href="#fn6" class="fn" id="ref6">[6]</a> In the days that followed, he sold off up to 1.7 million dollars in hospitality and airline stock, all while telling the public the country was well prepared for whatever was coming.<a href="#fn7" class="fn" id="ref7">[7]</a> The market crashed a few weeks later. The Department of Justice investigated him for insider trading. In January 2021, it closed that investigation with no charges.<a href="#fn8" class="fn" id="ref8">[8]</a> Burr was not alone. Senators Kelly Loeffler, Dianne Feinstein, and Jim Inhofe made similar trades around the same period, and none of them, Democrat or Republican, ever faced a courtroom over it.<a href="#fn9" class="fn" id="ref9">[9]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I don't think either of these stories is the scandal. I think the scandal is that they are both completely ordinary. This is not a story about two bad actors from two different parties. It's a story about a Congress that wrote itself an exemption from the rules everyone else has to follow, closed that exemption on paper in 2012, and then spent the next fourteen years finding out that a law without real teeth is barely a law at all.</p>
+  <p>This is where that story starts.</p>
+  <h2>Section 2: The Origin Story</h2>
+  <p>The story of how Congress finally, on paper, banned insider trading among its own members does not start with a triumphant reform movement. It starts with a closed door meeting in September 2008, in the middle of the worst financial panic in generations.</p>
+  <p>Treasury Secretary Henry Paulson and Federal Reserve Chairman Ben Bernanke briefed members of Congress on how close the American banking system was to collapse. One of the members in that room was Representative Spencer Bachus of Alabama, then the ranking member of the House Financial Services Committee, the very committee tasked with overseeing the banks at the center of the crisis. According to later reporting, Bachus responded to that briefing by buying options that would pay off if the market fell. When it did, he profited.<a href="#fn10" class="fn" id="ref10">[10]</a></p>
+  <p>That story, along with several others involving members from both parties, sat largely unexamined by the public for years. It took a 2011 investigative segment on 60 Minutes to bring it into the open, laying out how members of Congress were legally allowed to trade on information gathered from closed briefings and private conversations that ordinary investors would never have access to.<a href="#fn11" class="fn" id="ref11">[11]</a> At the time, no federal law explicitly barred it.</p>
+  <p>The public reaction to the 60 Minutes segment was immediate and, notably, not divided by party. Three months later, in his January 24, 2012 State of the Union address, President Obama told Congress directly: &ldquo;send me a bill that bans insider trading by members of Congress, and I will sign it tomorrow.&rdquo;<a href="#fn12" class="fn" id="ref12">[12]</a> Two days after that speech, the STOCK Act, formally the Stop Trading on Congressional Knowledge Act, was reintroduced in the Senate.<a href="#fn13" class="fn" id="ref13">[13]</a></p>
+  <p>What happened next matters. The bill passed the Senate 96 to 3. It passed the House 417 to 2.<a href="#fn14" class="fn" id="ref14">[14]</a> Both parties, in overwhelming numbers, voted to bind themselves to a rule they had spent decades operating without. President Obama signed it into law on April 4, 2012.<a href="#fn15" class="fn" id="ref15">[15]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I think this moment deserves more credit than it usually gets, and I say that as someone who is about to spend the rest of this piece explaining how badly the law that followed has failed. A nearly unanimous vote to restrict your own financial freedom, taken by people who had never had to live under that restriction before, is a genuinely rare thing in American politics. It's also, as I'll get into next, not the end of the story. It's where the real story starts.</p>
+  <h2>Section 3: The Law That Wasn't</h2>
+  <p>For about a year, the STOCK Act worked exactly as advertised. Then, on April 15, 2013, almost exactly twelve months after President Obama signed it into law in front of cameras and a bipartisan crowd of lawmakers, he signed a second bill that gutted a major part of it.<a href="#fn16" class="fn" id="ref16">[16]</a> There was no ceremony this time. The announcement from the White House was a single sentence.<a href="#fn17" class="fn" id="ref17">[17]</a></p>
+  <p>The original law required that financial disclosures from members of Congress, their staff, and covered executive branch employees be posted online in a format that was searchable, sortable, and downloadable.<a href="#fn18" class="fn" id="ref18">[18]</a> The 2013 amendment stripped that searchable database requirement for congressional staff and delayed or removed it for a large share of executive branch employees, citing a Government Accountability Office study on national security and identity theft risks.<a href="#fn19" class="fn" id="ref19">[19]</a></p>
+  <p>Lisa Rosenberg, who worked for the Sunlight Foundation and had helped push the original STOCK Act into law, put it plainly to NPR at the time: lawmakers had used a narrow, legitimate question about overbroad language in the bill as cover to gut the entire transparency mechanism that applied to themselves.<a href="#fn20" class="fn" id="ref20">[20]</a> The bill passed by unanimous consent, meaning there was no recorded vote at all.<a href="#fn21" class="fn" id="ref21">[21]</a></p>
+  <p>What survived the 2013 amendment were two things. Insider trading using nonpublic information remained illegal for members of Congress and the executive branch. And covered individuals still had to disclose large stock trades within 45 days of making them.<a href="#fn22" class="fn" id="ref22">[22]</a> What disappeared was the part of the law that made those disclosures easy for anyone outside Congress to actually use.</p>
+  <p>The penalty structure tells the rest of the story. A member of Congress who fails to properly disclose a stock trade under the STOCK Act faces a fine of 200 dollars.<a href="#fn23" class="fn" id="ref23">[23]</a> That number has not meaningfully changed since 2012, aside from a 2024 committee bill that would raise it to 500 dollars if it ever becomes law.<a href="#fn24" class="fn" id="ref24">[24]</a> Against trades that routinely run into the hundreds of thousands or millions of dollars, a 200 dollar fine is not a deterrent. It is closer to a receipt.</p>
+  <p><span class="opinion-inline">Opinion</span> I think this is the part of the story that should bother people more than any single trade by any single member. Congress did not fail to write a working law by accident. It wrote one, watched it work for a year, and then quietly took the working part out, with no debate and no vote anyone had to answer for. That is not a story about one party being worse than the other. Both parties let this happen in the same unanimous-consent vote. If you are looking for the moment this investigation is really about, it is this one, not any individual member's trading account.</p>
+  <h2>Section 4: What the Data Actually Shows</h2>
+  <p>This is the part of the story where I have to slow down, because the popular version of &ldquo;Congress beats the market&rdquo; is not exactly what the academic research says, and getting this right matters more than making a clean argument.</p>
+  <p>The first serious study came from Dr. Alan Ziobrowski at Georgia State University in 2004. Looking at Senate trades from 1993 to 1998, before the STOCK Act existed, Ziobrowski and his co-authors found that senators' stock purchases beat the market by close to 1 percent per month.<a href="#fn25" class="fn" id="ref25">[25]</a> A follow-up study in 2011 looked at the House instead, covering trades from 1985 to 2001, and found a similar pattern, though smaller: a portfolio built to mimic House members' purchases beat the market by about 55 basis points a month, or roughly 6 percent a year.<a href="#fn26" class="fn" id="ref26">[26]</a> Both studies were cited directly in the Senate committee report that led to the STOCK Act's passage.<a href="#fn27" class="fn" id="ref27">[27]</a></p>
+  <p>Here is where it gets more complicated. A study by Andrew Eggers of the London School of Economics and Jens Hainmueller of MIT, titled &ldquo;Capitol Losses,&rdquo; reconstructed the actual daily stock holdings of 422 members of Congress between 2004 and 2008, rather than just looking at trade dates the way the earlier studies did. Their conclusion was the opposite of the popular narrative. The average member of Congress in their sample underperformed the market by 2 to 3 percent annually.<a href="#fn28" class="fn" id="ref28">[28]</a></p>
+  <p>More recent research complicates the picture further rather than resolving it cleanly in either direction. A study by Cherry, Heitz, and Jens in 2017 found that senators do show an edge, not by picking winners, but by avoiding losses, selling stocks ahead of roughly 5.4 percent in annualized losses that ordinary investors would have taken.<a href="#fn29" class="fn" id="ref29">[29]</a> A December 2025 study published through the Centre for Economic Policy Research looked specifically at members in leadership positions, committee chairs and party leaders with the most access to sensitive information, and found that their trades kept showing positive, economically meaningful excess returns even after the STOCK Act passed, while trading frequency for that same group declined after 2012.<a href="#fn30" class="fn" id="ref30">[30]</a></p>
+  <p><span class="opinion-inline">Opinion</span> Here is how I read this honestly, rather than the way that makes for the punchiest headline. I don't think the data supports the claim that every member of Congress is running a personal hedge fund off classified briefings. Most of them, based on the best reconstruction we have, are unremarkable investors. But I also don't think the STOCK Act &ldquo;solved&rdquo; this problem the way its supporters claimed it would in 2012. The research keeps landing in the same place: the members with the most power and the most access are the ones whose advantage never really went away. That is a much narrower problem than &ldquo;Congress as a whole is corrupt,&rdquo; but it might be a more serious one, because it means the STOCK Act fixed the appearance of a widespread problem while leaving its most consequential version fully intact.</p>
+  <h2>Section 5: 2020, the Stress Test</h2>
+  <p>If the STOCK Act was ever going to prove it worked, this was the moment. In late January 2020, senators began receiving closed-door briefings on the emerging coronavirus threat from administration health officials and intelligence staff.<a href="#fn31" class="fn" id="ref31">[31]</a> In the days and weeks that followed, several of them made large, well-timed stock sales, before the public had any real sense of what was coming.</p>
+  <p>Senator Richard Burr and his wife sold 33 stocks on February 13, 2020, worth between $628,033 and $1.72 million, concentrated in hotel, travel, and hospitality stocks.<a href="#fn32" class="fn" id="ref32">[32]</a> Around the same time, Burr co-authored a public op-ed meant to reassure Americans that the government was prepared for whatever was coming. Weeks later, NPR obtained a recording of Burr speaking privately to a well-connected social club in North Carolina, warning that the virus was comparable in its transmissibility to the 1918 flu pandemic, a far more alarming assessment than anything he had said publicly. When NPR asked Burr's spokesperson for comment on the discrepancy, her initial response was a single word: &ldquo;lol.&rdquo; She later clarified with a more conventional statement.<a href="#fn33" class="fn" id="ref33">[33]</a></p>
+  <p>Burr was not alone. Senator Kelly Loeffler of Georgia, whose husband chairs the parent company of the New York Stock Exchange, sold off stock in the same window. Senator Dianne Feinstein of California and Senator Jim Inhofe of Oklahoma also made trades that drew scrutiny. Feinstein's office maintained that her assets were held in a qualified blind trust managed without her direct involvement.<a href="#fn34" class="fn" id="ref34">[34]</a></p>
+  <p>The Department of Justice closed its investigations into Feinstein, Loeffler, and Inhofe in May 2020, with no charges filed against any of them.<a href="#fn35" class="fn" id="ref35">[35]</a> Burr's case went further. The FBI seized his phone in May 2020, and he stepped down as Intelligence Committee chairman while the investigation continued.<a href="#fn36" class="fn" id="ref36">[36]</a> The Justice Department closed its criminal investigation into Burr in January 2021, again with no charges.<a href="#fn37" class="fn" id="ref37">[37]</a> The SEC kept its own civil investigation open even longer, examining a phone call between Burr and his brother-in-law, before closing that case too in January 2023 without taking any action.<a href="#fn38" class="fn" id="ref38">[38]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I don't think this is a story about four corrupt individuals who got lucky. I think it's the clearest demonstration we have that the STOCK Act, as written and as enforced, cannot actually catch the exact scenario it was built to prevent. If a global pandemic, a closed-door briefing, and tens of millions of dollars in avoided losses across multiple senators from both parties isn't enough to produce a single charge, it's hard for me to imagine what would be. This isn't a partisan failure. Republicans and Democrats sat in the same briefings, made the same kind of trades, and walked away with the same outcome. That consistency is exactly the problem.</p>
+  <h2>Section 6: The Committee Problem</h2>
+  <p>The scandals covered so far are dramatic because they involve a single identifiable event next to a single identifiable trade. The deeper and more structural version of this problem doesn't need a single dramatic event at all. It's built into the ordinary, day-to-day makeup of Congress: members sit on committees that write and oversee the rules for entire industries, and those same members hold personal investments in the companies those committees regulate.</p>
+  <p>In September 2022, the New York Times published an analysis that quantified how widespread this is. Times reporters built a database of committee jurisdictions, matched against a financial filings database called Capitol Trades, and cross referenced roughly 9,000 company to committee overlaps against actual member trades made between 2019 and 2021. The result: at least 97 members of Congress, nearly one in five of the entire body, reported stock trades in companies whose business was directly touched by the committees those same members sat on.<a href="#fn39" class="fn" id="ref39">[39]</a></p>
+  <p>This is not a problem confined to one party. A CNN analysis published in February 2026 identified at least 10 senators whose trades in the prior year overlapped with the industries their own committees oversee. The Republicans on that list included Bill Hagerty, John Kennedy, Ashley Moody, Jerry Moran, Bernie Moreno, Markwayne Mullin, and Tommy Tuberville. The Democrats included John Hickenlooper, Gary Peters, and Sheldon Whitehouse. A representative from the Project On Government Oversight described the pattern to CNN in blunt terms: Republicans and Democrats are guilty of this, evenly, across the board.<a href="#fn40" class="fn" id="ref40">[40]</a></p>
+  <p>Tuberville is probably the clearest individual example, because his committee assignments line up almost too neatly with his trading history. He sits on the Senate Agriculture Committee, which has direct oversight of commodity markets, and has disclosed trades in soybean and grain futures. He has also traded options in United States Steel during a period when Congress was actively weighing whether to block or approve a foreign takeover of the company.<a href="#fn41" class="fn" id="ref41">[41]</a> Tuberville has not disputed the trades. His broader position, stated publicly on multiple occasions, is that banning members from trading is &ldquo;ridiculous.&rdquo;<a href="#fn42" class="fn" id="ref42">[42]</a></p>
+  <p>For scale, it's worth noting that Tuberville is far from the most active trader in the Senate. That distinction, over a six year span, belongs to former Senator David Perdue of Georgia, who executed 2,596 stock, bond, and fund transactions, the highest volume of any senator during that period.<a href="#fn43" class="fn" id="ref43">[43]</a></p>
+  <p><span class="opinion-inline">Opinion</span> This is the version of the story I think matters most, more than any single headline grabbing trade. A senator selling stock the day before a market crash is a scandal you can point to and explain in one sentence. A senator quietly holding a portfolio stacked with companies their own committee regulates, year after year, with no single dramatic moment attached to it, is a much harder thing to put in a headline, and I think that's exactly why it's allowed to continue. Fourteen years after the STOCK Act, nobody has been made to choose between the portfolio and the committee seat.</p>
+  <h2>Section 7: The Scoreboard</h2>
+  <p>Individual scandals get headlines. What gets less attention is how many members of Congress this actually touches once you stop looking at the two or three biggest names and start counting everyone.</p>
+  <p>In December 2021, Business Insider published the results of a five month investigation it called &ldquo;Conflicted Congress.&rdquo; Reporters went through years of financial disclosure filings, comparing trade dates against filing dates to check compliance with the STOCK Act's 45 day disclosure window. They found 49 sitting members of Congress, along with 182 senior congressional staffers, who had violated the law.<a href="#fn44" class="fn" id="ref44">[44]</a></p>
+  <p>A few names accounted for a disproportionate share of the violations. Representative Diana Harshbarger, a Tennessee Republican, was responsible for more than 720 individual violations on her own. In the Senate, Business Insider gave its lowest rating to two members from opposite parties: Dianne Feinstein and Tommy Tuberville, who had reportedly violated the STOCK Act more than 130 times in his first years in office alone. Feinstein's office defended her practices and pointed to her compliance record. Tuberville did not comment.<a href="#fn45" class="fn" id="ref45">[45]</a></p>
+  <p>Almost all of this falls under the disclosure side of the law, the 45 day filing requirement and its 200 dollar penalty. There is exactly one case in the last decade where a sitting member of Congress was convicted of the more serious offense, actual insider trading, and it stands apart from everything else in this piece.</p>
+  <p>Representative Chris Collins of New York sat on the board of an Australian biotech company called Innate Immunotherapeutics and was its largest individual shareholder. In June 2017, while attending a White House picnic, Collins received an email from the company's CEO informing the board that the company's only drug had failed its clinical trial. Instead of waiting for that news to become public, Collins immediately called his son and told him to sell his shares. His son then tipped off his fiancee's family, who did the same. Combined, the group avoided more than 768,000 dollars in losses once the failed trial became public and the stock collapsed.<a href="#fn46" class="fn" id="ref46">[46]</a> Collins pleaded guilty in 2019 to securities fraud and lying to federal investigators, resigned his seat, and was sentenced in January 2020 to 26 months in federal prison.<a href="#fn47" class="fn" id="ref47">[47]</a> He served roughly two months of that sentence before President Trump granted him a full pardon in December 2020.<a href="#fn48" class="fn" id="ref48">[48]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I think the Collins case is worth sitting with precisely because it's the exception that proves the rule. It took an email, a direct phone call telling someone to sell, a documented dollar figure in avoided losses, and a confession, to produce the only real prison sentence for congressional insider trading in this entire period. And even that sentence didn't survive two months before a presidential pardon erased what was left of it. Every other case in this section resulted in nothing more than a fine that either got paid at 200 dollars a pop or got waived entirely. If the bar for real consequences is an explicit written confession plus a felony guilty plea, that isn't a functioning deterrent. It's closer to a lottery where almost nobody loses.</p>
+  <h2>Section 8: Everyone Who Ran on Fixing It</h2>
+  <p>If public support were what determined outcomes in Congress, this problem would have been solved years ago. A January 2026 poll cited in the Moody-Gillibrand bill announcement found that 86 percent of Americans support banning members of Congress from trading individual stocks.<a href="#fn49" class="fn" id="ref49">[49]</a> And still, fourteen years after the STOCK Act, Congress has not passed a real ban.</p>
+  <p>It hasn't been for lack of bills. In July 2023, Senators Kirsten Gillibrand, a Democrat, and Josh Hawley, a Republican, introduced the Ban Stock Trading for Government Officials Act, which would have barred members of Congress, senior executive branch officials, and their families from trading or holding individual stocks at all.<a href="#fn50" class="fn" id="ref50">[50]</a> In July 2024, a version negotiated by Hawley and Senator Gary Peters, along with Senators Jon Ossoff, Jeff Merkley, and Jacky Rosen, passed out of the Senate Homeland Security Committee, the first time a stock trading ban had cleared committee in either chamber.<a href="#fn51" class="fn" id="ref51">[51]</a> In January 2026, Senators Ashley Moody and Gillibrand introduced yet another version, the Restore Trust in Congress Act, as companion legislation to a House bill from Representatives Chip Roy and Seth Magaziner, which by that point had 126 cosponsors from both parties.<a href="#fn52" class="fn" id="ref52">[52]</a></p>
+  <p>None of these bills became law. Representative Anna Paulina Luna tried in December 2025 to force a floor vote using a discharge petition, which by January 2026 had 79 signatures split between both parties.<a href="#fn53" class="fn" id="ref53">[53]</a> In July 2026, the House finally held its first full floor vote on a stock trading restriction bill. It passed, but House Republican leadership had attached a voter identification and citizenship proof requirement to the bill, tied to a broader push from President Trump called the SAVE America Act, a provision that cost the measure much of its Democratic support.<a href="#fn54" class="fn" id="ref54">[54]</a></p>
+  <p>It's worth returning to what members have said in their own words when asked directly about a ban. Then Speaker Nancy Pelosi told reporters in December 2021 that Congress operates in a free market economy and its members should be able to participate in it.<a href="#fn55" class="fn" id="ref55">[55]</a> House Majority Leader Steny Hoyer echoed that a month later.<a href="#fn56" class="fn" id="ref56">[56]</a> Senator Tuberville called a ban &ldquo;ridiculous&rdquo; and suggested it would discourage qualified people from running for office.<a href="#fn57" class="fn" id="ref57">[57]</a> Representative Elaine Luria dismissed the entire concept of a ban in a single profane sentence to a reporter.<a href="#fn58" class="fn" id="ref58">[58]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I don't think it's a coincidence that the members who talk this way are disproportionately the same members whose own trading has drawn scrutiny. Nobody who trades responsibly and transparently needs to argue that Congress deserves special access to the free market that ordinary Americans don't get. I want to be clear this isn't a one party pattern. Pelosi and Hoyer are Democrats. Tuberville and Luria are Republicans. The opposition to reform has always come from both sides in roughly equal measure, which is exactly why 86 percent public support hasn't been enough to move it.</p>
+  <h2>Section 9: Where It Stands Right Now</h2>
+  <p>As of this writing, the fight over congressional stock trading is not settled. On July 21, 2026, the House cleared a key procedural hurdle on a bill restricting stock trading by members of Congress. The following day, the full House voted on it, the first time that chamber had ever held a floor vote on legislation to limit lawmakers' ability to trade individual stocks.<a href="#fn59" class="fn" id="ref59">[59]</a> A similar effort had been quietly killed by House Democratic leadership back in 2022.<a href="#fn60" class="fn" id="ref60">[60]</a></p>
+  <p>The bill passed, but with a complication that tells you something about how these things actually move in Congress. The voter identification rider eroded Democratic support for a bill that, on the stock trading question alone, likely would have passed with a much wider bipartisan margin. Democratic leaders urged their caucus to vote against the combined package.<a href="#fn61" class="fn" id="ref61">[61]</a></p>
+  <p>The bill has now moved to the Senate, where it needs 60 votes to survive a filibuster, a bar that has stopped nearly every previous version of this reform. Senator Josh Hawley, a lead co-author with Gary Peters of the bipartisan HONEST Act, a Senate bill built on the earlier Peters-Merkley-Hawley-Ossoff agreement, told reporters he finds the House version weaker than what he'd prefer, but that he would support it anyway because some restriction is better than none. Senator Gary Peters said he hadn't closely compared the two bills but views any movement as a positive sign, and noted that Senate Democrats are still trying to advance their own version separately. With the 2026 midterm elections on November 3 and only about ten weeks of Senate session remaining this year, the legislative calendar is not on the side of a quick resolution either way.<a href="#fn62" class="fn" id="ref62">[62]</a></p>
+  <p><span class="opinion-inline">Opinion</span> I'm not going to pretend I know how this ends, because I don't think anyone honestly does right now. What I can say is that the pattern holds. A bill with real bipartisan support keeps getting complicated by something unrelated right at the moment it gets close to a vote that might actually work. Fourteen years of that pattern is long enough that I don't think it's fair to call it bad luck anymore. Whether this specific bill becomes the exception or just the latest entry on a very long list is something I genuinely can't tell you yet, and I'd rather say that plainly than manufacture a tidy ending this story doesn't have.</p>
+  <h2>Section 10: You Decide</h2>
+  <p>I started this piece with a Democrat and a Republican, Paul Pelosi's Nvidia options and Richard Burr's pandemic era stock sales, because I wanted to make one thing clear from the very first section: this was never going to be a story where one party gets to point at the other. It isn't. Every stage of this investigation kept landing on the same conclusion. A nearly unanimous 2012 vote to ban insider trading in Congress. A quiet, unanimous consent vote just one year later that gutted the transparency mechanism that would have made the ban enforceable. A pandemic scandal that touched two senators from each party and produced zero charges against any of them. A committee oversight problem that the New York Times found touching nearly one in five members of Congress, split almost evenly by party. A stack of bipartisan reform bills, authored by Democrats and Republicans working together, that keep stalling for reasons that have nothing to do with the merits of the idea itself.</p>
+  <p>I laid out the academic research as honestly as I could, including the parts that complicate the simplest version of this story. Most members of Congress are not running personal hedge funds off classified briefings. The evidence doesn't support that claim, and I'm not going to make it just because it would be a more satisfying sentence to write. What the evidence does support is narrower and, I'd argue, more damning: the members with the most access and the most power, committee chairs, party leadership, the people who are actually in the room when it matters, are the ones whose advantage never fully went away, even after the law that was supposed to fix this passed with overwhelming bipartisan support.</p>
+  <p>I also want to be honest about what I can't tell you. I can't tell you whether the bill currently sitting in the Senate becomes the one that finally breaks this fourteen year pattern, or whether it joins the long list of bills that got close and then didn't. Nobody knows that yet, including the senators voting on it.</p>
+  <p>What I can tell you is what the public record actually shows: who traded what, when they traded it, what committee they sat on while they did it, what the law required of them, and what happened, or more often didn't happen, as a result. I've tried to keep my own opinions clearly marked throughout, separate from the documented facts, and I've tried to hold both parties to exactly the same standard the whole way through, because that's the only version of this story worth telling.</p>
+  <p>You have the same record I do now. You decide what to make of it.</p>
+
+</div>
+
+<div class="bibliography-section">
+  <div class="bibliography-label">Sources &amp; Footnotes</div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Footnotes</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Fox Business, &ldquo;Nancy Pelosi's office responds to husband's controversial computer chip stock purchase ahead of Congress vote,&rdquo; July 2022; corroborated by GovGreed, &ldquo;Nancy Pelosi Stock Trades &amp; Portfolio,&rdquo; 2026. <a href="#ref1" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn2">[2] Forbes, &ldquo;Pelosi Unloads Millions In Nvidia Stock At A Loss Before Senate Passes Massive Tech Subsidies,&rdquo; October 2022. <a href="#ref2" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn3">[3] Fox Business, July 2022 (see note 1). <a href="#ref3" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn4">[4] Forbes, October 2022 (see note 2). <a href="#ref4" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn5">[5] Yahoo Finance, &ldquo;Nvidia Stock Hits All-Time Highs: Here's How Much Nancy Pelosi's 500 Call Options Are Worth Today,&rdquo; October 2024; Yahoo Finance, &ldquo;'A deceptive tactic': Nancy Pelosi disclosed a 7-figure bet on NVIDIA over the Christmas holidays,&rdquo; January 2024. <a href="#ref5" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn6">[6] CBS News, &ldquo;Justice Department closes investigation into Senator Richard Burr over stock sales,&rdquo; January 2021. <a href="#ref6" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn7">[7] CBS News, January 2021 (see note 6); Senate financial disclosure records. <a href="#ref7" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn8">[8] NPR, &ldquo;DOJ Drops Insider Trading Investigation Into Sen. Richard Burr,&rdquo; January 19, 2021. <a href="#ref8" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn9">[9] ABC11, &ldquo;Documents unsealed in DOJ probe of Sen. Burr's stock trades,&rdquo; 2022. <a href="#ref9" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn10">[10] Campaign Legal Center, &ldquo;The STOCK Act: The Failed Effort to Stop Insider Trading in Congress,&rdquo; 2022. <a href="#ref10" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn11">[11] Campaign Legal Center, 2022 (see note 10). <a href="#ref11" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn12">[12] Campaign Legal Center, &ldquo;Congressional Stock Trading and the STOCK Act,&rdquo; 2026 update. <a href="#ref12" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn13">[13] Wikipedia, &ldquo;STOCK Act&rdquo; (legislative history), citing Congress.gov S.2038. <a href="#ref13" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn14">[14] Wikipedia, &ldquo;STOCK Act&rdquo; (vote tallies: Senate 96&ndash;3, House 417&ndash;2); Congress.gov, S.2038, 112th Congress. <a href="#ref14" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn15">[15] Wikipedia, &ldquo;STOCK Act&rdquo; (effective date); Public Law 112-105, Congress.gov / GovInfo. <a href="#ref15" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn16">[16] NPR, &ldquo;How Congress Quietly Overhauled Its Insider-Trading Law,&rdquo; April 16, 2013. <a href="#ref16" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn17">[17] NPR, April 16, 2013 (see note 16). <a href="#ref17" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn18">[18] NPR, April 16, 2013 (see note 16). <a href="#ref18" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn19">[19] NPR, April 16, 2013 (see note 16); Georgetown Law Journal, &ldquo;Time for a Broad Prophylactic Against Congressional Insider Trading.&rdquo; <a href="#ref19" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn20">[20] NPR, April 16, 2013, quoting Lisa Rosenberg of the Sunlight Foundation. <a href="#ref20" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn21">[21] NPR, April 16, 2013 (see note 16). <a href="#ref21" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn22">[22] NPR, April 16, 2013 (see note 16); Newsweek, &ldquo;Revealed: Members of Congress Who May Have Flouted a Stock Trading Law,&rdquo; September 2024. <a href="#ref22" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn23">[23] Campaign Legal Center, &ldquo;Congressional Stock Trading and the STOCK Act,&rdquo; 2026 update. <a href="#ref23" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn24">[24] Office of Senator Josh Hawley, &ldquo;Hawley &amp; Peters' Bipartisan Legislation Banning Congressional Stock Trading Passes Through Committee,&rdquo; July 24, 2024. <a href="#ref24" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn25">[25] Ziobrowski, Boyd, Cheng, and Ziobrowski, &ldquo;Abnormal Returns from the Common Stock Investments of the U.S. Senate,&rdquo; Journal of Financial and Quantitative Analysis 39 (2004); cited in U.S. Senate Report 112-244 on the STOCK Act. <a href="#ref25" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn26">[26] Ziobrowski, Boyd, Cheng, and Ziobrowski, &ldquo;Abnormal Returns from the Common Stock Investments of Members of the U.S. House of Representatives,&rdquo; Business and Politics 13(1), 2011. <a href="#ref26" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn27">[27] U.S. Senate Report 112-244, &ldquo;STOCK Act,&rdquo; Congress.gov. <a href="#ref27" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn28">[28] Eggers and Hainmueller, &ldquo;Capitol Losses: The Mediocre Performance of Congressional Stock Portfolios,&rdquo; Journal of Politics. <a href="#ref28" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn29">[29] Cherry, Heitz, and Jens (2017), cited in NBER Working Paper 26975, &ldquo;Senators As Feckless As the Rest of Us at Stock Picking.&rdquo; <a href="#ref29" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn30">[30] CEPR/VoxEU, &ldquo;Political power and profitable trades in the US Congress,&rdquo; December 2025. <a href="#ref30" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn31">[31] CBS News, January 2021 (see note 6); Campaign Legal Center, 2022 (see note 10). <a href="#ref31" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn32">[32] ProPublica, corrected figures on Senator Richard Burr's February 13, 2020 stock sales, as reflected in subsequent reporting by The New York Times, the Financial Times, CNN, and OpenSecrets. <a href="#ref32" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn33">[33] Wikipedia, &ldquo;2020 congressional insider trading scandal,&rdquo; citing NPR reporting on Burr's remarks and spokesperson response. <a href="#ref33" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn34">[34] GovFacts, &ldquo;Congressional Stock Trading: The Law, the Conflicts, and the Push for a Ban,&rdquo; 2026. <a href="#ref34" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn35">[35] ABC11, 2022 (see note 9). <a href="#ref35" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn36">[36] CNBC, &ldquo;SEC probes possible insider stock trades by Sen. Richard Burr, relative,&rdquo; October 2021. <a href="#ref36" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn37">[37] NPR, January 19, 2021 (see note 8). <a href="#ref37" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn38">[38] CNBC, &ldquo;SEC ends insider trading probe of ex-Sen. Richard Burr and brother-in-law without taking action,&rdquo; January 2023; UPI, January 2023. <a href="#ref38" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn39">[39] New York Times, &ldquo;These 97 Members of Congress Reported Trades in Companies Influenced by Their Committees,&rdquo; September 13, 2022 (Alicia Parlapiano, Adam Playford, and Kate Kelly), as cited in the Boston University Review of Banking &amp; Financial Law, 2023. <a href="#ref39" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn40">[40] CNN, &ldquo;Senators' stock trades directly overlapped with their committee work, CNN analysis finds,&rdquo; February 9, 2026. <a href="#ref40" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn41">[41] Benzinga, &ldquo;Senator Tommy Tuberville's Latest Stock Trades Attract the Wrong Kind of Attention,&rdquo; 2024; The Ethics Reporter, &ldquo;The House Always Wins: Congressional Insider Trading and the Law That Was Never Meant to Work,&rdquo; June 2026. <a href="#ref41" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn42">[42] Political Wire, &ldquo;Tuberville Calls Stock Trading Ban 'Ridiculous,'&rdquo; February 9, 2022, citing Tuberville's interview with The Independent. <a href="#ref42" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn43">[43] Saul, Stephanie, Kate Kelly, and Michael LaForgia. &ldquo;2,596 Trades in One Term: Inside Senator Perdue's Stock Portfolio.&rdquo; The New York Times, December 2, 2020. <a href="#ref43" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn44">[44] Georgetown Law Journal, citing Insider's &ldquo;Conflicted Congress&rdquo; investigation, December 2021. <a href="#ref44" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn45">[45] Yahoo News, &ldquo;More than a dozen members of Congress have violated law on stock trades, investigation finds&rdquo; (Insider/Conflicted Congress reporting). <a href="#ref45" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn46">[46] U.S. Department of Justice, Southern District of New York, &ldquo;Former Congressman Christopher Collins Sentenced For Insider Trading Scheme And Lying To Federal Law Enforcement Agents,&rdquo; press release, January 2020. <a href="#ref46" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn47">[47] DOJ SDNY, January 2020 (see note 46); STAT News, &ldquo;Former Rep. Chris Collins sentenced to 26 months in prison in biotech insider trading scheme,&rdquo; January 2020. <a href="#ref47" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn48">[48] Prisonpedia, &ldquo;Chris Collins &ndash; Insider Trading&rdquo;; BioSpace, &ldquo;Trump Pardons Former Congressman Convicted of Insider Trading of Pharma Stock,&rdquo; December 2020. <a href="#ref48" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn49">[49] Office of Senator Kirsten Gillibrand, &ldquo;Sens. Moody, Gillibrand Announce New Bipartisan Bill To Ban Congressional Stock Trading,&rdquo; January 15, 2026 (poll figure cited in release). <a href="#ref49" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn50">[50] Office of Senator Kirsten Gillibrand, &ldquo;Gillibrand, Hawley Introduce Landmark Bill To Ban Stock Trading And Ownership By Congress, Executive Branch Officials And Their Families,&rdquo; July 19, 2023. <a href="#ref50" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn51">[51] Office of Senator Josh Hawley, July 24, 2024 (see note 24). <a href="#ref51" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn52">[52] Office of Senator Kirsten Gillibrand, January 15, 2026 (see note 49); Office of Senator Ashley Moody, same date. <a href="#ref52" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn53">[53] CNN, &ldquo;House passes bill to restrict lawmaker stock trading, but larger fight to fully ban it looms,&rdquo; July 22, 2026. <a href="#ref53" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn54">[54] CNN, July 22, 2026 (see note 53). <a href="#ref54" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn55">[55] CNBC, &ldquo;House Speaker Nancy Pelosi opposes banning Congress members from owning individual stocks: 'We're a free market economy,'&rdquo; December 15, 2021. <a href="#ref55" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn56">[56] The Hill, &ldquo;Joining Pelosi, Hoyer says lawmakers should be free to trade stocks,&rdquo; January 19, 2022. <a href="#ref56" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn57">[57] Political Wire, February 9, 2022 (see note 42). <a href="#ref57" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn58">[58] WAVY.com, &ldquo;Luria calls plan to ban stock trading in Congress 'bulls&mdash;,'&rdquo; February 2022. <a href="#ref58" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn59">[59] CNN, July 22, 2026 (see note 53); NOTUS, &ldquo;A House Stock-Trade Ban May Finally Advance. The Senate Might Squash It.,&rdquo; July 21, 2026 (see note 60). <a href="#ref59" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn60">[60] CNN, July 22, 2026 (see note 53); NOTUS, &ldquo;A House Stock-Trade Ban May Finally Advance. The Senate Might Squash It.,&rdquo; July 21, 2026. <a href="#ref60" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn61">[61] NOTUS, July 21, 2026 (see note 60), referencing the 2022 effort. <a href="#ref61" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn62">[62] CNN, July 22, 2026 (see note 53). <a href="#ref62" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+      <li id="fn63">[63] NOTUS, July 21, 2026 (see note 60). <a href="#ref63" style="color:var(--red);text-decoration:none;margin-left:0.4rem;">&#8617;</a></li>
+    </ul>
+  </div>
+
+
+  <div class="bib-group">
+    <span class="bib-group-title">Primary Legal and Legislative Sources</span>
+    <ul class="bib-list">
+      <li>Public Law 112-105, the STOCK Act. Congress.gov / GovInfo.</li>
+      <li>S.2038, 112th Congress, legislative history and vote record. Congress.gov.</li>
+      <li>S.716, 113th Congress (the 2013 amendment). Congress.gov.</li>
+      <li>U.S. Senate Report 112-244, &ldquo;STOCK Act.&rdquo; Congress.gov.</li>
+      <li>U.S. Department of Justice, Southern District of New York, press release on the sentencing of Christopher Collins, January 2020.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Academic and Data Studies</span>
+    <ul class="bib-list">
+      <li>Ziobrowski, A. J., Boyd, J. W., Cheng, P., and Ziobrowski, B. J. &ldquo;Abnormal Returns from the Common Stock Investments of the U.S. Senate.&rdquo; Journal of Financial and Quantitative Analysis 39 (2004).</li>
+      <li>Ziobrowski, A. J., Boyd, J. W., Cheng, P., and Ziobrowski, B. J. &ldquo;Abnormal Returns from the Common Stock Investments of Members of the U.S. House of Representatives.&rdquo; Business and Politics 13(1) (2011).</li>
+      <li>Eggers, A. and Hainmueller, J. &ldquo;Capitol Losses: The Mediocre Performance of Congressional Stock Portfolios.&rdquo; Journal of Politics.</li>
+      <li>Cherry, Heitz, and Jens (2017), cited in NBER Working Paper 26975, &ldquo;Senators As Feckless As the Rest of Us at Stock Picking.&rdquo;</li>
+      <li>CEPR / VoxEU, &ldquo;Political power and profitable trades in the US Congress,&rdquo; December 2025.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Government Watchdog and Nonpartisan Organizations</span>
+    <ul class="bib-list">
+      <li>Campaign Legal Center, &ldquo;The STOCK Act: The Failed Effort to Stop Insider Trading in Congress,&rdquo; 2022.</li>
+      <li>Campaign Legal Center, &ldquo;Congressional Stock Trading and the STOCK Act,&rdquo; 2026 update.</li>
+      <li>Campaign Legal Center, &ldquo;We Need Stronger Oversight of Congressional Stock Trades.&rdquo;</li>
+      <li>Project On Government Oversight, &ldquo;Congress Can Earn Back Public Trust by Banning Stock Trading,&rdquo; testimony.</li>
+      <li>OpenSecrets, tracking and data on congressional financial disclosures.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Investigative Journalism and News Coverage</span>
+    <ul class="bib-list">
+      <li>NPR, &ldquo;How Congress Quietly Overhauled Its Insider-Trading Law,&rdquo; April 16, 2013.</li>
+      <li>NPR, &ldquo;DOJ Drops Insider Trading Investigation Into Sen. Richard Burr,&rdquo; January 19, 2021.</li>
+      <li>New York Times, &ldquo;These 97 Members of Congress Reported Trades in Companies Influenced by Their Committees,&rdquo; September 13, 2022.</li>
+      <li>Saul, Stephanie, Kate Kelly, and Michael LaForgia. &ldquo;2,596 Trades in One Term: Inside Senator Perdue's Stock Portfolio.&rdquo; The New York Times, December 2, 2020.</li>
+      <li>ProPublica, reporting on Senator Richard Burr's February 2020 stock sales.</li>
+      <li>Financial Times, reporting on Senator Richard Burr's February 2020 stock sales.</li>
+      <li>CNN, &ldquo;Senators' stock trades directly overlapped with their committee work, CNN analysis finds,&rdquo; February 9, 2026.</li>
+      <li>CNN, &ldquo;House passes bill to restrict lawmaker stock trading, but larger fight to fully ban it looms,&rdquo; July 22, 2026.</li>
+      <li>NOTUS, &ldquo;A House Stock-Trade Ban May Finally Advance. The Senate Might Squash It.,&rdquo; July 21, 2026.</li>
+      <li>CBS News, &ldquo;Justice Department closes investigation into Senator Richard Burr over stock sales,&rdquo; January 2021.</li>
+      <li>CNBC, &ldquo;SEC probes possible insider stock trades by Sen. Richard Burr, relative,&rdquo; October 2021.</li>
+      <li>CNBC, &ldquo;SEC ends insider trading probe of ex-Sen. Richard Burr and brother-in-law without taking action,&rdquo; January 2023.</li>
+      <li>CNBC, &ldquo;House Speaker Nancy Pelosi opposes banning Congress members from owning individual stocks: 'We're a free market economy,'&rdquo; December 15, 2021.</li>
+      <li>The Hill, &ldquo;Joining Pelosi, Hoyer says lawmakers should be free to trade stocks,&rdquo; January 19, 2022.</li>
+      <li>Political Wire, &ldquo;Tuberville Calls Stock Trading Ban 'Ridiculous,'&rdquo; February 9, 2022.</li>
+      <li>ABC11, &ldquo;Documents unsealed in DOJ probe of Sen. Burr's stock trades,&rdquo; 2022.</li>
+      <li>Forbes, &ldquo;Pelosi Unloads Millions In Nvidia Stock At A Loss Before Senate Passes Massive Tech Subsidies,&rdquo; October 2022.</li>
+      <li>Fox Business, &ldquo;Nancy Pelosi's office responds to husband's controversial computer chip stock purchase ahead of Congress vote,&rdquo; July 2022.</li>
+      <li>Yahoo Finance, &ldquo;Nvidia Stock Hits All-Time Highs: Here's How Much Nancy Pelosi's 500 Call Options Are Worth Today,&rdquo; October 2024.</li>
+      <li>Yahoo News, &ldquo;More than a dozen members of Congress have violated law on stock trades, investigation finds&rdquo; (Insider &ldquo;Conflicted Congress&rdquo; reporting).</li>
+      <li>STAT News, &ldquo;Former Rep. Chris Collins sentenced to 26 months in prison in biotech insider trading scheme,&rdquo; January 2020.</li>
+      <li>BioSpace, &ldquo;Trump Pardons Former Congressman Convicted of Insider Trading of Pharma Stock,&rdquo; December 2020.</li>
+      <li>Newsweek, &ldquo;Revealed: Members of Congress Who May Have Flouted a Stock Trading Law,&rdquo; September 2024.</li>
+      <li>Benzinga, &ldquo;Senator Tommy Tuberville's Latest Stock Trades Attract the Wrong Kind of Attention,&rdquo; 2024.</li>
+      <li>WAVY.com, &ldquo;Luria calls plan to ban stock trading in Congress 'bulls&mdash;,'&rdquo; February 2022.</li>
+      <li>Georgetown Law Journal, &ldquo;Time for a Broad Prophylactic Against Congressional Insider Trading.&rdquo;</li>
+      <li>Boston University Review of Banking &amp; Financial Law, &ldquo;Insider Trading by Members of Congress,&rdquo; 2023.</li>
+      <li>GovFacts, &ldquo;Congressional Stock Trading: The Law, the Conflicts, and the Push for a Ban,&rdquo; 2026.</li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Congressional Press Releases</span>
+    <ul class="bib-list">
+      <li>Office of Senator Kirsten Gillibrand, press releases dated July 19, 2023 and January 15, 2026.</li>
+      <li>Office of Senator Josh Hawley, press release dated July 24, 2024.</li>
+      <li>Office of Senator Ashley Moody, press release dated January 15, 2026.</li>
+    </ul>
+  </div>
+
+  <p class="bib-note">This investigation was compiled through a source-approval and section-by-section drafting process, then reviewed against an independent fact-check pass before publication.</p>
+</div>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 PoliticalHypocrites.us. All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+<script>
+  document.querySelectorAll('.fn').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.fn').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      setTimeout(() => this.classList.remove('active'), 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
