@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter to Gen Z | Political Hypocrites</title>
+  <meta name="description" content="Gen Z and Millennials agree on more than the people in charge want us to know: no more unauthorized wars, no more foreign-interest PAC money, and a real shot at the life our parents built. The plan is to stop fighting each other and start primarying warhawks in both parties." />
+  <meta property="og:title" content="A Letter to Gen Z: What We Already Agree On | Political Hypocrites" />
+  <meta property="og:description" content="We already agree on the wars, the foreign-interest money, and the price of a decent life. The culture war is what keeps us from acting on it." />
+  <meta property="og:url" content="https://political-hypocrites.vercel.app/current-events/a-letter-to-gen-z" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Letter to Gen Z: What We Already Agree On | Political Hypocrites" />
+  <meta name="twitter:description" content="We already agree on the wars, the foreign-interest money, and the price of a decent life. The culture war is what keeps us from acting on it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #B91C1C;
+      --blue: #1D3A6B;
+      --ink: #F5EDD8;
+      --ink2: #EDE0C4;
+      --ink3: #E5D4AC;
+      --rule: rgba(0,0,0,0.10);
+      --text-body: rgba(20,10,5,0.82);
+      --text-dim: rgba(20,10,5,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink); color: #1A0F05;
+      font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh;
+    }
+    .top-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--blue) 50%, var(--red) 50%); }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem; border-bottom: 1px solid var(--rule);
+    }
+    .nav-left {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: rgba(20,10,5,0.38); letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-left:hover { color: #1A0F05; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      text-decoration: none; color: rgba(20,10,5,0.45);
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--red); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: #1A0F05; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1A0F05; }
+    .nav-links a.active::after { width: 100%; }
+
+    .opinion-banner {
+      background: rgba(185, 28, 28, 0.07);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.25);
+      padding: 0.6rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .opinion-flag {
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); white-space: nowrap;
+      border: 1px solid var(--red); padding: 0.2rem 0.5rem;
+    }
+    .opinion-banner p {
+      font-size: 0.75rem; color: rgba(20,10,5,0.38);
+      font-style: italic; line-height: 1.5;
+    }
+
+    .article-header {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 3rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.32); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #1A0F05; }
+    .breadcrumb span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: rgba(20,10,5,0.18); }
+    .breadcrumb .current {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+    }
+    .article-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 1.4rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.95;
+      letter-spacing: -0.02em; color: #1A0F05; margin-bottom: 0.6rem;
+    }
+    .article-title span { color: #f87171; font-style: italic; display: block; }
+    .article-subtitle {
+      font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic; color: rgba(20,10,5,0.45);
+      line-height: 1.5; margin-bottom: 2.5rem; font-weight: 400;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label {
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,10,5,0.28);
+    }
+    .meta-value {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.08em; color: rgba(20,10,5,0.55);
+    }
+    .meta-divider { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+    .share-btn {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(20,10,5,0.45); text-decoration: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.8rem;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .share-btn:hover { color: #1A0F05; border-color: rgba(20,10,5,0.38); }
+
+    .article-body {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+    }
+    .article-section {
+      margin-bottom: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .article-section:first-child { border-top: none; padding-top: 0; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); display: block; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: #1A0F05;
+      line-height: 1.2; margin-bottom: 1.6rem;
+    }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.95; font-weight: 300;
+      color: var(--text-body); margin-bottom: 1.5rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body p a:not(.fn) { color: var(--red); text-underline-offset: 2px; }
+    .article-body p.salutation {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.3rem; font-weight: 700; color: #1A0F05;
+    }
+    .article-body p.signoff {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.15rem; color: #1A0F05; margin-top: 2rem;
+    }
+
+    .article-list {
+      margin: 0 0 1.5rem 1.4rem;
+    }
+    .article-list li {
+      font-size: 1.05rem; line-height: 1.9; font-weight: 300;
+      color: var(--text-body); margin-bottom: 0.9rem; padding-left: 0.3rem;
+    }
+    .article-list li::marker { color: var(--red); }
+    .article-body b { font-weight: 600; color: #1A0F05; }
+
+    .opinion-inline {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(185,28,28,0.4);
+      padding: 0.15rem 0.4rem; margin-right: 0.5rem;
+      vertical-align: middle; position: relative; top: -1px;
+    }
+
+    .fn {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      line-height: 1;
+      vertical-align: super;
+      color: var(--red);
+      text-decoration: none;
+      margin-left: 1px;
+      padding: 0 1px;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .fn:hover { color: #1A0F05; }
+
+    .bibliography-section {
+      max-width: 800px; margin: 0 auto;
+      padding: 3rem 3rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bibliography-label {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(20,10,5,0.28); display: flex;
+      align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .bibliography-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .bib-group { margin-bottom: 2rem; }
+    .bib-group-title {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(20,10,5,0.38); margin-bottom: 0.8rem; display: block;
+    }
+    .bib-list { list-style: none; }
+    .bib-list li {
+      font-size: 0.78rem; line-height: 1.7;
+      color: rgba(20,10,5,0.55); font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      overflow-wrap: anywhere;
+    }
+    .bib-list li:last-child { border-bottom: none; }
+    .bib-list a {
+      color: rgba(20,10,5,0.40); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .bib-list a:hover { color: #1A0F05; }
+    .bib-list a.back { color: var(--red); text-decoration: none; margin-left: 0.4rem; }
+
+    footer {
+      background: #DFD0A8; border-top: 1px solid var(--rule);
+      padding: 2rem 3rem; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.57rem;
+      color: rgba(20,10,5,0.25); letter-spacing: 0.06em;
+    }
+    .footer-note {
+      font-size: 0.7rem; color: rgba(20,10,5,0.25);
+      font-style: italic; max-width: 400px; text-align: right; line-height: 1.6;
+    }
+    .bottom-rule { width: 100%; height: 4px; background: linear-gradient(to right, var(--red) 50%, var(--blue) 50%); }
+
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .opinion-banner { padding: 0.6rem 1.5rem; }
+      .article-header, .article-body, .bibliography-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-header { padding-top: 3rem; }
+      .article-meta { gap: 1.2rem; }
+      .share-btn { margin-left: 0; }
+      footer { flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="/" class="nav-left">Political Hypocrites</a>
+  <ul class="nav-links">
+    <li><a href="/investigations">Investigations</a></li>
+    <li><a href="/current-events" class="active">Current Events</a></li>
+    <li><a href="/presidents">Presidents</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="opinion-banner">
+  <span class="opinion-flag">Opinion</span>
+  <p>This is a Current Events post. It includes the author's analysis and perspective, clearly labeled where it appears. The documented record informs the view, but the view is present.</p>
+</div>
+
+<div class="article-header">
+  <div class="breadcrumb">
+    <a href="/current-events">Current Events</a>
+    <span>›</span>
+    <span class="current">A Letter to Gen Z</span>
+  </div>
+  <span class="article-label">Current Events + Opinion | October 26, 2026</span>
+  <h1 class="article-title">
+    A Letter to Gen Z
+    <span>What We Already Agree On</span>
+  </h1>
+  <p class="article-subtitle">We already agree that we're tired of wars nobody voted for, that foreign-interest money shouldn't be the biggest spender in our elections, and that a full-time job should be enough to build a life. The culture war is what keeps us from acting on any of it. After November, we stop fighting each other and start primarying the warhawks in both parties.</p>
+  <div class="article-meta">
+    <div class="meta-item">
+      <span class="meta-label">Published</span>
+      <span class="meta-value">October 26, 2026</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Category</span>
+      <span class="meta-value">Current Events + Opinion</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Topic</span>
+      <span class="meta-value">Gen Z and the Midterms</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-label">Parts</span>
+      <span class="meta-value">Ten</span>
+    </div>
+    <a href="https://twitter.com/intent/tweet?text=A+Letter+to+Gen+Z%3A+What+We+Already+Agree+On&amp;url=https://political-hypocrites.vercel.app/current-events/a-letter-to-gen-z" target="_blank" rel="noopener" class="share-btn">Share on X</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="article-section">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">Dear Gen Z (and Millennials, You're in This Too)</h2>
+
+    <p class="salutation">Dear Gen Z,</p>
+
+    <p>And to the Millennials reading over our shoulders: this is for you too. You hit the wall first, and you've been stuck against it longer than we have.</p>
+
+    <p>I'm writing this days before the 2026 midterms. I'm not writing to tell you who to vote for. I'm writing because I think we're about to waste another election cycle doing exactly what the people in charge want us to do, which is fight each other.</p>
+
+    <p>I'll start with where we are. In the spring 2026 Harvard Youth Poll, trust in the federal government among Americans ages 18 to 29 fell to 15 percent, the lowest the poll has ever recorded<a href="#fn1" class="fn" id="ref1">[1]</a>. Half of us said people like us have no real say in government<a href="#fn2" class="fn" id="ref2">[2]</a>. We are watching a war with Iran that Congress never authorized<a href="#fn3" class="fn" id="ref3">[3]</a>. We are watching home prices drift further out of reach every year. And every time we try to talk about any of it, the conversation gets dragged back to whatever culture war topic is trending that week.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I don't think that's an accident. I think the people who profit from the way things are have figured out that a generation busy fighting itself is a generation that never organizes. As long as we're at each other's throats online, nobody has to answer for the wars, the money, or the fact that a full-time job no longer buys the life it used to.</p>
+
+    <p>So here's what I'm asking. <span class="opinion-inline">Opinion</span> Put the culture war down for now. Not forever. We'll have those arguments, and we'll have them honestly. But we'll have them after we've put people in office who actually answer to us. First, we unite on what we already agree on: no more unauthorized wars, no more money from PACs that put a foreign country's interests ahead of ours, and a real shot at building the same life our parents and grandparents were able to build.</p>
+
+    <p>That's the whole letter in one paragraph. The rest of it is the evidence, and the plan.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The Fight They Want Us to Have</h2>
+
+    <p>I'm not going to pretend we all agree on everything. We don't. Immigration enforcement, for example, splits young Americans sharply along party lines<a href="#fn4" class="fn" id="ref4">[4]</a>. The same goes for abortion, guns, gender, policing, and a dozen other issues that fill our feeds every day. Those disagreements are real, and the people on both sides of them mostly hold their views for real reasons.</p>
+
+    <p><span class="opinion-inline">Opinion</span> But look at how those fights actually play out. Every few weeks a new controversy takes over. Everyone picks a side. Members of Congress from both parties post about it, fundraise off it, and go on cable news to talk about it. Then it fades and the next one starts. Meanwhile, the votes that shape our lives, like funding a war, writing a tax bill, or deciding who gets to bankroll a campaign, happen with a fraction of the attention.</p>
+
+    <p><span class="opinion-inline">Opinion</span> That isn't a coincidence. A culture war fight costs a politician nothing. It doesn't require passing a bill or crossing a donor. It keeps the base angry, keeps the small-dollar donations coming in, and keeps us sorted into two teams that will never talk to each other. A voter who is furious about the other side is a voter who won't look too closely at their own.</p>
+
+    <p>There's a line I keep coming back to on this site: <b>United Above to Distract Below.</b> The people at the top of both parties disagree loudly on the issues that don't threaten them, and quietly agree on the ones that do. When it comes to war, the people in charge of both parties have a long record of voting together, and the votes I'll walk through show it.</p>
+
+    <p><span class="opinion-inline">Opinion</span> So I'm not asking you to give up your beliefs. I'm asking you to notice who benefits when we spend all our energy on the fights they pick for us. We can come back to the culture questions, and we will. But we'll argue them out a lot more honestly once the people running the country can't use those arguments as cover.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Three</span>
+    <h2 class="section-title">We Already Agree on More Than They Want Us to Know</h2>
+
+    <p>Here's the part that should give us hope. On the issues I care about most in this letter, we're not that divided.</p>
+
+    <p><b>War.</b> In the spring 2026 Harvard Youth Poll, 55 percent of Americans ages 18 to 29 said the U.S. military action in Iran is not in the best interest of the American people<a href="#fn5" class="fn" id="ref5">[5]</a>. That's a majority of a generation that is famously hard to get a majority on anything.</p>
+
+    <p><b>Foreign aid and alliances.</b> In the same poll, 46 percent of us said the U.S. relationship with Israel is mostly a burden, while only 16 percent called it mostly a benefit, the lowest of any country tested<a href="#fn6" class="fn" id="ref6">[6]</a>. Pew found the same gap two years earlier: only 16 percent of adults under 30 favored sending military aid to Israel for its war against Hamas, compared with 56 percent of those 65 and older<a href="#fn7" class="fn" id="ref7">[7]</a>. This isn't a one-party position either. In a 2026 Pew survey of Americans ages 18 to 49, 84 percent of Democrats held a negative view of Israel, and so did 57 percent of Republicans<a href="#fn8" class="fn" id="ref8">[8]</a>. The numbers aren't identical, but a majority on both sides of our age group sees it the same way.</p>
+
+    <p><b>Money in politics.</b> This one isn't limited to our generation, and that makes it even stronger. In 2023, 72 percent of American adults said there should be limits on how much individuals and organizations can spend on political campaigns, and that support crossed ideological and demographic lines<a href="#fn9" class="fn" id="ref9">[9]</a>. Large majorities of Republicans and Democrats alike said campaign donors, lobbyists, and special interest groups have too much influence<a href="#fn10" class="fn" id="ref10">[10]</a>.</p>
+
+    <p><b>Trust.</b> And we share the same frustration. Trust in the federal government among young Americans hit 15 percent this spring, a record low<a href="#fn11" class="fn" id="ref11">[11]</a>.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Put those together and you have the foundation of a movement. A young Republican who's tired of funding foreign wars and a young Democrat who's tired of AIPAC money in their primaries are angry about the same thing. They just haven't been told they're on the same side. The people who benefit from keeping them apart would very much like it to stay that way.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Four</span>
+    <h2 class="section-title">The Math Doesn't Work Anymore</h2>
+
+    <p><span class="opinion-inline">Opinion</span> There was a time in this country when one person working a factory job could buy a house, raise a family, put the kids through college, and let the other parent stay home. I'm not saying that life was perfect for everyone, because it wasn't. But the basic deal was there: work hard at a steady job and you could build something. That deal is gone for most of us, and nobody in Washington seems in a hurry to bring it back.</p>
+
+    <p>The numbers back that up.</p>
+
+    <p><b>Housing.</b> In the 1990s, the typical home cost about 3.2 times the median household income. By 2024, it cost five times the median income<a href="#fn12" class="fn" id="ref12">[12]</a>. The 2026 State of the Nation's Housing report found that the income needed to buy a median-priced home has nearly doubled since 2020 and now tops $120,000<a href="#fn13" class="fn" id="ref13">[13]</a>. So it shouldn't surprise anyone that the typical first-time homebuyer is now 40 years old, the oldest in the National Association of Realtors' long-term tracking. Back in the 1980s, that buyer was in their late twenties. First-time buyers also fell to a record low 21 percent of all purchases<a href="#fn14" class="fn" id="ref14">[14]</a>.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Forty. A whole decade of building equity that our parents had and we don't. That isn't us being lazy or spending too much on coffee. It's wages that didn't keep up with the price of the one asset that built the American middle class.</p>
+
+    <p><b>College.</b> After adjusting for inflation, published tuition and fees rose about 101 percent at public four-year colleges since the mid-1990s, and about 74 percent at private nonprofit four-year schools<a href="#fn15" class="fn" id="ref15">[15]</a>. To be fair, grant aid has brought the average net price down at many schools over the last decade<a href="#fn16" class="fn" id="ref16">[16]</a>. But the sticker price is what a lot of families borrow against, and the debt is still here. Americans owe $1.65 trillion in student loans, and 10.6 percent of that balance is now 90 days or more past due<a href="#fn17" class="fn" id="ref17">[17]</a>. Federal Reserve economists found that the growth in student debt between 2005 and 2014 accounted for more than 20 percent of the drop in homeownership among young adults, which they estimated at roughly 400,000 people who could have bought a home and didn't<a href="#fn18" class="fn" id="ref18">[18]</a>.</p>
+
+    <p><b>Wealth.</b> As of mid-2026, Baby Boomers hold 52 percent of all U.S. household net worth while making up 30 percent of households. Millennials and Gen Z make up 37 percent of households and hold 11 percent of the wealth<a href="#fn19" class="fn" id="ref19">[19]</a>.</p>
+
+    <p>I want to be very clear about what I'm saying here. <span class="opinion-inline">Opinion</span> I don't want anyone's house, savings, or retirement. Our parents and grandparents worked for what they have. I'm not asking to take it. I'm asking for the same shot they had: a job that pays enough to buy a home before middle age, an education that doesn't follow you for twenty years, and a government that spends our money on us instead of on wars we never voted for.</p>
+
+    <p><span class="opinion-inline">Opinion</span> We have more technology, more information, and more productivity than any generation in history, and somehow we're further from owning a home than they were. That isn't a personal failure. It's a policy failure, and policy is made by the people we elect.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Five</span>
+    <h2 class="section-title">The War Party Wears Both Jerseys</h2>
+
+    <p>If you only listened to the messaging, you'd think one party loves war and the other hates it. The voting record says otherwise.</p>
+
+    <p>Start with the wars our generation grew up inside. After September 11, the 2001 Authorization for Use of Military Force passed the House 420 to 1 and the Senate 98 to 0<a href="#fn20" class="fn" id="ref20">[20]</a>. A year later, the authorization for the Iraq War passed the House 296 to 133 and the Senate 77 to 23, with 29 Senate Democrats voting yes alongside nearly every Republican<a href="#fn21" class="fn" id="ref21">[21]</a>. Those two votes shaped the next two decades of American foreign policy, and both parties' leadership signed off on them.</p>
+
+    <p>Now look at today. The current war with Iran began with U.S. and Israeli strikes on February 28, 2026<a href="#fn22" class="fn" id="ref22">[22]</a>. Congress never authorized it. A ceasefire took effect in April, but by July the president said he considered it "over" after U.S. forces struck more than 80 targets<a href="#fn23" class="fn" id="ref23">[23]</a>.</p>
+
+    <p>Here's how Congress responded:</p>
+
+    <ul class="article-list">
+      <li>In May, a House war powers resolution failed on a tie vote. When the next one looked likely to pass, Republican leaders called off the vote and sent members home early<a href="#fn24" class="fn" id="ref24">[24]</a>.</li>
+      <li>On June 3, the House passed a war powers resolution 215 to 208. Four Republicans broke with their party to vote for it, including Pennsylvania's Brian Fitzpatrick, who explained his vote by saying "we have to follow the law"<a href="#fn25" class="fn" id="ref25">[25]</a>.</li>
+      <li>In July, after the House passed another resolution 214 to 208, the Senate blocked its own version 49 to 47. Republican Susan Collins voted with Democrats to rein in the war. Democrat John Fetterman voted with Republicans to keep it going<a href="#fn26" class="fn" id="ref26">[26]</a>.</li>
+    </ul>
+
+    <p><span class="opinion-inline">Opinion</span> Look at who crossed the line in each direction. Republicans like Fitzpatrick and Collins voted to put the war back under Congress's control. A Democrat voted to let it continue. The real divide isn't left versus right. It's between members who believe Congress should decide when this country goes to war, and members who are happy to let a president do it for them, especially when that president is on their team.</p>
+
+    <p><span class="opinion-inline">Opinion</span> And that last part matters, because the record shows a lot of these members only care about Congress's war powers when the other party holds the White House. In 2011, Republican Speaker John Boehner led the House in rebuking President Obama for going into Libya without Congress's approval<a href="#fn27" class="fn" id="ref27">[27]</a>. In 2026, Republican Speaker Mike Johnson defended President Trump's decision to attack Iran without it<a href="#fn28" class="fn" id="ref28">[28]</a>. Democrats did the same thing in reverse. In November 2024, with Biden in office, only 19 senators backed even one of Bernie Sanders' resolutions to block offensive weapons sales to Israel<a href="#fn29" class="fn" id="ref29">[29]</a>. By 2026, with Trump in office, 40 of 47 Senate Democrats voted to block a sale<a href="#fn30" class="fn" id="ref30">[30]</a>. Conditions in Gaza changed between those votes, and some Democrats said that's what moved them. But the shift lined up almost perfectly with the change in who held the White House. Same policy. Different president.</p>
+
+    <p>To be fair, some members held the line no matter who was in charge. When Biden bombed the Houthis in Yemen without congressional approval in 2024, Democrats like Pramila Jayapal and Ro Khanna called it unconstitutional, and Republicans like Thomas Massie and Mike Lee agreed with them<a href="#fn31" class="fn" id="ref31">[31]</a>. Jayapal went on to write this year's Iran war powers resolution<a href="#fn32" class="fn" id="ref32">[32]</a>. <span class="opinion-inline">Opinion</span> Those are the members who actually believe what they say. Everyone else is just picking a jersey.</p>
+
+    <p>That's what I mean by the war party. It isn't a party at all. It's a habit that both parties' leadership falls into whenever it's convenient, and we're the ones who get sent to fight, and the ones who end up paying for it.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Six</span>
+    <h2 class="section-title">Follow the Money</h2>
+
+    <p>To understand why the war party never seems to lose, you have to follow the money. Most of it moves through a type of group most of us never think about: the super PAC.</p>
+
+    <p><b>How we got here.</b> In 2010, the Supreme Court's decision in <i>Citizens United</i> opened the door to unlimited outside spending in our elections. The Brennan Center found that in the first few cycles afterward, super PACs spent more than $1 billion on federal elections, and nearly 60 percent of that money came from just 195 people and their spouses<a href="#fn33" class="fn" id="ref33">[33]</a>. In the most competitive Senate races of 2014, outside groups outspent the candidates themselves<a href="#fn34" class="fn" id="ref34">[34]</a>. <span class="opinion-inline">Opinion</span> When a handful of donors can outspend the people actually running for office, our votes are competing with their checkbooks.</p>
+
+    <p><b>The biggest spender of 2026.</b> This cycle, the largest outside spender in the country is the United Democracy Project, the super PAC of the American Israel Public Affairs Committee. It has spent $54 million on congressional races, and the wider pro-Israel donor network has spent $71 million, second only to the crypto industry<a href="#fn35" class="fn" id="ref35">[35]</a>. AIPAC itself has put $30 million into the super PAC<a href="#fn36" class="fn" id="ref36">[36]</a>. Most of that spending has gone into Democratic primaries, targeting candidates who criticize unconditional military aid to Israel<a href="#fn37" class="fn" id="ref37">[37]</a>. In Michigan alone, the super PAC spent $30.6 million in a single Senate primary<a href="#fn38" class="fn" id="ref38">[38]</a>. And according to a New York Times analysis, its ads now rarely mention Israel at all<a href="#fn39" class="fn" id="ref39">[39]</a>.</p>
+
+    <p>Some of the money is harder to see. In 2024, The Intercept reported that AIPAC was routing money into an Oregon congressional primary through 314 Action, a PAC that says it elects scientists<a href="#fn40" class="fn" id="ref40">[40]</a>. 314 Action called the report inaccurate. Its next FEC filing showed a $1 million donation from AIPAC's super PAC, received around the time it was spending in that race<a href="#fn41" class="fn" id="ref41">[41]</a>. This year, Drop Site News reported a similar pattern in a Philadelphia House race<a href="#fn42" class="fn" id="ref42">[42]</a>.</p>
+
+    <p>To be fair to AIPAC, it argues that it takes no foreign money and represents American citizens exercising their right to participate in politics<a href="#fn43" class="fn" id="ref43">[43]</a>. That's legally true. <span class="opinion-inline">Opinion</span> But my line isn't about where the dollars come from. It's about whose interests the group puts first. A PAC whose core mission is a foreign government's security, and that spends tens of millions to punish American candidates who question aid to that government, is not putting our generation first. And this isn't only a left-wing complaint anymore: criticism of AIPAC has spread to the populist right<a href="#fn44" class="fn" id="ref44">[44]</a>, and candidates in both parties are now publicly refusing its money<a href="#fn45" class="fn" id="ref45">[45]</a>.</p>
+
+    <p><b>The defense industry plays both sides.</b> In the first half of 2023 alone, defense contractors spent nearly $70 million lobbying the federal government. Republicans got about 63 percent of the sector's contributions overall, while in the Senate a slim majority went to Democrats<a href="#fn46" class="fn" id="ref46">[46]</a>. <span class="opinion-inline">Opinion</span> The defense industry doesn't care which party wins. It just makes sure whoever wins owes it something.</p>
+
+    <p><b>Foreign governments don't pick a side either.</b> Look at the record:</p>
+
+    <ul class="article-list">
+      <li><b>Democrat Bob Menendez,</b> the former chairman of the Senate Foreign Relations Committee, was convicted on all 16 counts, including acting as a foreign agent, which made him the first sitting senator ever convicted of that charge. He took gold bars, cash, and a Mercedes in exchange for favors for Egypt and Qatar, and is serving 11 years in prison<a href="#fn47" class="fn" id="ref47">[47]</a>.</li>
+      <li><b>Democrat Henry Cuellar</b> was indicted on charges of taking nearly $600,000 in bribes from an Azerbaijan-controlled energy company and a Mexican bank. <b>Republican President Donald Trump</b> pardoned him and his wife<a href="#fn48" class="fn" id="ref48">[48]</a>.</li>
+      <li><b>The Trump administration</b> accepted a luxury Boeing 747 from Qatar for the president to use as Air Force One, despite questions about the ethics and legality of taking such a gift from a foreign government<a href="#fn49" class="fn" id="ref49">[49]</a>.</li>
+      <li><b>The Trump family's</b> crypto company, World Liberty Financial, had its stablecoin chosen to complete a $2 billion investment by MGX, a state-backed firm in the United Arab Emirates<a href="#fn50" class="fn" id="ref50">[50]</a>. The New York Times reported on the UAE gaining access to advanced AI chips shortly after the deal closed<a href="#fn51" class="fn" id="ref51">[51]</a>.</li>
+    </ul>
+
+    <p><span class="opinion-inline">Opinion</span> Qatar shows up on both sides of that list. That should tell you everything. Foreign governments aren't loyal to Democrats or Republicans. They're loyal to whoever can deliver for them, and both parties keep proving they're willing to deliver.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Seven</span>
+    <h2 class="section-title">What Happens When You Say No</h2>
+
+    <p>If you want to see what this system does to someone who breaks from it, look at Thomas Massie.</p>
+
+    <p>Massie, a Republican from northern Kentucky, spent 14 years in the House as one of its most consistent anti-war voices. In June 2025, he and Democrat Ro Khanna introduced a bipartisan war powers resolution to keep the United States out of the Israel-Iran war<a href="#fn52" class="fn" id="ref52">[52]</a>. They had already teamed up to challenge Biden's strikes in Yemen<a href="#fn53" class="fn" id="ref53">[53]</a>. He voted against the 2027 defense bill<a href="#fn54" class="fn" id="ref54">[54]</a>. And he repeatedly voted against military aid to Israel, along with aid to other foreign countries<a href="#fn55" class="fn" id="ref55">[55]</a>.</p>
+
+    <p>On May 19, 2026, he lost his primary to Ed Gallrein, a former Navy SEAL recruited by Trump allies specifically to beat him<a href="#fn56" class="fn" id="ref56">[56]</a>. It became the most expensive House primary in American history, with roughly $37 million spent in total<a href="#fn57" class="fn" id="ref57">[57]</a>.</p>
+
+    <p>Here's where the money came from:</p>
+
+    <ul class="article-list">
+      <li><b>The Trump camp:</b> Two of the president's top campaign advisers created MAGA KY, a super PAC built for the sole purpose of defeating Massie. It spent more than $7 million<a href="#fn58" class="fn" id="ref58">[58]</a>. Its largest donor was billionaire Paul Singer<a href="#fn59" class="fn" id="ref59">[59]</a>. The president endorsed Gallrein, rallied for him, and the Secretary of War campaigned for him the day before the vote<a href="#fn60" class="fn" id="ref60">[60]</a>.</li>
+      <li><b>The pro-Israel network:</b> AIPAC's super PAC and two other groups backed by pro-Israel donors spent more than $15.8 million opposing Massie or supporting Gallrein<a href="#fn61" class="fn" id="ref61">[61]</a>. That includes $4.1 million from AIPAC's United Democracy Project and about $3.9 million from the Republican Jewish Coalition's super PAC<a href="#fn62" class="fn" id="ref62">[62]</a>.</li>
+    </ul>
+
+    <p>To be fair, Massie wasn't defenseless. His campaign and the PACs backing him spent more than $18 million combined, only slightly less than the pro-Gallrein side<a href="#fn63" class="fn" id="ref63">[63]</a>. And the ugliest moment of the race came from both camps using artificial intelligence.</p>
+
+    <p>Two weeks before the primary, MAGA KY ran an ad built from AI-generated footage, styled to look like security camera video, showing Massie holding hands with Democratic Reps. Alexandria Ocasio-Cortez and Ilhan Omar, eating dinner with them, and walking into a hotel lobby together<a href="#fn64" class="fn" id="ref64">[64]</a>. The narrator announced that Massie had been "caught in a throuple" and was cheating with the Squad on the America First movement<a href="#fn65" class="fn" id="ref65">[65]</a>. None of it happened. The ad carried a disclaimer saying it was satire created with AI, but it ran in small print that many viewers could easily miss<a href="#fn66" class="fn" id="ref66">[66]</a>, and one local outlet's review found no apparent AI disclosure at all<a href="#fn67" class="fn" id="ref67">[67]</a>. Massie called it "disgusting and defamatory" and said the ad was counting on older voters not recognizing it as AI<a href="#fn68" class="fn" id="ref68">[68]</a>. After he lost, he claimed many older people voted against him because they believed he'd actually dated Ocasio-Cortez and Omar<a href="#fn69" class="fn" id="ref69">[69]</a>.</p>
+
+    <p>The pro-Massie side wasn't clean either. Kentucky 4th PAC, which supported Massie, ran its own AI ad depicting Gallrein, a decorated combat veteran, fleeing from Trump on a fictional battlefield<a href="#fn70" class="fn" id="ref70">[70]</a>. Another pro-Massie super PAC ran an ad featuring a rainbow Star of David alongside a picture of an anti-Massie donor<a href="#fn71" class="fn" id="ref71">[71]</a>. And the groups that opposed Massie have their own case against him: the RJC pointed to his votes against emergency aid to Israel after October 7 and against resolutions condemning antisemitism<a href="#fn72" class="fn" id="ref72">[72]</a>.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Think about what that means for us. Our generation grew up online. Most of us can spot AI slop in a second. But a lot of the people who actually vote in primaries can't, and the people running these campaigns know it. When a super PAC funded by a few billionaires can fabricate a sex scandal about a sitting congressman two weeks before an election, and the only warning is fine print, the problem isn't just the money anymore. It's whether voters can trust what they're seeing at all.</p>
+
+    <p><span class="opinion-inline">Opinion</span> But here's what I want our generation to take from this race. Massie took the exact position a majority of young Americans hold: Congress, not the president, decides when we go to war, and our tax dollars shouldn't fund foreign wars that aren't ours. For holding that position, he faced a president of his own party, a super PAC built just to end his career, and more than $15 million from groups whose central mission is a foreign country's security. He lost.</p>
+
+    <p><span class="opinion-inline">Opinion</span> If one of the most consistent members of Congress can be taken out this way, nobody in office will stick their neck out for us unless they know we'll show up for them. That's the lesson. The money only wins when we don't vote in primaries. Massie's district decided his fate in an election most people, especially young people, never pay attention to.</p>
+
+    <p>I go deeper on how the money moved in that race in <a href="/current-events/the-massie-primary">The Massie Primary</a>.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Eight</span>
+    <h2 class="section-title">It's Been Done Before</h2>
+
+    <p>If all of this sounds impossible, it isn't. Both the right and the left have already proven that ordinary voters can take out powerful incumbents in a primary. They just have to show up when nobody else does.</p>
+
+    <p><b>The right did it first.</b> In 2010, Utah Senator Bob Bennett, an 18-year incumbent, didn't even make it onto his own party's primary ballot. Tea Party activists flooded the Republican caucuses, nearly doubling turnout from two years earlier, and the delegates they sent to the state convention knocked him out<a href="#fn73" class="fn" id="ref73">[73]</a>. Mike Lee, the challenger who went on to win the seat, is still in the Senate today<a href="#fn74" class="fn" id="ref74">[74]</a>.</p>
+
+    <p>Four years later, it happened to one of the most powerful Republicans in the country. House Majority Leader Eric Cantor lost his primary to Dave Brat, an economics professor nobody in Washington had taken seriously<a href="#fn75" class="fn" id="ref75">[75]</a>. Cantor outspent him more than 40 to 1, and his own internal poll had him ahead by more than 30 points<a href="#fn76" class="fn" id="ref76">[76]</a>. Brat won by roughly 7,000 votes. Here's the part that matters most: if Cantor had simply held onto the votes he got in his 2012 primary, he would have won<a href="#fn77" class="fn" id="ref77">[77]</a>. He didn't lose because his district turned against him. He lost because Brat's voters showed up and his didn't.</p>
+
+    <p><b>The left did it next.</b> In 2018, Joe Crowley was the No. 4 Democrat in the House and a possible future Speaker<a href="#fn78" class="fn" id="ref78">[78]</a>. A 28-year-old organizer named Alexandria Ocasio-Cortez challenged him, and was outspent by roughly 18 to 1<a href="#fn79" class="fn" id="ref79">[79]</a>. She won with 16,898 votes<a href="#fn80" class="fn" id="ref80">[80]</a>, in a primary where only about 13 percent of active Democrats in the district turned out<a href="#fn81" class="fn" id="ref81">[81]</a>.</p>
+
+    <p><span class="opinion-inline">Opinion</span> Look at those numbers again. Fewer than 17,000 people changed who represents a district of more than 700,000. Brat beat the second most powerful Republican in the House with about 36,000 votes<a href="#fn77" class="fn" id="ref77">[77]</a>. Primaries are where the real decisions get made, and they're decided by tiny numbers of people. That's the opening for us.</p>
+
+    <p><b>The counterpunch.</b> I'm not going to pretend it's easy, because the people with the money learn too. In 2024, AIPAC's super PAC spent about $15 million to defeat Jamaal Bowman<a href="#fn82" class="fn" id="ref82">[82]</a>, a Justice Democrats congressman who had unseated the chairman of the House Foreign Affairs Committee four years earlier. That race became the most expensive House primary in history at the time, and pro-Israel groups also helped defeat Cori Bush that same year<a href="#fn83" class="fn" id="ref83">[83]</a>. Two years later, the record was broken again in Massie's race. The money adapts. That's exactly why one-off upsets aren't enough. We need a sustained movement that shows up every primary, every cycle, in both parties.</p>
+
+    <p><span class="opinion-inline">Opinion</span> I'm not holding up the Tea Party or Justice Democrats as models for what to believe. I disagree with plenty from both, and both made mistakes, including backing candidates who couldn't win general elections. I'm holding them up as proof of what's possible. Two movements on opposite ends of the spectrum used the same tool, the primary, to unseat people the establishment thought were untouchable. If they could do it separately, imagine what we could do together.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Nine</span>
+    <h2 class="section-title">The Plan After November</h2>
+
+    <p>So what do we actually do? Here's what I think it looks like. <span class="opinion-inline">Opinion</span></p>
+
+    <p><b>Step one: Vote on November 3.</b> This letter isn't about who you vote for this week. But show up. Every election we skip teaches the people in power that they don't have to listen to us.</p>
+
+    <p><b>Step two: Learn your primary rules now, not in 2028.</b> Primaries decide most seats in this country, and the rules are set state by state. In states with closed primaries, you have to be registered with a party to vote in its primary, and the deadline to register or switch can come months before the vote<a href="#fn84" class="fn" id="ref84">[84]</a>. If you're a registered independent in one of those states, you may have already locked yourself out of the election that actually matters. Look up your state's rules after the midterms and plan around them. <span class="opinion-inline">Opinion</span> If that means registering with the party that controls your district just to vote in its primary, do it. Party registration is a tool, not a loyalty oath.</p>
+
+    <p><b>Step three: Find out who's paying your representatives.</b> You don't need to take my word for any of this. You can look it up yourself:</p>
+
+    <ul class="article-list">
+      <li><b>OpenSecrets</b> shows who funds every member of Congress, including PAC and super PAC spending in their races.</li>
+      <li><b>FEC.gov</b> has the raw filings, the same records the reporting in this letter is built on.</li>
+      <li><b>ProPublica's Nonprofit Explorer</b> lets you pull the tax filings of nonprofits, including the political groups that don't have to disclose donors to the FEC.</li>
+      <li><b>The Justice Department's FARA database</b> lists the lobbyists registered to work for foreign governments.</li>
+    </ul>
+
+    <p><b>Step four: Hold every candidate to the same three questions.</b> Whether they have an R or a D next to their name, ask them:</p>
+
+    <ol class="article-list">
+      <li>Will you refuse money from any PAC whose central mission puts a foreign country's interests ahead of America's?</li>
+      <li>Will you vote for every war powers resolution that requires Congress to approve a war, no matter which party holds the White House?</li>
+      <li>Will you vote against military aid for any war Congress hasn't authorized?</li>
+    </ol>
+
+    <p><span class="opinion-inline">Opinion</span> A "yes" on all three earns our support in the primary. A "no," or a dodge, earns a challenger. And we judge them on their record, not their promises. Section 5 showed how many members discover their principles only when the other party is in power.</p>
+
+    <p><b>Step five: Run.</b> The people who beat Cantor and Crowley weren't career politicians. One was an economics professor; the other was a bartender and community organizer<a href="#fn85" class="fn" id="ref85">[85]</a>. Filing deadlines for the 2028 primaries come sooner than most people think, often within a year<a href="#fn86" class="fn" id="ref86">[86]</a>. <span class="opinion-inline">Opinion</span> If you've ever thought someone our age should be running, it might be you. And if it isn't you, find the person in your district who should be, and get behind them early, before the money picks a side.</p>
+
+    <p><b>Step six: Do it in both parties at once.</b> <span class="opinion-inline">Opinion</span> This is the part that makes it different from the Tea Party or Justice Democrats. Those movements took over one side. We go after the war caucus everywhere, at the same time. A young Republican primarying a warhawk in Texas and a young Democrat primarying one in New Jersey are fighting the same fight. If we coordinate, the people who profit from our division lose the one thing they count on: us being too busy fighting each other to notice.</p>
+
+  </div>
+
+  <div class="article-section">
+    <span class="section-label">Part Ten</span>
+    <h2 class="section-title">Sincerely, One of You</h2>
+
+    <p>I know how this sounds. Another person online telling our generation to get involved. We've heard it every election since we were old enough to vote, and most of the time it comes from people who want our votes and then disappear until the next cycle.</p>
+
+    <p>I'm not asking for your vote. I'm asking for something harder. <span class="opinion-inline">Opinion</span> I'm asking you to stop letting them decide what we fight about.</p>
+
+    <p>We already agree that we're tired of wars nobody voted for. We already agree that a foreign government's lobby shouldn't be the biggest spender in our elections. We already agree that a full-time job should be enough to build a life. Those aren't left-wing or right-wing positions. They're ours. The only thing standing between us and the people who could actually act on them is a primary system that almost none of us pay attention to, and a culture war that keeps us too busy to notice.</p>
+
+    <p><span class="opinion-inline">Opinion</span> So let's notice. Let's argue about everything else later, and we will, loudly and honestly, the way people who actually respect each other do. But first, let's put people in office who answer to us instead of to the donors, the defense contractors, and the foreign governments who've been running the show while we were distracted.</p>
+
+    <p>United above to distract below. That's how they've kept power. United below is how we take it back.</p>
+
+    <p>See you at the primaries.</p>
+
+    <p class="signoff">Sincerely,<br />One of you</p>
+
+  </div>
+
+</div>
+
+<div class="bibliography-section">
+  <span class="bibliography-label">Bibliography</span>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 1: Dear Gen Z (and Millennials, You're in This Too)</span>
+    <ul class="bib-list">
+      <li id="fn1">[1] Harvard Youth Poll, Spring 2026, via The Harvard Crimson, "Young Americans' Trust in Federal Government Falls to Record Low," April 23, 2026. <a href="https://www.thecrimson.com/article/2026/4/23/hpop-survey/" target="_blank" rel="noopener">thecrimson.com</a> <a href="#ref1" class="back">&#8617;</a></li>
+      <li id="fn2">[2] Harvard Youth Poll, Spring 2026, via The Boston Globe, April 24, 2026. <a href="https://www.bostonglobe.com/2026/04/24/nation/harvard-youth-poll-young-people-losing-faith-in-politics" target="_blank" rel="noopener">bostonglobe.com</a> <a href="#ref2" class="back">&#8617;</a></li>
+      <li id="fn3">[3] NPR, "House passes war powers resolution directing Trump to end hostilities with Iran," June 3, 2026. <a href="https://www.npr.org/2026/06/03/nx-s1-5845102/house-iran-war-powers-vote" target="_blank" rel="noopener">npr.org</a> <a href="#ref3" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 2: The Fight They Want Us to Have</span>
+    <ul class="bib-list">
+      <li id="fn4">[4] Harvard Political Review, Spring 2026 Harvard Youth Poll series (immigration enforcement deeply partisan among young Americans). <a href="https://theharvardpoliticalreview.com/harvard-public-opinion-poll-2026/" target="_blank" rel="noopener">theharvardpoliticalreview.com</a> <a href="#ref4" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 3: We Already Agree on More Than They Want Us to Know</span>
+    <ul class="bib-list">
+      <li id="fn5">[5] Harvard Youth Poll, Spring 2026, via JTA / Cleveland Jewish News. <a href="https://www.clevelandjewishnews.com/jta/nearly-half-of-young-americans-view-us-relationship-with-israel-as-a-burden-survey-finds/article_7061778d-2bc5-5177-bc9a-9f8d32bfaaba.html" target="_blank" rel="noopener">clevelandjewishnews.com</a> <a href="#ref5" class="back">&#8617;</a></li>
+      <li id="fn6">[6] Same as [5]. <a href="#ref6" class="back">&#8617;</a></li>
+      <li id="fn7">[7] Pew Research Center, "Younger Americans stand out in their views of the Israel-Hamas war," April 2, 2024. <a href="https://www.pewresearch.org/short-reads/2024/04/02/younger-americans-stand-out-in-their-views-of-the-israel-hamas-war/" target="_blank" rel="noopener">pewresearch.org</a> <a href="#ref7" class="back">&#8617;</a></li>
+      <li id="fn8">[8] Pew Research Center, 2026, as reported by JTA (see [5]). <a href="#ref8" class="back">&#8617;</a></li>
+      <li id="fn9">[9] Pew Research Center, "7 facts about Americans' views of money in politics," October 23, 2023. <a href="https://www.pewresearch.org/short-reads/2023/10/23/7-facts-about-americans-views-of-money-in-politics/" target="_blank" rel="noopener">pewresearch.org</a> <a href="#ref9" class="back">&#8617;</a></li>
+      <li id="fn10">[10] Same as [9]. <a href="#ref10" class="back">&#8617;</a></li>
+      <li id="fn11">[11] Harvard Youth Poll, Spring 2026, via The Harvard Crimson (see [1]). <a href="#ref11" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 4: The Math Doesn't Work Anymore</span>
+    <ul class="bib-list">
+      <li id="fn12">[12] Harvard Joint Center for Housing Studies, "Home Prices Surge to Five Times Median Income," State of the Nation's Housing 2025. <a href="https://www.jchs.harvard.edu/blog/home-prices-surge-five-times-median-income-nearing-historic-highs" target="_blank" rel="noopener">jchs.harvard.edu</a> <a href="#ref12" class="back">&#8617;</a></li>
+      <li id="fn13">[13] Harvard Joint Center for Housing Studies, State of the Nation's Housing 2026 (via Fox Business, The Cool Down). <a href="https://www.thecooldown.com/green-business/housing-market-analysis-america-2026-trends/" target="_blank" rel="noopener">thecooldown.com</a> <a href="#ref13" class="back">&#8617;</a></li>
+      <li id="fn14">[14] National Association of Realtors, 2025 Profile of Home Buyers and Sellers (via TNND). <a href="https://newschannel9.com/news/nation-world/the-big-four-oh-typical-age-of-first-time-homebuyers-hits-record-high-national-association-of-realtors-nar-2025-profile-of-home-buyers-and-sellers" target="_blank" rel="noopener">newschannel9.com</a> <a href="#ref14" class="back">&#8617;</a></li>
+      <li id="fn15">[15] College Board, Trends in College Pricing and Student Aid 2025 (via Credible). <a href="https://www.credible.com/student-loans/college-tuition-inflation" target="_blank" rel="noopener">credible.com</a> <a href="#ref15" class="back">&#8617;</a></li>
+      <li id="fn16">[16] College Board, Trends in College Pricing 2025: Highlights. <a href="https://research.collegeboard.org/trends/college-pricing/highlights" target="_blank" rel="noopener">research.collegeboard.org</a> <a href="#ref16" class="back">&#8617;</a></li>
+      <li id="fn17">[17] Federal Reserve Bank of New York, Quarterly Report on Household Debt and Credit, Q2 2026. <a href="https://www.newyorkfed.org/newsevents/news/research/2026/20260811" target="_blank" rel="noopener">newyorkfed.org</a> <a href="#ref17" class="back">&#8617;</a></li>
+      <li id="fn18">[18] Federal Reserve economists (Mezza et al.), student debt and homeownership (via ProBuilder). <a href="https://www.probuilder.com/node/64631" target="_blank" rel="noopener">probuilder.com</a> <a href="#ref18" class="back">&#8617;</a></li>
+      <li id="fn19">[19] Federal Reserve, Distributional Financial Accounts, Q2 2026 (via Voronoi). <a href="https://www.voronoiapp.com/money/Ranked-US-Wealth-by-Generation-in-2026-9135" target="_blank" rel="noopener">voronoiapp.com</a> <a href="#ref19" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 5: The War Party Wears Both Jerseys</span>
+    <ul class="bib-list">
+      <li id="fn20">[20] Congress.gov / House Clerk and Senate roll call votes, 2001 AUMF (S.J.Res. 23 / H.J.Res. 64). <a href="#ref20" class="back">&#8617;</a></li>
+      <li id="fn21">[21] Congress.gov / House Clerk and Senate roll call votes, 2002 Iraq AUMF (H.J.Res. 114). <a href="#ref21" class="back">&#8617;</a></li>
+      <li id="fn22">[22] Deccan Herald, Iran war timeline. <a href="https://deccanherald.com/opinion/iran-breaks-retaliation-cycle-with-shift-to-pre-emptive-strikes-on-us-forces-4096831" target="_blank" rel="noopener">deccanherald.com</a> <a href="#ref22" class="back">&#8617;</a></li>
+      <li id="fn23">[23] Task &amp; Purpose, "US strikes more than 80 targets as Trump calls Iran ceasefire 'over'," July 8, 2026. <a href="https://taskandpurpose.com/news/military-iran-ceasefire-over/" target="_blank" rel="noopener">taskandpurpose.com</a> <a href="#ref23" class="back">&#8617;</a></li>
+      <li id="fn24">[24] NPR via Michigan Public, "Republicans call off vote on Iran war resolution," May 22, 2026. <a href="https://www.michiganpublic.org/2026-05-22/republicans-call-off-vote-on-iran-war-resolution-that-was-on-the-verge-of-passing" target="_blank" rel="noopener">michiganpublic.org</a> <a href="#ref24" class="back">&#8617;</a></li>
+      <li id="fn25">[25] NPR, June 3, 2026 (see [3]). <a href="#ref25" class="back">&#8617;</a></li>
+      <li id="fn26">[26] Reuters via The Express Tribune, July 23, 2026. <a href="https://tribune.com.pk/story/2619858/us-house-votes-to-halt-iran-war-in-another-symbolic-rebuke-of-trump" target="_blank" rel="noopener">tribune.com.pk</a> <a href="#ref26" class="back">&#8617;</a></li>
+      <li id="fn27">[27] AP via MPR News, "House rejects measure to continue US role in Libya," June 24, 2011. <a href="https://www.mprnews.org/story/2011/06/24/obama-libya" target="_blank" rel="noopener">mprnews.org</a> <a href="#ref27" class="back">&#8617;</a></li>
+      <li id="fn28">[28] NPR, June 3, 2026 (see [3]). <a href="#ref28" class="back">&#8617;</a></li>
+      <li id="fn29">[29] Sludge, "Senators Reject Resolutions on Blocking Weapons Sales to Israel," November 21, 2024. <a href="https://readsludge.com/2024/11/21/senators-reject-resolutions-on-blocking-weapons-sales-to-israel/" target="_blank" rel="noopener">readsludge.com</a> <a href="#ref29" class="back">&#8617;</a></li>
+      <li id="fn30">[30] The Times of Israel, "US Senate foils effort to nix Israel arms sales." <a href="https://www.timesofisrael.com/us-senate-foils-effort-to-nix-israel-arms-sale-but-75-of-dems-vote-to-block-it/" target="_blank" rel="noopener">timesofisrael.com</a> <a href="#ref30" class="back">&#8617;</a></li>
+      <li id="fn31">[31] Al Jazeera, "Has Biden violated the US Constitution by bombing Yemen?" January 12, 2024; Responsible Statecraft. <a href="https://www.aljazeera.com/news/2024/1/12/did-biden-violate-the-us-constitution-in-bombing-yemens-houthi-sites" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref31" class="back">&#8617;</a></li>
+      <li id="fn32">[32] Reuters via The Express Tribune, July 23, 2026 (see [26]). <a href="#ref32" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 6: Follow the Money</span>
+    <ul class="bib-list">
+      <li id="fn33">[33] Brennan Center for Justice, "Election Spending 2014: Outside Spending in Senate Races Since Citizens United," 2015. <a href="https://www.brennancenter.org/es/node/7254" target="_blank" rel="noopener">brennancenter.org</a> <a href="#ref33" class="back">&#8617;</a></li>
+      <li id="fn34">[34] Same as [33]. <a href="#ref34" class="back">&#8617;</a></li>
+      <li id="fn35">[35] AFP via Al-Monitor, "Pro-Israel lobby spends big on US midterms as backlash grows," August 2026 (citing OpenSecrets). <a href="https://www.al-monitor.com/originals/2026/08/pro-israel-lobby-spends-big-us-midterms-backlash-grows" target="_blank" rel="noopener">al-monitor.com</a> <a href="#ref35" class="back">&#8617;</a></li>
+      <li id="fn36">[36] Same as [35]. <a href="#ref36" class="back">&#8617;</a></li>
+      <li id="fn37">[37] Same as [35]. <a href="#ref37" class="back">&#8617;</a></li>
+      <li id="fn38">[38] Ground News summary of filings, "AIPAC Opens Its Wallet." <a href="https://ground.news/article/aipac-opens-its-wallet_abf525" target="_blank" rel="noopener">ground.news</a> <a href="#ref38" class="back">&#8617;</a></li>
+      <li id="fn39">[39] New York Times analysis, as cited in [38]. (Original article to be pulled.) <a href="#ref39" class="back">&#8617;</a></li>
+      <li id="fn40">[40] The Intercept, Ryan Grim, May 3 and 4, 2024. <a href="https://theintercept.com/2024/05/04/aipac-congress-the-squad/" target="_blank" rel="noopener">theintercept.com</a> <a href="#ref40" class="back">&#8617;</a></li>
+      <li id="fn41">[41] Sludge, "House Dems Gave Millions in 'Dark Money' to AIPAC-Linked 314 Action," December 30, 2025. <a href="https://readsludge.com/2025/12/30/house-dems-gave-millions-in-dark-money-to-aipac-linked-314-action/" target="_blank" rel="noopener">readsludge.com</a> <a href="#ref41" class="back">&#8617;</a></li>
+      <li id="fn42">[42] Drop Site News, Ryan Grim and Julian Andreone, April 23, 2026. <a href="#ref42" class="back">&#8617;</a></li>
+      <li id="fn43">[43] Legis1, "AIPAC Is the Biggest Follow the Money PAC Story of 2026." <a href="https://legis1.com/news/aipac-is-the-biggest-follow-the-money-pac-story-of-2026-and-its-getting-complicated" target="_blank" rel="noopener">legis1.com</a> <a href="#ref43" class="back">&#8617;</a></li>
+      <li id="fn44">[44] AFP via Al-Monitor (see [35]). <a href="#ref44" class="back">&#8617;</a></li>
+      <li id="fn45">[45] Legis1 (see [43]). <a href="#ref45" class="back">&#8617;</a></li>
+      <li id="fn46">[46] OpenSecrets, via Raw Story, "Defense contractors spent $70 million lobbying," 2023. <a href="https://www.rawstory.com/defense-contractors-lobbying/" target="_blank" rel="noopener">rawstory.com</a> <a href="#ref46" class="back">&#8617;</a></li>
+      <li id="fn47">[47] Reuters, January 29, 2025; NorthJersey.com on prison start. <a href="https://www.yahoo.com/news/bob-menendez-sentenced-gold-bar-110134851.html" target="_blank" rel="noopener">yahoo.com</a> <a href="#ref47" class="back">&#8617;</a></li>
+      <li id="fn48">[48] AP via FOX 9, "President Trump pardons Texas Democrat Rep. Cuellar." <a href="https://www.fox9.com/news/trump-pardons-texas-democrat-rep-cuellar" target="_blank" rel="noopener">fox9.com</a> <a href="#ref48" class="back">&#8617;</a></li>
+      <li id="fn49">[49] AP via Spectrum News, "Defense Department accepts Qatar Boeing 747," May 21, 2025. <a href="https://spectrumlocalnews.com/us/snplus/politics/2025/05/21/defense-department-accepts-qatar-boeing-747-plane-air-force-one" target="_blank" rel="noopener">spectrumlocalnews.com</a> <a href="#ref49" class="back">&#8617;</a></li>
+      <li id="fn50">[50] Semafor, "Trump-linked stablecoin used in $2B Abu Dhabi Binance investment," May 2, 2025. <a href="https://www.semafor.com/article/05/02/2025/trump-linked-stablecoin-used-in-2b-abu-dhabi-binance-investment" target="_blank" rel="noopener">semafor.com</a> <a href="#ref50" class="back">&#8617;</a></li>
+      <li id="fn51">[51] The Block, citing The New York Times. <a href="https://www.theblock.co/post/370917/eric-trump-defends-uae-binance-deal-says-his-father-is-first-guy-who-hasnt-made-money-off-of-the-presidency" target="_blank" rel="noopener">theblock.co</a> <a href="#ref51" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 7: What Happens When You Say No</span>
+    <ul class="bib-list">
+      <li id="fn52">[52] Office of Rep. Ro Khanna, "Reps. Khanna, Massie Introduce Bipartisan War Powers Resolution," June 18, 2025. <a href="https://khanna.house.gov/media/press-releases/reps-khanna-massie-introduce-bipartisan-war-powers-resolution-prohibit" target="_blank" rel="noopener">khanna.house.gov</a> <a href="#ref52" class="back">&#8617;</a></li>
+      <li id="fn53">[53] Washington Examiner, "Massie leads bipartisan House resolution," June 17, 2025. <a href="#ref53" class="back">&#8617;</a></li>
+      <li id="fn54">[54] MeriTalk, House passage of FY2027 NDAA, July 2026. <a href="https://www.meritalk.com/?p=208566" target="_blank" rel="noopener">meritalk.com</a> <a href="#ref54" class="back">&#8617;</a></li>
+      <li id="fn55">[55] Washington Examiner via Denver Gazette; Anadolu Agency, May 2026. <a href="#ref55" class="back">&#8617;</a></li>
+      <li id="fn56">[56] Washington Examiner, May 19, 2026. <a href="https://www.washingtonexaminer.com/news/campaigns/congressional/4575268/kentucky-4th-congressional-district-primary-thomas-massie-ed-gallrein/" target="_blank" rel="noopener">washingtonexaminer.com</a> <a href="#ref56" class="back">&#8617;</a></li>
+      <li id="fn57">[57] WKYU, "A record-shattering $37M was spent on Kentucky's Massie-Gallrein race," July 17, 2026. <a href="https://www.wkyufm.org/2026-07-17/a-record-shattering-37m-was-spent-on-kentuckys-massie-gallrein-race-heres-who-funded-it" target="_blank" rel="noopener">wkyufm.org</a> <a href="#ref57" class="back">&#8617;</a></li>
+      <li id="fn58">[58] Same as [57]. <a href="#ref58" class="back">&#8617;</a></li>
+      <li id="fn59">[59] The Intercept, May 19, 2026. <a href="#ref59" class="back">&#8617;</a></li>
+      <li id="fn60">[60] The Daily Signal, May 19, 2026. <a href="https://www.dailysignal.com/2026/05/19/massie-loses-primary-to-trump-backed-challenger-gallrein/" target="_blank" rel="noopener">dailysignal.com</a> <a href="#ref60" class="back">&#8617;</a></li>
+      <li id="fn61">[61] The Intercept, May 19, 2026 (FEC reports). <a href="#ref61" class="back">&#8617;</a></li>
+      <li id="fn62">[62] Al Jazeera, "Massie race breaks spending record," May 18, 2026. <a href="https://www.aljazeera.com/news/2026/5/18/massie-race-breaks-spending-record-as-pro-israel-groups-target-trump-critic" target="_blank" rel="noopener">aljazeera.com</a> <a href="#ref62" class="back">&#8617;</a></li>
+      <li id="fn63">[63] WKYU, July 17, 2026 (see [57]). <a href="#ref63" class="back">&#8617;</a></li>
+      <li id="fn64">[64] Louisville Public Media, "AI deepfake ads attack Massie and Gallrein," May 5, 2026; LGBTQ Nation. <a href="https://lpm.org/news/2026-05-05/ai-deepfake-ads-attack-massie-and-gallrein-in-northern-kentucky-gop-primary" target="_blank" rel="noopener">lpm.org</a> <a href="#ref64" class="back">&#8617;</a></li>
+      <li id="fn65">[65] Mediaite; Axios, May 11, 2026. <a href="https://axios.com/2026/05/11/thomas-massie-ed-gallrein-kentucky-aipac-trump" target="_blank" rel="noopener">axios.com</a> <a href="#ref65" class="back">&#8617;</a></li>
+      <li id="fn66">[66] Mediaite (disclaimer text); LGBTQ Nation (small print). <a href="https://www.mediaite.com/politics/take-it-down-mtg-says-massie-attack-ad-insinuating-a-throuple-with-aoc-and-ilhan-omar-violates-revenge-porn-law/" target="_blank" rel="noopener">mediaite.com</a> <a href="#ref66" class="back">&#8617;</a></li>
+      <li id="fn67">[67] Louisville Public Media (see [64]). <a href="#ref67" class="back">&#8617;</a></li>
+      <li id="fn68">[68] WUKY, "Massie blasts AI ad as 'disgusting and defamatory'," May 6, 2026. <a href="https://www.wuky.org/wuky-news/2026-05-06/massie-blasts-ai-ad-as-disgusting-and-defamatory" target="_blank" rel="noopener">wuky.org</a> <a href="#ref68" class="back">&#8617;</a></li>
+      <li id="fn69">[69] TNND via ABC6. <a href="https://abc6onyourside.com/news/nation-world/thomas-massie-says-the-israeli-lobby-funded-ads-that-claimed-he-dated-aoc-ilhan-omar-donald-trump-kentucky-aipac" target="_blank" rel="noopener">abc6onyourside.com</a> <a href="#ref69" class="back">&#8617;</a></li>
+      <li id="fn70">[70] Louisville Public Media (see [64]). <a href="#ref70" class="back">&#8617;</a></li>
+      <li id="fn71">[71] The Intercept, May 19, 2026. <a href="#ref71" class="back">&#8617;</a></li>
+      <li id="fn72">[72] Anadolu Agency, May 2026, quoting the RJC. <a href="https://aa.com.tr/en/americas/us-rep-massie-loses-republican-primary-after-trump-pro-israel-groups-dump-tens-of-millions-into-race/3942661" target="_blank" rel="noopener">aa.com.tr</a> <a href="#ref72" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 8: It's Been Done Before</span>
+    <ul class="bib-list">
+      <li id="fn73">[73] NPR, "Bennett's Defeat Shows Anti-Washington Mood," May 2010. <a href="https://www.npr.org/sections/thetwo-way/2010/05/bennetts_defeat_signal_incumbe.html" target="_blank" rel="noopener">npr.org</a> <a href="#ref73" class="back">&#8617;</a></li>
+      <li id="fn74">[74] CBS News, "Mike Lee Wins Utah GOP Senate Nomination," June 2010. <a href="https://www.cbsnews.com/news/mike-lee-wins-utah-gop-senate-nomination" target="_blank" rel="noopener">cbsnews.com</a> <a href="#ref74" class="back">&#8617;</a></li>
+      <li id="fn75">[75] NPR, June 11, 2014; Politifact, June 18, 2014. <a href="https://www.politifact.com/article/2014/jun/18/fact-checking-claims-about-defeat-house-no-2-eric-/" target="_blank" rel="noopener">politifact.com</a> <a href="#ref75" class="back">&#8617;</a></li>
+      <li id="fn76">[76] Politifact (see [75]); Poynter. <a href="https://www.poynter.org/news/explainer-sites-find-cantors-loss-inexplicable" target="_blank" rel="noopener">poynter.org</a> <a href="#ref76" class="back">&#8617;</a></li>
+      <li id="fn77">[77] Washington Examiner, "The Brat Pack," June 23, 2014. <a href="https://www.washingtonexaminer.com/magazine/167246/the-brat-pack/" target="_blank" rel="noopener">washingtonexaminer.com</a> <a href="#ref77" class="back">&#8617;</a></li>
+      <li id="fn78">[78] WRAL (New York Times), June 2018. <a href="https://www.wral.com/archive/17657574/" target="_blank" rel="noopener">wral.com</a> <a href="#ref78" class="back">&#8617;</a></li>
+      <li id="fn79">[79] CBS News; WABC, June 27, 2018. <a href="https://abc7ny.com/post/28-year-old-challenger-upsets-rep-joe-crowley-in-ny-primary/3659913/" target="_blank" rel="noopener">abc7ny.com</a> <a href="#ref79" class="back">&#8617;</a></li>
+      <li id="fn80">[80] FactCheck.org, citing certified NY State Board of Elections results. <a href="https://www.factcheck.org/2019/07/meme-distorts-aocs-election-vote-count" target="_blank" rel="noopener">factcheck.org</a> <a href="#ref80" class="back">&#8617;</a></li>
+      <li id="fn81">[81] City Limits, June 27, 2018. <a href="https://citylimits.org/2018/06/27/young-socialist-stuns-democratic-power-broker-in-primary-upset/" target="_blank" rel="noopener">citylimits.org</a> <a href="#ref81" class="back">&#8617;</a></li>
+      <li id="fn82">[82] WKYU, July 17, 2026 (see [57]). <a href="#ref82" class="back">&#8617;</a></li>
+      <li id="fn83">[83] Al Jazeera, May 18, 2026 (see [62]). <a href="#ref83" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+  <div class="bib-group">
+    <span class="bib-group-title">Section 9: The Plan After November</span>
+    <ul class="bib-list">
+      <li id="fn84">[84] National Conference of State Legislatures, State Primary Election Types; vote.gov for state registration rules. <a href="#ref84" class="back">&#8617;</a></li>
+      <li id="fn85">[85] Politifact / NPR (Section 8); 2018 campaign coverage of Ocasio-Cortez's background (citation to be added). <a href="#ref85" class="back">&#8617;</a></li>
+      <li id="fn86">[86] NCSL / Ballotpedia, 2028 candidate filing deadlines. <a href="#ref86" class="back">&#8617;</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">&#169; 2026 PoliticalHypocrites.us | All data sourced from public records.</span>
+  <p class="footer-note">Nonpartisan. Democrats and Republicans held equally accountable. Not affiliated with any party, PAC, or candidate.</p>
+</footer>
+<div class="bottom-rule"></div>
+
+</body>
+</html>
